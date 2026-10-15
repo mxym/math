@@ -1,0 +1,70 @@
+[
+  {
+    "stage": "toolchain",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 1.168,
+    "log": "toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+  },
+  {
+    "stage": "frozen-core",
+    "command": [
+      "python3",
+      "../spectral-extraction-core/reproduce.py",
+      "--check-only"
+    ],
+    "exit_code": 0,
+    "seconds": 0.064,
+    "log": "frozen-core.log",
+    "sha256": "b514c02a481c77667da44c969b25ad5abad1d646a971b9cd7f4477380bd6ca99"
+  },
+  {
+    "stage": "build",
+    "command": [
+      "lake",
+      "build",
+      "ExtractionLocalCap",
+      "LocalCapVerification"
+    ],
+    "exit_code": 0,
+    "seconds": 87.838,
+    "log": "build.log",
+    "sha256": "dc676b84d7e26554c182a4fd74f466143b6734c97ef4eaed92f52311b90019e1"
+  },
+  {
+    "stage": "types-and-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "Check.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 1.62,
+    "log": "types-and-axioms.log",
+    "sha256": "daa9989e109a986e4dc88e978cda2378b340e80f9263968e5d77bf71135f63a0"
+  },
+  {
+    "stage": "kernel",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "Audit.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 63.592,
+    "log": "kernel.log",
+    "sha256": "0d42dea9a0b3c43557613d8562974d3d0ac8e8e6d5c20e09e8ce233dba12a8ca"
+  }
+]

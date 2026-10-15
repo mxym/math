@@ -1,0 +1,28 @@
+--- previous/applications-verification.tex
++++ current/applications-verification.tex
+@@ -1,4 +1,4 @@
+-\section{Applications, formal verification, and remaining questions}\label{sec:applications}
++\section{Applications, verification, and open questions}\label{sec:applications}
+ 
+ \subsection{APPT entropy as an extraction budget}
+ A state on $\C^m\otimes\C^n$ is absolutely PPT if every global unitary conjugate has positive partial transpose. The capacity formula connects its spectral entropy to a collective extraction resource, even though no single-copy global rotation can produce an NPT state. Qualitative activation from purity is known \cite{kondra}; the following identity records the quantitative link needed here.
+@@ -39,7 +39,7 @@
+ 
+ The following distinctions are essential to the coverage statement.
+ \begin{center}
+-\begin{tabular}{p{0.57\textwidth}p{0.31\textwidth}}
++\begin{tabular}{>{\raggedright\arraybackslash}p{0.57\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}}
+ \toprule
+ Mathematical component & Verification status\\
+ \midrule
+--- previous/unknown-support.tex
++++ current/unknown-support.tex
+@@ -146,7 +146,7 @@
+ For any positive rank-$s$ spectrum the orbit average has a strictly positive coefficient on every Schur block with at most $s$ rows, and zero elsewhere. Its support is exactly $S_{k,s}$. The exact converse and common-subspace packing are unchanged. For the flat spectrum its average is precisely \eqref{eq:haar-average}, so the entire previous minimax argument applies. No fixed-error profile for an arbitrary nonuniform spectrum is inferred from this support statement.
+ \end{proof}
+ 
+-\subsection{Balanced unknown pure inputs and an efficient exact specialization}
++\subsection{Balanced unknown pure inputs and an exact circuit}
+ When $m=n$, $D=m^2$, and $s=1$, put $r_k=\binom{k+D-1}{D-1}$. Theorem~\ref{thm:minimax} gives, uniformly in every target integer,
+ \[
+  \G_{\calC}(k,K;1)\sim\min\left(1,\frac{m^k}{K\sqrt{r_k}}\right).

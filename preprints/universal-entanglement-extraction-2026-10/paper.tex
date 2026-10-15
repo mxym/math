@@ -1,0 +1,51 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{microtype,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{bookmark}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prb}{\mathbb P}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\LO}{\mathrm{LO}}
+\newcommand{\LOCC}{\mathrm{LOCC}}
+\newcommand{\cPPT}{\mathrm{cPPT}}
+\newcommand{\APPT}{\mathrm{APPT}}
+\newcommand{\G}{\mathcal G}
+\newcommand{\calC}{\mathcal C}
+\newcommand{\pos}[1]{(#1)_+}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\hypersetup{pdftitle={The finite-block cost of universality in entanglement extraction},pdfauthor={Yongxian Zhang},pdfkeywords={universal quantum protocols, entanglement extraction, finite blocklength, minimax, unknown support}}
+\title{The finite-block cost of universality\\in entanglement extraction}
+\author{Yongxian Zhang\thanks{School of Computer Science and Engineering, South China University of Technology, Guangzhou, China. Email: \href{mailto:mxymmxym1@gmail.com}{mxymmxym1@gmail.com}. ORCID: \href{https://orcid.org/0009-0000-3864-3536}{0009-0000-3864-3536}.}}
+\date{October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study entanglement extraction by a global unitary on an existing many-copy input followed by deterministic local channels. The global preprocessing is an explicit entangling resource; no auxiliary system is supplied before it. We establish finite-dimensional spectral and subspace packing principles that match converses for completely PPT postprocessing. One state-independent protocol attains the state-aware capacity, exact fidelity exponent, strict-direct reliability function, and entropy-limited Gaussian threshold of every fixed input. A finite-block information-spectrum sandwich retains its dimension dependence and gives sufficient conditions for growing-dimensional Gaussian limits. We then determine the sharp minimax cost of an unknown support. For every fixed rank budget, a coherent common-support code matches a Haar-average converse, relatively and uniformly over all target dimensions. The support dimension and the reciprocal purity of the averaged input have the same leading asymptotic, yielding an explicit logarithmic loss in the extractable target size and a transition at the local-dimension cap. For balanced unknown pure inputs, the full-output fidelity has leading constant one. These results distinguish pointwise asymptotic universality from uniform finite-block performance. Standard compression, representation theory, and distillation results are explicitly credited.
+\end{abstract}
+
+\input{introduction}
+\input{spectral-principles}
+\input{universal-protocol}
+\input{asymptotic-laws}
+\input{unknown-support}
+\input{applications-verification}
+\input{references}
+\end{document}

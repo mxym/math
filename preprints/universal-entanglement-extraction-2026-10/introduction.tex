@@ -1,0 +1,44 @@
+\section{Introduction and operational model}
+
+Universal quantum protocols operate without a classical description of their input. Universal compression, pure-state concentration, and mixed-state distillation establish several senses in which ignorance need not change an asymptotic rate \cite{jhhh,hm,takagi,tirone,llf,rizzo}. Equality of rates, however, does not determine a common protocol's finite-block performance. The same leading capacity can coexist with a polynomial fidelity loss, and a rank promise can incur a logarithmic target-size penalty invisible to the first-order rate.
+
+We examine these distinctions in a two-stage extraction model. First apply one global unitary on the existing input space. Then apply deterministic local product channels, LOCC, or completely PPT channels. The global unitary is an entangling resource. This task is therefore distinct from ordinary LOCC distillation of the original fixed state. Its utility is to separate the spectral supply of purity from subsequent extraction and to ask what can be achieved by one preprocessing independent of the entire state.
+
+The main method is a finite-dimensional comparison between spectral or common-subspace packing and the quadratic constraint on a completely PPT fidelity effect. It has three consequences. First, a variable-size Bell packing gives a one-shot spectral envelope, within logarithmic factors, for every bipartite spectrum. Second, a coherent simultaneous Schur packing gives one protocol for all states, with an explicit finite-block information-spectrum sandwich. Third, for a class of unknown inputs, a common-support code is compared with an adversarial averaged state. When the common-support dimension and the reciprocal purity of that average agree asymptotically, the entire minimax fidelity profile follows with leading constant one. Rank-bounded iid inputs provide a nontrivial instance of this last principle.
+
+\subsection{Model and quantifiers}
+Fix integers $2\le m\le n$, set $D=mn$, and write
+\[
+ a=m^k,\qquad b=n^k,\qquad N=D^k
+\]
+at copy number $k\ge1$. All logarithms are natural. Let $\Phi_K$ denote the normalized rank-one maximally entangled projector on $\C^K\otimes\C^K$. We use the target overlap $\Tr(\Phi_K\sigma)$ as fidelity; no square root is taken.
+
+A protocol comprises a unitary $U$ on $\C^a\otimes\C^b$ and a trace-preserving channel $\Lambda$ to $\C^K\otimes\C^K$. No ancilla, measurement, or discarded register is supplied before $U$. Local ancillas and discarding are permitted afterwards. The operation class $\LO$ consists of product channels. A channel is completely PPT, denoted $\cPPT$, if both $\Lambda$ and $\Gamma_{\rm out}\Lambda\Gamma_{\rm in}$ are completely positive and trace preserving; $\Gamma$ transposes the second party. Thus $\LO\subseteq\LOCC\subseteq\cPPT$. This definition is stronger than merely preserving the set of PPT states.
+
+For a density matrix $\rho$ on $\C^m\otimes\C^n$, define
+\begin{equation}\label{eq:state-aware}
+ f_k^{\calC}(\rho,K)=\sup_{U,\Lambda\in\calC}
+ \Tr\!\left[\Phi_K\Lambda(U\rho^{\otimes k}U^*)\right].
+\end{equation}
+The optimizing protocol in this expression may depend on $\rho$. In contrast, our all-state universal family has quantifiers
+\begin{equation}\label{eq:univ-quantifiers}
+ \exists\{U_{k,K},\mathcal A_{k,K},\mathcal B_{k,K}\}_{k,K}
+ \quad\forall\rho,
+\end{equation}
+with dependence only on $m,n,k,K$. We write $F_k^{\rm u}(\rho,K)$ for its fidelity and $F_k^\star=f_k^{\cPPT}$. No spectrum, eigenbasis, rank, or entropy is an input to this family.
+
+A different, explicitly promised task fixes a rank budget $1\le s\le D$ and defines
+\begin{equation}\label{eq:minimax-definition}
+ \G_{\calC}(k,K;s)=\sup_{U,\Lambda\in\calC}
+ \inf_{\rank\rho\le s}\Tr\!\left[\Phi_K\Lambda(U\rho^{\otimes k}U^*)\right].
+\end{equation}
+Here one protocol may depend on $s$, but it must serve every spectrum and every support orientation in that class. Pointwise universality in \eqref{eq:univ-quantifiers} and minimax universality in \eqref{eq:minimax-definition} are different assertions. We retain that distinction throughout.
+
+\subsection{Results and relation to prior work}
+Section~\ref{sec:spectral} proves the actual finite-dimensional converse and packing principles. Section~\ref{sec:universal} gives a universal physical construction and a dimension-explicit finite-block sandwich. Section~\ref{sec:asymptotic} derives the exact capacity and error laws. Section~\ref{sec:support} proves the sharp rank-budget minimax profile, including the boundary at $n=ms$ and its logarithmic correction. Section~\ref{sec:applications} connects the capacity to APPT entropy optimization and specifies the scope of the accompanying formal verification.
+
+The fidelity-effect characterization is due to Rains \cite{rains}. Lami's quadratic converse already implies the half entropy-deficit upper bound \cite{lami}; we supply a direct finite-dimensional derivation and matching local constructions. Schur--Weyl universal compression and estimation are established methods \cite{jhhh,kw,hayashi-univ}. Exact symmetric-state compression, including efficient qubit constructions, predates this work \cite{plesch,baertschi}. We do not claim the symmetric-subspace dimension or compression mechanism as new. Classical source-coding reliability and second-order asymptotics are likewise prior results \cite{hayashi-second}.
+
+Recent universal distillation and coding results remove input-state knowledge under other free operations \cite{takagi,tirone,llf,rizzo}. State-agnostic work extraction studies a thermodynamic model \cite{watanabe,zeng}. Their operations and resources differ from the global entangling preprocessing allowed here. Our claims concern the stated two-stage model: a common deterministic physical packing, matching completely PPT converses, finite-block control with visible dimension dependence, and a sharp target-uniform minimax law for an unknown rank-bounded support. The fact that a protocol is universal, by itself, is not presented as a new principle.
+
+Purity-based extraction also includes the stochastic-unital analysis of Kondra et al.\ \cite{kondra}, which characterizes complete absolute separability, studies stability under adjoining maximally mixed local systems, and proves finite-copy activation. Their probabilistic convertibility problem permits postselection and compares states in the same output space. Our deterministic, variable-target fidelity optimization has a different resource specification. The qualitative possibility of activation is prior work.

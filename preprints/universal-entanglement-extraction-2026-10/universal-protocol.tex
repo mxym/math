@@ -1,0 +1,142 @@
+\section{A common protocol and explicit finite-block bounds}\label{sec:universal}
+
+\subsection{Representation estimates}
+Use one fixed Schur--Weyl identification
+\begin{equation}\label{eq:schur}
+ (\C^D)^{\otimes k}=\bigoplus_{\lambda\vdash k,\,\ell(\lambda)\le D}
+ Q_\lambda(D)\otimes P_\lambda,\qquad
+ \rho^{\otimes k}=\bigoplus_\lambda Q_\lambda(\rho)\otimes I_{v_\lambda}.
+\end{equation}
+Let $u_\lambda=\dim Q_\lambda(D)$, $v_\lambda=\dim P_\lambda$, $r_\lambda=u_\lambda v_\lambda$, and let $J$ be the number of these diagrams. The identification and all bases are chosen independently of $\rho$. Schur--Weyl duality, irreducibility, the Weyl and hook dimension formulas, and the highest-weight character estimate are standard representation-theoretic inputs \cite{kw}. We use them in their usual finite-dimensional complex form, including singular positive inputs.
+
+Pad $\lambda$ by zeros to $D$ coordinates. The dimension formulas are
+\begin{equation}\label{eq:dimensions}
+ u_\lambda=\prod_{i<j}\frac{\lambda_i-\lambda_j+j-i}{j-i},\qquad
+ v_\lambda=\frac{k!\prod_{i<j}(\lambda_i-\lambda_j+j-i)}{\prod_i(\lambda_i+D-i)!}.
+\end{equation}
+Set $h_D=D(D-1)/2$, $Q=(k+D)^{h_D+D}$, and $q=\lambda/k$. Then
+\begin{align}\label{eq:dimension-bounds}
+ J&\le(k+1)^D,\quad u_\lambda\le(k+D)^{h_D},\nonumber\\
+ Q^{-1}e^{kH(q)}&\le v_\lambda\le e^{kH(q)},\qquad
+ Q^{-1}e^{kH(q)}\le r_\lambda\le Qe^{kH(q)}.
+\end{align}
+For the bounds on $v_\lambda$, comparison of \eqref{eq:dimensions} with $k!/\prod_i\lambda_i!$ gives a ratio between $(k+D)^{-h_D}$ and one. For each $i$, compare the factors $\lambda_i-\lambda_j+j-i$ with $\lambda_i+j-i$, for $j>i$. The multinomial coefficient is between $(k+1)^{-D}e^{kH(q)}$ and $e^{kH(q)}$: the probability of its own type under $q$ is a mode among at most $(k+1)^D$ types, and is at most one. This proves \eqref{eq:dimension-bounds}.
+
+Let $p$ be the decreasing eigenvalue law of $\rho$. The block probabilities satisfy
+\begin{equation}\label{eq:schur-probability}
+ t_\lambda(p)=\Tr(\Pi_\lambda\rho^{\otimes k})=v_\lambda s_\lambda(p),
+ \qquad Q^{-1}e^{-kD(q\|p)}\le t_\lambda(p)\le Qe^{-kD(q\|p)}.
+\end{equation}
+Indeed the highest-weight monomial $p^\lambda$ occurs once, every other weight is dominated by $\lambda$, and the character has $u_\lambda$ monomials counted with multiplicity. Thus $p^\lambda\le s_\lambda(p)\le u_\lambda p^\lambda$. If $\rank\rho=s<D$, diagrams with more than $s$ rows have zero weight; all remaining bounds hold on the positive support of $p$.
+
+\subsection{A physical construction for every finite blocklength}
+Put $a_0=\lfloor a/J\rfloor$, $b_0=\lfloor b/J\rfloor$ and $N_0=a_0b_0$. If $a_0=0$, use a fixed product-output channel. Otherwise assign to each diagram a disjoint $a_0$-coordinate sector at Alice and a disjoint $b_0$-coordinate sector at Bob. In the Schur block select
+\begin{equation}\label{eq:selected-space}
+ S_\lambda=Q_\lambda(D)\otimes\operatorname{span}\{e_1,\ldots,e_{v'_\lambda}\},
+ \quad v'_\lambda=\min(v_\lambda,\lfloor N_0/u_\lambda\rfloor),\quad
+ r'_\lambda=u_\lambda v'_\lambda.
+\end{equation}
+Empty selections are allowed. If $r'_\lambda>0$, choose the largest $d_\lambda\le\min(K,a_0)$ with
+\[
+ \lfloor a_0/d_\lambda\rfloor\lfloor b_0/d_\lambda\rfloor\ge r'_\lambda.
+\]
+The choice $d_\lambda=1$ is feasible. Apply the coherent packing of Lemma~\ref{lem:packing} in each assigned sector. All selected images are orthogonal, and their total dimension is at most $JN_0\le N$, so the selected isometry extends to one unitary on the original input. Use the sector-specific discard Kraus maps and add $|0\rangle\langle z|$ for every remaining local coordinate. This gives one pair of complete local channels.
+
+Truncation in \eqref{eq:selected-space} affects only the permutation-multiplicity factor, which is the identity in \eqref{eq:schur}. It retains exactly $\theta_\lambda=v'_\lambda/v_\lambda$ of the block mass for every unknown, potentially nondiagonal $Q_\lambda(\rho)$. There are no selected-unselected coherences in that factor. Hence
+\begin{equation}\label{eq:univ-sum}
+ F_k^{\rm u}(\rho,K)\ge\sum_\lambda\theta_\lambda\frac{d_\lambda}{K}t_\lambda(p),
+\end{equation}
+where empty selections contribute zero. In particular, if
+\begin{equation}\label{eq:good-block}
+ K\le a_0,\qquad r_\lambda\le G:=\lfloor a_0/K\rfloor\lfloor b_0/K\rfloor,
+\end{equation}
+the full block is selected and $d_\lambda=K$. Therefore
+\begin{equation}\label{eq:good-mass}
+ F_k^{\rm u}(\rho,K)\ge\sum_{r_\lambda\le G}t_\lambda(p)
+ \quad(K\le a_0).
+\end{equation}
+The construction is deterministic, is defined for every finite $k$, and has quantifiers \eqref{eq:univ-quantifiers}.
+
+For fixed dimensions, eventually $a,b\ge2J$ and $N_0\ge2\max_\lambda u_\lambda$. Then
+\[
+ \theta_\lambda\ge\frac1{8J^2},\qquad
+ \frac{d_\lambda}K\ge\frac1{8J}
+ \min\left(1,\frac aK,\frac{\sqrt{N/r_\lambda}}K\right).
+\]
+For the first inequality, either no truncation occurs or
+$\lfloor N_0/u_\lambda\rfloor\ge N_0/(2u_\lambda)$, while $N_0\ge N/(4J^2)$. For the second, use the feasible choice $\max(1,\lfloor w/2\rfloor)$ with $w=\min(K,a_0,\sqrt{N_0/r'_\lambda})$, which is at least $w/4$. Thus the same protocol obeys
+\begin{equation}\label{eq:univ-exponent-bound}
+ F_k^{\rm u}(\rho,K)\ge\frac1{64J^3}\max_\lambda
+ \min\left(1,\frac aK,\frac{\sqrt{N/r_\lambda}}K\right)t_\lambda(p).
+\end{equation}
+This is a bound for one common protocol, not a different unitary for each maximizing diagram.
+
+\subsection{Information-spectrum sandwich}
+Sample $X$ with law $p$ on its positive support, and set $Z=-\log p_X$ and $S_k=Z_1+\cdots+Z_k$. These variables describe performance; they are not supplied to the protocol. Let $u_*=\max_\lambda u_\lambda$.
+
+\begin{theorem}[Dimension-explicit finite-block sandwich]\label{thm:sandwich}
+For the common protocol above, whenever $K\le a_0$,
+\begin{equation}\label{eq:finite-lower}
+ \Prb\{S_k\le\log(G/u_*)\}\le F_k^{\rm u}(\rho,K).
+\end{equation}
+Every state-aware completely PPT protocol, for every $t>0$, satisfies
+\begin{equation}\label{eq:finite-upper}
+ F_k^\star(\rho,K)\le
+ \Prb\{S_k\le\log(N/K^2)+t\}+e^{-t/2}.
+\end{equation}
+If also $a\ge2J$, put
+\[
+ x=\log(N/K^2),\qquad h=\log(16J^2u_*).
+\]
+Then
+\begin{equation}\label{eq:sandwich}
+ \Prb\{S_k\le x-h\}\le F_k^{\rm u}(\rho,K)
+ \le F_k^\star(\rho,K)\le\Prb\{S_k\le x+t\}+e^{-t/2},
+\end{equation}
+simultaneously for all finite dimensions and all input states, including zeros in their spectra.
+\end{theorem}
+\begin{proof}
+On each Schur block, $v_\lambda\Tr Q_\lambda(\rho)=t_\lambda\le1$. Therefore $Q_\lambda(\rho)\le I/v_\lambda$. Every positive input eigenvalue $z$ in a bad block $r_\lambda>G$ satisfies
+\[
+ z\le\frac1{v_\lambda}=\frac{u_\lambda}{r_\lambda}<\frac{u_*}G.
+\]
+The event in \eqref{eq:finite-lower} can thus occur only in good blocks; apply \eqref{eq:good-mass}. This uses the input self-information, rather than a presumed central limit theorem for diagrams. The same block norm estimate underlies standard universal-state domination bounds \cite{hayashi-univ}.
+
+For \eqref{eq:finite-upper}, absorb the fixed input unitary into the effect and take its diagonal entries $z_i$ in an eigenbasis of $\rho^{\otimes k}$. They satisfy $0\le z_i\le1$ and $\sum_i z_i^2\le\Tr M^2\le r=N/K^2$. Eigenvalues $p_i^{(k)}<e^{-(\log r+t)}$ contribute at most
+\[
+ \sqrt{\Bigl(\sum_{\rm small}(p_i^{(k)})^2\Bigr)\Bigl(\sum_{\rm small}z_i^2\Bigr)}
+ \le\sqrt{e^{-(\log r+t)}r}=e^{-t/2}.
+\]
+The other contribution is at most the probability in \eqref{eq:finite-upper}. Finally $a_0\ge a/(2J)$, $b_0\ge b/(2J)$, and $a_0,b_0\ge K$ imply $G\ge N/(16J^2K^2)$, giving \eqref{eq:sandwich}.
+\end{proof}
+
+\begin{corollary}[A quantitative Gaussian bound]\label{cor:berry}
+Let $V=\Var Z>0$, $T=\E|Z-H(p)|^3$, $\sigma=\sqrt{kV}$, and
+\[
+ \beta=\frac{C_{\rm BE}T}{V^{3/2}\sqrt k},\qquad
+ y=\frac{\log(N/K^2)-kH(p)}\sigma,
+\]
+where $C_{\rm BE}$ is any valid absolute iid Berry--Esseen constant. Under the hypotheses of \eqref{eq:sandwich},
+\[
+ \Phi(y-h/\sigma)-\beta\le F_k^{\rm u}(\rho,K),\qquad
+ F_k^\star(\rho,K)\le\Phi(y+t/\sigma)+\beta+e^{-t/2}.
+\]
+In particular, for $\sigma>1$, each fidelity differs from $\Phi(y)$ by at most
+\begin{equation}\label{eq:gaussian-error}
+ \beta+\frac{\max(h,2\log\sigma)}{\sqrt{2\pi}\,\sigma}+\frac1\sigma.
+\end{equation}
+\end{corollary}
+\begin{proof}
+Apply the ordinary iid Berry--Esseen inequality \cite{shevtsova} to $S_k$, use the Lipschitz constant $1/\sqrt{2\pi}$ of $\Phi$, and set $t=2\log\sigma$. Both fidelity bounds hold because $F_k^{\rm u}\le F_k^\star$.
+\end{proof}
+
+This estimate applies row by row to growing dimensions and changing states. Sufficient conditions for a common Gaussian approximation are
+\begin{equation}\label{eq:triangular}
+ kV\to\infty,\qquad \frac{T}{V^{3/2}\sqrt k}\to0,\qquad
+ \frac h{\sqrt{kV}}\to0,
+\end{equation}
+in addition to $a\ge2J$ and $K\le a_0$. For instance
+\[
+ h\le\log16+2D\log(k+1)+\frac{D(D-1)}2\log(k+D).
+\]
+If $V$ is bounded above and below by positive constants times $1/D$ and $T=O(1/D)$, then $D^5\log^2(k+D)=o(k)$ is sufficient for \eqref{eq:triangular}. This is a conservative sufficient condition for this construction; no necessity or automatic APPT moment hypothesis is asserted.

@@ -1,0 +1,124 @@
+\section{Finite-dimensional spectral and subspace principles}\label{sec:spectral}
+
+Throughout this section the input dimensions are arbitrary integers $2\le a\le b$, $N=ab$, and $K\ge2$. The case $K=1$ is the trivial exact product target.
+
+\begin{lemma}[Fidelity effects, following Rains]\label{lem:rains}
+For a completely PPT channel let $M=\Lambda^*(\Phi_K)$. Then
+\begin{equation}\label{eq:rains}
+ 0\le M\le I,\qquad -I/K\le M^\Gamma\le I/K.
+\end{equation}
+Conversely every such $M$ is a fidelity effect of a completely PPT channel. Moreover,
+\begin{equation}\label{eq:budget}
+ \Tr M^2\le N/K^2,\qquad
+ \|M\|_\infty\le\beta:=\min(1,a/K).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The adjoint of a channel is positive and unital. Since $\Phi_K^\Gamma=F_K/K$ for the swap $F_K$, and $-I\le F_K\le I$, apply the adjoint of $\Gamma_{\rm out}\Lambda\Gamma_{\rm in}$ to these order bounds. This gives \eqref{eq:rains}.
+
+For the converse define
+\[
+ \Lambda_M(X)=\Tr(MX)\Phi_K+
+ \Tr((I-M)X)\frac{I-\Phi_K}{K^2-1}.
+\]
+This is a measure-and-prepare channel. Writing $Q_\pm=(I\pm F_K)/2$, its partial-transpose conjugate is
+\[
+ X\longmapsto
+ \Tr\!\left[\frac{I+KM^\Gamma}{K(K+1)}X\right]Q_+
+ +\Tr\!\left[\frac{I-KM^\Gamma}{K(K-1)}X\right]Q_-.
+\]
+Both coefficient effects are positive, and the map is trace preserving because $\Tr Q_\pm=K(K\pm1)/2$. Its target overlap is $\Tr(MX)$.
+
+Partial transpose preserves the Hilbert--Schmidt norm. The eigenvalues of $M^\Gamma$ belong to $[-1/K,1/K]$, proving the first bound in \eqref{eq:budget}. For a unit vector $v$, the partial transpose of $vv^*$ has trace norm $(\sum_j t_j)^2\le a$, where $t_j$ are the Schmidt coefficients. Hence
+\[
+ \langle v,Mv\rangle
+ =\Tr\bigl(M^\Gamma(vv^*)^\Gamma\bigr)\le a/K.
+\]
+Together with $M\le I$, this proves the norm bound.
+\end{proof}
+
+\begin{lemma}[Coherent common-subspace packing]\label{lem:packing}
+Let $S\subseteq\C^a\otimes\C^b$ be a known subspace of dimension $r$. If
+\begin{equation}\label{eq:packing-feasible}
+ 1\le d\le\min(a,K),\qquad
+ \lfloor a/d\rfloor\lfloor b/d\rfloor\ge r,
+\end{equation}
+one unitary on the original input followed by deterministic product channels sends every density matrix supported on $S$ to the same embedded $\Phi_d$. Its target-$K$ fidelity is $d/K$.
+\end{lemma}
+\begin{proof}
+Put $u=\lfloor a/d\rfloor$ and $v=\lfloor b/d\rfloor$. In local coordinate blocks there are $uv$ orthonormal vectors
+\[
+ |\psi_{ij}\rangle=d^{-1/2}\sum_{t=0}^{d-1}
+ |id+t\rangle_A|jd+t\rangle_B,
+ \quad 0\le i<u,\quad0\le j<v.
+\]
+Map a fixed orthonormal basis of $S$ to $r$ distinct such vectors and extend the resulting isometry to a unitary on the full $N$-dimensional input. Alice uses
+\[
+ A_i=\sum_{t<d}|t\rangle_K\langle id+t|,
+\]
+and $|0\rangle\langle z|$ for each unused input coordinate $z$. Bob uses the corresponding maps. The Kraus adjoint products sum to $I_a$ and $I_b$, including all unused coordinates.
+
+For these product channels,
+\[
+ |\psi_{ij}\rangle\langle\psi_{i'j'}|
+ \longmapsto \delta_{ii'}\delta_{jj'}\Phi_d.
+\]
+Thus any logical matrix $X$ on the selected code maps to $(\Tr X)\Phi_d$, including every off-diagonal coherence. A density matrix on $S$ therefore has output $\Phi_d$. Finally $\Tr(\Phi_K\Phi_d)=d/K$. No branch is postselected or renormalized.
+\end{proof}
+
+\begin{proposition}[A subspace-versus-average comparison]\label{prop:average}
+Let a family $\mathscr F$ of input states be supported on one $r$-dimensional subspace, and let $\Omega$ be a probability average of states in that family. Define
+\[
+ d_{a,b}(r)=\max\{d\in\{1,\ldots,a\}:\lfloor a/d\rfloor\lfloor b/d\rfloor\ge r\}.
+\]
+For the minimax fidelity over $\mathscr F$,
+\begin{align}\label{eq:general-minimax}
+ \min(1,d_{a,b}(r)/K)
+ &\le\sup_{U,\Lambda\in\LO}\inf_{\sigma\in\mathscr F}F(U,\Lambda;\sigma)\nonumber\\
+ &\le\sup_{U,\Lambda\in\cPPT}\inf_{\sigma\in\mathscr F}F(U,\Lambda;\sigma)
+ \le\min\left(1,\frac aK,\frac{\sqrt{ab\Tr\Omega^2}}K\right).
+\end{align}
+The intermediate LOCC minimax value satisfies the same bounds.
+\end{proposition}
+\begin{proof}
+Use Lemma~\ref{lem:packing} with $d=\min(K,d_{a,b}(r))$. For the upper bound, the infimum for a fixed protocol is at most its average,
+\[
+ \inf_{\sigma\in\mathscr F}F(U,\Lambda;\sigma)
+ \le\Tr(MU\Omega U^*)
+ \le\sqrt{\Tr M^2\Tr\Omega^2}.
+\]
+Apply \eqref{eq:budget}; the other two bounds follow from the trace-one condition and the norm bound. Averaging is used only to prove a converse, not as an operation in the protocol.
+\end{proof}
+
+We also need a spectral comparison for a single input. Let its eigenvalues be $\lambda_1\ge\cdots\ge\lambda_N\ge0$, and put
+\begin{equation}\label{eq:envelope}
+ L_r=\sum_{i\le r}\lambda_i,\quad
+ v_r=\min\left(1,\frac aK,\frac{\sqrt{N/r}}K\right),\quad
+ T_K=\max_{1\le r\le N}v_rL_r.
+\end{equation}
+
+\begin{theorem}[One-shot spectral envelope]\label{thm:envelope}
+For every input spectrum and every $K\ge2$,
+\begin{equation}\label{eq:envelope-bound}
+ T_K/4\le f^{\LO}(\lambda,K)\le f^{\LOCC}(\lambda,K)
+ \le f^{\cPPT}(\lambda,K)\le H_NT_K,
+ \qquad H_N=\sum_{i=1}^N\frac1i.
+\end{equation}
+For $1<\alpha\le2$ one also has
+\begin{equation}\label{eq:holder-converse}
+ f^{\cPPT}(\lambda,K)
+ \le\beta^{(2-\alpha)/\alpha}(N/K^2)^{(\alpha-1)/\alpha}
+ \left(\sum_i\lambda_i^\alpha\right)^{1/\alpha}.
+\end{equation}
+At $\alpha=1$ the bound is $f\le\beta$.
+\end{theorem}
+\begin{proof}
+The decreasing eigenvalues $\mu_r$ of a fidelity effect satisfy $\mu_r\le v_r$, by \eqref{eq:budget}. The spectral trace inequality and $\lambda_i\le L_i/i$ give
+\[
+ \Tr(MU\rho U^*)\le\sum_i\lambda_i\mu_i
+ \le\sum_i\lambda_iv_i\le H_NT_K.
+\]
+For a prefix rank $r$ put $w=\min(a,K,\sqrt{N/r})$ and $d=\max(1,\lfloor w/2\rfloor)$. Then $d\ge w/4$ and \eqref{eq:packing-feasible} holds. Indeed $d=1$ is always feasible; otherwise $\lfloor a/d\rfloor\lfloor b/d\rfloor\ge N/(4d^2)\ge N/w^2\ge r$. Apply Lemma~\ref{lem:packing} to the span of the top $r$ eigenvectors. The remaining positive input contributes nonnegatively, giving fidelity at least $(d/K)L_r\ge v_rL_r/4$.
+
+For \eqref{eq:holder-converse} let $q=\alpha/(\alpha-1)\ge2$. The effect eigenvalues satisfy $\Tr M^q\le\beta^{q-2}\Tr M^2$. Schatten Holder and \eqref{eq:budget} give the result.
+\end{proof}

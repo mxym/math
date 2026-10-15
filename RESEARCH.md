@@ -8,6 +8,7 @@
 
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
+| 纠缠提取的有限块长普适性代价（整合稿） | 谱方法、普适协议、显式有限块长界与锐未知支撑 minimax；纯两比特最优整数 Bell 对和有效电路 | [完整 TIT 投稿准备包](preprints/universal-entanglement-extraction-2026-10/README.md)；完整书面＋独立内部 AI 审读，实际有限核心两个 Lean 范围；下列两份前身保留原范围，不重复计算发现 |
 | 未知态的全局酉预处理纠缠提取 | 一个不依赖谱或本征基的协议族，同时达到最优容量、全速率保真度指数、严格低于容量区间的可靠性函数与非退化高斯阈值 | [Schur 同时分块的完整解析论证](research/universal-schur-extraction/README.md)；标准表示论为外部输入、精确附属检查通过，非 Lean；不解决普通固定输入态 LOCC 蒸馏 |
 | 全局酉预处理后的纠缠提取 | 任意固定局域维数与任意谱的精确容量及全速率保真度指数；LO、LOCC、完全 PPT 三类操作一致 | [确定性分块构造与完整解析预印本](research/global-unitary-ppt-extraction/README.md)；熵上界来源明确、精确附属检查通过，非 Lean；不是普通固定输入态蒸馏问题 |
 | 集体全局酉变换的对数负性精确增长率 | 对任意固定 2≤m≤n 和任意含零特征值的谱，给出完整 Rényi 变分公式；等维为 ½ log(d² Tr ρ²)，固定 Bell 基下的特征值置换已足够 | [完整解析论证与八页预印本](research/collective-unitary-negativity-rate/README.md)；Tropp 矩阵 Bernstein 为外部已证输入，精确附属检查通过，非 Lean、非外部同行评审 |
