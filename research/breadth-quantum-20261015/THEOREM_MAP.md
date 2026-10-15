@@ -86,3 +86,9 @@ disconnection and idle time are excluded. A failed shortcut or finite
 non-counterexample search does not justify an early stop/switch.
 
 Initial classification: N0 open in this packet; new major solutions = 0.
+
+## Stage closure
+
+The resumed approximately two-effective-hour stage is closed. N0 remains open,
+new major solutions remain zero, and no new stage or agent was started here.
+See FINAL_STAGE_REPORT.md and STAGE.json for exact accounting and evidence.

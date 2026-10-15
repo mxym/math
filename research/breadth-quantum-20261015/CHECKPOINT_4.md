@@ -45,6 +45,23 @@ modes are closely related to existing canonical-family witnesses, and no
 novelty or full-domain impossibility claim is made. Exact symbolic
 controls are in EXACT_ROUTE_CONTROLS.json.
 
+There is a joint constraint which the failed inertia relaxation omits.
+When H has rank four, let S=range C+range C*. Its dimension is four, H
+is invertible on S, and H,K both act inside S and vanish on its
+orthogonal complement. Put A=H_S^{-1}K_S. Since
+
+    C_S=H_S(I+iA),    C*_S=H_S(I-iA)
+
+both have rank two, the eigenspaces of A at i and -i each have dimension
+two and their direct sum is S. Therefore A^2=-I, equivalently
+
+    K_S H_S^{-1} K_S=-H_S.
+
+This necessary compatibility condition cannot be replaced by independent
+inertia bounds on H and K. No nonnegativity proof over these constrained
+pairs was obtained; lower-rank real-part strata remain included in the
+original full target.
+
 ## 2. Why a one-qubit memory induction cannot distill a one-copy-
 undistillable state
 
@@ -194,6 +211,16 @@ neither completely positive nor completely copositive. These single-site
 coordinates belong to the existing orthogonal-covariance literature;
 see [Park–Youn, 2024](https://link.springer.com/article/10.1007/s11128-024-04361-6).
 The displayed elementary calculation is not an all-power certificate.
+
+The finite product-vector probe completed 4,740 local optimizations at
+d=3, k=2,3,4,5 and epsilon=0.05,0.1,0.2,0.24, without a negative value.
+Its outputs agree numerically with attainable site-product values, but
+do not certify that those are global minima. An exact adverse control
+at d=2, epsilon=1/4 uses a two-use Bell input: the output has an
+antisymmetric expectation -7/144, although the single-site product
+minimum is 1/12>0. Thus the program does detect a genuine tensor-power
+loss of positivity in this attributed map family. The exact matrix
+control is recorded separately in ORTHOGONAL_EXACT_CONTROL.json.
 
 In particular the physical-state condition cannot be ignored: J and its
 partial transpose are both indefinite when epsilon>0. One cannot simply
