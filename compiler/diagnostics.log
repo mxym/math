@@ -368,51 +368,27 @@ MODULE HydrologyTree.GraphDiagonalJets
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.AllNodeJetClassification
-HydrologyTree/AllNodeJetClassification.lean:31:4: error: Tactic `apply` failed: could not unify the conclusion of `Sigma.subtype_ext rfl`
-  ?m.60 = ?m.60
-with the goal
-  relocatedJetPoint hG o x ell = ⟨ell, y⟩
 
-Note: The full type of `Sigma.subtype_ext rfl` is
-  ↑(Sigma.snd ?m.60) = ↑(Sigma.snd ?m.60) → ?m.60 = ?m.60
+MODULE HydrologyTree.ConstantInputJets
+HydrologyTree/ConstantInputJets.lean:12:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.constant_input_velocity`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
 
-case right
-V : Type u_1
-inst✝² : Fintype V
-inst✝¹ : DecidableEq V
-G : SimpleGraph V
-inst✝ : DecidableRel G.Adj
-n : ℕ
-hG : G.IsTree
-o : V
-p : RootedTreePresentation n G o
-x : PositiveGraphRateSpace G
-ell : V
-y : { y // diagonalTwoJet (graphCompartmentMatrix G ell y) = diagonalTwoJet (graphCompartmentMatrix G o ↑x) }
-he : ↑y = ↑((relocatePositiveLeak hG o ell) x)
-⊢ relocatedJetPoint hG o x ell = ⟨ell, y⟩
-HydrologyTree/AllNodeJetClassification.lean:64:2: error: Tactic `apply` failed: could not unify the conclusion of `Sigma.subtype_ext rfl`
-  ?m.103 = ?m.103
-with the goal
-  ⟨a, u⟩ = ⟨a, v⟩
-
-Note: The full type of `Sigma.subtype_ext rfl` is
-  ↑(Sigma.snd ?m.103) = ↑(Sigma.snd ?m.103) → ?m.103 = ?m.103
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+HydrologyTree/ConstantInputJets.lean:49:55: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  z 0
+in the target expression
+  (fun s => (A ^ k *ᵥ (A *ᵥ z s + b)) v) 0 = (A ^ k *ᵥ b) v
 
 V : Type u_1
-inst✝² : Fintype V
-inst✝¹ : DecidableEq V
-G : SimpleGraph V
-inst✝ : DecidableRel G.Adj
-n : ℕ
-hG : G.IsTree
-o : V
-p : RootedTreePresentation n G o
-x : PositiveGraphRateSpace G
-a : V
-u : { y // diagonalTwoJet (graphCompartmentMatrix G a y) = diagonalTwoJet (graphCompartmentMatrix G o ↑x) }
-hu : PositiveGraphRates ↑⟨a, u⟩.snd
-v : { y // diagonalTwoJet (graphCompartmentMatrix G a y) = diagonalTwoJet (graphCompartmentMatrix G o ↑x) }
-h : (fun z => graphCompartmentMatrix G z.fst ↑z.snd) ⟨a, u⟩ = (fun z => graphCompartmentMatrix G z.fst ↑z.snd) ⟨a, v⟩
-huv : ↑⟨a, u⟩.snd = ↑⟨a, v⟩.snd
-⊢ ⟨a, u⟩ = ⟨a, v⟩
+inst✝¹ : Fintype V
+inst✝ : DecidableEq V
+A : Matrix V V ℝ
+b : V → ℝ
+z : ℝ → V → ℝ
+hz : IsForcedMatrixSolution A b (fun x => 1) z
+hz0 : z 0 = 0
+k : ℕ
+v : V
+⊢ (fun s => (A ^ k *ᵥ (A *ᵥ z s + b)) v) 0 = (A ^ k *ᵥ b) v
