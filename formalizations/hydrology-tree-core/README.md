@@ -212,3 +212,32 @@ homeomorphism, total-storage sample count and sharp residual ambiguity still
 require their own new proofs and source-specific independent verification.
 These are an extension beyond the earlier closed single-leak core, not claims
 covered by its old certificate. See research/hydrology-multileak/README.md.
+
+
+## Multi-leak classification now closed; sampling extension remains partial
+
+The newly compiled MultiLeakModel, MultiLeakRecovery, MultiLeakClassification,
+MultiLeakRateFiber and MultiLeakTopology close the prior exhaustive-classification
+and topology obligations. The actual per-vertex loss/per-dart rate vector maps
+injectively to its independently defined conservative matrix, and both maps are
+proved. Fibre membership assumes positive internal edge rates and nonnegative
+per-vertex losses, plus ONLY actual root inverse-entry data on the nonpole domain.
+There is no supplied gauge representation or classification premise.
+
+`finite_graph_multileak_response_homeomorphism` constructs a presentation from
+finite SimpleGraph/IsTree assumptions and proves that the whole physical rate
+fibre is homeomorphic to the finite set of single-root full-target representatives
+times the standard closed simplex on V. The finite index has exact cardinality
+(N-1)!/product_(v!=o)|T_v|. The singleton and all zero-loss faces are retained.
+The intermediate inverse positivity, reverse representation, scale signs,
+normalization, injectivity, surjectivity, compactness and both continuities are
+proved. Neither a finite candidate list nor external inverse/spectral oracle is
+assumed. Original matrix and rate fibres, not a surrogate family, are classified.
+
+The final matrix/rate/response theorem requires the full N-mode positive target,
+known labelled finite tree, collocated input/state observation, positive internal
+rates and nonnegative losses. It does NOT assert automatic positivity for all
+signed multi-leak competitors. The previous total-storage N-1 sample claim,
+its sharp lower bound and sharp finite residual ambiguity remain outside this
+compiled theorem family until the new analytic modules and bridges are verified.
+Independent verification is the current source-bound CI, not a historical receipt.

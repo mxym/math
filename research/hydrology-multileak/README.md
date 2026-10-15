@@ -1,4 +1,4 @@
-# Multiple-leak tree realization — partial formalization
+# Multiple-leak tree realization — classified fibres, partial sampling extension
 
 This extension is distinct from the completed single-leak theorem family.
 The current new certified scope must be read in the source-bound CI receipt;
@@ -67,3 +67,19 @@ Meshkat–Sullivant, Identifiable reparametrizations of linear compartment model
 Journal of Symbolic Computation 63 (2014), 46–67, DOI 10.1016/j.jsc.2013.11.002.
 The proposed simplex geometry, exact physical loss coordinates and sampling
 claims require theorem-level comparison before any historical-priority claim.
+
+## Exhaustive classification and topology completed in source
+
+`multiLeakResponseSimplexEquiv` is a bijection from the ACTUAL physical rate
+fibre to RecursivePoleAllocations(T) × LeakSimplex(V).
+`multiLeakResponseHomeomorph` proves the stronger homeomorphism to the finite
+root-reference fibre (with its inherited discrete topology) times the closed
+simplex. `finite_graph_multileak_response_homeomorphism` constructs the tree
+presentation and proves the exact finite index count. All prerequisite claims
+in items 1–3 above are now closed. This is not merely a continuous family of
+examples; every actual physical model is recovered uniquely. Matrix/rate and
+response/coefficient equivalences preserve the original model parameters.
+
+These added modules compiled in the fixed local toolchain; the new independent
+CI receipt certifies only its own exact revision. Items 4–5, particularly the
+finite total-storage sampling theorem and its sharpness, remain separate.
