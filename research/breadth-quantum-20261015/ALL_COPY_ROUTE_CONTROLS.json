@@ -1,0 +1,94 @@
+{
+  "schema": "all-copy-route-obstruction-and-single-site-algebra-v1",
+  "utc": "2026-10-15T08:12:06.249342+00:00",
+  "UPB_construction_source": "https://arxiv.org/abs/1502.05630",
+  "exact_GHZ_obstruction": [
+    {
+      "epsilon": "1/10",
+      "first_negative_k_for_this_witness": 7,
+      "formula": "(1-epsilon)^k-1/2",
+      "direct_four_support_entry_checks": true
+    },
+    {
+      "epsilon": "1/4",
+      "first_negative_k_for_this_witness": 3,
+      "formula": "(1-epsilon)^k-1/2",
+      "direct_four_support_entry_checks": true
+    },
+    {
+      "epsilon": "1/256",
+      "first_negative_k_for_this_witness": 178,
+      "formula": "(1-epsilon)^k-1/2",
+      "direct_four_support_entry_checks": true
+    }
+  ],
+  "orthogonal_family_source": "https://link.springer.com/article/10.1007/s11128-024-04361-6",
+  "orthogonal_single_site_controls": [
+    {
+      "d": 2,
+      "partial_transpose_invariant": true,
+      "maximally_entangled_eigenvalue": "-epsilon",
+      "exact_rank_r_minimum": "1-epsilon-(r+1)/(d+1)",
+      "attaining_rank_r_vectors": [
+        {
+          "Schmidt_rank": 1,
+          "attaining_expectation": "1/3 - epsilon"
+        },
+        {
+          "Schmidt_rank": 2,
+          "attaining_expectation": "-epsilon"
+        }
+      ],
+      "all_copy_property_proved": false
+    },
+    {
+      "d": 3,
+      "partial_transpose_invariant": true,
+      "maximally_entangled_eigenvalue": "-epsilon",
+      "exact_rank_r_minimum": "1-epsilon-(r+1)/(d+1)",
+      "attaining_rank_r_vectors": [
+        {
+          "Schmidt_rank": 1,
+          "attaining_expectation": "1/2 - epsilon"
+        },
+        {
+          "Schmidt_rank": 2,
+          "attaining_expectation": "1/4 - epsilon"
+        },
+        {
+          "Schmidt_rank": 3,
+          "attaining_expectation": "-epsilon"
+        }
+      ],
+      "all_copy_property_proved": false
+    },
+    {
+      "d": 4,
+      "partial_transpose_invariant": true,
+      "maximally_entangled_eigenvalue": "-epsilon",
+      "exact_rank_r_minimum": "1-epsilon-(r+1)/(d+1)",
+      "attaining_rank_r_vectors": [
+        {
+          "Schmidt_rank": 1,
+          "attaining_expectation": "3/5 - epsilon"
+        },
+        {
+          "Schmidt_rank": 2,
+          "attaining_expectation": "2/5 - epsilon"
+        },
+        {
+          "Schmidt_rank": 3,
+          "attaining_expectation": "1/5 - epsilon"
+        },
+        {
+          "Schmidt_rank": 4,
+          "attaining_expectation": "-epsilon"
+        }
+      ],
+      "all_copy_property_proved": false
+    }
+  ],
+  "interpretation": "The specific embedded-qubit finite-n map construction fails at a finite k for every fixed epsilon>0. No general UPB, all-map, or physical NPT impossibility conclusion is claimed. The orthogonal family has only single-site properties verified here.",
+  "complete_target_solved": false,
+  "new_major_results": 0
+}
