@@ -593,18 +593,3 @@ MODULE HydrologyTree.BoundedPositiveProbe
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.TotalStorageProbe
-HydrologyTree/TotalStorageProbe.lean:22:60: error: unsolved goals
-V : Type u_1
-inst✝¹ : Fintype V
-inst✝ : DecidableEq V
-a : ℝ
-i : V
-b c : V → ℝ
-⊢ ∑ x, c x * Function.update 0 i (a * b i) x = c i * (a * b i)
-HydrologyTree/TotalStorageProbe.lean:23:46: warning: This simp argument is unused:
-  Pi.single_apply
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [matrixProbeValue, Matrix.single_mulVec, mul_assoc]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
