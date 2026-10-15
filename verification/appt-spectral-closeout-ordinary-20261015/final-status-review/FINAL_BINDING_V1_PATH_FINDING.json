@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-15T16:32:35.737659+00:00",
+  "status": "FAIL",
+  "finding_kind": "Actual reviewer-generated metadata path-base validation failure; not an author/source mathematical finding",
+  "binding_v1_sha256": "9a4690222f4e8c05c0b87009ae16b4aa40b59b2a0db8fc1a1f387565c9862c30",
+  "checker_sha256": "f5b5b4da0aa5453de4e8da55c8d69f30726765ad5c353bc9c7213e5df94ac90c",
+  "returncode": 1,
+  "stdout": {
+    "path": "binding-path-validation/v1.stdout.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "binding-path-validation/v1.stderr.txt",
+    "bytes": 526,
+    "sha256": "6cd6bc7bf543f77996c306ed5718275d834cdc0bb18438b3be7f24ac66e2a72e"
+  },
+  "cause": "Ambiguous final-status-review/... path without explicit repository_root base in identical four-project copies",
+  "resolution": "v2 uses explicit repository_path and path_base=repository_root for both report and decision",
+  "candidate_or_original_math_source_changed": false,
+  "resolved_by_v2": true
+}

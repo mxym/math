@@ -1,0 +1,27 @@
+{
+  "status": "FAIL",
+  "kind": "Reviewer manifest schema assumption; no mathematical control run",
+  "recorded_utc": "2026-10-15T16:05:44.162481+00:00",
+  "actual_tool_chunk": "3d06d6",
+  "script_sha256": "77b7b876cec1347f7fe27580270916660108e90792b1ee026a7d2f1434bfd484",
+  "exception": "TypeError: string indices must be integers",
+  "diagnosis": "manifest files is a dictionary keyed by relative path, not the assumed list of rows",
+  "manifest_keys": [
+    "utc",
+    "kind",
+    "paper_sha256",
+    "paper_bytes",
+    "files",
+    "author_control_run",
+    "unexpected_author_control_failures",
+    "previous_scope_PASS_does_not_cover_this_source",
+    "published",
+    "new_Lean_executions",
+    "new_major_count"
+  ],
+  "files_example": {
+    "CREDITED_INPUTS.json": "bfefb63fb91a4fb125c7fb672594187b2c8abe0be2fbddef9c4d538eb8cf095c",
+    "MATHEMATICAL_NOTES.md": "3376220711323af32809631ed1dc7e753a8e545a800fb8259b08a73a18e65542",
+    "PAPER.md": "75f5d9226c447c8acb4c6e609ac805e57a399a2a0dbfbaf8a3047bd5c22748e9"
+  }
+}

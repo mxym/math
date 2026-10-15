@@ -1,0 +1,58 @@
+{
+  "utc": "2026-10-15T16:24:43.080899+00:00",
+  "purpose": "Metadata helper diagnostics only; not final batch decision or mathematical checks",
+  "positive_controls": "Literal hash, exactly two inserted rows, explicitly whitelisted phase-row update, duplicate/explicit anchors accepted",
+  "helper_source_sha256": "66c2693a71ebef2712d29665a1fddb77194495fe34009d9663701050d9fdf281",
+  "control_source_sha256": "f62c2f7120908787d9a1315db135e58c9a97a268e2dd0269781324235e8afaca",
+  "actual_expected_assertion_failures": [
+    {
+      "name": "one_byte_paper_change",
+      "rejected": true,
+      "exception": "AssertionError",
+      "message": "('SHA256 mismatch', '8c0140038aac13df026f548551e85ecde7e354bc4769b1c03363986cff2e2e88', 'dad0514151edf5e8b3059c40666ce672351680cb5863895fa8100df4d6c3c727')"
+    },
+    {
+      "name": "old_url_changed",
+      "rejected": true,
+      "exception": "AssertionError",
+      "message": "old links removed"
+    },
+    {
+      "name": "old_six_class_text_deleted",
+      "rejected": true,
+      "exception": "AssertionError",
+      "message": "('existing lines changed', 'replace', 2, 3, 2, 4)"
+    },
+    {
+      "name": "broken_fragment",
+      "rejected": true,
+      "exception": "AssertionError",
+      "message": "('missing anchor', 'nonexistent-anchor', ['canonical-heading', 'canonical-heading-1', 'explicit-anchor'])"
+    },
+    {
+      "name": "repository_escape",
+      "rejected": true,
+      "exception": "AssertionError",
+      "message": "('outside repository', 'README.md', '../../private/STATE.json', '../../private/STATE.json')"
+    },
+    {
+      "name": "S8_quantum_window_promoted",
+      "rejected": true,
+      "exception": "AssertionError",
+      "message": ""
+    },
+    {
+      "name": "S9_promoted_to_fixed_m",
+      "rejected": true,
+      "exception": "AssertionError",
+      "message": ""
+    },
+    {
+      "name": "benchmark_limit_omitted",
+      "rejected": true,
+      "exception": "AssertionError",
+      "message": ""
+    }
+  ],
+  "unexpected_failures": []
+}
