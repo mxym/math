@@ -95,7 +95,7 @@ Consequently, with Mhat_u=sum_ab E_ba tensor L_a A^{-1}L_b*,
     <w,Mhat_u w>=(4/3)[3*4+6*(25/16)]=57/2,
     <w,(R-Mhat_u)w>=-2.                                    (R)
 
-The rational script independently reconstructs all64 co-Choi entries
+The rational script independently reconstructs the64-by-64 co-Choi matrix
 and verifies (R) exactly. The proof above only needs the displayed
 weight-zero inverse entry, so it does not depend on numerical eigenvalues.
 
@@ -121,7 +121,7 @@ This gives legitimate collective rank-two coefficient matrices z1 A1+z2 A2;
 it does not cover arbitrary complex rank-two matrices. Schmidt
 orthogonality holds within each pair because the types differ.
 
-For a traced subset of j slots, the Dicke Schmidt coefficient at type a is
+For a traced subset of j slots, the squared Dicke Schmidt coefficient at type a is
 
     P_u(a)=[j!(k-j)! product u_i!]/[k! product a_i!(u_i-a_i)!].
 
