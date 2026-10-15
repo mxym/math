@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-15T11:16:10.260147+00:00",
+  "kind": "author controls, not independent proof",
+  "inputs_sha256": {
+    "PAPER.md": "83c2240adfbca39009ff446504cc477f47684a0e5de1db52439862053bbcad79",
+    "THEOREM_MAP.md": "66511887ede11be41e0603cd44b6cb9079ea61403adcfd97ff539f8728d6fd99",
+    "PRIMARY_SCOPE.json": "dbde7a43653c93f4ab374051bd9150a4349268f6c11d3947db59b7820d80815e",
+    "CREDITED_INPUTS.json": "e64afbfac65224ea01731854ed324f5b0167adaecf77d76343b459e7453fc4a9",
+    "requirements.txt": "de7fa8918731cfc91dfaeb37870fa39125acb26a35e3515e7a0e9624102a1c7e",
+    "checks.py": "7239d186854cdbbea7ec83ba0a3ae83c70a6e762509093ff61cd7eab64df4701",
+    "V1_TO_V2.diff": "923b52389ad8c8919e6b4205ce146b6366a904dad2f518f9e4fb7565eced8ede"
+  },
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "sympy": "1.9",
+  "mpmath": "1.2.1",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "groups": {
+    "exact_symbolic": {
+      "exact_symbolic_identities": 10,
+      "cubic_bracket": "1/3<h0<3/8",
+      "positive_qprime_lower_bound": "9/4",
+      "finite_sample_maximization_claim": false
+    },
+    "exact_constants": {
+      "e2_lower": "7 with strictly positive remainder",
+      "e_lower": "163/60",
+      "e10_lower": 16807,
+      "tail_bound": "60/361<1/6",
+      "checks": 6
+    },
+    "global_endpoint_estimates": {
+      "tested_parameter_triples": 384,
+      "decimal_precision": 100,
+      "vanishing_width_and_mixing_endpoints_included": true,
+      "claim": "diagnostic finite cases only; the proof is the uniform analytic bound"
+    },
+    "small_c_analytic_branch": {
+      "h0": "0.364975775043958679683358782975641329750607877",
+      "L0": "0.850513852225956808597066119604290450739216826",
+      "K0": "0.11483997371118687696803180829528945562796008",
+      "K1": "0.0507059547859256655462611090478307743727505841",
+      "A0": "0.729951550087917359366717565951282659501215753",
+      "Hessian_determinant": "0.208061409490391534168816805311058490595345676",
+      "local_branch_diagnostics": [
+        {
+          "c": "0.001",
+          "L": "0.851020754879335029213999592041",
+          "h": "0.365039788316273572443063319078",
+          "rcrit_branch": "0.00011489071717210434042486299865",
+          "K1_estimate": "0.0507434609174634568311903551751"
+        },
+        {
+          "c": "0.0001",
+          "L": "0.850564494613777372406785082584",
+          "h": "0.364982171807124062267669827451",
+          "rcrit_branch": "0.000011484504468138638796987675998",
+          "K1_estimate": "0.0507097019951100184495168493974"
+        },
+        {
+          "c": "0.00001",
+          "L": "0.85051891598662456092961955459",
+          "h": "0.364976414674693004371061793596",
+          "rcrit_branch": "0.00000114840480774481605431040013535",
+          "K1_estimate": "0.0507063294728463008205240016482"
+        }
+      ],
+      "local_search_is_not_global_uniqueness_proof": true
+    },
+    "large_c_full_rectangle_diagnostics": {
+      "parameter_triples": 378,
+      "affine_r_controls_per_triple": 5,
+      "log_derivative_cases": 7,
+      "largest_c": "1000",
+      "sample_is_not_full_quantifier_proof": true
+    }
+  },
+  "new_Lean": false,
+  "new_audit_roots": 0,
+  "grid_is_not_a_proof": true,
+  "status": "FAIL",
+  "error": "finite family convergence diagnostic",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/d/math/tmp/research-resume-20261015/scalar-phase-geometry-20261015/checks.py\", line 218, in <module>\n    group('actual_integer_quantum_lower_family',quantum_lower_family)\n  File \"/mnt/d/math/tmp/research-resume-20261015/scalar-phase-geometry-20261015/checks.py\", line 36, in group\n    result['groups'][name]=fn()\n  File \"/mnt/d/math/tmp/research-resume-20261015/scalar-phase-geometry-20261015/checks.py\", line 174, in quantum_lower_family\n    if prev is not None:need(err<prev,'finite family convergence diagnostic')\n  File \"/mnt/d/math/tmp/research-resume-20261015/scalar-phase-geometry-20261015/checks.py\", line 34, in need\n    if not cond:raise AssertionError(msg)\nAssertionError: finite family convergence diagnostic\n"
+}

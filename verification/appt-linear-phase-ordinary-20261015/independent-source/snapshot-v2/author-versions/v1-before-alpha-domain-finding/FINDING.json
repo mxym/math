@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-15T11:14:21.730564+00:00",
+  "kind": "actual independent full-read source-domain finding, preserved before correction",
+  "finding": "Section 1 omitted alpha>1 before E=log(max M)/(alpha-1); that identity is false as written at 0<alpha<1. All linear-order targets eventually have alpha>1.",
+  "counterexample": "For 0<alpha<1 the concave power moment is maximized by the maximally mixed state with value 1. A nonuniform actual APPT pole has a strictly positive entropy deficit, so max entropy deficit cannot be log(max moment)/(alpha-1)=0.",
+  "secondary_clarification": "Explicit positive h derivative now substantiates the Schur-complement argument; strict monotonicity alone was not used as an implication of nonzero derivative.",
+  "before_sha256": "b270516f97cf719b2e64d4738d328d09d84ac133d8c44cc1620fd1126733e263",
+  "after_sha256": "83c2240adfbca39009ff446504cc477f47684a0e5de1db52439862053bbcad79",
+  "affected_scope": "definition domain and an explicit local derivative; no extension of the mathematical targets",
+  "author_control_run_before_finding": false,
+  "v1_independent_complete_read": "finding, not a mathematical PASS"
+}

@@ -1,0 +1,11 @@
+# Actual scalar-phase review history
+
+1. Full v1 read on b270516f97cf719b2e64d4738d328d09d84ac133d8c44cc1620fd1126733e263,434lines. INPUT_V1.json privately froze the source before the definition-domain finding. No v1 PASS was issued.
+2. Reviewer F1: maximum-moment/log identity omitted alpha>1. A real subunit-order actual-pole counterexample was reported. The author retained the original PAPER and FINDING.json, then fixed the definition and supplied an explicit positive h'(L) derivative in v2. The exact two-hunk diff was independently regenerated and matched. No theorem range was expanded by this correction.
+3. V2 snapshot83c2240adfbca39009ff446504cc477f47684a0e5de1db52439862053bbcad79 contains437lines. INPUT_V2.json captures38 files, including both author runs, their real FAIL/PASS scripts, diagnosis and8 credited sources verified against immutable c4e0d9e7. This capture was a PASS.
+4. Author actual run111610.260147Z FAIL:100-digit arithmetic lost the tiny pole trace correction and a strict finite-family decrease assertion failed. Later author run111650.131751Z PASS wraps only that finite-family diagnostic at1100 digits. Source PAPER SHA is unchanged. The original failure, executed script and100/1100-digit diagnosis are retained. The reviewer read these records/code, not executed them.
+5. Newly reviewer-written independent_checks_v2.py ran once at112602.266319Z, PASS. Scriptf7e6f0c75020e389c5e018ff01b97694aba076c3257dfd4fe2c8f0472e095e7f, result203c47bb248b32c47a4933d524819132766fc395cd05f4dfc204852885071326. It imports no author code. Eight intentional wrong statements actually raised saved AssertionErrors. No unexpected independent failure occurred.
+6. A runtime/source-only query recorded Python3.10.12, mpmath1.2.1, SymPy1.9 and verified the source delta; it did not rerun any mathematical checker. Independent precision was400decimal digits.
+7. The v2 PASS is for the original every-c>=10 theorem, not an oral proposed c>=1 strengthening or the separate future lower-bulk-onset manuscript. Those need their exact frozen-source reads. No claimed or completed intermediate-c classification/unique c_* is inferred.
+
+No source/root/Git/old Lean audit edit, author-program execution, external publication action or subagent was performed by this review.

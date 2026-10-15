@@ -1,0 +1,29 @@
+--- v1/README.md
++++ candidate/README.md
+@@ -54,6 +54,7 @@
+ | [恒等补齐与永久量不等式](preprints/article-revisions-2026-10/permanent-padding/README.md) · [PDF](preprints/article-revisions-2026-10/permanent-padding/paper.pdf) | Pan–Skandera–Wang Conjecture 9.3：由原作者 Theorem 8.18 经恒等补齐直接推出 | 既有 Theorem 8.18 的书面推论；[完整书面推导](notes/permanent-inequality-padding/README.md) | [23252976](https://doi.org/10.5281/zenodo.23252976) |
+ | [未知态纠缠提取：精确指数、可靠性与高斯阈值](research/universal-schur-extraction/README.md) · [PDF](research/universal-schur-extraction/main.pdf) | 全部固定局域维数与任意谱；同一无状态信息协议达到已知态基准，并确定严格直接区间及高斯窗口 | 完整解析论证与精确附属检查；非 Lean、未外部同行评审；含显式全局酉预处理 | — |
+ | [全局酉预处理后的纠缠提取容量与强逆指数](research/global-unitary-ppt-extraction/README.md) · [PDF](research/global-unitary-ppt-extraction/main.pdf) | 任意固定 m≤n 与任意谱；LO、LOCC、完全 PPT 的容量和全速率指数一致 | 完整书面论证与精确附属检查；非 Lean、未外部同行评审；不声称解决普通固定态蒸馏 | — |
++| [全比值仿射几何序列避让](notes/continuum-power-avoidance/README.md) | Burgin–Goldberg–Keleti–MacMahon–Wang Question 1（arXiv:2210.09284v1）的全比值问题给出否定回答；不声称此前仍未解决 | [完整 Lean 几何避让](formalizations/geometric-avoidance/README.md)；限定原版本命题 | — |
+ 
+ [九篇完整 Lean 主定理预印本的详细范围与 BibTeX](preprints/lean-certified-2026-10/README.md) · [全部专题稿件](SOLVED_PROBLEMS.md) · [001–009 及扩展索引](CONTENTS.md)
+ 
+@@ -65,7 +66,6 @@
+ 
+ 新增互信息预印本的[版面、来源与冻结证明核对](verification/mutual-information-index-2026-10-08/README.md)及[独立论文 DOI 归档核验](releases/mutual-information-preprint-20261008/README.md)另列，不混入此前 17 篇审计。
+ 
+-| [全比值仿射几何序列避让](notes/continuum-power-avoidance/README.md) | Burgin–Goldberg–Keleti–MacMahon–Wang Question 1（arXiv:2210.09284v1）的全比值问题给出否定回答；不声称此前仍未解决 | [完整 Lean 几何避让](formalizations/geometric-avoidance/README.md)；限定原版本命题 | — |
+ ## 已书面证明的问题
+ 
+ 本专题收录**已有完整书面证明、所列主结论尚未完整 Lean 形式化**的成果。证明必须覆盖原对象、假设和量词；已发表外部定理须明确引用，未证明的猜想不能作为无条件结论的依据。部分 Lean 和有限计算只计入各自明确的验证范围。探索记录、数值猜测和核心论证未闭合的稿件不列入。
+
+--- v1/README.en.md
++++ candidate/README.en.md
+@@ -37,7 +37,6 @@
+ | [Sharp cofactor spectral asymptotics](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/README.md) · [PDF](preprints/article-revisions-2026-10/sharp-cofactor-asymptotics/paper.pdf) | Large-order logarithmic asymptotics and rank-two endpoint statements | Theorem 1 fully Lean-verified; later ramp/endpoint claims remain written mathematics | [10.5281/zenodo.23255145](https://doi.org/10.5281/zenodo.23255145) |
+ | [Bapat (q)-permanent counterexamples](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md) · [PDF](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/paper.pdf) | Explicit complex rational counterexample and an existence theorem for real symmetric integer counterexamples | Both main results fully Lean-verified | [10.5281/zenodo.23252928](https://doi.org/10.5281/zenodo.23252928) |
+ | [Four-row permanent–determinant inequality and complete equality](preprints/four-row-permanent-determinant-2026-10/README.md) · [PDF](preprints/four-row-permanent-determinant-2026-10/paper.pdf) | Actual complex 4 × 4 matrices, every c ≥ 0; optimal constant and all equality cases | Principal results fully Lean-verified; this reading edition does not claim a new execution of the archived audit | — |
+-
+ | [Wakhare entropy-polynomial roots](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md) | Conjecture2's two-interior-root assertion fails at (11,10), with at least four distinct roots; the separate entropy inequality is unchanged | Complete Lean | [23253028](https://doi.org/10.5281/zenodo.23253028) |
+ | [Affine geometric progression avoidance](notes/continuum-power-avoidance/README.md) | Negative answer to Burgin–Goldberg–Keleti–MacMahon–Wang Question1 as stated in arXiv:2210.09284v1; no claim it was previously open | [Complete Lean geometric avoidance](formalizations/geometric-avoidance/README.md) | — |
+ | [Cyclotomic unimodality counterexample](preprints/lean-certified-2026-10/cyclotomic-unimodal-counterexample/README.md) | Billey–Swanson Conjecture48: the specified nonconstant unimodal CGF has no prime-order cyclotomic factor; degree216, no minimality claim | Complete Lean | [23249757](https://doi.org/10.5281/zenodo.23249757) |
