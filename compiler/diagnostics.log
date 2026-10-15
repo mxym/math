@@ -1,17 +1,14 @@
 CACHE
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-Attempting to download 3 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
-
-Downloaded: 1 file(s) [attempted 1/3 = 33%, 103 KB/s], Decompressed: 0
-Downloaded: 3 file(s) [attempted 3/3 = 100%, 103 KB/s], Decompressed: 0
-Decompressed 3 file(s)
+No files to download
 Already decompressed 2999 file(s)
 
 MODULE HydrologyTree.PositiveMatrixProbe
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.FiniteProbeGrid
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.Coefficients
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
@@ -593,26 +590,14 @@ MODULE HydrologyTree.CompletePositiveProbe
 DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
 MODULE HydrologyTree.BoundedPositiveProbe
-HydrologyTree/BoundedPositiveProbe.lean:12:0: warning: automatically included section variable(s) unused in theorem `HydrologyTree.matrixProbePolynomial_degree`:
-  [DecidableEq V]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [DecidableEq V] in theorem ...
+DEVELOPMENT CACHE: source and all owned dependency keys matched.
 
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-HydrologyTree/BoundedPositiveProbe.lean:79:39: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
-HydrologyTree/BoundedPositiveProbe.lean:91:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-HydrologyTree/BoundedPositiveProbe.lean:92:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+MODULE HydrologyTree.TotalStorageProbe
+HydrologyTree/TotalStorageProbe.lean:22:60: error: unsolved goals
+V : Type u_1
+inst✝¹ : Fintype V
+inst✝ : DecidableEq V
+a : ℝ
+i : V
+b c : V → ℝ
+⊢ (∑ x, c x * ∑ i_1, if i = x ∧ i = i_1 then a * b i_1 else 0) = c i * (a * b i)
