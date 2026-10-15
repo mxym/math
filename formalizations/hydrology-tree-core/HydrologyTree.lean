@@ -49,3 +49,5 @@ import HydrologyTree.LocatedLeakJacobian
 import HydrologyTree.RealLocatedODEClassification
 import HydrologyTree.LocatedAllRateJacobian
 import HydrologyTree.LocatedBoundarySingularSet
+import HydrologyTree.AllNodeJetClassification
+import HydrologyTree.ConstantInputJets

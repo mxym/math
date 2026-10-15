@@ -163,3 +163,13 @@ all exact multiplicities and next-power exclusions. LocatedBoundarySingularSet
 exports the complete all-real zero set and presentation-free finite-graph theorem.
 No final theorem has a missing classification, derivative, factorization,
 regularity, positivity or nondivisibility conclusion as its own assumption.
+
+
+### All-node short-time extension
+
+TreeMomentRigidity proves symmetric tree row-sum rigidity, opposed-edge product
+recovery and global rate-chart inversion. GraphDiagonalJets transports actual
+moments to independent graphs; AllNodeJetClassification proves exhaustive real
+site fibers; ConstantInputJets identifies actual classical time derivatives.
+This is a DIFFERENT all-node protocol and does not rebrand the still excluded
+nonminimal single-observer fiber classification as solved.

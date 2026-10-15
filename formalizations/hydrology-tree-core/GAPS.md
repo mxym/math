@@ -70,3 +70,30 @@ The final independent run and its preserved artifact must be consulted before
 calling those new bytes independently verified. No completion Release or DOI
 is implied by this source-level scope update. Existing frozen versions remain
 unchanged; any release must identify its own exact commit and scope.
+
+
+## Extension: low-order all-node observations (2026-10-15)
+
+`finite_tree_all_node_jet_classification` proves that ANY strictly positive
+reference on a known finite tree, even with hidden modes or repeated spectra,
+has exactly |V| unrestricted-real models with matching diag(A) and diag(A^2)
+data across all vertices when the leakage site is unknown. There is exactly
+one at each specified site. Every competing real vector is automatically
+positive and the matrices are distinct. No full-mode target is assumed.
+
+The fixed-site theorem requires only nonzero reference rates directed toward
+the leak, and leaves the competing real vector unrestricted.
+`constant_input_collocated_jet` proves that actual zero-initial constant-unit-
+input outputs have second derivative A_vv and third derivative (A*A)_vv.
+These are exact derivatives, not finite noisy samples or impulse observations.
+
+The four new modules compiled in the isolated development compiler. Commit
+75a87854 saved the files but did NOT register them in MODULES.json, the aggregate
+import or audit roots: any run on that source certifies only the old 220-module
+scope. This checkpoint explicitly adds all four modules, all their declarations,
+source hashes and negative controls to the 224-module independent verification.
+The old green status is NOT a certificate for the new files.
+
+The actual whole-experiment classification, one redundant-coefficient removal,
+and the mixed-input observation refinement remain subsequent extension tasks.
+They are not hypotheses of the old completed core or of the new moment theorem.
