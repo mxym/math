@@ -56,3 +56,35 @@ blank-end-of-file and indentation checks and passed with exit code zero
 and zero output. The evidence bytes were not rewritten to evade the
 bindings. Copied artifact file modes were then normalized to 0644. This
 style handling is recorded separately from mathematical validation.
+
+## Final resumed interval and limitations
+
+The research stage ended at 2026-10-15 08:32:19.525526 UTC with
+7205.608192 effective seconds. Recorded interruption and preservation
+intervals remain excluded. Work after that end is preservation and handoff.
+
+Two n=12,d=2 SMT runs returned unknown (600 seconds, then 300 seconds
+with prior counterexamples and all size-three constraints). An equivalent
+CNF run produced a positive decoder. No negative mathematical conclusion
+had been inferred from either timeout. Three later certificates have
+separate same-author integer checks and corruption controls. The n=16
+case uses complete DAG induction, without direct full partial enumeration.
+
+An early fixed-decoder draft called an n-cycle scheme proper while its
+empty output was still all-one. The mature note also changes the empty
+output to any singleton. Superseded exact bytes are retained under history
+as gzip and explicitly excluded from mature claims. The long-cycle range
+is now explicitly n>=3, matching its controls. Empty-message error-set and
+singleton-literal/mask wording were clarified. The fixed-decoder coNP
+analysis remains author-only, with explicit input and witness encodings;
+it concerns testing a given decoder, not the original existence question.
+
+The first late-check wrapper imported an unused SMT dependency transitively
+through old enumeration helpers. The revised standard-library wrapper
+removes those imports and rechecks the same three certificates. Initial
+wrapper and result bytes are retained. A first attempt to generate the
+preservation script failed at Python parsing before writing any artifact;
+the scoped patch-based generation corrected that packaging failure.
+
+No independent reviewer, Lean proof, new major solved problem, public
+solved-index entry, push or submission was introduced.

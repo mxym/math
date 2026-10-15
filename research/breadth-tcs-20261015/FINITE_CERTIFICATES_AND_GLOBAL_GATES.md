@@ -242,3 +242,133 @@ Thus even a positive universal size-(d-1) ambiguity theorem, if it only
 promised improper outputs, would not complete that proper recursion without
 another argument. The original global shared-decoder compatibility problem
 has not been removed.
+
+## 8. A finite-domain product control does not remove the large-domain gate
+
+The full six-coordinate cube has an explicitly archived size-two decoder
+in FULL_CUBE_SIX_PROBE.json. Its complete table is checked on all 3^6=729
+partial Boolean samples by ordinary integer comparisons. Its actual VC
+dimension is six; it is a finite universal-domain control, not a size-VC
+counterexample. The full two-coordinate cube has a size-one decoder: fix
+an order of its two points (or use a global order on any domain for samples
+of size at most two), set the empty decoder to zero, let (x,1) decode the
+threshold 1_{z>=x}, and let (x,0) decode 1_{z<x}. Positive-positive pairs
+use their first point, negative-negative pairs use empty, and each mixed
+pair is supplied by the appropriate threshold boundary. Singles use their
+own literal or empty.
+
+Compression schemes on predetermined disjoint coordinate blocks multiply
+without auxiliary information. Compress a sample separately in each block
+and take the union of the selected messages. Reconstruct on each block
+from the intersection of that union with the block. Membership in these
+fixed blocks is part of the preconfigured decoder; neither the sample
+domain nor the compressor's path is transmitted. The message sizes add.
+
+Consequently every binary class on a finite domain of size at most 3d has
+a size-d general scheme when d>=2 is even; if d>=3 is odd, the same holds
+up to 3d-1 coordinates. Partition into d/2 six-point blocks in the even
+case, or (d-1)/2 six-point blocks and one two-point block in the odd case.
+Smaller domains inherit the decoder by restricting a fixed injection into
+these blocks. These bounds do not use the class's VC restriction at all;
+they therefore apply in particular when its actual VC dimension is d.
+
+This explains why finite controls for VC two on eight, ten and twelve
+coordinates probe the first nonautomatic domain range of this particular
+construction, whereas every class on at most six coordinates is already
+handled (VC zero is trivial, VC one is known, and larger VC permits the
+universal size-two decoder). None of these finite-domain bounds solves
+the fixed-small-d arbitrary-large-domain question. The infinite-domain
+Ramsey obstruction in Section 5 also shows why the six-point decoder
+cannot be assumed to give compatible choices on arbitrary six-point
+projections of an infinite set.
+
+## 9. Constant and repeated columns can be removed without a side channel
+
+There is one legitimate finite reduction which does not assert any
+maximum/extremal embedding. Let C be a NONEMPTY FINITE total concept class
+on any domain X and choose c0 in C. For each x define its normalized column
+
+    p_x(c)=c(x) xor c0(x),  c in C.
+
+The all-zero column is constant and can be ignored. Identify coordinates
+with the same nonzero normalized column. The quotient domain Q has at
+most 2^(|C|-1)-1 points, because every normalized column has value zero
+at c0. This simultaneously removes equal and complementary original
+columns. Each c induces a total function on Q, and the induced concepts
+remain distinct.
+
+VC dimension is preserved. Coordinate-wise fixed label flips preserve
+shattering. A shattered set cannot contain a constant column or two equal
+normalized columns, while one fixed representative per quotient point
+realizes precisely the same traces as the quotient class. These statements
+give both inequalities between the two VC dimensions.
+
+A size-k labeled scheme on Q lifts to X with NO additional information.
+Map a realizable sample's nonconstant literals (x,y) to
+(p_x, y xor c0(x)); their repeated quotient labels agree by realizability.
+Compress this quotient sample, then select one ACTUAL point of the
+original sample for each selected quotient literal. Send those actual
+labeled points. The decoder computes their quotient literals, applies
+the fixed quotient decoder, flips back by c0(x) at every x, and uses c0(x)
+on constant columns. It sees only the transmitted subset. The quotient,
+c0 and coordinate-column map are part of its preconfiguration, not a
+sample-dependent header. Restricting any X-scheme to a chosen set of
+representative coordinates gives the reverse reduction.
+
+Consequently a finite-class instance on an arbitrary domain reduces to a
+finite domain without compactness. For arbitrary INFINITE C, this bound
+is unavailable and the full compactness bridge still requires the
+universal finite premise. No bound on |Q| in terms of VC dimension alone
+is obtained here.
+
+A finite counterexample to SC0, if one exists, may be assumed both
+d-maximal and free of constant or equal/complementary columns. First
+extend C on its finite domain to a d-maximal class, preserving a
+counterexample by hereditary restriction of schemes. Then perform the
+quotient above. Maximality persists: a new quotient concept preserving
+VC<=d could be lifted back, with the fixed column relations and constants,
+to a forbidden new concept of the unquotiented d-maximal class. This is
+an elementary search reduction; it does not embed the class in a maximum
+or ample family and does not provide the missing decoder construction.
+
+For the withdrawn compressor route, the small four-coordinate collision
+has repeated columns and can be avoided by this preprocessing. The
+Warmuth collision remains relevant: all its coordinate-pair traces are
+full, so it has no equal or complementary columns, and all 120 global
+coordinate orders still yield a collision for that prescribed compressor.
+The original class itself continues to have a valid general size-two
+scheme. New major solved results remain zero.
+
+## 10. The same conditional compactness bridge in finite-list form
+
+The exact list-coloring formulation gives a second concise proof of the
+KNOWN conditional SC3 bridge. For every realizable finite sample S, let
+L(S) be its labeled subsets of size at most d. This is a nonempty FINITE
+list, because it contains the empty sample. Join two samples by an edge
+when they prescribe opposite labels somewhere. As established in the
+global notes, a legal proper list coloring is equivalent to a general
+shared decoder: samples using the same message must be jointly consistent,
+and their union can be extended to one total binary hypothesis.
+
+ASSUME the universal finite SC1 premise. Every finite subgraph has a legal
+coloring: take A to be the union of its finitely many sample domains and
+use a size-at-most-d scheme for C restricted to A. Its actual VC dimension
+may be smaller than d, which only makes the resulting messages shorter.
+Those messages are also legal subsets of the original samples.
+
+Give each L(S) its finite discrete topology. The product of these compact
+nonempty lists is compact in the usual classical setting. For each edge
+(S,R), the condition that its two colors differ is a closed cylinder.
+Every finite collection of these edge conditions is satisfiable by the
+finite-subgraph argument. The finite-intersection property therefore gives
+one global list coloring, and hence one global decoder. This never lets
+the decoder observe the input sample domain or choose separate outputs
+on separate finite projections.
+
+Equivalently, failure of the original global decoder would force a finite
+family of partial samples with no compatible legal coloring. It would
+then give a finite-domain counterexample at a bound at least its actual
+VC dimension, and thus also an original finite counterexample at the
+actual dimension. This is a reduction, not an instance: no such family
+is produced here. The universal finite premise remains open, and the
+compactness statement is not claimed as a new major result.
