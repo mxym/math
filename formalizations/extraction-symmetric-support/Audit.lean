@@ -48,6 +48,12 @@ run_cmd (SymmetricSupportVerification.replayAndCorrupt [
   ``SymmetricSupport.symmetricProjector_fixes_purePower,
   ``SymmetricSupport.symmetricProjector_rank_choose,
   ``SymmetricSupport.symmetricProjector_rank_choose_complement,
+  ``SymmetricSupport.symmetricProjector_rank_div_geometric_limit,
+  ``SymmetricSupport.symmetricProjector_rank_mul_geometric_limit,
+  ``SymmetricSupport.symmetricProjector_sqrt_rank_div_geometric_limit,
+  ``SymmetricSupport.symmetricProjector_geometric_div_sqrt_rank_atTop,
+  ``SymmetricSupport.symmetricProjector_rank_atTop,
+  ``SymmetricSupport.symmetricProjector_rectangular_cap_ratio_limit,
   ``SymmetricSupport.phaseRoot_primitive,
   ``SymmetricSupport.sum_root_powers_zero,
   ``SymmetricSupport.phase_correlation,
@@ -69,6 +75,12 @@ run_cmd (SymmetricSupportVerification.replayAndCorrupt [
   ``SymmetricSupport.purePower_occupationCoordinates,
   ``SymmetricSupport.occupationColumns_mem_purePower_span,
   ``SymmetricSupport.symmetricProjector_range_eq_purePower_span,
+  ``SymmetricSupport.shifted_natCast_isEquivalent,
+  ``SymmetricSupport.symmetricProjector_rank_isEquivalent,
+  ``SymmetricSupport.symmetricProjector_rank_scaled_limit,
+  ``SymmetricSupport.symmetricProjector_rank_pos,
+  ``SymmetricSupport.symmetricProjector_inverse_sqrt_rank_scaled_limit,
+  ``SymmetricSupport.symmetricProjector_log_rank_limit,
   ``SymmetricSupport.purePower_smul,
   ``SymmetricSupport.purePower_zero,
   ``SymmetricSupport.exists_unitVector_multiple,
@@ -78,22 +90,26 @@ run_cmd (SymmetricSupportVerification.replayAndCorrupt [
   ``SymmetricSupport.fixes_unitPurePower_mul_symmetricProjector
 ] "verification/symmetric-kernel")
 
-run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.exact_unitPurePower_effect_mul_symmetricProjector "verification/symmetric-control-1"
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.symmetricProjector_log_rank_limit "verification/symmetric-control-1"
 
-run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.phaseRadialAverage_weighted_integral "verification/symmetric-control-2"
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.symmetricProjector_geometric_div_sqrt_rank_atTop "verification/symmetric-control-2"
 
-run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.phaseRadialAverage_apply "verification/symmetric-control-3"
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.exact_unitPurePower_effect_mul_symmetricProjector "verification/symmetric-control-3"
 
-run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.fiberCard_mul_occupation_factorials "verification/symmetric-control-4"
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.phaseRadialAverage_weighted_integral "verification/symmetric-control-4"
 
-run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.integral_product_exponential_moment "verification/symmetric-control-5"
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.phaseRadialAverage_apply "verification/symmetric-control-5"
 
-run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.symmetricProjector_rank_choose_complement "verification/symmetric-control-6"
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.fiberCard_mul_occupation_factorials "verification/symmetric-control-6"
 
-run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.symmetricProjector_range_eq_unitPurePower_span "verification/symmetric-control-7"
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.integral_product_exponential_moment "verification/symmetric-control-7"
 
-run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.symmetricState_purity "verification/symmetric-control-8"
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.symmetricProjector_rank_choose_complement "verification/symmetric-control-8"
 
-run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.purePowerDensity_supported "verification/symmetric-control-9"
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.symmetricProjector_range_eq_unitPurePower_span "verification/symmetric-control-9"
 
-run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.monomialCoordinates_span_top "verification/symmetric-control-10"
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.symmetricState_purity "verification/symmetric-control-10"
+
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.purePowerDensity_supported "verification/symmetric-control-11"
+
+run_cmd SymmetricSupportVerification.rejectCorruptTheorem ``SymmetricSupport.monomialCoordinates_span_top "verification/symmetric-control-12"

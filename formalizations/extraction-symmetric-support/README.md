@@ -41,6 +41,13 @@ integral, homogeneity and integral monotonicity. This supplies the adversarial
 average bound needed for the pure-promise minimax problem without a formal
 unitary-group Haar theory.
 
+`SymmetricSupport.RankAsymptotic` links the actual projector rank to
+`k^(D-1)/(D-1)!`, the reciprocal square-root leading constant, and the complete
+logarithmic rank overhead. `SymmetricSupport.PackingGrowth` proves domination
+by every geometric base greater than one, divergence of the feasible square-root
+dimension, and the rectangular cap comparison. These are consequences for the
+actual constructed matrix rank, rather than assumptions about a numerical model.
+
 Key endpoints:
 
 - `symmetricProjector_rank_choose_complement`
@@ -50,6 +57,8 @@ Key endpoints:
 - `exact_unitPurePower_effect_mul_symmetricProjector`
 - `phaseRadialAverage_weighted_integral`
 - `pure_guarantee_le_symmetricState`
+- `symmetricProjector_rank_scaled_limit`, `symmetricProjector_log_rank_limit`
+- `symmetricProjector_geometric_div_sqrt_rank_atTop`
 
 Build with `lake exe cache get` followed by `lake build`. For source-bound
 reproduction run `python3 reproduce.py --check-only`, then
