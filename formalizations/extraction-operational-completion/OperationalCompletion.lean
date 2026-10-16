@@ -2,3 +2,9 @@ import OperationalCompletion.NestedProjection
 import OperationalCompletion.WeightedCDF
 import OperationalCompletion.UniversalSectors
 import OperationalCompletion.EntropyGrid
+import OperationalCompletion.GridFamily
+import OperationalCompletion.GridCutoff
+import OperationalCompletion.ErrorTail
+import OperationalCompletion.GridLimit
+import OperationalCompletion.GridGaussian
+import OperationalCompletion.EventualExact

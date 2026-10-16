@@ -19,7 +19,17 @@ are exactly the matrices used in the frozen lower/converse API. No unknown
 eigenbasis, auxiliary system, Schur decomposition, supplied mass assumption or
 asymptotic endpoint is part of the construction hypotheses.
 
-This is a finite-block foundation. Full operational exponents, reliability,
-eventual exactness and compatibility with the sharp pure minimax profile remain
-to be connected. Compilation alone is not an independent empty-kernel audit.
+The explicit `gridProtocol` family is defined at all positive integer targets,
+including targets above the local dimensions. Its proved asymptotic endpoints
+include the subcritical rate, full entropy-limited Gaussian fidelity limit,
+strict-direct error exponential upper bound and eventual exactly-one fidelity
+below the rank threshold. Local sector feasibility follows from the rate gap.
+
+`KrausPPTProtocol.tensor_error_tail` constructs the actual tensor-word subset
+needed for a matching converse: its cardinality is bounded by the physical
+quadratic budget, and its missing mass lower-bounds the actual protocol error.
+
+Full matching fidelity exponents, the final reliability squeeze and compatibility
+with the sharp pure minimax profile remain to be connected. Compilation alone
+is not an independent empty-kernel audit.
 No new publication or novelty claim is made by this package.
