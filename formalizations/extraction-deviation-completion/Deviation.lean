@@ -4,3 +4,4 @@ import Deviation.RoundedTarget
 import Deviation.FixedErrorTarget
 import Deviation.Reliability
 import Deviation.PrimalPerturbation
+import Deviation.TriangularInformation

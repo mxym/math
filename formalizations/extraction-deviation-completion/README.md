@@ -44,7 +44,24 @@ below the full alphabet maximum, including the flat full-rank input. Its proof
 uses the strict Gibbs inequality and a small point-mass mixture only at the
 uniform endpoint.
 
+`FourierMoment`, `FourierPower`, and `FourierIID` prove quantitative cubic
+characteristic-function remainder bounds, finite iid tensor factorization,
+Gaussian damping on an explicit frequency range, and the normalized estimate
+
+`|φ_k(t) - exp(-t²/2)| ≤ 4 |t|³ T/(V^(3/2) sqrt k) + t⁴/(4k)`
+
+for `t²≤k`, directly for the constructed finite iid measure. `Triangular` and
+`TriangularInformation` use these estimates and Lévy continuity to prove the
+Gaussian approximation uniformly over all real information thresholds for
+varying finite alphabets, laws, and variances whenever
+`T/(V^(3/2) sqrt k) → 0`. Actual complex density spectra with changing dimensions
+are instantiated internally. `GaussianRegularity` proves the exact Gaussian
+CDF Lipschitz constant `1/sqrt(2π)`; `UniformGaussian` proves the distinct CDF
+smoothing comparison in terms of Lévy--Prokhorov distance.
+
 The present stage has ordinary Lean compilation evidence only. A finite-block
-Berry--Esseen theorem, its required smoothing analysis, triangular-array bounds,
-and the final physical reliability exponent require further work. Earlier
+Berry--Esseen CDF rate still requires the Esseen Fourier smoothing inequality;
+the proved qualitative triangular approximation is not a substitute for that
+finite error rate. The physical integration of the new tail and triangular
+bounds is performed in separate scopes. Earlier
 independent audits do not automatically cover this separate source scope.
