@@ -1,3 +1,5 @@
 import SpectralProtocol.ProductPPT
 import SpectralProtocol.TransposeConvention
 import SpectralProtocol.IntegerBell
+import SpectralProtocol.EnvelopeLower
+import SpectralProtocol.PureBell
