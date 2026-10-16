@@ -1,0 +1,21 @@
+name = "extractionRankFoundation"
+version = "0.1.0"
+defaultTargets = ["RankSupport"]
+
+[[require]]
+name = "extractionSymmetricSupport"
+path = ".."
+
+[[require]]
+name = "extractionMatrixProjector"
+path = "../../extraction-matrix-projector"
+
+[[require]]
+name = "extractionInformationSpectrum"
+path = "../../extraction-information-spectrum"
+
+[[lean_lib]]
+name = "RankSupport"
+
+[[lean_lib]]
+name = "RankSupportVerification"

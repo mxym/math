@@ -1,0 +1,47 @@
+ExtractionRankSupport.exact_rankBounded_iid_effect_mul_rankBudgetProjector (D k s : ℕ) (hk : 0 < k)
+  (M : Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) ℂ) (hM : (1 - M).PosSemidef)
+  (hfit :
+    ∀ (X : Matrix (Fin D) (Fin D) ℂ),
+      X.PosSemidef ∧ X.trace = 1 → X.rank ≤ s → (M * ExtractionSpectrum.tensorMatrix X k).trace.re = 1) :
+  M * ExtractionRankSupport.rankBudgetProjector D k s = ExtractionRankSupport.rankBudgetProjector D k s
+'ExtractionRankSupport.exact_rankBounded_iid_effect_mul_rankBudgetProjector' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ExtractionRankSupport.rankBudgetSpace_eq_densityTensorSpace (D k s : ℕ) (hk : 0 < k) :
+  ExtractionRankSupport.rankBudgetSpace D k s = ExtractionRankSupport.densityTensorSpace D k s
+'ExtractionRankSupport.rankBudgetSpace_eq_densityTensorSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionRankSupport.rankBudgetProjector_one_eq_symmetricProjector (D k : ℕ) :
+  ExtractionRankSupport.rankBudgetProjector D k 1 = SymmetricSupport.symmetricProjector D k
+'ExtractionRankSupport.rankBudgetProjector_one_eq_symmetricProjector' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ExtractionRankSupport.rankBudgetProjector_commutes_tensorMatrix (D k s : ℕ) (M : Matrix (Fin D) (Fin D) ℂ) :
+  ExtractionRankSupport.rankBudgetProjector D k s * ExtractionSpectrum.tensorMatrix M k =
+    ExtractionSpectrum.tensorMatrix M k * ExtractionRankSupport.rankBudgetProjector D k s
+'ExtractionRankSupport.rankBudgetProjector_commutes_tensorMatrix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ExtractionRankSupport.rankBudgetProjector_density_support (D k s : ℕ) (X : Matrix (Fin D) (Fin D) ℂ)
+  (hX : X.PosSemidef ∧ X.trace = 1) (hRank : X.rank ≤ s) :
+  (ExtractionSpectrum.tensorMatrix X k).PosSemidef ∧
+    (ExtractionSpectrum.tensorMatrix X k).trace = 1 ∧
+      ExtractionRankSupport.rankBudgetProjector D k s * ExtractionSpectrum.tensorMatrix X k *
+          ExtractionRankSupport.rankBudgetProjector D k s =
+        ExtractionSpectrum.tensorMatrix X k
+'ExtractionRankSupport.rankBudgetProjector_density_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionRankSupport.psd_mul_eq_zero_of_trace_re_eq_zero.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι]
+  (A X : Matrix ι ι ℂ) (hA : A.PosSemidef) (hX : X.PosSemidef) (ht : (A * X).trace.re = 0) : A * X = 0
+'ExtractionRankSupport.psd_mul_eq_zero_of_trace_re_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionRankSupport.rankBudgetProjector_rank_pos (D k s : ℕ) (hD : 0 < D) (hs : 1 ≤ s) :
+  0 < (ExtractionRankSupport.rankBudgetProjector D k s).rank
+'ExtractionRankSupport.rankBudgetProjector_rank_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionRankSupport.rankBudgetProjector_eq_one_of_dimension_le (D k s : ℕ) (hs : D ≤ s) :
+  ExtractionRankSupport.rankBudgetProjector D k s = 1
+'ExtractionRankSupport.rankBudgetProjector_eq_one_of_dimension_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ExtractionRankSupport.tensorMatrix_mulVec_productVector (D k : ℕ) (M : Matrix (Fin D) (Fin D) ℂ)
+  (z : Fin k → Fin D → ℂ) :
+  (ExtractionSpectrum.tensorMatrix M k).mulVec (ExtractionRankSupport.productVector D k z) =
+    ExtractionRankSupport.productVector D k fun i => M.mulVec (z i)
+'ExtractionRankSupport.tensorMatrix_mulVec_productVector' depends on axioms: [propext, Classical.choice, Quot.sound]
