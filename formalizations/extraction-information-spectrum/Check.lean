@@ -1,0 +1,18 @@
+import Spectrum
+
+#check ExtractionSpectrum.kraus_target_information_bound
+#print axioms ExtractionSpectrum.kraus_target_information_bound
+#check ExtractionSpectrum.kraus_tensor_information_bound
+#print axioms ExtractionSpectrum.kraus_tensor_information_bound
+#check ExtractionSpectrum.tensorMatrix_density
+#print axioms ExtractionSpectrum.tensorMatrix_density
+#check ExtractionSpectrum.finite_iid_central_limit
+#print axioms ExtractionSpectrum.finite_iid_central_limit
+#check ExtractionSpectrum.iidInformationEvent_law_of_large_numbers
+#print axioms ExtractionSpectrum.iidInformationEvent_law_of_large_numbers
+#check ExtractionSpectrum.iidInformationEvent_gaussian_moving
+#print axioms ExtractionSpectrum.iidInformationEvent_gaussian_moving
+#check ExtractionSpectrum.kraus_tensor_rate_strong_converse
+#print axioms ExtractionSpectrum.kraus_tensor_rate_strong_converse
+#check ExtractionSpectrum.kraus_tensor_gaussian_converse
+#print axioms ExtractionSpectrum.kraus_tensor_gaussian_converse
