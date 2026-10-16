@@ -1,0 +1,28 @@
+import SpectralProtocol
+
+#check SpectralProtocol.oneShotSpectralEnvelope_actual_upper
+#print axioms SpectralProtocol.oneShotSpectralEnvelope_actual_upper
+#check SpectralProtocol.purePower_fidelity_guarantee_upper
+#print axioms SpectralProtocol.purePower_fidelity_guarantee_upper
+#check SpectralProtocol.purePower_fidelity_feasible_lower
+#print axioms SpectralProtocol.purePower_fidelity_feasible_lower
+#check SpectralProtocol.pure_iid_integerBell_actual_extractor
+#print axioms SpectralProtocol.pure_iid_integerBell_actual_extractor
+#check SpectralProtocol.pure_iid_integerBell_optimal
+#print axioms SpectralProtocol.pure_iid_integerBell_optimal
+#check SpectralProtocol.pure_iid_integerBell_eq_paper_floor
+#print axioms SpectralProtocol.pure_iid_integerBell_eq_paper_floor
+#check SpectralProtocol.oneShotSpectralEnvelope_actual_lower
+#print axioms SpectralProtocol.oneShotSpectralEnvelope_actual_lower
+#check SpectralProtocol.finite_projection_mass_lower
+#print axioms SpectralProtocol.finite_projection_mass_lower
+#check SpectralProtocol.conjugateMatrix_complete
+#print axioms SpectralProtocol.conjugateMatrix_complete
+#check SpectralProtocol.PTConjugatePositive_iff_second
+#print axioms SpectralProtocol.PTConjugatePositive_iff_second
+#check SpectralProtocol.sectorKraus_encoded
+#print axioms SpectralProtocol.sectorKraus_encoded
+#check SpectralProtocol.actual_effect_diagonal_data
+#print axioms SpectralProtocol.actual_effect_diagonal_data
+#check SpectralProtocol.harmonic_prefix_comparison
+#print axioms SpectralProtocol.harmonic_prefix_comparison

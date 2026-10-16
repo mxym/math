@@ -6,3 +6,4 @@ import SpectralProtocol.PureBell
 import SpectralProtocol.MassLower
 import SpectralProtocol.SectorKraus
 import SpectralProtocol.GeneralPureGuarantee
+import SpectralProtocol.EnvelopeUpper

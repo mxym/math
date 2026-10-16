@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "scope": "Actual finite product-PPT bridge and convention equivalence; original-space spectral prefix lower and support-mass extraction; actual pure-iid integer Bell optimum and real-floor identity; normalized pure-iid adversarial average and finite physical upper/lower bounds; local sector Kraus semantics. No full Schur, universal mixed-state rate limits, Haar rank-s law, gate synthesis, or full paper certification.",
+  "fresh_own_output_build": true,
+  "source_files": 142,
+  "roots": 85,
+  "kernel_declarations": 50060,
+  "kernel_trust": 0,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "same_type_forged_proof_controls": 13,
+  "source_manifest_sha256": "915485e842a05fab58c9ef0127da8e5ce89e7e8741c4357c704ce1d63111f64e",
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.415,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "lake",
+        "build",
+        "SpectralProtocol",
+        "ProtocolVerification"
+      ],
+      "exit_code": 0,
+      "seconds": 17.134,
+      "log": "build.log",
+      "sha256": "47f6e04d1db29e9b893043fd023a8232bddee9af284a2e510d77c6a6e7657619"
+    },
+    {
+      "stage": "types-and-axioms",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "Check.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 1.922,
+      "log": "types-and-axioms.log",
+      "sha256": "40e997a5831396ea189b6506962fb22ba97638faed43d3680fb6387e6e58f8d7"
+    },
+    {
+      "stage": "kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M10000",
+        "Audit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 180.11,
+      "log": "kernel.log",
+      "sha256": "12ac3f4b96fbde5b4183d37d468d9537a8f15cdc4b1f653ccdbc641edc3f254a"
+    }
+  ]
+}
