@@ -15,6 +15,15 @@ run_cmd (ProtocolVerification.replayAndCorrupt [
   ``SpectralProtocol.sorted_diagonal_le_prefixWidth,
   ``SpectralProtocol.actual_effect_harmonic_envelope,
   ``SpectralProtocol.oneShotSpectralEnvelope_actual_upper,
+  ``SpectralProtocol.density_rank_pos,
+  ``SpectralProtocol.exact_fixedTwoQubitOrbit_effect_fixes_projection,
+  ``SpectralProtocol.integerBellYield_optimal_of_effect_fixes_projection,
+  ``SpectralProtocol.fixedSpectrum_iid_integerBell_optimal,
+  ``SpectralProtocol.fixedSpectrum_iid_integerBell_actual_extractor,
+  ``SpectralProtocol.fixedSpectrum_iid_integerBell_per_copy_limit,
+  ``SpectralProtocol.twoQubitRankBudgetRank_min_four,
+  ``SpectralProtocol.rankBounded_iid_integerBell_optimal_all_blocklength,
+  ``SpectralProtocol.fixedSpectrum_iid_integerBell_eq_paper_floor,
   ``SpectralProtocol.purePowerProjection_hermitian,
   ``SpectralProtocol.purePowerProjection_idempotent,
   ``SpectralProtocol.purePowerProjection_rank,
@@ -168,3 +177,8 @@ run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.rankBounded
 run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.rankBounded_iid_integerBell_optimal "verification/protocol-control-20"
 run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.rankBounded_iid_integerBell_eq_paper_floor "verification/protocol-control-21"
 run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.rankBounded_iid_integerBell_per_copy_limit "verification/protocol-control-22"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.fixedSpectrum_iid_integerBell_optimal "verification/protocol-control-23"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.fixedSpectrum_iid_integerBell_actual_extractor "verification/protocol-control-24"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.rankBounded_iid_integerBell_optimal_all_blocklength "verification/protocol-control-25"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.fixedSpectrum_iid_integerBell_eq_paper_floor "verification/protocol-control-26"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.fixedSpectrum_iid_integerBell_per_copy_limit "verification/protocol-control-27"

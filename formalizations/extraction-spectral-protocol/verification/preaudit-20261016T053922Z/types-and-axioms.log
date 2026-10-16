@@ -1,0 +1,297 @@
+SpectralProtocol.oneShotSpectralEnvelope_actual_upper.{u_1} (a b K : ℕ) (ha : 0 < a) (hb : 0 < b) (hK : 0 < K)
+  (X : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ) (hX : X.PosSemidef) {κ : Type u_1} [Fintype κ]
+  (A : κ → Matrix (Fin K × Fin K) (Fin a × Fin b) ℂ) (hcomplete : ∑ j, (A j).conjTranspose * A j = 1)
+  (hpt : Extraction.PTConjugatePositive A) (U : ↥(Matrix.unitaryGroup (Fin a × Fin b) ℂ)) :
+  have hN := ⋯;
+  (Extraction.bellProjector * Extraction.krausApply A (↑U * X * (↑U).conjTranspose)).trace.re ≤
+    SpectralProtocol.harmonicFactor (Fintype.card (Fin a × Fin b)) *
+      SpectralProtocol.oneShotSpectralEnvelope a b K X ⋯ hN
+'SpectralProtocol.oneShotSpectralEnvelope_actual_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.purePower_fidelity_guarantee_upper.{u_1} (m n k K : ℕ) (hm : 0 < m) (hn : 0 < n) (hK : 0 < K)
+  {κ : Type u_1} [Fintype κ] (A : κ → Matrix (Fin K × Fin K) (Fin (m ^ k) × Fin (n ^ k)) ℂ)
+  (hcomplete : ∑ j, (A j).conjTranspose * A j = 1) (hpt : Extraction.PTConjugatePositive A)
+  (U : ↥(Matrix.unitaryGroup (Fin (m ^ k) × Fin (n ^ k)) ℂ)) (f : ℝ)
+  (hf :
+    ∀ (z : Fin (m * n) → ℂ),
+      SymmetricSupport.IsUnitVector z →
+        f ≤
+          (Extraction.bellProjector *
+                Extraction.krausApply A (↑U * SpectralProtocol.purePowerInput m n k z * (↑U).conjTranspose)).trace.re) :
+  f ≤ min 1 (min (↑m ^ k / ↑K) √(↑(m * n) ^ k / (↑K ^ 2 * ↑(SpectralProtocol.pureSupportRank m n k))))
+'SpectralProtocol.purePower_fidelity_guarantee_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.purePower_fidelity_feasible_lower (m n k d K : ℕ) (hm : 0 < m) (hn : 0 < n) (hd : 0 < d) (hdk : d ≤ K)
+  (hrank : SpectralProtocol.pureSupportRank m n k ≤ m ^ k / d * (n ^ k / d)) :
+  ∃ U A B,
+    ∑ j, (A j).conjTranspose * A j = 1 ∧
+      ∑ j, (B j).conjTranspose * B j = 1 ∧
+        Extraction.PTConjugatePositive (Extraction.productKraus A B) ∧
+          ∀ (z : Fin (m * n) → ℂ),
+            SymmetricSupport.IsUnitVector z →
+              (Extraction.bellProjector *
+                      Extraction.krausApply (Extraction.productKraus A B)
+                        (↑U * SpectralProtocol.purePowerInput m n k z * (↑U).conjTranspose)).trace.re =
+                ↑d / ↑K
+'SpectralProtocol.purePower_fidelity_feasible_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.pure_iid_integerBell_actual_extractor (k : ℕ) :
+  have h := SpectralProtocol.integerBellYield k ((k + 3).choose 3);
+  ∃ U A B,
+    ∑ j, (A j).conjTranspose * A j = 1 ∧
+      ∑ j, (B j).conjTranspose * B j = 1 ∧
+        Extraction.PTConjugatePositive (Extraction.productKraus A B) ∧
+          ∀ (z : Fin 4 → ℂ),
+            SymmetricSupport.IsUnitVector z →
+              (Extraction.bellProjector *
+                      Extraction.krausApply (Extraction.productKraus A B)
+                        (↑U * SpectralProtocol.pureTwoQubitInput k z * (↑U).conjTranspose)).trace.re =
+                1
+'SpectralProtocol.pure_iid_integerBell_actual_extractor' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.pure_iid_integerBell_optimal.{u_3} (k h : ℕ) {κ : Type u_3} [Fintype κ]
+  (A : κ → Matrix (Fin (2 ^ h) × Fin (2 ^ h)) (Fin (2 ^ k) × Fin (2 ^ k)) ℂ)
+  (hcomplete : ∑ j, (A j).conjTranspose * A j = 1) (hpt : Extraction.PTConjugatePositive A)
+  (U : ↥(Matrix.unitaryGroup (Fin (2 ^ k) × Fin (2 ^ k)) ℂ))
+  (hexact :
+    ∀ (z : Fin 4 → ℂ),
+      SymmetricSupport.IsUnitVector z →
+        (Extraction.bellProjector *
+                Extraction.krausApply A (↑U * SpectralProtocol.pureTwoQubitInput k z * (↑U).conjTranspose)).trace.re =
+          1) :
+  h ≤ SpectralProtocol.integerBellYield k ((k + 3).choose 3)
+'SpectralProtocol.pure_iid_integerBell_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.pure_iid_integerBell_eq_paper_floor (k : ℕ) :
+  SpectralProtocol.integerBellYield k ((k + 3).choose 3) = ⌊↑k - 1 / 2 * (Real.log ↑((k + 3).choose 3) / Real.log 2)⌋₊
+'SpectralProtocol.pure_iid_integerBell_eq_paper_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.oneShotSpectralEnvelope_actual_lower (a b K : ℕ) (ha : 0 < a) (hb : 0 < b) (hK : 0 < K) (hab : a ≤ b)
+  (X : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ) (hX : X.PosSemidef) :
+  have hN := ⋯;
+  ∃ d,
+    ∃ (_ : 0 < d) (_ : d ≤ K),
+      ∃ U A B,
+        ∑ j, (A j).conjTranspose * A j = 1 ∧
+          ∑ j, (B j).conjTranspose * B j = 1 ∧
+            SpectralProtocol.oneShotSpectralEnvelope a b K X ⋯ hN / 4 ≤
+              (Extraction.bellProjector *
+                    Extraction.krausApply (Extraction.productKraus A B) (↑U * X * (↑U).conjTranspose)).trace.re
+'SpectralProtocol.oneShotSpectralEnvelope_actual_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.finite_projection_mass_lower (a b K : ℕ) (hK : 0 < K) (P : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ)
+  (hP : P.IsHermitian) (hPP : P * P = P) (hr : P.rank ≤ a / K * (b / K)) :
+  ∃ U A B,
+    ∑ j, (A j).conjTranspose * A j = 1 ∧
+      ∑ j, (B j).conjTranspose * B j = 1 ∧
+        ∀ (X : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ),
+          X.PosSemidef →
+            (P * X).trace.re ≤
+              (Extraction.bellProjector *
+                    Extraction.krausApply (Extraction.productKraus A B) (↑U * X * (↑U).conjTranspose)).trace.re
+'SpectralProtocol.finite_projection_mass_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.conjugateMatrix_complete.{u_1, u_3, u_5} {ai : Type u_1} {ao : Type u_3} {κ : Type u_5} [Fintype ai]
+  [Fintype ao] [Fintype κ] [DecidableEq ai] [DecidableEq ao] (A : κ → Matrix ao ai ℂ)
+  (hA : ∑ j, (A j).conjTranspose * A j = 1) :
+  ∑ j, (SpectralProtocol.conjugateMatrix (A j)).conjTranspose * SpectralProtocol.conjugateMatrix (A j) = 1
+'SpectralProtocol.conjugateMatrix_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.PTConjugatePositive_iff_second.{u_1, u_2, u_3, u_4} {a : Type u_1} {b : Type u_2} {d : Type u_3}
+  {κ : Type u_4} [Fintype a] [Fintype b] [Fintype d] [Fintype κ] [DecidableEq a] [DecidableEq b] [DecidableEq d]
+  (A : κ → Matrix (d × d) (a × b) ℂ) : Extraction.PTConjugatePositive A ↔ SpectralProtocol.SecondPTConjugatePositive A
+'SpectralProtocol.PTConjugatePositive_iff_second' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.sectorKraus_encoded.{u_1, u_2, u_3, u_4} {J : Type u_1} {α : Type u_2} {β : Type u_3} {κ : Type u_4}
+  [Fintype J] [Fintype α] [Fintype β] [Fintype κ] [DecidableEq J] [DecidableEq α] [DecidableEq β]
+  (A : J → κ → Matrix β α ℂ) (j l : J) (X : Matrix α α ℂ) :
+  Extraction.krausApply (SpectralProtocol.sectorKraus A)
+      (SpectralProtocol.sectorEmbedding j * X * (SpectralProtocol.sectorEmbedding l).conjTranspose) =
+    if j = l then Extraction.krausApply (A j) X else 0
+'SpectralProtocol.sectorKraus_encoded' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.actual_effect_diagonal_data.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (X M : Matrix ι ι ℂ)
+  (hX : X.PosSemidef) (hM : M.PosSemidef) (hI : (1 - M).PosSemidef) (c B : ℝ) (hcap : (c • 1 - M).PosSemidef)
+  (hbudget : (M * M).trace.re ≤ B) :
+  ∃ z,
+    (M * X).trace.re = ∑ i, ⋯.eigenvalues₀ i * z i ∧
+      (∀ (i : Fin (Fintype.card ι)), 0 ≤ z i ∧ z i ≤ 1 ∧ z i ≤ c) ∧ ∑ i, z i ^ 2 ≤ B
+'SpectralProtocol.actual_effect_diagonal_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.harmonic_prefix_comparison {N : ℕ} (p z v : Fin N → ℝ) (T : ℝ) (hp : Antitone p)
+  (hp0 : ∀ (i : Fin N), 0 ≤ p i) (hv : ∀ (i : Fin N), 0 ≤ v i)
+  (hprefix : ∀ (i : Fin N), v i * ∑ j, p (Fin.castLE ⋯ j) ≤ T)
+  (hordered : ∀ (i : Fin N), z ((Tuple.sort fun j => -z j) i) ≤ v i) :
+  ∑ i, p i * z i ≤ SpectralProtocol.harmonicFactor N * T
+'SpectralProtocol.harmonic_prefix_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.finite_multisector_uniform_baseline_lower (a b a₀ b₀ K J : ℕ) (hK : 0 < K) (d : Fin J → ℕ)
+  (hd : ∀ (j : Fin J), 0 < d j) (hdk : ∀ (j : Fin J), d j ≤ K) (ha : J * a₀ ≤ a) (hb : J * b₀ ≤ b)
+  (P : Fin J → Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ) (hP : ∀ (j : Fin J), (P j).IsHermitian)
+  (hPP : ∀ (j : Fin J), P j * P j = P j) (horth : ∀ (j l : Fin J), j ≠ l → P j * P l = 0)
+  (hr : ∀ (j : Fin J), (P j).rank ≤ a₀ / d j * (b₀ / d j)) :
+  ∃ U A B,
+    ∑ t, (A t).conjTranspose * A t = 1 ∧
+      ∑ t, (B t).conjTranspose * B t = 1 ∧
+        ∀ (X : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ),
+          X.PosSemidef →
+            have f :=
+              (Extraction.bellProjector *
+                    Extraction.krausApply (Extraction.productKraus A B) (↑U * X * (↑U).conjTranspose)).trace.re;
+            X.trace.re / (4 * ↑K) ≤ f ∧
+              ((∑ j, P j) * X = X * ∑ j, P j → (∑ j, ↑(d j) / ↑K * (P j * X).trace.re) / 4 ≤ f)
+'SpectralProtocol.finite_multisector_uniform_baseline_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.bellTarget_twoPow_reindex (h : ℕ) :
+  (Matrix.reindexAlgEquiv ℂ ℂ
+        ((SpectralProtocol.bellQubitCoordinates h).prodCongr (SpectralProtocol.bellQubitCoordinates h)))
+      Extraction.bellProjector =
+    SpectralProtocol.bellPairTensor h
+'SpectralProtocol.bellTarget_twoPow_reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.exists_joint_unitary_between_orthogonal_isometries.{u_1, u_2, u_3} {ι : Type u_1} {J : Type u_2}
+  {κ : J → Type u_3} [Fintype ι] [Fintype J] [(j : J) → Fintype (κ j)] [DecidableEq ι] [DecidableEq J]
+  [(j : J) → DecidableEq (κ j)] (C E : (j : J) → Matrix ι (κ j) ℂ) (hC : ∀ (j : J), (C j).conjTranspose * C j = 1)
+  (hE : ∀ (j : J), (E j).conjTranspose * E j = 1) (hCorth : ∀ (j l : J), j ≠ l → (C j).conjTranspose * C l = 0)
+  (hEorth : ∀ (j l : J), j ≠ l → (E j).conjTranspose * E l = 0) : ∃ U, ∀ (j : J), ↑U * C j = E j
+'SpectralProtocol.exists_joint_unitary_between_orthogonal_isometries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SpectralProtocol.productSectorKraus_encoded.{u_1, u_2, u_3, u_4, u_5, u_6} {J : Type u_1} {α : Type u_2} {β : Type u_3}
+  {d : Type u_4} {κ : Type u_5} {η : Type u_6} [Fintype J] [Fintype α] [Fintype β] [Fintype d] [Fintype κ] [Fintype η]
+  [DecidableEq J] [DecidableEq α] [DecidableEq β] [DecidableEq d] (A : J → κ → Matrix d α ℂ) (B : J → η → Matrix d β ℂ)
+  (j l : J) (X : Matrix (α × β) (α × β) ℂ) :
+  Extraction.krausApply (Extraction.productKraus (SpectralProtocol.sectorKraus A) (SpectralProtocol.sectorKraus B))
+      (SpectralProtocol.productSectorEmbedding j * X * (SpectralProtocol.productSectorEmbedding l).conjTranspose) =
+    if j = l then Extraction.krausApply (Extraction.productKraus (A j) (B j)) X else 0
+'SpectralProtocol.productSectorKraus_encoded' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.exists_common_multisector_decoder.{u_1} (a b a₀ b₀ K J : ℕ) (hK : 0 < K) (d : Fin J → ℕ)
+  (hd : ∀ (j : Fin J), 0 < d j) (hdk : ∀ (j : Fin J), d j ≤ K) (ha : J * a₀ ≤ a) (hb : J * b₀ ≤ b)
+  (κ : Fin J → Type u_1) [(j : Fin J) → Fintype (κ j)] [(j : Fin J) → DecidableEq (κ j)]
+  (C : (j : Fin J) → Matrix (Fin a × Fin b) (κ j) ℂ) (hC : ∀ (j : Fin J), (C j).conjTranspose * C j = 1)
+  (hCorth : ∀ (j l : Fin J), j ≠ l → (C j).conjTranspose * C l = 0)
+  (hr : ∀ (j : Fin J), Fintype.card (κ j) ≤ a₀ / d j * (b₀ / d j)) :
+  ∃ U A B,
+    ∑ t, (A t).conjTranspose * A t = 1 ∧
+      ∑ t, (B t).conjTranspose * B t = 1 ∧
+        (∀ (j : Fin J) (Y : Matrix (κ j) (κ j) ℂ),
+            Y.PosSemidef →
+              ↑(d j) / ↑K * Y.trace.re ≤
+                (Extraction.bellProjector *
+                      Extraction.krausApply (Extraction.productKraus A B)
+                        (↑U * (C j * Y * (C j).conjTranspose) * (↑U).conjTranspose)).trace.re) ∧
+          ∀ (j l : Fin J),
+            j ≠ l →
+              ∀ (Y : Matrix (κ j) (κ l) ℂ),
+                Extraction.krausApply (Extraction.productKraus A B)
+                    (↑U * (C j * Y * (C l).conjTranspose) * (↑U).conjTranspose) =
+                  0
+'SpectralProtocol.exists_common_multisector_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.finite_multisector_projection_mass_lower (a b a₀ b₀ K J : ℕ) (hK : 0 < K) (d : Fin J → ℕ)
+  (hd : ∀ (j : Fin J), 0 < d j) (hdk : ∀ (j : Fin J), d j ≤ K) (ha : J * a₀ ≤ a) (hb : J * b₀ ≤ b)
+  (P : Fin J → Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ) (hP : ∀ (j : Fin J), (P j).IsHermitian)
+  (hPP : ∀ (j : Fin J), P j * P j = P j) (horth : ∀ (j l : Fin J), j ≠ l → P j * P l = 0)
+  (hr : ∀ (j : Fin J), (P j).rank ≤ a₀ / d j * (b₀ / d j)) :
+  ∃ U A B,
+    ∑ t, (A t).conjTranspose * A t = 1 ∧
+      ∑ t, (B t).conjTranspose * B t = 1 ∧
+        ∀ (X : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ),
+          X.PosSemidef →
+            (∑ j, P j) * X = X * ∑ j, P j →
+              ∑ j, ↑(d j) / ↑K * (P j * X).trace.re ≤
+                (Extraction.bellProjector *
+                      Extraction.krausApply (Extraction.productKraus A B) (↑U * X * (↑U).conjTranspose)).trace.re
+'SpectralProtocol.finite_multisector_projection_mass_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.local_half_mix_fidelity_bounds.{u_1, u_3, u_5, u_8} {ι : Type u_1} {τ : Type u_3} [Fintype ι]
+  [Fintype τ] [DecidableEq ι] {α : Type u_5} {υ : Type u_8} [Fintype α] [Fintype υ] [DecidableEq α] (K : ℕ) (o₀ : Fin K)
+  (A : τ → Matrix (Fin K) ι ℂ) (B : υ → Matrix (Fin K) α ℂ) (X : Matrix (ι × α) (ι × α) ℂ) (hX : X.PosSemidef) :
+  have A' := SpectralProtocol.halfMixKraus A (SpectralProtocol.resetKraus o₀);
+  have B' := SpectralProtocol.halfMixKraus B (SpectralProtocol.resetKraus o₀);
+  have f := (Extraction.bellProjector * Extraction.krausApply (Extraction.productKraus A' B') X).trace.re;
+  (Extraction.bellProjector * Extraction.krausApply (Extraction.productKraus A B) X).trace.re / 4 ≤ f ∧
+    X.trace.re / (4 * ↑K) ≤ f
+'SpectralProtocol.local_half_mix_fidelity_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.rankBounded_iid_integerBell_actual_extractor (k s : ℕ) :
+  have h := SpectralProtocol.integerBellYield k (SpectralProtocol.twoQubitRankBudgetRank k s);
+  ∃ U A B,
+    ∑ j, (A j).conjTranspose * A j = 1 ∧
+      ∑ j, (B j).conjTranspose * B j = 1 ∧
+        Extraction.PTConjugatePositive (Extraction.productKraus A B) ∧
+          ∀ (X : Matrix (Fin 4) (Fin 4) ℂ),
+            X.PosSemidef ∧ X.trace = 1 →
+              X.rank ≤ s →
+                (Extraction.bellProjector *
+                        Extraction.krausApply (Extraction.productKraus A B)
+                          (↑U * SpectralProtocol.rankBoundedTwoQubitInput k X * (↑U).conjTranspose)).trace.re =
+                  1
+'SpectralProtocol.rankBounded_iid_integerBell_actual_extractor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SpectralProtocol.rankBounded_iid_integerBell_optimal.{u_1} (k s h : ℕ) (hk : 0 < k) (hs : 1 ≤ s) {κ : Type u_1}
+  [Fintype κ] (A : κ → Matrix (Fin (2 ^ h) × Fin (2 ^ h)) (Fin (2 ^ k) × Fin (2 ^ k)) ℂ)
+  (hcomplete : ∑ j, (A j).conjTranspose * A j = 1) (hpt : Extraction.PTConjugatePositive A)
+  (U : ↥(Matrix.unitaryGroup (Fin (2 ^ k) × Fin (2 ^ k)) ℂ))
+  (hexact :
+    ∀ (X : Matrix (Fin 4) (Fin 4) ℂ),
+      X.PosSemidef ∧ X.trace = 1 →
+        X.rank ≤ s →
+          (Extraction.bellProjector *
+                  Extraction.krausApply A
+                    (↑U * SpectralProtocol.rankBoundedTwoQubitInput k X * (↑U).conjTranspose)).trace.re =
+            1) :
+  h ≤ SpectralProtocol.integerBellYield k (SpectralProtocol.twoQubitRankBudgetRank k s)
+'SpectralProtocol.rankBounded_iid_integerBell_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.rankBounded_iid_integerBell_eq_paper_floor (k s : ℕ) (hs : 1 ≤ s) :
+  SpectralProtocol.integerBellYield k (SpectralProtocol.twoQubitRankBudgetRank k s) =
+    ⌊↑k - 1 / 2 * (Real.log ↑(SpectralProtocol.twoQubitRankBudgetRank k s) / Real.log 2)⌋₊
+'SpectralProtocol.rankBounded_iid_integerBell_eq_paper_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.rankBounded_iid_integerBell_per_copy_limit (s : ℕ) (hs : 0 < s) (hs4 : s ≤ 4) :
+  Filter.Tendsto (fun k => ↑(SpectralProtocol.integerBellYield k (SpectralProtocol.twoQubitRankBudgetRank k s)) / ↑k)
+    Filter.atTop (nhds (1 - Real.log ↑s / Real.log 4))
+'SpectralProtocol.rankBounded_iid_integerBell_per_copy_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.fixedSpectrum_iid_integerBell_optimal.{u_1} (k h : ℕ) (X : Matrix (Fin 4) (Fin 4) ℂ)
+  (hX : X.PosSemidef ∧ X.trace = 1) {κ : Type u_1} [Fintype κ]
+  (A : κ → Matrix (Fin (2 ^ h) × Fin (2 ^ h)) (Fin (2 ^ k) × Fin (2 ^ k)) ℂ)
+  (hcomplete : ∑ j, (A j).conjTranspose * A j = 1) (hpt : Extraction.PTConjugatePositive A)
+  (U : ↥(Matrix.unitaryGroup (Fin (2 ^ k) × Fin (2 ^ k)) ℂ))
+  (hexact :
+    ∀ (V : ↥(Matrix.unitaryGroup (Fin 4) ℂ)),
+      (Extraction.bellProjector *
+              Extraction.krausApply A
+                (↑U * SpectralProtocol.rankBoundedTwoQubitInput k (↑V * X * (↑V).conjTranspose) *
+                  (↑U).conjTranspose)).trace.re =
+        1) :
+  h ≤ SpectralProtocol.integerBellYield k (SpectralProtocol.twoQubitRankBudgetRank k X.rank)
+'SpectralProtocol.fixedSpectrum_iid_integerBell_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpectralProtocol.fixedSpectrum_iid_integerBell_actual_extractor (k : ℕ) (X : Matrix (Fin 4) (Fin 4) ℂ)
+  (hX : X.PosSemidef ∧ X.trace = 1) :
+  have h := SpectralProtocol.integerBellYield k (SpectralProtocol.twoQubitRankBudgetRank k X.rank);
+  ∃ U A B,
+    ∑ j, (A j).conjTranspose * A j = 1 ∧
+      ∑ j, (B j).conjTranspose * B j = 1 ∧
+        Extraction.PTConjugatePositive (Extraction.productKraus A B) ∧
+          ∀ (V : ↥(Matrix.unitaryGroup (Fin 4) ℂ)),
+            (Extraction.bellProjector *
+                    Extraction.krausApply (Extraction.productKraus A B)
+                      (↑U * SpectralProtocol.rankBoundedTwoQubitInput k (↑V * X * (↑V).conjTranspose) *
+                        (↑U).conjTranspose)).trace.re =
+              1
+'SpectralProtocol.fixedSpectrum_iid_integerBell_actual_extractor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SpectralProtocol.rankBounded_iid_integerBell_optimal_all_blocklength.{u_1} (k s h : ℕ) (hs : 1 ≤ s) {κ : Type u_1}
+  [Fintype κ] (A : κ → Matrix (Fin (2 ^ h) × Fin (2 ^ h)) (Fin (2 ^ k) × Fin (2 ^ k)) ℂ)
+  (hcomplete : ∑ j, (A j).conjTranspose * A j = 1) (hpt : Extraction.PTConjugatePositive A)
+  (U : ↥(Matrix.unitaryGroup (Fin (2 ^ k) × Fin (2 ^ k)) ℂ))
+  (hexact :
+    ∀ (X : Matrix (Fin 4) (Fin 4) ℂ),
+      X.PosSemidef ∧ X.trace = 1 →
+        X.rank ≤ s →
+          (Extraction.bellProjector *
+                  Extraction.krausApply A
+                    (↑U * SpectralProtocol.rankBoundedTwoQubitInput k X * (↑U).conjTranspose)).trace.re =
+            1) :
+  h ≤ SpectralProtocol.integerBellYield k (SpectralProtocol.twoQubitRankBudgetRank k s)
+'SpectralProtocol.rankBounded_iid_integerBell_optimal_all_blocklength' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SpectralProtocol.fixedSpectrum_iid_integerBell_eq_paper_floor (k : ℕ) (X : Matrix (Fin 4) (Fin 4) ℂ)
+  (hX : X.PosSemidef ∧ X.trace = 1) :
+  SpectralProtocol.integerBellYield k (SpectralProtocol.twoQubitRankBudgetRank k X.rank) =
+    ⌊↑k - 1 / 2 * (Real.log ↑(SpectralProtocol.twoQubitRankBudgetRank k X.rank) / Real.log 2)⌋₊
+'SpectralProtocol.fixedSpectrum_iid_integerBell_eq_paper_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SpectralProtocol.fixedSpectrum_iid_integerBell_per_copy_limit (X : Matrix (Fin 4) (Fin 4) ℂ)
+  (hX : X.PosSemidef ∧ X.trace = 1) :
+  Filter.Tendsto
+    (fun k => ↑(SpectralProtocol.integerBellYield k (SpectralProtocol.twoQubitRankBudgetRank k X.rank)) / ↑k)
+    Filter.atTop (nhds (1 - Real.log ↑X.rank / Real.log 4))
+'SpectralProtocol.fixedSpectrum_iid_integerBell_per_copy_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
