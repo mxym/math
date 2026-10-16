@@ -5,3 +5,6 @@ import MinimaxProfile.Protocol
 import MinimaxProfile.Minimax
 import MinimaxProfile.PackingLimit
 import MinimaxProfile.PureMinimax
+import MinimaxProfile.UniversalFinite
+import MinimaxProfile.UniversalCutoff
+import MinimaxProfile.UniversalLimit
