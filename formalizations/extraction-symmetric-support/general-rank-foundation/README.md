@@ -33,6 +33,14 @@ Compiled results include:
 - The actual rank divided by `b^k` tends to zero when `s<b`. The actual
   `sqrt(rank P_s)/b^k` tends to zero, and its positive reciprocal tends to
   infinity, when `b>0` and `s<b^2`. These give direct packing interfaces.
+- The actual support is exactly the range of the fully explicit finite matrix
+  `supportCoefficientMatrix D k s`, whose entries are occupation-projector
+  entries. Consequently its matrix rank exactly equals `rank P_s`; this is a
+  finite polynomial-coordinate identity without a Schur dimension premise.
+- If `k≤s`, the projector is already identity, independently of `s≤D`.
+  An explicit symmetric-rank bound is
+  `rank(P_sym(E,k)) ≤ E^(E-1)*(k+1)^(E-1)` for `E>0`, with the corresponding
+  logarithmic bound. The parent audit sources remain fixed.
 
 This is **not yet a formal Schur-Weyl decomposition, the general numerical
 Weyl/hook dimension formula, the sharp general-rank polynomial asymptotic, or a Haar

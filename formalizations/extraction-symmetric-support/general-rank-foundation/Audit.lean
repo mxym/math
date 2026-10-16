@@ -11,12 +11,23 @@ run_cmd (RankSupportVerification.replayAndCorrupt [
   ``ExtractionRankSupport.productVector_factors_smul,
   ``ExtractionRankSupport.rank_one_productVector_mem_symmetric_range,
   ``ExtractionRankSupport.rankBudgetSpace_one_eq_symmetric_range,
+  ``ExtractionRankSupport.coordinateWordEmbedding_refl,
+  ``ExtractionRankSupport.productVector_basis_word,
+  ``ExtractionRankSupport.rankBudgetProjector_eq_one_of_blocklength_le,
   ``ExtractionRankSupport.psd_mul_eq_zero_of_trace_re_eq_zero,
   ``ExtractionRankSupport.exact_density_effect_fixes_density,
   ``ExtractionRankSupport.exact_rankBounded_iid_effect_mul_rankBudgetProjector,
+  ``ExtractionRankSupport.symmetricProjector_rank_le_explicit_polynomial,
+  ``ExtractionRankSupport.shifted_choose_le_explicit_polynomial,
+  ``ExtractionRankSupport.symmetricProjector_log_rank_le_explicit,
   ``ExtractionRankSupport.coordinate_factors_finrank_le,
   ``ExtractionRankSupport.coordinate_productVector_eq_isometry_col,
   ``ExtractionRankSupport.rankBudgetProjector_rank_ge_power,
+  ``ExtractionRankSupport.rectangularTensor_col_mem_rankBudgetSpace,
+  ``ExtractionRankSupport.rectangularColumnSpace_le_rankBudgetSpace,
+  ``ExtractionRankSupport.rankBudgetSpace_eq_rectangularUniversalSpace,
+  ``ExtractionRankSupport.supportCoefficientMatrix_range,
+  ``ExtractionRankSupport.rankBudgetProjector_rank_eq_coefficientMatrix_rank,
   ``ExtractionRankSupport.symmetric_log_rank_per_copy_limit,
   ``ExtractionRankSupport.rankBudgetProjector_rank_div_geometric_limit,
   ``ExtractionRankSupport.rankBudgetProjector_sqrt_rank_div_geometric_limit,
@@ -89,3 +100,7 @@ run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.ran
 run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.rankBudgetProjector_rank_ge_power "verification/rank-control-11"
 
 run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.rankBudgetProjector_geometric_div_sqrt_rank_atTop "verification/rank-control-12"
+
+run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.supportCoefficientMatrix_range "verification/rank-control-13"
+
+run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.symmetricProjector_log_rank_le_explicit "verification/rank-control-14"

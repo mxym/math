@@ -64,7 +64,7 @@ def check():
         if re.search(r"\b(sorry|admit|axiom|native_decide|unsafe)\b", code):
             raise RuntimeError("Forbidden mathematical proof token: " + str(p))
     roots = (ROOT / "ROOTS.txt").read_text().splitlines()
-    if len(roots) != len(set(roots)) or len(roots) != 62:
+    if len(roots) != len(set(roots)) or len(roots) != 73:
         raise RuntimeError("Root metadata changed")
     print("SOURCE_BINDING_PASS", len(inventory()), flush=True)
 
@@ -120,7 +120,7 @@ def main():
     stage("build", ["lake", "build", "RankSupport", "RankSupportVerification"], 600)
     stage("types-and-axioms", ["lake", "env", "lean", "-j1", "-M6000", "Check.lean"], 120)
     audit = stage("kernel", ["lake", "env", "lean", "-j1", "-M6000", "Audit.lean"], 600)
-    if audit.count("EMPTY_KERNEL_REPLAY_PASS") != 1 or audit.count("CORRUPTED_PROOF_REJECTED") != 13:
+    if audit.count("EMPTY_KERNEL_REPLAY_PASS") != 1 or audit.count("CORRUPTED_PROOF_REJECTED") != 15:
         raise RuntimeError("Incomplete audit markers")
     axioms = set((ROOT / "verification/rank-kernel-axioms.txt").read_text().splitlines())
     if not axioms <= ALLOWED_AXIOMS:
@@ -138,14 +138,14 @@ def main():
     count = int(re.search(r"EMPTY_KERNEL_REPLAY_PASS (\d+) declarations", audit).group(1))
     result = {
         "status": "PASS",
-        "scope": "Actual intrinsic rank-s projector on tensor coordinates, rank-bounded density support, minimal normalized promise support, tensor invariance and perfect-effect identity; exact s=1 and s>=D boundaries; rectangular monomial contraction proves s^k <= rank <= s^k choose(Ds+k-1,k), actual log-rank/k -> log s and exponential packing comparisons. NOT numerical Schur/Weyl identity, sharp polynomial asymptotics or Haar moments.",
+        "scope": "Actual intrinsic rank-s projector, rank-bounded density support, minimal normalized promise support, tensor invariance and perfect-effect identity; exact s=1, s>=D and k<=s boundaries; rectangular contraction proves s^k <= rank <= s^k choose(Ds+k-1,k), log-rank/k -> log s and packing comparisons; exact support equals explicit finite coefficient-matrix range, with quantitative symmetric-rank polynomial/log bounds. NOT numerical Schur/Weyl identity, sharp polynomial asymptotics or Haar moments.",
         "fresh_own_output_build": args.fresh,
         "source_files": len(inventory()),
-        "roots": 62,
+        "roots": 73,
         "kernel_declarations": count,
         "kernel_trust": 0,
         "axioms": sorted(axioms),
-        "same_type_forged_proof_controls": 13,
+        "same_type_forged_proof_controls": 15,
         "source_manifest_sha256": sha(ROOT / "SOURCE_HASHES.json"),
         "stages": records
     }

@@ -6625,6 +6625,7 @@ ExtractionRankSupport.coordinateLetterEmbedding._proof_1
 ExtractionRankSupport.coordinateLetterEmbedding._proof_2
 ExtractionRankSupport.coordinateWordEmbedding
 ExtractionRankSupport.coordinateWordEmbedding._proof_1
+ExtractionRankSupport.coordinateWordEmbedding_refl
 ExtractionRankSupport.coordinate_factors_finrank_le
 ExtractionRankSupport.coordinate_productVector_eq_isometry_col
 ExtractionRankSupport.densityTensorSpace
@@ -6643,6 +6644,7 @@ ExtractionRankSupport.normalizedProjection.eq_1
 ExtractionRankSupport.normalizedProjection_density
 ExtractionRankSupport.normalizedProjection_rank_le
 ExtractionRankSupport.productVector
+ExtractionRankSupport.productVector_basis_word
 ExtractionRankSupport.productVector_factors_smul
 ExtractionRankSupport.productVector_mem_rankBudgetSpace
 ExtractionRankSupport.psd_mul_eq_zero_of_trace_re_eq_zero
@@ -6654,6 +6656,7 @@ ExtractionRankSupport.rankBudgetProjector_commutes_tensorMatrix
 ExtractionRankSupport.rankBudgetProjector_commutes_tensorMatrix._simp_1_1
 ExtractionRankSupport.rankBudgetProjector_commutes_tensorMatrix._simp_1_2
 ExtractionRankSupport.rankBudgetProjector_density_support
+ExtractionRankSupport.rankBudgetProjector_eq_one_of_blocklength_le
 ExtractionRankSupport.rankBudgetProjector_eq_one_of_dimension_le
 ExtractionRankSupport.rankBudgetProjector_fixes
 ExtractionRankSupport.rankBudgetProjector_geometric_div_sqrt_rank_atTop
@@ -6668,6 +6671,7 @@ ExtractionRankSupport.rankBudgetProjector_properties
 ExtractionRankSupport.rankBudgetProjector_range
 ExtractionRankSupport.rankBudgetProjector_rank
 ExtractionRankSupport.rankBudgetProjector_rank_div_geometric_limit
+ExtractionRankSupport.rankBudgetProjector_rank_eq_coefficientMatrix_rank
 ExtractionRankSupport.rankBudgetProjector_rank_eq_dimension
 ExtractionRankSupport.rankBudgetProjector_rank_ge_power
 ExtractionRankSupport.rankBudgetProjector_rank_le_dimension
@@ -6682,12 +6686,14 @@ ExtractionRankSupport.rankBudgetProjector_tensorMatrix_support
 ExtractionRankSupport.rankBudgetSpace
 ExtractionRankSupport.rankBudgetSpace_eq_densityTensorSpace
 ExtractionRankSupport.rankBudgetSpace_eq_densityTensorSpace._proof_1_1
+ExtractionRankSupport.rankBudgetSpace_eq_rectangularUniversalSpace
 ExtractionRankSupport.rankBudgetSpace_le_rectangularUniversalSpace
 ExtractionRankSupport.rankBudgetSpace_mono
 ExtractionRankSupport.rankBudgetSpace_one_eq_symmetric_range
 ExtractionRankSupport.rank_one_productVector_mem_symmetric_range
 ExtractionRankSupport.rectangularColumnSpace
 ExtractionRankSupport.rectangularColumnSpace._proof_1
+ExtractionRankSupport.rectangularColumnSpace_le_rankBudgetSpace
 ExtractionRankSupport.rectangularContraction
 ExtractionRankSupport.rectangularContraction._proof_1
 ExtractionRankSupport.rectangularContraction._proof_2
@@ -6698,9 +6704,15 @@ ExtractionRankSupport.rectangularEntryVector
 ExtractionRankSupport.rectangularPairWord
 ExtractionRankSupport.rectangularTensor
 ExtractionRankSupport.rectangularTensor_col_mem_columnSpace
+ExtractionRankSupport.rectangularTensor_col_mem_rankBudgetSpace
 ExtractionRankSupport.rectangularTensor_col_mem_universalSpace
 ExtractionRankSupport.rectangularTensor_mulVec_productVector
 ExtractionRankSupport.rectangularUniversalSpace
+ExtractionRankSupport.shifted_choose_le_explicit_polynomial
+ExtractionRankSupport.supportCoefficientMatrix
+ExtractionRankSupport.supportCoefficientMatrix_range
+ExtractionRankSupport.symmetricProjector_log_rank_le_explicit
+ExtractionRankSupport.symmetricProjector_rank_le_explicit_polynomial
 ExtractionRankSupport.symmetric_log_rank_per_copy_limit
 ExtractionRankSupport.symmetric_range_le_rankBudgetSpace
 ExtractionRankSupport.symmetric_rank_le_rankBudgetProjector_rank
@@ -9394,6 +9406,7 @@ Function.Embedding.codRestrict._proof_1
 Function.Embedding.congr
 Function.Embedding.equivOfSurjective
 Function.Embedding.equivOfSurjective._proof_1
+Function.Embedding.ext
 Function.Embedding.inj'
 Function.Embedding.injective
 Function.Embedding.inl
@@ -19558,6 +19571,8 @@ Nat.choose_eq_descFactorial_div_factorial
 Nat.choose_eq_factorial_div_factorial
 Nat.choose_eq_zero_of_lt
 Nat.choose_eq_zero_of_lt._f
+Nat.choose_le_descFactorial
+Nat.choose_le_pow
 Nat.choose_mul_factorial_mul_factorial
 Nat.choose_mul_factorial_mul_factorial._f
 Nat.choose_one_right
@@ -19596,6 +19611,8 @@ Nat.descFactorial._f
 Nat.descFactorial_eq_factorial_mul_choose
 Nat.descFactorial_eq_zero_iff_lt
 Nat.descFactorial_eq_zero_iff_lt._f
+Nat.descFactorial_le_pow
+Nat.descFactorial_le_pow._f
 Nat.descFactorial_one
 Nat.descFactorial_succ
 Nat.descFactorial_zero
@@ -20042,6 +20059,7 @@ Nat.mul_ne_zero
 Nat.mul_ne_zero_iff
 Nat.mul_one
 Nat.mul_pos
+Nat.mul_pow
 Nat.mul_right_cancel
 Nat.mul_right_comm
 Nat.mul_self_le_mul_self
@@ -20135,6 +20153,8 @@ Nat.pow_add
 Nat.pow_eq_zero
 Nat.pow_eq_zero._f
 Nat.pow_eq_zero._simp_1
+Nat.pow_le_pow_left
+Nat.pow_le_pow_left._f
 Nat.pow_le_pow_right
 Nat.pow_le_pow_right._f
 Nat.pow_one
@@ -31814,6 +31834,7 @@ _private.Init.Data.Nat.Basic.0.Nat.mul_comm.match_1_1
 _private.Init.Data.Nat.Basic.0.Nat.mul_le_mul_left.match_1_1
 _private.Init.Data.Nat.Basic.0.Nat.ne_iff_lt_or_gt.match_1_1
 _private.Init.Data.Nat.Basic.0.Nat.not_le_of_gt.match_1_1
+_private.Init.Data.Nat.Basic.0.Nat.pow_le_pow_left.match_1_1
 _private.Init.Data.Nat.Basic.0.Nat.pow_le_pow_right.match_1_1
 _private.Init.Data.Nat.Basic.0.Nat.pow_le_pow_right.match_1_3
 _private.Init.Data.Nat.Basic.0.Nat.pred_le_iff.match_1_1
@@ -33924,6 +33945,7 @@ _private.Mathlib.Data.Nat.Choose.Basic.0.PSigma.casesOn._arg_pusher
 _private.Mathlib.Data.Nat.Factorial.Basic.0.Nat.descFactorial_eq_zero_iff_lt._simp_1_3
 _private.Mathlib.Data.Nat.Factorial.Basic.0.Nat.descFactorial_eq_zero_iff_lt._simp_1_4
 _private.Mathlib.Data.Nat.Factorial.Basic.0.Nat.descFactorial_eq_zero_iff_lt.match_1_1
+_private.Mathlib.Data.Nat.Factorial.Basic.0.Nat.descFactorial_le_pow.match_1_1
 _private.Mathlib.Data.Nat.Factorial.Basic.0.Nat.factorial_mul_descFactorial.match_1_1
 _private.Mathlib.Data.Nat.Factorial.Basic.0.Nat.factorial_mul_pow_le_factorial.match_1_1
 _private.Mathlib.Data.Nat.Factorial.Basic.0.Nat.factorial_pos.match_1_1
