@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "scope": "Actual symmetric projector in D^k tensor coordinates, exact choose rank, normalized pure iid spanning and density support, normalized projection purity, and exact pure-promise effect identity. NOT Haar equality or general rank-s Schur theory.",
+  "fresh_own_output_build": true,
+  "source_files": 17,
+  "roots": 40,
+  "kernel_declarations": 24525,
+  "kernel_trust": 0,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "same_type_forged_proof_controls": 6,
+  "source_manifest_sha256": "a7dfccde3536ef0e7d654801fc5c72a590461d9527d9673f18cc4db1f139f124",
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.415,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "lake",
+        "build",
+        "SymmetricSupport",
+        "SymmetricSupportVerification"
+      ],
+      "exit_code": 0,
+      "seconds": 11.001,
+      "log": "build.log",
+      "sha256": "98c60270c3b07c81e47d33b71910c5923ff4baabf5017f88437e203ddad790f5"
+    },
+    {
+      "stage": "types-and-axioms",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "Check.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 1.569,
+      "log": "types-and-axioms.log",
+      "sha256": "6653737866de067c3fa5ae8ac50cfe4a9862058a1025ef9dd05dff148c33a240"
+    },
+    {
+      "stage": "kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M6000",
+        "Audit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 40.554,
+      "log": "kernel.log",
+      "sha256": "9e09a5f329199e4445f391d3c686517e2c028fec8b5f7b82e8b6861d9b4eb111"
+    }
+  ]
+}

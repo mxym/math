@@ -14,6 +14,7 @@ variable {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq
 def fiberCard (label : α → β) (s : β) : ℕ :=
   (Finset.univ.filter fun x => label x = s).card
 
+omit [Fintype β] [DecidableEq α] in
 theorem fiberCard_pos (label : α → β) (hsurj : Function.Surjective label) (s : β) :
     0 < fiberCard label s := by
   obtain ⟨x, hx⟩ := hsurj s
@@ -47,7 +48,7 @@ theorem average_columns (label : α → β) (hsurj : Function.Surjective label) 
       exact_mod_cast Nat.ne_of_gt (fiberCard_pos label hsurj s)
     change (fiberCard label s : ℂ) * (fiberCard label s : ℂ)⁻¹ = 1
     exact mul_inv_cancel₀ hn
-  · rw [if_neg hst]
+  · rw [ite_eq_right hst]
     apply Finset.sum_eq_zero
     intro x hx
     split_ifs with hxs hxt hxt
@@ -58,12 +59,13 @@ theorem average_columns (label : α → β) (hsurj : Function.Surjective label) 
 noncomputable def partitionProjector (label : α → β) : Matrix α α ℂ :=
   occupationColumns label * occupationAverage label
 
+omit [DecidableEq α] in
 theorem partitionProjector_apply (label : α → β) (x y : α) :
     partitionProjector label x y =
       if label x = label y then (fiberCard label (label x) : ℂ)⁻¹ else 0 := by
   classical
   simp only [partitionProjector, Matrix.mul_apply, occupationColumns, occupationAverage,
-    ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', Finset.mem_univ, ite_true]
+    ite_mul, one_mul, zero_mul]
   by_cases h : label x = label y
   · simp [h]
   · simp [h, Ne.symm h]
