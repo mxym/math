@@ -71,3 +71,15 @@ import SchurCompletion
 #print axioms ExtractionSchur.cycleOperator_posSemidef
 #print axioms ExtractionSchur.cycleOperators_joint_eigenspaces_span
 #print axioms ExtractionSchur.flatHaarAverage_jointCycle_eigenvalue
+#check ExtractionSchur.cycleCharacter_insert_succ
+#check ExtractionSchur.cycleOperator_jucys_recursion
+#check ExtractionSchur.cycleOperator_jucys_factorization
+#check ExtractionSchur.jucysOperators_commute
+#check ExtractionSchur.jucysOperators_joint_eigenspaces_span
+#check ExtractionSchur.flatHaarAverage_jucys_product_eigenvalue
+#print axioms ExtractionSchur.cycleCharacter_insert_succ
+#print axioms ExtractionSchur.cycleOperator_jucys_recursion
+#print axioms ExtractionSchur.cycleOperator_jucys_factorization
+#print axioms ExtractionSchur.jucysOperators_commute
+#print axioms ExtractionSchur.jucysOperators_joint_eigenspaces_span
+#print axioms ExtractionSchur.flatHaarAverage_jucys_product_eigenvalue

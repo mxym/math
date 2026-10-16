@@ -89,3 +89,15 @@ Lean proves internally:
 
 Young-tableau identification and spectral concentration remain necessary for
 both sharp intermediate-rank asymptotic moments.
+
+The actual cycle operators now have a proved Jucys--Murphy insertion recursion
+and finite product factorization. The genuine tensor-space Jucys--Murphy
+matrices are Hermitian and commute pairwise, and their joint eigenspaces span.
+The actual Haar eigenvalue on each nonzero joint vector is
+`s^(-k) product_j(s+c_j)/product_j(D+c_j)`, with nonzero ambient denominator
+proved internally. The joint values `c_j` have not yet been classified as
+integer tableau contents or assigned their tableau multiplicities.
+
+This continuation is paused at the user's request. All new results are
+`BUILD_ONLY`: ordinary Lean compilation and selected standard-axiom checks,
+with a separate new-scope empty-kernel audit still pending.

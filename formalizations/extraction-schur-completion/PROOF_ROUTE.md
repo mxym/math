@@ -136,3 +136,28 @@ these joint eigenvalue functions and multiplicities from Young tableaux,
 identify their ratios with the numerical Weyl cross products, and establish
 the induced probability concentration. These new exact matrix results still
 do not assert the fixed-intermediate-rank sharp asymptotic.
+
+The cycle operators now also have an internally proved Jucys--Murphy
+factorization. Actual fixed-word equivalences derive the insertion character
+recursion; finite permutation decomposition then proves
+
+`Z(D,t,k+1) = (t I + J_new) (I_D tensor Z(D,t,k))`.
+
+The tensor embedding here is a genuine matrix ring homomorphism on the original
+computational coordinates. Iterating it proves the finite noncommutative
+product of `t I + J_j`. The actual `J_j` are Hermitian, belong to the genuine
+permutation algebra, commute pairwise, and have joint eigenspaces spanning the
+original tensor space. On each actual nonzero joint vector the literal Haar
+eigenvalue is
+
+`s^(-k) product_j(s+c_j) / product_j(D+c_j)`.
+
+The ambient denominator is nonzero internally. The `c_j` in this statement are
+the actual joint spectral values; identifying them with integer tableau contents
+and counting their multiplicities is still open in this package. In particular,
+this product identity does not by itself prove the general Young dimension
+formula, the shape concentration or the two sharp asymptotic moments.
+
+Work was stopped at the user's explicit request after preserving the ordinary
+compiled source and logs. No new empty-kernel replay was run, and no historical
+scope or publication artifact was changed by this continuation.

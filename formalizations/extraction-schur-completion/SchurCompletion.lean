@@ -31,3 +31,8 @@ import SchurCompletion.CycleRatio
 import SchurCompletion.CyclePositive
 import SchurCompletion.CycleCentral
 import SchurCompletion.JointCycleSpectrum
+import SchurCompletion.CycleInsertion
+import SchurCompletion.JucysRecursion
+import SchurCompletion.JucysFactorization
+import SchurCompletion.JucysSpectrum
+import SchurCompletion.JucysHaarProduct
