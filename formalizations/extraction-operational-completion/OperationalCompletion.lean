@@ -17,3 +17,9 @@ import OperationalCompletion.FidelityExponent
 import OperationalCompletion.CappedHolder
 import OperationalCompletion.CappedRate
 import OperationalCompletion.SharpFidelity
+import OperationalCompletion.CapacityConverse
+import OperationalCompletion.SumChannels
+import OperationalCompletion.ProductSum
+import OperationalCompletion.TaggedCodes
+import OperationalCompletion.CodeFamily
+import OperationalCompletion.HeterogeneousDecoder

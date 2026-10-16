@@ -48,4 +48,9 @@ exponent. Singular and exactly flat full-rank inputs are included.
 
 Compatibility of this same family with the sharp pure minimax profile remains
 to be connected. Compilation alone is not an independent empty-kernel audit.
+The `heterogeneous_projection_protocol` foundation constructs an actual common
+unitary and complete local decoder for one large sector and many small sectors;
+its input conditions are the original projection ranks and integer budgets.
+`ppt_above_faithful_rate` and `ppt_above_eventualExact_rate` close the two
+capacity converses, with their equality boundaries deliberately excluded.
 No new publication or novelty claim is made by this package.
