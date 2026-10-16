@@ -55,12 +55,33 @@ LLN, CLT or tensor-spectrum conclusion is an input hypothesis.
   polynomial logarithmic overheads are negligible at first and second order.
   This module does not depend on any protocol, Schur, or Haar package.
 
+- `Spectrum.Direct`: an exact occupation product, equal likelihood for equal
+  empirical types (including zero-likelihood types), supported escort weak
+  duality, and the finite direct error estimate
+  `1-mass <= (k+1)^D exp(-k E_direct(c))` for `H(p)<c<log|supp(p)|`.
+  The variational exponent is attained, is proved strictly positive, and is
+  retained under moving thresholds converging to c, with the polynomial removed
+  from its exponential rate. Actual-density statements use the actual matrix
+  rank and allow singular densities. This is a classical compression-error
+  bound; composing it with a physical universal protocol is outside this package.
+
+- `Spectrum.Prefix`: the actual mass of every r-element subset of a decreasing
+  finite spectrum is bounded by its first r entries.
+- `Spectrum.Tilt`: exact escort likelihood ratios and constructed typical bands;
+  asymptotic full escort mass from the proved finite iid law; original-law mass
+  lower bounds and actual finite cardinality bounds. The same optimized escort
+  attains the exact positive-support variational value and yields subsets with
+  `card(A_k)<=exp(k(H(q)+epsilon))` and eventually
+  `p^k(A_k)>=exp(-k(D(q||p)+epsilon))`. The parameter and subsets are constructed.
+  These are the classical ingredients for a matching operational exponent;
+  their composition with the physical extraction profile is outside this package.
+
 ## Exact limits of this scope
 
 This package does not claim universal Schur--Weyl lower bounds, complete capacity
-achievability, a matching operational fidelity-exponent lower bound or reliability theorem,
+achievability, a matching operational fidelity-exponent lower bound or reliability converse,
 Berry--Esseen constants, Haar averages, unknown-support minimax asymptotics,
-or circuit synthesis. It formalizes the converse, optimized exponential upper bound, scalar variational identities, and actual iid probability bridge.
+or circuit synthesis. It formalizes the converse, optimized exponential upper bound, scalar variational identities, exact classical direct error upper bounds, and actual iid probability bridge.
 It does not identify abstract CP maps with a finite Kraus presentation.
 
 ## Reproduce
@@ -84,3 +105,9 @@ The owned `SOURCE_HASHES.json` also binds the unchanged finite-core source input
 The source inventory is evidence of byte identity, not an external peer review.
 The PMF, CLT, strong law, spectral theorem, and matrix results use the pinned Mathlib
 implementation and its original authorship/licenses.
+
+The earlier run `reproduction-20261016T043319Z` was stopped with SIGTERM during
+the user-requested storage migration. Its interrupted logs are retained and are
+explicitly not PASS evidence. The final source-bound run is recorded separately.
+All current builds were run with the D-backed research filesystem and D-backed
+temporary/download caches; storage placement is not a mathematical assumption.

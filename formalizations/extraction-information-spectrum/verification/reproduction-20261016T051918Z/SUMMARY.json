@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "scope": "Actual density and canonical iid tensor spectrum converses; internally constructed finite iid LLN/CLT and moving CDF; physical rate strong converse and Gaussian limsup upper. Attained escort scalar identities on actual positive eigensupport; finite Holder and optimized variational exponential converse for physical channel sequences; exact finite type counting and universal empirical-entropy LLN/Gaussian mass lower bounds. Exact finite and moving-threshold strict-direct empirical compression-error upper bounds, with attained positive variational rate and actual-density rank bridge. Constructed optimized escort typical subsets with exact positive-support value, full escort mass, original iid mass lower bounds and integer cardinality bounds; arbitrary-subset-to-prefix mass comparison. Not physical universal achievability, composed matching operational exponent lower bounds, local-cap high-rate exponent composition, reliability converses or Berry--Esseen.",
+  "fresh_owned_output_build": true,
+  "source_files": 56,
+  "roots": 180,
+  "kernel_declarations": 60160,
+  "kernel_trust": 0,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "same_type_forged_proof_controls": 23,
+  "source_manifest_sha256": "3b9cd2fd92bbee19291bb0123c7ae84f90d3dcb81e14ebd45bcf638e005efefd",
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.416,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "lake",
+        "build",
+        "Spectrum",
+        "SpectrumVerification"
+      ],
+      "exit_code": 0,
+      "seconds": 14.807,
+      "log": "build.log",
+      "sha256": "021283f021f838c289bbdfa5d14f935833da628b9210ca59fd664f82dff6b165"
+    },
+    {
+      "stage": "types-and-axioms",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M9000",
+        "Check.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 1.721,
+      "log": "types-and-axioms.log",
+      "sha256": "a9092788f53d7c07c0469127ad71c133ad1a929e9da20f16276eecf3f860c476"
+    },
+    {
+      "stage": "kernel",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M9000",
+        "Audit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 481.696,
+      "log": "kernel.log",
+      "sha256": "4231dbaa795634455e2ab54aed39ccb4047a4d9ec3d78e829282a1cb537cf0ce"
+    }
+  ]
+}
