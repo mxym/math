@@ -73,3 +73,19 @@ The first actual classified blocks are now connected:
 
 The general-shape classification and the intermediate-rank sharp two-moment
 asymptotic remain open in this continuation.
+
+There is now an exact general-rank matrix ratio, independent of classified
+Schur theory. With `Z(D,t,k)=sum_sigma t^(cycles sigma) P_(sigma inverse)`,
+Lean proves internally:
+
+- `Z(D,t,k)` is positive semidefinite, central, and all these matrices commute.
+  It is `k!` times an explicit partial trace of the actual symmetric projector.
+- `Z(D,D,k)` is positive definite and has nonzero determinant for every `D,k`.
+- The genuine Haar average equals `s^(-k) Z(D,s,k) Z(D,D,k)^(-1)`.
+- `rank Z(D,s,k)` is the actual support rank for `0<s≤D`, and the actual purity
+  has the exact squared-ratio trace formula.
+- Genuine joint eigenspaces span the original tensor space; the Haar eigenvalue
+  there is `s^(-k) chi(s)/chi(D)`, with nonzero denominator proved internally.
+
+Young-tableau identification and spectral concentration remain necessary for
+both sharp intermediate-rank asymptotic moments.

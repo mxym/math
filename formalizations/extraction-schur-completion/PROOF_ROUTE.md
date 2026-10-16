@@ -103,3 +103,36 @@ At rank one the literal unitary Haar average is now proved equal to the old
 occupation density `symmetricState`, with no supplied ensemble identity. This
 is an additional Haar connection to the previously audited pure-state object;
 the new connection itself has only ordinary compilation so far.
+
+A general-rank matrix ratio is now closed without a supplied Schur spectrum.
+On the original `D^k` coordinates define
+
+`Z(D,t,k) = sum_sigma t^(cycles sigma) P_(sigma inverse)`.
+
+The finite Hilbert--Schmidt permutation frame is right multiplication by
+`Z(D,D,k)` on the actual permutation algebra. Its faithfulness, followed by
+finite-dimensional surjectivity, proves `det Z(D,D,k) != 0` internally, even
+when `D<k` and the much larger permutation Gram matrix is singular. The actual
+Haar moments consequently imply the exact identity
+
+`Omega(D,s,k) = s^(-k) Z(D,s,k) Z(D,D,k)^(-1)`.
+
+Moreover `rank Z(D,s,k)` equals the actual rank-budget support rank for every
+physical `0<s<=D` and all `k`. Its exact squared-trace purity is expressed by
+the same finite matrix ratio. No target rank or purity identity is a structure
+field or a caller assumption.
+
+The cycle operators are also proved positive semidefinite: `Z(D,t,k)` is
+`k!` times an explicit partial trace of the actual symmetric projector on
+`(D*t)^k` coordinates. They are central in both actual algebras and commute
+pairwise. Their genuine joint eigenspaces exhaust the original tensor space,
+and the actual Haar eigenvalue on a joint vector is
+
+`s^(-k) chi(s)/chi(D)`.
+
+The denominator is nonzero internally (and the ambient operator is positive
+definite). The outstanding classification now has a precise target: derive
+these joint eigenvalue functions and multiplicities from Young tableaux,
+identify their ratios with the numerical Weyl cross products, and establish
+the induced probability concentration. These new exact matrix results still
+do not assert the fixed-intermediate-rank sharp asymptotic.
