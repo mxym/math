@@ -71,6 +71,34 @@ run_cmd (ExtractionSpectrumVerification.replayAndCorrupt [
   ``ExtractionSpectrum.tensorMatrix_spectral,
   ``ExtractionSpectrum.tensorMatrix_density,
   ``ExtractionSpectrum.tensorMatrix_effect_information_bound,
+  ``ExtractionSpectrum.wordCount_le,
+  ``ExtractionSpectrum.wordCount_sum,
+  ``ExtractionSpectrum.word_sum_by_counts,
+  ``ExtractionSpectrum.empiricalLaw_nonneg,
+  ``ExtractionSpectrum.empiricalLaw_sum,
+  ``ExtractionSpectrum.empiricalLaw_eq_of_wordType_eq,
+  ``ExtractionSpectrum.wordCount_at_pos,
+  ``ExtractionSpectrum.empiricalLaw_at_pos,
+  ``ExtractionSpectrum.empirical_cross_entropy,
+  ``ExtractionSpectrum.word_likelihood_eq_exp,
+  ``ExtractionSpectrum.typeClass_likelihood,
+  ``ExtractionSpectrum.typeClass_card_le,
+  ``ExtractionSpectrum.wordType_range_card_le,
+  ``ExtractionSpectrum.lowEntropyWords_card_le,
+  ``ExtractionSpectrum.divergence_nonneg_of_support,
+  ``ExtractionSpectrum.iidLaw_letters_pos,
+  ``ExtractionSpectrum.empirical_entropy_le_information,
+  ``ExtractionSpectrum.information_word_mem_lowEntropyWords,
+  ``ExtractionSpectrum.empiricalEntropyMass_nonneg,
+  ``ExtractionSpectrum.empiricalEntropyMass_le_one,
+  ``ExtractionSpectrum.empiricalEntropyMass_mono,
+  ``ExtractionSpectrum.iidInformationEvent_le_empiricalEntropyMass,
+  ``ExtractionSpectrum.empiricalEntropyMass_tendsto_one,
+  ``ExtractionSpectrum.empiricalEntropyMass_tendsto_one_moving,
+  ``ExtractionSpectrum.empiricalEntropyMass_liminf_gaussian,
+  ``ExtractionSpectrum.log_succ_div_sqrt_tendsto_zero,
+  ``ExtractionSpectrum.polynomial_overhead_div_sqrt_tendsto_zero,
+  ``ExtractionSpectrum.polynomial_overhead_div_nat_tendsto_zero,
   ``ExtractionSpectrum.entropy_eq_neg_sum,
   ``ExtractionSpectrum.divergence_self,
   ``ExtractionSpectrum.divergence_nonneg,
@@ -133,3 +161,9 @@ run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum
 run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum.finite_capped_holder_bound "verification/spectrum-control-11"
 
 run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum.kraus_tensor_holder_bound "verification/spectrum-control-12"
+
+run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum.lowEntropyWords_card_le "verification/spectrum-control-13"
+
+run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum.iidInformationEvent_le_empiricalEntropyMass "verification/spectrum-control-14"
+
+run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum.empiricalEntropyMass_liminf_gaussian "verification/spectrum-control-15"

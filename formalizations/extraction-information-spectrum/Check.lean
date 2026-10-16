@@ -26,3 +26,11 @@ import Spectrum
 #print axioms ExtractionSpectrum.finite_capped_holder_bound
 #check ExtractionSpectrum.kraus_tensor_holder_bound
 #print axioms ExtractionSpectrum.kraus_tensor_holder_bound
+#check ExtractionSpectrum.lowEntropyWords_card_le
+#print axioms ExtractionSpectrum.lowEntropyWords_card_le
+#check ExtractionSpectrum.iidInformationEvent_le_empiricalEntropyMass
+#print axioms ExtractionSpectrum.iidInformationEvent_le_empiricalEntropyMass
+#check ExtractionSpectrum.empiricalEntropyMass_liminf_gaussian
+#print axioms ExtractionSpectrum.empiricalEntropyMass_liminf_gaussian
+#check ExtractionSpectrum.empiricalEntropyMass_tendsto_one_moving
+#print axioms ExtractionSpectrum.empiricalEntropyMass_tendsto_one_moving
