@@ -8,3 +8,4 @@ import MinimaxProfile.PureMinimax
 import MinimaxProfile.UniversalFinite
 import MinimaxProfile.UniversalCutoff
 import MinimaxProfile.UniversalLimit
+import MinimaxProfile.UniversalConverse

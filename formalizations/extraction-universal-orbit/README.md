@@ -25,8 +25,13 @@ basis; invertibility, Hermiticity, idempotence, range and rank are derived.
 orbit-space rank bound. No rank, spanning or performance certificate is assumed
 for the caller.
 
-The modules compile. A separately bound audit is being prepared. The package
-does not yet prove the manuscript's full universal extraction family, classical
-type-entropy count, or its particular Schur-dependent finite-block constants.
-These endpoints must not be inferred from a dimension-only theorem. The existing
-39/91/235/444 and 83/11 scopes remain unchanged.
+The projector is also proved invariant under every one-copy matrix tensor
+power, nested under inclusion of word sets, and positive semidefinite. Its actual
+trace pairing with every iid density dominates the selected classical word mass
+of that density's eigenvalue law. The downstream minimax-profile package combines
+these facts with proved type counts and actual product-local extraction channels
+to obtain fixed-dimension subcritical and Gaussian limits. This does not identify
+the manuscript's particular Schur blocks or its sharper finite-block constants.
+
+The separate extraction-connections scope binds and reviews these additions.
+The existing 39/91/235/444 and 83/11 root scopes remain unchanged.

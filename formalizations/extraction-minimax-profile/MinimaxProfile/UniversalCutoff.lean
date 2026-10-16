@@ -81,6 +81,7 @@ protocol that works for every unknown density, including singular spectra. -/
 theorem universal_compression_protocol (m n k K : ℕ) (hm : 0 < m) (hn : 0 < n)
     (hk : 0 < k) (hK : 0 < K) (hKa : K ≤ m^k) (hKb : K ≤ n^k) :
     ∃ V : KrausPPTProtocol (m^k) (n^k) K,
+      V.IsProductLocal ∧
       ∀ (X : Matrix (Fin (m*n)) (Fin (m*n)) ℂ) (hX : X.PosSemidef ∧ X.trace = 1),
         ExtractionSpectrum.empiricalEntropyMass hX.1.isHermitian.eigenvalues k
           (compressionCutoff m n k K) ≤ V.fidelity (tensorInput m n k X) := by

@@ -85,6 +85,35 @@ theorem localProtocol_fidelity {κ τ : Type*} [Fintype κ] [Fintype τ]
   unfold KrausPPTProtocol.fidelity overlap localProtocol
   rw [krausApply_equiv]
 
+/-- The actual postprocessing channel factors into two complete local Kraus
+channels. This predicate retains local witnesses after existential choice. -/
+def KrausPPTProtocol.IsProductLocal (V : KrausPPTProtocol a b K) : Prop :=
+  ∃ (r s : ℕ) (A : Fin r → Matrix (Fin K) (Fin a) ℂ)
+    (B : Fin s → Matrix (Fin K) (Fin b) ℂ),
+    (∑ j, (A j)ᴴ * A j = 1) ∧ (∑ j, (B j)ᴴ * B j = 1) ∧
+    ∀ X : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ,
+      Extraction.krausApply V.A X = Extraction.krausApply (Extraction.productKraus A B) X
+
+theorem localProtocol_isProductLocal {κ τ : Type*} [Fintype κ] [Fintype τ]
+    (U : Matrix.unitaryGroup (Fin a × Fin b) ℂ)
+    (A : κ → Matrix (Fin K) (Fin a) ℂ) (B : τ → Matrix (Fin K) (Fin b) ℂ)
+    (hA : ∑ j, (A j)ᴴ * A j = 1) (hB : ∑ j, (B j)ᴴ * B j = 1) :
+    (localProtocol U A B hA hB).IsProductLocal := by
+  classical
+  let eA := (Fintype.equivFin κ).symm
+  let eB := (Fintype.equivFin τ).symm
+  refine ⟨Fintype.card κ, Fintype.card τ, (fun j => A (eA j)), (fun j => B (eB j)),
+    ?_, ?_, ?_⟩
+  · exact (eA.sum_comp (fun j => (A j)ᴴ * A j)).trans hA
+  · exact (eB.sum_comp (fun j => (B j)ᴴ * B j)).trans hB
+  · intro X
+    change Extraction.krausApply (fun j : Fin (Fintype.card (κ × τ)) =>
+      Extraction.productKraus A B ((Fintype.equivFin (κ × τ)).symm j)) X = _
+    rw [krausApply_equiv]
+    have he : Extraction.productKraus (fun j => A (eA j)) (fun j => B (eB j)) =
+        fun j => Extraction.productKraus A B ((eA.prodCongr eB) j) := rfl
+    rw [he, krausApply_equiv]
+
 /-- The common projector promise yields one actual protocol before every input,
 including complete PPT resource accounting, with exact d/K overlap. -/
 theorem common_support_protocol (a b d K : ℕ) (hd : 0 < d) (hdk : d ≤ K)

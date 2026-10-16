@@ -57,10 +57,11 @@ theorem projection_mass_protocol (a b K : ℕ) (hK : 0 < K)
     (P : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ)
     (hP : P.IsHermitian) (hPP : P*P=P) (hr : P.rank ≤ (a/K)*(b/K)) :
     ∃ V : KrausPPTProtocol a b K,
+      V.IsProductLocal ∧
       ∀ X : Matrix (Fin a × Fin b) (Fin a × Fin b) ℂ, X.PosSemidef →
         (P*X).trace.re ≤ V.fidelity X := by
   obtain ⟨U,A,B,hA,hB,h⟩ := SpectralProtocol.finite_projection_mass_lower a b K hK P hP hPP hr
-  refine ⟨localProtocol U A B hA hB,?_⟩
+  refine ⟨localProtocol U A B hA hB, localProtocol_isProductLocal U A B hA hB, ?_⟩
   intro X hX
   rw [localProtocol_fidelity]
   exact h X hX
@@ -71,13 +72,14 @@ channels are constructed by the proof; no spectral basis is an input resource. -
 theorem universal_set_protocol (m n k K : ℕ) (hK : 0 < K) (S : Finset (Word (m*n) k))
     (hbudget : S.card * ((m*n)*(m*n)+k-1).choose k ≤ (m^k/K)*(n^k/K)) :
     ∃ V : KrausPPTProtocol (m^k) (n^k) K,
+      V.IsProductLocal ∧
       ∀ (X : Matrix (Fin (m*n)) (Fin (m*n)) ℂ) (hX : X.PosSemidef ∧ X.trace = 1),
         (∑ w ∈ S, ExtractionSpectrum.iidLaw hX.1.isHermitian.eigenvalues k w) ≤
           V.fidelity (tensorInput m n k X) := by
-  obtain ⟨V,hV⟩ := projection_mass_protocol (m^k) (n^k) K hK
+  obtain ⟨V,hLocal,hV⟩ := projection_mass_protocol (m^k) (n^k) K hK
     (tensorProjection m n k S) (tensorProjection_hermitian m n k S)
     (tensorProjection_idempotent m n k S) ((tensorProjection_rank_le m n k S).trans hbudget)
-  refine ⟨V,?_⟩
+  refine ⟨V,hLocal,?_⟩
   intro X hX
   exact (tensorProjection_mass_ge m n k S X hX).trans (hV _ (tensorInput_density m n k X hX).1)
 

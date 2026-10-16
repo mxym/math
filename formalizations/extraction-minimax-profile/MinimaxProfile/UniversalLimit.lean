@@ -118,16 +118,25 @@ theorem KrausPPTProtocol.fidelity_bounds {a b K : ℕ} (V : KrausPPTProtocol a b
     exact h.trans (min_le_left _ _)
 
 private theorem default_protocol_exists (a b K : ℕ) (hK : 0 < K) :
-    Nonempty (KrausPPTProtocol a b K) := by
-  obtain ⟨V,_⟩ := projection_mass_protocol a b K hK 0 (by simp [Matrix.IsHermitian])
+    ∃ V : KrausPPTProtocol a b K, V.IsProductLocal := by
+  obtain ⟨V,hLocal,_⟩ := projection_mass_protocol a b K hK 0 (by simp [Matrix.IsHermitian])
     (by simp) (by simp)
-  exact ⟨V⟩
+  exact ⟨V,hLocal⟩
 
 def universalBlockProtocol (m n k K : ℕ) (hm : 0 < m) (hn : 0 < n)
     (hK : 0 < K) (hKa : K ≤ m^k) (hKb : K ≤ n^k) : KrausPPTProtocol (m^k) (n^k) K :=
   if hk : 0 < k then
     (universal_compression_protocol m n k K hm hn hk hK hKa hKb).choose
-  else (default_protocol_exists (m^k) (n^k) K hK).some
+  else (default_protocol_exists (m^k) (n^k) K hK).choose
+
+theorem universalBlockProtocol_isProductLocal (m n k K : ℕ) (hm : 0 < m) (hn : 0 < n)
+    (hK : 0 < K) (hKa : K ≤ m^k) (hKb : K ≤ n^k) :
+    (universalBlockProtocol m n k K hm hn hK hKa hKb).IsProductLocal := by
+  by_cases hk : 0 < k
+  · simp only [universalBlockProtocol, dite_eq_left hk]
+    exact (universal_compression_protocol m n k K hm hn hk hK hKa hKb).choose_spec.1
+  · simp only [universalBlockProtocol, dite_eq_right hk]
+    exact (default_protocol_exists (m^k) (n^k) K hK).choose_spec
 
 theorem universalBlockProtocol_mass (m n k K : ℕ) (hm : 0 < m) (hn : 0 < n)
     (hk : 0 < k) (hK : 0 < K) (hKa : K ≤ m^k) (hKb : K ≤ n^k)
@@ -135,7 +144,7 @@ theorem universalBlockProtocol_mass (m n k K : ℕ) (hm : 0 < m) (hn : 0 < n)
     empiricalEntropyMass hX.1.isHermitian.eigenvalues k (compressionCutoff m n k K) ≤
       (universalBlockProtocol m n k K hm hn hK hKa hKb).fidelity (tensorInput m n k X) := by
   simp only [universalBlockProtocol, dif_pos hk]
-  exact (universal_compression_protocol m n k K hm hn hk hK hKa hKb).choose_spec X hX
+  exact (universal_compression_protocol m n k K hm hn hk hK hKa hKb).choose_spec.2 X hX
 
 /-- One protocol family, chosen without any density, attains unit fidelity
 for every fixed density below its entropy-limited target rate. The natural
@@ -144,11 +153,13 @@ theorem universal_subcritical_rate (m n : ℕ) (hm : 0 < m) (hn : 0 < n)
     (K : ℕ → ℕ) (hK : ∀ k, 0 < K k) (hKa : ∀ k, K k ≤ m^k) (hKb : ∀ k, K k ≤ n^k)
     (R : ℝ) (hR : Tendsto (fun k : ℕ => Real.log (K k) / k) atTop (nhds R)) :
     ∃ V : ∀ k, KrausPPTProtocol (m^k) (n^k) (K k),
+      (∀ k, (V k).IsProductLocal) ∧
       ∀ (X : Matrix (Fin (m*n)) (Fin (m*n)) ℂ) (hX : X.PosSemidef ∧ X.trace = 1),
         entropy hX.1.isHermitian.eigenvalues < Real.log m+Real.log n-2*R →
         Tendsto (fun k => (V k).fidelity (tensorInput m n k X)) atTop (nhds 1) := by
   let V := fun k => universalBlockProtocol m n k (K k) hm hn (hK k) (hKa k) (hKb k)
-  refine ⟨V,?_⟩
+  refine ⟨V, fun k => universalBlockProtocol_isProductLocal m n k (K k) hm hn
+    (hK k) (hKa k) (hKb k), ?_⟩
   intro X hX hH
   let p := hX.1.isHermitian.eigenvalues
   have hp : ∀ i, 0 ≤ p i := fun i => hX.1.eigenvalues_nonneg i
@@ -171,6 +182,7 @@ passed by the caller; both are proved for its actual eigenvalue law. -/
 theorem universal_gaussian_lower (m n : ℕ) (hm : 0 < m) (hn : 0 < n)
     (K : ℕ → ℕ) (hK : ∀ k, 0 < K k) (hKa : ∀ k, K k ≤ m^k) (hKb : ∀ k, K k ≤ n^k) :
     ∃ V : ∀ k, KrausPPTProtocol (m^k) (n^k) (K k),
+      (∀ k, (V k).IsProductLocal) ∧
       ∀ (X : Matrix (Fin (m*n)) (Fin (m*n)) ℂ) (hX : X.PosSemidef ∧ X.trace = 1)
         (z : ℝ), 0 < varentropy hX.1.isHermitian.eigenvalues →
         Tendsto (fun k : ℕ => (Real.log (K k) -
@@ -179,7 +191,8 @@ theorem universal_gaussian_lower (m n : ℕ) (hm : 0 < m) (hn : 0 < n)
         (ProbabilityTheory.gaussianReal 0 (varentropy hX.1.isHermitian.eigenvalues).toNNReal).real
           (Set.Iic (-2*z)) ≤ liminf (fun k => (V k).fidelity (tensorInput m n k X)) atTop := by
   let V := fun k => universalBlockProtocol m n k (K k) hm hn (hK k) (hKa k) (hKb k)
-  refine ⟨V,?_⟩
+  refine ⟨V, fun k => universalBlockProtocol_isProductLocal m n k (K k) hm hn
+    (hK k) (hKa k) (hKb k), ?_⟩
   intro X hX z hv hsecond
   let p := hX.1.isHermitian.eigenvalues
   have hp : ∀ i, 0 ≤ p i := fun i => hX.1.eigenvalues_nonneg i
