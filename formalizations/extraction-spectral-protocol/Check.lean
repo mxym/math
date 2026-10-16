@@ -47,3 +47,15 @@ import SpectralProtocol
 
 #check SpectralProtocol.local_half_mix_fidelity_bounds
 #print axioms SpectralProtocol.local_half_mix_fidelity_bounds
+
+#check SpectralProtocol.rankBounded_iid_integerBell_actual_extractor
+#print axioms SpectralProtocol.rankBounded_iid_integerBell_actual_extractor
+
+#check SpectralProtocol.rankBounded_iid_integerBell_optimal
+#print axioms SpectralProtocol.rankBounded_iid_integerBell_optimal
+
+#check SpectralProtocol.rankBounded_iid_integerBell_eq_paper_floor
+#print axioms SpectralProtocol.rankBounded_iid_integerBell_eq_paper_floor
+
+#check SpectralProtocol.rankBounded_iid_integerBell_per_copy_limit
+#print axioms SpectralProtocol.rankBounded_iid_integerBell_per_copy_limit

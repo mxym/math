@@ -27,10 +27,28 @@ run_cmd (ProtocolVerification.replayAndCorrupt [
   ``SpectralProtocol.purePower_guarantee_le_average,
   ``SpectralProtocol.purePower_fidelity_guarantee_upper,
   ``SpectralProtocol.purePower_fidelity_feasible_lower,
+  ``SpectralProtocol.twoQubitRankBudgetProjection_hermitian,
+  ``SpectralProtocol.twoQubitRankBudgetProjection_idempotent,
+  ``SpectralProtocol.twoQubitRankBudgetProjection_rank,
+  ``SpectralProtocol.twoQubitRankBudgetRank_pos,
+  ``SpectralProtocol.twoQubitRankBudgetRank_le,
+  ``SpectralProtocol.rankBoundedTwoQubitInput_density,
+  ``SpectralProtocol.rankBoundedTwoQubitInput_supported,
+  ``SpectralProtocol.exact_rankBoundedTwoQubit_effect_fixes_projection,
+  ``SpectralProtocol.rankBounded_iid_integerBell_actual_extractor,
+  ``SpectralProtocol.rankBounded_iid_integerBell_optimal,
+  ``SpectralProtocol.rankBounded_iid_integerBell_eq_paper_floor,
+  ``SpectralProtocol.twoQubitRankBudgetRank_one,
+  ``SpectralProtocol.twoQubitRankBudgetProjection_one,
+  ``SpectralProtocol.twoQubitRankBudgetRank_full,
+  ``SpectralProtocol.rankBounded_iid_integerBell_fullrank_zero,
   ``SpectralProtocol.integerBellYield_iff,
   ``SpectralProtocol.integerBellYield_packing,
   ``SpectralProtocol.integerBellYield_actual_extractor,
   ``SpectralProtocol.integerBellYield_optimal,
+  ``SpectralProtocol.integerBellYield_log_bounds,
+  ``SpectralProtocol.integerBellYield_per_copy_limit,
+  ``SpectralProtocol.rankBounded_iid_integerBell_per_copy_limit,
   ``SpectralProtocol.integerBellYield_eq_real_floor,
   ``SpectralProtocol.integerBellYield_eq_paper_floor,
   ``SpectralProtocol.concatenateIsometries_isometry,
@@ -146,3 +164,7 @@ run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.productSect
 run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.exists_common_multisector_decoder "verification/protocol-control-16"
 run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.finite_multisector_projection_mass_lower "verification/protocol-control-17"
 run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.local_half_mix_fidelity_bounds "verification/protocol-control-18"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.rankBounded_iid_integerBell_actual_extractor "verification/protocol-control-19"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.rankBounded_iid_integerBell_optimal "verification/protocol-control-20"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.rankBounded_iid_integerBell_eq_paper_floor "verification/protocol-control-21"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.rankBounded_iid_integerBell_per_copy_limit "verification/protocol-control-22"

@@ -18,3 +18,5 @@ import SpectralProtocol.WeightedBlocks
 import SpectralProtocol.MultisectorMass
 import SpectralProtocol.ResetMixture
 import SpectralProtocol.MultisectorBaseline
+import SpectralProtocol.GeneralRankBell
+import SpectralProtocol.IntegerBellLimit

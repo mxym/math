@@ -13,7 +13,8 @@ PIN='d13f23b723b8a846827a245b89c10fc7d3f11612'
 ALLOWED_AXIOMS={'propext','Classical.choice','Quot.sound'}
 PACKAGES=['extraction-spectral-protocol','spectral-extraction-core',
           'spectral-extraction-local-cap','extraction-symmetric-support',
-          'appt-qutrit-purity','appt-high-dimensional-review','extraction-information-spectrum']
+          'appt-qutrit-purity','appt-high-dimensional-review','extraction-information-spectrum',
+          'extraction-symmetric-support/general-rank-foundation','extraction-matrix-projector']
 
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def strip_comments(s): return re.sub(r'/\-.*?\-/|--[^\n]*','',s,flags=re.S)
