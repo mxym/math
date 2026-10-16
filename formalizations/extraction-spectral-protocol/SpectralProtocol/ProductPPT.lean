@@ -13,6 +13,16 @@ variable {ai bi ao bo κ η : Type*}
 def conjugateMatrix (B : Matrix bo bi ℂ) : Matrix bo bi ℂ :=
   fun i j => star (B i j)
 
+/-- Complex conjugation preserves the actual local trace-preservation equation. -/
+theorem conjugateMatrix_complete
+    (A : κ → Matrix ao ai ℂ) (hA : ∑ j, (A j)ᴴ * A j = 1) :
+    ∑ j, (conjugateMatrix (A j))ᴴ * conjugateMatrix (A j) = 1 := by
+  ext p q
+  have h := congrArg (fun M : Matrix ai ai ℂ => star (M p q)) hA
+  simpa only [Matrix.sum_apply, Matrix.mul_apply, Matrix.conjTranspose_apply,
+    conjugateMatrix, star_sum, star_mul, star_star, Matrix.one_apply,
+    apply_ite, star_one, star_zero, mul_comm] using h
+
 /-- Exact matrix-entry identity, valid on every complex input, not only states. -/
 theorem product_congruence_partialTranspose
     (A : Matrix ao ai ℂ) (B : Matrix bo bi ℂ)
