@@ -55,7 +55,44 @@ run_cmd (ExtractionSpectrumVerification.replayAndCorrupt [
   ``ExtractionSpectrum.tensorMatrix_diagonal,
   ``ExtractionSpectrum.tensorMatrix_spectral,
   ``ExtractionSpectrum.tensorMatrix_density,
-  ``ExtractionSpectrum.tensorMatrix_effect_information_bound
+  ``ExtractionSpectrum.tensorMatrix_effect_information_bound,
+  ``ExtractionSpectrum.entropy_eq_neg_sum,
+  ``ExtractionSpectrum.divergence_self,
+  ``ExtractionSpectrum.divergence_nonneg,
+  ``ExtractionSpectrum.partition_pos,
+  ``ExtractionSpectrum.escort_pos,
+  ``ExtractionSpectrum.escort_sum,
+  ``ExtractionSpectrum.escort_one,
+  ``ExtractionSpectrum.escort_divergence_identity,
+  ``ExtractionSpectrum.escort_variational_lower,
+  ``ExtractionSpectrum.escort_continuous,
+  ``ExtractionSpectrum.escort_entropy_continuous,
+  ``ExtractionSpectrum.dualObjective_one,
+  ``ExtractionSpectrum.escort_primal_dual_of_entropy_eq,
+  ``ExtractionSpectrum.escort_primal_dual_at_two,
+  ``ExtractionSpectrum.escort_variational_attainment,
+  ``ExtractionSpectrum.escort_variational_certificate,
+  ``ExtractionSpectrum.escort_variational_identity,
+  ``ExtractionSpectrum.dualObjective_eq_renyi,
+  ``ExtractionSpectrum.escort_renyi_variational_identity,
+  ``ExtractionSpectrum.positiveSupport_sum,
+  ``ExtractionSpectrum.positiveSupport_nonempty,
+  ``ExtractionSpectrum.supportLaw_sum,
+  ``ExtractionSpectrum.supportLaw_entropy,
+  ``ExtractionSpectrum.supportLaw_renyi,
+  ``ExtractionSpectrum.nonnegative_escort_renyi_variational_identity,
+  ``ExtractionSpectrum.density_escort_renyi_variational_identity,
+  ``ExtractionSpectrum.escort_zero,
+  ``ExtractionSpectrum.escort_zero_entropy,
+  ``ExtractionSpectrum.direct_variational_lower,
+  ``ExtractionSpectrum.escort_direct_eq,
+  ``ExtractionSpectrum.strict_direct_escort_exists,
+  ``ExtractionSpectrum.strict_direct_variational_certificate,
+  ``ExtractionSpectrum.directDualObjective_eq_renyi,
+  ``ExtractionSpectrum.strict_direct_renyi_variational_identity,
+  ``ExtractionSpectrum.nonnegative_strict_direct_renyi_variational_identity,
+  ``ExtractionSpectrum.density_positiveSupport_card_eq_rank,
+  ``ExtractionSpectrum.density_strict_direct_renyi_variational_identity
 ] "verification/spectrum-kernel")
 
 run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum.kraus_tensor_gaussian_converse "verification/spectrum-control-1"
@@ -73,3 +110,7 @@ run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum
 run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum.finite_spectrum_bound "verification/spectrum-control-7"
 
 run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum.tensorMatrix_spectral "verification/spectrum-control-8"
+
+run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum.density_escort_renyi_variational_identity "verification/spectrum-control-9"
+
+run_cmd ExtractionSpectrumVerification.rejectCorruptTheorem ``ExtractionSpectrum.density_strict_direct_renyi_variational_identity "verification/spectrum-control-10"

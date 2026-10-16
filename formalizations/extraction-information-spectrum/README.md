@@ -30,11 +30,17 @@ varentropy. The channel notion is the original finite Kraus channel with complet
 and physical transpose-conjugate positivity; no output fidelity, tail probability,
 LLN, CLT or tensor-spectrum conclusion is an input hypothesis.
 
+- `Spectrum.Variational`: Gibbs nonnegativity and the exact escort change of law;
+  attained infimum/supremum certificates for both the alpha-in-[1,2] fidelity-exponent
+  scalar identity and the alpha-in-(0,1) strict-direct scalar identity. Escort
+  interpolation is proved by continuity and the intermediate value theorem.
+  Positive-support reduction and rank are connected to actual singular densities.
+
 ## Exact limits of this scope
 
 This package does not claim universal Schur--Weyl lower bounds, complete capacity
-achievability, the sharp Renyi/relative-entropy exponent identity, strict-direct
-reliability, Berry--Esseen constants, Haar averages, unknown-support minimax asymptotics,
+achievability, the full operational fidelity exponent or reliability theorem,
+Berry--Esseen constants, Haar averages, unknown-support minimax asymptotics,
 or circuit synthesis. It formalizes the converse and the actual iid probability bridge.
 It does not identify abstract CP maps with a finite Kraus presentation.
 
