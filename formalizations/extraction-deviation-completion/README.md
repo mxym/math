@@ -28,7 +28,17 @@ assume monotonicity of the common protocol in its target, a probability limit,
 or existence of a maximizing channel. Its hypotheses are a fixed actual
 density, positive varentropy, `0<C<log m`, `C<log n`, and `0<ε<1`.
 
+`Deviation.JointTypical` and `PrefixTail` prove a joint-log-likelihood change of
+measure from actual finite iid laws. `EntropyPerturbation` proves approximation
+of the entropy-constrained divergence infimum from the strict entropy side by
+mixing with the uniform law on the positive support. `Deviation.Reliability`
+therefore proves matching source-subset tail estimates at every moving rate
+`c_k → c` with `H(p)<c<log |supp(p)|`, allowing singular spectra. The converse
+holds uniformly over every subset of size at most `exp(k c_k)`; an explicit
+low-empirical-entropy subset proves the other direction. A density-matrix
+endpoint identifies the support-size boundary with the true matrix rank.
+
 The present stage has ordinary Lean compilation evidence only. A finite-block
 Berry--Esseen theorem, its required smoothing analysis, triangular-array bounds,
-and the operational reliability converse remain work in progress. Earlier
+and the final physical reliability exponent require further work. Earlier
 independent audits do not automatically cover this separate source scope.
