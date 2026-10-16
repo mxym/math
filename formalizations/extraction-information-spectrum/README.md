@@ -1,4 +1,4 @@
-# Actual information-spectrum and iid limit theorems
+# Actual information-spectrum, iid limits and Renyi converses
 
 This is a new, separately bounded Lean scope for the October 2026 extraction manuscript.
 It does not change or enlarge the original 83-root finite-core audit, the 11-root local-cap
@@ -36,12 +36,21 @@ LLN, CLT or tensor-spectrum conclusion is an input hypothesis.
   interpolation is proved by continuity and the intermediate value theorem.
   Positive-support reduction and rank are connected to actual singular densities.
 
+- `Spectrum.Holder`: finite capped Holder interpolation, internally derived matrix
+  effect caps and quadratic budgets, physical one-copy and iid Renyi moment bounds,
+  exact tensor moment multiplication, and the optimized variational exponential
+  converse `kraus_tensor_variational_exponential_converse`. For every positive eta,
+  actual channel fidelity is eventually at most `exp(-n*(E_p(log(mn)-2R)-eta))`,
+  where `E_p(c)=inf_q [D(q||p)+(H(q)-c)_+/2]` on the actual positive eigensupport.
+  The endpoint alpha=1 follows from the physical unit effect cap. This formulation
+  remains valid when an individual fidelity is zero.
+
 ## Exact limits of this scope
 
 This package does not claim universal Schur--Weyl lower bounds, complete capacity
-achievability, the full operational fidelity exponent or reliability theorem,
+achievability, a matching operational fidelity-exponent lower bound or reliability theorem,
 Berry--Esseen constants, Haar averages, unknown-support minimax asymptotics,
-or circuit synthesis. It formalizes the converse and the actual iid probability bridge.
+or circuit synthesis. It formalizes the converse, optimized exponential upper bound, scalar variational identities, and actual iid probability bridge.
 It does not identify abstract CP maps with a finite Kraus presentation.
 
 ## Reproduce

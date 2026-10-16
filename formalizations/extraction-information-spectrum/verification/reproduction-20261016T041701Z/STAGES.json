@@ -1,0 +1,58 @@
+[
+  {
+    "stage": "toolchain",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 0.566,
+    "log": "toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+  },
+  {
+    "stage": "build",
+    "command": [
+      "lake",
+      "build",
+      "Spectrum",
+      "SpectrumVerification"
+    ],
+    "exit_code": 0,
+    "seconds": 11.252,
+    "log": "build.log",
+    "sha256": "e02df728f1c1593b033cfd53b63718adec7eded75284ebc4a62664f4a981f31c"
+  },
+  {
+    "stage": "types-and-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M9000",
+      "Check.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 1.971,
+    "log": "types-and-axioms.log",
+    "sha256": "29a7c492aa95f8c645eb52f1a201222a5537bf578e60a0bccbfca01f46b773b6"
+  },
+  {
+    "stage": "kernel",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M9000",
+      "Audit.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 375.041,
+    "log": "kernel.log",
+    "sha256": "afc8162580666a02fbabfa80b9a2032835bd74940bbbbd6aa1a3f272c3c215e2"
+  }
+]

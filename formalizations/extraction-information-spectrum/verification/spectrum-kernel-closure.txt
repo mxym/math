@@ -4637,6 +4637,9 @@ CoheytingAlgebra.toGeneralizedCoheytingAlgebra
 CoheytingAlgebra.toHNot
 CoheytingAlgebra.toOrderTop
 CoheytingAlgebra.top_sdiff
+CommCStarAlgebra
+CommCStarAlgebra.mk
+CommCStarAlgebra.toNormedCommRing
 CommGroup
 CommGroup.mk
 CommGroup.mul_comm
@@ -10145,6 +10148,7 @@ Extraction.krausApply_posSemidef
 Extraction.krausApply_real_smul
 Extraction.krausApply_sub
 Extraction.krausApply_trace_duality
+Extraction.kraus_target_overlap_le_one
 Extraction.one_add_swapMatrix_posSemidef
 Extraction.one_sub_bellProjector_posSemidef
 Extraction.one_sub_bellProjector_posSemidef._abel_1_3
@@ -10187,6 +10191,7 @@ ExtractionSpectrum.density_escort_renyi_variational_identity
 ExtractionSpectrum.density_positiveSupport_card_eq_rank
 ExtractionSpectrum.density_strict_direct_renyi_variational_identity
 ExtractionSpectrum.diagonal_square_le_trace_square
+ExtractionSpectrum.diagonalized_effect_holder_bound
 ExtractionSpectrum.diagonalized_effect_information_bound
 ExtractionSpectrum.diagonalized_effect_spectrum_bound
 ExtractionSpectrum.directDualObjective
@@ -10234,6 +10239,9 @@ ExtractionSpectrum.finiteMeasure_variance
 ExtractionSpectrum.finitePMF
 ExtractionSpectrum.finitePMF._proof_1
 ExtractionSpectrum.finiteVariance
+ExtractionSpectrum.finite_capped_holder_bound
+ExtractionSpectrum.finite_capped_holder_bound._simp_1_1
+ExtractionSpectrum.finite_holder_budget_bound
 ExtractionSpectrum.finite_iid_average_lower_tail
 ExtractionSpectrum.finite_iid_average_upper_tail
 ExtractionSpectrum.finite_iid_centered_cdf
@@ -10244,6 +10252,9 @@ ExtractionSpectrum.gaussianSmoothing
 ExtractionSpectrum.gaussianSmoothing_div_sqrt_tendsto
 ExtractionSpectrum.gaussianSmoothing_div_sqrt_tendsto._simp_1_2
 ExtractionSpectrum.gaussianSmoothing_tendsto
+ExtractionSpectrum.holder_bound_eventually_exponential
+ExtractionSpectrum.holder_moment_eq_exp
+ExtractionSpectrum.holder_variational_eventually_exponential
 ExtractionSpectrum.iidInformationEvent
 ExtractionSpectrum.iidInformationEvent_eq_measure
 ExtractionSpectrum.iidInformationEvent_gaussian
@@ -10255,6 +10266,7 @@ ExtractionSpectrum.iidInformationEvent_mono
 ExtractionSpectrum.iidLaw
 ExtractionSpectrum.iidLaw.eq_1
 ExtractionSpectrum.iidLaw_nonneg
+ExtractionSpectrum.iidLaw_partition
 ExtractionSpectrum.iidLaw_sum
 ExtractionSpectrum.iidMeasure
 ExtractionSpectrum.iidMeasure_isProbabilityMeasure
@@ -10266,15 +10278,22 @@ ExtractionSpectrum.informationMass_iidLaw
 ExtractionSpectrum.informationMass_reindex
 ExtractionSpectrum.information_bound_limsup_gaussian
 ExtractionSpectrum.information_bound_tendsto_zero
+ExtractionSpectrum.kraus_target_holder_bound
 ExtractionSpectrum.kraus_target_information_bound
 ExtractionSpectrum.kraus_tensor_entropy_strong_converse
+ExtractionSpectrum.kraus_tensor_exponential_converse
 ExtractionSpectrum.kraus_tensor_gaussian_converse
+ExtractionSpectrum.kraus_tensor_holder_bound
 ExtractionSpectrum.kraus_tensor_information_bound
 ExtractionSpectrum.kraus_tensor_rate_strong_converse
+ExtractionSpectrum.kraus_tensor_variational_exponential_converse
 ExtractionSpectrum.nonnegative_escort_renyi_variational_identity
 ExtractionSpectrum.nonnegative_strict_direct_renyi_variational_identity
+ExtractionSpectrum.nonnegative_variational_dual_attainment
 ExtractionSpectrum.partition
 ExtractionSpectrum.partition_pos
+ExtractionSpectrum.partition_pos_of_normalized
+ExtractionSpectrum.partition_reindex
 ExtractionSpectrum.positiveSupport_nonempty
 ExtractionSpectrum.positiveSupport_sum
 ExtractionSpectrum.primalObjective
@@ -10292,6 +10311,7 @@ ExtractionSpectrum.supportLaw_entropy
 ExtractionSpectrum.supportLaw_renyi
 ExtractionSpectrum.supportLaw_sum
 ExtractionSpectrum.tensorFidelity
+ExtractionSpectrum.tensorFidelity_le_one
 ExtractionSpectrum.tensorFidelity_nonneg
 ExtractionSpectrum.tensorMatrix
 ExtractionSpectrum.tensorMatrix_conjTranspose
@@ -13299,6 +13319,8 @@ Finset.sum_pair
 Finset.sum_pi_single
 Finset.sum_pi_single'
 Finset.sum_pos
+Finset.sum_pos'
+Finset.sum_pos_iff_of_nonneg
 Finset.sum_pow'
 Finset.sum_pow_mul_eq_add_pow
 Finset.sum_powerset_insert
@@ -29710,6 +29732,7 @@ NNReal.HolderTriple.rec
 NNReal.HolderTriple.right_pos
 NNReal.HolderTriple.symm
 NNReal.Lp_add_le
+NNReal.Lr_rpow_le_Lp_mul_Lq
 NNReal.abs_eq
 NNReal.addLeftMono
 NNReal.addLeftReflectLT
@@ -29735,6 +29758,7 @@ NNReal.coe_le_coe
 NNReal.coe_le_coe._simp_1
 NNReal.coe_le_one
 NNReal.coe_le_one._simp_1
+NNReal.coe_list_prod
 NNReal.coe_lt_coe
 NNReal.coe_lt_coe._gcongr_2
 NNReal.coe_lt_coe._simp_1
@@ -29960,6 +29984,7 @@ NNReal.le_add_nndist
 NNReal.le_iInf_add_iInf
 NNReal.limsSup_of_not_isBounded
 NNReal.limsup_of_not_isBoundedUnder
+NNReal.list_prod_map_rpow
 NNReal.lt_iff_exists_rat_btwn
 NNReal.map_coe_atTop
 NNReal.measurableSpace
@@ -29991,6 +30016,7 @@ NNReal.powOrderIso._proof_2
 NNReal.powOrderIso._proof_3
 NNReal.rpow
 NNReal.rpow._proof_1
+NNReal.rpowMonoidHom
 NNReal.rpow_add
 NNReal.rpow_arith_mean_le_arith_mean_rpow
 NNReal.rpow_eq_zero_iff
@@ -36561,6 +36587,7 @@ Real.HolderConjugate.symm
 Real.HolderConjugate.toNNReal
 Real.HolderTriple
 Real.HolderTriple.casesOn
+Real.HolderTriple.holderConjugate_div_div
 Real.HolderTriple.inv_add_inv_eq_inv
 Real.HolderTriple.inv_eq
 Real.HolderTriple.inv_lt_inv
@@ -36571,6 +36598,7 @@ Real.HolderTriple.left_pos
 Real.HolderTriple.lt
 Real.HolderTriple.mk
 Real.HolderTriple.ne_zero
+Real.HolderTriple.ne_zero'
 Real.HolderTriple.nonneg
 Real.HolderTriple.nonneg'
 Real.HolderTriple.one_div_pos
@@ -36580,6 +36608,7 @@ Real.HolderTriple.rec
 Real.HolderTriple.right_pos
 Real.HolderTriple.symm
 Real.HolderTriple.toNNReal
+Real.Lr_rpow_le_Lp_mul_Lq
 Real.abs_cos_le_one
 Real.abs_exp
 Real.abs_le_sqrt
@@ -36791,6 +36820,7 @@ Real.finiteSpanningSetsInIooRat
 Real.finiteSpanningSetsInIooRat._proof_1
 Real.finiteSpanningSetsInIooRat._proof_2
 Real.finiteSpanningSetsInIooRat._proof_3
+Real.finsetProd_rpow
 Real.fourierChar
 Real.fourierChar._proof_1
 Real.fourierChar._proof_2
@@ -36825,6 +36855,8 @@ Real.iInf_mul_of_nonneg
 Real.iSup_nonneg
 Real.ind_mk
 Real.injOn_sin
+Real.inner_le_Lp_mul_Lq
+Real.inner_le_Lp_mul_Lq_of_nonneg
 Real.instAdd
 Real.instAddCommGroup
 Real.instAddCommMonoid
@@ -36912,6 +36944,7 @@ Real.instRing
 Real.instSemigroup
 Real.instSemilatticeInf
 Real.instSemilatticeSup
+Real.instStarOrderedRing
 Real.instSub
 Real.instSupSet
 Real.instSupSet._proof_1
@@ -36941,6 +36974,8 @@ Real.limsup_of_not_isBoundedUnder
 Real.linearOrder
 Real.lipschitzWith_one_mulExpNegMulSq
 Real.lipschitzWith_toNNReal
+Real.list_prod_map_rpow
+Real.list_prod_map_rpow'
 Real.locallyFinite_volume
 Real.log
 Real.log._proof_1
@@ -37010,6 +37045,7 @@ Real.mulExpNegMulSq_one_le_one
 Real.mul_iInf_of_nonneg
 Real.mul_rpow
 Real.mul_self_sqrt
+Real.multiset_prod_map_rpow
 Real.neg_mulExpNegMulSq_neg
 Real.neg_one_le_mulExpNegMulSq_one
 Real.neg_one_le_sin
@@ -37138,6 +37174,8 @@ Real.rpow_le_one
 Real.rpow_le_rpow
 Real.rpow_le_rpow_iff
 Real.rpow_le_rpow_of_exponent_ge
+Real.rpow_le_rpow_of_exponent_ge'
+Real.rpow_le_rpow_of_exponent_ge_of_imp
 Real.rpow_le_rpow_of_exponent_le
 Real.rpow_lt_rpow
 Real.rpow_lt_rpow_iff
@@ -37336,6 +37374,7 @@ Real.wrapped._@.Mathlib.Basic.Real.Basic.6358291._hygCtx._hyg.2
 Real.young_inequality_of_nonneg
 Real.zero_lt_one
 Real.zero_rpow
+Real.zero_rpow_nonneg
 RealRMK.exists_open_approx
 RealRMK.instIsFiniteMeasureRieszMeasure
 RealRMK.integral_rieszMeasure
@@ -47348,6 +47387,8 @@ _private.Mathlib.Analysis.Matrix.PosDef.0.Matrix.IsHermitian.posSemidef_iff_eige
 _private.Mathlib.Analysis.Matrix.Spectrum.0.Matrix.IsHermitian.conjStarAlgAut_star_eigenvectorUnitary._simp_1_1
 _private.Mathlib.Analysis.Matrix.Spectrum.0.Matrix.IsHermitian.roots_charpoly_eq_eigenvalues._simp_1_2
 _private.Mathlib.Analysis.Matrix.Spectrum.0.Matrix.IsHermitian.roots_charpoly_eq_eigenvalues._simp_1_3
+_private.Mathlib.Analysis.MeanInequalities.0.NNReal.Lr_rpow_le_Lp_mul_Lq._simp_1_1
+_private.Mathlib.Analysis.MeanInequalities.0.NNReal.Lr_rpow_le_Lp_mul_Lq._simp_1_2
 _private.Mathlib.Analysis.MeanInequalities.0.NNReal.inner_le_Lp_mul_Lp_of_norm_eq_zero
 _private.Mathlib.Analysis.MeanInequalities.0.NNReal.inner_le_Lp_mul_Lp_of_norm_eq_zero._simp_1_1
 _private.Mathlib.Analysis.MeanInequalities.0.NNReal.inner_le_Lp_mul_Lp_of_norm_eq_zero._simp_1_2
@@ -47361,6 +47402,8 @@ _private.Mathlib.Analysis.MeanInequalities.0.NNReal.isGreatest_Lp._simp_1_1
 _private.Mathlib.Analysis.MeanInequalities.0.NNReal.isGreatest_Lp._simp_1_2
 _private.Mathlib.Analysis.MeanInequalities.0.NNReal.isGreatest_Lp._simp_1_3
 _private.Mathlib.Analysis.MeanInequalities.0.NNReal.isGreatest_Lp._simp_1_4
+_private.Mathlib.Analysis.MeanInequalities.0.Real.inner_le_Lp_mul_Lq._simp_1_1
+_private.Mathlib.Analysis.MeanInequalities.0.Real.inner_le_Lp_mul_Lq._simp_1_2
 _private.Mathlib.Analysis.MeanInequalities.0.Real.young_inequality_of_nonneg._simp_1_1
 _private.Mathlib.Analysis.MeanInequalitiesPow.0.ENNReal.rpow_add_le_mul_rpow_add_rpow._simp_1_1
 _private.Mathlib.Analysis.MeanInequalitiesPow.0.ENNReal.rpow_arith_mean_le_arith_mean_rpow._proof_1_2
@@ -47932,6 +47975,7 @@ _private.Mathlib.Basic.Real.Basic.0.Real.wrapped._proof_1._@.Mathlib.Basic.Real.
 _private.Mathlib.Basic.Real.Basic.0.Real.zero
 _private.Mathlib.Basic.Real.Basic.0.Real.zero_def
 _private.Mathlib.Basic.Real.ConjExponents.0.Real.HolderConjugate.mul_eq_add._simp_1_1
+_private.Mathlib.Basic.Real.ConjExponents.0.Real.HolderTriple.holderConjugate_div_div._simp_1_1
 _private.Mathlib.Basic.Real.ConjExponents.0.Real.HolderTriple.toNNReal._simp_1_1
 _private.Mathlib.Basic.Rel.0.Monotone.relComp.match_1_1
 _private.Mathlib.Basic.Rel.0.Monotone.relComp.match_1_3
@@ -55460,6 +55504,8 @@ instClosedIciTopology
 instClosedIciTopologyOrderDual
 instClosedIicTopology
 instClosedIicTopologyOrderDual
+instCommCStarAlgebraComplex
+instCommCStarAlgebraComplex._proof_1
 instCommSemiringENat
 instCommSemiringENat._aux_2
 instCommSemiringENat._aux_7
