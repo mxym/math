@@ -70,6 +70,23 @@ truncated Fourier integral bound `∫_{-R}^R |φ_k-G|/|t| ≤ 5 β_k C₂` at
 `R=(16 β_k)⁻¹`. The absolute constant `C₂=∫ t² exp(-t²/8) dt` is internally
 proved finite and is independent of the law, alphabet, variance, and block.
 
+`NoiseSmoothing` proves the real-space smoothing inequality for the actual
+uniform CDF discrepancy. A monotone CDF, a comparison CDF with Lipschitz
+constant `M`, and any probability noise of finite first moment satisfy
+`D ≤ (δ + M(a + E|Y|))/(1-2η)`, where `δ` bounds the explicitly defined
+convolution discrepancy and each one-sided noise tail is at most `η<1/2`.
+The discrepancy `D` is the actual supremum, and its initial bound is proved
+internally. First-moment estimates derive the noise tails internally as well.
+The actual finite-law/Gaussian instance uses `M=1/sqrt(2π)`.
+
+`SincKernel` constructs an actual probability measure with density proportional
+to `sinc(x)^4`, proves its positive finite normalization and finite absolute
+first moment, and gives a common integrable majorant for both. `NoiseScaling`
+proves the exact moment scaling for the image under `x ↦ x/R` and derives the
+Gaussian smoothing estimate `D≤2δ+C/R` with a fixed finite constant from this
+constructed noise. Compact Fourier support of the kernel and the Fourier
+inversion estimate for `δ` remain unproved.
+
 The present stage has ordinary Lean compilation evidence only. A finite-block
 Berry--Esseen CDF rate still requires the Esseen Fourier smoothing inequality;
 the proved qualitative triangular approximation is not a substitute for that
