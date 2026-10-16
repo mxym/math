@@ -23,6 +23,11 @@ The actual matrix results proved here include:
   complex span of genuine one-copy matrix tensor powers. This centralizer has
   dimension `choose(D²+k−1,k)`. The proof uses actual occupation fibers and
   polynomial evaluation, rather than an assumed Schur decomposition.
+- The reverse centralizer identity: commuting with every genuine tensor unitary
+  is equivalent to membership in the span of genuine copy-permutation matrices.
+  Its finite-dimensional bicommutant proof, singular polar factorization, and
+  finite Fourier phase interpolation are internal. Thus the unclassified mutual
+  centralizer form of Schur–Weyl is now proved on the original coordinates.
 - Explicit cross-Weyl products, their lower bound one, and the polynomial exponent
   and leading constant along every sequence of normalized row lengths converging
   to the uniform vector. The reciprocal pointwise limit is also proved.

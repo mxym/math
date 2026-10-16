@@ -10,9 +10,15 @@ import SchurCompletion
 #check ExtractionSchur.weylProduct_ratio_padRows
 #check ExtractionSchur.weylCrossRatio_uniform_limit
 #check ExtractionSchur.weylCrossRatio_reciprocal_uniform_limit
+#check ExtractionSchur.unitaryTensorSpan_eq_tensorPowerSpan
+#check ExtractionSchur.mem_matrix_bicommutant
+#check ExtractionSchur.mem_permutationSpan_iff_commutes_unitaryTensor
 
 #print axioms ExtractionSchur.haarOrbitAverage_range
 #print axioms ExtractionSchur.haarOrbitAverage_trace_square
 #print axioms ExtractionSchur.mem_tensorPowerSpan_iff_commutes
 #print axioms ExtractionSchur.weylProduct_ratio_padRows
 #print axioms ExtractionSchur.weylCrossRatio_uniform_limit
+#print axioms ExtractionSchur.unitaryTensorSpan_eq_tensorPowerSpan
+#print axioms ExtractionSchur.mem_matrix_bicommutant
+#print axioms ExtractionSchur.mem_permutationSpan_iff_commutes_unitaryTensor

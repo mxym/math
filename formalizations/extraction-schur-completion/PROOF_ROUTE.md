@@ -9,6 +9,13 @@ with zero-based indices. The shifts are all positive. The new Lean product uses
 exactly these shifts. The actual coordinate Haar average and its exact support
 are now derived internally, including singular densities and blocklength zero.
 
+The actual mutual centralizer statement is also proved. A finite Fourier phase
+frame gives the diagonal tensor powers from unitary tensor powers; singular
+polar factorization extends this to all matrix tensor powers. The reverse
+centralizer follows from an internal finite-dimensional bicommutant proof using
+orthogonal projection on the vectorized matrix algebra and amplification.
+This does not yet label irreducibles or establish the Weyl dimension formula.
+
 The remaining representation-theoretic bridge must prove, for actual tensor
 matrices, that on each shape with at most `s` rows the average eigenvalue is
 `u_shape(s)/(s^k u_shape(D))` with multiplicity `u_shape(D) v_shape`. It must also

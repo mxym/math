@@ -6,3 +6,7 @@ import SchurCompletion.TensorCommutant
 import SchurCompletion.PermutationAction
 import SchurCompletion.WeylCrossRatio
 import SchurCompletion.WeylProduct
+import SchurCompletion.GramUnitary
+import SchurCompletion.UnitaryTensorSpan
+import SchurCompletion.FiniteBicommutant
+import SchurCompletion.SchurWeylCentralizers
