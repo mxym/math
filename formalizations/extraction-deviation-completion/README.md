@@ -38,6 +38,12 @@ holds uniformly over every subset of size at most `exp(k c_k)`; an explicit
 low-empirical-entropy subset proves the other direction. A density-matrix
 endpoint identifies the support-size boundary with the true matrix rank.
 
+`Deviation.PrimalPerturbation` proves that every positive-support primal
+variational optimum has arbitrarily close feasible trials with entropy strictly
+below the full alphabet maximum, including the flat full-rank input. Its proof
+uses the strict Gibbs inequality and a small point-mass mixture only at the
+uniform endpoint.
+
 The present stage has ordinary Lean compilation evidence only. A finite-block
 Berry--Esseen theorem, its required smoothing analysis, triangular-array bounds,
 and the final physical reliability exponent require further work. Earlier
