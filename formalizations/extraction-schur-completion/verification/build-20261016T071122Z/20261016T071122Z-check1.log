@@ -1,0 +1,35 @@
+{"cwd": "/mnt/lean-research-d/worktrees/extraction-lean-schur-20261016/formalizations/extraction-schur-completion", "args": ["env", "lean", "Check.lean"], "storage": "D-backed"}
+ExtractionSchur.unitaryHaar (D : ℕ) : MeasureTheory.Measure ↥(ExtractionSchur.OneCopyUnitary D)
+ExtractionSchur.haarOrbitAverage_density (D k : ℕ) (X : Matrix (Fin D) (Fin D) ℂ) (hX : X.PosSemidef ∧ X.trace = 1) :
+  (ExtractionSchur.haarOrbitAverage D k X).PosSemidef ∧ (ExtractionSchur.haarOrbitAverage D k X).trace = 1
+ExtractionSchur.haarOrbitAverage_range (D k : ℕ) (X : Matrix (Fin D) (Fin D) ℂ) (hX : X.PosSemidef ∧ X.trace = 1) :
+  (ExtractionSchur.haarOrbitAverage D k X).mulVecLin.range = ExtractionRankSupport.rankBudgetSpace D k X.rank
+ExtractionSchur.flatHaarAverage_rank (D s k : ℕ) (hs : 0 < s) (hsD : s ≤ D) :
+  (ExtractionSchur.flatHaarAverage D s k hsD).rank = (ExtractionRankSupport.rankBudgetProjector D k s).rank
+ExtractionSchur.haarOrbitAverage_trace_square (D k : ℕ) (X : Matrix (Fin D) (Fin D) ℂ) :
+  (ExtractionSchur.haarOrbitAverage D k X * ExtractionSchur.haarOrbitAverage D k X).trace =
+    ∫ (U : ↥(ExtractionSchur.OneCopyUnitary D)),
+      (X * (↑U * X * (↑U).conjTranspose)).trace ^ k ∂ExtractionSchur.unitaryHaar D
+ExtractionSchur.mem_tensorPowerSpan_iff_commutes (D k : ℕ)
+  (M : Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) ℂ) :
+  M ∈ ExtractionSchur.tensorPowerSpan D k ↔
+    ∀ (σ : Equiv.Perm (Fin k)),
+      ExtractionSchur.copyPermutationMatrix D k σ * M = M * ExtractionSchur.copyPermutationMatrix D k σ
+ExtractionSchur.tensorPowerSpan_finrank (D k : ℕ) :
+  Module.finrank ℂ ↥(ExtractionSchur.tensorPowerSpan D k) = (D * D + k - 1).choose k
+ExtractionSchur.weylProduct_ratio_padRows (s t : ℕ) (rows : Fin s → ℕ) (hrows : Antitone rows) :
+  ExtractionSchur.weylProduct (s + t) (ExtractionSchur.padRows s t rows) / ExtractionSchur.weylProduct s rows =
+    ExtractionSchur.weylCrossRatio s t rows
+ExtractionSchur.weylCrossRatio_uniform_limit (s t : ℕ) (rows : ℕ → Fin s → ℕ)
+  (hrows : ∀ (i : Fin s), Filter.Tendsto (fun k => ↑(rows k i) / ↑k) Filter.atTop (nhds (↑s)⁻¹)) :
+  Filter.Tendsto (fun k => ExtractionSchur.weylCrossRatio s t (rows k) / ↑k ^ (s * t)) Filter.atTop
+    (nhds (ExtractionSchur.sharpSupportConstant s t))
+ExtractionSchur.weylCrossRatio_reciprocal_uniform_limit (s t : ℕ) (hs : 0 < s) (rows : ℕ → Fin s → ℕ)
+  (hrows : ∀ (i : Fin s), Filter.Tendsto (fun k => ↑(rows k i) / ↑k) Filter.atTop (nhds (↑s)⁻¹)) :
+  Filter.Tendsto (fun k => ↑k ^ (s * t) / ExtractionSchur.weylCrossRatio s t (rows k)) Filter.atTop
+    (nhds (ExtractionSchur.sharpSupportConstant s t)⁻¹)
+'ExtractionSchur.haarOrbitAverage_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.haarOrbitAverage_trace_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.mem_tensorPowerSpan_iff_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.weylProduct_ratio_padRows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.weylCrossRatio_uniform_limit' depends on axioms: [propext, Classical.choice, Quot.sound]

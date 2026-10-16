@@ -1,0 +1,18 @@
+import SchurCompletion
+
+#check ExtractionSchur.unitaryHaar
+#check ExtractionSchur.haarOrbitAverage_density
+#check ExtractionSchur.haarOrbitAverage_range
+#check ExtractionSchur.flatHaarAverage_rank
+#check ExtractionSchur.haarOrbitAverage_trace_square
+#check ExtractionSchur.mem_tensorPowerSpan_iff_commutes
+#check ExtractionSchur.tensorPowerSpan_finrank
+#check ExtractionSchur.weylProduct_ratio_padRows
+#check ExtractionSchur.weylCrossRatio_uniform_limit
+#check ExtractionSchur.weylCrossRatio_reciprocal_uniform_limit
+
+#print axioms ExtractionSchur.haarOrbitAverage_range
+#print axioms ExtractionSchur.haarOrbitAverage_trace_square
+#print axioms ExtractionSchur.mem_tensorPowerSpan_iff_commutes
+#print axioms ExtractionSchur.weylProduct_ratio_padRows
+#print axioms ExtractionSchur.weylCrossRatio_uniform_limit
