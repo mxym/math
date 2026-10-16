@@ -26,3 +26,24 @@ import SpectralProtocol
 #print axioms SpectralProtocol.actual_effect_diagonal_data
 #check SpectralProtocol.harmonic_prefix_comparison
 #print axioms SpectralProtocol.harmonic_prefix_comparison
+
+#check SpectralProtocol.finite_multisector_uniform_baseline_lower
+#print axioms SpectralProtocol.finite_multisector_uniform_baseline_lower
+
+#check SpectralProtocol.bellTarget_twoPow_reindex
+#print axioms SpectralProtocol.bellTarget_twoPow_reindex
+
+#check SpectralProtocol.exists_joint_unitary_between_orthogonal_isometries
+#print axioms SpectralProtocol.exists_joint_unitary_between_orthogonal_isometries
+
+#check SpectralProtocol.productSectorKraus_encoded
+#print axioms SpectralProtocol.productSectorKraus_encoded
+
+#check SpectralProtocol.exists_common_multisector_decoder
+#print axioms SpectralProtocol.exists_common_multisector_decoder
+
+#check SpectralProtocol.finite_multisector_projection_mass_lower
+#print axioms SpectralProtocol.finite_multisector_projection_mass_lower
+
+#check SpectralProtocol.local_half_mix_fidelity_bounds
+#print axioms SpectralProtocol.local_half_mix_fidelity_bounds

@@ -88,6 +88,7 @@ def main():
         if output.exists():shutil.rmtree(output)
     out=ROOT/'verification'/('reproduction-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ'))
     out.mkdir(parents=True,exist_ok=False);records=[]
+    shutil.copy2(ROOT/'SOURCE_HASHES.json',out/'SOURCE_HASHES.json')
     def stage(name,cmd,limit):
         log=out/(name+'.log');start=time.monotonic()
         with log.open('w') as f:
@@ -109,7 +110,7 @@ def main():
     if not axioms<=ALLOWED_AXIOMS: raise RuntimeError('Unexpected kernel axioms')
     for p in (ROOT/'verification').glob('protocol-*.txt'):shutil.copy2(p,out/p.name)
     check()
-    result=dict(status='PASS',scope='Actual finite product-PPT bridge and convention equivalence; original-space spectral prefix lower and support-mass extraction; actual pure-iid integer Bell optimum and real-floor identity; normalized pure-iid adversarial average and finite physical upper/lower bounds; local sector Kraus semantics. No full Schur, universal mixed-state rate limits, Haar rank-s law, gate synthesis, or full paper certification.',fresh_own_output_build=args.fresh,source_files=len(inventory()),roots=len(math_roots()),kernel_declarations=int(re.search(r'EMPTY_KERNEL_REPLAY_PASS (\d+) declarations',audit).group(1)),kernel_trust=0,axioms=sorted(axioms),same_type_forged_proof_controls=controls,source_manifest_sha256=sha(ROOT/'SOURCE_HASHES.json'),stages=records)
+    result=dict(status='PASS',scope='Literal elementary Bell tensor target; actual joint multiblock unitary and complete local sector decoders with all off-diagonal blocks removed; weighted support-mass and post-unitary local-reset baseline bounds; actual finite product-PPT bridge and convention equivalence; original-space spectral prefix lower and support-mass extraction; actual pure-iid integer Bell optimum and real-floor identity; normalized pure-iid adversarial average and finite physical upper/lower bounds; local sector Kraus semantics and complete multisector protocols. No full Schur, universal mixed-state rate limits, Haar rank-s law, gate synthesis, or full paper certification.',fresh_own_output_build=args.fresh,source_files=len(inventory()),roots=len(math_roots()),kernel_declarations=int(re.search(r'EMPTY_KERNEL_REPLAY_PASS (\d+) declarations',audit).group(1)),kernel_trust=0,axioms=sorted(axioms),same_type_forged_proof_controls=controls,source_manifest_sha256=sha(ROOT/'SOURCE_HASHES.json'),stages=records)
     (out/'SUMMARY.json').write_text(json.dumps(result,indent=2)+'\n')
     (ROOT/'verification/LATEST.json').write_text(json.dumps(dict(directory=out.name,summary_sha256=sha(out/'SUMMARY.json')),indent=2)+'\n')
     print('SPECTRAL_PROTOCOL_REPRODUCTION_PASS',out,flush=True)

@@ -7,3 +7,14 @@ import SpectralProtocol.MassLower
 import SpectralProtocol.SectorKraus
 import SpectralProtocol.GeneralPureGuarantee
 import SpectralProtocol.EnvelopeUpper
+import SpectralProtocol.BellTensor
+import SpectralProtocol.JointIsometry
+import SpectralProtocol.ProductSectors
+import SpectralProtocol.PaddedKraus
+import SpectralProtocol.LocalCode
+import SpectralProtocol.MultisectorDecoder
+import SpectralProtocol.LinearPhysical
+import SpectralProtocol.WeightedBlocks
+import SpectralProtocol.MultisectorMass
+import SpectralProtocol.ResetMixture
+import SpectralProtocol.MultisectorBaseline

@@ -2,7 +2,11 @@ import SpectralProtocol
 import ProtocolVerification.ReplaySupport
 
 run_cmd (ProtocolVerification.replayAndCorrupt [
-  ``SpectralProtocol.oneShotSpectralEnvelope_actual_upper,
+  ``SpectralProtocol.finite_multisector_uniform_baseline_lower,
+  ``SpectralProtocol.bellProjector_entry,
+  ``SpectralProtocol.bellProjector_reindex,
+  ``SpectralProtocol.bellPairTensor_eq_bellProjector,
+  ``SpectralProtocol.bellTarget_twoPow_reindex,
   ``SpectralProtocol.actual_effect_diagonal_data,
   ``SpectralProtocol.spectralPrefixIndices_card,
   ``SpectralProtocol.spectralPrefixIndices_sum,
@@ -10,6 +14,7 @@ run_cmd (ProtocolVerification.replayAndCorrupt [
   ``SpectralProtocol.oneShotSpectralEnvelope_actual_lower,
   ``SpectralProtocol.sorted_diagonal_le_prefixWidth,
   ``SpectralProtocol.actual_effect_harmonic_envelope,
+  ``SpectralProtocol.oneShotSpectralEnvelope_actual_upper,
   ``SpectralProtocol.purePowerProjection_hermitian,
   ``SpectralProtocol.purePowerProjection_idempotent,
   ``SpectralProtocol.purePowerProjection_rank,
@@ -28,17 +33,36 @@ run_cmd (ProtocolVerification.replayAndCorrupt [
   ``SpectralProtocol.integerBellYield_optimal,
   ``SpectralProtocol.integerBellYield_eq_real_floor,
   ``SpectralProtocol.integerBellYield_eq_paper_floor,
+  ``SpectralProtocol.concatenateIsometries_isometry,
+  ``SpectralProtocol.exists_joint_unitary_between_orthogonal_isometries,
+  ``SpectralProtocol.projection_factors_orthogonal,
+  ``SpectralProtocol.physicalChannelLinearMap_posSemidef,
+  ``SpectralProtocol.concatenateIsometries_projection,
+  ``SpectralProtocol.projection_remainder_posSemidef_of_commute,
+  ``SpectralProtocol.exists_packed_isometry_decoder,
   ``SpectralProtocol.effect_fixes_projection_of_exact_support,
   ``SpectralProtocol.effect_sub_projection_posSemidef,
   ``SpectralProtocol.finite_projection_mass_lower,
+  ``SpectralProtocol.exists_common_multisector_decoder,
+  ``SpectralProtocol.finite_multisector_projection_mass_lower,
   ``SpectralProtocol.integer_floor_product_feasible,
   ``SpectralProtocol.exists_quarter_packing,
   ``SpectralProtocol.prefixWidth_feasible,
   ``SpectralProtocol.spectral_subset_quarter_lower,
+  ``SpectralProtocol.extendByZero_apply,
+  ``SpectralProtocol.extendByZero_outside,
+  ``SpectralProtocol.sum_extendByZero,
+  ``SpectralProtocol.extendByZero_kraus_complete,
+  ``SpectralProtocol.extendByZero_krausApply,
+  ``SpectralProtocol.productKraus_extendByZero,
   ``SpectralProtocol.conjugateMatrix_complete,
   ``SpectralProtocol.product_congruence_partialTranspose,
   ``SpectralProtocol.product_kraus_partialTranspose,
   ``SpectralProtocol.productKraus_PTConjugatePositive,
+  ``SpectralProtocol.productSectorEmbedding_isometry,
+  ``SpectralProtocol.productSectorKraus_mul_embedding,
+  ``SpectralProtocol.productSectorKraus_encoded,
+  ``SpectralProtocol.productSectorEmbedding_cross,
   ``SpectralProtocol.projection_trace_eq_rank,
   ``SpectralProtocol.projection_posSemidef,
   ``SpectralProtocol.projectionDensity_density,
@@ -63,6 +87,17 @@ run_cmd (ProtocolVerification.replayAndCorrupt [
   ``SpectralProtocol.pureTwoQubitAverage_purity,
   ``SpectralProtocol.pureTwoQubit_guarantee_le_average,
   ``SpectralProtocol.pure_iid_fidelity_guarantee_upper,
+  ``SpectralProtocol.halfAmplitude_square,
+  ``SpectralProtocol.halfAmplitude_star,
+  ``SpectralProtocol.halfMixKraus_complete,
+  ``SpectralProtocol.krausApply_scaled,
+  ``SpectralProtocol.product_unionKraus_apply,
+  ``SpectralProtocol.product_halfMixKraus_apply,
+  ``SpectralProtocol.resetKraus_complete,
+  ``SpectralProtocol.resetKraus_apply,
+  ``SpectralProtocol.product_resetKraus,
+  ``SpectralProtocol.product_reset_bell_overlap,
+  ``SpectralProtocol.local_half_mix_fidelity_bounds,
   ``SpectralProtocol.antitone_entry_le_prefix_average,
   ``SpectralProtocol.antitone_entry_sq_budget,
   ``SpectralProtocol.harmonic_prefix_comparison,
@@ -71,6 +106,7 @@ run_cmd (ProtocolVerification.replayAndCorrupt [
   ``SpectralProtocol.sectorKraus_mul_embedding,
   ``SpectralProtocol.krausApply_encoded,
   ``SpectralProtocol.sectorKraus_encoded,
+  ``SpectralProtocol.sectorEmbedding_cross,
   ``SpectralProtocol.finite_projection_positive_submatrix_lower,
   ``SpectralProtocol.unitary_conjugation_mul,
   ``SpectralProtocol.spectralProjection_posSemidef,
@@ -86,7 +122,10 @@ run_cmd (ProtocolVerification.replayAndCorrupt [
   ``SpectralProtocol.firstPartialTranspose_transpose,
   ``SpectralProtocol.secondPartialTranspose_transpose,
   ``SpectralProtocol.PTConjugatePositive_iff_second,
-  ``SpectralProtocol.productKraus_secondPTConjugatePositive
+  ``SpectralProtocol.productKraus_secondPTConjugatePositive,
+  ``SpectralProtocol.orthogonal_block_expansion,
+  ``SpectralProtocol.channel_orthogonal_block_sum,
+  ``SpectralProtocol.channel_weighted_block_lower
 ] "verification/protocol-kernel")
 
 run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.purePower_fidelity_guarantee_upper "verification/protocol-control-1"
@@ -101,3 +140,9 @@ run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.PTConjugate
 run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.sectorKraus_encoded "verification/protocol-control-10"
 run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.actual_effect_diagonal_data "verification/protocol-control-11"
 run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.harmonic_prefix_comparison "verification/protocol-control-12"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.bellTarget_twoPow_reindex "verification/protocol-control-13"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.exists_joint_unitary_between_orthogonal_isometries "verification/protocol-control-14"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.productSectorKraus_encoded "verification/protocol-control-15"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.exists_common_multisector_decoder "verification/protocol-control-16"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.finite_multisector_projection_mass_lower "verification/protocol-control-17"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.local_half_mix_fidelity_bounds "verification/protocol-control-18"
