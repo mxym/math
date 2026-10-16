@@ -22,7 +22,7 @@ theorem purePower_smul (D k : ℕ) (c : ℂ) (z : Fin D → ℂ) :
 theorem purePower_zero (D k : ℕ) (hk : 0 < k) :
     purePower D k 0 = 0 := by
   ext w
-  haveI : Nonempty (Fin k) := ⟨⟨0, hk⟩⟩
+  have : Nonempty (Fin k) := ⟨⟨0, hk⟩⟩
   simp [purePower, Nat.ne_of_gt hk]
 
 theorem exists_unitVector_multiple {D : ℕ} (z : Fin D → ℂ) (hz : z ≠ 0) :
@@ -86,7 +86,6 @@ theorem symmetricProjector_range_eq_unitPurePower_span (D k : ℕ) (hD : 0 < D) 
 theorem unitVector_trace (D k : ℕ) (z : Fin D → ℂ) (hz : IsUnitVector z) :
     (purePowerDensity D k z).trace = 1 := by
   apply purePowerDensity_trace_one
-  change ∑ i, z i * star (z i) = 1
   calc
     (∑ i, z i * star (z i)) = ∑ i, (Complex.normSq (z i) : ℂ) := by
       apply Finset.sum_congr rfl
