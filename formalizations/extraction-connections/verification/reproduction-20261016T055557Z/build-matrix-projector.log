@@ -1,0 +1,16 @@
+⚠ [3100/3101] Built MatrixSubspace (18s)
+warning: MatrixSubspace.lean:33:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: MatrixSubspace.lean:17:0: automatically included section variable(s) unused in theorem `MatrixSubspace.exists_subspace_projection`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Build completed successfully (3101 jobs).

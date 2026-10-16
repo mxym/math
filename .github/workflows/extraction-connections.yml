@@ -1,0 +1,68 @@
+name: Extraction connections separate Lean review
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main']
+    paths:
+      - 'formalizations/extraction-connections/**'
+      - 'formalizations/extraction-minimax-profile/**'
+      - 'formalizations/extraction-universal-orbit/**'
+      - 'formalizations/extraction-matrix-projector/**'
+      - 'formalizations/extraction-symmetric-support/**'
+      - 'formalizations/extraction-information-spectrum/**'
+      - 'formalizations/extraction-spectral-protocol/**'
+      - '!formalizations/**/verification/**'
+      - '.github/workflows/extraction-connections.yml'
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      LEAN_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalizations/extraction-connections
+          use-mathlib-cache: 'true'
+          build: 'false'
+          test: 'false'
+      - name: Fresh new-component builds and separate trust-zero replay
+        working-directory: formalizations/extraction-connections
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os,subprocess,sys
+          latest=Path('verification/LATEST.json')
+          previous=json.loads(latest.read_text())['directory'] if latest.exists() else None
+          subprocess.run([sys.executable,'reproduce.py','--fresh'],check=True)
+          current=json.loads(latest.read_text())
+          assert current['directory']!=previous
+          summary=Path('verification')/current['directory']/'SUMMARY.json'
+          assert hashlib.sha256(summary.read_bytes()).hexdigest()==current['summary_sha256']
+          assert json.loads(summary.read_text())['status']=='PASS'
+          context={'source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
+                   'directory':current['directory'],'summary_sha256':current['summary_sha256'],
+                   'source_manifest_sha256':hashlib.sha256(Path('SOURCE_HASHES.json').read_bytes()).hexdigest()}
+          Path('verification/CI_CONTEXT.json').write_text(json.dumps(context,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: extraction-connections-${{ github.sha }}
+          path: |
+            formalizations/extraction-connections/verification/reproduction-*/
+            formalizations/extraction-connections/verification/CI_CONTEXT.json
+            formalizations/extraction-connections/verification/LATEST.json
+            formalizations/extraction-connections/SOURCE_HASHES.json
+            formalizations/extraction-connections/ROOTS.txt
+            formalizations/extraction-connections/ROOT_GROUPS.json
+            formalizations/extraction-connections/CONTROLS.txt
+            formalizations/extraction-connections/Audit.lean
+            formalizations/extraction-connections/Check.lean
+            formalizations/extraction-connections/ConnectionsVerification/
+            formalizations/extraction-connections/reproduce.py
