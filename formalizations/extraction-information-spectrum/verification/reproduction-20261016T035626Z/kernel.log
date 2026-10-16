@@ -1,0 +1,1096 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionSpectrum.kraus_tensor_rate_strong_converse':
+(kernel) declaration type mismatch, 'ExtractionSpectrum.kraus_tensor_rate_strong_converse' has type
+  True
+but it is expected to have type
+  {a : Type u_2} →
+    {b : Type u_3} →
+      [inst : @Fintype a] →
+        [inst_1 : @Fintype b] →
+          [inst_2 : @DecidableEq a] →
+            [inst_3 : @DecidableEq b] →
+              [@Nonempty a] →
+                [@Nonempty b] →
+                  {d : Nat → Type u_4} →
+                    {ν : Nat → Type u_5} →
+                      [inst_6 : (n : Nat) → @Fintype (d n)] →
+                        [inst_7 : (n : Nat) → @DecidableEq (d n)] →
+                          [(n : Nat) → @Nonempty (d n)] →
+                            [inst_9 : (n : Nat) → @Fintype (ν n)] →
+                              (X : @Matrix (@Prod a b) (@Prod a b) Complex) →
+                                (hX : @APPT.Quantum.IsDensity a b inst inst_1 X) →
+                                  (A :
+                                      (n : Nat) →
+                                        ν n → @Matrix (@Prod (d n) (d n)) (@Prod (Fin n → a) (Fin n → b)) Complex) →
+                                    ((n : Nat) →
+                                        @Eq
+                                          (@Matrix (@Prod (Fin n → a) (Fin n → b)) (@Prod (Fin n → a) (Fin n → b))
+                                            Complex)
+                                          (@Finset.sum (ν n)
+                                            (@Matrix (@Prod (Fin n → a) (Fin n → b)) (@Prod (Fin n → a) (Fin n → b))
+                                              Complex)
+                                            (@Matrix.addCommMonoid (@Prod (Fin n → a) (Fin n → b))
+                                              (@Prod (Fin n → a) (Fin n → b)) Complex Complex.instAddCommMonoid)
+                                            (@Finset.univ (ν n) (@inst_9 n)) fun j =>
+                                            @HMul.hMul
+                                              (@Matrix (@Prod (Fin n → a) (Fin n → b)) (@Prod (d n) (d n)) Complex)
+                                              (@Matrix (@Prod (d n) (d n)) (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                              (@Matrix (@Prod (Fin n → a) (Fin n → b)) (@Prod (Fin n → a) (Fin n → b))
+                                                Complex)
+                                              (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid
+                                                (@Prod (Fin n → a) (Fin n → b)) (@Prod (d n) (d n))
+                                                (@Prod (Fin n → a) (Fin n → b)) Complex
+                                                (@instFintypeProd (d n) (d n) (@inst_6 n) (@inst_6 n)) Complex.instMul
+                                                Complex.instAddCommMonoid)
+                                              (@Matrix.conjTranspose (@Prod (d n) (d n)) (@Prod (Fin n → a) (Fin n → b))
+                                                Complex
+                                                (@InvolutiveStar.toStar Complex
+                                                  (@StarAddMonoid.toInvolutiveStar Complex
+                                                    (@AddCommMonoid.toAddMonoid Complex
+                                                      (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                              Complex.instNonUnitalCommRing)))))
+                                                    (@StarRing.toStarAddMonoid Complex
+                                                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                            Complex.instNonUnitalCommRing)))
+                                                      Complex.instStarRing)))
+                                                (@A n j))
+                                              (@A n j))
+                                          1) →
+                                      ((n : Nat) →
+                                          @Extraction.PTConjugatePositive (ν n) (@inst_9 n) (Fin n → a) (Fin n → b)
+                                            (d n)
+                                            (@Pi.instFintype (Fin n) (fun a_1 => a) (instDecidableEqFin n)
+                                              (Fin.fintype n) fun a => inst)
+                                            (@Pi.instFintype (Fin n) (fun a => b) (instDecidableEqFin n) (Fin.fintype n)
+                                              fun a => inst_1)
+                                            (@A n)) →
+                                        (U :
+                                            (n : Nat) →
+                                              @Subtype
+                                                (@Matrix (@Prod (Fin n → a) (Fin n → b)) (@Prod (Fin n → a) (Fin n → b))
+                                                  Complex)
+                                                fun x =>
+                                                @Membership.mem
+                                                  (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                    (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                  (@Submonoid
+                                                    (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                      (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                    (@MulZeroOneClass.toMulOneClass
+                                                      (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                        (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                      (@instMulZeroOneClassOfSemiring
+                                                        (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                          (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                        (@Matrix.semiring (@Prod (Fin n → a) (Fin n → b)) Complex
+                                                          (@CommSemiring.toSemiring Complex
+                                                            (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                          (@instFintypeProd (Fin n → a) (Fin n → b)
+                                                            (@Pi.instFintype (Fin n) (fun a_1 => a)
+                                                              (instDecidableEqFin n) (Fin.fintype n) fun a => inst)
+                                                            (@Pi.instFintype (Fin n) (fun a => b) (instDecidableEqFin n)
+                                                              (Fin.fintype n) fun a => inst_1))
+                                                          fun a_1 b_1 =>
+                                                          @instDecidableEqProd (Fin n → a) (Fin n → b)
+                                                            (fun a_2 b =>
+                                                              @Fintype.decidablePiFintype (Fin n) (fun a_3 => a)
+                                                                (fun a => inst_2) (Fin.fintype n) a_2 b)
+                                                            (fun a b_2 =>
+                                                              @Fintype.decidablePiFintype (Fin n) (fun a => b)
+                                                                (fun a => inst_3) (Fin.fintype n) a b_2)
+                                                            a_1 b_1))))
+                                                  (@SetLike.instMembership
+                                                    (@Submonoid
+                                                      (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                        (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                      (@MulZeroOneClass.toMulOneClass
+                                                        (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                          (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                        (@instMulZeroOneClassOfSemiring
+                                                          (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                            (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                          (@Matrix.semiring (@Prod (Fin n → a) (Fin n → b)) Complex
+                                                            (@CommSemiring.toSemiring Complex
+                                                              (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                            (@instFintypeProd (Fin n → a) (Fin n → b)
+                                                              (@Pi.instFintype (Fin n) (fun a_1 => a)
+                                                                (instDecidableEqFin n) (Fin.fintype n) fun a => inst)
+                                                              (@Pi.instFintype (Fin n) (fun a => b)
+                                                                (instDecidableEqFin n) (Fin.fintype n) fun a => inst_1))
+                                                            fun a_1 b_1 =>
+                                                            @instDecidableEqProd (Fin n → a) (Fin n → b)
+                                                              (fun a_2 b =>
+                                                                @Fintype.decidablePiFintype (Fin n) (fun a_3 => a)
+                                                                  (fun a => inst_2) (Fin.fintype n) a_2 b)
+                                                              (fun a b_2 =>
+                                                                @Fintype.decidablePiFintype (Fin n) (fun a => b)
+                                                                  (fun a => inst_3) (Fin.fintype n) a b_2)
+                                                              a_1 b_1))))
+                                                    (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                      (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                    (@Submonoid.instSetLike
+                                                      (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                        (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                      (@MulZeroOneClass.toMulOneClass
+                                                        (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                          (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                        (@instMulZeroOneClassOfSemiring
+                                                          (@Matrix (@Prod (Fin n → a) (Fin n → b))
+                                                            (@Prod (Fin n → a) (Fin n → b)) Complex)
+                                                          (@Matrix.semiring (@Prod (Fin n → a) (Fin n → b)) Complex
+                                                            (@CommSemiring.toSemiring Complex
+                                                              (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                            (@instFintypeProd (Fin n → a) (Fin n → b)
+                                                              (@Pi.instFintype (Fin n) (fun a_1 => a)
+                                                                (instDecidableEqFin n) (Fin.fintype n) fun a => inst)
+                                                              (@Pi.instFintype (Fin n) (fun a => b)
+                                                                (instDecidableEqFin n) (Fin.fintype n) fun a => inst_1))
+                                                            fun a_1 b_1 =>
+                                                            @instDecidableEqProd (Fin n → a) (Fin n → b)
+                                                              (fun a_2 b =>
+                                                                @Fintype.decidablePiFintype (Fin n) (fun a_3 => a)
+                                                                  (fun a => inst_2) (Fin.fintype n) a_2 b)
+                                                              (fun a b_2 =>
+                                                                @Fintype.decidablePiFintype (Fin n) (fun a => b)
+                                                                  (fun a => inst_3) (Fin.fintype n) a b_2)
+                                                              a_1 b_1)))))
+                                                  (@Matrix.unitaryGroup (@Prod (Fin n → a) (Fin n → b))
+                                                    (fun a_1 b_1 =>
+                                                      @instDecidableEqProd (Fin n → a) (Fin n → b)
+                                                        (fun a_2 b =>
+                                                          @Fintype.decidablePiFintype (Fin n) (fun a_3 => a)
+                                                            (fun a => inst_2) (Fin.fintype n) a_2 b)
+                                                        (fun a b_2 =>
+                                                          @Fintype.decidablePiFintype (Fin n) (fun a => b)
+                                                            (fun a => inst_3) (Fin.fintype n) a b_2)
+                                                        a_1 b_1)
+                                                    (@instFintypeProd (Fin n → a) (Fin n → b)
+                                                      (@Pi.instFintype (Fin n) (fun a_1 => a) (instDecidableEqFin n)
+                                                        (Fin.fintype n) fun a => inst)
+                                                      (@Pi.instFintype (Fin n) (fun a => b) (instDecidableEqFin n)
+                                                        (Fin.fintype n) fun a => inst_1))
+                                                    Complex Complex.commRing Complex.instStarRing)
+                                                  x) →
+                                          (R : Real) →
+                                            @Filter.Tendsto Nat Real
+                                                (fun n =>
+                                                  @HDiv.hDiv Real Real Real
+                                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                                    (Real.log
+                                                      (@Nat.cast Real Real.instNatCast
+                                                        (@Fintype.card (d n) (@inst_6 n))))
+                                                    (@Nat.cast Real Real.instNatCast n))
+                                                (@Filter.atTop Nat Nat.instPreorder)
+                                                (@nhds Real
+                                                  (@UniformSpace.toTopologicalSpace Real
+                                                    (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                                                  R) →
+                                              @LT.lt Real Real.instLT
+                                                  (@HDiv.hDiv Real Real Real
+                                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                                    (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                                                      (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                                                        (Real.log
+                                                          (@Nat.cast Real Real.instNatCast (@Fintype.card a inst)))
+                                                        (Real.log
+                                                          (@Nat.cast Real Real.instNatCast (@Fintype.card b inst_1))))
+                                                      (@ExtractionSpectrum.entropy (@Prod a b)
+                                                        (@instFintypeProd a b inst inst_1)
+                                                        (@Matrix.IsHermitian.eigenvalues Complex Complex.instRCLike
+                                                          (@Prod a b) (@instFintypeProd a b inst inst_1) X
+                                                          (fun a_1 b_1 =>
+                                                            @instDecidableEqProd a b inst_2 inst_3 a_1 b_1)
+                                                          (@Matrix.PosSemidef.isHermitian (@Prod a b) Complex
+                                                            Complex.instRing Complex.partialOrder Complex.instStarRing X
+                                                            (And.left
+                                                              (@Matrix.PosSemidef (@Prod a b) Complex Complex.instRing
+                                                                Complex.partialOrder Complex.instStarRing X)
+                                                              (@Eq Complex
+                                                                (@Matrix.trace (@Prod a b) Complex
+                                                                  (@instFintypeProd a b inst inst_1)
+                                                                  Complex.instAddCommMonoid X)
+                                                                1)
+                                                              hX)))))
+                                                    2)
+                                                  R →
+                                                @Filter.Tendsto Nat Real
+                                                  (fun n =>
+                                                    @ExtractionSpectrum.tensorFidelity a b inst inst_1 inst_2 inst_3 d ν
+                                                      inst_6 inst_7 inst_9 X n (@A n) (@U n))
+                                                  (@Filter.atTop Nat Nat.instPreorder)
+                                                  (@nhds Real
+                                                    (@UniformSpace.toTopologicalSpace Real
+                                                      (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                                                    0)
+EMPTY_KERNEL_REPLAY_PASS 59795 declarations; 54 roots; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionSpectrum.kraus_tensor_rate_strong_converse
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionSpectrum.kraus_tensor_gaussian_converse':
+(kernel) declaration type mismatch, 'ExtractionSpectrum.kraus_tensor_gaussian_converse' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 35308 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionSpectrum.kraus_tensor_gaussian_converse
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionSpectrum.kraus_tensor_information_bound':
+(kernel) declaration type mismatch, 'ExtractionSpectrum.kraus_tensor_information_bound' has type
+  True
+but it is expected to have type
+  {a : Type u_3} →
+    {b : Type u_4} →
+      [inst : @Fintype a] →
+        [inst_1 : @Fintype b] →
+          [inst_2 : @DecidableEq a] →
+            [inst_3 : @DecidableEq b] →
+              {d : Type u_5} →
+                {ν : Type u_6} →
+                  [inst_4 : @Fintype d] →
+                    [inst_5 : @Fintype ν] →
+                      [inst_6 : @DecidableEq d] →
+                        [@Nonempty a] →
+                          [@Nonempty b] →
+                            [@Nonempty d] →
+                              (X : @Matrix (@Prod a b) (@Prod a b) Complex) →
+                                (hX : @APPT.Quantum.IsDensity a b inst inst_1 X) →
+                                  (k : Nat) →
+                                    (A : ν → @Matrix (@Prod d d) (@Prod (Fin k → a) (Fin k → b)) Complex) →
+                                      @Eq
+                                          (@Matrix (@Prod (Fin k → a) (Fin k → b)) (@Prod (Fin k → a) (Fin k → b))
+                                            Complex)
+                                          (@Finset.sum ν
+                                            (@Matrix (@Prod (Fin k → a) (Fin k → b)) (@Prod (Fin k → a) (Fin k → b))
+                                              Complex)
+                                            (@Matrix.addCommMonoid (@Prod (Fin k → a) (Fin k → b))
+                                              (@Prod (Fin k → a) (Fin k → b)) Complex Complex.instAddCommMonoid)
+                                            (@Finset.univ ν inst_5) fun j =>
+                                            @HMul.hMul (@Matrix (@Prod (Fin k → a) (Fin k → b)) (@Prod d d) Complex)
+                                              (@Matrix (@Prod d d) (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                              (@Matrix (@Prod (Fin k → a) (Fin k → b)) (@Prod (Fin k → a) (Fin k → b))
+                                                Complex)
+                                              (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid
+                                                (@Prod (Fin k → a) (Fin k → b)) (@Prod d d)
+                                                (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                (@instFintypeProd d d inst_4 inst_4) Complex.instMul
+                                                Complex.instAddCommMonoid)
+                                              (@Matrix.conjTranspose (@Prod d d) (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                (@InvolutiveStar.toStar Complex
+                                                  (@StarAddMonoid.toInvolutiveStar Complex
+                                                    (@AddCommMonoid.toAddMonoid Complex
+                                                      (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                              Complex.instNonUnitalCommRing)))))
+                                                    (@StarRing.toStarAddMonoid Complex
+                                                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                                                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                                            Complex.instNonUnitalCommRing)))
+                                                      Complex.instStarRing)))
+                                                (@A j))
+                                              (@A j))
+                                          1 →
+                                        @Extraction.PTConjugatePositive ν inst_5 (Fin k → a) (Fin k → b) d
+                                            (@Pi.instFintype (Fin k) (fun a_1 => a) (instDecidableEqFin k)
+                                              (Fin.fintype k) fun a => inst)
+                                            (@Pi.instFintype (Fin k) (fun a => b) (instDecidableEqFin k) (Fin.fintype k)
+                                              fun a => inst_1)
+                                            A →
+                                          (U :
+                                              @Subtype
+                                                (@Matrix (@Prod (Fin k → a) (Fin k → b)) (@Prod (Fin k → a) (Fin k → b))
+                                                  Complex)
+                                                fun x =>
+                                                @Membership.mem
+                                                  (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                    (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                  (@Submonoid
+                                                    (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                      (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                    (@MulZeroOneClass.toMulOneClass
+                                                      (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                        (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                      (@instMulZeroOneClassOfSemiring
+                                                        (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                          (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                        (@Matrix.semiring (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                          (@CommSemiring.toSemiring Complex
+                                                            (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                          (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                            (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                              (instDecidableEqFin k) (Fin.fintype k) fun a => inst)
+                                                            (@Pi.instFintype (Fin k) (fun a => b) (instDecidableEqFin k)
+                                                              (Fin.fintype k) fun a => inst_1))
+                                                          fun a_1 b_1 =>
+                                                          @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                            (fun a_2 b =>
+                                                              @Fintype.decidablePiFintype (Fin k) (fun a_3 => a)
+                                                                (fun a => inst_2) (Fin.fintype k) a_2 b)
+                                                            (fun a b_2 =>
+                                                              @Fintype.decidablePiFintype (Fin k) (fun a => b)
+                                                                (fun a => inst_3) (Fin.fintype k) a b_2)
+                                                            a_1 b_1))))
+                                                  (@SetLike.instMembership
+                                                    (@Submonoid
+                                                      (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                        (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                      (@MulZeroOneClass.toMulOneClass
+                                                        (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                          (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                        (@instMulZeroOneClassOfSemiring
+                                                          (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                            (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                          (@Matrix.semiring (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                            (@CommSemiring.toSemiring Complex
+                                                              (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                            (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                              (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                (instDecidableEqFin k) (Fin.fintype k) fun a => inst)
+                                                              (@Pi.instFintype (Fin k) (fun a => b)
+                                                                (instDecidableEqFin k) (Fin.fintype k) fun a => inst_1))
+                                                            fun a_1 b_1 =>
+                                                            @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                              (fun a_2 b =>
+                                                                @Fintype.decidablePiFintype (Fin k) (fun a_3 => a)
+                                                                  (fun a => inst_2) (Fin.fintype k) a_2 b)
+                                                              (fun a b_2 =>
+                                                                @Fintype.decidablePiFintype (Fin k) (fun a => b)
+                                                                  (fun a => inst_3) (Fin.fintype k) a b_2)
+                                                              a_1 b_1))))
+                                                    (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                      (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                    (@Submonoid.instSetLike
+                                                      (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                        (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                      (@MulZeroOneClass.toMulOneClass
+                                                        (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                          (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                        (@instMulZeroOneClassOfSemiring
+                                                          (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                            (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                          (@Matrix.semiring (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                            (@CommSemiring.toSemiring Complex
+                                                              (@CommRing.toCommSemiring Complex Complex.commRing))
+                                                            (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                              (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                (instDecidableEqFin k) (Fin.fintype k) fun a => inst)
+                                                              (@Pi.instFintype (Fin k) (fun a => b)
+                                                                (instDecidableEqFin k) (Fin.fintype k) fun a => inst_1))
+                                                            fun a_1 b_1 =>
+                                                            @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                              (fun a_2 b =>
+                                                                @Fintype.decidablePiFintype (Fin k) (fun a_3 => a)
+                                                                  (fun a => inst_2) (Fin.fintype k) a_2 b)
+                                                              (fun a b_2 =>
+                                                                @Fintype.decidablePiFintype (Fin k) (fun a => b)
+                                                                  (fun a => inst_3) (Fin.fintype k) a b_2)
+                                                              a_1 b_1)))))
+                                                  (@Matrix.unitaryGroup (@Prod (Fin k → a) (Fin k → b))
+                                                    (fun a_1 b_1 =>
+                                                      @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                        (fun a_2 b =>
+                                                          @Fintype.decidablePiFintype (Fin k) (fun a_3 => a)
+                                                            (fun a => inst_2) (Fin.fintype k) a_2 b)
+                                                        (fun a b_2 =>
+                                                          @Fintype.decidablePiFintype (Fin k) (fun a => b)
+                                                            (fun a => inst_3) (Fin.fintype k) a b_2)
+                                                        a_1 b_1)
+                                                    (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                      (@Pi.instFintype (Fin k) (fun a_1 => a) (instDecidableEqFin k)
+                                                        (Fin.fintype k) fun a => inst)
+                                                      (@Pi.instFintype (Fin k) (fun a => b) (instDecidableEqFin k)
+                                                        (Fin.fintype k) fun a => inst_1))
+                                                    Complex Complex.commRing Complex.instStarRing)
+                                                  x) →
+                                            (t : Real) →
+                                              @LE.le Real Real.instLE
+                                                (Complex.re
+                                                  (@Matrix.trace (@Prod d d) Complex
+                                                    (@instFintypeProd d d inst_4 inst_4) Complex.instAddCommMonoid
+                                                    (@HMul.hMul (@Matrix (@Prod d d) (@Prod d d) Complex)
+                                                      (@Matrix (@Prod d d) (@Prod d d) Complex)
+                                                      (@Matrix (@Prod d d) (@Prod d d) Complex)
+                                                      (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (@Prod d d)
+                                                        (@Prod d d) (@Prod d d) Complex
+                                                        (@instFintypeProd d d inst_4 inst_4) Complex.instMul
+                                                        Complex.instAddCommMonoid)
+                                                      (@Extraction.bellProjector d inst_4 inst_6)
+                                                      (@Extraction.krausApply (@Prod (Fin k → a) (Fin k → b))
+                                                        (@Prod d d) ν
+                                                        (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                          (@Pi.instFintype (Fin k) (fun a_1 => a) (instDecidableEqFin k)
+                                                            (Fin.fintype k) fun a => inst)
+                                                          (@Pi.instFintype (Fin k) (fun a => b) (instDecidableEqFin k)
+                                                            (Fin.fintype k) fun a => inst_1))
+                                                        inst_5 A
+                                                        (@HMul.hMul
+                                                          (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                            (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                          (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                            (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                          (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                            (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                          (@instHMul
+                                                            (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                              (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                            (@Matrix.instMulOfFintypeOfAddCommMonoid
+                                                              (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                              (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                                (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                  (instDecidableEqFin k) (Fin.fintype k) fun a => inst)
+                                                                (@Pi.instFintype (Fin k) (fun a => b)
+                                                                  (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                                                  inst_1))
+                                                              Complex.instMul Complex.instAddCommMonoid))
+                                                          (@HMul.hMul
+                                                            (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                              (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                            (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                              (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                            (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                              (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                            (@instHMul
+                                                              (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                              (@Matrix.instMulOfFintypeOfAddCommMonoid
+                                                                (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                                (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                                  (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                    (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                                                    inst)
+                                                                  (@Pi.instFintype (Fin k) (fun a => b)
+                                                                    (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                                                    inst_1))
+                                                                Complex.instMul Complex.instAddCommMonoid))
+                                                            (@Subtype.val
+                                                              (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                              (fun x =>
+                                                                @Membership.mem
+                                                                  (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                    (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                  (@Submonoid
+                                                                    (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                      (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                    (@MulZeroOneClass.toMulOneClass
+                                                                      (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                        (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                      (@instMulZeroOneClassOfSemiring
+                                                                        (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                          (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                        (@Matrix.semiring
+                                                                          (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                                          (@CommSemiring.toSemiring Complex
+                                                                            (@CommRing.toCommSemiring Complex
+                                                                              Complex.commRing))
+                                                                          (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                                            (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                              (instDecidableEqFin k) (Fin.fintype k)
+                                                                              fun a => inst)
+                                                                            (@Pi.instFintype (Fin k) (fun a => b)
+                                                                              (instDecidableEqFin k) (Fin.fintype k)
+                                                                              fun a => inst_1))
+                                                                          fun a_1 b_1 =>
+                                                                          @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                                            (fun a_2 b =>
+                                                                              @Fintype.decidablePiFintype (Fin k)
+                                                                                (fun a_3 => a) (fun a => inst_2)
+                                                                                (Fin.fintype k) a_2 b)
+                                                                            (fun a b_2 =>
+                                                                              @Fintype.decidablePiFintype (Fin k)
+                                                                                (fun a => b) (fun a => inst_3)
+                                                                                (Fin.fintype k) a b_2)
+                                                                            a_1 b_1))))
+                                                                  (@SetLike.instMembership
+                                                                    (@Submonoid
+                                                                      (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                        (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                      (@MulZeroOneClass.toMulOneClass
+                                                                        (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                          (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                        (@instMulZeroOneClassOfSemiring
+                                                                          (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                            (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                          (@Matrix.semiring
+                                                                            (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                                            (@CommSemiring.toSemiring Complex
+                                                                              (@CommRing.toCommSemiring Complex
+                                                                                Complex.commRing))
+                                                                            (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                                              (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                                (instDecidableEqFin k) (Fin.fintype k)
+                                                                                fun a => inst)
+                                                                              (@Pi.instFintype (Fin k) (fun a => b)
+                                                                                (instDecidableEqFin k) (Fin.fintype k)
+                                                                                fun a => inst_1))
+                                                                            fun a_1 b_1 =>
+                                                                            @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                                              (fun a_2 b =>
+                                                                                @Fintype.decidablePiFintype (Fin k)
+                                                                                  (fun a_3 => a) (fun a => inst_2)
+                                                                                  (Fin.fintype k) a_2 b)
+                                                                              (fun a b_2 =>
+                                                                                @Fintype.decidablePiFintype (Fin k)
+                                                                                  (fun a => b) (fun a => inst_3)
+                                                                                  (Fin.fintype k) a b_2)
+                                                                              a_1 b_1))))
+                                                                    (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                      (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                    (@Submonoid.instSetLike
+                                                                      (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                        (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                      (@MulZeroOneClass.toMulOneClass
+                                                                        (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                          (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                        (@instMulZeroOneClassOfSemiring
+                                                                          (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                            (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                          (@Matrix.semiring
+                                                                            (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                                            (@CommSemiring.toSemiring Complex
+                                                                              (@CommRing.toCommSemiring Complex
+                                                                                Complex.commRing))
+                                                                            (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                                              (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                                (instDecidableEqFin k) (Fin.fintype k)
+                                                                                fun a => inst)
+                                                                              (@Pi.instFintype (Fin k) (fun a => b)
+                                                                                (instDecidableEqFin k) (Fin.fintype k)
+                                                                                fun a => inst_1))
+                                                                            fun a_1 b_1 =>
+                                                                            @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                                              (fun a_2 b =>
+                                                                                @Fintype.decidablePiFintype (Fin k)
+                                                                                  (fun a_3 => a) (fun a => inst_2)
+                                                                                  (Fin.fintype k) a_2 b)
+                                                                              (fun a b_2 =>
+                                                                                @Fintype.decidablePiFintype (Fin k)
+                                                                                  (fun a => b) (fun a => inst_3)
+                                                                                  (Fin.fintype k) a b_2)
+                                                                              a_1 b_1)))))
+                                                                  (@Matrix.unitaryGroup (@Prod (Fin k → a) (Fin k → b))
+                                                                    (fun a_1 b_1 =>
+                                                                      @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                                        (fun a_2 b =>
+                                                                          @Fintype.decidablePiFintype (Fin k)
+                                                                            (fun a_3 => a) (fun a => inst_2)
+                                                                            (Fin.fintype k) a_2 b)
+                                                                        (fun a b_2 =>
+                                                                          @Fintype.decidablePiFintype (Fin k)
+                                                                            (fun a => b) (fun a => inst_3)
+                                                                            (Fin.fintype k) a b_2)
+                                                                        a_1 b_1)
+                                                                    (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                                      (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                        (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                                                        inst)
+                                                                      (@Pi.instFintype (Fin k) (fun a => b)
+                                                                        (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                                                        inst_1))
+                                                                    Complex Complex.commRing Complex.instStarRing)
+                                                                  x)
+                                                              U)
+                                                            (@ExtractionSpectrum.bipartiteTensor a b X k))
+                                                          (@Matrix.conjTranspose (@Prod (Fin k → a) (Fin k → b))
+                                                            (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                            (@InvolutiveStar.toStar Complex
+                                                              (@StarAddMonoid.toInvolutiveStar Complex
+                                                                (@AddCommMonoid.toAddMonoid Complex
+                                                                  (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                                                                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring
+                                                                      Complex
+                                                                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing
+                                                                        Complex
+                                                                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing
+                                                                          Complex Complex.instNonUnitalCommRing)))))
+                                                                (@StarRing.toStarAddMonoid Complex
+                                                                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring
+                                                                    Complex
+                                                                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing
+                                                                      Complex
+                                                                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing
+                                                                        Complex Complex.instNonUnitalCommRing)))
+                                                                  Complex.instStarRing)))
+                                                            (@Subtype.val
+                                                              (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                              (fun x =>
+                                                                @Membership.mem
+                                                                  (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                    (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                  (@Submonoid
+                                                                    (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                      (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                    (@MulZeroOneClass.toMulOneClass
+                                                                      (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                        (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                      (@instMulZeroOneClassOfSemiring
+                                                                        (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                          (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                        (@Matrix.semiring
+                                                                          (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                                          (@CommSemiring.toSemiring Complex
+                                                                            (@CommRing.toCommSemiring Complex
+                                                                              Complex.commRing))
+                                                                          (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                                            (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                              (instDecidableEqFin k) (Fin.fintype k)
+                                                                              fun a => inst)
+                                                                            (@Pi.instFintype (Fin k) (fun a => b)
+                                                                              (instDecidableEqFin k) (Fin.fintype k)
+                                                                              fun a => inst_1))
+                                                                          fun a_1 b_1 =>
+                                                                          @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                                            (fun a_2 b =>
+                                                                              @Fintype.decidablePiFintype (Fin k)
+                                                                                (fun a_3 => a) (fun a => inst_2)
+                                                                                (Fin.fintype k) a_2 b)
+                                                                            (fun a b_2 =>
+                                                                              @Fintype.decidablePiFintype (Fin k)
+                                                                                (fun a => b) (fun a => inst_3)
+                                                                                (Fin.fintype k) a b_2)
+                                                                            a_1 b_1))))
+                                                                  (@SetLike.instMembership
+                                                                    (@Submonoid
+                                                                      (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                        (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                      (@MulZeroOneClass.toMulOneClass
+                                                                        (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                          (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                        (@instMulZeroOneClassOfSemiring
+                                                                          (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                            (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                          (@Matrix.semiring
+                                                                            (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                                            (@CommSemiring.toSemiring Complex
+                                                                              (@CommRing.toCommSemiring Complex
+                                                                                Complex.commRing))
+                                                                            (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                                              (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                                (instDecidableEqFin k) (Fin.fintype k)
+                                                                                fun a => inst)
+                                                                              (@Pi.instFintype (Fin k) (fun a => b)
+                                                                                (instDecidableEqFin k) (Fin.fintype k)
+                                                                                fun a => inst_1))
+                                                                            fun a_1 b_1 =>
+                                                                            @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                                              (fun a_2 b =>
+                                                                                @Fintype.decidablePiFintype (Fin k)
+                                                                                  (fun a_3 => a) (fun a => inst_2)
+                                                                                  (Fin.fintype k) a_2 b)
+                                                                              (fun a b_2 =>
+                                                                                @Fintype.decidablePiFintype (Fin k)
+                                                                                  (fun a => b) (fun a => inst_3)
+                                                                                  (Fin.fintype k) a b_2)
+                                                                              a_1 b_1))))
+                                                                    (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                      (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                    (@Submonoid.instSetLike
+                                                                      (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                        (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                      (@MulZeroOneClass.toMulOneClass
+                                                                        (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                          (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                        (@instMulZeroOneClassOfSemiring
+                                                                          (@Matrix (@Prod (Fin k → a) (Fin k → b))
+                                                                            (@Prod (Fin k → a) (Fin k → b)) Complex)
+                                                                          (@Matrix.semiring
+                                                                            (@Prod (Fin k → a) (Fin k → b)) Complex
+                                                                            (@CommSemiring.toSemiring Complex
+                                                                              (@CommRing.toCommSemiring Complex
+                                                                                Complex.commRing))
+                                                                            (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                                              (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                                (instDecidableEqFin k) (Fin.fintype k)
+                                                                                fun a => inst)
+                                                                              (@Pi.instFintype (Fin k) (fun a => b)
+                                                                                (instDecidableEqFin k) (Fin.fintype k)
+                                                                                fun a => inst_1))
+                                                                            fun a_1 b_1 =>
+                                                                            @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                                              (fun a_2 b =>
+                                                                                @Fintype.decidablePiFintype (Fin k)
+                                                                                  (fun a_3 => a) (fun a => inst_2)
+                                                                                  (Fin.fintype k) a_2 b)
+                                                                              (fun a b_2 =>
+                                                                                @Fintype.decidablePiFintype (Fin k)
+                                                                                  (fun a => b) (fun a => inst_3)
+                                                                                  (Fin.fintype k) a b_2)
+                                                                              a_1 b_1)))))
+                                                                  (@Matrix.unitaryGroup (@Prod (Fin k → a) (Fin k → b))
+                                                                    (fun a_1 b_1 =>
+                                                                      @instDecidableEqProd (Fin k → a) (Fin k → b)
+                                                                        (fun a_2 b =>
+                                                                          @Fintype.decidablePiFintype (Fin k)
+                                                                            (fun a_3 => a) (fun a => inst_2)
+                                                                            (Fin.fintype k) a_2 b)
+                                                                        (fun a b_2 =>
+                                                                          @Fintype.decidablePiFintype (Fin k)
+                                                                            (fun a => b) (fun a => inst_3)
+                                                                            (Fin.fintype k) a b_2)
+                                                                        a_1 b_1)
+                                                                    (@instFintypeProd (Fin k → a) (Fin k → b)
+                                                                      (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                        (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                                                        inst)
+                                                                      (@Pi.instFintype (Fin k) (fun a => b)
+                                                                        (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                                                        inst_1))
+                                                                    Complex Complex.commRing Complex.instStarRing)
+                                                                  x)
+                                                              U)))))))
+                                                (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                                                  (@ExtractionSpectrum.iidInformationEvent (@Prod a b)
+                                                    (@instFintypeProd a b inst inst_1)
+                                                    (@Matrix.IsHermitian.eigenvalues Complex Complex.instRCLike
+                                                      (@Prod a b) (@instFintypeProd a b inst inst_1) X
+                                                      (fun a_1 b_1 => @instDecidableEqProd a b inst_2 inst_3 a_1 b_1)
+                                                      (@Matrix.PosSemidef.isHermitian (@Prod a b) Complex
+                                                        Complex.instRing Complex.partialOrder Complex.instStarRing X
+                                                        (And.left
+                                                          (@Matrix.PosSemidef (@Prod a b) Complex Complex.instRing
+                                                            Complex.partialOrder Complex.instStarRing X)
+                                                          (@Eq Complex
+                                                            (@Matrix.trace (@Prod a b) Complex
+                                                              (@instFintypeProd a b inst inst_1)
+                                                              Complex.instAddCommMonoid X)
+                                                            1)
+                                                          hX)))
+                                                    k
+                                                    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                                                      (Real.log
+                                                        (@HDiv.hDiv Real Real Real
+                                                          (@instHDiv Real
+                                                            (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                                            (@Nat.cast Real Real.instNatCast
+                                                              (@Fintype.card (Fin k → a)
+                                                                (@Pi.instFintype (Fin k) (fun a_1 => a)
+                                                                  (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                                                  inst)))
+                                                            (@Nat.cast Real Real.instNatCast
+                                                              (@Fintype.card (Fin k → b)
+                                                                (@Pi.instFintype (Fin k) (fun a => b)
+                                                                  (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                                                  inst_1))))
+                                                          (@HPow.hPow Real Nat Real
+                                                            (@instHPow Real Nat
+                                                              (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                                                            (@Nat.cast Real Real.instNatCast (@Fintype.card d inst_4))
+                                                            2)))
+                                                      t))
+                                                  (Real.exp
+                                                    (@HDiv.hDiv Real Real Real
+                                                      (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                                      (@Neg.neg Real Real.instNeg t) 2)))
+TYPE_CLOSURE_REPLAY_PASS 33567 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionSpectrum.kraus_tensor_information_bound
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionSpectrum.finite_iid_central_limit':
+(kernel) declaration type mismatch, 'ExtractionSpectrum.finite_iid_central_limit' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    [inst : @Fintype ι] →
+      [inst_1 : @MeasurableSpace ι] →
+        [@MeasurableSingletonClass ι inst_1] →
+          (p : ι → Real) →
+            (hp : (i : ι) → @LE.le Real Real.instLE 0 (p i)) →
+              (hs : @Eq Real (@Finset.sum ι Real Real.instAddCommMonoid (@Finset.univ ι inst) fun i => p i) 1) →
+                (f : ι → Real) →
+                  @MeasureTheory.TendstoInDistribution Nat Real Real (fun n => Nat → ι)
+                    (fun i => @MeasurableSpace.pi Nat (fun a => ι) fun a => inst_1) Real.measurableSpace
+                    Real.measurableSpace
+                    (@UniformSpace.toTopologicalSpace Real
+                      (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                    (@BorelSpace.opensMeasurable Real
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                      Real.measurableSpace Real.borelSpace)
+                    (fun n w =>
+                      @HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                        (@Inv.inv Real Real.instInv (Real.sqrt (@Nat.cast Real Real.instNatCast n)))
+                        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                          (@Finset.sum Nat Real Real.instAddCommMonoid (Finset.range n) fun j => f (w j))
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast n)
+                            (@ExtractionSpectrum.finiteMean ι inst p f))))
+                    (@Filter.atTop Nat Nat.instPreorder) (@id Real)
+                    (fun x => @ExtractionSpectrum.iidMeasure ι inst inst_1 p hp hs)
+                    (fun i => @ExtractionSpectrum.iidMeasure_isProbabilityMeasure ι inst inst_1 p hp hs)
+                    (ProbabilityTheory.gaussianReal 0 (Real.toNNReal (@ExtractionSpectrum.finiteVariance ι inst p f)))
+                    (ProbabilityTheory.instIsProbabilityMeasureGaussianReal 0
+                      (Real.toNNReal (@ExtractionSpectrum.finiteVariance ι inst p f)))
+TYPE_CLOSURE_REPLAY_PASS 48260 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionSpectrum.finite_iid_central_limit
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionSpectrum.iidInformationEvent_gaussian_moving':
+(kernel) declaration type mismatch, 'ExtractionSpectrum.iidInformationEvent_gaussian_moving' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    [inst : @Fintype ι] →
+      [inst_1 : @MeasurableSpace ι] →
+        [@MeasurableSingletonClass ι inst_1] →
+          (p : ι → Real) →
+            ((i : ι) → @LE.le Real Real.instLE 0 (p i)) →
+              @Eq Real (@Finset.sum ι Real Real.instAddCommMonoid (@Finset.univ ι inst) fun i => p i) 1 →
+                @LT.lt Real Real.instLT 0 (@ExtractionSpectrum.varentropy ι inst p) →
+                  (x : Nat → Real) →
+                    (y : Real) →
+                      @Filter.Tendsto Nat Real
+                          (fun n =>
+                            @HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                              (@HSub.hSub Real Real Real (@instHSub Real Real.instSub) (x n)
+                                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                  (@Nat.cast Real Real.instNatCast n) (@ExtractionSpectrum.entropy ι inst p)))
+                              (Real.sqrt (@Nat.cast Real Real.instNatCast n)))
+                          (@Filter.atTop Nat Nat.instPreorder)
+                          (@nhds Real
+                            (@UniformSpace.toTopologicalSpace Real
+                              (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                            y) →
+                        @Filter.Tendsto Nat Real (fun n => @ExtractionSpectrum.iidInformationEvent ι inst p n (x n))
+                          (@Filter.atTop Nat Nat.instPreorder)
+                          (@nhds Real
+                            (@UniformSpace.toTopologicalSpace Real
+                              (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                            (@MeasureTheory.Measure.real Real Real.measurableSpace
+                              (ProbabilityTheory.gaussianReal 0
+                                (Real.toNNReal (@ExtractionSpectrum.varentropy ι inst p)))
+                              (@Set.Iic Real Real.instPreorder y)))
+TYPE_CLOSURE_REPLAY_PASS 29999 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionSpectrum.iidInformationEvent_gaussian_moving
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionSpectrum.iidInformationEvent_law_of_large_numbers':
+(kernel) declaration type mismatch, 'ExtractionSpectrum.iidInformationEvent_law_of_large_numbers' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    [inst : @Fintype ι] →
+      [inst_1 : @MeasurableSpace ι] →
+        [@MeasurableSingletonClass ι inst_1] →
+          (p : ι → Real) →
+            ((i : ι) → @LE.le Real Real.instLE 0 (p i)) →
+              @Eq Real (@Finset.sum ι Real Real.instAddCommMonoid (@Finset.univ ι inst) fun i => p i) 1 →
+                (c : Real) →
+                  @Ne Real c (@ExtractionSpectrum.entropy ι inst p) →
+                    @Filter.Tendsto Nat Real
+                      (fun n =>
+                        @ExtractionSpectrum.iidInformationEvent ι inst p n
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast n)
+                            c))
+                      (@Filter.atTop Nat Nat.instPreorder)
+                      (@nhds Real
+                        (@UniformSpace.toTopologicalSpace Real
+                          (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                        (@ite Real (@LT.lt Real Real.instLT (@ExtractionSpectrum.entropy ι inst p) c)
+                          (Real.decidableLT (@ExtractionSpectrum.entropy ι inst p) c) 1 0))
+TYPE_CLOSURE_REPLAY_PASS 15941 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionSpectrum.iidInformationEvent_law_of_large_numbers
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionSpectrum.diagonal_square_le_trace_square':
+(kernel) declaration type mismatch, 'ExtractionSpectrum.diagonal_square_le_trace_square' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    [inst : @Fintype ι] →
+      [@DecidableEq ι] →
+        (M : @Matrix ι ι Complex) →
+          @Matrix.IsHermitian Complex ι
+              (@InvolutiveStar.toStar Complex
+                (@StarAddMonoid.toInvolutiveStar Complex
+                  (@AddCommMonoid.toAddMonoid Complex
+                    (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))))
+                  (@StarRing.toStarAddMonoid Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))
+                    Complex.instStarRing)))
+              M →
+            @LE.le Real Real.instLE
+              (@Finset.sum ι Real Real.instAddCommMonoid (@Finset.univ ι inst) fun i =>
+                @HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                  (Complex.re (@M i i)) 2)
+              (Complex.re
+                (@Matrix.trace ι Complex inst Complex.instAddCommMonoid
+                  (@HMul.hMul (@Matrix ι ι Complex) (@Matrix ι ι Complex) (@Matrix ι ι Complex)
+                    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid ι ι ι Complex inst Complex.instMul
+                      Complex.instAddCommMonoid)
+                    M M)))
+TYPE_CLOSURE_REPLAY_PASS 6329 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionSpectrum.diagonal_square_le_trace_square
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionSpectrum.finite_spectrum_bound':
+(kernel) declaration type mismatch, 'ExtractionSpectrum.finite_spectrum_bound' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    [inst : @Fintype ι] →
+      (p z : ι → Real) →
+        (r c : Real) →
+          ((i : ι) → @LE.le Real Real.instLE 0 (p i)) →
+            @Eq Real (@Finset.sum ι Real Real.instAddCommMonoid (@Finset.univ ι inst) fun i => p i) 1 →
+              ((i : ι) → And (@LE.le Real Real.instLE 0 (z i)) (@LE.le Real Real.instLE (z i) 1)) →
+                @LE.le Real Real.instLE
+                    (@Finset.sum ι Real Real.instAddCommMonoid (@Finset.univ ι inst) fun i =>
+                      @HPow.hPow Real Nat Real
+                        (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) (z i) 2)
+                    r →
+                  @LE.le Real Real.instLE 0 c →
+                    @LE.le Real Real.instLE
+                      (@Finset.sum ι Real Real.instAddCommMonoid (@Finset.univ ι inst) fun i =>
+                        @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (p i) (z i))
+                      (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                        (@ExtractionSpectrum.spectralMass ι inst p c)
+                        (Real.sqrt (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) c r)))
+TYPE_CLOSURE_REPLAY_PASS 10722 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionSpectrum.finite_spectrum_bound
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionSpectrum.tensorMatrix_spectral':
+(kernel) declaration type mismatch, 'ExtractionSpectrum.tensorMatrix_spectral' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    [inst : @Fintype ι] →
+      [inst_1 : @DecidableEq ι] →
+        (X : @Matrix ι ι Complex) →
+          (hX :
+              @Matrix.IsHermitian Complex ι
+                (@InvolutiveStar.toStar Complex
+                  (@StarAddMonoid.toInvolutiveStar Complex
+                    (@AddCommMonoid.toAddMonoid Complex
+                      (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))))
+                    (@StarRing.toStarAddMonoid Complex
+                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))
+                      Complex.instStarRing)))
+                X) →
+            (k : Nat) →
+              @Eq (@Matrix (Fin k → ι) (Fin k → ι) Complex) (@ExtractionSpectrum.tensorMatrix ι X k)
+                (@HMul.hMul (@Matrix (Fin k → ι) (Fin k → ι) Complex) (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                  (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                  (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (Fin k → ι) (Fin k → ι) (Fin k → ι) Complex
+                    (@Pi.instFintype (Fin k) (fun a => ι) (instDecidableEqFin k) (Fin.fintype k) fun a => inst)
+                    Complex.instMul Complex.instAddCommMonoid)
+                  (@HMul.hMul (@Matrix (Fin k → ι) (Fin k → ι) Complex) (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                    (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (Fin k → ι) (Fin k → ι) (Fin k → ι) Complex
+                      (@Pi.instFintype (Fin k) (fun a => ι) (instDecidableEqFin k) (Fin.fintype k) fun a => inst)
+                      Complex.instMul Complex.instAddCommMonoid)
+                    (@Subtype.val (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                      (fun x =>
+                        @Membership.mem (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                          (@Submonoid (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                            (@MulZeroOneClass.toMulOneClass (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                              (@instMulZeroOneClassOfSemiring (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                                (@Matrix.semiring (Fin k → ι) Complex
+                                  (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                                  (@Pi.instFintype (Fin k) (fun a => ι) (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                    inst)
+                                  fun a b =>
+                                  @Fintype.decidablePiFintype (Fin k) (fun a => ι) (fun a => inst_1) (Fin.fintype k) a
+                                    b))))
+                          (@SetLike.instMembership
+                            (@Submonoid (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                                (@instMulZeroOneClassOfSemiring (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                                  (@Matrix.semiring (Fin k → ι) Complex
+                                    (@CommSemiring.toSemiring Complex
+                                      (@CommRing.toCommSemiring Complex Complex.commRing))
+                                    (@Pi.instFintype (Fin k) (fun a => ι) (instDecidableEqFin k) (Fin.fintype k)
+                                      fun a => inst)
+                                    fun a b =>
+                                    @Fintype.decidablePiFintype (Fin k) (fun a => ι) (fun a => inst_1) (Fin.fintype k) a
+                                      b))))
+                            (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                            (@Submonoid.instSetLike (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                                (@instMulZeroOneClassOfSemiring (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                                  (@Matrix.semiring (Fin k → ι) Complex
+                                    (@CommSemiring.toSemiring Complex
+                                      (@CommRing.toCommSemiring Complex Complex.commRing))
+                                    (@Pi.instFintype (Fin k) (fun a => ι) (instDecidableEqFin k) (Fin.fintype k)
+                                      fun a => inst)
+                                    fun a b =>
+                                    @Fintype.decidablePiFintype (Fin k) (fun a => ι) (fun a => inst_1) (Fin.fintype k) a
+                                      b)))))
+                          (@Matrix.unitaryGroup (Fin k → ι)
+                            (fun a b =>
+                              @Fintype.decidablePiFintype (Fin k) (fun a => ι) (fun a => inst_1) (Fin.fintype k) a b)
+                            (@Pi.instFintype (Fin k) (fun a => ι) (instDecidableEqFin k) (Fin.fintype k) fun a => inst)
+                            Complex Complex.commRing Complex.instStarRing)
+                          x)
+                      (@ExtractionSpectrum.tensorUnitary ι inst inst_1
+                        (@Matrix.IsHermitian.eigenvectorUnitary Complex Complex.instRCLike ι inst X inst_1 hX) k))
+                    (@Matrix.diagonal (Fin k → ι) Complex
+                      (fun a b =>
+                        @Fintype.decidablePiFintype (Fin k) (fun a => ι) (fun a => inst_1) (Fin.fintype k) a b)
+                      Complex.instZero fun w =>
+                      Complex.ofReal
+                        (@ExtractionSpectrum.iidLaw ι
+                          (@Matrix.IsHermitian.eigenvalues Complex Complex.instRCLike ι inst X inst_1 hX) k w)))
+                  (@Matrix.conjTranspose (Fin k → ι) (Fin k → ι) Complex
+                    (@InvolutiveStar.toStar Complex
+                      (@StarAddMonoid.toInvolutiveStar Complex
+                        (@AddCommMonoid.toAddMonoid Complex
+                          (@NonUnitalNonAssocSemiring.toAddCommMonoid Complex
+                            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex
+                                  Complex.instNonUnitalCommRing)))))
+                        (@StarRing.toStarAddMonoid Complex
+                          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))
+                          Complex.instStarRing)))
+                    (@Subtype.val (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                      (fun x =>
+                        @Membership.mem (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                          (@Submonoid (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                            (@MulZeroOneClass.toMulOneClass (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                              (@instMulZeroOneClassOfSemiring (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                                (@Matrix.semiring (Fin k → ι) Complex
+                                  (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                                  (@Pi.instFintype (Fin k) (fun a => ι) (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                                    inst)
+                                  fun a b =>
+                                  @Fintype.decidablePiFintype (Fin k) (fun a => ι) (fun a => inst_1) (Fin.fintype k) a
+                                    b))))
+                          (@SetLike.instMembership
+                            (@Submonoid (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                                (@instMulZeroOneClassOfSemiring (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                                  (@Matrix.semiring (Fin k → ι) Complex
+                                    (@CommSemiring.toSemiring Complex
+                                      (@CommRing.toCommSemiring Complex Complex.commRing))
+                                    (@Pi.instFintype (Fin k) (fun a => ι) (instDecidableEqFin k) (Fin.fintype k)
+                                      fun a => inst)
+                                    fun a b =>
+                                    @Fintype.decidablePiFintype (Fin k) (fun a => ι) (fun a => inst_1) (Fin.fintype k) a
+                                      b))))
+                            (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                            (@Submonoid.instSetLike (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                                (@instMulZeroOneClassOfSemiring (@Matrix (Fin k → ι) (Fin k → ι) Complex)
+                                  (@Matrix.semiring (Fin k → ι) Complex
+                                    (@CommSemiring.toSemiring Complex
+                                      (@CommRing.toCommSemiring Complex Complex.commRing))
+                                    (@Pi.instFintype (Fin k) (fun a => ι) (instDecidableEqFin k) (Fin.fintype k)
+                                      fun a => inst)
+                                    fun a b =>
+                                    @Fintype.decidablePiFintype (Fin k) (fun a => ι) (fun a => inst_1) (Fin.fintype k) a
+                                      b)))))
+                          (@Matrix.unitaryGroup (Fin k → ι)
+                            (fun a b =>
+                              @Fintype.decidablePiFintype (Fin k) (fun a => ι) (fun a => inst_1) (Fin.fintype k) a b)
+                            (@Pi.instFintype (Fin k) (fun a => ι) (instDecidableEqFin k) (Fin.fintype k) fun a => inst)
+                            Complex Complex.commRing Complex.instStarRing)
+                          x)
+                      (@ExtractionSpectrum.tensorUnitary ι inst inst_1
+                        (@Matrix.IsHermitian.eigenvectorUnitary Complex Complex.instRCLike ι inst X inst_1 hX) k))))
+TYPE_CLOSURE_REPLAY_PASS 33836 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionSpectrum.tensorMatrix_spectral
