@@ -32,6 +32,22 @@ run_cmd (RankSupportVerification.replayAndCorrupt [
   ``ExtractionRankSupport.rankBudgetProjector_rank_div_geometric_limit,
   ``ExtractionRankSupport.rankBudgetProjector_sqrt_rank_div_geometric_limit,
   ``ExtractionRankSupport.rankBudgetProjector_geometric_div_sqrt_rank_atTop,
+  ``ExtractionRankSupport.isometry_factor_range,
+  ``ExtractionRankSupport.exists_unitary_matrix_range_factors,
+  ``ExtractionRankSupport.unitaryTensorOrbitSpace_eq_rankBudgetSpace,
+  ``ExtractionRankSupport.fixed_density_unitary_conjugate_density,
+  ``ExtractionRankSupport.exact_fixed_density_orbit_effect_mul_rankBudgetProjector,
+  ``ExtractionRankSupport.coordinateRankProjection_isHermitian,
+  ``ExtractionRankSupport.coordinateRankProjection_idempotent,
+  ``ExtractionRankSupport.coordinateRankProjection_rank,
+  ``ExtractionRankSupport.matrix_rank_real_smul_le,
+  ``ExtractionRankSupport.flatCoordinateDensity_density,
+  ``ExtractionRankSupport.flatCoordinateDensity_rank,
+  ``ExtractionRankSupport.normalizedProjection_trace_square,
+  ``ExtractionRankSupport.actual_tensorMatrix_trace,
+  ``ExtractionRankSupport.flatCoordinateDensity_tensor_density,
+  ``ExtractionRankSupport.flatCoordinateDensity_tensor_purity,
+  ``ExtractionRankSupport.exists_flat_rank_density,
   ``ExtractionRankSupport.tensorMatrix_mulVec_productVector,
   ``ExtractionRankSupport.transformed_factors_finrank_le,
   ``ExtractionRankSupport.tensorMatrix_preserves_rankBudgetSpace,
@@ -104,3 +120,7 @@ run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.ran
 run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.supportCoefficientMatrix_range "verification/rank-control-13"
 
 run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.symmetricProjector_log_rank_le_explicit "verification/rank-control-14"
+
+run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.exact_fixed_density_orbit_effect_mul_rankBudgetProjector "verification/rank-control-15"
+
+run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.flatCoordinateDensity_tensor_purity "verification/rank-control-16"
