@@ -9,3 +9,5 @@ import SymmetricSupport.PhaseAverage
 import SymmetricSupport.ExponentialMoments
 import SymmetricSupport.GaussianFrame
 import SymmetricSupport.PureAverageBound
+import SymmetricSupport.RankAsymptotic
+import SymmetricSupport.PackingGrowth
