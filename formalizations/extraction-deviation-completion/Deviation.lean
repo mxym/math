@@ -8,3 +8,4 @@ import Deviation.TriangularInformation
 import Deviation.FourierIntegral
 import Deviation.NoiseSmoothing
 import Deviation.NoiseScaling
+import Deviation.InformationBerryEsseen

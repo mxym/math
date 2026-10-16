@@ -84,12 +84,35 @@ to `sinc(x)^4`, proves its positive finite normalization and finite absolute
 first moment, and gives a common integrable majorant for both. `NoiseScaling`
 proves the exact moment scaling for the image under `x ↦ x/R` and derives the
 Gaussian smoothing estimate `D≤2δ+C/R` with a fixed finite constant from this
-constructed noise. Compact Fourier support of the kernel and the Fourier
-inversion estimate for `δ` remain unproved.
+constructed noise.
 
-The present stage has ordinary Lean compilation evidence only. A finite-block
-Berry--Esseen CDF rate still requires the Esseen Fourier smoothing inequality;
-the proved qualitative triangular approximation is not a substitute for that
-finite error rate. The physical integration of the new tail and triangular
-bounds is performed in separate scopes. Earlier
+`CompactFrequency` constructs the fourfold convolution of the actual uniform
+law on `[-1,1]`, proves that its characteristic function is `sinc^4`, its
+frequencies lie almost surely in `[-4,4]`, and its measure is at most one half
+Lebesgue measure. `KernelPrimitive`, `KernelCDF`, `CDFConvolution`,
+`KernelExpectation`, `KernelFourier`, and `LawScaling` prove the exact primitive,
+actual noise CDF, convolution exchange, and scaled compact-frequency formula.
+Every Fubini interchange has an integrable majorant; the exceptional zero
+frequency is internally proved null. `DampedSmoothing` completes the resulting
+finite convolution error estimate.
+
+`BerryEsseen.finite_iid_berryEsseen` and
+`InformationBerryEsseen.information_iid_berryEsseen` now prove the full
+finite-block error bound, uniformly in every real threshold, for all positive
+block lengths, finite alphabets, and positive variances:
+
+`|Pr{S_k≤x} - Φ((x-kH)/sqrt(kV))| ≤ C T/(V^(3/2) sqrt k)`.
+
+Here the single absolute constant is defined explicitly as
+`C=1+5 C₂/I+128 M(5 m₁+1)`, where
+`I=∫ sinc(x)^4 dx>0`, `m₁` is the absolute first moment of its normalized
+probability density, `C₂=∫ t² exp(-t²/8) dt`, and `M=1/sqrt(2π)`.
+All constants are internally proved finite; no optimized numerical constant is
+claimed. No Berry--Esseen, CLT, smoothing, spectral, or probability approximation
+is a caller premise. `density_information_berryEsseen` instantiates the actual
+complex density spectrum, allowing singular matrices and changing dimensions.
+
+The present stage has ordinary Lean compilation evidence only. Integration of
+the finite error bounds with the operational protocol is performed in separate
+scopes. Earlier
 independent audits do not automatically cover this separate source scope.
