@@ -46,7 +46,7 @@ def check():
         if re.search(r"\b(sorry|admit|axiom|native_decide|unsafe)\b", code):
             raise RuntimeError("Forbidden mathematical proof token: " + str(p))
     roots = (ROOT / "ROOTS.txt").read_text().splitlines()
-    if len(roots) != len(set(roots)) or len(roots) != 74:
+    if len(roots) != len(set(roots)) or len(roots) != 86:
         raise RuntimeError("Root metadata changed")
     print("SOURCE_BINDING_PASS", len(inventory()), flush=True)
 
@@ -102,7 +102,7 @@ def main():
     stage("build", ["lake", "build", "SymmetricSupport", "SymmetricSupportVerification"], 600)
     stage("types-and-axioms", ["lake", "env", "lean", "-j1", "-M6000", "Check.lean"], 120)
     audit = stage("kernel", ["lake", "env", "lean", "-j1", "-M6000", "Audit.lean"], 600)
-    if audit.count("EMPTY_KERNEL_REPLAY_PASS") != 1 or audit.count("CORRUPTED_PROOF_REJECTED") != 11:
+    if audit.count("EMPTY_KERNEL_REPLAY_PASS") != 1 or audit.count("CORRUPTED_PROOF_REJECTED") != 13:
         raise RuntimeError("Incomplete audit markers")
     axioms = set((ROOT / "verification/symmetric-kernel-axioms.txt").read_text().splitlines())
     if not axioms <= ALLOWED_AXIOMS:
@@ -120,14 +120,14 @@ def main():
     count = int(re.search(r"EMPTY_KERNEL_REPLAY_PASS (\d+) declarations", audit).group(1))
     result = {
         "status": "PASS",
-        "scope": "Actual symmetric projector in D^k coordinates, exact choose rank, normalized pure iid span, density support, exact effect identity, finite-phase plus Gamma Wick frame with integrability, and worst-pure-promise guarantee bounded by the actual normalized symmetric state. NOT literal Haar equality or general rank-s Schur theory.",
+        "scope": "Actual symmetric projector in D^k coordinates, exact choose rank, normalized pure iid span and effect identity, positive finite-phase plus Gamma Wick frame with integrability, worst-pure-promise guarantee bounded by normalized symmetric state, and actual rank asymptotics with exponential packing comparisons. NOT literal Haar equality or general rank-s Schur theory.",
         "fresh_own_output_build": args.fresh,
         "source_files": len(inventory()),
-        "roots": 74,
+        "roots": 86,
         "kernel_declarations": count,
         "kernel_trust": 0,
         "axioms": sorted(axioms),
-        "same_type_forged_proof_controls": 11,
+        "same_type_forged_proof_controls": 13,
         "source_manifest_sha256": sha(ROOT / "SOURCE_HASHES.json"),
         "stages": records
     }
