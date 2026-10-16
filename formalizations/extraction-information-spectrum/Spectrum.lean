@@ -6,3 +6,6 @@ import Spectrum.ConverseLimit
 import Spectrum.Variational
 import Spectrum.Holder
 import Spectrum.Types
+import Spectrum.Direct
+import Spectrum.Prefix
+import Spectrum.Tilt
