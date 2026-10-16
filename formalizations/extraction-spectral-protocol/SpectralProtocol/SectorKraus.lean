@@ -63,4 +63,17 @@ theorem sectorKraus_encoded (A : J → κ → Matrix β α ℂ) (j l : J)
     simp [Extraction.krausApply,apply_ite,ite_mul,mul_ite,eq_comm]
   · simp [hjl,apply_ite,ite_mul,mul_ite,eq_comm]
 
+
+theorem sectorEmbedding_cross (j l : J) :
+    (sectorEmbedding (α := α) j)ᴴ*sectorEmbedding (α := α) l=
+      if j=l then 1 else 0 := by
+  by_cases hjl : j=l
+  · subst l
+    simp only [ite_true,sectorEmbedding_isometry]
+  · ext x y
+    simp [sectorEmbedding,Extraction.coordinateIsometry,Matrix.mul_apply,
+      Matrix.conjTranspose_apply,Fintype.sum_prod_type,ite_mul,mul_ite,hjl,eq_comm]
+    intro h
+    exact hjl (congrArg Prod.fst h)
+
 end SpectralProtocol

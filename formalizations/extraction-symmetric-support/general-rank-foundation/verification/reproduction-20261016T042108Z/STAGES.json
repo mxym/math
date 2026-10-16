@@ -1,0 +1,58 @@
+[
+  {
+    "stage": "toolchain",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 0.465,
+    "log": "toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+  },
+  {
+    "stage": "build",
+    "command": [
+      "lake",
+      "build",
+      "RankSupport",
+      "RankSupportVerification"
+    ],
+    "exit_code": 0,
+    "seconds": 10.002,
+    "log": "build.log",
+    "sha256": "6364ff11275a859bf80510d278f563550b9fb987957c90bc5d96220bc12c0013"
+  },
+  {
+    "stage": "types-and-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "Check.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 1.721,
+    "log": "types-and-axioms.log",
+    "sha256": "99297941cf26fddd68400b45f37ea73527ca44aa9966e53734a63cebbdff1b88"
+  },
+  {
+    "stage": "kernel",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M6000",
+      "Audit.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 134.085,
+    "log": "kernel.log",
+    "sha256": "09c34a412d74fc705470e9f5aee30cda9be7676f492648670af3b3b958f6fb43"
+  }
+]
