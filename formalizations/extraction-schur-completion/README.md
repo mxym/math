@@ -41,3 +41,21 @@ rank. A pointwise Weyl-product limit does not supply either expectation limit.
 
 See [PROOF_ROUTE.md](PROOF_ROUTE.md) for the ordinary proof check, primary sources,
 and exact interfaces that remain to be connected.
+
+
+Further actual finite-dimensional results:
+
+- The literal Haar twirl is exactly an internally constructed finite
+  Hilbert--Schmidt projection onto the actual permutation algebra. Its trace
+  pairing, idempotence and uniqueness are proved for all dimensions.
+- Copy-permutation traces and Gram entries equal dimension to the number of
+  actual permutation cycles, derived by a fixed-word/cycle-coloring equivalence.
+  The flat Haar average's moments, finite Gram equations, existence of a
+  solution, uniqueness of the represented matrix, and exact purity formula are
+  proved without assuming a nonsingular Gram matrix.
+- The intrinsic support projector is central in both actual commuting algebras.
+  Antisymmetrizing any more than `s` selected positions annihilates the actual
+  rank-budget support, including in the presence of additional tensor factors.
+
+These are new ordinary-compiled results. They do not enlarge the frozen audit
+scope and do not close the intermediate-rank sharp asymptotic listed above.

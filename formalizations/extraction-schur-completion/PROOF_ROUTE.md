@@ -52,3 +52,28 @@ It has no existing Schur polynomial, Specht module, classified Schur–Weyl
 decomposition or hook/Weyl dimension theorem at the pinned revision.
 
 No source in this package assumes the final rank or purity asymptotic.
+
+The Haar conditional expectation has now also been reduced to an actual finite
+matrix calculation. The literal integral equals the Hilbert--Schmidt projection
+onto the span of the genuine copy permutations, with the orthogonal projector
+constructed internally. This includes `D < k`, where permutation generators are
+linearly dependent and a full permutation Gram matrix need not be invertible.
+For flat input its exact Gram entries are `D^(number of cycles)`, and its
+moments are `s^(-k) s^(number of cycles)`. The finite Gram equations have a
+solution because the actual Haar average lies in that span; conversely every
+solution represents the same actual average. Its purity is recovered exactly
+from those coefficients. Thus no Haar-measure or finite-moment identity remains
+a caller-supplied assumption in this finite-dimensional route.
+
+The intrinsic rank-budget projector has also been proved central in both
+commuting actual matrix algebras. Every alternating operator on more than `s`
+selected tensor positions annihilates that projector. This follows from actual
+linear dependence of the participating tensor factors and remains valid with
+additional untouched tensor factors. It supplies the necessary long-column
+cutoff, but does not supply a basis or the converse classification by tableaux.
+
+The remaining gap is now the classified spectral evaluation of these internally
+constructed finite objects: the primitive central blocks and their labels, the
+Weyl dimension product, the Schur--Weyl shape probability and its exponential
+concentration. Merely solving each finite Gram system is not yet a proof of its
+asymptotic spectrum or of the sharp support dimension.
