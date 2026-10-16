@@ -1,0 +1,1263 @@
+CircuitCompletion.occupationRank_actual (j : ℕ) :
+  Eq.{1} (Matrix.rank.{0, 0, 0} (SymmetricSupport.symmetricProjector 4 j)) (CircuitCompletion.occupationRank j)
+'CircuitCompletion.occupationRank_actual' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationRank_card (j : ℕ) :
+  Eq.{1} (Fintype.card.{0} (Sym.{0} (Fin 4) j)) (CircuitCompletion.occupationRank j)
+'CircuitCompletion.occupationRank_card' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationRank_pos (j : ℕ) : LT.lt.{0} 0 (CircuitCompletion.occupationRank j)
+'CircuitCompletion.occupationRank_pos' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.occupationRank_le_power (j : ℕ) :
+  LE.le.{0} (CircuitCompletion.occupationRank j) (HPow.hPow.{0, 0, 0} 4 j)
+'CircuitCompletion.occupationRank_le_power' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationRank_step (j : ℕ) :
+  LE.le.{0} (CircuitCompletion.occupationRank (HAdd.hAdd.{0, 0, 0} j 1))
+    (HMul.hMul.{0, 0, 0} 4 (CircuitCompletion.occupationRank j))
+'CircuitCompletion.occupationRank_step' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.encodingPairs_le_copy (j : ℕ) : LE.le.{0} (CircuitCompletion.encodingPairs j) j
+'CircuitCompletion.encodingPairs_le_copy' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.encodingPairs_step (j : ℕ) :
+  LE.le.{0} (CircuitCompletion.encodingPairs (HAdd.hAdd.{0, 0, 0} j 1))
+    (HAdd.hAdd.{0, 0, 0} (CircuitCompletion.encodingPairs j) 1)
+'CircuitCompletion.encodingPairs_step' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.pow_clog_le_four_mul (r : ℕ) (hr : LT.lt.{0} 0 r) :
+  LE.le.{0} (HPow.hPow.{0, 0, 0} 4 (Nat.clog 4 r)) (HMul.hMul.{0, 0, 0} 4 r)
+'CircuitCompletion.pow_clog_le_four_mul' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.activeWires_available (j : ℕ) :
+  LE.le.{0} (CircuitCompletion.activeWires j) (HMul.hMul.{0, 0, 0} 2 (HAdd.hAdd.{0, 0, 0} j 1))
+'CircuitCompletion.activeWires_available' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.activeDimension_bound (j : ℕ) :
+  LE.le.{0} (HPow.hPow.{0, 0, 0} 2 (CircuitCompletion.activeWires j))
+    (HMul.hMul.{0, 0, 0} 16 (CircuitCompletion.occupationRank j))
+'CircuitCompletion.activeDimension_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.encodingPairs_log_bound (j : ℕ) :
+  LE.le.{0} (CircuitCompletion.encodingPairs j) (HMul.hMul.{0, 0, 0} 3 (Nat.clog 2 (HAdd.hAdd.{0, 0, 0} j 3)))
+'CircuitCompletion.encodingPairs_log_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.activeWires_log_bound (j : ℕ) :
+  LE.le.{0} (CircuitCompletion.activeWires j)
+    (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 6 (Nat.clog 2 (HAdd.hAdd.{0, 0, 0} j 3))) 2)
+'CircuitCompletion.activeWires_log_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.activeDimension_polynomial (j : ℕ) :
+  LE.le.{0} (HPow.hPow.{0, 0, 0} 2 (CircuitCompletion.activeWires j))
+    (HMul.hMul.{0, 0, 0} 16 (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} j 3) 3))
+'CircuitCompletion.activeDimension_polynomial' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.yBasis_entry (b c : Bool) :
+  Eq.{1} (↑CircuitCompletion.yBasis b c)
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (ite.{1} (Eq.{1} b true) Complex.I 1) ↑CircuitCompletion.invSqrtTwo)
+      (ite.{1} (Eq.{1} (b && c) true) (-1) 1))
+'CircuitCompletion.yBasis_entry' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.yBasis_star_entry (b c : Bool) :
+  Eq.{1} (↑(star.{0} CircuitCompletion.yBasis) b c)
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (ite.{1} (Eq.{1} c true) (Neg.neg.{0} Complex.I) 1) ↑CircuitCompletion.invSqrtTwo)
+      (ite.{1} (Eq.{1} (c && b) true) (-1) 1))
+'CircuitCompletion.yBasis_star_entry' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.complexPhase_trig (θ : ℝ) :
+  Eq.{1} (CircuitCompletion.complexPhase θ)
+    (HAdd.hAdd.{0, 0, 0} (↑(Real.cos θ)) (HMul.hMul.{0, 0, 0} (↑(Real.sin θ)) Complex.I))
+'CircuitCompletion.complexPhase_trig' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.adjacentRotationWord_action {n : ℕ} (hn : LT.lt.{0} 0 n) (t : Fin n) (x : CircuitCompletion.Bits n)
+  (θ : ℝ) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.adjacentRotationWord hn t x θ) v) fun w =>
+    ite.{1} (CircuitCompletion.sameOutside t w x)
+      (ite.{1} (Eq.{1} (w t) true)
+        (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} ↑(Real.sin θ)) (v (Function.update.{1, 1} w t false)))
+          (HMul.hMul.{0, 0, 0} (↑(Real.cos θ)) (v (Function.update.{1, 1} w t true))))
+        (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑(Real.cos θ)) (v (Function.update.{1, 1} w t false)))
+          (HMul.hMul.{0, 0, 0} (↑(Real.sin θ)) (v (Function.update.{1, 1} w t true)))))
+      (v w)
+'CircuitCompletion.adjacentRotationWord_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.adjacentRotationWord_length {n : ℕ} (hn : LT.lt.{0} 0 n) (t : Fin n) (x : CircuitCompletion.Bits n)
+  (θ : ℝ) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.adjacentRotationWord hn t x θ))
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} 2
+        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1)))
+      2)
+'CircuitCompletion.adjacentRotationWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.sameOutside_update {n : ℕ} (t : Fin n) (w x : CircuitCompletion.Bits n) (b : Bool) :
+  CircuitCompletion.sameOutside t (Function.update.{1, 1} w t b) x ↔ CircuitCompletion.sameOutside t w x
+'CircuitCompletion.sameOutside_update' does not depend on any axioms
+CircuitCompletion.update_eq_update_iff {n : ℕ} (t : Fin n) (w x : CircuitCompletion.Bits n) (b c : Bool) :
+  Eq.{1} (Function.update.{1, 1} w t b) (Function.update.{1, 1} x t c) ↔
+    Eq.{1} b c ∧ CircuitCompletion.sameOutside t w x
+'CircuitCompletion.update_eq_update_iff' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.run_single {n : ℕ} (t : Fin n) (U : ↥(Matrix.unitaryGroup.{0, 0} Bool ℂ))
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (List.cons.{0} (CircuitCompletion.Gate.single t U) List.nil.{0}) v) fun w =>
+    ∑ b, HMul.hMul.{0, 0, 0} (↑U (w t) b) (v (Function.update.{1, 1} w t b))
+'CircuitCompletion.run_single' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_hadamard {n : ℕ} (t : Fin n) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1}
+    (CircuitCompletion.run (List.cons.{0} (CircuitCompletion.Gate.single t CircuitCompletion.hadamard) List.nil.{0}) v)
+    fun w =>
+    HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (↑CircuitCompletion.invSqrtTwo)
+        (ite.{1} (Eq.{1} (w t) true) (Neg.neg.{0} (v (Function.update.{1, 1} w t true)))
+          (v (Function.update.{1, 1} w t true))))
+      (HMul.hMul.{0, 0, 0} (↑CircuitCompletion.invSqrtTwo) (v (Function.update.{1, 1} w t false)))
+'CircuitCompletion.run_hadamard' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.adjacentSwapWord_action {n : ℕ} (hn : LT.lt.{0} 0 n) (t : Fin n) (x : CircuitCompletion.Bits n)
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.adjacentSwapWord hn t x) v) fun w =>
+    ite.{1} (CircuitCompletion.sameOutside t w x) (v (Function.update.{1, 1} w t !w t)) (v w)
+'CircuitCompletion.adjacentSwapWord_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.adjacentSwapWord_length {n : ℕ} (hn : LT.lt.{0} 0 n) (t : Fin n) (x : CircuitCompletion.Bits n) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.adjacentSwapWord hn t x))
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1)) 2)
+'CircuitCompletion.adjacentSwapWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.zeroBits_two_iff (w : CircuitCompletion.Bits 2) :
+  Eq.{1} w (CircuitCompletion.zeroBits 2) ↔ Eq.{1} (w 0) false ∧ Eq.{1} (w 1) false
+'CircuitCompletion.zeroBits_two_iff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.bellPreparationWord_action :
+  Eq.{1}
+    (CircuitCompletion.run CircuitCompletion.bellPreparationWord (Pi.single.{0, 0} (CircuitCompletion.zeroBits 2) 1))
+    fun w => Extraction.bellVector.{0} (↑CircuitCompletion.invSqrtTwo) (Prod.mk.{0, 0} (w 0) (w 1))
+'CircuitCompletion.bellPreparationWord_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.bellPreparationWord_length : Eq.{1} (List.length.{0} CircuitCompletion.bellPreparationWord) 2
+'CircuitCompletion.bellPreparationWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.bellPreparation_with_spectators (r : ℕ) (z : CircuitCompletion.Bits r → ℂ) :
+  Eq.{1}
+    (CircuitCompletion.run (CircuitCompletion.liftCircuit r CircuitCompletion.bellPreparationWord) fun w =>
+      HMul.hMul.{0, 0, 0} (Pi.single.{0, 0} (CircuitCompletion.zeroBits 2) 1 (CircuitCompletion.prefixBits w))
+        (z (CircuitCompletion.suffixBits w)))
+    fun w =>
+    HMul.hMul.{0, 0, 0}
+      (Extraction.bellVector.{0} (↑CircuitCompletion.invSqrtTwo)
+        (Prod.mk.{0, 0} (CircuitCompletion.prefixBits w 0) (CircuitCompletion.prefixBits w 1)))
+      (z (CircuitCompletion.suffixBits w))
+'CircuitCompletion.bellPreparation_with_spectators' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.invSqrtTwo_bellCoeff : Eq.{1} (↑CircuitCompletion.invSqrtTwo) (Extraction.bellCoeff.{0} Bool)
+'CircuitCompletion.invSqrtTwo_bellCoeff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.bellPreparationWord_density :
+  Eq.{1}
+    ((Matrix.reindex.{0, 0, 0, 0, 0} CircuitCompletion.bitPair CircuitCompletion.bitPair)
+      (CircuitCompletion.pureMatrix.{0}
+        (CircuitCompletion.run CircuitCompletion.bellPreparationWord
+          (Pi.single.{0, 0} (CircuitCompletion.zeroBits 2) 1))))
+    Extraction.bellProjector.{0}
+'CircuitCompletion.bellPreparationWord_density' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.stageGateBudget_bound (k j : ℕ) (hj : LT.lt.{0} j k) :
+  LE.le.{0} (CircuitCompletion.stageGateBudget j)
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 20480 (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} k 2) 6))
+      (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 6 (Nat.clog 2 (HAdd.hAdd.{0, 0, 0} k 3))) 2) 2))
+'CircuitCompletion.stageGateBudget_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.recursiveGateBudget_bound (k : ℕ) :
+  LE.le.{0} (CircuitCompletion.recursiveGateBudget k)
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 20480 k) (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} k 2) 6))
+        (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 6 (Nat.clog 2 (HAdd.hAdd.{0, 0, 0} k 3))) 2) 2))
+      (HMul.hMul.{0, 0, 0} 100 (HPow.hPow.{0, 0, 0} k 2)))
+'CircuitCompletion.recursiveGateBudget_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.copywiseInput_entry (m n k : ℕ)
+  (X : Matrix.{0, 0, 0} (Fin (HMul.hMul.{0, 0, 0} m n)) (Fin (HMul.hMul.{0, 0, 0} m n)) ℂ)
+  (a a' : Fin (HPow.hPow.{0, 0, 0} m k)) (b b' : Fin (HPow.hPow.{0, 0, 0} n k)) :
+  Eq.{1} (CircuitCompletion.copywiseInput m n k X (Prod.mk.{0, 0} a b) (Prod.mk.{0, 0} a' b'))
+    (∏ i,
+      X
+        (finProdFinEquiv
+          (Prod.mk.{0, 0} ((Equiv.symm.{1, 1} finFunctionFinEquiv) a i) ((Equiv.symm.{1, 1} finFunctionFinEquiv) b i)))
+        (finProdFinEquiv
+          (Prod.mk.{0, 0} ((Equiv.symm.{1, 1} finFunctionFinEquiv) a' i)
+            ((Equiv.symm.{1, 1} finFunctionFinEquiv) b' i))))
+'CircuitCompletion.copywiseInput_entry' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.copywiseInput_density (m n k : ℕ)
+  (X : Matrix.{0, 0, 0} (Fin (HMul.hMul.{0, 0, 0} m n)) (Fin (HMul.hMul.{0, 0, 0} m n)) ℂ)
+  (hX : Matrix.PosSemidef.{0, 0} X ∧ Eq.{1} (Matrix.trace.{0, 0} X) 1) :
+  APPT.Quantum.IsDensity.{0, 0} (CircuitCompletion.copywiseInput m n k X)
+'CircuitCompletion.copywiseInput_density' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.reindex_old_tensorInput_eq_copywise (m n k : ℕ)
+  (X : Matrix.{0, 0, 0} (Fin (HMul.hMul.{0, 0, 0} m n)) (Fin (HMul.hMul.{0, 0, 0} m n)) ℂ) :
+  Eq.{1}
+    ((Matrix.reindexAlgEquiv.{0, 0, 0, 0} ℂ ℂ (CircuitCompletion.canonicalRelabel m n k))
+      ((SpectralProtocol.bipartitePowerTransport m n k) (ExtractionSpectrum.tensorMatrix.{0} X k)))
+    (CircuitCompletion.copywiseInput m n k X)
+'CircuitCompletion.reindex_old_tensorInput_eq_copywise' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+CircuitCompletion.mergeAt_coordinate_intertwine.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (e : Function.Embedding.{1, u_1 + 1} (Fin 4) ι) (p q : Fin 4) (hpq : Ne.{1} p q) (a b : ℝ) (ha : LE.le.{0} 0 a)
+  (hb : LE.le.{0} 0 b) :
+  Eq.{u_1 + 1}
+    (HMul.hMul.{u_1, u_1, u_1} (↑(CircuitCompletion.mergeAt.{u_1} (e p) (e q) ⋯ a b ha hb))
+      (Extraction.coordinateIsometry.{u_1, 0} e))
+    (HMul.hMul.{u_1, 0, u_1} (Extraction.coordinateIsometry.{u_1, 0} e)
+      ↑(CircuitCompletion.mergeAt.{0} p q hpq a b ha hb))
+'CircuitCompletion.mergeAt_coordinate_intertwine' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.matrix_intertwine_mul.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype.{u_1} ι] [Fintype.{u_2} κ]
+  (E : Matrix.{u_1, u_2, 0} ι κ ℂ) (A B : Matrix.{u_1, u_1, 0} ι ι ℂ) (X Y : Matrix.{u_2, u_2, 0} κ κ ℂ)
+  (hA :
+    Eq.{max (u_1 + 1) (u_2 + 1)} (HMul.hMul.{u_1, max u_1 u_2, max u_1 u_2} A E)
+      (HMul.hMul.{max u_1 u_2, u_2, max u_1 u_2} E X))
+  (hB :
+    Eq.{max (u_1 + 1) (u_2 + 1)} (HMul.hMul.{u_1, max u_1 u_2, max u_1 u_2} B E)
+      (HMul.hMul.{max u_1 u_2, u_2, max u_1 u_2} E Y)) :
+  Eq.{max (u_1 + 1) (u_2 + 1)} (HMul.hMul.{u_1, max u_1 u_2, max u_1 u_2} (HMul.hMul.{u_1, u_1, u_1} A B) E)
+    (HMul.hMul.{max u_1 u_2, u_2, max u_1 u_2} E (HMul.hMul.{u_2, u_2, u_2} X Y))
+'CircuitCompletion.matrix_intertwine_mul' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.fourProgram_intertwine {n : ℕ} (e : Function.Embedding.{1, 1} (Fin 4) (CircuitCompletion.Bits n))
+  (a : Fin 4 → ℝ) (ha : ∀ (i : Fin 4), LE.le.{0} 0 (a i)) :
+  Eq.{1}
+    (HMul.hMul.{0, 0, 0} (↑(CircuitCompletion.rawDenote (CircuitCompletion.fourProgram e a ha)))
+      (Extraction.coordinateIsometry.{0, 0} e))
+    (HMul.hMul.{0, 0, 0} (Extraction.coordinateIsometry.{0, 0} e) ↑(CircuitCompletion.compressFour a ha))
+'CircuitCompletion.fourProgram_intertwine' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.coordinateIsometry_single.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype.{u_1} ι] [Fintype.{u_2} κ]
+  [DecidableEq.{u_1 + 1} ι] [DecidableEq.{u_2 + 1} κ] (e : Function.Embedding.{u_2 + 1, u_1 + 1} κ ι) (j : κ) (c : ℂ) :
+  Eq.{u_1 + 1} (Matrix.mulVec.{0, u_1, u_2} (Extraction.coordinateIsometry.{u_1, u_2} e) (Pi.single.{u_2, 0} j c))
+    (Pi.single.{u_1, 0} (e j) c)
+'CircuitCompletion.coordinateIsometry_single' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compiled_four_compression {n : ℕ} (hn : LT.lt.{0} 0 n)
+  (e : Function.Embedding.{1, 1} (Fin 4) (CircuitCompletion.Bits n)) (a : Fin 4 → ℝ)
+  (ha : ∀ (i : Fin 4), LE.le.{0} 0 (a i)) :
+  Eq.{1}
+    (CircuitCompletion.run (CircuitCompletion.compileProgram hn (CircuitCompletion.fourProgram e a ha))
+      (Matrix.mulVec.{0, 0, 0} (Extraction.coordinateIsometry.{0, 0} e) fun i => ↑√(a i)))
+    (Pi.single.{0, 0} (e 0) ↑√(∑ i, a i))
+'CircuitCompletion.compiled_four_compression' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compiled_four_length {n : ℕ} (hn : LT.lt.{0} 0 n)
+  (e : Function.Embedding.{1, 1} (Fin 4) (CircuitCompletion.Bits n)) (a : Fin 4 → ℝ)
+  (ha : ∀ (i : Fin 4), LE.le.{0} 0 (a i)) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.compileProgram hn (CircuitCompletion.fourProgram e a ha)))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 60 (HPow.hPow.{0, 0, 0} n 2)) (HPow.hPow.{0, 0, 0} 2 n))
+'CircuitCompletion.compiled_four_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.rotationWord_denote {n : ℕ} (hn : LT.lt.{0} 0 n) (x y : CircuitCompletion.Bits n) (h : Ne.{1} x y)
+  (θ : ℝ) :
+  Eq.{1} (CircuitCompletion.denote (CircuitCompletion.rotationWord hn x y h θ))
+    (CircuitCompletion.embedPlane.{0} (CircuitCompletion.pairPlane.{0} x y h) ⋯ (CircuitCompletion.trigRotation θ))
+'CircuitCompletion.rotationWord_denote' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.circleAngle_trig (c s : ℝ)
+  (h : Eq.{1} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} c c) (HMul.hMul.{0, 0, 0} s s)) 1) :
+  Eq.{1} (Real.cos (CircuitCompletion.circleAngle c s)) c ∧ Eq.{1} (Real.sin (CircuitCompletion.circleAngle c s)) s
+'CircuitCompletion.circleAngle_trig' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.mergeRotation_eq_trig (a b : ℝ) (ha : LE.le.{0} 0 a) (hb : LE.le.{0} 0 b) :
+  Eq.{1} (CircuitCompletion.mergeRotation a b ha hb) (CircuitCompletion.trigRotation (CircuitCompletion.mergeAngle a b))
+'CircuitCompletion.mergeRotation_eq_trig' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.mergeWord_denote {n : ℕ} (hn : LT.lt.{0} 0 n) (x y : CircuitCompletion.Bits n) (h : Ne.{1} x y)
+  (a b : ℝ) (ha : LE.le.{0} 0 a) (hb : LE.le.{0} 0 b) :
+  Eq.{1} (CircuitCompletion.denote (CircuitCompletion.mergeWord hn x y h a b))
+    (CircuitCompletion.mergeAt.{0} x y h a b ha hb)
+'CircuitCompletion.mergeWord_denote' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.mergeWord_length {n : ℕ} (hn : LT.lt.{0} 0 n) (x y : CircuitCompletion.Bits n) (h : Ne.{1} x y)
+  (a b : ℝ) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.mergeWord hn x y h a b))
+    (HAdd.hAdd.{0, 0, 0}
+      (HAdd.hAdd.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n)
+          (HAdd.hAdd.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1)) 2))
+        (HMul.hMul.{0, 0, 0} 2
+          (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1))))
+      2)
+'CircuitCompletion.mergeWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.embeddingPermutation_apply.{u_1, u_2} {ι : Type u_1} {α : Type u_2} [Fintype.{u_1} ι]
+  [Fintype.{u_2} α] [DecidableEq.{u_2 + 1} α] (e f : Function.Embedding.{u_1 + 1, u_2 + 1} ι α) (i : ι) :
+  Eq.{u_2 + 1} ((CircuitCompletion.embeddingPermutation.{u_1, u_2} e f) (e i)) (f i)
+'CircuitCompletion.embeddingPermutation_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.permutationUnitary_single.{u_1} {α : Type u_1} [Fintype.{u_1} α] [DecidableEq.{u_1 + 1} α]
+  (e : Equiv.Perm.{u_1 + 1} α) (p : α) (c : ℂ) :
+  Eq.{u_1 + 1} (Matrix.mulVec.{0, u_1, u_1} (↑(CircuitCompletion.permutationUnitary.{u_1} e)) (Pi.single.{u_1, 0} p c))
+    (Pi.single.{u_1, 0} (e p) c)
+'CircuitCompletion.permutationUnitary_single' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.embeddingPermutation_word.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] {n : ℕ} (hn : LT.lt.{0} 0 n)
+  (e f : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (i : ι) (c : ℂ) :
+  Eq.{1}
+    (CircuitCompletion.run (CircuitCompletion.permutationWord hn (CircuitCompletion.embeddingPermutation.{u_1, 0} e f))
+      (Pi.single.{0, 0} (e i) c))
+    (Pi.single.{0, 0} (f i) c)
+'CircuitCompletion.embeddingPermutation_word' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.branchCoordinates_equal {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (ν μ : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) (i j : Fin 4) (hi : Membership.mem.{0, 0} ν i)
+  (hj : Membership.mem.{0, 0} μ j)
+  (h : Eq.{1} (CircuitCompletion.branchCoordinates enc ν i hi) (CircuitCompletion.branchCoordinates enc μ j hj)) :
+  Eq.{1} ν μ ∧ Eq.{1} i j
+'CircuitCompletion.branchCoordinates_equal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.branchCoordinates_disjoint {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (ν μ : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) (hνμ : Ne.{1} ν μ) (i j : Fin 4) (hi : Membership.mem.{0, 0} ν i)
+  (hj : Membership.mem.{0, 0} μ j) :
+  Ne.{1} (CircuitCompletion.branchCoordinates enc ν i hi) (CircuitCompletion.branchCoordinates enc μ j hj)
+'CircuitCompletion.branchCoordinates_disjoint' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.encodedBranch_entry {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) (i : Fin 4) (hi : Membership.mem.{0, 0} ν i) :
+  Eq.{1} (CircuitCompletion.encodedBranch enc ν (CircuitCompletion.branchCoordinates enc ν i hi))
+    ↑√(CircuitCompletion.occupationMass ν i)
+'CircuitCompletion.encodedBranch_entry' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.encodedBranch_disjoint_zero {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (ν μ : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) (hνμ : Ne.{1} ν μ) (j : Fin 4) (hj : Membership.mem.{0, 0} μ j) :
+  Eq.{1} (CircuitCompletion.encodedBranch enc ν (CircuitCompletion.branchCoordinates enc μ j hj)) 0
+'CircuitCompletion.encodedBranch_disjoint_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.vectorSquare_isometry.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype.{u_1} ι] [Fintype.{u_2} κ]
+  [DecidableEq.{u_1 + 1} ι] [DecidableEq.{u_2 + 1} κ] (E : Matrix.{u_1, u_2, 0} ι κ ℂ)
+  (hE : Eq.{u_2 + 1} (HMul.hMul.{max u_1 u_2, max u_1 u_2, u_2} (Matrix.conjTranspose.{0, u_1, u_2} E) E) 1)
+  (v : κ → ℂ) :
+  Eq.{1} (CircuitCompletion.vectorSquare.{u_1} (Matrix.mulVec.{0, u_1, u_2} E v))
+    (CircuitCompletion.vectorSquare.{u_2} v)
+'CircuitCompletion.vectorSquare_isometry' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationMass_occupied_sum {k : ℕ} (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) :
+  Eq.{1} (∑ i, CircuitCompletion.occupationMass ν ↑i) 1
+'CircuitCompletion.occupationMass_occupied_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.encodedBranch_normalized {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) :
+  Eq.{1} (CircuitCompletion.vectorSquare.{0} (CircuitCompletion.encodedBranch enc ν)) 1
+'CircuitCompletion.encodedBranch_normalized' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.pureMatrix_trace.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (v : ι → ℂ) :
+  Eq.{1} (Matrix.trace.{u_1, 0} (CircuitCompletion.pureMatrix.{u_1} v)) ↑(CircuitCompletion.vectorSquare.{u_1} v)
+'CircuitCompletion.pureMatrix_trace' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.pureMatrix_idempotent.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (u : ι → ℂ)
+  (hu : Eq.{1} (CircuitCompletion.vectorSquare.{u_1} u) 1) :
+  Eq.{u_1 + 1} (HMul.hMul.{u_1, u_1, u_1} (CircuitCompletion.pureMatrix.{u_1} u) (CircuitCompletion.pureMatrix.{u_1} u))
+    (CircuitCompletion.pureMatrix.{u_1} u)
+'CircuitCompletion.pureMatrix_idempotent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.pureMatrix_pair_trace.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (u v : ι → ℂ) :
+  Eq.{1}
+    (Matrix.trace.{u_1, 0}
+        (HMul.hMul.{u_1, u_1, u_1} (CircuitCompletion.pureMatrix.{u_1} u) (CircuitCompletion.pureMatrix.{u_1} v))).re
+    (Complex.normSq (dotProduct.{0, u_1} (star.{u_1} u) v))
+'CircuitCompletion.pureMatrix_pair_trace' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.squaredDistance_unit_vectors.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (u v : ι → ℂ) (hu : Eq.{1} (CircuitCompletion.vectorSquare.{u_1} u) 1)
+  (hv : Eq.{1} (CircuitCompletion.vectorSquare.{u_1} v) 1) :
+  Eq.{1} (CircuitCompletion.squaredDistance.{u_1} u v)
+    (HSub.hSub.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 2 (dotProduct.{0, u_1} (star.{u_1} u) v).re))
+'CircuitCompletion.squaredDistance_unit_vectors' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.exact_effect_fidelity_lower.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (M : Matrix.{u_1, u_1, 0} ι ι ℂ) (hM : Matrix.PosSemidef.{u_1, 0} M)
+  (hI : Matrix.PosSemidef.{u_1, 0} (HSub.hSub.{u_1, u_1, u_1} 1 M)) (u v : ι → ℂ)
+  (hu : Eq.{1} (CircuitCompletion.vectorSquare.{u_1} u) 1) (hv : Eq.{1} (CircuitCompletion.vectorSquare.{u_1} v) 1)
+  (hexact : Eq.{1} (Matrix.trace.{u_1, 0} (HMul.hMul.{u_1, u_1, u_1} M (CircuitCompletion.pureMatrix.{u_1} u))).re 1) :
+  LE.le.{0} (HSub.hSub.{0, 0, 0} 1 (CircuitCompletion.squaredDistance.{u_1} u v))
+    (Matrix.trace.{u_1, 0} (HMul.hMul.{u_1, u_1, u_1} M (CircuitCompletion.pureMatrix.{u_1} v))).re
+'CircuitCompletion.exact_effect_fidelity_lower' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.exact_effect_fidelity_lower_delta.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (M : Matrix.{u_1, u_1, 0} ι ι ℂ) (hM : Matrix.PosSemidef.{u_1, 0} M)
+  (hI : Matrix.PosSemidef.{u_1, 0} (HSub.hSub.{u_1, u_1, u_1} 1 M)) (u v : ι → ℂ)
+  (hu : Eq.{1} (CircuitCompletion.vectorSquare.{u_1} u) 1) (hv : Eq.{1} (CircuitCompletion.vectorSquare.{u_1} v) 1)
+  (hexact : Eq.{1} (Matrix.trace.{u_1, 0} (HMul.hMul.{u_1, u_1, u_1} M (CircuitCompletion.pureMatrix.{u_1} u))).re 1)
+  (δ : ℝ) (hδ : LE.le.{0} 0 δ)
+  (hd : LE.le.{0} (CircuitCompletion.squaredDistance.{u_1} u v) (HPow.hPow.{0, 0, 0} δ 2)) :
+  LE.le.{0} (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 2 δ))
+    (Matrix.trace.{u_1, 0} (HMul.hMul.{u_1, u_1, u_1} M (CircuitCompletion.pureMatrix.{u_1} v))).re
+'CircuitCompletion.exact_effect_fidelity_lower_delta' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.coordinatePair_zero.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (p q : ι)
+  (hpq : Ne.{u_1 + 1} p q) : Eq.{u_1 + 1} ((CircuitCompletion.coordinatePair.{u_1} p q hpq) 0) p
+'CircuitCompletion.coordinatePair_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.coordinatePair_one.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (p q : ι)
+  (hpq : Ne.{u_1 + 1} p q) : Eq.{u_1 + 1} ((CircuitCompletion.coordinatePair.{u_1} p q hpq) 1) q
+'CircuitCompletion.coordinatePair_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.pairPlane_isometry.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (p q : ι)
+  (hpq : Ne.{u_1 + 1} p q) :
+  Eq.{1}
+    (HMul.hMul.{u_1, u_1, 0} (Matrix.conjTranspose.{0, u_1, 0} (CircuitCompletion.pairPlane.{u_1} p q hpq))
+      (CircuitCompletion.pairPlane.{u_1} p q hpq))
+    1
+'CircuitCompletion.pairPlane_isometry' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.pairPlane_mulVec.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (p q : ι)
+  (hpq : Ne.{u_1 + 1} p q) (v : Fin 2 → ℂ) :
+  Eq.{u_1 + 1} (Matrix.mulVec.{0, u_1, 0} (CircuitCompletion.pairPlane.{u_1} p q hpq) v)
+    (HAdd.hAdd.{u_1, u_1, u_1} (Pi.single.{u_1, 0} p (v 0)) (Pi.single.{u_1, 0} q (v 1)))
+'CircuitCompletion.pairPlane_mulVec' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.pairPlane_adjoint_mulVec.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (p q : ι)
+  (hpq : Ne.{u_1 + 1} p q) (v : ι → ℂ) :
+  Eq.{1} (Matrix.mulVec.{0, 0, u_1} (Matrix.conjTranspose.{0, u_1, 0} (CircuitCompletion.pairPlane.{u_1} p q hpq)) v)
+    (Matrix.vecCons.{0} (v p) (Matrix.vecCons.{0} (v q) Matrix.vecEmpty.{0}))
+'CircuitCompletion.pairPlane_adjoint_mulVec' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.embedPlane_apply.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (E : Matrix.{u_1, 0, 0} ι (Fin 2) ℂ) (hE : Eq.{1} (HMul.hMul.{u_1, u_1, 0} (Matrix.conjTranspose.{0, u_1, 0} E) E) 1)
+  (G : ↥(Matrix.unitaryGroup.{0, 0} (Fin 2) ℂ)) (v : ι → ℂ) :
+  Eq.{u_1 + 1} (Matrix.mulVec.{0, u_1, u_1} (↑(CircuitCompletion.embedPlane.{u_1} E hE G)) v)
+    (HAdd.hAdd.{u_1, u_1, u_1}
+      (Matrix.mulVec.{0, u_1, 0} E
+        (Matrix.mulVec.{0, 0, 0} (↑G) (Matrix.mulVec.{0, 0, u_1} (Matrix.conjTranspose.{0, u_1, 0} E) v)))
+      (HSub.hSub.{u_1, u_1, u_1} v
+        (Matrix.mulVec.{0, u_1, 0} E (Matrix.mulVec.{0, 0, u_1} (Matrix.conjTranspose.{0, u_1, 0} E) v))))
+'CircuitCompletion.embedPlane_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.mergeAt_action.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (p q : ι)
+  (hpq : Ne.{u_1 + 1} p q) (a b : ℝ) (ha : LE.le.{0} 0 a) (hb : LE.le.{0} 0 b) (v : ι → ℂ) (hp : Eq.{1} (v p) ↑√a)
+  (hq : Eq.{1} (v q) ↑√b) :
+  Eq.{u_1 + 1} (Matrix.mulVec.{0, u_1, u_1} (↑(CircuitCompletion.mergeAt.{u_1} p q hpq a b ha hb)) v)
+    (HAdd.hAdd.{u_1, u_1, u_1} (Pi.single.{u_1, 0} p ↑√(HAdd.hAdd.{0, 0, 0} a b))
+      (HSub.hSub.{u_1, u_1, u_1} v (HAdd.hAdd.{u_1, u_1, u_1} (Pi.single.{u_1, 0} p ↑√a) (Pi.single.{u_1, 0} q ↑√b))))
+'CircuitCompletion.mergeAt_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compressFour_action (a : Fin 4 → ℝ) (ha : ∀ (i : Fin 4), LE.le.{0} 0 (a i)) :
+  Eq.{1} (Matrix.mulVec.{0, 0, 0} ↑(CircuitCompletion.compressFour a ha) fun i => ↑√(a i))
+    (Pi.single.{0, 0} 0 ↑√(∑ i, a i))
+'CircuitCompletion.compressFour_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.mergeRotation_action (a b : ℝ) (ha : LE.le.{0} 0 a) (hb : LE.le.{0} 0 b) :
+  Eq.{1}
+    (Matrix.mulVec.{0, 0, 0} (↑(CircuitCompletion.mergeRotation a b ha hb))
+      (Matrix.vecCons.{0} (↑√a) (Matrix.vecCons.{0} (↑√b) Matrix.vecEmpty.{0})))
+    (Matrix.vecCons.{0} (↑√(HAdd.hAdd.{0, 0, 0} a b)) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))
+'CircuitCompletion.mergeRotation_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.embedPlane_action.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (E : Matrix.{u_1, 0, 0} ι (Fin 2) ℂ) (hE : Eq.{1} (HMul.hMul.{u_1, u_1, 0} (Matrix.conjTranspose.{0, u_1, 0} E) E) 1)
+  (G : ↥(Matrix.unitaryGroup.{0, 0} (Fin 2) ℂ)) (v : Fin 2 → ℂ) :
+  Eq.{u_1 + 1}
+    (Matrix.mulVec.{0, u_1, u_1} (↑(CircuitCompletion.embedPlane.{u_1} E hE G)) (Matrix.mulVec.{0, u_1, 0} E v))
+    (Matrix.mulVec.{0, u_1, 0} E (Matrix.mulVec.{0, 0, 0} (↑G) v))
+'CircuitCompletion.embedPlane_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.clearBits_apply {n : ℕ} (x : CircuitCompletion.Bits n) (cs : List.{0} (Fin n))
+  (y : CircuitCompletion.Bits n) (j : Fin n) :
+  Eq.{1} (CircuitCompletion.clearBits x cs y j) (ite.{1} (Membership.mem.{0, 0} cs j) (x j) (y j))
+'CircuitCompletion.clearBits_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.flipBit_eq_update {n : ℕ} (j : Fin n) (x y : CircuitCompletion.Bits n) (h : Ne.{1} (y j) (x j)) :
+  Eq.{1} (CircuitCompletion.flipBit j y) (Function.update.{1, 1} y j (x j))
+'CircuitCompletion.flipBit_eq_update' depends on axioms: [propext]
+CircuitCompletion.moveEquiv_source {n : ℕ} (x : CircuitCompletion.Bits n) (cs : List.{0} (Fin n))
+  (y : CircuitCompletion.Bits n) : Eq.{1} ((CircuitCompletion.moveEquiv x cs y) y) (CircuitCompletion.clearBits x cs y)
+'CircuitCompletion.moveEquiv_source' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.moveEquiv_fixes {n : ℕ} (x : CircuitCompletion.Bits n) (cs : List.{0} (Fin n))
+  (y : CircuitCompletion.Bits n) (t : Fin n) (ht : Ne.{1} (y t) (x t))
+  (hcs : ∀ (j : Fin n), Membership.mem.{0, 0} cs j → Ne.{1} j t) : Eq.{1} ((CircuitCompletion.moveEquiv x cs y) x) x
+'CircuitCompletion.moveEquiv_fixes' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_moveWord {n : ℕ} (hn : LT.lt.{0} 0 n) (x : CircuitCompletion.Bits n) (cs : List.{0} (Fin n))
+  (y : CircuitCompletion.Bits n) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.moveWord hn x cs y) v) fun w =>
+    v ((Equiv.symm.{1, 1} (CircuitCompletion.moveEquiv x cs y)) w)
+'CircuitCompletion.run_moveWord' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.moveWord_length {n : ℕ} (hn : LT.lt.{0} 0 n) (x : CircuitCompletion.Bits n) (cs : List.{0} (Fin n))
+  (y : CircuitCompletion.Bits n) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.moveWord hn x cs y))
+    (HMul.hMul.{0, 0, 0} (List.length.{0} cs)
+      (HAdd.hAdd.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1)) 2))
+'CircuitCompletion.moveWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.clearBits_except {n : ℕ} (x y : CircuitCompletion.Bits n) (t : Fin n) (ht : Ne.{1} (y t) (x t)) :
+  Eq.{1} (CircuitCompletion.clearBits x (Finset.toList.{0} (Finset.erase.{0} Finset.univ.{0} t)) y)
+    (CircuitCompletion.flipBit t x)
+'CircuitCompletion.clearBits_except' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_reverse_of_equiv {n : ℕ} (a : CircuitCompletion.Circuit n)
+  (e : Equiv.Perm.{1} (CircuitCompletion.Bits n))
+  (ha : ∀ (v : CircuitCompletion.Bits n → ℂ), Eq.{1} (CircuitCompletion.run a v) fun w => v ((Equiv.symm.{1, 1} e) w))
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.reverseCircuit a) v) fun w => v (e w)
+'CircuitCompletion.run_reverse_of_equiv' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.swap_conjugation.{u_1} {ι : Type u_1} [DecidableEq.{u_1 + 1} ι] (e : Equiv.Perm.{u_1 + 1} ι)
+  (x y w : ι) :
+  Eq.{u_1 + 1} ((Equiv.symm.{u_1 + 1, u_1 + 1} e) ((Equiv.swap.{u_1 + 1} (e x) (e y)) (e w)))
+    ((Equiv.swap.{u_1 + 1} x y) w)
+'CircuitCompletion.swap_conjugation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.swapWord_action {n : ℕ} (hn : LT.lt.{0} 0 n) (x y : CircuitCompletion.Bits n)
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.swapWord hn x y) v) fun w => v ((Equiv.swap.{1} x y) w)
+'CircuitCompletion.swapWord_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.swapWord_length {n : ℕ} (hn : LT.lt.{0} 0 n) (x y : CircuitCompletion.Bits n) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.swapWord hn x y))
+    (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1)
+      (HAdd.hAdd.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1)) 2))
+'CircuitCompletion.swapWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.invSqrtTwo_square :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} CircuitCompletion.invSqrtTwo CircuitCompletion.invSqrtTwo)
+      (HMul.hMul.{0, 0, 0} CircuitCompletion.invSqrtTwo CircuitCompletion.invSqrtTwo))
+    1
+'CircuitCompletion.invSqrtTwo_square' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.hadamard_entry (b c : Bool) :
+  Eq.{1} (↑CircuitCompletion.hadamard b c)
+    (HMul.hMul.{0, 0, 0} (↑CircuitCompletion.invSqrtTwo) (ite.{1} (Eq.{1} (b && c) true) (-1) 1))
+'CircuitCompletion.hadamard_entry' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.hadamard_star : Eq.{1} (star.{0} CircuitCompletion.hadamard) CircuitCompletion.hadamard
+'CircuitCompletion.hadamard_star' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.complexPhase_zero : Eq.{1} (CircuitCompletion.complexPhase 0) 1
+'CircuitCompletion.complexPhase_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.complexPhase_pi : Eq.{1} (CircuitCompletion.complexPhase Real.pi) (-1)
+'CircuitCompletion.complexPhase_pi' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.indexedMass_image.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (e : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (a : ι → ℝ) (i : ι) :
+  Eq.{1} (CircuitCompletion.indexedMass.{u_1} e a (e i)) (a i)
+'CircuitCompletion.indexedMass_image' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.indexedMass_nonneg.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (e : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (a : ι → ℝ) (ha : ∀ (i : ι), LE.le.{0} 0 (a i))
+  (w : CircuitCompletion.Bits n) : LE.le.{0} 0 (CircuitCompletion.indexedMass.{u_1} e a w)
+'CircuitCompletion.indexedMass_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.indexedOthers_nodup.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (e : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (p : ι) :
+  List.Nodup.{0} (CircuitCompletion.indexedOthers.{u_1} e p)
+'CircuitCompletion.indexedOthers_nodup' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.indexedOthers_length.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (e : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (p : ι) :
+  Eq.{1} (List.length.{0} (CircuitCompletion.indexedOthers.{u_1} e p)) (HSub.hSub.{0, 0, 0} (Fintype.card.{u_1} ι) 1)
+'CircuitCompletion.indexedOthers_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.indexedOthers_sum.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (e : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (a : ι → ℝ) (p : ι) :
+  Eq.{1}
+    (List.sum.{0}
+      (List.map.{0, 0} (fun q => CircuitCompletion.indexedMass.{u_1} e a ↑q)
+        (CircuitCompletion.indexedOthers.{u_1} e p)))
+    (∑ i ∈ Finset.erase.{u_1} Finset.univ.{u_1} p, a i)
+'CircuitCompletion.indexedOthers_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.indexedOthers_vector.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (e : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (a : ι → ℝ) (p : ι) :
+  Eq.{1}
+    (List.sum.{0}
+      (List.map.{0, 0} (fun q => Pi.single.{0, 0} ↑q ↑√(CircuitCompletion.indexedMass.{u_1} e a ↑q))
+        (CircuitCompletion.indexedOthers.{u_1} e p)))
+    (∑ i ∈ Finset.erase.{u_1} Finset.univ.{u_1} p, Pi.single.{0, 0} (e i) ↑√(a i))
+'CircuitCompletion.indexedOthers_vector' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.coordinateIsometry_sum.{u_1, u_2} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  {κ : Type u_2} [Fintype.{u_2} κ] [DecidableEq.{u_2 + 1} κ] (e : Function.Embedding.{u_1 + 1, u_2 + 1} ι κ)
+  (v : ι → ℂ) :
+  Eq.{u_2 + 1} (Matrix.mulVec.{0, u_2, u_1} (Extraction.coordinateIsometry.{u_2, u_1} e) v)
+    (∑ i, Pi.single.{u_2, 0} (e i) (v i))
+'CircuitCompletion.coordinateIsometry_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.coordinateIsometry_sqrtMass.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (e : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (a : ι → ℝ) (ha : ∀ (i : ι), LE.le.{0} 0 (a i))
+  (w : CircuitCompletion.Bits n) :
+  Eq.{1} (Matrix.mulVec.{0, 0, u_1} (Extraction.coordinateIsometry.{0, u_1} e) (fun i => ↑√(a i)) w)
+    ↑√(CircuitCompletion.indexedMass.{u_1} e a w)
+'CircuitCompletion.coordinateIsometry_sqrtMass' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.indexedCompression_action.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (hn : LT.lt.{0} 0 n) (e : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (a : ι → ℝ)
+  (ha : ∀ (i : ι), LE.le.{0} 0 (a i)) (hsum : Eq.{1} (∑ i, a i) 1) (p : ι) :
+  Eq.{1}
+    (CircuitCompletion.run (CircuitCompletion.indexedCompression.{u_1} hn e a ha p)
+      (Matrix.mulVec.{0, 0, u_1} (Extraction.coordinateIsometry.{0, u_1} e) fun i => ↑√(a i)))
+    (Pi.single.{0, 0} (e p) 1)
+'CircuitCompletion.indexedCompression_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.indexedCompression_length.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (hn : LT.lt.{0} 0 n) (e : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (a : ι → ℝ)
+  (ha : ∀ (i : ι), LE.le.{0} 0 (a i)) (p : ι) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.indexedCompression.{u_1} hn e a ha p))
+    (HMul.hMul.{0, 0, 0} (HSub.hSub.{0, 0, 0} (Fintype.card.{u_1} ι) 1)
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 20 (HPow.hPow.{0, 0, 0} n 2)) (HPow.hPow.{0, 0, 0} 2 n)))
+'CircuitCompletion.indexedCompression_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.indexedCompression_fixes_zero.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (hn : LT.lt.{0} 0 n) (e : Function.Embedding.{u_1 + 1, 1} ι (CircuitCompletion.Bits n)) (a : ι → ℝ)
+  (ha : ∀ (i : ι), LE.le.{0} 0 (a i)) (p : ι) (v : CircuitCompletion.Bits n → ℂ) (hv : ∀ (i : ι), Eq.{1} (v (e i)) 0) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.indexedCompression.{u_1} hn e a ha p) v) v
+'CircuitCompletion.indexedCompression_fixes_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.wireCoordinates_update {n : ℕ} (i : Fin n) (w : CircuitCompletion.Bits n) (b : Bool) :
+  Eq.{1} ((Equiv.symm.{1, 1} (CircuitCompletion.wireCoordinates i)) (Prod.mk.{0, 0} b fun j => w ↑j))
+    (Function.update.{1, 1} w i b)
+'CircuitCompletion.wireCoordinates_update' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.singleWire_action {n : ℕ} (i : Fin n) (U : ↥(Matrix.unitaryGroup.{0, 0} Bool ℂ))
+  (v : CircuitCompletion.Bits n → ℂ) (w : CircuitCompletion.Bits n) :
+  Eq.{1} (Matrix.mulVec.{0, 0, 0} (↑(CircuitCompletion.Gate.single i U).denote) v w)
+    (∑ b, HMul.hMul.{0, 0, 0} (↑U (w i) b) (v (Function.update.{1, 1} w i b)))
+'CircuitCompletion.singleWire_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.fiber_normalization_branch {D k : ℕ} (ν : Sym.{0} (Fin D) (HAdd.hAdd.{0, 0, 0} k 1)) (i : Fin D)
+  (hi : Membership.mem.{0, 0} ν i) :
+  Eq.{1} (Inv.inv.{0} √↑(SymmetricSupport.fiberCard.{0, 0} (SymmetricSupport.occupation D (HAdd.hAdd.{0, 0, 0} k 1)) ν))
+    (HMul.hMul.{0, 0, 0} (√(HDiv.hDiv.{0, 0, 0} (↑(Multiset.count.{0} i ↑ν)) (HAdd.hAdd.{0, 0, 0} (↑k) 1)))
+      (Inv.inv.{0} √↑(SymmetricSupport.fiberCard.{0, 0} (SymmetricSupport.occupation D k) (Sym.erase.{0} ν i hi))))
+'CircuitCompletion.fiber_normalization_branch' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationVector_branch {D k : ℕ} (ν : Sym.{0} (Fin D) (HAdd.hAdd.{0, 0, 0} k 1)) (i : Fin D)
+  (w : SymmetricSupport.Word D k) :
+  Eq.{1} (CircuitCompletion.occupationVector ν (Fin.cons.{1} i w))
+    (if hi : Membership.mem.{0, 0} ν i then
+      HMul.hMul.{0, 0, 0} (↑√(HDiv.hDiv.{0, 0, 0} (↑(Multiset.count.{0} i ↑ν)) (HAdd.hAdd.{0, 0, 0} (↑k) 1)))
+        (CircuitCompletion.occupationVector (Sym.erase.{0} ν i hi) w)
+    else 0)
+'CircuitCompletion.occupationVector_branch' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.multiset_sum_counts.{u_1} {α : Type u_1} [Fintype.{u_1} α] [DecidableEq.{u_1 + 1} α]
+  (s : Multiset.{u_1} α) : Eq.{1} (∑ i, Multiset.count.{u_1} i s) (Multiset.card.{u_1} s)
+'CircuitCompletion.multiset_sum_counts' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationMass_nonneg {k : ℕ} (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) (i : Fin 4) :
+  LE.le.{0} 0 (CircuitCompletion.occupationMass ν i)
+'CircuitCompletion.occupationMass_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationMass_sum {k : ℕ} (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) :
+  Eq.{1} (∑ i, CircuitCompletion.occupationMass ν i) 1
+'CircuitCompletion.occupationMass_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.predecessor_labels_disjoint {k : ℕ} (ν μ : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) (i j : Fin 4)
+  (hi : Membership.mem.{0, 0} ν i) (hj : Membership.mem.{0, 0} μ j)
+  (h : Eq.{1} (Prod.mk.{0, 0} (Sym.erase.{0} ν i hi) i) (Prod.mk.{0, 0} (Sym.erase.{0} μ j hj) j)) : Eq.{1} ν μ
+'CircuitCompletion.predecessor_labels_disjoint' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compress_occupation_coefficients {k : ℕ} (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) :
+  Eq.{1}
+    (Matrix.mulVec.{0, 0, 0} ↑(CircuitCompletion.compressFour (CircuitCompletion.occupationMass ν) ⋯) fun i =>
+      ↑√(CircuitCompletion.occupationMass ν i))
+    (Pi.single.{0, 0} 0 1)
+'CircuitCompletion.compress_occupation_coefficients' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.pivotCoordinates_injective {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q)) :
+  Function.Injective.{1, 1} (CircuitCompletion.pivotCoordinates enc)
+'CircuitCompletion.pivotCoordinates_injective' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.branchCircuit_action {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.branchCircuit enc ν) (CircuitCompletion.encodedBranch enc ν))
+    (Pi.single.{0, 0} (CircuitCompletion.pivotCoordinates enc ν) 1)
+'CircuitCompletion.branchCircuit_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.branchCircuit_fixes_other {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (ν μ : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) (h : Ne.{1} ν μ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.branchCircuit enc μ) (CircuitCompletion.encodedBranch enc ν))
+    (CircuitCompletion.encodedBranch enc ν)
+'CircuitCompletion.branchCircuit_fixes_other' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.branchCircuit_fixes_other_pivot {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (ν μ : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) (h : Ne.{1} ν μ) :
+  Eq.{1}
+    (CircuitCompletion.run (CircuitCompletion.branchCircuit enc μ)
+      (Pi.single.{0, 0} (CircuitCompletion.pivotCoordinates enc ν) 1))
+    (Pi.single.{0, 0} (CircuitCompletion.pivotCoordinates enc ν) 1)
+'CircuitCompletion.branchCircuit_fixes_other_pivot' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.branchCircuit_length {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.branchCircuit enc ν))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 60 (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 2 q) 2))
+      (HPow.hPow.{0, 0, 0} 2 (HAdd.hAdd.{0, 0, 0} 2 q)))
+'CircuitCompletion.branchCircuit_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_flatMap_fixes.{u_1} {ι : Type u_1} {n : ℕ} (f : ι → CircuitCompletion.Circuit n)
+  (xs : List.{u_1} ι) (v : CircuitCompletion.Bits n → ℂ)
+  (hf : ∀ (i : ι), Membership.mem.{u_1, u_1} xs i → Eq.{1} (CircuitCompletion.run (f i) v) v) :
+  Eq.{1} (CircuitCompletion.run (List.flatMap.{u_1, 0} f xs) v) v
+'CircuitCompletion.run_flatMap_fixes' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_flatMap_unique.{u_1} {ι : Type u_1} [DecidableEq.{u_1 + 1} ι] {n : ℕ}
+  (f : ι → CircuitCompletion.Circuit n) (xs : List.{u_1} ι) (hx : List.Nodup.{u_1} xs) (t : ι)
+  (ht : Membership.mem.{u_1, u_1} xs t) (v w : CircuitCompletion.Bits n → ℂ)
+  (hmain : Eq.{1} (CircuitCompletion.run (f t) v) w)
+  (hfixv : ∀ (i : ι), Membership.mem.{u_1, u_1} xs i → Ne.{u_1 + 1} i t → Eq.{1} (CircuitCompletion.run (f i) v) v)
+  (hfixw : ∀ (i : ι), Membership.mem.{u_1, u_1} xs i → Ne.{u_1 + 1} i t → Eq.{1} (CircuitCompletion.run (f i) w) w) :
+  Eq.{1} (CircuitCompletion.run (List.flatMap.{u_1, 0} f xs) v) w
+'CircuitCompletion.run_flatMap_unique' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.allBranchCircuit_action {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.allBranchCircuit enc) (CircuitCompletion.encodedBranch enc ν))
+    (Pi.single.{0, 0} (CircuitCompletion.pivotCoordinates enc ν) 1)
+'CircuitCompletion.allBranchCircuit_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.allBranchCircuit_length {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q)) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.allBranchCircuit enc))
+    (HMul.hMul.{0, 0, 0} (CircuitCompletion.occupationRank (HAdd.hAdd.{0, 0, 0} k 1))
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 60 (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 2 q) 2))
+        (HPow.hPow.{0, 0, 0} 2 (HAdd.hAdd.{0, 0, 0} 2 q))))
+'CircuitCompletion.allBranchCircuit_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationFactorials_pos {D k : ℕ} (ν : Sym.{0} (Fin D) k) :
+  LT.lt.{0} 0 (CircuitCompletion.occupationFactorials ν)
+'CircuitCompletion.occupationFactorials_pos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationFactorials_cons {D k : ℕ} (i : Fin D) (mu : Sym.{0} (Fin D) k) :
+  Eq.{1} (CircuitCompletion.occupationFactorials (Sym.cons.{0} i mu))
+    (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Multiset.count.{0} i ↑mu) 1) (CircuitCompletion.occupationFactorials mu))
+'CircuitCompletion.occupationFactorials_cons' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.fiberCard_cons_recurrence {D k : ℕ} (i : Fin D) (mu : Sym.{0} (Fin D) k) :
+  Eq.{1}
+    (HMul.hMul.{0, 0, 0} (SymmetricSupport.fiberCard.{0, 0} (SymmetricSupport.occupation D k) mu)
+      (HAdd.hAdd.{0, 0, 0} k 1))
+    (HMul.hMul.{0, 0, 0} (Multiset.count.{0} i ↑(Sym.cons.{0} i mu))
+      (SymmetricSupport.fiberCard.{0, 0} (SymmetricSupport.occupation D (HAdd.hAdd.{0, 0, 0} k 1)) (Sym.cons.{0} i mu)))
+'CircuitCompletion.fiberCard_cons_recurrence' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.fiberCard_erase_recurrence {D k : ℕ} (ν : Sym.{0} (Fin D) (HAdd.hAdd.{0, 0, 0} k 1)) (i : Fin D)
+  (hi : Membership.mem.{0, 0} ν i) :
+  Eq.{1}
+    (HMul.hMul.{0, 0, 0} (SymmetricSupport.fiberCard.{0, 0} (SymmetricSupport.occupation D k) (Sym.erase.{0} ν i hi))
+      (HAdd.hAdd.{0, 0, 0} k 1))
+    (HMul.hMul.{0, 0, 0} (Multiset.count.{0} i ↑ν)
+      (SymmetricSupport.fiberCard.{0, 0} (SymmetricSupport.occupation D (HAdd.hAdd.{0, 0, 0} k 1)) ν))
+'CircuitCompletion.fiberCard_erase_recurrence' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupation_cons {D k : ℕ} (i : Fin D) (w : SymmetricSupport.Word D k) :
+  Eq.{1} (SymmetricSupport.occupation D (HAdd.hAdd.{0, 0, 0} k 1) (Fin.cons.{1} i w))
+    (Sym.cons.{0} i (SymmetricSupport.occupation D k w))
+'CircuitCompletion.occupation_cons' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.occupationStepCircuit_action {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (next :
+    Function.Embedding.{1, 1} (Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1))
+      (CircuitCompletion.Bits (HAdd.hAdd.{0, 0, 0} 2 q)))
+  (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) :
+  Eq.{1}
+    (CircuitCompletion.run (CircuitCompletion.occupationStepCircuit enc next) (CircuitCompletion.encodedBranch enc ν))
+    (Pi.single.{0, 0} (next ν) 1)
+'CircuitCompletion.occupationStepCircuit_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.branchRank_le_active_dimension {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q)) :
+  LE.le.{0} (CircuitCompletion.occupationRank (HAdd.hAdd.{0, 0, 0} k 1))
+    (HPow.hPow.{0, 0, 0} 2 (HAdd.hAdd.{0, 0, 0} 2 q))
+'CircuitCompletion.branchRank_le_active_dimension' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationStepCircuit_length {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (next :
+    Function.Embedding.{1, 1} (Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1))
+      (CircuitCompletion.Bits (HAdd.hAdd.{0, 0, 0} 2 q))) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.occupationStepCircuit enc next))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 80 (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 2 q) 2))
+      (HPow.hPow.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 (HAdd.hAdd.{0, 0, 0} 2 q)) 2))
+'CircuitCompletion.occupationStepCircuit_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.occupationStepCircuit_matrix {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (next :
+    Function.Embedding.{1, 1} (Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1))
+      (CircuitCompletion.Bits (HAdd.hAdd.{0, 0, 0} 2 q))) :
+  Eq.{1}
+    (HMul.hMul.{0, 0, 0} (↑(CircuitCompletion.denote (CircuitCompletion.occupationStepCircuit enc next)))
+      (CircuitCompletion.branchMatrix enc))
+    (Extraction.coordinateIsometry.{0, 0} next)
+'CircuitCompletion.occupationStepCircuit_matrix' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.branchMatrix_isometry {k q : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (CircuitCompletion.Bits q))
+  (next :
+    Function.Embedding.{1, 1} (Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1))
+      (CircuitCompletion.Bits (HAdd.hAdd.{0, 0, 0} 2 q))) :
+  Eq.{1}
+    (HMul.hMul.{0, 0, 0} (Matrix.conjTranspose.{0, 0, 0} (CircuitCompletion.branchMatrix enc))
+      (CircuitCompletion.branchMatrix enc))
+    1
+'CircuitCompletion.branchMatrix_isometry' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.vectorSquare_eq_norm_sq.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (v : ι → ℂ) :
+  Eq.{1} (CircuitCompletion.vectorSquare.{u_1} v)
+    (HPow.hPow.{0, 0, 0}
+      (norm.{u_1} ((ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} (EuclideanSpace.equiv.{u_1, 0} ι ℂ)) v)) 2)
+'CircuitCompletion.vectorSquare_eq_norm_sq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.vectorSquare_unitary.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (U : ↥(Matrix.unitaryGroup.{u_1, 0} ι ℂ)) (v : ι → ℂ) :
+  Eq.{1} (CircuitCompletion.vectorSquare.{u_1} (Matrix.mulVec.{0, u_1, u_1} (↑U) v))
+    (CircuitCompletion.vectorSquare.{u_1} v)
+'CircuitCompletion.vectorSquare_unitary' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.operator_error_controls_vector.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (U V : ↥(Matrix.unitaryGroup.{u_1, 0} ι ℂ)) (z : ι → ℂ) (hz : Eq.{1} (CircuitCompletion.vectorSquare.{u_1} z) 1)
+  (δ : ℝ) (hδ : LE.le.{0} 0 δ) (hUV : LE.le.{0} (norm.{u_1} (HSub.hSub.{u_1, u_1, u_1} ↑U ↑V)) δ) :
+  LE.le.{0}
+    (CircuitCompletion.squaredDistance.{u_1} (Matrix.mulVec.{0, u_1, u_1} (↑U) z) (Matrix.mulVec.{0, u_1, u_1} (↑V) z))
+    (HPow.hPow.{0, 0, 0} δ 2)
+'CircuitCompletion.operator_error_controls_vector' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compiled_word_error {n : ℕ} (compile : CircuitCompletion.Gate n → CircuitCompletion.Circuit n)
+  (a : CircuitCompletion.Circuit n) :
+  LE.le.{0}
+    (norm.{0}
+      (HSub.hSub.{0, 0, 0} ↑(CircuitCompletion.denote (List.flatMap.{0, 0} compile a)) ↑(CircuitCompletion.denote a)))
+    (List.sum.{0}
+      (List.map.{0, 0} (fun g => norm.{0} (HSub.hSub.{0, 0, 0} ↑(CircuitCompletion.denote (compile g)) ↑g.denote)) a))
+'CircuitCompletion.compiled_word_error' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compiled_word_length {n : ℕ} (compile : CircuitCompletion.Gate n → CircuitCompletion.Circuit n)
+  (a : CircuitCompletion.Circuit n) :
+  Eq.{1} (List.length.{0} (List.flatMap.{0, 0} compile a))
+    (List.sum.{0} (List.map.{0, 0} (fun g => List.length.{0} (compile g)) a))
+'CircuitCompletion.compiled_word_length' depends on axioms: [propext]
+CircuitCompletion.singleWire_diagonal_entry {n : ℕ} (i : Fin n) (z : Bool → ℂ)
+  (hz : ∀ (b : Bool), Eq.{1} (Complex.normSq (z b)) 1) (w v : CircuitCompletion.Bits n) :
+  Eq.{1} (↑(CircuitCompletion.singleWire i (CircuitCompletion.diagonalUnitary.{0} z hz)) w v)
+    (ite.{1} (Eq.{1} w v) (z (w i)) 0)
+'CircuitCompletion.singleWire_diagonal_entry' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.singleWire_diagonal_action {n : ℕ} (i : Fin n) (z : Bool → ℂ)
+  (hz : ∀ (b : Bool), Eq.{1} (Complex.normSq (z b)) 1) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1}
+    (Matrix.mulVec.{0, 0, 0} (↑(CircuitCompletion.Gate.single i (CircuitCompletion.diagonalUnitary.{0} z hz)).denote) v)
+    fun w => HMul.hMul.{0, 0, 0} (z (w i)) (v w)
+'CircuitCompletion.singleWire_diagonal_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.controlParity_cnot {n : ℕ} (t : Fin n) (cs : List.{0} (CircuitCompletion.Control t))
+  (c : CircuitCompletion.Control t) (w : CircuitCompletion.Bits n) :
+  Eq.{1} (CircuitCompletion.controlParity cs (CircuitCompletion.cnotFunction (↑c) t w))
+    (CircuitCompletion.controlParity cs w)
+'CircuitCompletion.controlParity_cnot' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.cnotWordEquiv_apply_other {n : ℕ} (t : Fin n) (cs : List.{0} (CircuitCompletion.Control t))
+  (w : CircuitCompletion.Bits n) (j : Fin n) (hj : Ne.{1} j t) :
+  Eq.{1} ((CircuitCompletion.cnotWordEquiv t cs) w j) (w j)
+'CircuitCompletion.cnotWordEquiv_apply_other' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.cnotWordEquiv_apply_target {n : ℕ} (t : Fin n) (cs : List.{0} (CircuitCompletion.Control t))
+  (w : CircuitCompletion.Bits n) :
+  Eq.{1} ((CircuitCompletion.cnotWordEquiv t cs) w t) (w t ^^ CircuitCompletion.controlParity cs w)
+'CircuitCompletion.cnotWordEquiv_apply_target' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.run_cnotWord {n : ℕ} (t : Fin n) (cs : List.{0} (CircuitCompletion.Control t))
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.cnotWord t cs) v) fun w =>
+    v ((Equiv.symm.{1, 1} (CircuitCompletion.cnotWordEquiv t cs)) w)
+'CircuitCompletion.run_cnotWord' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.parityPhaseWord_action {n : ℕ} (t : Fin n) (cs : List.{0} (CircuitCompletion.Control t))
+  (z : Bool → ℂ) (hz : ∀ (b : Bool), Eq.{1} (Complex.normSq (z b)) 1) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.parityPhaseWord t cs z hz) v) fun w =>
+    HMul.hMul.{0, 0, 0} (z (w t ^^ CircuitCompletion.controlParity cs w)) (v w)
+'CircuitCompletion.parityPhaseWord_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.parityPhaseWord_length {n : ℕ} (t : Fin n) (cs : List.{0} (CircuitCompletion.Control t))
+  (z : Bool → ℂ) (hz : ∀ (b : Bool), Eq.{1} (Complex.normSq (z b)) 1) :
+  Eq.{1} (List.length.{0} (CircuitCompletion.parityPhaseWord t cs z hz))
+    (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (List.length.{0} cs)) 1)
+'CircuitCompletion.parityPhaseWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.boolSign_xor (b c : Bool) :
+  Eq.{1} (CircuitCompletion.boolSign (b ^^ c))
+    (HMul.hMul.{0, 0, 0} (CircuitCompletion.boolSign b) (CircuitCompletion.boolSign c))
+'CircuitCompletion.boolSign_xor' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.boolSign_foldr (bs : List.{0} Bool) :
+  Eq.{1} (CircuitCompletion.boolSign (List.foldr.{0, 0} xor false bs))
+    (List.prod.{0} (List.map.{0, 0} CircuitCompletion.boolSign bs))
+'CircuitCompletion.boolSign_foldr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.complexPhase_normSq (θ : ℝ) : Eq.{1} (Complex.normSq (CircuitCompletion.complexPhase θ)) 1
+'CircuitCompletion.complexPhase_normSq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.complexPhase_add (θ φ : ℝ) :
+  Eq.{1} (CircuitCompletion.complexPhase (HAdd.hAdd.{0, 0, 0} θ φ))
+    (HMul.hMul.{0, 0, 0} (CircuitCompletion.complexPhase θ) (CircuitCompletion.complexPhase φ))
+'CircuitCompletion.complexPhase_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.maskControls_length {n : ℕ} (t : Fin n) (S : Finset.{0} (Fin n)) :
+  Eq.{1} (List.length.{0} (CircuitCompletion.maskControls t S)) (Finset.card.{0} (Finset.erase.{0} S t))
+'CircuitCompletion.maskControls_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.maskControls_character {n : ℕ} (t : Fin n) (S : Finset.{0} (Fin n)) (ht : Membership.mem.{0, 0} S t)
+  (w : CircuitCompletion.Bits n) :
+  Eq.{1} (CircuitCompletion.boolSign (w t ^^ CircuitCompletion.controlParity (CircuitCompletion.maskControls t S) w))
+    (CircuitCompletion.maskCharacter S w)
+'CircuitCompletion.maskControls_character' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.pauliWord_action {n : ℕ} (hn : LT.lt.{0} 0 n) (S : Finset.{0} (Fin n)) (θ : ℝ)
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.pauliWord hn S θ) v) fun w =>
+    HMul.hMul.{0, 0, 0} (CircuitCompletion.complexPhase (HMul.hMul.{0, 0, 0} θ (CircuitCompletion.maskCharacter S w)))
+      (v w)
+'CircuitCompletion.pauliWord_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.pauliWord_length {n : ℕ} (hn : LT.lt.{0} 0 n) (S : Finset.{0} (Fin n)) (θ : ℝ) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.pauliWord hn S θ)) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1)
+'CircuitCompletion.pauliWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.permutationUnitary_one.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] :
+  Eq.{u_1 + 1} (CircuitCompletion.permutationUnitary.{u_1} 1) 1
+'CircuitCompletion.permutationUnitary_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.permutationUnitary_mul.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (e f : Equiv.Perm.{u_1 + 1} ι) :
+  Eq.{u_1 + 1} (CircuitCompletion.permutationUnitary.{u_1} (HMul.hMul.{u_1, u_1, u_1} e f))
+    (HMul.hMul.{u_1, u_1, u_1} (CircuitCompletion.permutationUnitary.{u_1} e)
+      (CircuitCompletion.permutationUnitary.{u_1} f))
+'CircuitCompletion.permutationUnitary_mul' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.rawDenote_append {n : ℕ} (a b : List.{0} (CircuitCompletion.TwoLevel n)) :
+  Eq.{1} (CircuitCompletion.rawDenote (HAppend.hAppend.{0, 0, 0} a b))
+    (HMul.hMul.{0, 0, 0} (CircuitCompletion.rawDenote b) (CircuitCompletion.rawDenote a))
+'CircuitCompletion.rawDenote_append' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.permutationProgramAux_length {n : ℕ} (xs : List.{0} (CircuitCompletion.Bits n))
+  (f : Equiv.Perm.{1} (CircuitCompletion.Bits n)) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.permutationProgramAux xs f)) (List.length.{0} xs)
+'CircuitCompletion.permutationProgramAux_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.permutationProgramAux_denote {n : ℕ} (xs : List.{0} (CircuitCompletion.Bits n))
+  (f : Equiv.Perm.{1} (CircuitCompletion.Bits n))
+  (hf : ∀ (w : CircuitCompletion.Bits n), Ne.{1} (f w) w → Membership.mem.{0, 0} xs w) :
+  Eq.{1} (CircuitCompletion.rawDenote (CircuitCompletion.permutationProgramAux xs f))
+    (CircuitCompletion.permutationUnitary.{0} f)
+'CircuitCompletion.permutationProgramAux_denote' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.permutationProgram_denote {n : ℕ} (f : Equiv.Perm.{1} (CircuitCompletion.Bits n)) :
+  Eq.{1} (CircuitCompletion.rawDenote (CircuitCompletion.permutationProgram f))
+    (CircuitCompletion.permutationUnitary.{0} f)
+'CircuitCompletion.permutationProgram_denote' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.permutationProgram_length {n : ℕ} (f : Equiv.Perm.{1} (CircuitCompletion.Bits n)) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.permutationProgram f)) (HPow.hPow.{0, 0, 0} 2 n)
+'CircuitCompletion.permutationProgram_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.permutationWord_denote {n : ℕ} (hn : LT.lt.{0} 0 n) (f : Equiv.Perm.{1} (CircuitCompletion.Bits n)) :
+  Eq.{1} (CircuitCompletion.denote (CircuitCompletion.permutationWord hn f))
+    (CircuitCompletion.permutationUnitary.{0} f)
+'CircuitCompletion.permutationWord_denote' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.permutationWord_length {n : ℕ} (hn : LT.lt.{0} 0 n) (f : Equiv.Perm.{1} (CircuitCompletion.Bits n)) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.permutationWord hn f))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 20 (HPow.hPow.{0, 0, 0} n 2))
+      (HPow.hPow.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) 2))
+'CircuitCompletion.permutationWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.physical_fidelity_robust.{u_1, u_2, u_3, u_4} {a : Type u_1} {b : Type u_2} {d : Type u_3}
+  {κ : Type u_4} [Fintype.{u_1} a] [Fintype.{u_2} b] [Fintype.{u_3} d] [Fintype.{u_4} κ] [DecidableEq.{u_1 + 1} a]
+  [DecidableEq.{u_2 + 1} b] [DecidableEq.{u_3 + 1} d] [Nonempty.{u_3 + 1} d]
+  (A : κ → Matrix.{u_3, max u_2 u_1, 0} (Prod.{u_3, u_3} d d) (Prod.{u_1, u_2} a b) ℂ)
+  (hcomplete :
+    Eq.{max (u_1 + 1) (u_2 + 1)}
+      (∑ j,
+        HMul.hMul.{max (max u_1 u_2) u_3, max (max u_1 u_2) u_3, max u_1 u_2}
+          (Matrix.conjTranspose.{0, u_3, max u_1 u_2} (A j)) (A j))
+      1)
+  (hpt : Extraction.PTConjugatePositive.{u_4, u_1, u_2, u_3} A)
+  (U V : ↥(Matrix.unitaryGroup.{max u_2 u_1, 0} (Prod.{u_1, u_2} a b) ℂ)) (z : Prod.{u_1, u_2} a b → ℂ)
+  (hz : Eq.{1} (CircuitCompletion.vectorSquare.{max u_1 u_2} z) 1) (δ : ℝ) (hδ : LE.le.{0} 0 δ)
+  (hUV : LE.le.{0} (norm.{max u_1 u_2} (HSub.hSub.{max u_1 u_2, max u_1 u_2, max u_1 u_2} ↑U ↑V)) δ)
+  (hexact :
+    Eq.{1}
+      (Matrix.trace.{u_3, 0}
+          (HMul.hMul.{u_3, u_3, u_3} Extraction.bellProjector.{u_3}
+            (Extraction.krausApply.{max u_1 u_2, u_3, u_4} A
+              (HMul.hMul.{max u_1 u_2, max u_1 u_2, max u_1 u_2}
+                (HMul.hMul.{max u_1 u_2, max u_1 u_2, max u_1 u_2} (↑U) (CircuitCompletion.pureMatrix.{max u_1 u_2} z))
+                (Matrix.conjTranspose.{0, max u_1 u_2, max u_1 u_2} ↑U))))).re
+      1) :
+  LE.le.{0} (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 2 δ))
+    (Matrix.trace.{u_3, 0}
+        (HMul.hMul.{u_3, u_3, u_3} Extraction.bellProjector.{u_3}
+          (Extraction.krausApply.{max u_1 u_2, u_3, u_4} A
+            (HMul.hMul.{max u_1 u_2, max u_1 u_2, max u_1 u_2}
+              (HMul.hMul.{max u_1 u_2, max u_1 u_2, max u_1 u_2} (↑V) (CircuitCompletion.pureMatrix.{max u_1 u_2} z))
+              (Matrix.conjTranspose.{0, max u_1 u_2, max u_1 u_2} ↑V))))).re
+'CircuitCompletion.physical_fidelity_robust' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.phaseUnitary_congruence.{u_5} {ι : Type u_5} [Fintype.{u_5} ι] [DecidableEq.{u_5 + 1} ι] (c : ℂ)
+  (hc : Eq.{1} (Complex.normSq c) 1) (V : ↥(Matrix.unitaryGroup.{u_5, 0} ι ℂ)) (X : Matrix.{u_5, u_5, 0} ι ι ℂ) :
+  Eq.{u_5 + 1}
+    (HMul.hMul.{u_5, u_5, u_5} (HMul.hMul.{u_5, u_5, u_5} (↑(CircuitCompletion.phaseUnitary.{u_5} c hc V)) X)
+      (Matrix.conjTranspose.{0, u_5, u_5} ↑(CircuitCompletion.phaseUnitary.{u_5} c hc V)))
+    (HMul.hMul.{u_5, u_5, u_5} (HMul.hMul.{u_5, u_5, u_5} (↑V) X) (Matrix.conjTranspose.{0, u_5, u_5} ↑V))
+'CircuitCompletion.phaseUnitary_congruence' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.physical_fidelity_robust_up_to_phase.{u_1, u_2, u_3, u_4} {a : Type u_1} {b : Type u_2} {d : Type u_3}
+  {κ : Type u_4} [Fintype.{u_1} a] [Fintype.{u_2} b] [Fintype.{u_3} d] [Fintype.{u_4} κ] [DecidableEq.{u_1 + 1} a]
+  [DecidableEq.{u_2 + 1} b] [DecidableEq.{u_3 + 1} d] [Nonempty.{u_3 + 1} d]
+  (A : κ → Matrix.{u_3, max u_2 u_1, 0} (Prod.{u_3, u_3} d d) (Prod.{u_1, u_2} a b) ℂ)
+  (hcomplete :
+    Eq.{max (u_1 + 1) (u_2 + 1)}
+      (∑ j,
+        HMul.hMul.{max (max u_1 u_2) u_3, max (max u_1 u_2) u_3, max u_1 u_2}
+          (Matrix.conjTranspose.{0, u_3, max u_1 u_2} (A j)) (A j))
+      1)
+  (hpt : Extraction.PTConjugatePositive.{u_4, u_1, u_2, u_3} A)
+  (U V : ↥(Matrix.unitaryGroup.{max u_2 u_1, 0} (Prod.{u_1, u_2} a b) ℂ)) (z : Prod.{u_1, u_2} a b → ℂ)
+  (hz : Eq.{1} (CircuitCompletion.vectorSquare.{max u_1 u_2} z) 1) (δ : ℝ) (hδ : LE.le.{0} 0 δ) (c : ℂ)
+  (hc : Eq.{1} (Complex.normSq c) 1)
+  (hUV :
+    LE.le.{0}
+      (norm.{max u_1 u_2}
+        (HSub.hSub.{max u_1 u_2, max u_1 u_2, max u_1 u_2} (↑U) (HSMul.hSMul.{0, max u_1 u_2, max u_1 u_2} c ↑V)))
+      δ)
+  (hexact :
+    Eq.{1}
+      (Matrix.trace.{u_3, 0}
+          (HMul.hMul.{u_3, u_3, u_3} Extraction.bellProjector.{u_3}
+            (Extraction.krausApply.{max u_1 u_2, u_3, u_4} A
+              (HMul.hMul.{max u_1 u_2, max u_1 u_2, max u_1 u_2}
+                (HMul.hMul.{max u_1 u_2, max u_1 u_2, max u_1 u_2} (↑U) (CircuitCompletion.pureMatrix.{max u_1 u_2} z))
+                (Matrix.conjTranspose.{0, max u_1 u_2, max u_1 u_2} ↑U))))).re
+      1) :
+  LE.le.{0} (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 2 δ))
+    (Matrix.trace.{u_3, 0}
+        (HMul.hMul.{u_3, u_3, u_3} Extraction.bellProjector.{u_3}
+          (Extraction.krausApply.{max u_1 u_2, u_3, u_4} A
+            (HMul.hMul.{max u_1 u_2, max u_1 u_2, max u_1 u_2}
+              (HMul.hMul.{max u_1 u_2, max u_1 u_2, max u_1 u_2} (↑V) (CircuitCompletion.pureMatrix.{max u_1 u_2} z))
+              (Matrix.conjTranspose.{0, max u_1 u_2, max u_1 u_2} ↑V))))).re
+'CircuitCompletion.physical_fidelity_robust_up_to_phase' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+CircuitCompletion.swapWord_denote {n : ℕ} (hn : LT.lt.{0} 0 n) (x y : CircuitCompletion.Bits n) :
+  Eq.{1} (CircuitCompletion.denote (CircuitCompletion.swapWord hn x y))
+    (CircuitCompletion.permutationUnitary.{0} (Equiv.swap.{1} x y))
+'CircuitCompletion.swapWord_denote' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.TwoLevel.compile_denote {n : ℕ} (hn : LT.lt.{0} 0 n) (g : CircuitCompletion.TwoLevel n) :
+  Eq.{1} (CircuitCompletion.denote (CircuitCompletion.TwoLevel.compile hn g)) g.denote
+'CircuitCompletion.TwoLevel.compile_denote' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.elementary_twoLevel_bound (n : ℕ) (hn : LT.lt.{0} 0 n) :
+  LE.le.{0}
+    (HAdd.hAdd.{0, 0, 0}
+      (HAdd.hAdd.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n)
+          (HAdd.hAdd.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1)) 2))
+        (HMul.hMul.{0, 0, 0} 2
+          (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1))))
+      2)
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 20 (HPow.hPow.{0, 0, 0} n 2)) (HPow.hPow.{0, 0, 0} 2 n))
+'CircuitCompletion.elementary_twoLevel_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.TwoLevel.compile_length {n : ℕ} (hn : LT.lt.{0} 0 n) (g : CircuitCompletion.TwoLevel n) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.TwoLevel.compile hn g))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 20 (HPow.hPow.{0, 0, 0} n 2)) (HPow.hPow.{0, 0, 0} 2 n))
+'CircuitCompletion.TwoLevel.compile_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compileProgram_denote {n : ℕ} (hn : LT.lt.{0} 0 n) (a : List.{0} (CircuitCompletion.TwoLevel n)) :
+  Eq.{1} (CircuitCompletion.denote (CircuitCompletion.compileProgram hn a)) (CircuitCompletion.rawDenote a)
+'CircuitCompletion.compileProgram_denote' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compileProgram_length {n : ℕ} (hn : LT.lt.{0} 0 n) (a : List.{0} (CircuitCompletion.TwoLevel n)) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.compileProgram hn a))
+    (HMul.hMul.{0, 0, 0} (List.length.{0} a)
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 20 (HPow.hPow.{0, 0, 0} n 2)) (HPow.hPow.{0, 0, 0} 2 n)))
+'CircuitCompletion.compileProgram_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.singleWire_star {n : ℕ} (i : Fin n) (U : ↥(Matrix.unitaryGroup.{0, 0} Bool ℂ)) :
+  Eq.{1} (CircuitCompletion.singleWire i (star.{0} U)) (star.{0} (CircuitCompletion.singleWire i U))
+'CircuitCompletion.singleWire_star' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.cnot_denote_star {n : ℕ} (c t : Fin n) (hct : Ne.{1} c t) :
+  Eq.{1} (star.{0} (CircuitCompletion.Gate.cnot c t hct).denote) (CircuitCompletion.Gate.cnot c t hct).denote
+'CircuitCompletion.cnot_denote_star' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.Gate.inverse_denote {n : ℕ} (g : CircuitCompletion.Gate n) :
+  Eq.{1} g.inverse.denote (star.{0} g.denote)
+'CircuitCompletion.Gate.inverse_denote' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.denote_reverseCircuit {n : ℕ} (a : CircuitCompletion.Circuit n) :
+  Eq.{1} (CircuitCompletion.denote (CircuitCompletion.reverseCircuit a)) (star.{0} (CircuitCompletion.denote a))
+'CircuitCompletion.denote_reverseCircuit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_reverseCircuit {n : ℕ} (a : CircuitCompletion.Circuit n) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.reverseCircuit a) (CircuitCompletion.run a v)) v
+'CircuitCompletion.run_reverseCircuit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.reverseCircuit_length {n : ℕ} (a : CircuitCompletion.Circuit n) :
+  Eq.{1} (List.length.{0} (CircuitCompletion.reverseCircuit a)) (List.length.{0} a)
+'CircuitCompletion.reverseCircuit_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_pauliWords {n : ℕ} (hn : LT.lt.{0} 0 n) (ss : List.{0} (Finset.{0} (Fin n)))
+  (θ : Finset.{0} (Fin n) → ℝ) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (List.flatMap.{0, 0} (fun S => CircuitCompletion.pauliWord hn S (θ S)) ss) v) fun w =>
+    HMul.hMul.{0, 0, 0}
+      (CircuitCompletion.complexPhase
+        (List.sum.{0} (List.map.{0, 0} (fun S => HMul.hMul.{0, 0, 0} (θ S) (CircuitCompletion.maskCharacter S w)) ss)))
+      (v w)
+'CircuitCompletion.run_pauliWords' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.walsh_mask_identity {n : ℕ} (x w : CircuitCompletion.Bits n) :
+  Eq.{1}
+    (∑ S ∈ Finset.powerset.{0} Finset.univ.{0},
+      HMul.hMul.{0, 0, 0} (CircuitCompletion.maskCharacter S x) (CircuitCompletion.maskCharacter S w))
+    (ite.{1} (Eq.{1} w x) (HPow.hPow.{0, 0, 0} 2 n) 0)
+'CircuitCompletion.walsh_mask_identity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.selectedPhaseWord_action {n : ℕ} (hn : LT.lt.{0} 0 n) (x : CircuitCompletion.Bits n) (θ : ℝ)
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.selectedPhaseWord hn x θ) v) fun w =>
+    HMul.hMul.{0, 0, 0} (CircuitCompletion.complexPhase (ite.{1} (Eq.{1} w x) θ 0)) (v w)
+'CircuitCompletion.selectedPhaseWord_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.selectedPhaseWord_length {n : ℕ} (hn : LT.lt.{0} 0 n) (x : CircuitCompletion.Bits n) (θ : ℝ) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.selectedPhaseWord hn x θ))
+    (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1))
+'CircuitCompletion.selectedPhaseWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.permutationUnitary_action.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (e : Equiv.Perm.{u_1 + 1} ι) (v : ι → ℂ) :
+  Eq.{u_1 + 1} (Matrix.mulVec.{0, u_1, u_1} (↑(CircuitCompletion.permutationUnitary.{u_1} e)) v) fun i =>
+    v ((Equiv.symm.{u_1 + 1, u_1 + 1} e) i)
+'CircuitCompletion.permutationUnitary_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.cnotFunction_involutive {n : ℕ} (c t : Fin n) (hct : Ne.{1} c t) :
+  Function.Involutive.{1} (CircuitCompletion.cnotFunction c t)
+'CircuitCompletion.cnotFunction_involutive' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.denote_nil (n : ℕ) : Eq.{1} (CircuitCompletion.denote List.nil.{0}) 1
+'CircuitCompletion.denote_nil' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.denote_cons {n : ℕ} (g : CircuitCompletion.Gate n) (gs : CircuitCompletion.Circuit n) :
+  Eq.{1} (CircuitCompletion.denote (List.cons.{0} g gs)) (HMul.hMul.{0, 0, 0} (CircuitCompletion.denote gs) g.denote)
+'CircuitCompletion.denote_cons' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.denote_append {n : ℕ} (a b : CircuitCompletion.Circuit n) :
+  Eq.{1} (CircuitCompletion.denote (HAppend.hAppend.{0, 0, 0} a b))
+    (HMul.hMul.{0, 0, 0} (CircuitCompletion.denote b) (CircuitCompletion.denote a))
+'CircuitCompletion.denote_append' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_append {n : ℕ} (a b : CircuitCompletion.Circuit n) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (HAppend.hAppend.{0, 0, 0} a b) v) (CircuitCompletion.run b (CircuitCompletion.run a v))
+'CircuitCompletion.run_append' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.cnot_action {n : ℕ} (c t : Fin n) (hct : Ne.{1} c t) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (Matrix.mulVec.{0, 0, 0} (↑(CircuitCompletion.Gate.cnot c t hct).denote) v) fun w =>
+    v (CircuitCompletion.cnotFunction c t w)
+'CircuitCompletion.cnot_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.mergeRotation_zero_right (a : ℝ) (ha : LE.le.{0} 0 a) :
+  Eq.{1} (CircuitCompletion.mergeRotation a 0 ha ⋯) 1
+'CircuitCompletion.mergeRotation_zero_right' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.embedPlane_one.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (E : Matrix.{u_1, 0, 0} ι (Fin 2) ℂ)
+  (hE : Eq.{1} (HMul.hMul.{u_1, u_1, 0} (Matrix.conjTranspose.{0, u_1, 0} E) E) 1) :
+  Eq.{u_1 + 1} (CircuitCompletion.embedPlane.{u_1} E hE 1) 1
+'CircuitCompletion.embedPlane_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.mergeAt_zero_right.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (p q : ι)
+  (hpq : Ne.{u_1 + 1} p q) (a : ℝ) (ha : LE.le.{0} 0 a) :
+  Eq.{u_1 + 1} (CircuitCompletion.mergeAt.{u_1} p q hpq a 0 ha ⋯) 1
+'CircuitCompletion.mergeAt_zero_right' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.mergeAt_fixes_zero.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] (p q : ι)
+  (hpq : Ne.{u_1 + 1} p q) (a b : ℝ) (ha : LE.le.{0} 0 a) (hb : LE.le.{0} 0 b) (v : ι → ℂ) (hp : Eq.{1} (v p) 0)
+  (hq : Eq.{1} (v q) 0) :
+  Eq.{u_1 + 1} (Matrix.mulVec.{0, u_1, u_1} (↑(CircuitCompletion.mergeAt.{u_1} p q hpq a b ha hb)) v) v
+'CircuitCompletion.mergeAt_fixes_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.isometry_embedPlane_intertwine.{u_1, u_2} {ι : Type u_1} {κ : Type u_2} [Fintype.{u_1} ι]
+  [Fintype.{u_2} κ] [DecidableEq.{u_1 + 1} ι] [DecidableEq.{u_2 + 1} κ] (E : Matrix.{u_1, u_2, 0} ι κ ℂ)
+  (hE : Eq.{u_2 + 1} (HMul.hMul.{max u_1 u_2, max u_1 u_2, u_2} (Matrix.conjTranspose.{0, u_1, u_2} E) E) 1)
+  (F : Matrix.{u_2, 0, 0} κ (Fin 2) ℂ) (hF : Eq.{1} (HMul.hMul.{u_2, u_2, 0} (Matrix.conjTranspose.{0, u_2, 0} F) F) 1)
+  (G : ↥(Matrix.unitaryGroup.{0, 0} (Fin 2) ℂ)) :
+  Eq.{max (u_1 + 1) (u_2 + 1)}
+    (HMul.hMul.{u_1, max u_1 u_2, max u_1 u_2}
+      (↑(CircuitCompletion.embedPlane.{u_1} (HMul.hMul.{max u_1 u_2, u_2, u_1} E F) ⋯ G)) E)
+    (HMul.hMul.{max u_1 u_2, u_2, max u_1 u_2} E ↑(CircuitCompletion.embedPlane.{u_2} F hF G))
+'CircuitCompletion.isometry_embedPlane_intertwine' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.coordinateIsometry_pairPlane.{u_1} {ι : Type u_1} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι]
+  (e : Function.Embedding.{1, u_1 + 1} (Fin 4) ι) (p q : Fin 4) (hpq : Ne.{1} p q) :
+  Eq.{u_1 + 1}
+    (HMul.hMul.{u_1, 0, u_1} (Extraction.coordinateIsometry.{u_1, 0} e) (CircuitCompletion.pairPlane.{0} p q hpq))
+    (CircuitCompletion.pairPlane.{u_1} (e p) (e q) ⋯)
+'CircuitCompletion.coordinateIsometry_pairPlane' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.rawRun_nil {n : ℕ} (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.rawRun List.nil.{0} v) v
+'CircuitCompletion.rawRun_nil' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.rawRun_cons {n : ℕ} (g : CircuitCompletion.TwoLevel n) (gs : List.{0} (CircuitCompletion.TwoLevel n))
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.rawRun (List.cons.{0} g gs) v)
+    (CircuitCompletion.rawRun gs (Matrix.mulVec.{0, 0, 0} (↑g.denote) v))
+'CircuitCompletion.rawRun_cons' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.sparseProgram_action {n : ℕ} (p : CircuitCompletion.Bits n) (a : CircuitCompletion.Bits n → ℝ)
+  (ha : ∀ (w : CircuitCompletion.Bits n), LE.le.{0} 0 (a w)) (qs : List.{0} (Subtype.{1} fun q => Ne.{1} q p))
+  (hqs : List.Nodup.{0} qs) (s : ℝ) (hs : LE.le.{0} 0 s) (v : CircuitCompletion.Bits n → ℂ) (hp : Eq.{1} (v p) ↑√s)
+  (hq : ∀ (q : Subtype.{1} fun q => Ne.{1} q p), Membership.mem.{0, 0} qs q → Eq.{1} (v ↑q) ↑√(a ↑q)) :
+  Eq.{1} (CircuitCompletion.rawRun (CircuitCompletion.sparseProgram p a ha qs s hs) v)
+    (HAdd.hAdd.{0, 0, 0}
+      (Pi.single.{0, 0} p ↑√(HAdd.hAdd.{0, 0, 0} s (List.sum.{0} (List.map.{0, 0} (fun q => a ↑q) qs))))
+      (HSub.hSub.{0, 0, 0} v
+        (HAdd.hAdd.{0, 0, 0} (Pi.single.{0, 0} p ↑√s)
+          (List.sum.{0} (List.map.{0, 0} (fun q => Pi.single.{0, 0} ↑q ↑√(a ↑q)) qs)))))
+'CircuitCompletion.sparseProgram_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.sparseProgram_length {n : ℕ} (p : CircuitCompletion.Bits n) (a : CircuitCompletion.Bits n → ℝ)
+  (ha : ∀ (w : CircuitCompletion.Bits n), LE.le.{0} 0 (a w)) (qs : List.{0} (Subtype.{1} fun q => Ne.{1} q p)) (s : ℝ)
+  (hs : LE.le.{0} 0 s) : Eq.{1} (List.length.{0} (CircuitCompletion.sparseProgram p a ha qs s hs)) (List.length.{0} qs)
+'CircuitCompletion.sparseProgram_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compiled_sparse_action {n : ℕ} (hn : LT.lt.{0} 0 n) (p : CircuitCompletion.Bits n)
+  (a : CircuitCompletion.Bits n → ℝ) (ha : ∀ (w : CircuitCompletion.Bits n), LE.le.{0} 0 (a w))
+  (qs : List.{0} (Subtype.{1} fun q => Ne.{1} q p)) (hqs : List.Nodup.{0} qs) (s : ℝ) (hs : LE.le.{0} 0 s)
+  (v : CircuitCompletion.Bits n → ℂ) (hp : Eq.{1} (v p) ↑√s)
+  (hq : ∀ (q : Subtype.{1} fun q => Ne.{1} q p), Membership.mem.{0, 0} qs q → Eq.{1} (v ↑q) ↑√(a ↑q)) :
+  Eq.{1}
+    (CircuitCompletion.run (CircuitCompletion.compileProgram hn (CircuitCompletion.sparseProgram p a ha qs s hs)) v)
+    (HAdd.hAdd.{0, 0, 0}
+      (Pi.single.{0, 0} p ↑√(HAdd.hAdd.{0, 0, 0} s (List.sum.{0} (List.map.{0, 0} (fun q => a ↑q) qs))))
+      (HSub.hSub.{0, 0, 0} v
+        (HAdd.hAdd.{0, 0, 0} (Pi.single.{0, 0} p ↑√s)
+          (List.sum.{0} (List.map.{0, 0} (fun q => Pi.single.{0, 0} ↑q ↑√(a ↑q)) qs)))))
+'CircuitCompletion.compiled_sparse_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compiled_sparse_length {n : ℕ} (hn : LT.lt.{0} 0 n) (p : CircuitCompletion.Bits n)
+  (a : CircuitCompletion.Bits n → ℝ) (ha : ∀ (w : CircuitCompletion.Bits n), LE.le.{0} 0 (a w))
+  (qs : List.{0} (Subtype.{1} fun q => Ne.{1} q p)) (s : ℝ) (hs : LE.le.{0} 0 s) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.compileProgram hn (CircuitCompletion.sparseProgram p a ha qs s hs)))
+    (HMul.hMul.{0, 0, 0} (List.length.{0} qs)
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 20 (HPow.hPow.{0, 0, 0} n 2)) (HPow.hPow.{0, 0, 0} 2 n)))
+'CircuitCompletion.compiled_sparse_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.sparseProgram_fixes_zero {n : ℕ} (p : CircuitCompletion.Bits n) (a : CircuitCompletion.Bits n → ℝ)
+  (ha : ∀ (w : CircuitCompletion.Bits n), LE.le.{0} 0 (a w)) (qs : List.{0} (Subtype.{1} fun q => Ne.{1} q p)) (s : ℝ)
+  (hs : LE.le.{0} 0 s) (v : CircuitCompletion.Bits n → ℂ) (hp : Eq.{1} (v p) 0)
+  (hq : ∀ (q : Subtype.{1} fun q => Ne.{1} q p), Membership.mem.{0, 0} qs q → Eq.{1} (v ↑q) 0) :
+  Eq.{1} (CircuitCompletion.rawRun (CircuitCompletion.sparseProgram p a ha qs s hs) v) v
+'CircuitCompletion.sparseProgram_fixes_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.compiled_sparse_fixes_zero {n : ℕ} (hn : LT.lt.{0} 0 n) (p : CircuitCompletion.Bits n)
+  (a : CircuitCompletion.Bits n → ℝ) (ha : ∀ (w : CircuitCompletion.Bits n), LE.le.{0} 0 (a w))
+  (qs : List.{0} (Subtype.{1} fun q => Ne.{1} q p)) (s : ℝ) (hs : LE.le.{0} 0 s) (v : CircuitCompletion.Bits n → ℂ)
+  (hp : Eq.{1} (v p) 0) (hq : ∀ (q : Subtype.{1} fun q => Ne.{1} q p), Membership.mem.{0, 0} qs q → Eq.{1} (v ↑q) 0) :
+  Eq.{1}
+    (CircuitCompletion.run (CircuitCompletion.compileProgram hn (CircuitCompletion.sparseProgram p a ha qs s hs)) v) v
+'CircuitCompletion.compiled_sparse_fixes_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.prefixBits_update {q r : ℕ} (w : CircuitCompletion.Bits (HAdd.hAdd.{0, 0, 0} q r)) (i : Fin q)
+  (b : Bool) :
+  Eq.{1} (CircuitCompletion.prefixBits (Function.update.{1, 1} w (Fin.castAdd r i) b))
+    (Function.update.{1, 1} (CircuitCompletion.prefixBits w) i b)
+'CircuitCompletion.prefixBits_update' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.suffixBits_update {q r : ℕ} (w : CircuitCompletion.Bits (HAdd.hAdd.{0, 0, 0} q r)) (i : Fin q)
+  (b : Bool) :
+  Eq.{1} (CircuitCompletion.suffixBits (Function.update.{1, 1} w (Fin.castAdd r i) b)) (CircuitCompletion.suffixBits w)
+'CircuitCompletion.suffixBits_update' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.run_singleton {n : ℕ} (g : CircuitCompletion.Gate n) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (List.cons.{0} g List.nil.{0}) v) (Matrix.mulVec.{0, 0, 0} (↑g.denote) v)
+'CircuitCompletion.run_singleton' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_lift_single {q r : ℕ} (g : CircuitCompletion.Gate q) (v : CircuitCompletion.Bits q → ℂ)
+  (z : CircuitCompletion.Bits r → ℂ) :
+  Eq.{1}
+    (CircuitCompletion.run (List.cons.{0} (CircuitCompletion.Gate.lift r g) List.nil.{0}) fun w =>
+      HMul.hMul.{0, 0, 0} (v (CircuitCompletion.prefixBits w)) (z (CircuitCompletion.suffixBits w)))
+    fun w =>
+    HMul.hMul.{0, 0, 0} (CircuitCompletion.run (List.cons.{0} g List.nil.{0}) v (CircuitCompletion.prefixBits w))
+      (z (CircuitCompletion.suffixBits w))
+'CircuitCompletion.run_lift_single' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_cons {n : ℕ} (g : CircuitCompletion.Gate n) (a : CircuitCompletion.Circuit n)
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (List.cons.{0} g a) v)
+    (CircuitCompletion.run a (CircuitCompletion.run (List.cons.{0} g List.nil.{0}) v))
+'CircuitCompletion.run_cons' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_liftCircuit {q r : ℕ} (a : CircuitCompletion.Circuit q) (v : CircuitCompletion.Bits q → ℂ)
+  (z : CircuitCompletion.Bits r → ℂ) :
+  Eq.{1}
+    (CircuitCompletion.run (CircuitCompletion.liftCircuit r a) fun w =>
+      HMul.hMul.{0, 0, 0} (v (CircuitCompletion.prefixBits w)) (z (CircuitCompletion.suffixBits w)))
+    fun w =>
+    HMul.hMul.{0, 0, 0} (CircuitCompletion.run a v (CircuitCompletion.prefixBits w))
+      (z (CircuitCompletion.suffixBits w))
+'CircuitCompletion.run_liftCircuit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.liftCircuit_length {q : ℕ} (r : ℕ) (a : CircuitCompletion.Circuit q) :
+  Eq.{1} (List.length.{0} (CircuitCompletion.liftCircuit r a)) (List.length.{0} a)
+'CircuitCompletion.liftCircuit_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.liftCircuit_matrix {q r : ℕ} (a : CircuitCompletion.Circuit q) :
+  Eq.{1} (↑(CircuitCompletion.denote (CircuitCompletion.liftCircuit r a)))
+    ((Matrix.reindex.{0, 0, 0, 0, 0} (Equiv.symm.{1, 1} (CircuitCompletion.splitRegister q r))
+        (Equiv.symm.{1, 1} (CircuitCompletion.splitRegister q r)))
+      (Matrix.kroneckerMap.{0, 0, 0, 0, 0, 0, 0} (fun x1 x2 => HMul.hMul.{0, 0, 0} x1 x2)
+        (↑(CircuitCompletion.denote a)) 1))
+'CircuitCompletion.liftCircuit_matrix' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.successor_stage_expansion {k : ℕ}
+  (enc : Function.Embedding.{1, 1} (Sym.{0} (Fin 4) k) (SymmetricSupport.Word 4 k))
+  (U : Matrix.{0, 0, 0} (SymmetricSupport.Word 4 k) (SymmetricSupport.Word 4 k) ℂ)
+  (hU :
+    ∀ (mu : Sym.{0} (Fin 4) k),
+      Eq.{1} (Matrix.mulVec.{0, 0, 0} U (CircuitCompletion.occupationVector mu)) (Pi.single.{0, 0} (enc mu) 1))
+  (ν : Sym.{0} (Fin 4) (HAdd.hAdd.{0, 0, 0} k 1)) :
+  Eq.{1}
+    (Matrix.mulVec.{0, 0, 0} (Matrix.kroneckerMap.{0, 0, 0, 0, 0, 0, 0} (fun x1 x2 => HMul.hMul.{0, 0, 0} x1 x2) 1 U)
+      (CircuitCompletion.successorVector ν))
+    (CircuitCompletion.successorCodeVector enc ν)
+'CircuitCompletion.successor_stage_expansion' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.flipBit_ne {n : ℕ} (t : Fin n) (x : CircuitCompletion.Bits n) :
+  Ne.{1} (CircuitCompletion.flipBit t x) x
+'CircuitCompletion.flipBit_ne' depends on axioms: [propext]
+CircuitCompletion.eq_of_sameOutside {n : ℕ} (t : Fin n) (w x : CircuitCompletion.Bits n)
+  (h : CircuitCompletion.sameOutside t w x) (ht : Eq.{1} (w t) (x t)) : Eq.{1} w x
+'CircuitCompletion.eq_of_sameOutside' depends on axioms: [Quot.sound.{u}]
+CircuitCompletion.flipBit_involutive {n : ℕ} (t : Fin n) : Function.Involutive.{1} (CircuitCompletion.flipBit t)
+'CircuitCompletion.flipBit_involutive' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.sameOutside_flipBit {n : ℕ} (t : Fin n) (x : CircuitCompletion.Bits n) :
+  CircuitCompletion.sameOutside t (CircuitCompletion.flipBit t x) x
+'CircuitCompletion.sameOutside_flipBit' depends on axioms: [propext]
+CircuitCompletion.adjacentSwapWord_swap {n : ℕ} (hn : LT.lt.{0} 0 n) (t : Fin n) (x : CircuitCompletion.Bits n)
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.adjacentSwapWord hn t x) v) fun w =>
+    v ((Equiv.swap.{1} x (CircuitCompletion.flipBit t x)) w)
+'CircuitCompletion.adjacentSwapWord_swap' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_singleton_swap {n : ℕ} (hn : LT.lt.{0} 0 n) (t : Fin n) (x : CircuitCompletion.Bits n)
+  (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.adjacentSwapWord hn t x) v)
+    (Matrix.mulVec.{0, 0, 0}
+      (↑(CircuitCompletion.permutationUnitary.{0} (Equiv.swap.{1} x (CircuitCompletion.flipBit t x)))) v)
+'CircuitCompletion.run_singleton_swap' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.suffixBits_update_suffix {s q : ℕ} (w : CircuitCompletion.Bits (HAdd.hAdd.{0, 0, 0} s q)) (i : Fin q)
+  (b : Bool) :
+  Eq.{1} (CircuitCompletion.suffixBits (Function.update.{1, 1} w (Fin.natAdd s i) b))
+    (Function.update.{1, 1} (CircuitCompletion.suffixBits w) i b)
+'CircuitCompletion.suffixBits_update_suffix' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.prefixBits_update_suffix {s q : ℕ} (w : CircuitCompletion.Bits (HAdd.hAdd.{0, 0, 0} s q)) (i : Fin q)
+  (b : Bool) :
+  Eq.{1} (CircuitCompletion.prefixBits (Function.update.{1, 1} w (Fin.natAdd s i) b)) (CircuitCompletion.prefixBits w)
+'CircuitCompletion.prefixBits_update_suffix' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.run_shift_single {s q : ℕ} (g : CircuitCompletion.Gate q) (v : CircuitCompletion.Bits q → ℂ)
+  (z : CircuitCompletion.Bits s → ℂ) :
+  Eq.{1}
+    (CircuitCompletion.run (List.cons.{0} (CircuitCompletion.Gate.shift s g) List.nil.{0}) fun w =>
+      HMul.hMul.{0, 0, 0} (z (CircuitCompletion.prefixBits w)) (v (CircuitCompletion.suffixBits w)))
+    fun w =>
+    HMul.hMul.{0, 0, 0} (z (CircuitCompletion.prefixBits w))
+      (CircuitCompletion.run (List.cons.{0} g List.nil.{0}) v (CircuitCompletion.suffixBits w))
+'CircuitCompletion.run_shift_single' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.run_shiftCircuit {s q : ℕ} (a : CircuitCompletion.Circuit q) (v : CircuitCompletion.Bits q → ℂ)
+  (z : CircuitCompletion.Bits s → ℂ) :
+  Eq.{1}
+    (CircuitCompletion.run (CircuitCompletion.shiftCircuit s a) fun w =>
+      HMul.hMul.{0, 0, 0} (z (CircuitCompletion.prefixBits w)) (v (CircuitCompletion.suffixBits w)))
+    fun w =>
+    HMul.hMul.{0, 0, 0} (z (CircuitCompletion.prefixBits w))
+      (CircuitCompletion.run a v (CircuitCompletion.suffixBits w))
+'CircuitCompletion.run_shiftCircuit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.shiftCircuit_length {q : ℕ} (s : ℕ) (a : CircuitCompletion.Circuit q) :
+  Eq.{1} (List.length.{0} (CircuitCompletion.shiftCircuit s a)) (List.length.{0} a)
+'CircuitCompletion.shiftCircuit_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.shiftCircuit_matrix {s q : ℕ} (a : CircuitCompletion.Circuit q) :
+  Eq.{1} (↑(CircuitCompletion.denote (CircuitCompletion.shiftCircuit s a)))
+    ((Matrix.reindex.{0, 0, 0, 0, 0} (Equiv.symm.{1, 1} (CircuitCompletion.splitRegister s q))
+        (Equiv.symm.{1, 1} (CircuitCompletion.splitRegister s q)))
+      (Matrix.kroneckerMap.{0, 0, 0, 0, 0, 0, 0} (fun x1 x2 => HMul.hMul.{0, 0, 0} x1 x2) 1
+        ↑(CircuitCompletion.denote a)))
+'CircuitCompletion.shiftCircuit_matrix' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.sameOutside_cases {n : ℕ} (t : Fin n) (w x : CircuitCompletion.Bits n)
+  (h : CircuitCompletion.sameOutside t w x) : Eq.{1} w x ∨ Eq.{1} w (CircuitCompletion.flipBit t x)
+'CircuitCompletion.sameOutside_cases' depends on axioms: [propext, Quot.sound.{u}]
+CircuitCompletion.orientedRotationWord_action {n : ℕ} (hn : LT.lt.{0} 0 n) (t : Fin n) (x : CircuitCompletion.Bits n)
+  (θ : ℝ) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.orientedRotationWord hn t x θ) v) fun w =>
+    ite.{1} (Eq.{1} w x)
+      (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑(Real.cos θ)) (v x))
+        (HMul.hMul.{0, 0, 0} (↑(Real.sin θ)) (v (CircuitCompletion.flipBit t x))))
+      (ite.{1} (Eq.{1} w (CircuitCompletion.flipBit t x))
+        (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} ↑(Real.sin θ)) (v x))
+          (HMul.hMul.{0, 0, 0} (↑(Real.cos θ)) (v (CircuitCompletion.flipBit t x))))
+        (v w))
+'CircuitCompletion.orientedRotationWord_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.orientedRotationWord_length {n : ℕ} (hn : LT.lt.{0} 0 n) (t : Fin n) (x : CircuitCompletion.Bits n)
+  (θ : ℝ) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.orientedRotationWord hn t x θ))
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} 2
+        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1)))
+      2)
+'CircuitCompletion.orientedRotationWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.rotationWord_action {n : ℕ} (hn : LT.lt.{0} 0 n) (x y : CircuitCompletion.Bits n) (h : Ne.{1} x y)
+  (θ : ℝ) (v : CircuitCompletion.Bits n → ℂ) :
+  Eq.{1} (CircuitCompletion.run (CircuitCompletion.rotationWord hn x y h θ) v) fun w =>
+    ite.{1} (Eq.{1} w x)
+      (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑(Real.cos θ)) (v x)) (HMul.hMul.{0, 0, 0} (↑(Real.sin θ)) (v y)))
+      (ite.{1} (Eq.{1} w y)
+        (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} ↑(Real.sin θ)) (v x))
+          (HMul.hMul.{0, 0, 0} (↑(Real.cos θ)) (v y)))
+        (v w))
+'CircuitCompletion.rotationWord_action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CircuitCompletion.rotationWord_length {n : ℕ} (hn : LT.lt.{0} 0 n) (x y : CircuitCompletion.Bits n) (h : Ne.{1} x y)
+  (θ : ℝ) :
+  LE.le.{0} (List.length.{0} (CircuitCompletion.rotationWord hn x y h θ))
+    (HAdd.hAdd.{0, 0, 0}
+      (HAdd.hAdd.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n)
+          (HAdd.hAdd.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1)) 2))
+        (HMul.hMul.{0, 0, 0} 2
+          (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 n) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 n) 1))))
+      2)
+'CircuitCompletion.rotationWord_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
