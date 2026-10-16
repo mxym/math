@@ -1,0 +1,103 @@
+import SpectralProtocol
+import ProtocolVerification.ReplaySupport
+
+run_cmd (ProtocolVerification.replayAndCorrupt [
+  ``SpectralProtocol.oneShotSpectralEnvelope_actual_upper,
+  ``SpectralProtocol.actual_effect_diagonal_data,
+  ``SpectralProtocol.spectralPrefixIndices_card,
+  ``SpectralProtocol.spectralPrefixIndices_sum,
+  ``SpectralProtocol.prefixWidth_div_target,
+  ``SpectralProtocol.oneShotSpectralEnvelope_actual_lower,
+  ``SpectralProtocol.sorted_diagonal_le_prefixWidth,
+  ``SpectralProtocol.actual_effect_harmonic_envelope,
+  ``SpectralProtocol.purePowerProjection_hermitian,
+  ``SpectralProtocol.purePowerProjection_idempotent,
+  ``SpectralProtocol.purePowerProjection_rank,
+  ``SpectralProtocol.pureSupportRank_pos,
+  ``SpectralProtocol.pureSupportRank_le_dimension,
+  ``SpectralProtocol.purePowerInput_density,
+  ``SpectralProtocol.purePowerInput_supported,
+  ``SpectralProtocol.purePowerAverage_density,
+  ``SpectralProtocol.purePowerAverage_purity,
+  ``SpectralProtocol.purePower_guarantee_le_average,
+  ``SpectralProtocol.purePower_fidelity_guarantee_upper,
+  ``SpectralProtocol.purePower_fidelity_feasible_lower,
+  ``SpectralProtocol.integerBellYield_iff,
+  ``SpectralProtocol.integerBellYield_packing,
+  ``SpectralProtocol.integerBellYield_actual_extractor,
+  ``SpectralProtocol.integerBellYield_optimal,
+  ``SpectralProtocol.integerBellYield_eq_real_floor,
+  ``SpectralProtocol.integerBellYield_eq_paper_floor,
+  ``SpectralProtocol.effect_fixes_projection_of_exact_support,
+  ``SpectralProtocol.effect_sub_projection_posSemidef,
+  ``SpectralProtocol.finite_projection_mass_lower,
+  ``SpectralProtocol.integer_floor_product_feasible,
+  ``SpectralProtocol.exists_quarter_packing,
+  ``SpectralProtocol.prefixWidth_feasible,
+  ``SpectralProtocol.spectral_subset_quarter_lower,
+  ``SpectralProtocol.conjugateMatrix_complete,
+  ``SpectralProtocol.product_congruence_partialTranspose,
+  ``SpectralProtocol.product_kraus_partialTranspose,
+  ``SpectralProtocol.productKraus_PTConjugatePositive,
+  ``SpectralProtocol.projection_trace_eq_rank,
+  ``SpectralProtocol.projection_posSemidef,
+  ``SpectralProtocol.projectionDensity_density,
+  ``SpectralProtocol.projectionDensity_supported,
+  ``SpectralProtocol.projectionDensity_purity,
+  ``SpectralProtocol.exact_common_support_dimension_budget,
+  ``SpectralProtocol.reindex_trace,
+  ``SpectralProtocol.twoQubitSymmetricProjection_hermitian,
+  ``SpectralProtocol.twoQubitSymmetricProjection_idempotent,
+  ``SpectralProtocol.twoQubitSymmetricProjection_rank,
+  ``SpectralProtocol.twoQubitSymmetricProjection_rank_pos,
+  ``SpectralProtocol.twoQubitSymmetricProjection_rank_le,
+  ``SpectralProtocol.pureTwoQubitInput_density,
+  ``SpectralProtocol.pureTwoQubitInput_supported,
+  ``SpectralProtocol.exact_pureTwoQubit_effect_fixes_projection,
+  ``SpectralProtocol.preprocessedEffect_pairing,
+  ``SpectralProtocol.one_sub_preprocessedEffect_posSemidef,
+  ``SpectralProtocol.pure_iid_integerBell_actual_extractor,
+  ``SpectralProtocol.pure_iid_integerBell_optimal,
+  ``SpectralProtocol.pure_iid_integerBell_eq_paper_floor,
+  ``SpectralProtocol.pureTwoQubitAverage_density,
+  ``SpectralProtocol.pureTwoQubitAverage_purity,
+  ``SpectralProtocol.pureTwoQubit_guarantee_le_average,
+  ``SpectralProtocol.pure_iid_fidelity_guarantee_upper,
+  ``SpectralProtocol.antitone_entry_le_prefix_average,
+  ``SpectralProtocol.antitone_entry_sq_budget,
+  ``SpectralProtocol.harmonic_prefix_comparison,
+  ``SpectralProtocol.sectorKraus_complete,
+  ``SpectralProtocol.sectorEmbedding_isometry,
+  ``SpectralProtocol.sectorKraus_mul_embedding,
+  ``SpectralProtocol.krausApply_encoded,
+  ``SpectralProtocol.sectorKraus_encoded,
+  ``SpectralProtocol.finite_projection_positive_submatrix_lower,
+  ``SpectralProtocol.unitary_conjugation_mul,
+  ``SpectralProtocol.spectralProjection_posSemidef,
+  ``SpectralProtocol.spectralProjection_idempotent,
+  ``SpectralProtocol.spectralProjection_trace,
+  ``SpectralProtocol.spectralProjection_rank,
+  ``SpectralProtocol.spectralSelection_posSemidef,
+  ``SpectralProtocol.spectralSelection_supported,
+  ``SpectralProtocol.spectralSelection_trace_re,
+  ``SpectralProtocol.spectralSelection_remainder_posSemidef,
+  ``SpectralProtocol.spectral_subset_actual_lower,
+  ``SpectralProtocol.secondPartialTranspose_eq_transpose_first,
+  ``SpectralProtocol.firstPartialTranspose_transpose,
+  ``SpectralProtocol.secondPartialTranspose_transpose,
+  ``SpectralProtocol.PTConjugatePositive_iff_second,
+  ``SpectralProtocol.productKraus_secondPTConjugatePositive
+] "verification/protocol-kernel")
+
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.purePower_fidelity_guarantee_upper "verification/protocol-control-1"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.purePower_fidelity_feasible_lower "verification/protocol-control-2"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.pure_iid_integerBell_actual_extractor "verification/protocol-control-3"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.pure_iid_integerBell_optimal "verification/protocol-control-4"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.pure_iid_integerBell_eq_paper_floor "verification/protocol-control-5"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.oneShotSpectralEnvelope_actual_lower "verification/protocol-control-6"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.finite_projection_mass_lower "verification/protocol-control-7"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.conjugateMatrix_complete "verification/protocol-control-8"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.PTConjugatePositive_iff_second "verification/protocol-control-9"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.sectorKraus_encoded "verification/protocol-control-10"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.actual_effect_diagonal_data "verification/protocol-control-11"
+run_cmd ProtocolVerification.rejectCorruptTheorem ``SpectralProtocol.harmonic_prefix_comparison "verification/protocol-control-12"
