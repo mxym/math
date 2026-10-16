@@ -1,0 +1,142 @@
+[
+  {
+    "stage": "toolchain",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 0.665,
+    "log": "toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680"
+  },
+  {
+    "stage": "build-matrix-projector",
+    "command": [
+      "lake",
+      "build",
+      "@extractionMatrixProjector/MatrixSubspace"
+    ],
+    "exit_code": 0,
+    "seconds": 3.422,
+    "log": "build-matrix-projector.log",
+    "sha256": "bcb2e29a5574dd14e230333253563e81ba1eadc896ea9c5664ee8d50810ab3ba"
+  },
+  {
+    "stage": "build-symmetric-support",
+    "command": [
+      "lake",
+      "build",
+      "@extractionSymmetricSupport/SymmetricSupport"
+    ],
+    "exit_code": 0,
+    "seconds": 19.578,
+    "log": "build-symmetric-support.log",
+    "sha256": "055f848374b0c6fd6b9e8cd4242f2e4b7827a1e48806756826032eac1fd48b1a"
+  },
+  {
+    "stage": "build-information-spectrum",
+    "command": [
+      "lake",
+      "build",
+      "@extractionInformationSpectrum/Spectrum"
+    ],
+    "exit_code": 0,
+    "seconds": 50.681,
+    "log": "build-information-spectrum.log",
+    "sha256": "efd31d3ae3dfa7b90ad5e6699d4bcb903d62c3db4e957492d97abd96792a8a3e"
+  },
+  {
+    "stage": "build-rank-support",
+    "command": [
+      "lake",
+      "build",
+      "@extractionRankFoundation/RankSupport"
+    ],
+    "exit_code": 0,
+    "seconds": 23.943,
+    "log": "build-rank-support.log",
+    "sha256": "dc61cde68d2d4b076ab44402220e139ac28485f31ec5b23b3556ca789d7ca5a3"
+  },
+  {
+    "stage": "build-spectral-protocol",
+    "command": [
+      "lake",
+      "build",
+      "@extractionSpectralProtocol/SpectralProtocol"
+    ],
+    "exit_code": 0,
+    "seconds": 150.904,
+    "log": "build-spectral-protocol.log",
+    "sha256": "41b296a3c8aec3c6130eba30a108bd727c26136be28c2e38ab10d8ed285d4542"
+  },
+  {
+    "stage": "build-universal-orbit",
+    "command": [
+      "lake",
+      "build",
+      "@extractionUniversalOrbit/UniversalOrbit"
+    ],
+    "exit_code": 0,
+    "seconds": 13.954,
+    "log": "build-universal-orbit.log",
+    "sha256": "6a57ed8dd9272e8f558bd38277d5d75c011e70f4497a2345cb3f0c3de36bc372"
+  },
+  {
+    "stage": "build-minimax-profile",
+    "command": [
+      "lake",
+      "build",
+      "@extractionMinimaxProfile/MinimaxProfile"
+    ],
+    "exit_code": 0,
+    "seconds": 20.524,
+    "log": "build-minimax-profile.log",
+    "sha256": "e673cda10e69c897542e942128559699581984afeb8069a43c3d78b14739786c"
+  },
+  {
+    "stage": "build",
+    "command": [
+      "lake",
+      "build",
+      "Connections",
+      "ConnectionsVerification"
+    ],
+    "exit_code": 0,
+    "seconds": 4.176,
+    "log": "build.log",
+    "sha256": "ad02785837eb85e2f1ce59f9deefa832d33ec5b7cc5e03557d5d39ebb0de128d"
+  },
+  {
+    "stage": "types-and-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M9000",
+      "Check.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 4.625,
+    "log": "types-and-axioms.log",
+    "sha256": "8601f572f770e0cca2c6e8da4c0880d91f38947b3a88be7bff8f04a3a7641386"
+  },
+  {
+    "stage": "kernel",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M10000",
+      "Audit.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 745.335,
+    "log": "kernel.log",
+    "sha256": "d26d3470b55884cb3834856199ed56e838ee92e4b996047685db5c71a73b611b"
+  }
+]
