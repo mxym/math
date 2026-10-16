@@ -59,6 +59,17 @@ are instantiated internally. `GaussianRegularity` proves the exact Gaussian
 CDF Lipschitz constant `1/sqrt(2π)`; `UniformGaussian` proves the distinct CDF
 smoothing comparison in terms of Lévy--Prokhorov distance.
 
+`LyapunovMoment` proves the moment comparison `T ≥ V sqrt V` internally.
+`NormalizedDamping` strengthens the quantitative normalized estimate to
+
+`|φ_k(t) - exp(-t²/2)| ≤ 5 β_k |t|³ exp(-t²/8)`
+
+for `k≥2` and `16 β_k |t|≤1`, with `β_k=T/(V^(3/2) sqrt k)`.
+`FourierIntegral` proves integrability of the divided error and the actual
+truncated Fourier integral bound `∫_{-R}^R |φ_k-G|/|t| ≤ 5 β_k C₂` at
+`R=(16 β_k)⁻¹`. The absolute constant `C₂=∫ t² exp(-t²/8) dt` is internally
+proved finite and is independent of the law, alphabet, variance, and block.
+
 The present stage has ordinary Lean compilation evidence only. A finite-block
 Berry--Esseen CDF rate still requires the Esseen Fourier smoothing inequality;
 the proved qualitative triangular approximation is not a substitute for that

@@ -5,3 +5,4 @@ import Deviation.FixedErrorTarget
 import Deviation.Reliability
 import Deviation.PrimalPerturbation
 import Deviation.TriangularInformation
+import Deviation.FourierIntegral
