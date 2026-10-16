@@ -46,7 +46,7 @@ def check():
         if re.search(r"\b(sorry|admit|axiom|native_decide|unsafe)\b", code):
             raise RuntimeError("Forbidden mathematical proof token: " + str(p))
     roots = (ROOT / "ROOTS.txt").read_text().splitlines()
-    if len(roots) != len(set(roots)) or len(roots) != 40:
+    if len(roots) != len(set(roots)) or len(roots) != 74:
         raise RuntimeError("Root metadata changed")
     print("SOURCE_BINDING_PASS", len(inventory()), flush=True)
 
@@ -102,25 +102,32 @@ def main():
     stage("build", ["lake", "build", "SymmetricSupport", "SymmetricSupportVerification"], 600)
     stage("types-and-axioms", ["lake", "env", "lean", "-j1", "-M6000", "Check.lean"], 120)
     audit = stage("kernel", ["lake", "env", "lean", "-j1", "-M6000", "Audit.lean"], 600)
-    if audit.count("EMPTY_KERNEL_REPLAY_PASS") != 1 or audit.count("CORRUPTED_PROOF_REJECTED") != 6:
+    if audit.count("EMPTY_KERNEL_REPLAY_PASS") != 1 or audit.count("CORRUPTED_PROOF_REJECTED") != 11:
         raise RuntimeError("Incomplete audit markers")
     axioms = set((ROOT / "verification/symmetric-kernel-axioms.txt").read_text().splitlines())
     if not axioms <= ALLOWED_AXIOMS:
         raise RuntimeError("Unexpected kernel axioms")
     for p in (ROOT / "verification").glob("symmetric-*.txt"):
         shutil.copy2(p, out / p.name)
+    snapshot = out / "source_snapshot"
+    snapshot.mkdir()
+    for rel in inventory():
+        destination = snapshot / rel
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / rel, destination)
+    shutil.copy2(ROOT / "SOURCE_HASHES.json", snapshot / "SOURCE_HASHES.json")
     check()
     count = int(re.search(r"EMPTY_KERNEL_REPLAY_PASS (\d+) declarations", audit).group(1))
     result = {
         "status": "PASS",
-        "scope": "Actual symmetric projector in D^k tensor coordinates, exact choose rank, normalized pure iid spanning and density support, normalized projection purity, and exact pure-promise effect identity. NOT Haar equality or general rank-s Schur theory.",
+        "scope": "Actual symmetric projector in D^k coordinates, exact choose rank, normalized pure iid span, density support, exact effect identity, finite-phase plus Gamma Wick frame with integrability, and worst-pure-promise guarantee bounded by the actual normalized symmetric state. NOT literal Haar equality or general rank-s Schur theory.",
         "fresh_own_output_build": args.fresh,
         "source_files": len(inventory()),
-        "roots": 40,
+        "roots": 74,
         "kernel_declarations": count,
         "kernel_trust": 0,
         "axioms": sorted(axioms),
-        "same_type_forged_proof_controls": 6,
+        "same_type_forged_proof_controls": 11,
         "source_manifest_sha256": sha(ROOT / "SOURCE_HASHES.json"),
         "stages": records
     }

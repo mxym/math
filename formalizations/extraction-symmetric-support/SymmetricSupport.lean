@@ -4,3 +4,8 @@ import SymmetricSupport.PureSpan
 import SymmetricSupport.Density
 import SymmetricSupport.UnitSpan
 import SymmetricSupport.ExactEffect
+import SymmetricSupport.FiberFactorial
+import SymmetricSupport.PhaseAverage
+import SymmetricSupport.ExponentialMoments
+import SymmetricSupport.GaussianFrame
+import SymmetricSupport.PureAverageBound

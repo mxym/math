@@ -1,0 +1,14 @@
+import SymmetricSupport
+
+#check SymmetricSupport.exact_unitPurePower_effect_mul_symmetricProjector
+#print axioms SymmetricSupport.exact_unitPurePower_effect_mul_symmetricProjector
+#check SymmetricSupport.symmetricProjector_rank_choose_complement
+#print axioms SymmetricSupport.symmetricProjector_rank_choose_complement
+#check SymmetricSupport.symmetricProjector_range_eq_unitPurePower_span
+#print axioms SymmetricSupport.symmetricProjector_range_eq_unitPurePower_span
+#check SymmetricSupport.symmetricState_purity
+#print axioms SymmetricSupport.symmetricState_purity
+#check SymmetricSupport.purePowerDensity_supported
+#print axioms SymmetricSupport.purePowerDensity_supported
+#check SymmetricSupport.monomialCoordinates_span_top
+#print axioms SymmetricSupport.monomialCoordinates_span_top
