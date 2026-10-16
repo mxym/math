@@ -39,7 +39,13 @@ in the separate deviation-completion extension. All zero eigenvalues remain.
 integer test width, and `lowEntropyMass_eventual_lower` supplies the associated
 true iid change-of-measure lower bound.
 
-Full matching fidelity exponents and compatibility with the sharp pure minimax
-profile remain to be connected. Compilation alone is not an independent
-empty-kernel audit.
+`grid_fidelity_exponent` and `optimal_fidelity_exponent` now prove the full
+matching fidelity exponent at every nonnegative rate, including arbitrary
+subexponential rate-zero target sequences. `fidelityExponent_renyi` identifies
+it with the manuscript's Renyi variational formula. The local cap is retained
+inside the actual capped Holder bound and produces the additional above-cap
+exponent. Singular and exactly flat full-rank inputs are included.
+
+Compatibility of this same family with the sharp pure minimax profile remains
+to be connected. Compilation alone is not an independent empty-kernel audit.
 No new publication or novelty claim is made by this package.

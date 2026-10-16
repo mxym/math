@@ -12,3 +12,8 @@ import OperationalCompletion.Reliability
 import OperationalCompletion.OptimalFidelity
 import OperationalCompletion.GridCoverage
 import OperationalCompletion.EntropyMass
+import OperationalCompletion.GridFidelityLower
+import OperationalCompletion.FidelityExponent
+import OperationalCompletion.CappedHolder
+import OperationalCompletion.CappedRate
+import OperationalCompletion.SharpFidelity
