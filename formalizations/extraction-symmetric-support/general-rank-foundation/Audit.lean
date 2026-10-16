@@ -2,7 +2,7 @@ import RankSupport
 import RankSupportVerification.ReplaySupport
 
 run_cmd (RankSupportVerification.replayAndCorrupt [
-  ``ExtractionRankSupport.exact_rankBounded_iid_effect_mul_rankBudgetProjector,
+  ``ExtractionRankSupport.rankBudgetProjector_log_rank_per_copy_limit,
   ``ExtractionRankSupport.productVector_mem_rankBudgetSpace,
   ``ExtractionRankSupport.rankBudgetSpace_mono,
   ``ExtractionRankSupport.constant_factors_span_finrank_le_one,
@@ -13,6 +13,14 @@ run_cmd (RankSupportVerification.replayAndCorrupt [
   ``ExtractionRankSupport.rankBudgetSpace_one_eq_symmetric_range,
   ``ExtractionRankSupport.psd_mul_eq_zero_of_trace_re_eq_zero,
   ``ExtractionRankSupport.exact_density_effect_fixes_density,
+  ``ExtractionRankSupport.exact_rankBounded_iid_effect_mul_rankBudgetProjector,
+  ``ExtractionRankSupport.coordinate_factors_finrank_le,
+  ``ExtractionRankSupport.coordinate_productVector_eq_isometry_col,
+  ``ExtractionRankSupport.rankBudgetProjector_rank_ge_power,
+  ``ExtractionRankSupport.symmetric_log_rank_per_copy_limit,
+  ``ExtractionRankSupport.rankBudgetProjector_rank_div_geometric_limit,
+  ``ExtractionRankSupport.rankBudgetProjector_sqrt_rank_div_geometric_limit,
+  ``ExtractionRankSupport.rankBudgetProjector_geometric_div_sqrt_rank_atTop,
   ``ExtractionRankSupport.tensorMatrix_mulVec_productVector,
   ``ExtractionRankSupport.transformed_factors_finrank_le,
   ``ExtractionRankSupport.tensorMatrix_preserves_rankBudgetSpace,
@@ -25,6 +33,16 @@ run_cmd (RankSupportVerification.replayAndCorrupt [
   ``ExtractionRankSupport.tensorMatrix_range_le_rankBudgetSpace,
   ``ExtractionRankSupport.rankBudgetSpace_eq_densityTensorSpace,
   ``ExtractionRankSupport.fixes_densityTensor_mul_rankBudgetProjector,
+  ``ExtractionRankSupport.rectangularContraction_purePower,
+  ``ExtractionRankSupport.rectangularTensor_col_mem_columnSpace,
+  ``ExtractionRankSupport.finrank_rectangularColumnSpace_le,
+  ``ExtractionRankSupport.rectangularTensor_col_mem_universalSpace,
+  ``ExtractionRankSupport.finrank_finite_sup_rectangularColumnSpace_le,
+  ``ExtractionRankSupport.finrank_rectangularUniversalSpace_le,
+  ``ExtractionRankSupport.rectangularTensor_mulVec_productVector,
+  ``ExtractionRankSupport.exists_rectangular_factorization,
+  ``ExtractionRankSupport.rankBudgetSpace_le_rectangularUniversalSpace,
+  ``ExtractionRankSupport.rankBudgetProjector_rank_le_polynomial,
   ``ExtractionRankSupport.symmetric_rank_le_rankBudgetProjector_rank,
   ``ExtractionRankSupport.rankBudgetProjector_rank_mono,
   ``ExtractionRankSupport.rankBudgetProjector_rank_pos,
@@ -63,3 +81,11 @@ run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.ran
 run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.rankBudgetProjector_eq_one_of_dimension_le "verification/rank-control-7"
 
 run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.tensorMatrix_mulVec_productVector "verification/rank-control-8"
+
+run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.exact_rankBounded_iid_effect_mul_rankBudgetProjector "verification/rank-control-9"
+
+run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.rankBudgetProjector_rank_le_polynomial "verification/rank-control-10"
+
+run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.rankBudgetProjector_rank_ge_power "verification/rank-control-11"
+
+run_cmd RankSupportVerification.rejectCorruptTheorem ``ExtractionRankSupport.rankBudgetProjector_geometric_div_sqrt_rank_atTop "verification/rank-control-12"

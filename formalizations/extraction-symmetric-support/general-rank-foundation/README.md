@@ -26,12 +26,20 @@ Compiled results include:
   projector. Its rank is the actual binomial coefficient. At `s ≥ D` it equals
   identity. Rank monotonicity, positivity for `D,s>0`, and the ambient `D^k`
   dimension bound are proved.
+- Actual rectangular factorization and symmetric monomial contraction prove
+  `rank P_s ≤ s^k * choose(D*s+k-1,k)` for all natural parameters. A fixed
+  coordinate isometry proves `s^k ≤ rank P_s` when `s≤D`. Consequently, for
+  `0<s≤D`, `log(rank P_s)/k → log s`.
+- The actual rank divided by `b^k` tends to zero when `s<b`. The actual
+  `sqrt(rank P_s)/b^k` tends to zero, and its positive reciprocal tends to
+  infinity, when `b>0` and `s<b^2`. These give direct packing interfaces.
 
 This is **not yet a formal Schur-Weyl decomposition, the general numerical
-Weyl/hook dimension formula, the general-rank asymptotic dimension, or a Haar
+Weyl/hook dimension formula, the sharp general-rank polynomial asymptotic, or a Haar
 first/second moment identity**. The rank for intermediate `1<s<D` remains the
 rank of the constructed actual projector, equivalently the finrank of the
-intrinsic space. No structure field assumes any of those missing conclusions.
+intrinsic space, with the explicit bounds and exponential rate above. No
+structure field assumes any of those missing conclusions.
 Blocklength zero is supported by the construction and support theorems; the
 minimality and perfect-promise implication explicitly require `0<k`.
 
