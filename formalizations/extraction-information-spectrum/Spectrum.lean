@@ -3,3 +3,5 @@ import Spectrum.Tensor
 import Spectrum.PhysicalTensor
 import Spectrum.Probability
 import Spectrum.ConverseLimit
+import Spectrum.Variational
+import Spectrum.Holder
