@@ -29,7 +29,17 @@ below the rank threshold. Local sector feasibility follows from the rate gap.
 needed for a matching converse: its cardinality is bounded by the physical
 quadratic budget, and its missing mass lower-bounds the actual protocol error.
 
-Full matching fidelity exponents, the final reliability squeeze and compatibility
-with the sharp pure minimax profile remain to be connected. Compilation alone
-is not an independent empty-kernel audit.
+`grid_reliability_limit` now proves the matching strict-direct reliability
+exponent, and `optimal_reliability_limit` proves the same limit for the genuine
+supremum of any actual PPT protocol sub-class containing the common local grid
+family. The omitted mass and relative-entropy boundary approximation are proved
+in the separate deviation-completion extension. All zero eigenvalues remain.
+
+`gridProtocol_test_width` proves that the same selected protocol retains every
+integer test width, and `lowEntropyMass_eventual_lower` supplies the associated
+true iid change-of-measure lower bound.
+
+Full matching fidelity exponents and compatibility with the sharp pure minimax
+profile remain to be connected. Compilation alone is not an independent
+empty-kernel audit.
 No new publication or novelty claim is made by this package.

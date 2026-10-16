@@ -8,3 +8,7 @@ import OperationalCompletion.ErrorTail
 import OperationalCompletion.GridLimit
 import OperationalCompletion.GridGaussian
 import OperationalCompletion.EventualExact
+import OperationalCompletion.Reliability
+import OperationalCompletion.OptimalFidelity
+import OperationalCompletion.GridCoverage
+import OperationalCompletion.EntropyMass
