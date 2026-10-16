@@ -54,3 +54,13 @@ its input conditions are the original projection ranks and integer budgets.
 `ppt_above_faithful_rate` and `ppt_above_eventualExact_rate` close the two
 capacity converses, with their equality boundaries deliberately excluded.
 No new publication or novelty claim is made by this package.
+
+At the user-requested pause on 2026-10-16, `reservedProtocol_guarantees`
+constructs one actual local protocol retaining both all finite mixed-state
+entropy-prefix bounds and a large symmetric-sector pure-state packing bound.
+The polynomial reservation asymptotics and the transfer of the full mixed-state
+limit laws to this reserved family have not yet been proved. In particular,
+this finite compatibility theorem is not a same-family sharp pure minimax limit.
+The last ordinary aggregate build passed 4,063 jobs. This entire extension is
+BUILD_ONLY: no new empty-kernel replay, forged-proof controls or independent CI
+has been run for it. The frozen 608-root evidence applies to its original scope.

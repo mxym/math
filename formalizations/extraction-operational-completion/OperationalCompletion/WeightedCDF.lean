@@ -59,4 +59,16 @@ theorem weightedDifference_lower_prefix (J l : ℕ) (hl : l<J) (w G : ℕ → �
         (sub_nonneg.mpr (hG (by omega)))
     _ ≤ _ := weightedDifference_length_mono w G hw hG (by omega)
 
+theorem weightedDifference_boundary_mono (J : ℕ) (w F G : ℕ → ℝ)
+    (hw : 0≤w J) (hdec : ∀ j<J,w (j+1)≤w j) (hFG : ∀ j≤J,G j≤F j) :
+    weightedDifference J w G+w 0*G 0 ≤ weightedDifference J w F+w 0*F 0 := by
+  rw [weightedDifference_abel,weightedDifference_abel]
+  have hend := mul_le_mul_of_nonneg_left (hFG J le_rfl) hw
+  have hsum : (∑ j : Fin J,(w j-w (j+1))*G (j+1))≤
+      ∑ j : Fin J,(w j-w (j+1))*F (j+1) := by
+    apply Finset.sum_le_sum
+    intro j _
+    exact mul_le_mul_of_nonneg_left (hFG _ (by omega)) (sub_nonneg.mpr (hdec j j.isLt))
+  linarith
+
 end OperationalCompletion

@@ -23,3 +23,8 @@ import OperationalCompletion.ProductSum
 import OperationalCompletion.TaggedCodes
 import OperationalCompletion.CodeFamily
 import OperationalCompletion.HeterogeneousDecoder
+import OperationalCompletion.PureSector
+import OperationalCompletion.PureTensorSector
+import OperationalCompletion.ReservedSets
+import OperationalCompletion.Reservation
+import OperationalCompletion.ReservedFamily
