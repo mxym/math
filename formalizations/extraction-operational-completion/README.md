@@ -1,0 +1,25 @@
+# Operational completion (new extension scope)
+
+This package extends the frozen 608-root extraction audit without modifying its
+sources, roots or bound inputs. It uses Lean 4.34.1 and the same pinned Mathlib.
+
+Current compiled endpoints construct one original-space unitary and two complete
+local Kraus channels before quantifying over every unknown density matrix:
+
+* `nested_universal_set_protocol` implements decreasing weights on actual
+  orthogonal differences of nested universal orbit projections. Summation by
+  parts transfers proved quantum cumulative-mass bounds to classical iid mass.
+* `geometric_universal_protocol` constructs an explicit geometric packing grid.
+  Integer rank/floor budgets follow internally from the empirical-type bound.
+* `geometric_universal_prefix_protocol` shows that the same selected protocol
+  retains every weighted entropy-prefix guarantee simultaneously.
+
+Local complete product structure is retained as `IsProductLocal`. Tensor inputs
+are exactly the matrices used in the frozen lower/converse API. No unknown
+eigenbasis, auxiliary system, Schur decomposition, supplied mass assumption or
+asymptotic endpoint is part of the construction hypotheses.
+
+This is a finite-block foundation. Full operational exponents, reliability,
+eventual exactness and compatibility with the sharp pure minimax profile remain
+to be connected. Compilation alone is not an independent empty-kernel audit.
+No new publication or novelty claim is made by this package.
