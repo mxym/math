@@ -45,6 +45,16 @@ LLN, CLT or tensor-spectrum conclusion is an input hypothesis.
   The endpoint alpha=1 follows from the physical unit effect cap. This formulation
   remains valid when an individual fidelity is zero.
 
+- `Spectrum.Types`: actual integer occupation counts and empirical probability
+  laws; at most `(k+1)^D` types and at most `exp(k H(q))` words in one type, derived
+  from the exact empirical iid likelihood and total probability one. Therefore
+  the state-independent collection `H(q_w)<=c` has at most `(k+1)^D exp(kc)` words.
+  Positive-mass self-information words lie in this collection by Gibbs; zero-mass
+  words are explicitly discarded in the information-mass comparison. Its mass
+  has the proved LLN lower limit and moving-threshold Gaussian liminf. Fixed
+  polynomial logarithmic overheads are negligible at first and second order.
+  This module does not depend on any protocol, Schur, or Haar package.
+
 ## Exact limits of this scope
 
 This package does not claim universal Schur--Weyl lower bounds, complete capacity

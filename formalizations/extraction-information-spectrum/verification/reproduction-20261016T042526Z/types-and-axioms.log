@@ -1,0 +1,155 @@
+ExtractionSpectrum.kraus_target_information_bound.{u_2, u_3, u_4, u_5} {a : Type u_2} {b : Type u_3} {d : Type u_4}
+  {κ : Type u_5} [Fintype a] [Fintype b] [Fintype d] [Fintype κ] [DecidableEq a] [DecidableEq b] [DecidableEq d]
+  [Nonempty a] [Nonempty b] [Nonempty d] (A : κ → Matrix (d × d) (a × b) ℂ)
+  (hcomplete : ∑ j, (A j).conjTranspose * A j = 1) (hpt : Extraction.PTConjugatePositive A)
+  (X : Matrix (a × b) (a × b) ℂ) (hX : APPT.Quantum.IsDensity X) (U : ↥(Matrix.unitaryGroup (a × b) ℂ)) (t : ℝ) :
+  (Extraction.bellProjector * Extraction.krausApply A (↑U * X * (↑U).conjTranspose)).trace.re ≤
+    ExtractionSpectrum.informationMass ⋯.eigenvalues
+        (Real.log (↑(Fintype.card a) * ↑(Fintype.card b) / ↑(Fintype.card d) ^ 2) + t) +
+      Real.exp (-t / 2)
+'ExtractionSpectrum.kraus_target_information_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.kraus_tensor_information_bound.{u_3, u_4, u_5, u_6} {a : Type u_3} {b : Type u_4} [Fintype a]
+  [Fintype b] [DecidableEq a] [DecidableEq b] {d : Type u_5} {ν : Type u_6} [Fintype d] [Fintype ν] [DecidableEq d]
+  [Nonempty a] [Nonempty b] [Nonempty d] (X : Matrix (a × b) (a × b) ℂ) (hX : APPT.Quantum.IsDensity X) (k : ℕ)
+  (A : ν → Matrix (d × d) ((Fin k → a) × (Fin k → b)) ℂ) (hcomplete : ∑ j, (A j).conjTranspose * A j = 1)
+  (hpt : Extraction.PTConjugatePositive A) (U : ↥(Matrix.unitaryGroup ((Fin k → a) × (Fin k → b)) ℂ)) (t : ℝ) :
+  (Extraction.bellProjector *
+          Extraction.krausApply A (↑U * ExtractionSpectrum.bipartiteTensor X k * (↑U).conjTranspose)).trace.re ≤
+    ExtractionSpectrum.iidInformationEvent ⋯.eigenvalues k
+        (Real.log (↑(Fintype.card (Fin k → a)) * ↑(Fintype.card (Fin k → b)) / ↑(Fintype.card d) ^ 2) + t) +
+      Real.exp (-t / 2)
+'ExtractionSpectrum.kraus_tensor_information_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.tensorMatrix_density.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (X : Matrix ι ι ℂ)
+  (hX : X.PosSemidef ∧ X.trace = 1) (k : ℕ) :
+  (ExtractionSpectrum.tensorMatrix X k).PosSemidef ∧ (ExtractionSpectrum.tensorMatrix X k).trace = 1
+'ExtractionSpectrum.tensorMatrix_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.finite_iid_central_limit.{u_1} {ι : Type u_1} [Fintype ι] [MeasurableSpace ι]
+  [MeasurableSingletonClass ι] (p : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) (hs : ∑ i, p i = 1) (f : ι → ℝ) :
+  MeasureTheory.TendstoInDistribution
+    (fun n w => (√↑n)⁻¹ * (∑ j ∈ Finset.range n, f (w j) - ↑n * ExtractionSpectrum.finiteMean p f)) Filter.atTop id
+    (fun x => ExtractionSpectrum.iidMeasure p hp hs)
+    (ProbabilityTheory.gaussianReal 0 (ExtractionSpectrum.finiteVariance p f).toNNReal)
+'ExtractionSpectrum.finite_iid_central_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.iidInformationEvent_law_of_large_numbers.{u_1} {ι : Type u_1} [Fintype ι] [MeasurableSpace ι]
+  [MeasurableSingletonClass ι] (p : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) (hs : ∑ i, p i = 1) (c : ℝ)
+  (hc : c ≠ ExtractionSpectrum.entropy p) :
+  Filter.Tendsto (fun n => ExtractionSpectrum.iidInformationEvent p n (↑n * c)) Filter.atTop
+    (nhds (if ExtractionSpectrum.entropy p < c then 1 else 0))
+'ExtractionSpectrum.iidInformationEvent_law_of_large_numbers' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.iidInformationEvent_gaussian_moving.{u_1} {ι : Type u_1} [Fintype ι] [MeasurableSpace ι]
+  [MeasurableSingletonClass ι] (p : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) (hs : ∑ i, p i = 1)
+  (hv : 0 < ExtractionSpectrum.varentropy p) (x : ℕ → ℝ) (y : ℝ)
+  (hx : Filter.Tendsto (fun n => (x n - ↑n * ExtractionSpectrum.entropy p) / √↑n) Filter.atTop (nhds y)) :
+  Filter.Tendsto (fun n => ExtractionSpectrum.iidInformationEvent p n (x n)) Filter.atTop
+    (nhds ((ProbabilityTheory.gaussianReal 0 (ExtractionSpectrum.varentropy p).toNNReal).real (Set.Iic y)))
+'ExtractionSpectrum.iidInformationEvent_gaussian_moving' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.kraus_tensor_rate_strong_converse.{u_2, u_3, u_4, u_5} {a : Type u_2} {b : Type u_3} [Fintype a]
+  [Fintype b] [DecidableEq a] [DecidableEq b] [Nonempty a] [Nonempty b] {d : ℕ → Type u_4} {ν : ℕ → Type u_5}
+  [(n : ℕ) → Fintype (d n)] [(n : ℕ) → DecidableEq (d n)] [∀ (n : ℕ), Nonempty (d n)] [(n : ℕ) → Fintype (ν n)]
+  (X : Matrix (a × b) (a × b) ℂ) (hX : APPT.Quantum.IsDensity X)
+  (A : (n : ℕ) → ν n → Matrix (d n × d n) ((Fin n → a) × (Fin n → b)) ℂ)
+  (hcomplete : ∀ (n : ℕ), ∑ j, (A n j).conjTranspose * A n j = 1)
+  (hpt : ∀ (n : ℕ), Extraction.PTConjugatePositive (A n))
+  (U : (n : ℕ) → ↥(Matrix.unitaryGroup ((Fin n → a) × (Fin n → b)) ℂ)) (R : ℝ)
+  (hR : Filter.Tendsto (fun n => Real.log ↑(Fintype.card (d n)) / ↑n) Filter.atTop (nhds R))
+  (habove :
+    (Real.log ↑(Fintype.card a) + Real.log ↑(Fintype.card b) - ExtractionSpectrum.entropy ⋯.eigenvalues) / 2 < R) :
+  Filter.Tendsto (fun n => ExtractionSpectrum.tensorFidelity X n (A n) (U n)) Filter.atTop (nhds 0)
+'ExtractionSpectrum.kraus_tensor_rate_strong_converse' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.kraus_tensor_gaussian_converse.{u_2, u_3, u_4, u_5} {a : Type u_2} {b : Type u_3} [Fintype a]
+  [Fintype b] [DecidableEq a] [DecidableEq b] [Nonempty a] [Nonempty b] {d : ℕ → Type u_4} {ν : ℕ → Type u_5}
+  [(n : ℕ) → Fintype (d n)] [(n : ℕ) → DecidableEq (d n)] [∀ (n : ℕ), Nonempty (d n)] [(n : ℕ) → Fintype (ν n)]
+  (X : Matrix (a × b) (a × b) ℂ) (hX : APPT.Quantum.IsDensity X)
+  (A : (n : ℕ) → ν n → Matrix (d n × d n) ((Fin n → a) × (Fin n → b)) ℂ)
+  (hcomplete : ∀ (n : ℕ), ∑ j, (A n j).conjTranspose * A n j = 1)
+  (hpt : ∀ (n : ℕ), Extraction.PTConjugatePositive (A n))
+  (U : (n : ℕ) → ↥(Matrix.unitaryGroup ((Fin n → a) × (Fin n → b)) ℂ))
+  (hv : 0 < ExtractionSpectrum.varentropy ⋯.eigenvalues) (z : ℝ)
+  (hsecond :
+    Filter.Tendsto
+      (fun n =>
+        (Real.log ↑(Fintype.card (d n)) -
+            ↑n *
+              ((Real.log ↑(Fintype.card a) + Real.log ↑(Fintype.card b) - ExtractionSpectrum.entropy ⋯.eigenvalues) /
+                2)) /
+          √↑n)
+      Filter.atTop (nhds z)) :
+  Filter.limsup (fun n => ExtractionSpectrum.tensorFidelity X n (A n) (U n)) Filter.atTop ≤
+    (ProbabilityTheory.gaussianReal 0 (ExtractionSpectrum.varentropy ⋯.eigenvalues).toNNReal).real (Set.Iic (-2 * z))
+'ExtractionSpectrum.kraus_tensor_gaussian_converse' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.density_escort_renyi_variational_identity.{u_1} {ι : Type u_1} [Fintype ι] [Nonempty ι]
+  (X : Matrix ι ι ℂ) (hX : X.PosSemidef ∧ X.trace = 1) (c : ℝ) :
+  ⨅ q,
+      ExtractionSpectrum.divergence (↑q) (ExtractionSpectrum.supportLaw ⋯.eigenvalues) +
+        max 0 (ExtractionSpectrum.entropy ↑q - c) / 2 =
+    ⨆ α, (↑α - 1) / ↑α * (ExtractionSpectrum.renyiEntropy ⋯.eigenvalues ↑α - c)
+'ExtractionSpectrum.density_escort_renyi_variational_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ExtractionSpectrum.density_strict_direct_renyi_variational_identity.{u_1} {ι : Type u_1} [Fintype ι] [Nonempty ι]
+  (X : Matrix ι ι ℂ) (hX : X.PosSemidef ∧ X.trace = 1) (c : ℝ) (hlo : ExtractionSpectrum.entropy ⋯.eigenvalues < c)
+  (hhi : c < Real.log ↑X.rank) :
+  ⨅ q, ExtractionSpectrum.divergence (↑↑q) (ExtractionSpectrum.supportLaw ⋯.eigenvalues) =
+    ⨆ α, (1 - ↑α) / ↑α * (c - ExtractionSpectrum.renyiEntropy ⋯.eigenvalues ↑α)
+'ExtractionSpectrum.density_strict_direct_renyi_variational_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ExtractionSpectrum.kraus_tensor_variational_exponential_converse.{u_2, u_3, u_4, u_5} {a : Type u_2} {b : Type u_3}
+  [Fintype a] [Fintype b] [DecidableEq a] [DecidableEq b] [Nonempty a] [Nonempty b] {d : ℕ → Type u_4}
+  {ν : ℕ → Type u_5} [(n : ℕ) → Fintype (d n)] [(n : ℕ) → DecidableEq (d n)] [∀ (n : ℕ), Nonempty (d n)]
+  [(n : ℕ) → Fintype (ν n)] (X : Matrix (a × b) (a × b) ℂ) (hX : APPT.Quantum.IsDensity X)
+  (A : (n : ℕ) → ν n → Matrix (d n × d n) ((Fin n → a) × (Fin n → b)) ℂ)
+  (hcomplete : ∀ (n : ℕ), ∑ j, (A n j).conjTranspose * A n j = 1)
+  (hpt : ∀ (n : ℕ), Extraction.PTConjugatePositive (A n))
+  (U : (n : ℕ) → ↥(Matrix.unitaryGroup ((Fin n → a) × (Fin n → b)) ℂ)) (R : ℝ)
+  (hR : Filter.Tendsto (fun n => Real.log ↑(Fintype.card (d n)) / ↑n) Filter.atTop (nhds R)) (η : ℝ) (hη : 0 < η) :
+  ∀ᶠ (n : ℕ) in Filter.atTop,
+    ExtractionSpectrum.tensorFidelity X n (A n) (U n) ≤
+      Real.exp
+        (-↑n *
+          ((⨅ q,
+              ExtractionSpectrum.divergence (↑q) (ExtractionSpectrum.supportLaw ⋯.eigenvalues) +
+                max 0
+                    (ExtractionSpectrum.entropy ↑q -
+                      (Real.log ↑(Fintype.card a) + Real.log ↑(Fintype.card b) - 2 * R)) /
+                  2) -
+            η))
+'ExtractionSpectrum.kraus_tensor_variational_exponential_converse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ExtractionSpectrum.finite_capped_holder_bound.{u_1} {ι : Type u_1} [Fintype ι] (p z : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i)
+  (β : ℝ) (hβ : 0 < β) (hz : ∀ (i : ι), 0 ≤ z i ∧ z i ≤ β) (r α : ℝ) (hbudget : ∑ i, z i ^ 2 ≤ r) (hαlo : 1 < α)
+  (hαhi : α ≤ 2) : ∑ i, p i * z i ≤ β * (ExtractionSpectrum.partition p α ^ (1 / α) * (r / β ^ 2) ^ ((α - 1) / α))
+'ExtractionSpectrum.finite_capped_holder_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.kraus_tensor_holder_bound.{u_2, u_3, u_4, u_5} {a : Type u_2} {b : Type u_3} {d : Type u_4}
+  {κ : Type u_5} [Fintype a] [Fintype b] [Fintype d] [Fintype κ] [DecidableEq a] [DecidableEq b] [DecidableEq d]
+  [Nonempty d] (X : Matrix (a × b) (a × b) ℂ) (hX : APPT.Quantum.IsDensity X) (k : ℕ)
+  (A : κ → Matrix (d × d) ((Fin k → a) × (Fin k → b)) ℂ) (hcomplete : ∑ j, (A j).conjTranspose * A j = 1)
+  (hpt : Extraction.PTConjugatePositive A) (U : ↥(Matrix.unitaryGroup ((Fin k → a) × (Fin k → b)) ℂ)) (α : ℝ)
+  (hαlo : 1 < α) (hαhi : α ≤ 2) :
+  (Extraction.bellProjector *
+          Extraction.krausApply A (↑U * ExtractionSpectrum.bipartiteTensor X k * (↑U).conjTranspose)).trace.re ≤
+    (ExtractionSpectrum.partition ⋯.eigenvalues α ^ k) ^ (1 / α) *
+      (↑(Fintype.card (Fin k → a)) * ↑(Fintype.card (Fin k → b)) / ↑(Fintype.card d) ^ 2) ^ ((α - 1) / α)
+'ExtractionSpectrum.kraus_tensor_holder_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.lowEntropyWords_card_le.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (k : ℕ) (c : ℝ) :
+  ↑(ExtractionSpectrum.lowEntropyWords k c).card ≤ (↑k + 1) ^ Fintype.card ι * Real.exp (↑k * c)
+'ExtractionSpectrum.lowEntropyWords_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.iidInformationEvent_le_empiricalEntropyMass.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] {k : ℕ}
+  (hk : 0 < k) (p : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) (hs : ∑ i, p i = 1) (x c : ℝ) (hxc : x ≤ ↑k * c) :
+  ExtractionSpectrum.iidInformationEvent p k x ≤ ExtractionSpectrum.empiricalEntropyMass p k c
+'ExtractionSpectrum.iidInformationEvent_le_empiricalEntropyMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ExtractionSpectrum.empiricalEntropyMass_liminf_gaussian.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι]
+  [MeasurableSpace ι] [MeasurableSingletonClass ι] (p : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) (hs : ∑ i, p i = 1)
+  (hv : 0 < ExtractionSpectrum.varentropy p) (c : ℕ → ℝ) (y : ℝ)
+  (hcut : Filter.Tendsto (fun k => (↑k * c k - ↑k * ExtractionSpectrum.entropy p) / √↑k) Filter.atTop (nhds y)) :
+  (ProbabilityTheory.gaussianReal 0 (ExtractionSpectrum.varentropy p).toNNReal).real (Set.Iic y) ≤
+    Filter.liminf (fun k => ExtractionSpectrum.empiricalEntropyMass p k (c k)) Filter.atTop
+'ExtractionSpectrum.empiricalEntropyMass_liminf_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+ExtractionSpectrum.empiricalEntropyMass_tendsto_one_moving.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι]
+  [MeasurableSpace ι] [MeasurableSingletonClass ι] (p : ι → ℝ) (hp : ∀ (i : ι), 0 ≤ p i) (hs : ∑ i, p i = 1) (c : ℕ → ℝ)
+  (c₀ : ℝ) (hc : Filter.Tendsto c Filter.atTop (nhds c₀)) (hH : ExtractionSpectrum.entropy p < c₀) :
+  Filter.Tendsto (fun k => ExtractionSpectrum.empiricalEntropyMass p k (c k)) Filter.atTop (nhds 1)
+'ExtractionSpectrum.empiricalEntropyMass_tendsto_one_moving' depends on axioms: [propext, Classical.choice, Quot.sound]

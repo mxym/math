@@ -8,8 +8,8 @@ REPO = ROOT.parent.parent
 CORE = ROOT.parent / "spectral-extraction-core"
 PIN = "d13f23b723b8a846827a245b89c10fc7d3f11612"
 ALLOWED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
-ROOT_COUNT = 106
-CONTROL_COUNT = 13
+ROOT_COUNT = 134
+CONTROL_COUNT = 16
 
 def sha(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -118,7 +118,7 @@ def main():
     for p in (ROOT / "verification").glob("spectrum-*.txt"): shutil.copy2(p, out / p.name)
     check()
     closure = int(re.search(r"EMPTY_KERNEL_REPLAY_PASS (\d+) declarations", audit).group(1))
-    result = dict(status="PASS", scope="Actual density and canonical iid tensor spectrum converses; internally constructed finite iid LLN/CLT and moving CDF; physical rate strong converse and Gaussian limsup upper. Attained escort scalar identities on actual positive eigensupport; finite Holder and optimized variational exponential converse for physical channel sequences. Not universal achievability, matching operational exponent lower bounds, reliability or Berry--Esseen.",
+    result = dict(status="PASS", scope="Actual density and canonical iid tensor spectrum converses; internally constructed finite iid LLN/CLT and moving CDF; physical rate strong converse and Gaussian limsup upper. Attained escort scalar identities on actual positive eigensupport; finite Holder and optimized variational exponential converse for physical channel sequences; exact finite type counting and universal empirical-entropy LLN/Gaussian mass lower bounds. Not universal achievability, matching operational exponent lower bounds, reliability or Berry--Esseen.",
                   fresh_owned_output_build=args.fresh, source_files=len(inventory()), roots=ROOT_COUNT,
                   kernel_declarations=closure, kernel_trust=0, axioms=sorted(axioms),
                   same_type_forged_proof_controls=CONTROL_COUNT,
