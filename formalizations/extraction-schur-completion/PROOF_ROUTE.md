@@ -77,3 +77,29 @@ constructed finite objects: the primitive central blocks and their labels, the
 Weyl dimension product, the Schur--Weyl shape probability and its exponential
 concentration. Merely solving each finite Gram system is not yet a proof of its
 asymptotic spectrum or of the sharp support dimension.
+
+The actual Young row and column blocks are now connected without assuming a
+Schur decomposition. The occupation projector equals the finite permutation
+Reynolds average. Its dimension is `choose(D+k-1,k)` and the actual flat Haar
+average acts on it by
+
+`s^(-k) choose(s+k-1,k) / choose(D+k-1,k)`.
+
+For the column block, explicit maps from tensor coordinates to the ordinary
+exterior power and back have composite `k!` times the identity. They prove the
+rank of the original alternating matrix is `choose(D,k)`. Its normalized
+projector is Hermitian and idempotent. The actual Haar scalar on it is
+
+`s^(-k) choose(s,k) / choose(D,k)` (when `k ≤ D`).
+
+The same coordinate/exterior universal property gives a complete first-column
+boundary classification: at `k=s+1`, the intrinsic rank-budget space is exactly
+the exterior contraction kernel. Its projector is `I - P_alt`, and its exact
+rank is `D^(s+1) - choose(D,s+1)`. At `k ≤ s` the actual support is full.
+These are finite-k results. They do not enumerate the growing family of Young
+shapes needed for fixed intermediate s and k tending to infinity.
+
+At rank one the literal unitary Haar average is now proved equal to the old
+occupation density `symmetricState`, with no supplied ensemble identity. This
+is an additional Haar connection to the previously audited pure-state object;
+the new connection itself has only ordinary compilation so far.

@@ -19,3 +19,10 @@ import SchurCompletion.PermutationMoments
 import SchurCompletion.CycleCharacter
 
 import SchurCompletion.FiniteGramSystem
+import SchurCompletion.SymmetricReynolds
+import SchurCompletion.SymmetricHaarBlock
+import SchurCompletion.ExteriorCoordinates
+import SchurCompletion.AlternatingReynolds
+import SchurCompletion.AlternatingHaarBlock
+import SchurCompletion.FirstColumnBoundary
+import SchurCompletion.BoundaryProjection

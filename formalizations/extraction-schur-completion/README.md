@@ -59,3 +59,17 @@ Further actual finite-dimensional results:
 
 These are new ordinary-compiled results. They do not enlarge the frozen audit
 scope and do not close the intermediate-rank sharp asymptotic listed above.
+
+The first actual classified blocks are now connected:
+
+- The complete symmetric block has rank `choose(D+k-1,k)` and the literal Haar
+  scalar `s^(-k) choose(s+k-1,k)/choose(D+k-1,k)`.
+- The actual alternating block has rank `choose(D,k)`, internally obtained via
+  explicit tensor/exterior maps, and Haar scalar
+  `s^(-k) choose(s,k)/choose(D,k)` for `k ≤ D`.
+- The actual rank-one Haar average equals `symmetricState`.
+- For `k=s+1`, the support projector is exactly `I-P_alt` and its rank is
+  `D^(s+1)-choose(D,s+1)`. For `k≤s`, the support projector is the identity.
+
+The general-shape classification and the intermediate-rank sharp two-moment
+asymptotic remain open in this continuation.
