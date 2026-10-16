@@ -1,0 +1,290 @@
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.rankBudgetProjector_log_rank_per_copy_limit':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.rankBudgetProjector_log_rank_per_copy_limit' has type
+  True
+but it is expected to have type
+  (D s : Nat) →
+    @LT.lt Nat instLTNat 0 s →
+      @LE.le Nat instLENat s D →
+        @Filter.Tendsto Nat Real
+          (fun k =>
+            @HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+              (Real.log
+                (@Nat.cast Real Real.instNatCast
+                  (@Matrix.rank (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex
+                    (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                      Fin.fintype D)
+                    Complex.instCommSemiring (ExtractionRankSupport.rankBudgetProjector D k s))))
+              (@Nat.cast Real Real.instNatCast k))
+          (@Filter.atTop Nat Nat.instPreorder)
+          (@nhds Real
+            (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+            (Real.log (@Nat.cast Real Real.instNatCast s)))
+EMPTY_KERNEL_REPLAY_PASS 40687 declarations; 62 roots; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.rankBudgetProjector_log_rank_per_copy_limit
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.rankBudgetSpace_eq_densityTensorSpace':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.rankBudgetSpace_eq_densityTensorSpace' has type
+  True
+but it is expected to have type
+  (D k s : Nat) →
+    @LT.lt Nat instLTNat 0 k →
+      @Eq
+        (@Submodule Complex (SymmetricSupport.Word D k → Complex) Complex.instSemiring
+          (@Pi.addCommMonoid (SymmetricSupport.Word D k) (fun a => Complex) fun i => Complex.instAddCommMonoid)
+          (@Pi.Function.module (SymmetricSupport.Word D k) Complex Complex Complex.instSemiring
+            Complex.instAddCommMonoid (@Semiring.toModule Complex Complex.instSemiring)))
+        (ExtractionRankSupport.rankBudgetSpace D k s) (ExtractionRankSupport.densityTensorSpace D k s)
+TYPE_CLOSURE_REPLAY_PASS 11066 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.rankBudgetSpace_eq_densityTensorSpace
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.rankBudgetProjector_one_eq_symmetricProjector':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.rankBudgetProjector_one_eq_symmetricProjector' has type
+  True
+but it is expected to have type
+  (D k : Nat) →
+    @Eq (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+      (ExtractionRankSupport.rankBudgetProjector D k 1) (SymmetricSupport.symmetricProjector D k)
+TYPE_CLOSURE_REPLAY_PASS 23385 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.rankBudgetProjector_one_eq_symmetricProjector
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.rankBudgetProjector_commutes_tensorMatrix':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.rankBudgetProjector_commutes_tensorMatrix' has type
+  True
+but it is expected to have type
+  (D k s : Nat) →
+    (M : @Matrix (Fin D) (Fin D) Complex) →
+      @Eq (@Matrix (SymmetricSupport.Word D k) (Fin k → Fin D) Complex)
+        (@HMul.hMul (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+          (@Matrix (Fin k → Fin D) (Fin k → Fin D) Complex)
+          (@Matrix (SymmetricSupport.Word D k) (Fin k → Fin D) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (SymmetricSupport.Word D k) (SymmetricSupport.Word D k)
+            (Fin k → Fin D) Complex
+            (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a => Fin.fintype D)
+            Complex.instMul Complex.instAddCommMonoid)
+          (ExtractionRankSupport.rankBudgetProjector D k s) (@ExtractionSpectrum.tensorMatrix (Fin D) M k))
+        (@HMul.hMul (@Matrix (Fin k → Fin D) (Fin k → Fin D) Complex)
+          (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+          (@Matrix (Fin k → Fin D) (SymmetricSupport.Word D k) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (Fin k → Fin D) (Fin k → Fin D) (SymmetricSupport.Word D k)
+            Complex
+            (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a => Fin.fintype D)
+            Complex.instMul Complex.instAddCommMonoid)
+          (@ExtractionSpectrum.tensorMatrix (Fin D) M k) (ExtractionRankSupport.rankBudgetProjector D k s))
+TYPE_CLOSURE_REPLAY_PASS 23340 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.rankBudgetProjector_commutes_tensorMatrix
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.rankBudgetProjector_density_support':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.rankBudgetProjector_density_support' has type
+  True
+but it is expected to have type
+  (D k s : Nat) →
+    (X : @Matrix (Fin D) (Fin D) Complex) →
+      And (@Matrix.PosSemidef (Fin D) Complex Complex.instRing Complex.partialOrder Complex.instStarRing X)
+          (@Eq Complex (@Matrix.trace (Fin D) Complex (Fin.fintype D) Complex.instAddCommMonoid X) 1) →
+        @LE.le Nat instLENat (@Matrix.rank (Fin D) (Fin D) Complex (Fin.fintype D) Complex.instCommSemiring X) s →
+          And
+            (@Matrix.PosSemidef (Fin k → Fin D) Complex Complex.instRing Complex.partialOrder Complex.instStarRing
+              (@ExtractionSpectrum.tensorMatrix (Fin D) X k))
+            (And
+              (@Eq Complex
+                (@Matrix.trace (Fin k → Fin D) Complex
+                  (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                    Fin.fintype D)
+                  Complex.instAddCommMonoid (@ExtractionSpectrum.tensorMatrix (Fin D) X k))
+                1)
+              (@Eq (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+                (@HMul.hMul (@Matrix (SymmetricSupport.Word D k) (Fin k → Fin D) Complex)
+                  (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+                  (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+                  (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (SymmetricSupport.Word D k) (Fin k → Fin D)
+                    (SymmetricSupport.Word D k) Complex
+                    (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                      Fin.fintype D)
+                    Complex.instMul Complex.instAddCommMonoid)
+                  (@HMul.hMul (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+                    (@Matrix (Fin k → Fin D) (Fin k → Fin D) Complex)
+                    (@Matrix (SymmetricSupport.Word D k) (Fin k → Fin D) Complex)
+                    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (SymmetricSupport.Word D k)
+                      (SymmetricSupport.Word D k) (Fin k → Fin D) Complex
+                      (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                        Fin.fintype D)
+                      Complex.instMul Complex.instAddCommMonoid)
+                    (ExtractionRankSupport.rankBudgetProjector D k s) (@ExtractionSpectrum.tensorMatrix (Fin D) X k))
+                  (ExtractionRankSupport.rankBudgetProjector D k s))
+                (@ExtractionSpectrum.tensorMatrix (Fin D) X k)))
+TYPE_CLOSURE_REPLAY_PASS 23343 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.rankBudgetProjector_density_support
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.psd_mul_eq_zero_of_trace_re_eq_zero':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.psd_mul_eq_zero_of_trace_re_eq_zero' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    [inst : @Fintype ι] →
+      [@DecidableEq ι] →
+        (A X : @Matrix ι ι Complex) →
+          @Matrix.PosSemidef ι Complex Complex.instRing Complex.partialOrder Complex.instStarRing A →
+            @Matrix.PosSemidef ι Complex Complex.instRing Complex.partialOrder Complex.instStarRing X →
+              @Eq Real
+                  (Complex.re
+                    (@Matrix.trace ι Complex inst Complex.instAddCommMonoid
+                      (@HMul.hMul (@Matrix ι ι Complex) (@Matrix ι ι Complex) (@Matrix ι ι Complex)
+                        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid ι ι ι Complex inst Complex.instMul
+                          Complex.instAddCommMonoid)
+                        A X)))
+                  0 →
+                @Eq (@Matrix ι ι Complex)
+                  (@HMul.hMul (@Matrix ι ι Complex) (@Matrix ι ι Complex) (@Matrix ι ι Complex)
+                    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid ι ι ι Complex inst Complex.instMul
+                      Complex.instAddCommMonoid)
+                    A X)
+                  0
+TYPE_CLOSURE_REPLAY_PASS 6951 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.psd_mul_eq_zero_of_trace_re_eq_zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.rankBudgetProjector_rank_pos':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.rankBudgetProjector_rank_pos' has type
+  True
+but it is expected to have type
+  (D k s : Nat) →
+    @LT.lt Nat instLTNat 0 D →
+      @LE.le Nat instLENat 1 s →
+        @LT.lt Nat instLTNat 0
+          (@Matrix.rank (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex
+            (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a => Fin.fintype D)
+            Complex.instCommSemiring (ExtractionRankSupport.rankBudgetProjector D k s))
+TYPE_CLOSURE_REPLAY_PASS 23339 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.rankBudgetProjector_rank_pos
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.rankBudgetProjector_eq_one_of_dimension_le':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.rankBudgetProjector_eq_one_of_dimension_le' has type
+  True
+but it is expected to have type
+  (D k s : Nat) →
+    @LE.le Nat instLENat D s →
+      @Eq (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+        (ExtractionRankSupport.rankBudgetProjector D k s) 1
+TYPE_CLOSURE_REPLAY_PASS 23339 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.rankBudgetProjector_eq_one_of_dimension_le
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.tensorMatrix_mulVec_productVector':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.tensorMatrix_mulVec_productVector' has type
+  True
+but it is expected to have type
+  (D k : Nat) →
+    (M : @Matrix (Fin D) (Fin D) Complex) →
+      (z : Fin k → Fin D → Complex) →
+        @Eq ((Fin k → Fin D) → Complex)
+          (@Matrix.mulVec (Fin k → Fin D) (Fin k → Fin D) Complex
+            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))
+            (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a => Fin.fintype D)
+            (@ExtractionSpectrum.tensorMatrix (Fin D) M k) (ExtractionRankSupport.productVector D k z))
+          (ExtractionRankSupport.productVector D k fun i =>
+            @Matrix.mulVec (Fin D) (Fin D) Complex
+              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))
+              (Fin.fintype D) M (@z i))
+TYPE_CLOSURE_REPLAY_PASS 5907 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.tensorMatrix_mulVec_productVector
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.exact_rankBounded_iid_effect_mul_rankBudgetProjector':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.exact_rankBounded_iid_effect_mul_rankBudgetProjector' has type
+  True
+but it is expected to have type
+  (D k s : Nat) →
+    @LT.lt Nat instLTNat 0 k →
+      (M : @Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex) →
+        @Matrix.PosSemidef (SymmetricSupport.Word D k) Complex Complex.instRing Complex.partialOrder
+            Complex.instStarRing
+            (@HSub.hSub (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+              (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+              (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+              (@instHSub (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+                (@Matrix.sub (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex Complex.instSub))
+              1 M) →
+          ((X : @Matrix (Fin D) (Fin D) Complex) →
+              And (@Matrix.PosSemidef (Fin D) Complex Complex.instRing Complex.partialOrder Complex.instStarRing X)
+                  (@Eq Complex (@Matrix.trace (Fin D) Complex (Fin.fintype D) Complex.instAddCommMonoid X) 1) →
+                @LE.le Nat instLENat (@Matrix.rank (Fin D) (Fin D) Complex (Fin.fintype D) Complex.instCommSemiring X)
+                    s →
+                  @Eq Real
+                    (Complex.re
+                      (@Matrix.trace (SymmetricSupport.Word D k) Complex
+                        (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                          Fin.fintype D)
+                        Complex.instAddCommMonoid
+                        (@HMul.hMul (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+                          (@Matrix (Fin k → Fin D) (Fin k → Fin D) Complex)
+                          (@Matrix (SymmetricSupport.Word D k) (Fin k → Fin D) Complex)
+                          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (SymmetricSupport.Word D k)
+                            (SymmetricSupport.Word D k) (Fin k → Fin D) Complex
+                            (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                              Fin.fintype D)
+                            Complex.instMul Complex.instAddCommMonoid)
+                          M (@ExtractionSpectrum.tensorMatrix (Fin D) X k))))
+                    1) →
+            @Eq (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+              (@HMul.hMul (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+                (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+                (@Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex)
+                (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid (SymmetricSupport.Word D k) (SymmetricSupport.Word D k)
+                  (SymmetricSupport.Word D k) Complex
+                  (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                    Fin.fintype D)
+                  Complex.instMul Complex.instAddCommMonoid)
+                M (ExtractionRankSupport.rankBudgetProjector D k s))
+              (ExtractionRankSupport.rankBudgetProjector D k s)
+TYPE_CLOSURE_REPLAY_PASS 23345 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.exact_rankBounded_iid_effect_mul_rankBudgetProjector
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.rankBudgetProjector_rank_le_polynomial':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.rankBudgetProjector_rank_le_polynomial' has type
+  True
+but it is expected to have type
+  (D k s : Nat) →
+    @LE.le Nat instLENat
+      (@Matrix.rank (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex
+        (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a => Fin.fintype D)
+        Complex.instCommSemiring (ExtractionRankSupport.rankBudgetProjector D k s))
+      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+        (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid))) s k)
+        (Nat.choose
+          (@HSub.hSub Nat Nat Nat (@instHSub Nat instSubNat)
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) D s)
+              k)
+            1)
+          k))
+TYPE_CLOSURE_REPLAY_PASS 23342 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.rankBudgetProjector_rank_le_polynomial
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.rankBudgetProjector_rank_ge_power':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.rankBudgetProjector_rank_ge_power' has type
+  True
+but it is expected to have type
+  (D k s : Nat) →
+    @LE.le Nat instLENat s D →
+      @LE.le Nat instLENat
+        (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid))) s k)
+        (@Matrix.rank (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex
+          (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a => Fin.fintype D)
+          Complex.instCommSemiring (ExtractionRankSupport.rankBudgetProjector D k s))
+TYPE_CLOSURE_REPLAY_PASS 23339 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.rankBudgetProjector_rank_ge_power
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ExtractionRankSupport.rankBudgetProjector_geometric_div_sqrt_rank_atTop':
+(kernel) declaration type mismatch, 'ExtractionRankSupport.rankBudgetProjector_geometric_div_sqrt_rank_atTop' has type
+  True
+but it is expected to have type
+  (D s : Nat) →
+    @LT.lt Nat instLTNat 0 D →
+      @LT.lt Nat instLTNat 0 s →
+        (b : Real) →
+          @LT.lt Real Real.instLT 0 b →
+            @LT.lt Real Real.instLT (@Nat.cast Real Real.instNatCast s)
+                (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                  b 2) →
+              @Filter.Tendsto Nat Real
+                (fun k =>
+                  @HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                    (@HPow.hPow Real Nat Real
+                      (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) b k)
+                    (Real.sqrt
+                      (@Nat.cast Real Real.instNatCast
+                        (@Matrix.rank (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) Complex
+                          (@Pi.instFintype (Fin k) (fun a => Fin D) (instDecidableEqFin k) (Fin.fintype k) fun a =>
+                            Fin.fintype D)
+                          Complex.instCommSemiring (ExtractionRankSupport.rankBudgetProjector D k s)))))
+                (@Filter.atTop Nat Nat.instPreorder) (@Filter.atTop Real Real.instPreorder)
+TYPE_CLOSURE_REPLAY_PASS 23339 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED ExtractionRankSupport.rankBudgetProjector_geometric_div_sqrt_rank_atTop
