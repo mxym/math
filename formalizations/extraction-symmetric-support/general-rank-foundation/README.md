@@ -41,6 +41,17 @@ Compiled results include:
   An explicit symmetric-rank bound is
   `rank(P_sym(E,k)) ≤ E^(E-1)*(k+1)^(E-1)` for `E>0`, with the corresponding
   logarithmic bound. The parent audit sources remain fixed.
+- For any fixed actual matrix `X`, the span of the ranges of all actual
+  `(U X U†)^⊗k` equals this same rank-budget space at `s=rank(X)`.
+  The proof constructs source/target isometries and one actual unitary
+  extension internally. A fixed actual density therefore has the same
+  perfect-expectation support implication even with a nonflat nonzero spectrum.
+  This supplies an exact-performance bridge, not a fixed-error profile.
+- `flatCoordinateDensity D s hsD` is an explicit normalized coordinate
+  projection. For `0<s≤D` its PSD, trace one, and exact matrix rank `s` are
+  proved. Its actual tensor power has purity `s^(-k)` for every blocklength,
+  including zero. No eigenvalue, density, rank, or moment certificate is an
+  input to the resulting `exists_flat_rank_density` theorem.
 
 This is **not yet a formal Schur-Weyl decomposition, the general numerical
 Weyl/hook dimension formula, the sharp general-rank polynomial asymptotic, or a Haar
@@ -58,6 +69,12 @@ same-type forged proofs, binds all local imported mathematical sources and
 package configurations, and saves the bound source snapshot. It does not clear
 or re-audit the old packages' output or historical roots. Their imported
 declarations enter only as dependencies of this new audit.
+
+Every saved reproduction records its literal root list and bound source
+snapshot. A historical `LATEST.json` result validates that snapshot; compare
+its source-manifest hash with the current `SOURCE_HASHES.json` before treating
+it as evidence for newer sources. A separate `build-only-*` record explicitly
+marks ordinary Lean-checked successors awaiting a source-frozen kernel replay.
 
 Local dependencies are the parent symmetric-support package, the independent
 matrix-projector factory, and the information-spectrum package (whose tensor

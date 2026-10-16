@@ -10,3 +10,5 @@ import RankSupport.FirstOrder
 import RankSupport.ExplicitPolynomial
 import RankSupport.FiniteCoefficients
 import RankSupport.BlocklengthBoundary
+import RankSupport.FixedSpectrumOrbit
+import RankSupport.FlatWitness
