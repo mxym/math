@@ -3,7 +3,10 @@
 This new scope reviews the mature extensions at mathematical source commit
 `aa1cd0c497a4a9963013ec6dde76a5ed296e2c61`. It is independent internal AI review,
 not external human peer review or a first-discovery certificate. The complete
-manuscript is not certified by this package.
+manuscript is not certified by this package. `MANUSCRIPT_INTERFACES.json` records
+the independent 12-item comparison with the preserved manuscript; these are
+coverage boundaries for future full formalization, not mathematical
+counterexamples. `HANDOFF.md` records the exact preliminary verification state.
 
 `SCOPE.json` is the authoritative endpoint/definition/control classification.
 `ROOTS.txt` lists selected terminal theorem declarations; `DEFINITIONS.txt`
