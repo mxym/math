@@ -31,3 +31,6 @@ import CircuitRecursion.OccupationArithmetic
 import CircuitRecursion.DyadicPrecision
 import CircuitRecursion.RationalSelection
 import CircuitRecursion.ConditionedConjugacy
+import CircuitRecursion.OracleArithmetic
+import CircuitRecursion.OracleSqrt
+import CircuitRecursion.HalfAngleEvaluation

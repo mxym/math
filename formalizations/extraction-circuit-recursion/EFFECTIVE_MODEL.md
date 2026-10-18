@@ -118,3 +118,22 @@ bound rho+2*eta when the score errors are at most eta and a table entry is
 within rho. This removes a need for exact real tie tests in the selector.
 It neither constructs the fixed net nor evaluates matrix distances, and
 does not discharge those interfaces or the full bit-complexity claim.
+
+Further constructive components are now proved. `ConditionedConjugacy.lean`
+replaces an unconditioned conjugacy choice by four explicit quaternion
+charts with a quantitative denominator bound after rational score selection.
+The scalar oracle arithmetic and integer-square-root routines are explicit
+finite rational programs with proved error schedules. The half-angle
+programs compute the actual occupation merge-angle circle coordinates after
+dyadic scaling, with no target-state oracle, exactly n+1 integer-square-root
+calls, 2*n rational arithmetic nodes, bounded dyadic output numerators, and
+maximum requested precision polynomial in the actual active dimension and p.
+They avoid using an exact-real `arg` operation as a computational primitive.
+
+The full numerical SK recursion has not yet been implemented with composed
+entry oracles, stopping thresholds, fixed-net score evaluation and stable
+factor-oracle propagation. The angle routines have also not yet been
+attached to every instruction of an explicit rank/unrank extraction
+compiler. Counting rational arithmetic nodes and integer-square-root calls
+does not bound their Turing bit cost without bit-size and machine-algorithm
+analysis. These remain separate obligations.

@@ -1,4 +1,4 @@
-import CircuitRecursion.ConditionedConjugacy
+import CircuitRecursion.HalfAngleEvaluation
 
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
@@ -160,6 +160,60 @@ import CircuitRecursion.ConditionedConjugacy
 #print axioms CircuitRecursion.extractionCircuit_real_bound
 #check CircuitRecursion.extractionCircuit_isBigO
 #print axioms CircuitRecursion.extractionCircuit_isBigO
+#check CircuitRecursion.oracleConst_correct
+#print axioms CircuitRecursion.oracleConst_correct
+#check CircuitRecursion.oracleMeanPlus_correct
+#print axioms CircuitRecursion.oracleMeanPlus_correct
+#check CircuitRecursion.oracleMeanMinus_correct
+#print axioms CircuitRecursion.oracleMeanMinus_correct
+#check CircuitRecursion.halfCosOracle_correct
+#print axioms CircuitRecursion.halfCosOracle_correct
+#check CircuitRecursion.mergeAngle_bounds
+#print axioms CircuitRecursion.mergeAngle_bounds
+#check CircuitRecursion.mergeCosOracle_correct
+#print axioms CircuitRecursion.mergeCosOracle_correct
+#check CircuitRecursion.mergeSinOracle_correct
+#print axioms CircuitRecursion.mergeSinOracle_correct
+#check CircuitRecursion.halvedMergeCosOracle_correct
+#print axioms CircuitRecursion.halvedMergeCosOracle_correct
+#check CircuitRecursion.halfSinOracle_correct
+#print axioms CircuitRecursion.halfSinOracle_correct
+#check CircuitRecursion.halvedMergeSinOracle_correct
+#print axioms CircuitRecursion.halvedMergeSinOracle_correct
+#check CircuitRecursion.halfCosProgram_eval
+#print axioms CircuitRecursion.halfCosProgram_eval
+#check CircuitRecursion.halfCosProgram_queries
+#print axioms CircuitRecursion.halfCosProgram_queries
+#check CircuitRecursion.halfCosProgram_calls
+#print axioms CircuitRecursion.halfCosProgram_calls
+#check CircuitRecursion.halfAngleDemand_exact
+#print axioms CircuitRecursion.halfAngleDemand_exact
+#check CircuitRecursion.active_halfAngleDemand_bound
+#print axioms CircuitRecursion.active_halfAngleDemand_bound
+#check CircuitRecursion.mergeCosProgram_eval
+#print axioms CircuitRecursion.mergeCosProgram_eval
+#check CircuitRecursion.mergeSinProgram_eval
+#print axioms CircuitRecursion.mergeSinProgram_eval
+#check CircuitRecursion.mergeCosProgram_resources
+#print axioms CircuitRecursion.mergeCosProgram_resources
+#check CircuitRecursion.mergeSinProgram_resources
+#print axioms CircuitRecursion.mergeSinProgram_resources
+#check CircuitRecursion.halfAngleDemand_ge
+#print axioms CircuitRecursion.halfAngleDemand_ge
+#check CircuitRecursion.mergeCosProgram_precision
+#print axioms CircuitRecursion.mergeCosProgram_precision
+#check CircuitRecursion.mergeSinProgram_precision
+#print axioms CircuitRecursion.mergeSinProgram_precision
+#check CircuitRecursion.mergePhaseProgram_correct
+#print axioms CircuitRecursion.mergePhaseProgram_correct
+#check CircuitRecursion.mergeCosProgram_range
+#print axioms CircuitRecursion.mergeCosProgram_range
+#check CircuitRecursion.mergeCosProgram_dyadic
+#print axioms CircuitRecursion.mergeCosProgram_dyadic
+#check CircuitRecursion.mergeSinProgram_dyadic
+#print axioms CircuitRecursion.mergeSinProgram_dyadic
+#check CircuitRecursion.active_mergePhaseProgram_resources
+#print axioms CircuitRecursion.active_mergePhaseProgram_resources
 #check CircuitRecursion.bitPurePower_density
 #print axioms CircuitRecursion.bitPurePower_density
 #check CircuitRecursion.bitPurePower_copywiseInput
@@ -210,6 +264,26 @@ import CircuitRecursion.ConditionedConjugacy
 #print axioms CircuitRecursion.rational_mergeAngle_trig
 #check CircuitRecursion.occupation_partial_mergeAngle_trig
 #print axioms CircuitRecursion.occupation_partial_mergeAngle_trig
+#check CircuitRecursion.oracleAdd_correct
+#print axioms CircuitRecursion.oracleAdd_correct
+#check CircuitRecursion.oracleNeg_correct
+#print axioms CircuitRecursion.oracleNeg_correct
+#check CircuitRecursion.dyadic_scale
+#print axioms CircuitRecursion.dyadic_scale
+#check CircuitRecursion.oracleMul_correct
+#print axioms CircuitRecursion.oracleMul_correct
+#check CircuitRecursion.oracleInv_correct
+#print axioms CircuitRecursion.oracleInv_correct
+#check CircuitRecursion.rationalSqrtApprox_correct
+#print axioms CircuitRecursion.rationalSqrtApprox_correct
+#check CircuitRecursion.sqrt_input_error
+#print axioms CircuitRecursion.sqrt_input_error
+#check CircuitRecursion.oracleSqrt_correct
+#print axioms CircuitRecursion.oracleSqrt_correct
+#check CircuitRecursion.rationalSqrtApprox_dyadic
+#print axioms CircuitRecursion.rationalSqrtApprox_dyadic
+#check CircuitRecursion.rationalSqrtApprox_range
+#print axioms CircuitRecursion.rationalSqrtApprox_range
 #check CircuitRecursion.castBits_apply
 #print axioms CircuitRecursion.castBits_apply
 #check CircuitRecursion.pairwiseCoordinates_alice

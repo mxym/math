@@ -105,6 +105,19 @@ then gives a normalization denominator at least half a positive residual
 stopping threshold. The actual chart conjugator and its conjugacy action
 are proved. This improves conditioning of a numerical refinement, but is
 not yet a complete oracle-based SK implementation.
+`OracleArithmetic.lean` implements rational-output oracle addition, negation,
+bounded multiplication and inversion with explicit input precision schedules.
+`OracleSqrt.lean` implements square-root approximation with natural floor
+and the actual integer square-root routine, proves its error, and bounds its
+dyadic numerator. `HalfAngleEvaluation.lean` gives finite rational programs
+for both sine and cosine of the actual rational-occupation merging angle
+divided by `2^n`. They make no input-oracle calls, use exactly `n+1` integer
+square roots and `2*n` rational arithmetic nodes, and return dyadic outputs
+with numerator at most `2^(p+1)`. At the actual active-register width their
+largest square-root precision is at most `16*(k+3)^3*(p+2)`. These are actual
+program/error/operation-count results. They do not yet attach descriptions
+to every gate of the extraction compiler, complete numerical SK recursion,
+or prove Turing bit costs of the arithmetic subroutines.
 The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
@@ -116,6 +129,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build and all 196 root type/axiom prints passed with 3851 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T164745228610Z-extraction-circuit-recursion.log`.
+The ordinary build and all 233 root type/axiom prints passed with 3854 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T170225837463Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.
