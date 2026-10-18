@@ -1,0 +1,127 @@
+import CircuitNumerical.PacketFrameRuns
+
+#check CircuitRecursion.PacketFraming.rawNumerators_rawPacket
+#print axioms CircuitRecursion.PacketFraming.rawNumerators_rawPacket
+#check CircuitRecursion.PacketFraming.rawPacket_valid
+#print axioms CircuitRecursion.PacketFraming.rawPacket_valid
+#check CircuitRecursion.PacketFraming.wordPacket_eq_fields
+#print axioms CircuitRecursion.PacketFraming.wordPacket_eq_fields
+#check CircuitRecursion.PacketFraming.rawPacket_toWord
+#print axioms CircuitRecursion.PacketFraming.rawPacket_toWord
+#check CircuitRecursion.PacketFraming.bitMap_no_end
+#print axioms CircuitRecursion.PacketFraming.bitMap_no_end
+#check CircuitRecursion.PacketFraming.signedField_no_end
+#print axioms CircuitRecursion.PacketFraming.signedField_no_end
+#check CircuitRecursion.PacketFraming.payload_no_end
+#print axioms CircuitRecursion.PacketFraming.payload_no_end
+#check CircuitRecursion.PacketFraming.signedField_length
+#print axioms CircuitRecursion.PacketFraming.signedField_length
+#check CircuitRecursion.PacketFraming.encodeRaw_length
+#print axioms CircuitRecursion.PacketFraming.encodeRaw_length
+#check CircuitRecursion.PacketFraming.encodePacket_length_height
+#print axioms CircuitRecursion.PacketFraming.encodePacket_length_height
+#check CircuitRecursion.PacketFraming.encodeCache_length
+#print axioms CircuitRecursion.PacketFraming.encodeCache_length
+#check CircuitRecursion.PacketFraming.encodeCache_length_height
+#print axioms CircuitRecursion.PacketFraming.encodeCache_length_height
+#check CircuitRecursion.PacketFraming.symbol_card
+#print axioms CircuitRecursion.PacketFraming.symbol_card
+#check CircuitRecursion.PacketFraming.readField_bits_append
+#print axioms CircuitRecursion.PacketFraming.readField_bits_append
+#check CircuitRecursion.PacketFraming.readSigned_signedField
+#print axioms CircuitRecursion.PacketFraming.readSigned_signedField
+#check CircuitRecursion.PacketFraming.readDenominator_bits_append
+#print axioms CircuitRecursion.PacketFraming.readDenominator_bits_append
+#check CircuitRecursion.PacketFraming.decodeRaw_encodeRaw
+#print axioms CircuitRecursion.PacketFraming.decodeRaw_encodeRaw
+#check CircuitRecursion.PacketFraming.decodeRaw_encodePacket
+#print axioms CircuitRecursion.PacketFraming.decodeRaw_encodePacket
+#check CircuitRecursion.PacketFraming.decodeRaw_cache_head
+#print axioms CircuitRecursion.PacketFraming.decodeRaw_cache_head
+#check CircuitRecursion.PacketFraming.encodeRaw_injective
+#print axioms CircuitRecursion.PacketFraming.encodeRaw_injective
+#check CircuitRecursion.PacketFraming.encodePacket_injective
+#print axioms CircuitRecursion.PacketFraming.encodePacket_injective
+#check CircuitRecursion.PacketFraming.decoded_typed_roundtrip
+#print axioms CircuitRecursion.PacketFraming.decoded_typed_roundtrip
+#check CircuitRecursion.PacketFrameMachine.skip_end
+#print axioms CircuitRecursion.PacketFrameMachine.skip_end
+#check CircuitRecursion.PacketFrameMachine.skip_payload
+#print axioms CircuitRecursion.PacketFrameMachine.skip_payload
+#check CircuitRecursion.PacketFrameMachine.skip_halt
+#print axioms CircuitRecursion.PacketFrameMachine.skip_halt
+#check CircuitRecursion.PacketFrameMachine.copy_end
+#print axioms CircuitRecursion.PacketFrameMachine.copy_end
+#check CircuitRecursion.PacketFrameMachine.copy_payload
+#print axioms CircuitRecursion.PacketFrameMachine.copy_payload
+#check CircuitRecursion.PacketFrameMachine.copy_restore_nil
+#print axioms CircuitRecursion.PacketFrameMachine.copy_restore_nil
+#check CircuitRecursion.PacketFrameMachine.copy_restore_cons
+#print axioms CircuitRecursion.PacketFrameMachine.copy_restore_cons
+#check CircuitRecursion.PacketFrameMachine.copy_halt
+#print axioms CircuitRecursion.PacketFrameMachine.copy_halt
+#check CircuitRecursion.PacketFrameMachine.skip_supports
+#print axioms CircuitRecursion.PacketFrameMachine.skip_supports
+#check CircuitRecursion.PacketFrameMachine.copy_supports
+#print axioms CircuitRecursion.PacketFrameMachine.copy_supports
+#check CircuitRecursion.PacketFrameMachine.skip_running_control_card
+#print axioms CircuitRecursion.PacketFrameMachine.skip_running_control_card
+#check CircuitRecursion.PacketFrameMachine.copy_running_control_card
+#print axioms CircuitRecursion.PacketFrameMachine.copy_running_control_card
+#check CircuitRecursion.PacketFrameMachine.skip_statement_depth
+#print axioms CircuitRecursion.PacketFrameMachine.skip_statement_depth
+#check CircuitRecursion.PacketFrameMachine.copy_statement_depth
+#print axioms CircuitRecursion.PacketFrameMachine.copy_statement_depth
+#check CircuitRecursion.PacketFrameMachine.skipFrame_iterate
+#print axioms CircuitRecursion.PacketFrameMachine.skipFrame_iterate
+#check CircuitRecursion.PacketFrameMachine.copyScan_iterate
+#print axioms CircuitRecursion.PacketFrameMachine.copyScan_iterate
+#check CircuitRecursion.PacketFrameMachine.copyRestore_iterate
+#print axioms CircuitRecursion.PacketFrameMachine.copyRestore_iterate
+#check CircuitRecursion.PacketFrameMachine.copyFrame_iterate
+#print axioms CircuitRecursion.PacketFrameMachine.copyFrame_iterate
+#check CircuitRecursion.PacketFrameMachine.skipPacketRun_steps
+#print axioms CircuitRecursion.PacketFrameMachine.skipPacketRun_steps
+#check CircuitRecursion.PacketFrameMachine.copyPacketRun_steps
+#print axioms CircuitRecursion.PacketFrameMachine.copyPacketRun_steps
+#check CircuitRecursion.PacketFrameMachine.skipPacket_mem_eval
+#print axioms CircuitRecursion.PacketFrameMachine.skipPacket_mem_eval
+#check CircuitRecursion.PacketFrameMachine.copyPacket_mem_eval
+#print axioms CircuitRecursion.PacketFrameMachine.copyPacket_mem_eval
+#check CircuitRecursion.PacketFrameMachine.skipCache_head_mem_eval
+#print axioms CircuitRecursion.PacketFrameMachine.skipCache_head_mem_eval
+#check CircuitRecursion.PacketFrameMachine.copyCache_head_mem_eval
+#print axioms CircuitRecursion.PacketFrameMachine.copyCache_head_mem_eval
+#check CircuitRecursion.PacketFrameMachine.copied_output_decode
+#print axioms CircuitRecursion.PacketFrameMachine.copied_output_decode
+#check CircuitRecursion.PacketFrameMachine.skipPacketRun_steps_height
+#print axioms CircuitRecursion.PacketFrameMachine.skipPacketRun_steps_height
+#check CircuitRecursion.PacketFrameMachine.copyPacketRun_steps_height
+#print axioms CircuitRecursion.PacketFrameMachine.copyPacketRun_steps_height
+#check CircuitRecursion.PacketFraming.Symbol
+#check CircuitRecursion.PacketFraming.RawPacket
+#check CircuitRecursion.PacketFraming.rawNumerators
+#check CircuitRecursion.PacketFraming.rawPacket
+#check CircuitRecursion.PacketFraming.RawPacket.Valid
+#check CircuitRecursion.PacketFraming.RawPacket.toWord
+#check CircuitRecursion.PacketFraming.signedField
+#check CircuitRecursion.PacketFraming.payload
+#check CircuitRecursion.PacketFraming.encodeRaw
+#check CircuitRecursion.PacketFraming.encodePacket
+#check CircuitRecursion.PacketFraming.encodeCache
+#check CircuitRecursion.PacketFraming.readField
+#check CircuitRecursion.PacketFraming.readSigned
+#check CircuitRecursion.PacketFraming.readDenominator
+#check CircuitRecursion.PacketFraming.decodeRaw
+#check CircuitRecursion.PacketFrameMachine.SkipConfiguration
+#check CircuitRecursion.PacketFrameMachine.skipConfiguration
+#check CircuitRecursion.PacketFrameMachine.stopped
+#check CircuitRecursion.PacketFrameMachine.skipProgram
+#check CircuitRecursion.PacketFrameMachine.skipAdvance
+#check CircuitRecursion.PacketFrameMachine.CopyLabel
+#check CircuitRecursion.PacketFrameMachine.CopyConfiguration
+#check CircuitRecursion.PacketFrameMachine.copyConfiguration
+#check CircuitRecursion.PacketFrameMachine.copyProgram
+#check CircuitRecursion.PacketFrameMachine.copyAdvance
+#check CircuitRecursion.PacketFrameMachine.skipPacketRun
+#check CircuitRecursion.PacketFrameMachine.copyPacketRun
