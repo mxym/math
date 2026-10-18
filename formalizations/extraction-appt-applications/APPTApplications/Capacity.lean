@@ -1,5 +1,6 @@
 import APPTApplications.Entropy
 import OperationalCompletion.LOCCCapacity
+import LOCCInterface.Closure
 
 open scoped BigOperators ComplexOrder Topology
 open Matrix ExtractionSpectrum
@@ -27,6 +28,22 @@ theorem physicalCapacity_eq_cPPT {m n : ℕ} (hm : 0 < m) (hn : 0 < n) (hmn : m 
   rw [physicalCapacity_eq hm hn hmn A hA,
     (OperationalCompletion.cPPT_capacities m n hm hn hmn (flatten m n A)
       (flatten_density A hA)).1, flatten_spectral_entropy A hA,
+    Real.log_mul (by exact_mod_cast hm.ne') (by exact_mod_cast hn.ne')]
+
+theorem physicalCapacity_eq_closureLOCC {m n : ℕ} (hm : 0 < m) (hn : 0 < n) (hmn : m ≤ n)
+    (A : Matrix (Fin m × Fin n) (Fin m × Fin n) ℂ) (hA : APPT.Quantum.IsDensity A) :
+    physicalCapacity m n A = OperationalCompletion.faithfulCapacity m n
+      (fun _ _ V => ExtractionLOCC.IsClosureLOCCProtocol V) (flatten m n A) := by
+  have hC : ∀ k K (hK : 0<K), ExtractionLOCC.IsClosureLOCCProtocol
+      (OperationalCompletion.reservedProtocol m n k K hm hn hmn hK) := fun k K hK =>
+    ExtractionLOCC.productLocal_isClosureLOCCProtocol _
+      (OperationalCompletion.reservedProtocol_isProductLocal m n k K hm hn hmn hK)
+  rw [physicalCapacity_eq hm hn hmn A hA,
+    OperationalCompletion.faithfulCapacity_eq m n hm hn hmn _ hC _ (flatten_density A hA)]
+  change min (Real.log m) ((Real.log ((m:ℝ)*n)-quantumEntropy A)/2) =
+    min (Real.log m) ((Real.log m+Real.log n-
+      ExtractionSpectrum.entropy (flatten_density A hA).1.isHermitian.eigenvalues)/2)
+  rw [flatten_spectral_entropy A hA,
     Real.log_mul (by exact_mod_cast hm.ne') (by exact_mod_cast hn.ne')]
 
 def apptCapacityValues (m n : ℕ) : Set ℝ :=

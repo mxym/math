@@ -1,2 +1,2 @@
-import APPTApplications.Purity
+import APPTApplications.Asymptotic
 import APPTApplications.AxiomReport

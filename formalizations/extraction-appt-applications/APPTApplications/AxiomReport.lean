@@ -1,4 +1,4 @@
-import APPTApplications.Purity
+import APPTApplications.Asymptotic
 #print axioms ExtractionAPPT.trace_cfc
 #print axioms ExtractionAPPT.quantumEntropy_eq_spectral
 #print axioms ExtractionAPPT.continuousOn_quantumEntropy
@@ -20,3 +20,27 @@ import APPTApplications.Purity
 #print axioms ExtractionAPPT.density_entropy_purity_bound
 #print axioms ExtractionAPPT.physicalCapacity_le_purity
 #print axioms ExtractionAPPT.apptMaxCapacity_le_puritySup
+#print axioms ExtractionAPPT.physicalCapacity_eq_closureLOCC
+#print axioms ExtractionAPPT.schmidt_product_le_half
+#print axioms ExtractionAPPT.schmidtSigned_lower
+#print axioms ExtractionAPPT.pure_partialTranspose_lower
+#print axioms ExtractionAPPT.spikeState_density
+#print axioms ExtractionAPPT.spikeState_absolutelyPPT
+#print axioms ExtractionAPPT.spikeState_mem_appt
+#print axioms ExtractionAPPT.projection_spectrum_zero_one
+#print axioms ExtractionAPPT.cfc_affine_projection
+#print axioms ExtractionAPPT.quantumEntropy_affine_rankOne
+#print axioms ExtractionAPPT.spikeState_entropy
+#print axioms ExtractionAPPT.spikeState_capacity
+#print axioms ExtractionAPPT.spike_capacity_le_apptMax
+#print axioms ExtractionAPPT.spike_rate_error_bounds
+#print axioms ExtractionAPPT.spikeState_capacity_error_bounds
+#print axioms ExtractionAPPT.spike_capacity_coefficient_limit
+#print axioms ExtractionAPPT.normalized_log_budget_limit
+#print axioms ExtractionAPPT.balanced_purity_excess_limit
+#print axioms ExtractionAPPT.balanced_purity_capacity_budget_limit
+#print axioms ExtractionAPPT.balanced_apptMaxCapacity_upper
+#print axioms ExtractionAPPT.balanced_apptMaxCapacity_upper_remainder
+#print axioms ExtractionAPPT.spikeState_scaled_capacity_limit
+#print axioms ExtractionAPPT.balanced_apptMaxCapacity_lower
+#print axioms ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds
