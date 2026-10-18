@@ -189,7 +189,7 @@ For $m=n=2$ and every $k\ge1$, one circuit on the original $2k$ qubits, followed
 Bell pairs from every unknown pure iid input. This integer is optimal even for a common global unitary followed by completely PPT postprocessing. The circuit can be synthesized with $O(k^7\log^2(k+3))$ CNOT and arbitrary single-qubit gates, with no qubit supplied, reset, measured, or discarded before the global circuit. For any fixed finite inverse-closed library whose generated subgroup is dense in $SU(2)$, and every $\delta>0$, there is a circuit using that library and CNOT on those same wires whose operator-norm error, up to global phase, is at most $\delta$, whose length is at most $C G\,[\log_2\max(1,G/\delta)+2]^5$, and whose output fidelity is at least $1-2\delta$. Here $G$ is the larger of one and the actual continuous-gate circuit size, which has the preceding asymptotic bound, and $C$ depends only on the fixed library. This is a circuit-size assertion; a classical finite-precision synthesis-time bound is not included.
 \end{proposition}
 \begin{proof}
-Let $r_j=\binom{j+3}{3}$ and $\ell_j=\lceil\log_4 r_j\rceil$. Fix a computable enumeration $\operatorname{enc}_j$ of the four-component occupations of $j$. Sequentially compress the first $j$ four-level systems into $\ell_j$ of those same systems; all other processed systems become zero on the entire symmetric subspace. This is possible because $r_j/r_{j-1}=(j+3)/j\le4$, so $\ell_j\le\ell_{j-1}+1\le j$.
+Let $r_j=\binom{j+3}{3}$ and $\ell_j=\lceil\log_4 r_j\rceil$. Fix an enumeration $\operatorname{enc}_j$ of the four-component occupations of $j$. Sequentially compress the first $j$ four-level systems into $\ell_j$ of those same systems; all other processed systems become zero on the entire symmetric subspace. This is possible because $r_j/r_{j-1}=(j+3)/j\le4$, so $\ell_j\le\ell_{j-1}+1\le j$.
 
 At step $j$, the only active systems are the $\ell_{j-1}$ memory systems and the next original input. In their computational basis the symmetric branching vectors are
 \[
@@ -208,7 +208,7 @@ Expand into at most $2^q$ commuting Pauli strings; implement each nonempty strin
 \]
 This agrees with the general synthesis context \cite{barenco,shende}, while making the absence of a supplied workspace explicit.
 
-After compression at $j=k$, at most $\lceil\log_2r_k\rceil\le2(k-h_k)$ memory qubits can be nonzero. Redistribute them among the two garbage registers of $k-h_k$ qubits each. All remaining original qubits are already zero. Hadamards and cross-party CNOTs on the remaining $h_k$ pairs create the desired Bell states; local discarding removes the garbage. The zero wires were generated from the promised input by the unitary compression, not supplied externally.
+After compression at $j=k$, at most $2\ell_k=2(k-h_k)$ memory qubits can be nonzero. Redistribute them among the two garbage registers of $k-h_k$ qubits each. All remaining original qubits are already zero. Hadamards and cross-party CNOTs on the remaining $h_k$ pairs create the desired Bell states; local discarding removes the garbage. The zero wires were generated from the promised input by the unitary compression, not supplied externally.
 
 For necessity, exact fidelity for every pure input makes the effect the identity on the whole symmetric subspace. Lemma~\ref{lem:rains} then gives $r_k\le4^k/4^h$, proving the exact integer optimum.
 
