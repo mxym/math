@@ -1,0 +1,22 @@
+import APPTApplications.Purity
+#print axioms ExtractionAPPT.trace_cfc
+#print axioms ExtractionAPPT.quantumEntropy_eq_spectral
+#print axioms ExtractionAPPT.continuousOn_quantumEntropy
+#print axioms ExtractionAPPT.cfc_submatrix
+#print axioms ExtractionAPPT.quantumEntropy_submatrix
+#print axioms ExtractionAPPT.flatten_density
+#print axioms ExtractionAPPT.flatten_entropy
+#print axioms ExtractionAPPT.flatten_spectral_entropy
+#print axioms ExtractionAPPT.continuousOn_appt_entropy
+#print axioms ExtractionAPPT.exists_appt_entropy_isLeast
+#print axioms ExtractionAPPT.exists_appt_entropy_eq_inf
+#print axioms ExtractionAPPT.physicalCapacity_eq
+#print axioms ExtractionAPPT.physicalCapacity_eq_cPPT
+#print axioms ExtractionAPPT.exists_appt_capacity_isGreatest
+#print axioms ExtractionAPPT.exists_appt_capacity_eq_sup
+#print axioms ExtractionAPPT.apptMaxCapacity_eq
+#print axioms ExtractionAPPT.exists_appt_purity_maximizer
+#print axioms ExtractionAPPT.entropy_ge_neg_log_collision
+#print axioms ExtractionAPPT.density_entropy_purity_bound
+#print axioms ExtractionAPPT.physicalCapacity_le_purity
+#print axioms ExtractionAPPT.apptMaxCapacity_le_puritySup
