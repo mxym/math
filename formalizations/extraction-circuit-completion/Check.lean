@@ -1,0 +1,456 @@
+import CircuitCompletion
+set_option pp.universes true
+#check CircuitCompletion.occupationRank_actual
+#print axioms CircuitCompletion.occupationRank_actual
+#check CircuitCompletion.occupationRank_card
+#print axioms CircuitCompletion.occupationRank_card
+#check CircuitCompletion.occupationRank_pos
+#print axioms CircuitCompletion.occupationRank_pos
+#check CircuitCompletion.occupationRank_le_power
+#print axioms CircuitCompletion.occupationRank_le_power
+#check CircuitCompletion.occupationRank_step
+#print axioms CircuitCompletion.occupationRank_step
+#check CircuitCompletion.encodingPairs_le_copy
+#print axioms CircuitCompletion.encodingPairs_le_copy
+#check CircuitCompletion.encodingPairs_step
+#print axioms CircuitCompletion.encodingPairs_step
+#check CircuitCompletion.pow_clog_le_four_mul
+#print axioms CircuitCompletion.pow_clog_le_four_mul
+#check CircuitCompletion.activeWires_available
+#print axioms CircuitCompletion.activeWires_available
+#check CircuitCompletion.activeDimension_bound
+#print axioms CircuitCompletion.activeDimension_bound
+#check CircuitCompletion.encodingPairs_log_bound
+#print axioms CircuitCompletion.encodingPairs_log_bound
+#check CircuitCompletion.activeWires_log_bound
+#print axioms CircuitCompletion.activeWires_log_bound
+#check CircuitCompletion.activeDimension_polynomial
+#print axioms CircuitCompletion.activeDimension_polynomial
+#check CircuitCompletion.yBasis_entry
+#print axioms CircuitCompletion.yBasis_entry
+#check CircuitCompletion.yBasis_star_entry
+#print axioms CircuitCompletion.yBasis_star_entry
+#check CircuitCompletion.complexPhase_trig
+#print axioms CircuitCompletion.complexPhase_trig
+#check CircuitCompletion.adjacentRotationWord_action
+#print axioms CircuitCompletion.adjacentRotationWord_action
+#check CircuitCompletion.adjacentRotationWord_length
+#print axioms CircuitCompletion.adjacentRotationWord_length
+#check CircuitCompletion.sameOutside_update
+#print axioms CircuitCompletion.sameOutside_update
+#check CircuitCompletion.update_eq_update_iff
+#print axioms CircuitCompletion.update_eq_update_iff
+#check CircuitCompletion.run_single
+#print axioms CircuitCompletion.run_single
+#check CircuitCompletion.run_hadamard
+#print axioms CircuitCompletion.run_hadamard
+#check CircuitCompletion.adjacentSwapWord_action
+#print axioms CircuitCompletion.adjacentSwapWord_action
+#check CircuitCompletion.adjacentSwapWord_length
+#print axioms CircuitCompletion.adjacentSwapWord_length
+#check CircuitCompletion.zeroBits_two_iff
+#print axioms CircuitCompletion.zeroBits_two_iff
+#check CircuitCompletion.bellPreparationWord_action
+#print axioms CircuitCompletion.bellPreparationWord_action
+#check CircuitCompletion.bellPreparationWord_length
+#print axioms CircuitCompletion.bellPreparationWord_length
+#check CircuitCompletion.bellPreparation_with_spectators
+#print axioms CircuitCompletion.bellPreparation_with_spectators
+#check CircuitCompletion.invSqrtTwo_bellCoeff
+#print axioms CircuitCompletion.invSqrtTwo_bellCoeff
+#check CircuitCompletion.bellPreparationWord_density
+#print axioms CircuitCompletion.bellPreparationWord_density
+#check CircuitCompletion.stageGateBudget_bound
+#print axioms CircuitCompletion.stageGateBudget_bound
+#check CircuitCompletion.recursiveGateBudget_bound
+#print axioms CircuitCompletion.recursiveGateBudget_bound
+#check CircuitCompletion.copywiseInput_entry
+#print axioms CircuitCompletion.copywiseInput_entry
+#check CircuitCompletion.copywiseInput_density
+#print axioms CircuitCompletion.copywiseInput_density
+#check CircuitCompletion.reindex_old_tensorInput_eq_copywise
+#print axioms CircuitCompletion.reindex_old_tensorInput_eq_copywise
+#check CircuitCompletion.mergeAt_coordinate_intertwine
+#print axioms CircuitCompletion.mergeAt_coordinate_intertwine
+#check CircuitCompletion.matrix_intertwine_mul
+#print axioms CircuitCompletion.matrix_intertwine_mul
+#check CircuitCompletion.fourProgram_intertwine
+#print axioms CircuitCompletion.fourProgram_intertwine
+#check CircuitCompletion.coordinateIsometry_single
+#print axioms CircuitCompletion.coordinateIsometry_single
+#check CircuitCompletion.compiled_four_compression
+#print axioms CircuitCompletion.compiled_four_compression
+#check CircuitCompletion.compiled_four_length
+#print axioms CircuitCompletion.compiled_four_length
+#check CircuitCompletion.rotationWord_denote
+#print axioms CircuitCompletion.rotationWord_denote
+#check CircuitCompletion.circleAngle_trig
+#print axioms CircuitCompletion.circleAngle_trig
+#check CircuitCompletion.mergeRotation_eq_trig
+#print axioms CircuitCompletion.mergeRotation_eq_trig
+#check CircuitCompletion.mergeWord_denote
+#print axioms CircuitCompletion.mergeWord_denote
+#check CircuitCompletion.mergeWord_length
+#print axioms CircuitCompletion.mergeWord_length
+#check CircuitCompletion.embeddingPermutation_apply
+#print axioms CircuitCompletion.embeddingPermutation_apply
+#check CircuitCompletion.permutationUnitary_single
+#print axioms CircuitCompletion.permutationUnitary_single
+#check CircuitCompletion.embeddingPermutation_word
+#print axioms CircuitCompletion.embeddingPermutation_word
+#check CircuitCompletion.branchCoordinates_equal
+#print axioms CircuitCompletion.branchCoordinates_equal
+#check CircuitCompletion.branchCoordinates_disjoint
+#print axioms CircuitCompletion.branchCoordinates_disjoint
+#check CircuitCompletion.encodedBranch_entry
+#print axioms CircuitCompletion.encodedBranch_entry
+#check CircuitCompletion.encodedBranch_disjoint_zero
+#print axioms CircuitCompletion.encodedBranch_disjoint_zero
+#check CircuitCompletion.vectorSquare_isometry
+#print axioms CircuitCompletion.vectorSquare_isometry
+#check CircuitCompletion.occupationMass_occupied_sum
+#print axioms CircuitCompletion.occupationMass_occupied_sum
+#check CircuitCompletion.encodedBranch_normalized
+#print axioms CircuitCompletion.encodedBranch_normalized
+#check CircuitCompletion.pureMatrix_trace
+#print axioms CircuitCompletion.pureMatrix_trace
+#check CircuitCompletion.pureMatrix_idempotent
+#print axioms CircuitCompletion.pureMatrix_idempotent
+#check CircuitCompletion.pureMatrix_pair_trace
+#print axioms CircuitCompletion.pureMatrix_pair_trace
+#check CircuitCompletion.squaredDistance_unit_vectors
+#print axioms CircuitCompletion.squaredDistance_unit_vectors
+#check CircuitCompletion.exact_effect_fidelity_lower
+#print axioms CircuitCompletion.exact_effect_fidelity_lower
+#check CircuitCompletion.exact_effect_fidelity_lower_delta
+#print axioms CircuitCompletion.exact_effect_fidelity_lower_delta
+#check CircuitCompletion.coordinatePair_zero
+#print axioms CircuitCompletion.coordinatePair_zero
+#check CircuitCompletion.coordinatePair_one
+#print axioms CircuitCompletion.coordinatePair_one
+#check CircuitCompletion.pairPlane_isometry
+#print axioms CircuitCompletion.pairPlane_isometry
+#check CircuitCompletion.pairPlane_mulVec
+#print axioms CircuitCompletion.pairPlane_mulVec
+#check CircuitCompletion.pairPlane_adjoint_mulVec
+#print axioms CircuitCompletion.pairPlane_adjoint_mulVec
+#check CircuitCompletion.embedPlane_apply
+#print axioms CircuitCompletion.embedPlane_apply
+#check CircuitCompletion.mergeAt_action
+#print axioms CircuitCompletion.mergeAt_action
+#check CircuitCompletion.compressFour_action
+#print axioms CircuitCompletion.compressFour_action
+#check CircuitCompletion.mergeRotation_action
+#print axioms CircuitCompletion.mergeRotation_action
+#check CircuitCompletion.embedPlane_action
+#print axioms CircuitCompletion.embedPlane_action
+#check CircuitCompletion.clearBits_apply
+#print axioms CircuitCompletion.clearBits_apply
+#check CircuitCompletion.flipBit_eq_update
+#print axioms CircuitCompletion.flipBit_eq_update
+#check CircuitCompletion.moveEquiv_source
+#print axioms CircuitCompletion.moveEquiv_source
+#check CircuitCompletion.moveEquiv_fixes
+#print axioms CircuitCompletion.moveEquiv_fixes
+#check CircuitCompletion.run_moveWord
+#print axioms CircuitCompletion.run_moveWord
+#check CircuitCompletion.moveWord_length
+#print axioms CircuitCompletion.moveWord_length
+#check CircuitCompletion.clearBits_except
+#print axioms CircuitCompletion.clearBits_except
+#check CircuitCompletion.run_reverse_of_equiv
+#print axioms CircuitCompletion.run_reverse_of_equiv
+#check CircuitCompletion.swap_conjugation
+#print axioms CircuitCompletion.swap_conjugation
+#check CircuitCompletion.swapWord_action
+#print axioms CircuitCompletion.swapWord_action
+#check CircuitCompletion.swapWord_length
+#print axioms CircuitCompletion.swapWord_length
+#check CircuitCompletion.invSqrtTwo_square
+#print axioms CircuitCompletion.invSqrtTwo_square
+#check CircuitCompletion.hadamard_entry
+#print axioms CircuitCompletion.hadamard_entry
+#check CircuitCompletion.hadamard_star
+#print axioms CircuitCompletion.hadamard_star
+#check CircuitCompletion.complexPhase_zero
+#print axioms CircuitCompletion.complexPhase_zero
+#check CircuitCompletion.complexPhase_pi
+#print axioms CircuitCompletion.complexPhase_pi
+#check CircuitCompletion.indexedMass_image
+#print axioms CircuitCompletion.indexedMass_image
+#check CircuitCompletion.indexedMass_nonneg
+#print axioms CircuitCompletion.indexedMass_nonneg
+#check CircuitCompletion.indexedOthers_nodup
+#print axioms CircuitCompletion.indexedOthers_nodup
+#check CircuitCompletion.indexedOthers_length
+#print axioms CircuitCompletion.indexedOthers_length
+#check CircuitCompletion.indexedOthers_sum
+#print axioms CircuitCompletion.indexedOthers_sum
+#check CircuitCompletion.indexedOthers_vector
+#print axioms CircuitCompletion.indexedOthers_vector
+#check CircuitCompletion.coordinateIsometry_sum
+#print axioms CircuitCompletion.coordinateIsometry_sum
+#check CircuitCompletion.coordinateIsometry_sqrtMass
+#print axioms CircuitCompletion.coordinateIsometry_sqrtMass
+#check CircuitCompletion.indexedCompression_action
+#print axioms CircuitCompletion.indexedCompression_action
+#check CircuitCompletion.indexedCompression_length
+#print axioms CircuitCompletion.indexedCompression_length
+#check CircuitCompletion.indexedCompression_fixes_zero
+#print axioms CircuitCompletion.indexedCompression_fixes_zero
+#check CircuitCompletion.wireCoordinates_update
+#print axioms CircuitCompletion.wireCoordinates_update
+#check CircuitCompletion.singleWire_action
+#print axioms CircuitCompletion.singleWire_action
+#check CircuitCompletion.fiber_normalization_branch
+#print axioms CircuitCompletion.fiber_normalization_branch
+#check CircuitCompletion.occupationVector_branch
+#print axioms CircuitCompletion.occupationVector_branch
+#check CircuitCompletion.multiset_sum_counts
+#print axioms CircuitCompletion.multiset_sum_counts
+#check CircuitCompletion.occupationMass_nonneg
+#print axioms CircuitCompletion.occupationMass_nonneg
+#check CircuitCompletion.occupationMass_sum
+#print axioms CircuitCompletion.occupationMass_sum
+#check CircuitCompletion.predecessor_labels_disjoint
+#print axioms CircuitCompletion.predecessor_labels_disjoint
+#check CircuitCompletion.compress_occupation_coefficients
+#print axioms CircuitCompletion.compress_occupation_coefficients
+#check CircuitCompletion.pivotCoordinates_injective
+#print axioms CircuitCompletion.pivotCoordinates_injective
+#check CircuitCompletion.branchCircuit_action
+#print axioms CircuitCompletion.branchCircuit_action
+#check CircuitCompletion.branchCircuit_fixes_other
+#print axioms CircuitCompletion.branchCircuit_fixes_other
+#check CircuitCompletion.branchCircuit_fixes_other_pivot
+#print axioms CircuitCompletion.branchCircuit_fixes_other_pivot
+#check CircuitCompletion.branchCircuit_length
+#print axioms CircuitCompletion.branchCircuit_length
+#check CircuitCompletion.run_flatMap_fixes
+#print axioms CircuitCompletion.run_flatMap_fixes
+#check CircuitCompletion.run_flatMap_unique
+#print axioms CircuitCompletion.run_flatMap_unique
+#check CircuitCompletion.allBranchCircuit_action
+#print axioms CircuitCompletion.allBranchCircuit_action
+#check CircuitCompletion.allBranchCircuit_length
+#print axioms CircuitCompletion.allBranchCircuit_length
+#check CircuitCompletion.occupationFactorials_pos
+#print axioms CircuitCompletion.occupationFactorials_pos
+#check CircuitCompletion.occupationFactorials_cons
+#print axioms CircuitCompletion.occupationFactorials_cons
+#check CircuitCompletion.fiberCard_cons_recurrence
+#print axioms CircuitCompletion.fiberCard_cons_recurrence
+#check CircuitCompletion.fiberCard_erase_recurrence
+#print axioms CircuitCompletion.fiberCard_erase_recurrence
+#check CircuitCompletion.occupation_cons
+#print axioms CircuitCompletion.occupation_cons
+#check CircuitCompletion.occupationStepCircuit_action
+#print axioms CircuitCompletion.occupationStepCircuit_action
+#check CircuitCompletion.branchRank_le_active_dimension
+#print axioms CircuitCompletion.branchRank_le_active_dimension
+#check CircuitCompletion.occupationStepCircuit_length
+#print axioms CircuitCompletion.occupationStepCircuit_length
+#check CircuitCompletion.occupationStepCircuit_matrix
+#print axioms CircuitCompletion.occupationStepCircuit_matrix
+#check CircuitCompletion.branchMatrix_isometry
+#print axioms CircuitCompletion.branchMatrix_isometry
+#check CircuitCompletion.vectorSquare_eq_norm_sq
+#print axioms CircuitCompletion.vectorSquare_eq_norm_sq
+#check CircuitCompletion.vectorSquare_unitary
+#print axioms CircuitCompletion.vectorSquare_unitary
+#check CircuitCompletion.operator_error_controls_vector
+#print axioms CircuitCompletion.operator_error_controls_vector
+#check CircuitCompletion.compiled_word_error
+#print axioms CircuitCompletion.compiled_word_error
+#check CircuitCompletion.compiled_word_length
+#print axioms CircuitCompletion.compiled_word_length
+#check CircuitCompletion.originalWireCount_eq
+#print axioms CircuitCompletion.originalWireCount_eq
+#check CircuitCompletion.originalBitCoordinates_cons
+#print axioms CircuitCompletion.originalBitCoordinates_cons
+#check CircuitCompletion.originalBitCoordinates_cons_symm
+#print axioms CircuitCompletion.originalBitCoordinates_cons_symm
+#check CircuitCompletion.bitOccupation_branch
+#print axioms CircuitCompletion.bitOccupation_branch
+#check CircuitCompletion.singleWire_diagonal_entry
+#print axioms CircuitCompletion.singleWire_diagonal_entry
+#check CircuitCompletion.singleWire_diagonal_action
+#print axioms CircuitCompletion.singleWire_diagonal_action
+#check CircuitCompletion.controlParity_cnot
+#print axioms CircuitCompletion.controlParity_cnot
+#check CircuitCompletion.cnotWordEquiv_apply_other
+#print axioms CircuitCompletion.cnotWordEquiv_apply_other
+#check CircuitCompletion.cnotWordEquiv_apply_target
+#print axioms CircuitCompletion.cnotWordEquiv_apply_target
+#check CircuitCompletion.run_cnotWord
+#print axioms CircuitCompletion.run_cnotWord
+#check CircuitCompletion.parityPhaseWord_action
+#print axioms CircuitCompletion.parityPhaseWord_action
+#check CircuitCompletion.parityPhaseWord_length
+#print axioms CircuitCompletion.parityPhaseWord_length
+#check CircuitCompletion.boolSign_xor
+#print axioms CircuitCompletion.boolSign_xor
+#check CircuitCompletion.boolSign_foldr
+#print axioms CircuitCompletion.boolSign_foldr
+#check CircuitCompletion.complexPhase_normSq
+#print axioms CircuitCompletion.complexPhase_normSq
+#check CircuitCompletion.complexPhase_add
+#print axioms CircuitCompletion.complexPhase_add
+#check CircuitCompletion.maskControls_length
+#print axioms CircuitCompletion.maskControls_length
+#check CircuitCompletion.maskControls_character
+#print axioms CircuitCompletion.maskControls_character
+#check CircuitCompletion.pauliWord_action
+#print axioms CircuitCompletion.pauliWord_action
+#check CircuitCompletion.pauliWord_length
+#print axioms CircuitCompletion.pauliWord_length
+#check CircuitCompletion.permutationUnitary_one
+#print axioms CircuitCompletion.permutationUnitary_one
+#check CircuitCompletion.permutationUnitary_mul
+#print axioms CircuitCompletion.permutationUnitary_mul
+#check CircuitCompletion.rawDenote_append
+#print axioms CircuitCompletion.rawDenote_append
+#check CircuitCompletion.permutationProgramAux_length
+#print axioms CircuitCompletion.permutationProgramAux_length
+#check CircuitCompletion.permutationProgramAux_denote
+#print axioms CircuitCompletion.permutationProgramAux_denote
+#check CircuitCompletion.permutationProgram_denote
+#print axioms CircuitCompletion.permutationProgram_denote
+#check CircuitCompletion.permutationProgram_length
+#print axioms CircuitCompletion.permutationProgram_length
+#check CircuitCompletion.permutationWord_denote
+#print axioms CircuitCompletion.permutationWord_denote
+#check CircuitCompletion.permutationWord_length
+#print axioms CircuitCompletion.permutationWord_length
+#check CircuitCompletion.physical_fidelity_robust
+#print axioms CircuitCompletion.physical_fidelity_robust
+#check CircuitCompletion.phaseUnitary_congruence
+#print axioms CircuitCompletion.phaseUnitary_congruence
+#check CircuitCompletion.physical_fidelity_robust_up_to_phase
+#print axioms CircuitCompletion.physical_fidelity_robust_up_to_phase
+#check CircuitCompletion.swapWord_denote
+#print axioms CircuitCompletion.swapWord_denote
+#check CircuitCompletion.TwoLevel.compile_denote
+#print axioms CircuitCompletion.TwoLevel.compile_denote
+#check CircuitCompletion.elementary_twoLevel_bound
+#print axioms CircuitCompletion.elementary_twoLevel_bound
+#check CircuitCompletion.TwoLevel.compile_length
+#print axioms CircuitCompletion.TwoLevel.compile_length
+#check CircuitCompletion.compileProgram_denote
+#print axioms CircuitCompletion.compileProgram_denote
+#check CircuitCompletion.compileProgram_length
+#print axioms CircuitCompletion.compileProgram_length
+#check CircuitCompletion.singleWire_star
+#print axioms CircuitCompletion.singleWire_star
+#check CircuitCompletion.cnot_denote_star
+#print axioms CircuitCompletion.cnot_denote_star
+#check CircuitCompletion.Gate.inverse_denote
+#print axioms CircuitCompletion.Gate.inverse_denote
+#check CircuitCompletion.denote_reverseCircuit
+#print axioms CircuitCompletion.denote_reverseCircuit
+#check CircuitCompletion.run_reverseCircuit
+#print axioms CircuitCompletion.run_reverseCircuit
+#check CircuitCompletion.reverseCircuit_length
+#print axioms CircuitCompletion.reverseCircuit_length
+#check CircuitCompletion.run_pauliWords
+#print axioms CircuitCompletion.run_pauliWords
+#check CircuitCompletion.walsh_mask_identity
+#print axioms CircuitCompletion.walsh_mask_identity
+#check CircuitCompletion.selectedPhaseWord_action
+#print axioms CircuitCompletion.selectedPhaseWord_action
+#check CircuitCompletion.selectedPhaseWord_length
+#print axioms CircuitCompletion.selectedPhaseWord_length
+#check CircuitCompletion.permutationUnitary_action
+#print axioms CircuitCompletion.permutationUnitary_action
+#check CircuitCompletion.cnotFunction_involutive
+#print axioms CircuitCompletion.cnotFunction_involutive
+#check CircuitCompletion.denote_nil
+#print axioms CircuitCompletion.denote_nil
+#check CircuitCompletion.denote_cons
+#print axioms CircuitCompletion.denote_cons
+#check CircuitCompletion.denote_append
+#print axioms CircuitCompletion.denote_append
+#check CircuitCompletion.run_append
+#print axioms CircuitCompletion.run_append
+#check CircuitCompletion.cnot_action
+#print axioms CircuitCompletion.cnot_action
+#check CircuitCompletion.mergeRotation_zero_right
+#print axioms CircuitCompletion.mergeRotation_zero_right
+#check CircuitCompletion.embedPlane_one
+#print axioms CircuitCompletion.embedPlane_one
+#check CircuitCompletion.mergeAt_zero_right
+#print axioms CircuitCompletion.mergeAt_zero_right
+#check CircuitCompletion.mergeAt_fixes_zero
+#print axioms CircuitCompletion.mergeAt_fixes_zero
+#check CircuitCompletion.isometry_embedPlane_intertwine
+#print axioms CircuitCompletion.isometry_embedPlane_intertwine
+#check CircuitCompletion.coordinateIsometry_pairPlane
+#print axioms CircuitCompletion.coordinateIsometry_pairPlane
+#check CircuitCompletion.rawRun_nil
+#print axioms CircuitCompletion.rawRun_nil
+#check CircuitCompletion.rawRun_cons
+#print axioms CircuitCompletion.rawRun_cons
+#check CircuitCompletion.sparseProgram_action
+#print axioms CircuitCompletion.sparseProgram_action
+#check CircuitCompletion.sparseProgram_length
+#print axioms CircuitCompletion.sparseProgram_length
+#check CircuitCompletion.compiled_sparse_action
+#print axioms CircuitCompletion.compiled_sparse_action
+#check CircuitCompletion.compiled_sparse_length
+#print axioms CircuitCompletion.compiled_sparse_length
+#check CircuitCompletion.sparseProgram_fixes_zero
+#print axioms CircuitCompletion.sparseProgram_fixes_zero
+#check CircuitCompletion.compiled_sparse_fixes_zero
+#print axioms CircuitCompletion.compiled_sparse_fixes_zero
+#check CircuitCompletion.prefixBits_update
+#print axioms CircuitCompletion.prefixBits_update
+#check CircuitCompletion.suffixBits_update
+#print axioms CircuitCompletion.suffixBits_update
+#check CircuitCompletion.run_singleton
+#print axioms CircuitCompletion.run_singleton
+#check CircuitCompletion.run_lift_single
+#print axioms CircuitCompletion.run_lift_single
+#check CircuitCompletion.run_cons
+#print axioms CircuitCompletion.run_cons
+#check CircuitCompletion.run_liftCircuit
+#print axioms CircuitCompletion.run_liftCircuit
+#check CircuitCompletion.liftCircuit_length
+#print axioms CircuitCompletion.liftCircuit_length
+#check CircuitCompletion.liftCircuit_matrix
+#print axioms CircuitCompletion.liftCircuit_matrix
+#check CircuitCompletion.successor_stage_expansion
+#print axioms CircuitCompletion.successor_stage_expansion
+#check CircuitCompletion.flipBit_ne
+#print axioms CircuitCompletion.flipBit_ne
+#check CircuitCompletion.eq_of_sameOutside
+#print axioms CircuitCompletion.eq_of_sameOutside
+#check CircuitCompletion.flipBit_involutive
+#print axioms CircuitCompletion.flipBit_involutive
+#check CircuitCompletion.sameOutside_flipBit
+#print axioms CircuitCompletion.sameOutside_flipBit
+#check CircuitCompletion.adjacentSwapWord_swap
+#print axioms CircuitCompletion.adjacentSwapWord_swap
+#check CircuitCompletion.run_singleton_swap
+#print axioms CircuitCompletion.run_singleton_swap
+#check CircuitCompletion.suffixBits_update_suffix
+#print axioms CircuitCompletion.suffixBits_update_suffix
+#check CircuitCompletion.prefixBits_update_suffix
+#print axioms CircuitCompletion.prefixBits_update_suffix
+#check CircuitCompletion.run_shift_single
+#print axioms CircuitCompletion.run_shift_single
+#check CircuitCompletion.run_shiftCircuit
+#print axioms CircuitCompletion.run_shiftCircuit
+#check CircuitCompletion.shiftCircuit_length
+#print axioms CircuitCompletion.shiftCircuit_length
+#check CircuitCompletion.shiftCircuit_matrix
+#print axioms CircuitCompletion.shiftCircuit_matrix
+#check CircuitCompletion.sameOutside_cases
+#print axioms CircuitCompletion.sameOutside_cases
+#check CircuitCompletion.orientedRotationWord_action
+#print axioms CircuitCompletion.orientedRotationWord_action
+#check CircuitCompletion.orientedRotationWord_length
+#print axioms CircuitCompletion.orientedRotationWord_length
+#check CircuitCompletion.rotationWord_action
+#print axioms CircuitCompletion.rotationWord_action
+#check CircuitCompletion.rotationWord_length
+#print axioms CircuitCompletion.rotationWord_length
