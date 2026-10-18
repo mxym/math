@@ -77,6 +77,28 @@ exponent, strict-direct reliability, Gaussian limit, subcritical rate and
 eventually exact fidelity below the rank threshold. These declarations use
 `reservedProtocol` itself; no separate existence witness is substituted for a
 particular input or asymptotic regime. Equality boundaries retain the precise
-restrictions of the individual declarations. Fixed-error target inversion,
-finite quantitative application interfaces and independent audit are subsequent
-connections. The current extension remains BUILD_ONLY.
+restrictions of the individual declarations.
+
+The subsequent compiled connections now include:
+
+* `reservedFixedErrorTarget_gaussian`: the actual natural maximum target of the
+  same family, with its fixed-error Gaussian inverse and eventual attainment.
+* `reserved_optimal_gaussian_limit`: the actual real supremum over every physical
+  protocol class containing the family, with the full Gaussian threshold.
+* `CapacitySets`: faithful and eventual-exact capacities defined as suprema of
+  actual attainable-rate sets. The zero-capacity boundary is included, using the
+  exact one-dimensional target, and product LO/cPPT are instantiated directly.
+* `finiteLOCC_capacities`: the same capacity formulas for genuinely adaptive
+  finite-round local-instrument trees, through the separate LOCC interface.
+* `ProbabilityEnsemble`: actual barycenters and physical average-state bounds for
+  arbitrary measurable probability ensembles. Integrability follows from density
+  compactness; no finite-support restriction remains.
+* `ReservedTriangular`, `DimensionLoss`, `ShrinkingVariance`: finite Berry--Esseen
+  bounds, genuine varying-dimension Gaussian approximation, an explicit total
+  overhead at most `10 D^2 log(k+D)`, and the concrete sufficient condition
+  `D^5 log^2(k+D)=o(k)` when `D V` is bounded below and `D T` is bounded above.
+  Moment bounds are eventual; integer output-sector feasibility remains explicit.
+
+This extension still remains BUILD_ONLY. The separate preliminary audit scaffold
+does not constitute independent replay or CI evidence for these later endpoints.
+The frozen manuscript and all older audit scopes remain unchanged.
