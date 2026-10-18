@@ -7,6 +7,7 @@ original-register finite-library compiler. The global unitary remains an explici
 entangling resource, followed by deterministic local channels.
 
 - [Manuscript source](paper.tex)
+- [Submission preparation](SUBMISSION.md) and [cover draft](COVER_LETTER.txt)
 - [Statement-to-source map](THEOREM_SOURCE_MAP.md)
 - [Machine-readable claims and exclusions](MANUSCRIPT_CLAIMS.json)
 - [Frozen mathematical completion evidence](../../formalizations/extraction-completion-audit/verification/SEALED_LOCAL_EVIDENCE.json)
@@ -26,3 +27,5 @@ from external human peer review and novelty assessment.
 
 Original materials: all rights reserved. Prior results and dependencies retain
 their own attribution and licenses. The author received no external funding.
+
+The unmodified IEEEtran class is a third-party dependency under LPPL 1.3; see IEEE_CLASS_PROVENANCE.json and its original license header.

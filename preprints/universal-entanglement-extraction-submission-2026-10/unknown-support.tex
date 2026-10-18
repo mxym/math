@@ -214,6 +214,8 @@ For necessity, exact fidelity for every pure input makes the effect the identity
 
 For the finite-library size statement, compactness and the density assumption give a fixed finite basic net. Every $SU(2)$ residual admits an exact balanced commutator $[A,B]$, with each factor at distance at most the square root of the residual's distance to the identity. Cancellation in an approximate commutator gives the error bound $4\delta\varepsilon+2\varepsilon^2$ when the exact factors are $\delta$-close to identity and their approximations have error $\varepsilon$. Recursive correction gives actual finite words of error $2^{-p}$ and length at most $C(p+1)^5$. These are the standard Solovay--Kitaev ingredients \cite{dawson}; the stated conservative power is sufficient here. Remove the overall phase of each original single-qubit gate, approximate its $SU(2)$ representative to error $\delta/G$, and place its word on the same original wire. The wire embedding preserves the operator norm. Telescoping over the whole original gate list gives error at most $\delta$ up to a total phase. The same actual local discard then has output fidelity at least $1-2\delta$.
 
+\end{proof}
+
 \begin{proposition}[Effective original-register compiler]\label{prop:effective-compiler}
 Fix a finite inverse-closed universal library $\{V_i:i\in[M]\}\subset SU(2)$, its inverse-label table, and numerical entry routines giving rational quaternion coordinates to every requested absolute precision $2^{-r}$. Fix a finite $1/576$-net of library words, each of length at most $L$; these are library-dependent offline data. There is a total compiler, uniform in the integers $k,p\ge0$, whose output is a finite list $W_{k,p}$ of library labels with original-wire indices and CNOT instructions on the original $2k$ wires. Let $N_k$ be the actual length of its exact continuous-gate descriptor list and set
 \[
@@ -234,9 +236,8 @@ Compactness and universality provide the fixed finite net. For each representati
 \end{proof}
 
 The accompanying development also gives finite cached input-demand and arithmetic-expression operation counts, an actual common-denominator integer evaluator, and intermediate integer-size budgets. These statements distinguish computability and arithmetic cost from classical bit running time. The latter additionally requires a polynomial bound on every recursively generated operand and the costs of the actual numerical providers and structural operations.
-\end{proof}
 
-This proposition implements the pure-promise task. It does not provide an efficient implementation of the complete all-state mixed-input family of Section~\ref{sec:universal}.
+These circuit constructions implement the pure-promise task. It does not provide an efficient implementation of the complete all-state mixed-input family of Section~\ref{sec:universal}.
 
 \subsection{Compatibility with an all-state family}
 The family in Section~\ref{sec:universal} already reserves the symmetric sector, so it retains the sharp balanced pure profile without a purity flag. Let $a=b=m^k$. In \eqref{eq:reservation} the remaining local dimensions satisfy $a_*/a,b_*/a\to1$. Integer packing of their symmetric rank $r_k$ then gives

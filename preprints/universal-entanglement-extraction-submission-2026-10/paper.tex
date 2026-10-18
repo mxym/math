@@ -1,8 +1,6 @@
-\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt,journal,draftclsnofoot,onecolumn]{IEEEtran}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
 \usepackage{microtype,booktabs,array}
 \usepackage[hidelinks]{hyperref}
@@ -38,8 +36,11 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We study entanglement extraction by a global unitary on an existing many-copy input followed by deterministic local channels. The global preprocessing is an explicit entangling resource; no auxiliary system is supplied before it. We establish finite-dimensional spectral and subspace packing principles that match converses for completely PPT postprocessing. One state-independent protocol attains the state-aware capacity, exact fidelity exponent, strict-direct reliability function, and entropy-limited Gaussian threshold of every fixed input. A finite-block information-spectrum sandwich retains its dimension dependence and gives sufficient conditions for growing-dimensional Gaussian limits. We then determine the sharp minimax cost of an unknown support. For every fixed rank budget, a coherent common-support code matches a Haar-average converse, relatively and uniformly over all target dimensions. The support dimension and the reciprocal purity of the averaged input have the same leading asymptotic, yielding an explicit logarithmic loss in the extractable target size and a transition at the local-dimension cap. For balanced unknown pure inputs, the full-output fidelity has leading constant one. For unknown pure inputs, an explicit original-register compiler outputs finite-library circuits with a proved word-length and uniform fidelity guarantee. These results distinguish pointwise asymptotic universality from uniform finite-block performance. Standard compression, representation theory, and distillation results are explicitly credited.
+We study entanglement extraction by a global unitary on an existing many-copy input followed by deterministic local channels. The global preprocessing is an explicit entangling resource; no auxiliary system is supplied before it. We establish finite-dimensional spectral and subspace packing principles that match converses for postprocessing that completely preserves positivity under partial transpose. One state-independent protocol attains the state-aware capacity, exact fidelity exponent, strict-direct reliability function, and entropy-limited Gaussian threshold of every fixed input. A finite-block information-spectrum sandwich retains its dimension dependence and gives sufficient conditions for growing-dimensional Gaussian limits. We then determine the sharp minimax cost of an unknown support. For every fixed rank budget, a coherent common-support code matches a Haar-average converse, relatively and uniformly over all target dimensions. The support dimension and the reciprocal purity of the averaged input have the same leading asymptotic, yielding an explicit logarithmic loss in the extractable target size and a transition at the local-dimension cap. For balanced unknown pure inputs, the full-output fidelity has leading constant one. For unknown pure inputs, an explicit original-register compiler outputs finite-library circuits with a proved word-length and uniform fidelity guarantee. These results distinguish pointwise asymptotic universality from uniform finite-block performance. Standard compression, representation theory, and distillation results are explicitly credited.
 \end{abstract}
+\begin{IEEEkeywords}
+Universal protocols, quantum information, minimax coding, entanglement extraction.
+\end{IEEEkeywords}
 
 \input{introduction}
 \input{spectral-principles}
