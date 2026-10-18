@@ -1,0 +1,27 @@
+ACTUAL FINITE-LABEL BOOLEAN BITSTREAM — AUTHOR STANDARD CHECK ONLY
+Four new math modules, 23 theorems, 22 models; complete kind/type/axiom checks PASS.
+Standard BinaryStreamCheck BUILD0, 4094 jobs.
+Log: /mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T230946186288Z-extraction-effective-encoding.log
+Report: verification/binary-stream-root-check-20261018T230958210293Z/REPORT.json
+Tiny actual3-gate stream:37 Bool bits, encoder actions341; automatic reader returns3 gates and exact suffix[true,false,true].
+Tiny complete k0 entry: bits[false], encoder actions2, decoded gate count0.
+
+binaryFieldProgram executes real unary Bool increments/trim and one fixed-width output pass. Its value roundtrip is proved internally.
+labelFieldWidth=m+wires+1 is deliberately coarse and positive. Every actual Fin wire/label index fits internally; no width certificate is supplied.
+binaryLabelProgram emits a concrete single/CNOT tag and two actual fixed-width Bool fields, copying the output by listAppendProgram and retaining the executed field/copy records.
+binaryLabelStream emits concrete continue/stop framing, runs each gate encoder once, and retains all actual field/tag/output-copy traces.
+readBinaryLabel and readBinaryLabelStream are concrete total prefix decoders. The automatic fuel is bits.length+1; exact suffix-roundtrip is proved without caller fuel assumptions.
+serializedInputRun executes the actual materialized extraction once and directly encodes its emitted finite-label list. No separate specification word/Nat-field list is substituted.
+Its actual decoded Boolean stream equals that same emitted LabelGate list. Fidelity is stated for the actual decoded stream, and internally implies the original2k-register all-input Bell/discard guarantee.
+
+LetQ=p+22+9clog2(k+3),N=actualGatePolynomial(k),W=originalWireCount(k)+m+1.
+The actual emitted label count is at most outputLabelBudget=N*(32*L*Q^5+1).
+Actual bit length is at most outputLabelBudget*(2W+2)+1.
+The retained serializer's specified Bool/list primitive traces total at most outputLabelBudget*90*(W+1)^2+2.
+serializedPrimitiveBudget gives the fully explicit k,p sum of this term and all previously retained generation/preparation/provider/numeric/cache-read/assembly/outer-materialization charges.
+Only finite queried library packet heights are supplied; field, rank and actual target/provider bounds are internal.
+
+The cost theorem counts encoder primitives only. Decoder Nat arithmetic/bounds tests/fuel/control, general host Nat/control, candidate range/filter bit fees, Gray/AST/tuple/vector/cache allocation, library/inverse-label providers, fuel/counter/trace bookkeeping and evaluating the accounting projections remain separate.
+The coarse width is polynomial in physical wire count; it is not claimed to be a bit-optimal representation.
+This is not a whole-program machine/Turing-runtime theorem, nor independent fresh replay.
+All dd09/a6f5 and earlier frozen mathematical/report/configuration/root/umbrella/audit inputs remain unchanged. These new unused modules are outside the8b78 native audit scope.
