@@ -77,7 +77,7 @@ found in the bridge.
 
 ## Unfilled manuscript LOCC interface
 
-A tracked-source scan of all 4,865 Lean files at the initial review baseline
+A tracked-source scan of all 4,860 Lean files at the initial review baseline
 (including historical source snapshots) found no LOCC, classical-communication,
 finite-round, or separable-channel semantics. The actual optimum theorems accept
 an arbitrary predicate `C` on `KrausPPTProtocol` with membership of the common
