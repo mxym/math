@@ -1,0 +1,47 @@
+OWNED MODULE CHECK ONLY; STANDARD AGGREGATE PENDING; NOT INDEPENDENT REPLAY
+
+Two new unused math modules PackedSwapAlignment/PackedEndpointExtraction,
+18 theorem / 14 model roots. Authorized narrow module and all-root kind/type/
+axiom checks PASS (standard allowlist). Exact evidence:
+verification/packed-endpoint-root-check-20261018T205805478692Z/REPORT.json,
+log 20261018T205803126040Z-owned-check-EffectiveEncoding.PackedEndpointCheck.log.
+Reproduce narrow: python3 reproduce_packed_endpoint.py --owned.
+After audit lock release, standard: same script --standard.
+
+PackedBits is the existing finite List.Vector Bool n, with executable
+packBits=Vector.ofFn and unpackBits=get, proved mutually inverse. The new
+applyPackedSwaps stores/transposes explicit Bool vectors and uses their finite
+list decidable equality. Its runtime does not store Bits-function endpoints
+or evaluate a composed permutation closure. The specification maps the vector
+stack to the earlier Bits stack only inside proofs. Each alignment step
+materializes its source endpoint once, applies the existing stored stack once,
+materializes its target endpoint once, and stores the resulting vector pair.
+Gray swapCode is fed the vectors' get functions; its own access costs are
+separate. No exponential space table is created.
+
+packedAlignmentRun_word proves literal whole GateCode-list equality with
+alignmentCode. The packed interpreter is wired into actual Nat-triple-ranking
+stages/compression/extraction; packedEndpointExtractionCode runs the charged
+raw target-provider/shared-online integer compiler. Entire finite-label output
+list equals tripleRankExtractionCode and original-register/discard all-input
+Bell fidelity is internally preserved. Only ACTIVE alignment registers are
+packed: n=2+codeWires(k)=activeWires(k), logarithmic in stage k. The original
+2k physical register is not enumerated or tabulated.
+
+Partial source annotations: stored swap count still satisfies
+2*charge=2*J*initialStackLength+J*(J-1). Coordinate materialization annotation
+is exactly2*n*J. The actual stage value is
+2*activeWires(k)*occupationRank(k+1)
+<=2*(6*clog_2(k+3)+2)*(k+2)^3;
+summed stages <=k*(2*(6*clog_2(k+3)+2)*(k+2)^3).
+These are explicitly defined structural/query annotations; counter maintenance
+and source/compiler allocation strategy are not full machine-cost semantics.
+
+Remaining: endpoint rank/input computations, Bool-list equality/comparison
+work, vector get traversal, Gray/masks/branch generation, range/product/list
+construction, shifts/concatenation, ordinary integer primitives and annotations
+still lack a complete composed bit-time model. Branch raw merge endpoints
+are not all packed by this change; only alignment storage is replaced. The
+fixed dictionary provider retains its external cost contract. No total
+complexity or polynomial Turing-time claim is made. All prior sealed files
+and currently frozen independent scopes remain unchanged.

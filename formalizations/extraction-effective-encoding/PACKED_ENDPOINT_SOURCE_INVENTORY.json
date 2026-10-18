@@ -1,0 +1,277 @@
+{
+  "status": "GENERATED_AUTHOR_PACKED_ENDPOINT_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 18,
+  "model_count": 14,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.PackedBits",
+      "kind": "abbrev",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.packBits",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.unpackBits",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.unpackBits_packBits",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.packBits_unpackBits",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 18
+    },
+    {
+      "name": "EffectiveEncoding.unpackBits_injective",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.map_swap_of_injective",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 31
+    },
+    {
+      "name": "EffectiveEncoding.packedStackBits",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 44
+    },
+    {
+      "name": "EffectiveEncoding.applyPackedSwaps",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 49
+    },
+    {
+      "name": "EffectiveEncoding.applyPackedSwaps_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 56
+    },
+    {
+      "name": "EffectiveEncoding.applyPackedSwaps_count",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 67
+    },
+    {
+      "name": "EffectiveEncoding.PackedAlignmentRun",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 73
+    },
+    {
+      "name": "EffectiveEncoding.packedAlignmentRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 80
+    },
+    {
+      "name": "EffectiveEncoding.packedAlignmentRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 93
+    },
+    {
+      "name": "EffectiveEncoding.packedAlignmentRun_coordinates",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 103
+    },
+    {
+      "name": "EffectiveEncoding.packedAlignmentRun_count",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "line": 111
+    },
+    {
+      "name": "EffectiveEncoding.packedOccupationStepCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.packedOccupationStepCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 14
+    },
+    {
+      "name": "EffectiveEncoding.packedStageCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.packedStageCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 26
+    },
+    {
+      "name": "EffectiveEncoding.packedCompressionCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.packedCompressionCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 36
+    },
+    {
+      "name": "EffectiveEncoding.packedExtractionCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 42
+    },
+    {
+      "name": "EffectiveEncoding.packedExtractionCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.packedEndpointExtractionCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 51
+    },
+    {
+      "name": "EffectiveEncoding.packedEndpointExtractionCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 59
+    },
+    {
+      "name": "EffectiveEncoding.packedEndpointExtractionCode_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 65
+    },
+    {
+      "name": "EffectiveEncoding.stagePackedEndpointCoordinates",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 80
+    },
+    {
+      "name": "EffectiveEncoding.stagePackedEndpointCoordinates_exact",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 85
+    },
+    {
+      "name": "EffectiveEncoding.stagePackedEndpointCoordinates_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 91
+    },
+    {
+      "name": "EffectiveEncoding.extractionPackedEndpointCoordinates",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 99
+    },
+    {
+      "name": "EffectiveEncoding.extractionPackedEndpointCoordinates_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "line": 103
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean",
+      "sha256": "46ec6b2d37312df98f921091980c91cce4702d5c5576f042fcf415426d1af2d1",
+      "declarations": [
+        "EffectiveEncoding.PackedBits",
+        "EffectiveEncoding.packBits",
+        "EffectiveEncoding.unpackBits",
+        "EffectiveEncoding.unpackBits_packBits",
+        "EffectiveEncoding.packBits_unpackBits",
+        "EffectiveEncoding.unpackBits_injective",
+        "EffectiveEncoding.map_swap_of_injective",
+        "EffectiveEncoding.packedStackBits",
+        "EffectiveEncoding.applyPackedSwaps",
+        "EffectiveEncoding.applyPackedSwaps_value",
+        "EffectiveEncoding.applyPackedSwaps_count",
+        "EffectiveEncoding.PackedAlignmentRun",
+        "EffectiveEncoding.packedAlignmentRun",
+        "EffectiveEncoding.packedAlignmentRun_word",
+        "EffectiveEncoding.packedAlignmentRun_coordinates",
+        "EffectiveEncoding.packedAlignmentRun_count"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean",
+      "sha256": "6435ea22845e98c5c280d99766ddae455ab1add1f3c73228f649c2dd603da0d9",
+      "declarations": [
+        "EffectiveEncoding.packedOccupationStepCode",
+        "EffectiveEncoding.packedOccupationStepCode_eq",
+        "EffectiveEncoding.packedStageCode",
+        "EffectiveEncoding.packedStageCode_eq",
+        "EffectiveEncoding.packedCompressionCode",
+        "EffectiveEncoding.packedCompressionCode_eq",
+        "EffectiveEncoding.packedExtractionCode",
+        "EffectiveEncoding.packedExtractionCode_eq",
+        "EffectiveEncoding.packedEndpointExtractionCode",
+        "EffectiveEncoding.packedEndpointExtractionCode_eq",
+        "EffectiveEncoding.packedEndpointExtractionCode_fidelity",
+        "EffectiveEncoding.stagePackedEndpointCoordinates",
+        "EffectiveEncoding.stagePackedEndpointCoordinates_exact",
+        "EffectiveEncoding.stagePackedEndpointCoordinates_bound",
+        "EffectiveEncoding.extractionPackedEndpointCoordinates",
+        "EffectiveEncoding.extractionPackedEndpointCoordinates_bound"
+      ]
+    }
+  ]
+}
