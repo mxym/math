@@ -1,0 +1,7 @@
+import EffectiveEncoding.Extraction
+import EffectiveEncoding.AngleEvaluation
+
+#check EffectiveEncoding.extractionCode
+#check EffectiveEncoding.extractionCircuit_gate
+#check EffectiveEncoding.extractionOutput_purePower
+#check EffectiveEncoding.AngleCode.evaluation
