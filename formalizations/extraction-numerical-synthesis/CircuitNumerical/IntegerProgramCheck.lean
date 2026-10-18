@@ -1,0 +1,34 @@
+import CircuitNumerical.IntegerExpressionProgram
+import CircuitNumerical.IntegerNumericalProgram
+import CircuitNumerical.IntegerSelection
+
+#check CircuitRecursion.ScalarExpression.integerProgramRun_eq
+#print axioms CircuitRecursion.ScalarExpression.integerProgramRun_eq
+#check CircuitRecursion.PacketExpression.integerProgramRun_eq
+#print axioms CircuitRecursion.PacketExpression.integerProgramRun_eq
+#check CircuitRecursion.ScalarExpression.integerProgramRun_correct
+#print axioms CircuitRecursion.ScalarExpression.integerProgramRun_correct
+#check CircuitRecursion.PacketExpression.integerProgramRun_correct
+#print axioms CircuitRecursion.PacketExpression.integerProgramRun_correct
+#check CircuitRecursion.integerTracedBase_eq
+#print axioms CircuitRecursion.integerTracedBase_eq
+#check CircuitRecursion.integerTracedCorrection_eq
+#print axioms CircuitRecursion.integerTracedCorrection_eq
+#check CircuitRecursion.integerTracedCorrection_function
+#print axioms CircuitRecursion.integerTracedCorrection_function
+#check CircuitRecursion.integerTracedPairWord_eq
+#print axioms CircuitRecursion.integerTracedPairWord_eq
+#check CircuitRecursion.integerCachedArithmeticRun_eq
+#print axioms CircuitRecursion.integerCachedArithmeticRun_eq
+#check CircuitRecursion.integerCachedArithmeticRun_rational_integerBitBudget
+#print axioms CircuitRecursion.integerCachedArithmeticRun_rational_integerBitBudget
+#check CircuitRecursion.integerCachedArithmeticSU2Synthesis
+#print axioms CircuitRecursion.integerCachedArithmeticSU2Synthesis
+#check CircuitRecursion.IntegerScalar.crossLE_value
+#print axioms CircuitRecursion.IntegerScalar.crossLE_value
+#check CircuitRecursion.integerMinIndex_eq
+#print axioms CircuitRecursion.integerMinIndex_eq
+#check CircuitRecursion.integerMaxIndex_eq
+#print axioms CircuitRecursion.integerMaxIndex_eq
+#check CircuitRecursion.IntegerScalar.crossLE_operands_height
+#print axioms CircuitRecursion.IntegerScalar.crossLE_operands_height
