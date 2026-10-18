@@ -1,0 +1,68 @@
+{
+  "utc": "2026-10-18T22:35:43.047575+00:00",
+  "status": "AUTHOR_STANDARD_TYPES_AXIOMS_AND_ACTUAL_DATA_CHECK_PASS_NOT_INDEPENDENT_REPLAY",
+  "parent_head": "fb92b813b71f51f77083714c086c12369f049eb5",
+  "package": "extraction-rational-gate-binary",
+  "theorem_count": 8,
+  "build_jobs": 3963,
+  "source_snapshot": {
+    "formalizations/extraction-rational-gate-binary/.gitignore": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374",
+    "formalizations/extraction-rational-gate-binary/README.md": "2d938551d16f9e510de6f96d2948b9ec3aa5c7093e12ac7350b8c84085a77424",
+    "formalizations/extraction-rational-gate-binary/ROOTS.txt": "ddf6a72ac7da3264cb04799f2b9490667cb1006ada8683ee49fab1a44cfa06a4",
+    "formalizations/extraction-rational-gate-binary/RationalGateBinary/Check.lean": "1127c281e2ad4f2f2bd36d7ac75f90cb3d4fb0f63658ffce61ce5c7911301347",
+    "formalizations/extraction-rational-gate-binary/RationalGateBinary/Provider.lean": "fa0306e1fb07e4f71481943b402331b5ea6a876027f7ce2b08ecbac04988677c",
+    "formalizations/extraction-rational-gate-binary/RationalGateBinary.lean": "d28caa2c9d825b7c043e29643a2485923ca188295ed4999903d806e0c8189684",
+    "formalizations/extraction-rational-gate-binary/lake-manifest.json": "0238375955752c30e256d1b8d375b8bd93a71fc55858e6ed85f1a1700f4896f7",
+    "formalizations/extraction-rational-gate-binary/lakefile.toml": "64cb09eb16bedf31fbf29f822998b7791966f9b57407188792c73b3ea95bd868",
+    "formalizations/extraction-rational-gate-binary/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "axioms": {
+    "RationalGateBinary.binaryWordValue_eq_bitValue": [
+      "propext"
+    ],
+    "RationalGateBinary.binaryEntry_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateBinary.nativeEntry_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateBinary.nativeEntry_oracle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateBinary.nativeEntry_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateBinary.nativeEntry_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateBinary.nativeEntry_height_ninth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateBinary.nativeEntryProgram_normalization_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "logs": {
+    "20261018T223244898676Z-root-owned-RationalGateBinary.Provider.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "20261018T223443816684Z-root-owned-RationalGateBinary.Check.log": "155c29279c434f90ac18c23c35e52cf532f0ea4dc22d00e757ac6ad0d3e34ff8",
+    "20261018T223454910161Z-extraction-rational-gate-binary.log": "1005a67ed440f68334aceb923ac0e35ebb4a1f24e4be4428a76d5f449f1434c0"
+  },
+  "proved": "Actual direct binary normalizer, exact native packet decode/oracle equality and original QApproximates, height p+1/ninth envelope, specified normalization actions64(p+2)",
+  "excluded": "Entire provider/clock/list construction/memory/counter machine time and entire compiler time; no independent kernel or controls",
+  "D_storage_and_global_lock": true,
+  "independent_empty_kernel_or_controls": false
+}
