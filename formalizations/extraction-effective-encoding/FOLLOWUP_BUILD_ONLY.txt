@@ -1,0 +1,20 @@
+STATUS: FOLLOWUP_OWNED_STANDARD_MODULE_BUILD_PASS_NOT_INDEPENDENT_REPLAY
+Frozen prior algorithm candidate: 417accbe9edc6c0635c92027afba534b2ced9d2c
+This follow-up is a distinct source scope and is not covered by that audit.
+
+DescriptorBounds.lean passed the standard serialized worker_build target:
+/mnt/d/math/tmp/extraction-resume-20261018/build-logs/
+20261018T185600803527Z-extraction-effective-encoding.log
+
+The actual extractionCode k satisfies all of these per-instruction bounds:
+merge A+B<=4k, merge denominator<=4k, half-angle depth<=6*clog_2(k+3)+2,
+and SingleCode inverse nesting<=1. Explicit binary-field description weight
+is bounded by actual list length times a displayed width budget. This weight
+counts constructor/sign tags and logarithmic integer-field widths; it is not
+a theorem about Lean heap allocation or a runtime Turing machine.
+
+The module is currently a standalone target, not imported into the prior
+frozen umbrella. Provider closed-program and integer-height work follows.
+The prior ROOTS/MODELS and author-root reports refer to the prior candidate,
+not to this follow-up. A new complete inventory/check will be generated
+when the follow-up terminal is mature. No runtime eval is claimed.
