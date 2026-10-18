@@ -1,0 +1,31 @@
+AUTHOR_STANDARD_ROOT_CHECK_PASS_NOT_INDEPENDENT_REPLAY
+
+Mathematical source: EffectiveEncoding/SerializedCoefficientBounds.lean and
+EffectiveEncoding/SerializedPolynomialBudget.lean (new unused modules only).
+Inventory: 9 theorem declarations and 2 computable model definitions; all
+kinds/types/axioms checked, only propext/Classical.choice/Quot.sound allowed.
+Standard target: EffectiveEncoding.SerializedPolynomialCheck.
+Build: exit 0, 4095 jobs. Report: verification/serialized-polynomial-root-check-20261018T231936153457Z/REPORT.json.
+An extra narrow kind/type/axiom check also passed after the standard worker had
+already completed; its separate author report is retained, not independent.
+
+Actual endpoint:
+serializedInputRun_accountedPrimitiveActions_polynomial
+  accountedPrimitiveActions <= serializedPolynomialConstant(m,n,L,gateB)
+    * (k+3)^24 * (logarithmicPrecision(k,p)+1)^338.
+Here logarithmicPrecision(k,p)+1 = p+22+9*Nat.clog 2 (k+3).
+The constant is explicitly defined from the fixed-library parameters. Its
+online k-dependent part is internally bounded by its k=0 value times (k+3)^14;
+all other actual budget terms are internally collected into degree 24/338.
+Only the pre-existing library finite queried packet-height contract and table
+length condition are supplied. No final execution-budget certificate is assumed.
+
+This is the same serializedInputRun fixed in 041f, with its actual retained
+rank/encoding, target provider, numeric/read, assembly, outer copy and Boolean
+encoder traces. The proof does not infer execution time from output length.
+It does not charge fixed-library provider execution, inverse-label evaluation,
+all remaining Nat range/filter/control/index arithmetic, Gray/descriptor AST
+construction, general allocation/annotation arithmetic, decoding time or a host
+Turing-machine implementation. The specified partial primitive models are not
+full runtime. Existing sealed source/config/umbrella/inventories are unchanged.
+This successor is outside the independent frozen native 8b78 source scope.
