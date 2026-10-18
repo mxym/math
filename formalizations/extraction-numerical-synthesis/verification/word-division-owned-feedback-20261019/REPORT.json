@@ -1,0 +1,62 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T20:41:42.918533+00:00",
+  "scope": "one concrete Boolean long-division algorithm with comparison/subtraction execution trace, six roots",
+  "baseline": "c9f359302e03db31439dd1cdface793342fc207d",
+  "modules": 1,
+  "root_count": 6,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T204127793907Z-owned-check-CircuitNumerical.WordDivisionCheck.log",
+  "check_log_sha256": "e59209ffb46e6b0898b547b339a359e7b87bbc0484ec5634c4e885ee399969ba",
+  "source_sha256": {
+    "CircuitNumerical/BinaryWordDivision.lean": "3896cece41b468bd31abfd46acef1a3c14d1c4daa063a43c69cf0c5affb93df8",
+    "CircuitNumerical/WordDivisionCheck.lean": "691647509243c80db9ca1de534308ede448187c09e28408c95427ebaaf517fd4",
+    "WORD_DIVISION_ROOTS.txt": "9bca876d6798341217422df1253e3742f12da86f5bc7f4c31908dc0b8db23a18"
+  },
+  "root_axioms": {
+    "CircuitRecursion.binaryWordDivisionProgram_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryWordDivisionProgram_div_mod": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryWordDivisionProgram_quotient_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryWordDivisionProgram_remainder_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryWordDivisionProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryWordDivisionProgram_uniform_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 129,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "binary primitive implementation bit costs and automatic fuel computation",
+    "signed Boolean arithmetic and a concrete Boolean square-root algorithm",
+    "whole compiler Boolean-cost integration",
+    "structural allocation/index implementation costs",
+    "explicit effective fixed-library input provider costs"
+  ]
+}
