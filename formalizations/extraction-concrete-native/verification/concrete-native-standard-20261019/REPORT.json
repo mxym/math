@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-18T22:51:04.442928+00:00",
+  "status": "AUTHOR_STANDARD_TYPES_KINDS_AXIOMS_PASS_NOT_INDEPENDENT_REPLAY",
+  "parent_head": "db802f33604fd966e6318a30a6d338849b31f3e1",
+  "package": "extraction-concrete-native",
+  "theorem_count": 8,
+  "build_jobs": 4089,
+  "source_snapshot": {
+    "formalizations/extraction-concrete-native/.gitignore": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374",
+    "formalizations/extraction-concrete-native/ConcreteNativeExtraction/Check.lean": "d32004ec0376013a06079a30ea84d1b312c6d2f4b13a44865f175a4b16398626",
+    "formalizations/extraction-concrete-native/ConcreteNativeExtraction/Program.lean": "a347664ed5e62ae4401aeac3b856c46a3343b21f5a0c2523903edeee0d1915b2",
+    "formalizations/extraction-concrete-native/ConcreteNativeExtraction/Resources.lean": "5e2b848f52ecaebb2116e898bdac31285ab378add5020f496249f12f7a3645d0",
+    "formalizations/extraction-concrete-native/ConcreteNativeExtraction.lean": "574e4060381c3213dac19ddbdc97235eb509db6eb7eb1ee00f8fb0de2e518409",
+    "formalizations/extraction-concrete-native/MODELS.txt": "d33531e5ac6d626ab5936ad2eb34097806a25ac20e4cf84fd449c1758d900e45",
+    "formalizations/extraction-concrete-native/README.md": "fca4f32b75282c4fec490aab4fc942d0061c886fd69726391e210731be53f785",
+    "formalizations/extraction-concrete-native/ROOTS.txt": "6838c96d7c9c218b0125d535ff19f3fe40605a8f501626df8405ef17a36b2a1c",
+    "formalizations/extraction-concrete-native/lake-manifest.json": "6a2dd6603f29e88c2fb0da58e717a274f59c07817f0601e726e03343f866f4ea",
+    "formalizations/extraction-concrete-native/lakefile.toml": "7a51ae69c1cd55a1405f6d6776d5863754cb107d656e459277e03cb394e628f3",
+    "formalizations/extraction-concrete-native/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "axioms": {
+    "ConcreteNativeExtraction.offlineNet_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.run_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.run_uses_finite_library": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.run_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.run_fidelity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.queried_gate_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.run_accounted_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.concrete_compiler_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.run": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.gateHeightCoefficient": [],
+    "ConcreteNativeExtraction.primitiveBound": [
+      "propext"
+    ]
+  },
+  "model_roots": [
+    "ConcreteNativeExtraction.run",
+    "ConcreteNativeExtraction.gateHeightCoefficient",
+    "ConcreteNativeExtraction.primitiveBound"
+  ],
+  "logs": {
+    "20261018T224921338583Z-root-owned-ConcreteNativeExtraction.Program.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "20261018T224932163460Z-root-owned-ConcreteNativeExtraction.Resources.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "20261018T225012777416Z-root-owned-ConcreteNativeExtraction.Check.log": "125860900cf58d77a0e92d297a427080afeb90e9d13ef422ea0f4e1d8554fd09",
+    "20261018T225025377675Z-extraction-concrete-native.log": "46e3b0096b66402ec2fb503da7ba7c41bf37be4fda2d1ccb483d47ae1d280907"
+  },
+  "proved": "Actual four-gate native binary compiler, one fixed offline finite net exists for all k/p/input vectors, original2k-wire physical fidelity, finite-library use, logarithmic-precision output length, queried library height internally derived from actual nativeEntry r+1, exact specified partial primitive bound without oracle or cost-certificate premise",
+  "excluded": "Offline table discovery time; complete library provider/structure/control/Nat/fuel/index/counter/memory machine cost; C4663 input-read execution is not yet installed in this E2f2-based program; no independent new kernel or controls",
+  "D_storage_and_global_lock": true,
+  "independent_empty_kernel_or_controls": false
+}
