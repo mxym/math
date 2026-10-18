@@ -1,0 +1,7 @@
+# Actual canonical Boolean common-denominator assembly
+
+The four-product helper stores two pair products and the final product once, using only the actual Boolean multiplication/trim backend. Tuple assembly receives a materialized vector of four canonical word fractions, stores its full denominator product once, stores four complementary products once, and stores the four signed numerator products once. Finite coordinate equality tests replace the omitted denominator by the constant word [true]. It never re-executes a scalar child evaluator.
+
+The decoded packet equals IntegerPacket.ofScalars exactly, including all raw numerators and the common denominator. Every output magnitude is canonical. If all decoded input scalar heights are B, the actual explicit Boolean/list/record action model is bounded by 13000(B+2)^2. The proof derives complementary product widths internally from canonicality and their numerical product height, rather than applying a height bound to padded lists.
+
+Only guarded narrow author checks are claimed, not a standard aggregate or independent kernel replay. All older files remain byte-identical; these additions are unused by the frozen raw-resource audit. Distance/selector nodes, literal/input encoding, whole AST composition, structure/cache/provider construction and fixed-library provider execution costs remain open. Costs of evaluating annotations and arbitrary-width index/counter machinery are separate. No complete compiler machine-time theorem is asserted.
