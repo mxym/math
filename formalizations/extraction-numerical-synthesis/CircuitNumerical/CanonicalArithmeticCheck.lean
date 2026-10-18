@@ -1,0 +1,40 @@
+import CircuitNumerical.CanonicalBinaryWords
+
+#check CircuitRecursion.binaryAddProgram_bits
+#print axioms CircuitRecursion.binaryAddProgram_bits
+#check CircuitRecursion.binaryAddProgram_value
+#print axioms CircuitRecursion.binaryAddProgram_value
+#check CircuitRecursion.binaryAddProgram_length
+#print axioms CircuitRecursion.binaryAddProgram_length
+#check CircuitRecursion.binaryAddProgram_actions_eq
+#print axioms CircuitRecursion.binaryAddProgram_actions_eq
+#check CircuitRecursion.binaryAddProgram_actions
+#print axioms CircuitRecursion.binaryAddProgram_actions
+#check CircuitRecursion.binaryMultiplyProgram_bits
+#print axioms CircuitRecursion.binaryMultiplyProgram_bits
+#check CircuitRecursion.binaryMultiplyProgram_value
+#print axioms CircuitRecursion.binaryMultiplyProgram_value
+#check CircuitRecursion.binaryMultiplyProgram_length
+#print axioms CircuitRecursion.binaryMultiplyProgram_length
+#check CircuitRecursion.binaryMultiplyProgram_actions_eq
+#print axioms CircuitRecursion.binaryMultiplyProgram_actions_eq
+#check CircuitRecursion.binaryMultiplyProgram_actions
+#print axioms CircuitRecursion.binaryMultiplyProgram_actions
+#check CircuitRecursion.binaryMultiplyProgram_uniform_actions
+#print axioms CircuitRecursion.binaryMultiplyProgram_uniform_actions
+#check CircuitRecursion.binaryTrimProgram_value
+#print axioms CircuitRecursion.binaryTrimProgram_value
+#check CircuitRecursion.binaryTrimProgram_canonical
+#print axioms CircuitRecursion.binaryTrimProgram_canonical
+#check CircuitRecursion.binaryTrimProgram_length
+#print axioms CircuitRecursion.binaryTrimProgram_length
+#check CircuitRecursion.binaryWordCanonical_lower
+#print axioms CircuitRecursion.binaryWordCanonical_lower
+#check CircuitRecursion.binaryWordCanonical_zero_iff
+#print axioms CircuitRecursion.binaryWordCanonical_zero_iff
+#check CircuitRecursion.binaryWordCanonical_width
+#print axioms CircuitRecursion.binaryWordCanonical_width
+#check CircuitRecursion.binaryTrimProgram_width
+#print axioms CircuitRecursion.binaryTrimProgram_width
+#check CircuitRecursion.binaryTrimProgram_actions
+#print axioms CircuitRecursion.binaryTrimProgram_actions

@@ -1,0 +1,9 @@
+# Canonical Boolean arithmetic and retained execution traces
+
+TracedWordArithmetic adds concrete ripple-carry and schoolbook multiplication programs returning their actual digit/addition execution trees. Their output lists equal the previously proved Boolean programs exactly. Their returned trace charges equal the existing explicit counters, establishing an execution-tree bridge for those local specified cost models. Addition costs at most 12(maximum input width + 1); multiplication costs at most 72(B+1)^2 when both input widths are at most B. The annotation's own evaluation cost is excluded.
+
+CanonicalBinaryWords adds actual LSB-list trim. It recursively trims the tail once, examines whether that returned list is empty, and drops a false high bit only in that empty-tail branch. It uses no natural-number value/length comparison. Its returned decision trace costs at most 6(input width + 1), and trimming never increases width. The output is canonical and has exactly the same numerical value.
+
+For canonical words, a nonempty word has value at least 2^(width-1). Consequently a value bound of 2^B implies actual list width at most B+1. This representation step is necessary: the corresponding implication is false for arbitrary zero-padded lists. Zero canonical words are exactly the empty list. Signed wrappers and per-operation canonical output normalization will be separate successors.
+
+This scope has guarded narrow author checks only, not a standard aggregate or independent-kernel claim. All previously committed files are byte-identical. It is unused by the frozen raw-resource scope. Signed normalization, whole integer-evaluator representation/cost composition, structure and cache construction, and explicit fixed-library provider execution costs remain open; no complete compiler bit-time theorem is asserted.
