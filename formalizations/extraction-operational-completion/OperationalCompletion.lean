@@ -45,3 +45,4 @@ import OperationalCompletion.LOCCCapacity
 import OperationalCompletion.ReservedTriangular
 import OperationalCompletion.DimensionLoss
 import OperationalCompletion.ShrinkingVariance
+import OperationalCompletion.ReservedOptimumQuantitative
