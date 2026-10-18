@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "kind": "INDEPENDENT_INTERNAL_AI_EXECUTION_REVIEW",
+  "execution_revision": "extraction-algorithm-execution-v2",
+  "reason": "Original frozen portable/local v1 reader rejects exactly the canonical empty axiom-list encoding for control 52; kernel replay itself passed.",
+  "affected_control": {
+    "index": 52,
+    "root": "EffectiveEncoding.compileLabelWord_length",
+    "canonical_file_bytes_hex": "0a",
+    "actual_axioms": []
+  },
+  "original_math_source_head": "6a8e2d3637152983cda6d4723e23474098f4ecfb",
+  "original_binding_commit": "694037a7e0a0791d91e6d909e2e342236ad92df7",
+  "original_source_manifest_sha256": "8b99b7d144b8c27a4092028f557a47bf01fb38d0ded6eef543a4abd612e51386",
+  "unchanged_original_bound_inputs": 340,
+  "local_full_evidence_commit": "13fecc54661d56e57647a27fce5f30d0f43fa57a",
+  "local_full_evidence_archive_sha256": "017452204e7a55a76d20a8f0c2d4d16eec0415a937a679562af447d308f2ac6f",
+  "local_status": "Original full runner PASS: 459 theorem/276 model roots, 56276 declaration trust0 closure, 65 exact same-type controls. Original v1 reader failed; separately bound local reader-v2 re-read all evidence PASS. No local kernel rerun needed.",
+  "local_reader_execution_manifest_sha256": "676746e6145f3a24d24f3ff6bdb207aa496a45d557ce6e1625609884dc2d1104",
+  "new_hosted_ci_status": "NOT_YET_RUN; new execution revision requires its own actual GitHub run and downloaded-artifact verification.",
+  "frozen_v1_files_preserved": true,
+  "later_unused_author_modules_excluded": true,
+  "semantics_unchanged": "The existing immutable reproduce.py, ReplaySupport, Audit.lean, lists, source manifest and old-scope protections are reused verbatim. This prefix changes only execution binding, producer context and post-run decoding.",
+  "excluded": [
+    "Whole compiler Turing bit-time",
+    "Uniform efficient offline-net construction",
+    "Later unbound C/E modules",
+    "Any expansion of 459/276/65 or the 340 mathematical binding"
+  ]
+}
