@@ -1,0 +1,1608 @@
+{
+  "status": "AUTHOR_ROOT_KIND_TYPE_AXIOM_CHECK_PASS_NOT_INDEPENDENT_REPLAY",
+  "source_head": "dbed65858619e26a4a8117d4cb7240d1f912c4b0",
+  "theorem_count": 175,
+  "model_count": 111,
+  "log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T184719387648Z-extraction-effective-encoding.log",
+  "log_sha256": "0abd27b1908542208908f0a3338a430d72543395ba1a6b588d6e0d7cf652f514",
+  "inputs": {
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean": "1f184dba584c6349e3142ab9a87ca2a4272369364ef59745cec919e1d36045f0",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Check.lean": "abeb944ff4bf1d6eb9f8f642790e99226d9122fd954a0f5d9e06b3e08fe57a0f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean": "b48e277618ba89602a6473c6eef51d9a9d8651fafc1aa6c647a7addf4a03d145",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean": "9848a546e6a0e78a5bfde1980c3ff65b1dd82376d08fd6e3bb8470668db9fd64",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean": "0f2aa117988d43c8b7c509837aa7c7a20b3e0ccb7824058c2f722d1854f14f3a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean": "71f110f423531277842001e25a4972908b3596aacbe6f1957dea1f001a3a8941",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean": "079e5421531edf6c2a7c0657ee7fee6343be0e703d8257643e88ce41be398601",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean": "f8739bf08d31e3bcbf5e19fdac0ec3569f7951c5afcf5ba7bf6c6895ae40409c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean": "1c4f5d1e103dec09afd5a7ddde32c34d626ae61d18e4c5adf06c00315cc412f8",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean": "0cebf45fe3fa9c27c24f9110a150d610dcefc75150b0ac591bba021036fdc58c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean": "945e8e8933815ccb437054c5586a5b34c0ef6a44a63dba161896111d6d8384b3",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean": "d464dda9f998404f9a3286fdce7f843545f7669cf3bb52d4af443708fccd9f58",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean": "fe7c52779c261148b16a877c51fffd6363a882f9c12e0d6e54dc81b0717dd464",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding.lean": "0462dc842889f25c0efe48437f656903a339ed45ed46b3ebe2b929db51b6cad5",
+    "formalizations/extraction-effective-encoding/lakefile.toml": "e9e79c2a09320464590fe16365c9d8edd2791f50536e3aeb7780d9c72d7a53e9",
+    "formalizations/extraction-effective-encoding/lake-manifest.json": "c0893709cdc508f014e184dcc184d2e9b85ff187ad6f768adee9b254061f4e85",
+    "formalizations/extraction-effective-encoding/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "formalizations/extraction-effective-encoding/ROOTS.txt": "397708dccd739c9fbd02386295cbec324388e2f0ef5a2f70bd9a0d2f4c90aa51",
+    "formalizations/extraction-effective-encoding/MODELS.txt": "c467b03d122e32e0f374100b2923fd408e8d716aef3e624bee2340a55e3075d4",
+    "formalizations/extraction-effective-encoding/SOURCE_INVENTORY.json": "bb4e3f83f63f1cf61ef553e6a66c0afce854727de8d1a3f9e68b41915bcd7e4b",
+    "formalizations/extraction-effective-encoding/reproduce_owned.py": "8e457483278e579b76d74286be10bc86e079a8144eb9166e855064a560a805fb"
+  },
+  "axioms": {
+    "EffectiveEncoding.mergeAngle_degenerate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.cosOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.sinOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.value_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.cosOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.sinOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.evaluation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.interpret_flatMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.allBranchCode_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.allBranchCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.occupationStepCode_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.occupationStepCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.prefixCode_length": [
+      "propext"
+    ],
+    "EffectiveEncoding.interpret_prefix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.shiftCode_length": [
+      "propext"
+    ],
+    "EffectiveEncoding.interpret_shift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.stageCircuit_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compressionCircuit_succ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.bitOccupation_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compressionCircuit_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.stageCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compressionCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compressionCircuit_matrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compressionCircuit_coherent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compressionCircuit_purePower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.neg_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.half_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.piCode_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.GateCode.inverse_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.interpret_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.interpret_append": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.interpret_reverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.reverseCode_length": [
+      "propext"
+    ],
+    "EffectiveEncoding.maskOfBits_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.maskIndex_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.masks_nodup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.mem_masks": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.masks_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.masks_perm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.controls_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.controls_character": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.interpret_cnotCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.parityCode_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.parityCode_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.pauliCode_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.pauliCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.signedCode_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.maskParity_sign": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.run_pauliCodes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.selectedCode_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.selectedCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.mem_triples": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.triples_nodup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.fromTriple_count_zero": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.fromTriple_count_one": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.fromTriple_count_two": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.fromTriple_count_three": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.count_total": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.toTriple_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.toTriple_fromTriple": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.fromTriple_toTriple": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.occupations_nodup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.mem_occupations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.occupations_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.unrank_rank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.rank_unrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.boundedBits_injective": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.rank_fits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.find_unique": [
+      "propext"
+    ],
+    "EffectiveEncoding.decode_encode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.decode_some_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.enumeration_candidate_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compactEncoding_testBit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.originalEncoding_high_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.interpret_cast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.interpret_bellPreparationCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.interpret_bellPairsCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCircuit_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCircuit_gate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCircuit_coherent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCircuit_purePower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_polynomial_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCircuit_polynomial_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionVector_readout": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.garbageVector_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionOutput_coherent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionOutput_purePower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.wireLabels_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.labelCircuit_flatMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.labelCircuit_uses": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compileLabels_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compileLabelWord_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compileLabels_length": [
+      "propext"
+    ],
+    "EffectiveEncoding.compileLabelWord_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionOutput_fidelity_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionOutput_robust": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionOutput_robust_up_to_phase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.finiteLabels_fidelity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.selectedCode_run_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.adjacentSwapCode_run_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.adjacentSwapCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.adjacentRotationCode_run_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.adjacentRotationCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.orientedRotationCode_run_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.mem_otherWires": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.otherWires_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.differing_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.differingWire_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.clearBits_otherWires": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.moveCode_run_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.moveCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.swapCode_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.swapCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.rotationCode_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.rotationCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.GateCode.globalPhase_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.GateCode.representative_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.wordPhase_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.interpret_cons": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.representativeCircuit_cons": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.representativeCircuit_phase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.descriptor_word_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.descriptor_word_uniform_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.descriptorSynthesis_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.numericalExtractionCode_uses": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.numericalExtractionCode_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.numericalExtractionCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.numericalExtractionCode_fidelity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.descriptorArithmeticOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionArithmeticOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.numericalExtraction_from_universal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.countProgram_length": [
+      "propext"
+    ],
+    "EffectiveEncoding.countProgram_sparse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.indexedCount_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.indexedCount_ratio": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.explicitOthers_perm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.explicitOthers_nodup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.explicitOthers_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerIndexedCode_raw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerIndexedCode_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerIndexedCode_fixes_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerIndexedCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.branchEmbedding_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.branchCode_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.branchCode_fixes_other": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.branchCode_fixes_other_pivot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.branchCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.swapCode_denote": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.rotationCode_denote_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.mergeCode_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.RawCode.compile_denote": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.RawCode.compile_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compileRaw_denote": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compileRaw_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.alignmentPerm_complete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.alignmentCode_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.alignmentCode_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.alignmentCode_on_embedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.star_complexPhase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseRepresentative_bool": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.su2ToBool_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.globalPhase_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.representative_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.quaternionCoordinates_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.sqrt_half_eq_invSqrtTwo": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.invSqrtTwoOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseCosOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseSinOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.quaternionStarOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.coordinatePacket_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.hadRepresentative_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseRepresentative_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.quaternionOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.cosOracle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.sinOracle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.cosOracle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.sinOracle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.allBranchCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.occupationStepCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.GateCode.shift": [
+      "propext"
+    ],
+    "EffectiveEncoding.shiftCode": [
+      "propext"
+    ],
+    "EffectiveEncoding.stageCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.stageCircuit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compressionCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compressionCircuit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.GateCode.value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.interpret": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.maskOfBits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.masks": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.controls": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.pauliCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.maskParity": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.selectedCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.fromTriple": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.toTriple": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.occupations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.rank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.unrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.rankEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.boundedBits": [
+      "propext"
+    ],
+    "EffectiveEncoding.compactEncoding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.originalEncoding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.nextEncoding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.bellPreparationCode": [
+      "propext"
+    ],
+    "EffectiveEncoding.bellPairsCode": [
+      "propext"
+    ],
+    "EffectiveEncoding.extractionCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCircuit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.garbageVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionOutput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.LabelGate.value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.labelCircuit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.adjacentSwapCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.adjacentRotationCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.orientedRotationCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.otherWires": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.differingWire": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.moveCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.swapCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.rotationCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.GateCode.representative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.GateCode.globalPhase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.representativeCircuit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.wordPhase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.descriptorSynthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionPrecision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.numericalExtractionCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.descriptorArithmeticOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.gateArithmeticOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionArithmeticOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.indexedCount": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.explicitOthers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerIndexedCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.occupiedPivot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.branchEmbedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.pivotCoordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.pivotEmbedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.branchCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.RawCode.value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.RawCode.compile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.compileRaw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.alignmentPerm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.alignmentCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.hadRepresentative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.yRepresentative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseRepresentative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.representative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.globalPhase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.invSqrtTwoOracle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseCosOracle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseSinOracle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.quaternionStarOracle": [
+      "propext"
+    ],
+    "EffectiveEncoding.coordinatePacket": [
+      "propext"
+    ],
+    "EffectiveEncoding.SingleCode.quaternionOracle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.castCode_length": [],
+    "EffectiveEncoding.GateCode.extend": [],
+    "EffectiveEncoding.prefixCode": [],
+    "EffectiveEncoding.AngleAtom": [],
+    "EffectiveEncoding.AngleCode": [],
+    "EffectiveEncoding.AngleCode.neg": [],
+    "EffectiveEncoding.AngleCode.half": [],
+    "EffectiveEncoding.piCode": [],
+    "EffectiveEncoding.SingleCode": [],
+    "EffectiveEncoding.GateCode": [],
+    "EffectiveEncoding.GateCode.inverse": [],
+    "EffectiveEncoding.WordCode": [],
+    "EffectiveEncoding.reverseCode": [],
+    "EffectiveEncoding.cnotCode": [],
+    "EffectiveEncoding.parityCode": [],
+    "EffectiveEncoding.signedCode": [],
+    "EffectiveEncoding.Triple": [],
+    "EffectiveEncoding.total": [],
+    "EffectiveEncoding.triples": [],
+    "EffectiveEncoding.castCode": [],
+    "EffectiveEncoding.LabelGate": [],
+    "EffectiveEncoding.wireLabels": [],
+    "EffectiveEncoding.compileLabels": [],
+    "EffectiveEncoding.compileLabelWord": [],
+    "EffectiveEncoding.countProgram": [],
+    "EffectiveEncoding.RawCode": [],
+    "EffectiveEncoding.mergeCode": []
+  },
+  "roots": [
+    "EffectiveEncoding.mergeAngle_degenerate",
+    "EffectiveEncoding.AngleAtom.cosOracle_correct",
+    "EffectiveEncoding.AngleAtom.sinOracle_correct",
+    "EffectiveEncoding.AngleAtom.value_bounds",
+    "EffectiveEncoding.AngleCode.cosOracle_correct",
+    "EffectiveEncoding.AngleCode.sinOracle_correct",
+    "EffectiveEncoding.AngleCode.evaluation",
+    "EffectiveEncoding.interpret_flatMap",
+    "EffectiveEncoding.allBranchCode_action",
+    "EffectiveEncoding.allBranchCode_length",
+    "EffectiveEncoding.occupationStepCode_action",
+    "EffectiveEncoding.occupationStepCode_length",
+    "EffectiveEncoding.prefixCode_length",
+    "EffectiveEncoding.interpret_prefix",
+    "EffectiveEncoding.shiftCode_length",
+    "EffectiveEncoding.interpret_shift",
+    "EffectiveEncoding.stageCircuit_action",
+    "EffectiveEncoding.compressionCircuit_succ",
+    "EffectiveEncoding.bitOccupation_zero",
+    "EffectiveEncoding.compressionCircuit_action",
+    "EffectiveEncoding.stageCode_length",
+    "EffectiveEncoding.compressionCode_length",
+    "EffectiveEncoding.compressionCircuit_matrix",
+    "EffectiveEncoding.compressionCircuit_coherent",
+    "EffectiveEncoding.compressionCircuit_purePower",
+    "EffectiveEncoding.AngleCode.neg_value",
+    "EffectiveEncoding.AngleCode.half_value",
+    "EffectiveEncoding.piCode_value",
+    "EffectiveEncoding.GateCode.inverse_value",
+    "EffectiveEncoding.interpret_length",
+    "EffectiveEncoding.interpret_append",
+    "EffectiveEncoding.interpret_reverse",
+    "EffectiveEncoding.reverseCode_length",
+    "EffectiveEncoding.maskOfBits_injective",
+    "EffectiveEncoding.maskIndex_injective",
+    "EffectiveEncoding.masks_nodup",
+    "EffectiveEncoding.mem_masks",
+    "EffectiveEncoding.masks_length",
+    "EffectiveEncoding.masks_perm",
+    "EffectiveEncoding.controls_length",
+    "EffectiveEncoding.controls_character",
+    "EffectiveEncoding.interpret_cnotCode",
+    "EffectiveEncoding.parityCode_action",
+    "EffectiveEncoding.parityCode_length",
+    "EffectiveEncoding.pauliCode_action",
+    "EffectiveEncoding.pauliCode_length",
+    "EffectiveEncoding.signedCode_value",
+    "EffectiveEncoding.maskParity_sign",
+    "EffectiveEncoding.run_pauliCodes",
+    "EffectiveEncoding.selectedCode_action",
+    "EffectiveEncoding.selectedCode_length",
+    "EffectiveEncoding.mem_triples",
+    "EffectiveEncoding.triples_nodup",
+    "EffectiveEncoding.fromTriple_count_zero",
+    "EffectiveEncoding.fromTriple_count_one",
+    "EffectiveEncoding.fromTriple_count_two",
+    "EffectiveEncoding.fromTriple_count_three",
+    "EffectiveEncoding.count_total",
+    "EffectiveEncoding.toTriple_le",
+    "EffectiveEncoding.toTriple_fromTriple",
+    "EffectiveEncoding.fromTriple_toTriple",
+    "EffectiveEncoding.occupations_nodup",
+    "EffectiveEncoding.mem_occupations",
+    "EffectiveEncoding.occupations_length",
+    "EffectiveEncoding.unrank_rank",
+    "EffectiveEncoding.rank_unrank",
+    "EffectiveEncoding.boundedBits_injective",
+    "EffectiveEncoding.rank_fits",
+    "EffectiveEncoding.find_unique",
+    "EffectiveEncoding.decode_encode",
+    "EffectiveEncoding.decode_some_iff",
+    "EffectiveEncoding.enumeration_candidate_bound",
+    "EffectiveEncoding.compactEncoding_testBit",
+    "EffectiveEncoding.originalEncoding_high_zero",
+    "EffectiveEncoding.interpret_cast",
+    "EffectiveEncoding.castCode_length",
+    "EffectiveEncoding.interpret_bellPreparationCode",
+    "EffectiveEncoding.interpret_bellPairsCode",
+    "EffectiveEncoding.extractionCircuit_eq",
+    "EffectiveEncoding.extractionCircuit_gate",
+    "EffectiveEncoding.extractionCircuit_coherent",
+    "EffectiveEncoding.extractionCircuit_purePower",
+    "EffectiveEncoding.extractionCode_length",
+    "EffectiveEncoding.extractionCode_polynomial_bound",
+    "EffectiveEncoding.extractionCircuit_polynomial_bound",
+    "EffectiveEncoding.extractionVector_readout",
+    "EffectiveEncoding.garbageVector_square",
+    "EffectiveEncoding.extractionOutput_coherent",
+    "EffectiveEncoding.extractionOutput_purePower",
+    "EffectiveEncoding.wireLabels_value",
+    "EffectiveEncoding.labelCircuit_flatMap",
+    "EffectiveEncoding.labelCircuit_uses",
+    "EffectiveEncoding.compileLabels_error",
+    "EffectiveEncoding.compileLabelWord_error",
+    "EffectiveEncoding.compileLabels_length",
+    "EffectiveEncoding.compileLabelWord_length",
+    "EffectiveEncoding.extractionOutput_fidelity_one",
+    "EffectiveEncoding.extractionOutput_robust",
+    "EffectiveEncoding.extractionOutput_robust_up_to_phase",
+    "EffectiveEncoding.finiteLabels_fidelity",
+    "EffectiveEncoding.selectedCode_run_eq",
+    "EffectiveEncoding.adjacentSwapCode_run_eq",
+    "EffectiveEncoding.adjacentSwapCode_length",
+    "EffectiveEncoding.adjacentRotationCode_run_eq",
+    "EffectiveEncoding.adjacentRotationCode_length",
+    "EffectiveEncoding.orientedRotationCode_run_eq",
+    "EffectiveEncoding.mem_otherWires",
+    "EffectiveEncoding.otherWires_length",
+    "EffectiveEncoding.differing_exists",
+    "EffectiveEncoding.differingWire_spec",
+    "EffectiveEncoding.clearBits_otherWires",
+    "EffectiveEncoding.moveCode_run_eq",
+    "EffectiveEncoding.moveCode_length",
+    "EffectiveEncoding.swapCode_action",
+    "EffectiveEncoding.swapCode_length",
+    "EffectiveEncoding.rotationCode_action",
+    "EffectiveEncoding.rotationCode_length",
+    "EffectiveEncoding.GateCode.globalPhase_norm",
+    "EffectiveEncoding.GateCode.representative_spec",
+    "EffectiveEncoding.wordPhase_norm",
+    "EffectiveEncoding.interpret_cons",
+    "EffectiveEncoding.representativeCircuit_cons",
+    "EffectiveEncoding.representativeCircuit_phase",
+    "EffectiveEncoding.descriptor_word_error",
+    "EffectiveEncoding.descriptor_word_uniform_error",
+    "EffectiveEncoding.descriptorSynthesis_spec",
+    "EffectiveEncoding.numericalExtractionCode_uses",
+    "EffectiveEncoding.numericalExtractionCode_error",
+    "EffectiveEncoding.numericalExtractionCode_length",
+    "EffectiveEncoding.numericalExtractionCode_fidelity",
+    "EffectiveEncoding.descriptorArithmeticOperations_bound",
+    "EffectiveEncoding.extractionArithmeticOperations_bound",
+    "EffectiveEncoding.numericalExtraction_from_universal",
+    "EffectiveEncoding.countProgram_length",
+    "EffectiveEncoding.countProgram_sparse",
+    "EffectiveEncoding.indexedCount_image",
+    "EffectiveEncoding.indexedCount_ratio",
+    "EffectiveEncoding.explicitOthers_perm",
+    "EffectiveEncoding.explicitOthers_nodup",
+    "EffectiveEncoding.explicitOthers_length",
+    "EffectiveEncoding.integerIndexedCode_raw",
+    "EffectiveEncoding.integerIndexedCode_action",
+    "EffectiveEncoding.integerIndexedCode_fixes_zero",
+    "EffectiveEncoding.integerIndexedCode_length",
+    "EffectiveEncoding.branchEmbedding_eq",
+    "EffectiveEncoding.branchCode_action",
+    "EffectiveEncoding.branchCode_fixes_other",
+    "EffectiveEncoding.branchCode_fixes_other_pivot",
+    "EffectiveEncoding.branchCode_length",
+    "EffectiveEncoding.swapCode_denote",
+    "EffectiveEncoding.rotationCode_denote_eq",
+    "EffectiveEncoding.mergeCode_value",
+    "EffectiveEncoding.RawCode.compile_denote",
+    "EffectiveEncoding.RawCode.compile_length",
+    "EffectiveEncoding.compileRaw_denote",
+    "EffectiveEncoding.compileRaw_length",
+    "EffectiveEncoding.alignmentPerm_complete",
+    "EffectiveEncoding.alignmentCode_action",
+    "EffectiveEncoding.alignmentCode_length",
+    "EffectiveEncoding.alignmentCode_on_embedding",
+    "EffectiveEncoding.star_complexPhase",
+    "EffectiveEncoding.phaseRepresentative_bool",
+    "EffectiveEncoding.su2ToBool_star",
+    "EffectiveEncoding.SingleCode.globalPhase_norm",
+    "EffectiveEncoding.SingleCode.representative_spec",
+    "EffectiveEncoding.quaternionCoordinates_star",
+    "EffectiveEncoding.sqrt_half_eq_invSqrtTwo",
+    "EffectiveEncoding.invSqrtTwoOracle_correct",
+    "EffectiveEncoding.phaseCosOracle_correct",
+    "EffectiveEncoding.phaseSinOracle_correct",
+    "EffectiveEncoding.quaternionStarOracle_correct",
+    "EffectiveEncoding.coordinatePacket_correct",
+    "EffectiveEncoding.hadRepresentative_coordinates",
+    "EffectiveEncoding.phaseRepresentative_coordinates",
+    "EffectiveEncoding.SingleCode.quaternionOracle_correct"
+  ],
+  "models": [
+    "EffectiveEncoding.AngleAtom.cosOracle",
+    "EffectiveEncoding.AngleAtom.sinOracle",
+    "EffectiveEncoding.AngleCode.cosOracle",
+    "EffectiveEncoding.AngleCode.sinOracle",
+    "EffectiveEncoding.allBranchCode",
+    "EffectiveEncoding.occupationStepCode",
+    "EffectiveEncoding.GateCode.extend",
+    "EffectiveEncoding.prefixCode",
+    "EffectiveEncoding.GateCode.shift",
+    "EffectiveEncoding.shiftCode",
+    "EffectiveEncoding.stageCode",
+    "EffectiveEncoding.stageCircuit",
+    "EffectiveEncoding.compressionCode",
+    "EffectiveEncoding.compressionCircuit",
+    "EffectiveEncoding.AngleAtom",
+    "EffectiveEncoding.AngleCode",
+    "EffectiveEncoding.AngleAtom.value",
+    "EffectiveEncoding.AngleCode.value",
+    "EffectiveEncoding.AngleCode.neg",
+    "EffectiveEncoding.AngleCode.half",
+    "EffectiveEncoding.piCode",
+    "EffectiveEncoding.SingleCode",
+    "EffectiveEncoding.SingleCode.value",
+    "EffectiveEncoding.GateCode",
+    "EffectiveEncoding.GateCode.value",
+    "EffectiveEncoding.GateCode.inverse",
+    "EffectiveEncoding.WordCode",
+    "EffectiveEncoding.interpret",
+    "EffectiveEncoding.reverseCode",
+    "EffectiveEncoding.maskOfBits",
+    "EffectiveEncoding.masks",
+    "EffectiveEncoding.controls",
+    "EffectiveEncoding.cnotCode",
+    "EffectiveEncoding.parityCode",
+    "EffectiveEncoding.pauliCode",
+    "EffectiveEncoding.signedCode",
+    "EffectiveEncoding.maskParity",
+    "EffectiveEncoding.selectedCode",
+    "EffectiveEncoding.Triple",
+    "EffectiveEncoding.total",
+    "EffectiveEncoding.triples",
+    "EffectiveEncoding.fromTriple",
+    "EffectiveEncoding.toTriple",
+    "EffectiveEncoding.occupations",
+    "EffectiveEncoding.rank",
+    "EffectiveEncoding.unrank",
+    "EffectiveEncoding.rankEquiv",
+    "EffectiveEncoding.boundedBits",
+    "EffectiveEncoding.compactEncoding",
+    "EffectiveEncoding.originalEncoding",
+    "EffectiveEncoding.nextEncoding",
+    "EffectiveEncoding.decode",
+    "EffectiveEncoding.castCode",
+    "EffectiveEncoding.bellPreparationCode",
+    "EffectiveEncoding.bellPairsCode",
+    "EffectiveEncoding.extractionCode",
+    "EffectiveEncoding.extractionCircuit",
+    "EffectiveEncoding.extractionVector",
+    "EffectiveEncoding.garbageVector",
+    "EffectiveEncoding.extractionOutput",
+    "EffectiveEncoding.LabelGate",
+    "EffectiveEncoding.LabelGate.value",
+    "EffectiveEncoding.labelCircuit",
+    "EffectiveEncoding.wireLabels",
+    "EffectiveEncoding.compileLabels",
+    "EffectiveEncoding.compileLabelWord",
+    "EffectiveEncoding.adjacentSwapCode",
+    "EffectiveEncoding.adjacentRotationCode",
+    "EffectiveEncoding.orientedRotationCode",
+    "EffectiveEncoding.otherWires",
+    "EffectiveEncoding.differingWire",
+    "EffectiveEncoding.moveCode",
+    "EffectiveEncoding.swapCode",
+    "EffectiveEncoding.rotationCode",
+    "EffectiveEncoding.GateCode.representative",
+    "EffectiveEncoding.GateCode.globalPhase",
+    "EffectiveEncoding.representativeCircuit",
+    "EffectiveEncoding.wordPhase",
+    "EffectiveEncoding.descriptorSynthesis",
+    "EffectiveEncoding.extractionPrecision",
+    "EffectiveEncoding.numericalExtractionCode",
+    "EffectiveEncoding.descriptorArithmeticOperations",
+    "EffectiveEncoding.gateArithmeticOperations",
+    "EffectiveEncoding.extractionArithmeticOperations",
+    "EffectiveEncoding.countProgram",
+    "EffectiveEncoding.indexedCount",
+    "EffectiveEncoding.explicitOthers",
+    "EffectiveEncoding.integerIndexedCode",
+    "EffectiveEncoding.occupiedPivot",
+    "EffectiveEncoding.branchEmbedding",
+    "EffectiveEncoding.pivotCoordinates",
+    "EffectiveEncoding.pivotEmbedding",
+    "EffectiveEncoding.branchCode",
+    "EffectiveEncoding.RawCode",
+    "EffectiveEncoding.mergeCode",
+    "EffectiveEncoding.RawCode.value",
+    "EffectiveEncoding.RawCode.compile",
+    "EffectiveEncoding.compileRaw",
+    "EffectiveEncoding.alignmentPerm",
+    "EffectiveEncoding.alignmentCode",
+    "EffectiveEncoding.hadRepresentative",
+    "EffectiveEncoding.yRepresentative",
+    "EffectiveEncoding.phaseRepresentative",
+    "EffectiveEncoding.SingleCode.representative",
+    "EffectiveEncoding.SingleCode.globalPhase",
+    "EffectiveEncoding.invSqrtTwoOracle",
+    "EffectiveEncoding.phaseCosOracle",
+    "EffectiveEncoding.phaseSinOracle",
+    "EffectiveEncoding.quaternionStarOracle",
+    "EffectiveEncoding.coordinatePacket",
+    "EffectiveEncoding.SingleCode.quaternionOracle"
+  ]
+}
