@@ -1,4 +1,4 @@
-import CircuitRecursion.ConditionedFactors
+import CircuitRecursion.NumericalSK
 
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
@@ -316,6 +316,26 @@ import CircuitRecursion.ConditionedFactors
 #print axioms CircuitRecursion.normalized_word_error
 #check CircuitRecursion.normalized_word_uniform_error
 #print axioms CircuitRecursion.normalized_word_uniform_error
+#check CircuitRecursion.numericalCorrection_length
+#print axioms CircuitRecursion.numericalCorrection_length
+#check CircuitRecursion.numericalCorrection_error
+#print axioms CircuitRecursion.numericalCorrection_error
+#check CircuitRecursion.numerical_stop_budget
+#print axioms CircuitRecursion.numerical_stop_budget
+#check CircuitRecursion.numericalDoubleCorrection_error
+#print axioms CircuitRecursion.numericalDoubleCorrection_error
+#check CircuitRecursion.numericalThreshold_error
+#print axioms CircuitRecursion.numericalThreshold_error
+#check CircuitRecursion.numericalThreshold_depth_bound
+#print axioms CircuitRecursion.numericalThreshold_depth_bound
+#check CircuitRecursion.numericalPairWord_error
+#print axioms CircuitRecursion.numericalPairWord_error
+#check CircuitRecursion.numericalPairWord_length
+#print axioms CircuitRecursion.numericalPairWord_length
+#check CircuitRecursion.numericalSU2Synthesis
+#print axioms CircuitRecursion.numericalSU2Synthesis
+#check CircuitRecursion.numericalSU2Synthesis_dyadic
+#print axioms CircuitRecursion.numericalSU2Synthesis_dyadic
 #check CircuitRecursion.occupationMass_pos_iff
 #print axioms CircuitRecursion.occupationMass_pos_iff
 #check CircuitRecursion.occupationMass_ge_inverse
