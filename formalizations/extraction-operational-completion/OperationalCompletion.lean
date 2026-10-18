@@ -30,3 +30,10 @@ import OperationalCompletion.Reservation
 import OperationalCompletion.ReservedFamily
 import OperationalCompletion.ReservationLimit
 import OperationalCompletion.ReservedPure
+import OperationalCompletion.ReservationCutoff
+import OperationalCompletion.ReservedLimit
+import OperationalCompletion.ReservedGaussian
+import OperationalCompletion.ReservedCoverage
+import OperationalCompletion.ReservedTrial
+import OperationalCompletion.ReservedExponent
+import OperationalCompletion.ReservedLaws
