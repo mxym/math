@@ -38,6 +38,8 @@ freeze or audit until the scope is `READY` and `pending_required` is empty.
    Multinomial cache hashes, and exact mathematical file bytes at `source_head`.
    It binds recursive local Lean imports plus every local dependency config,
    all new audit code/config, and every tracked old audit input and evidence.
+   `EXECUTION_INPUTS.json` separately binds the exact D-storage guard and the
+   resolved D-backed Lean executable; those hashes are checked before execution.
 4. Run `python3 reproduce.py --fresh` with output redirected to D storage. It
    calls the D guard, serializes through the shared build lock, freshly builds
    all new owned mathematical libraries, checks every selected type and axiom

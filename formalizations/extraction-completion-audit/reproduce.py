@@ -107,6 +107,12 @@ def old_inventory():
     return {n:sha(REPO/n) for n in names}
 
 
+def check_execution_inputs():
+    for n,digest in readj(ROOT/'EXECUTION_INPUTS.json').items():
+        p=Path(n)
+        if not p.is_file() or sha(p)!=digest:raise RuntimeError('Changed execution input '+n)
+
+
 def check_pins():
     if (ROOT/'lean-toolchain').read_text().strip()!='leanprover/lean4:v4.34.1':raise RuntimeError('Wrong Lean')
     deps=readj(ROOT/'lake-manifest.json')['packages']
@@ -150,6 +156,7 @@ def main():
           'source_inputs':len(inventory()),'endpoint_theorems':len(roots),'model_definitions':len(defs),
           'same_type_controls':len(controls),'pending_required':s['pending_required'],
           'verification_performed':False},ensure_ascii=False));return
+    check_execution_inputs()
     # Imported only after read-only planning: all builds/evidence need the D guard.
     sys.path.insert(0,'/mnt/d/math/tmp/extraction-full-lean-20261016')
     from ensure_d_storage import configure_env
@@ -168,6 +175,9 @@ def main():
     stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     out=ROOT/'verification'/('completion-'+stamp);out.mkdir(parents=True)
     records=[]
+    dump(out/'EXECUTION.json',dict(execution_inputs=readj(ROOT/'EXECUTION_INPUTS.json'),
+      python=sys.version,guard='D_BACKED_STORAGE_VERIFIED',
+      environment={n:env.get(n) for n in ['TMPDIR','MATHLIB_CACHE_DIR','XDG_CACHE_HOME']}))
     def stage(label,cmd,limit):
         log=out/(label+'.log');start=time.monotonic()
         with log.open('w') as f:
