@@ -1,0 +1,927 @@
+{
+  "status": "BUILD_ONLY",
+  "utc": "2026-10-18T18:39:19.767098+00:00",
+  "scope": "formalizations/extraction-numerical-synthesis",
+  "modules": 21,
+  "root_count": 178,
+  "guard": "ensure_d_storage.configure_env PASS; worker_build.py shared flock",
+  "build_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T183749803706Z-extraction-numerical-synthesis.log",
+  "build_log_sha256": "46ffdc35648c202568badb57547e9701c49aa1ebc32df0a229de7cf8ac75f88f",
+  "source_sha256": {
+    ".gitignore": "fde850d24186b6e99c8c0debd641fb3ab85198b109eb66f71a1fea02bd6ea1b3",
+    "CircuitNumerical/ArithmeticExpressions.lean": "9fcf5282467bc61c33c497305446b407f51b64a4fe6d3fd75bdeff732b04b774",
+    "CircuitNumerical/BalancedReference.lean": "7e7342d718f28150252d780969c45563112c8814a8b924261779c18a35f36108",
+    "CircuitNumerical/CacheResources.lean": "aed386e4fea5ed5d88352b6cb5ec21b9b199c9702d8753972f647f64de76f8be",
+    "CircuitNumerical/CachedArithmeticSynthesis.lean": "75c70892182f55042b28427c3ea9aa152fa82d2c1cb5085350cd7228d8d404ae",
+    "CircuitNumerical/CachedNumericalSK.lean": "c0255195ffdbcd4d388e2389d571bd30517725849e3b4eeecf8573afab55d34a",
+    "CircuitNumerical/Check.lean": "5b962ac020854de4ee91a37085a547dd71f688f115a1e50003304a188dd33379",
+    "CircuitNumerical/ConditionedFactors.lean": "56e733f5b40437c1d3f851fc1030000b7b7fe0f2a9a353434f0e3b37189b0cbb",
+    "CircuitNumerical/ConditionedOracleSelection.lean": "51c8315978fb2eaed9219c9163388fc54272914fde0fba40c9cab3de8351bb66",
+    "CircuitNumerical/ExpressionCosts.lean": "97ee3099dd1b0692ff4131d21637455d903b52eb4524e62c6bc783a42be9e9d6",
+    "CircuitNumerical/ExpressionExecution.lean": "992110cfe3a1de21d2bbc26baec992f5198a67d6df0cf4bef9e21b6a6b74b267",
+    "CircuitNumerical/ExpressionResources.lean": "8a2b654e464ca1a93984508daeadc01423c6d63ce7471ddbeeb7f10d843195ca",
+    "CircuitNumerical/FactorDependencies.lean": "2e4744b8e8dec0fd5b4eec13adcebaae1f85cafdb5f185d27713450a12eb3c7d",
+    "CircuitNumerical/FactorExpressions.lean": "9ff0b022d79ac4cb4d53578f2851e24afebac4d8ff620260b57046684194b4a2",
+    "CircuitNumerical/IntegerPackets.lean": "4394e7e96a1d6465075d2c66fd34d8d590dbbd612034049daa19a39ea7b57fd0",
+    "CircuitNumerical/NormalizedIntertwinerOracle.lean": "afa7897de477a7dac230e74b6360a086de2c728145ea4f33a7fd27e42ba1381c",
+    "CircuitNumerical/NumericalCorrection.lean": "909516cb0deabde7d056b2040ab3c4ff0e957012b285056f36f206adf3597158",
+    "CircuitNumerical/NumericalDependencies.lean": "c82d4e5e57356f719ab3d3d7f94d9a8593047502f35f4a55c7fe8e21126508ad",
+    "CircuitNumerical/NumericalOperationCount.lean": "7d0468ab8d06f0e14a1c95e2621071e4390babddf25e0aa64d048455df065fdf",
+    "CircuitNumerical/NumericalSK.lean": "5c0d64f2ee7025b0a8835b42555a5fa1b422cecc8d87079078df4f1f7a31d2c0",
+    "CircuitNumerical/OperationGrowth.lean": "faaf0895df464b1f01c16f143290be886e530db5f8c7a2bc4a1d284dd74f0775",
+    "CircuitNumerical/OracleDependencies.lean": "0c934b63a236420fe3adba3048ee468b2f73638163fa8734937c0c5b94146bf8",
+    "CircuitNumerical/TracedNumericalSK.lean": "781f5fa0ef43422669124f4f89f36c0a922fc98334063f096068def638254e2a",
+    "CircuitNumerical.lean": "6c97961c928dd64b39927b2ef440e0cf6f257839416d68677f00dc8c74dcea22",
+    "EFFECTIVE_MODEL.md": "3fc8e6db2a1e9bd23a1bd6d29b8797e0ea6893c3b2a597a2f86326b345a860fc",
+    "PORT_PROVENANCE.json": "ed0ac22637f7cb65515ab1da8f796cee3235347d325fb8433cc9ecf9a05365c1",
+    "README.md": "ea7f4d328da245e18977ef874bd9bb4730d4df3a741c2d1c88e73e5ff483fa10",
+    "ROOTS.txt": "70be969623028ede571eac752caaf43b0e81c7f0a28cad3867b8f8694af01c0e",
+    "SOURCE_REVIEW.md": "324cbac547f17a5a32c72025baf3c1aca10a3d660d7cfe89157c547e073f283c",
+    "lake-manifest.json": "0fd1712e2051347a03632d450147a4ddfa2bae06dc62bc8f265fccc494354dc8",
+    "lakefile.toml": "9fb05074ef55e3f168f6f6b947e8b426f0072d4ab0d07bb3c5a8ab18f9e51220",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "provenance/pre-port/CircuitRecursion/Check.lean.txt": "534183c94474e190b70bc80b5bf3859e7d263d3c0ba39eca29d15c6c69c8dd13",
+    "provenance/pre-port/CircuitRecursion.lean.txt": "220c7007dc33ca797fbe573d78e12baf5ee8baf08394441a734931f76a2f60d1",
+    "provenance/pre-port/EFFECTIVE_MODEL.md": "3fc8e6db2a1e9bd23a1bd6d29b8797e0ea6893c3b2a597a2f86326b345a860fc",
+    "provenance/pre-port/README.md": "8aa5cc08d65fbdf48f5d85054cf5bee173fb7053b6ebd89a1fa34345f090a661",
+    "provenance/pre-port/ROOTS.txt": "503497555438d2ef0f2f74869a6f5505ac83d77d1894db6d4da8f541de23244a",
+    "provenance/pre-port/SOURCE_REVIEW.md": "324cbac547f17a5a32c72025baf3c1aca10a3d660d7cfe89157c547e073f283c"
+  },
+  "root_axioms": {
+    "CircuitRecursion.expressionAdd_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionNeg_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionMul_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionInv_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionSqrt_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionMeanMinus_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionCoordinate_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionPacketMul_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionPacketInverse_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionPacketOne_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionFrame_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionDistance_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.balancedParameterFacts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.balancedCircle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.balancedReference_scalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.referenceX_distance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.referenceY_distance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.coordinateOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.balancedSOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.balancedCOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.referenceXOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.referenceYOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.balancedReferenceOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedNumericalRun_query_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedNumericalRun_precision_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.dyadic_numerator_bits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.dyadicPacketBits_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedInputBits_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedInputBits_precision_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_executedOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticSU2Synthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.buildPacketCache_agrees": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.buildPacketCache_requests": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.buildPacketCache_precision": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedNumericalRun_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedNumericalRun_gateRequests": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedNumericalRun_targetRequests": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedNumericalRun_gatePrecision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedNumericalRun_targetPrecision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedNumericalSU2Synthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.quaternionConjugateOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.conditionedFactors_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.quaternionCoordinates_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.quaternionOracleInverse_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.frameOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.chartTargetOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.intertwinerMass_distance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.chartMassScore_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.dyadic_square_precision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.chooseChart_denominator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.residualSmall_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.executedOperations_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.executedOperations_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ArithmeticWordResult.executedOperations_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionPowerTwo_eq": [
+      "propext"
+    ],
+    "CircuitRecursion.executeExpressionRoot_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.executeStoppingThreshold_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.run_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.run_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionAdd_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionNeg_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionMul_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionInv_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionSqrt_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionMeanMinus_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionCoordinate_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionPacketMul_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionPacketInverse_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionDistance_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionBalancedS_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionBalancedC_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionReferenceX_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionReferenceY_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionBalancedReference_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionChartTarget_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionChartMass_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionNormalized_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionConjugator_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionFactor_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.chooseChart_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.coordinateSubOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.intertwinerRadiusOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.normalizedIntertwinerOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.conditionedConjugatorOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.conditionedFactorXOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.conditionedFactorYOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionBalancedS_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionBalancedC_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionReferenceX_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionReferenceY_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionBalancedReference_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionChartTarget_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionChartMass_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionRadius_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionNormalized_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionConjugator_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionConjugate_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionFactorX_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionFactorY_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerPacket.mul_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.quaternionSign_natAbs": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.integerQuaternionProduct_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerPacketHeight.mono": [
+      "propext"
+    ],
+    "CircuitRecursion.IntegerPacket.one_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerPacket.mul_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.integerPacketWord_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.integerPacketWord_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.dyadicIntegerPacket_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.dyadicIntegerPacket_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerPacket.one_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedIntegerPacket_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedIntegerPacket_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedIntegerPacketWord_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedIntegerPacketWord_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.commonDenominator_binary_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerPacketHeight.binary_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedSynthesisWord_integerHeight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.normalizedQuaternionSU2_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.normalizedIntertwiner_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.coordinateSubOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.normalizedIntertwinerOracle_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalCorrection_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalCorrection_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.quaternionWordOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.fixedNetWord_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.residualSmall_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.correctionDemand_ge": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalCorrection_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalDemand_ge": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalPairWord_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalDemand_succ": [
+      "propext"
+    ],
+    "CircuitRecursion.numericalDemand_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalDemand_precision_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionWord_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedBase_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedCorrection_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedPairWord_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numerical_stop_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalDoubleCorrection_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalThreshold_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalThreshold_depth_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalPairWord_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalPairWord_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalSU2Synthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalSU2Synthesis_dyadic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairOperationSlope_pos": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairOperationSlope_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairOperationSlope_length_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairedOffset_step_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairOperationOffset_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedPairWord_literal_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.offsetGrowth_precision_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.AgreesThrough.mono": [],
+    "CircuitRecursion.AgreesThrough.refl": [],
+    "CircuitRecursion.oracleAdd_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.oracleNeg_agrees": [
+      "propext"
+    ],
+    "CircuitRecursion.oracleMul_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.oracleInv_agrees": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.oracleSqrt_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.oracleMeanMinus_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.coordinateOracle_agrees": [
+      "propext"
+    ],
+    "CircuitRecursion.quaternionOracleMul_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.quaternionOracleInverse_agrees": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.quaternionConjugateOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.balancedSOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.balancedCOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.referenceXOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.referenceYOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.balancedReferenceOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.chartTargetOracle_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.distanceScore_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.chartMassScore_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.expressionWord_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedBase_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedCorrection_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedPairWord_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "independent_kernel_replay": false,
+  "forged_proof_controls": false,
+  "frozen_old_prefix_diff_against_b288": "empty",
+  "remaining": [
+    "factor-normalization intermediate operand sizes",
+    "primitive/provider Turing bit costs",
+    "structural allocation/index costs",
+    "uniform extraction-description binding in sibling extension"
+  ]
+}
