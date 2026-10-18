@@ -1,0 +1,463 @@
+{
+  "status": "GENERATED_AUTHOR_RETAINED_NATIVE_PROVIDER_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 36,
+  "model_count": 17,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.nativeProviderLiteral_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderHalf_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 23
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderMinusOne_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 31
+    },
+    {
+      "name": "EffectiveEncoding.prepareNativeAtomInput_cos_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 39
+    },
+    {
+      "name": "EffectiveEncoding.prepareNativeAtomInput_sin_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 54
+    },
+    {
+      "name": "EffectiveEncoding.nativeInputHalfCos_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 69
+    },
+    {
+      "name": "EffectiveEncoding.nativeInputHalfSin_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 79
+    },
+    {
+      "name": "EffectiveEncoding.prepareNativeAngleInput_cos_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 90
+    },
+    {
+      "name": "EffectiveEncoding.prepareNativeAngleInput_sin_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 95
+    },
+    {
+      "name": "EffectiveEncoding.nativePhaseCosExpression_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 106
+    },
+    {
+      "name": "EffectiveEncoding.nativePhaseSinExpression_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 117
+    },
+    {
+      "name": "EffectiveEncoding.prepareNativeSingleInput_packet_refines",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "line": 129
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderExpression_bitBudget",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderBooleanBudgets.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderExpression_operations",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderBooleanBudgets.lean",
+      "line": 20
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderQueryCoefficient",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderBooleanBudgets.lean",
+      "line": 29
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderQuery_algebra",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderBooleanBudgets.lean",
+      "line": 33
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderPacketProgram_booleanActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderBooleanBudgets.lean",
+      "line": 42
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderQueryCoefficient_polynomial",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderBooleanBudgets.lean",
+      "line": 53
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderPacketProgram_booleanActions_kp",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderBooleanBudgets.lean",
+      "line": 63
+    },
+    {
+      "name": "EffectiveEncoding.buildNativeTargetPrograms",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.buildNativeTargetPrograms_values",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 14
+    },
+    {
+      "name": "EffectiveEncoding.RetainedNativeTargetResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.retainedNativeTargetRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 29
+    },
+    {
+      "name": "EffectiveEncoding.RetainedNativeTargetResult.erase",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.retainedNativeTargetRun_erase",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.retainedNativeTargetRun_cache",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 55
+    },
+    {
+      "name": "EffectiveEncoding.RetainedNativeTargetResult.providerActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 62
+    },
+    {
+      "name": "EffectiveEncoding.retainedNativeTargetRun_providerActions_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 66
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderCacheCoefficient",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 89
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderCache_algebra",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 93
+    },
+    {
+      "name": "EffectiveEncoding.retainedNativeTargetRun_providerActions_polynomial",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 102
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderCachePolynomialConstant",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 113
+    },
+    {
+      "name": "EffectiveEncoding.nativeProviderCacheCoefficient_polynomial",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "line": 117
+    },
+    {
+      "name": "EffectiveEncoding.ProviderCompiledLabelRun",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedProviderLabels.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.ProviderCompiledLabelRun.erase",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedProviderLabels.lean",
+      "line": 11
+    },
+    {
+      "name": "EffectiveEncoding.compileProviderGate",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedProviderLabels.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.compileProviderWord",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedProviderLabels.lean",
+      "line": 25
+    },
+    {
+      "name": "EffectiveEncoding.compileProviderGate_erase",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedProviderLabels.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.compileProviderWord_erase",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedProviderLabels.lean",
+      "line": 40
+    },
+    {
+      "name": "EffectiveEncoding.ProviderCompiledLabelRun.providerActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedProviderLabels.lean",
+      "line": 56
+    },
+    {
+      "name": "EffectiveEncoding.compileProviderWord_providerActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedProviderLabels.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.FullyRetainedNativeResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.FullyRetainedNativeResult.erase",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 12
+    },
+    {
+      "name": "EffectiveEncoding.fullyRetainedNativeRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 19
+    },
+    {
+      "name": "EffectiveEncoding.fullyRetainedNativeRun_erase",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 28
+    },
+    {
+      "name": "EffectiveEncoding.fullyRetainedNativeRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 36
+    },
+    {
+      "name": "EffectiveEncoding.fullyRetainedNativeRun_providerActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 46
+    },
+    {
+      "name": "EffectiveEncoding.fullyRetainedNativeRun_preparationActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 67
+    },
+    {
+      "name": "EffectiveEncoding.fullyRetainedNativeRun_numericalActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 76
+    },
+    {
+      "name": "EffectiveEncoding.FullyRetainedNativeResult.accountedPrimitiveActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 90
+    },
+    {
+      "name": "EffectiveEncoding.nativeAccountedPrimitive_algebra",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 94
+    },
+    {
+      "name": "EffectiveEncoding.fullyRetainedNativeRun_accountedPrimitiveActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 105
+    },
+    {
+      "name": "EffectiveEncoding.fullyRetainedNativeRun_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "line": 123
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean",
+      "sha256": "3036033d0d075edc13a78c23bcff2be4d9e155e66eeb603b0752916c10cf01d0",
+      "declarations": [
+        "EffectiveEncoding.nativeProviderLiteral_refines",
+        "EffectiveEncoding.nativeProviderHalf_refines",
+        "EffectiveEncoding.nativeProviderMinusOne_refines",
+        "EffectiveEncoding.prepareNativeAtomInput_cos_refines",
+        "EffectiveEncoding.prepareNativeAtomInput_sin_refines",
+        "EffectiveEncoding.nativeInputHalfCos_refines",
+        "EffectiveEncoding.nativeInputHalfSin_refines",
+        "EffectiveEncoding.prepareNativeAngleInput_cos_refines",
+        "EffectiveEncoding.prepareNativeAngleInput_sin_refines",
+        "EffectiveEncoding.nativePhaseCosExpression_refines",
+        "EffectiveEncoding.nativePhaseSinExpression_refines",
+        "EffectiveEncoding.prepareNativeSingleInput_packet_refines"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderBooleanBudgets.lean",
+      "sha256": "ea4073cbd30de51b19d28123cc37315de280d1224763b1fe74e9c6d751401d13",
+      "declarations": [
+        "EffectiveEncoding.nativeProviderExpression_bitBudget",
+        "EffectiveEncoding.nativeProviderExpression_operations",
+        "EffectiveEncoding.nativeProviderQueryCoefficient",
+        "EffectiveEncoding.nativeProviderQuery_algebra",
+        "EffectiveEncoding.nativeProviderPacketProgram_booleanActions",
+        "EffectiveEncoding.nativeProviderQueryCoefficient_polynomial",
+        "EffectiveEncoding.nativeProviderPacketProgram_booleanActions_kp"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean",
+      "sha256": "1df9a40da409f9864b2fe3514c85f7b17cbe162705acc1f8f034afb85d5d8011",
+      "declarations": [
+        "EffectiveEncoding.buildNativeTargetPrograms",
+        "EffectiveEncoding.buildNativeTargetPrograms_values",
+        "EffectiveEncoding.RetainedNativeTargetResult",
+        "EffectiveEncoding.retainedNativeTargetRun",
+        "EffectiveEncoding.RetainedNativeTargetResult.erase",
+        "EffectiveEncoding.retainedNativeTargetRun_erase",
+        "EffectiveEncoding.retainedNativeTargetRun_cache",
+        "EffectiveEncoding.RetainedNativeTargetResult.providerActions",
+        "EffectiveEncoding.retainedNativeTargetRun_providerActions_bound",
+        "EffectiveEncoding.nativeProviderCacheCoefficient",
+        "EffectiveEncoding.nativeProviderCache_algebra",
+        "EffectiveEncoding.retainedNativeTargetRun_providerActions_polynomial",
+        "EffectiveEncoding.nativeProviderCachePolynomialConstant",
+        "EffectiveEncoding.nativeProviderCacheCoefficient_polynomial"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedProviderLabels.lean",
+      "sha256": "fb4ed66c25eee4c4fd0f66416c95469c8ffdae1bff2513857ce7965b7aec998d",
+      "declarations": [
+        "EffectiveEncoding.ProviderCompiledLabelRun",
+        "EffectiveEncoding.ProviderCompiledLabelRun.erase",
+        "EffectiveEncoding.compileProviderGate",
+        "EffectiveEncoding.compileProviderWord",
+        "EffectiveEncoding.compileProviderGate_erase",
+        "EffectiveEncoding.compileProviderWord_erase",
+        "EffectiveEncoding.ProviderCompiledLabelRun.providerActions",
+        "EffectiveEncoding.compileProviderWord_providerActions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean",
+      "sha256": "be6874a9e31b96c01405c550d30263e31010dc61ef8f9908fc500df9db9e2f9e",
+      "declarations": [
+        "EffectiveEncoding.FullyRetainedNativeResult",
+        "EffectiveEncoding.FullyRetainedNativeResult.erase",
+        "EffectiveEncoding.fullyRetainedNativeRun",
+        "EffectiveEncoding.fullyRetainedNativeRun_erase",
+        "EffectiveEncoding.fullyRetainedNativeRun_word",
+        "EffectiveEncoding.fullyRetainedNativeRun_providerActions",
+        "EffectiveEncoding.fullyRetainedNativeRun_preparationActions",
+        "EffectiveEncoding.fullyRetainedNativeRun_numericalActions",
+        "EffectiveEncoding.FullyRetainedNativeResult.accountedPrimitiveActions",
+        "EffectiveEncoding.nativeAccountedPrimitive_algebra",
+        "EffectiveEncoding.fullyRetainedNativeRun_accountedPrimitiveActions",
+        "EffectiveEncoding.fullyRetainedNativeRun_fidelity"
+      ]
+    }
+  ]
+}
