@@ -1,0 +1,12 @@
+import SchurMinimax.FullRank
+#print axioms ExtractionSchur.rankBudget_class_minimax_finite
+#print axioms ExtractionSchur.rankBudgetPacking_ratio_limit
+#print axioms ExtractionSchur.rankBudgetEta_limit
+#print axioms ExtractionSchur.rankBudget_physical_relative_bound
+#print axioms ExtractionSchur.rankBudget_target_uniform_minimax
+#print axioms ExtractionSchur.rankBudget_target_uniform_relative_error
+#print axioms ExtractionSchur.rankBudget_full_rank_minimax
+#check ExtractionSchur.rankBudget_target_uniform_minimax
+#check ExtractionSchur.rankBudget_target_uniform_relative_error
+#print axioms ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue
+#print axioms ExtractionSchur.rankBudget_physical_class_chain
