@@ -1,10 +1,10 @@
 # Numerical synthesis with explicit arithmetic traces
 
-Status: own-module feedback checks passed; fresh serialized aggregate pending. Lean 4.34.1; Mathlib
+Status: **BUILD_ONLY**; fresh serialized aggregate passed. Lean 4.34.1; Mathlib
 `d13f23b723b8a846827a245b89c10fc7d3f11612`.
 
 This independent package extends the frozen b288 `extraction-circuit-recursion`
-package. It contains only the 20 later numerical/cost modules and their 160
+package. It contains only the 21 later numerical/cost modules and their 178
 new theorem roots. Import paths are `CircuitNumerical.*`; declaration names
 retain namespace `CircuitRecursion`. The entire old package has been restored
 to its b288 bytes. `PORT_PROVENANCE.json` records the pre-port mature commit,
@@ -68,5 +68,8 @@ description/encoding binding is a separate sibling extension.
 The pre-port 58-module/416-root source passed authorized own-module feedback
 checks, including all root type/axiom prints. Reports under
 `verification/pre-port-history` describe that historical source and paths.
-The renamed 20 modules and all 160 root prints have passed their own feedback checks. A fresh serialized aggregate and
-independent replay must use this new package and its own root scope.
+The renamed modules and all 178 current root prints have passed their own
+feedback checks and the subsequent standard serialized aggregate, with 3880
+jobs. The aggregate log is
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T183749803706Z-extraction-numerical-synthesis.log`.
+No independent replay or forged-proof control is claimed for this new scope.
