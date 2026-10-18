@@ -8,8 +8,10 @@ import CircuitNumerical.ConditionedOracleSelection
 import CircuitNumerical.ExpressionCosts
 import CircuitNumerical.ExpressionExecution
 import CircuitNumerical.ExpressionResources
+import CircuitNumerical.FactorBitBudgets
 import CircuitNumerical.FactorDependencies
 import CircuitNumerical.FactorExpressions
+import CircuitNumerical.FactorInputBounds
 import CircuitNumerical.IntegerExpressionBudgets
 import CircuitNumerical.IntegerExpressionExecution
 import CircuitNumerical.IntegerPacketArithmetic
@@ -187,6 +189,52 @@ import CircuitNumerical.TracedNumericalSK
 #print axioms CircuitRecursion.expressionConjugator_bound
 #check CircuitRecursion.expressionFactor_bounds
 #print axioms CircuitRecursion.expressionFactor_bounds
+#check CircuitRecursion.bitAdd_bound
+#print axioms CircuitRecursion.bitAdd_bound
+#check CircuitRecursion.bitNeg_bound
+#print axioms CircuitRecursion.bitNeg_bound
+#check CircuitRecursion.bitMul_bound
+#print axioms CircuitRecursion.bitMul_bound
+#check CircuitRecursion.bitInv_bound
+#print axioms CircuitRecursion.bitInv_bound
+#check CircuitRecursion.bitSqrt_bound
+#print axioms CircuitRecursion.bitSqrt_bound
+#check CircuitRecursion.bitMean_bound
+#print axioms CircuitRecursion.bitMean_bound
+#check CircuitRecursion.bitCoordinate_bound
+#print axioms CircuitRecursion.bitCoordinate_bound
+#check CircuitRecursion.bitPacketMul_bound
+#print axioms CircuitRecursion.bitPacketMul_bound
+#check CircuitRecursion.bitPacketInverse_bound
+#print axioms CircuitRecursion.bitPacketInverse_bound
+#check CircuitRecursion.bitDistance_bound
+#print axioms CircuitRecursion.bitDistance_bound
+#check CircuitRecursion.rationalBinaryExponent_zero
+#print axioms CircuitRecursion.rationalBinaryExponent_zero
+#check CircuitRecursion.rationalBinaryExponent_one
+#print axioms CircuitRecursion.rationalBinaryExponent_one
+#check CircuitRecursion.bitFrame_bound
+#print axioms CircuitRecursion.bitFrame_bound
+#check CircuitRecursion.bitBalancedS_bound
+#print axioms CircuitRecursion.bitBalancedS_bound
+#check CircuitRecursion.bitBalancedC_bound
+#print axioms CircuitRecursion.bitBalancedC_bound
+#check CircuitRecursion.bitReference_bounds
+#print axioms CircuitRecursion.bitReference_bounds
+#check CircuitRecursion.bitBalancedReference_bound
+#print axioms CircuitRecursion.bitBalancedReference_bound
+#check CircuitRecursion.bitChartTarget_bound
+#print axioms CircuitRecursion.bitChartTarget_bound
+#check CircuitRecursion.bitChartMass_bound
+#print axioms CircuitRecursion.bitChartMass_bound
+#check CircuitRecursion.bitNormalized_bound
+#print axioms CircuitRecursion.bitNormalized_bound
+#check CircuitRecursion.bitConjugator_bound
+#print axioms CircuitRecursion.bitConjugator_bound
+#check CircuitRecursion.bitFactor_bounds
+#print axioms CircuitRecursion.bitFactor_bounds
+#check CircuitRecursion.fixedFactor_integerBitBudget
+#print axioms CircuitRecursion.fixedFactor_integerBitBudget
 #check CircuitRecursion.chooseChart_agrees
 #print axioms CircuitRecursion.chooseChart_agrees
 #check CircuitRecursion.coordinateSubOracle_agrees
@@ -227,6 +275,16 @@ import CircuitNumerical.TracedNumericalSK
 #print axioms CircuitRecursion.expressionFactorX_eval
 #check CircuitRecursion.expressionFactorY_eval
 #print axioms CircuitRecursion.expressionFactorY_eval
+#check CircuitRecursion.cachedPacketExpression_bitEnvelope
+#print axioms CircuitRecursion.cachedPacketExpression_bitEnvelope
+#check CircuitRecursion.expressionPacketOne_bitEnvelope
+#print axioms CircuitRecursion.expressionPacketOne_bitEnvelope
+#check CircuitRecursion.expressionWord_bitEnvelope
+#print axioms CircuitRecursion.expressionWord_bitEnvelope
+#check CircuitRecursion.residual_bitEnvelope
+#print axioms CircuitRecursion.residual_bitEnvelope
+#check CircuitRecursion.cachedResidualFactor_integerHeight
+#print axioms CircuitRecursion.cachedResidualFactor_integerHeight
 #check CircuitRecursion.rationalBinaryExponent_height
 #print axioms CircuitRecursion.rationalBinaryExponent_height
 #check CircuitRecursion.rationalBinaryExponent_le
