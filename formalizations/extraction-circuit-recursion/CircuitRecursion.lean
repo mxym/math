@@ -4,3 +4,7 @@ import CircuitRecursion.Prefix
 import CircuitRecursion.Expansion
 import CircuitRecursion.Compression
 import CircuitRecursion.PureInput
+import CircuitRecursion.BellPairs
+import CircuitRecursion.ExtractionCircuit
+import CircuitRecursion.PhysicalCoordinates
+import CircuitRecursion.LocalDiscard

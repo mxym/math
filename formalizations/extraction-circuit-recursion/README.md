@@ -28,10 +28,20 @@ actual recursively assembled list length to the sum of stage budgets, and
 20480*k*(k+2)^6*(6*clog_2(k+3)+2)^2 + 100*k^2.
 ```
 
-The full extraction proposition is still incomplete here: final multiple-Bell
-preparation, its physical local discard channel, exact optimal integer yield,
-an asymptotic Big-O statement, effective angle evaluation and finite-library
-Solovay--Kitaev compilation remain to be connected/proved. The finite embedding
+`extractionCircuit k` appends literal H/CNOT operations on the freed original
+zero pairs. `extractionOutput_purePower` proves exact standard Bell output from
+every normalized unknown pure iid input after the explicit product family of
+local discard Kraus operators. The output has `bellPairYield k = k-encodingPairs k`
+Bell pairs. `pairwiseCoordinates_physical` connects the chosen bit coordinates
+to physical copywise Alice/Bob coordinates through separate local digit maps;
+`readoutCoordinates` then splits each party's original qubits locally.
+`extractionCircuit_polynomial_bound` binds the displayed bound to this complete
+actual word, including Bell preparation.
+
+The full extraction proposition is still incomplete here: the real-log form
+and cPPT maximality of the integer yield, an asymptotic Big-O statement,
+effective angle evaluation and finite-library Solovay--Kitaev compilation
+remain to be connected/proved. The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
 
@@ -42,6 +52,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build passed with 3771 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T145238417719Z-extraction-circuit-recursion.log`.
+The ordinary build passed with 3776 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T150624131886Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.
