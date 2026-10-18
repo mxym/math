@@ -1,0 +1,51 @@
+import CircuitNumerical.FiniteBinaryLookupTerminal
+
+#check CircuitRecursion.BinaryLookupMachine.check_empty
+#print axioms CircuitRecursion.BinaryLookupMachine.check_empty
+#check CircuitRecursion.BinaryLookupMachine.check_zero
+#print axioms CircuitRecursion.BinaryLookupMachine.check_zero
+#check CircuitRecursion.BinaryLookupMachine.check_nonzero
+#print axioms CircuitRecursion.BinaryLookupMachine.check_nonzero
+#check CircuitRecursion.BinaryLookupMachine.advance_cons
+#print axioms CircuitRecursion.BinaryLookupMachine.advance_cons
+#check CircuitRecursion.BinaryLookupMachine.counter_iterate
+#print axioms CircuitRecursion.BinaryLookupMachine.counter_iterate
+#check CircuitRecursion.BinaryLookupMachine.lookup_iterate
+#print axioms CircuitRecursion.BinaryLookupMachine.lookup_iterate
+#check CircuitRecursion.BinaryLookupMachine.lookupTime_trace
+#print axioms CircuitRecursion.BinaryLookupMachine.lookupTime_trace
+#check CircuitRecursion.BinaryLookupMachine.lookupTime_bound
+#print axioms CircuitRecursion.BinaryLookupMachine.lookupTime_bound
+#check CircuitRecursion.BinaryLookupMachine.lookupRun_steps
+#print axioms CircuitRecursion.BinaryLookupMachine.lookupRun_steps
+#check CircuitRecursion.BinaryLookupMachine.lookupRun_steps_trace
+#print axioms CircuitRecursion.BinaryLookupMachine.lookupRun_steps_trace
+#check CircuitRecursion.BinaryLookupMachine.terminal_label
+#print axioms CircuitRecursion.BinaryLookupMachine.terminal_label
+#check CircuitRecursion.BinaryLookupMachine.terminal_halts
+#print axioms CircuitRecursion.BinaryLookupMachine.terminal_halts
+#check CircuitRecursion.BinaryLookupMachine.lookup_mem_eval
+#print axioms CircuitRecursion.BinaryLookupMachine.lookup_mem_eval
+#check CircuitRecursion.BinaryLookupMachine.terminal_source_value
+#print axioms CircuitRecursion.BinaryLookupMachine.terminal_source_value
+#check CircuitRecursion.BinaryLookupMachine.terminal_getElem
+#print axioms CircuitRecursion.BinaryLookupMachine.terminal_getElem
+#check CircuitRecursion.BinaryLookupMachine.lookupRun_steps_height
+#print axioms CircuitRecursion.BinaryLookupMachine.lookupRun_steps_height
+#check CircuitRecursion.BinaryLookupMachine.program_supports
+#print axioms CircuitRecursion.BinaryLookupMachine.program_supports
+#check CircuitRecursion.BinaryLookupMachine.running_control_card
+#print axioms CircuitRecursion.BinaryLookupMachine.running_control_card
+#check CircuitRecursion.BinaryLookupMachine.statement_depth
+#print axioms CircuitRecursion.BinaryLookupMachine.statement_depth
+#check CircuitRecursion.BinaryLookupMachine.OuterLabel
+#check CircuitRecursion.BinaryLookupMachine.Label
+#check CircuitRecursion.BinaryLookupMachine.Configuration
+#check CircuitRecursion.BinaryLookupMachine.configuration
+#check CircuitRecursion.BinaryLookupMachine.outer
+#check CircuitRecursion.BinaryLookupMachine.program
+#check CircuitRecursion.BinaryLookupMachine.advance
+#check CircuitRecursion.BinaryLookupMachine.counterInvocation
+#check CircuitRecursion.BinaryLookupMachine.terminal
+#check CircuitRecursion.BinaryLookupMachine.lookupTime
+#check CircuitRecursion.BinaryLookupMachine.lookupRun

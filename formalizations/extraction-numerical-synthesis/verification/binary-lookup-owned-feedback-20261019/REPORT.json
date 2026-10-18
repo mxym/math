@@ -1,0 +1,119 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T23:22:39.949611+00:00",
+  "scope": "two whole finite binary-index Boolean lookup machine modules; official operational execution and full controller count",
+  "baseline": "ebf8a643932583f3d5109b338a413e98bb58967e",
+  "modules": 2,
+  "root_count": 19,
+  "model_declarations": 11,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T232215992898Z-owned-check-CircuitNumerical.BinaryLookupCheck.log",
+  "check_log_sha256": "fb10034a960c150c3b02da91a9798d83e2458a0f23b0c40da63a6fe894fce11e",
+  "source_sha256": {
+    "CircuitNumerical/FiniteBinaryLookup.lean": "83ae6b8ce2569f8c9cbe65bdd3acd21280602ad071e417935939f9f1784da9a4",
+    "CircuitNumerical/FiniteBinaryLookupTerminal.lean": "0da5ab312feb5759b245ebaaed01edb820dad2f1326c46c6a28f237905e81f48",
+    "CircuitNumerical/BinaryLookupCheck.lean": "dd247f18980a1e4c1f09539af35732652056eca9830b4062420a9b317bd6feb4",
+    "BINARY_LOOKUP_ROOTS.txt": "c4cb89e798c724939b40c7f83e19e27ebd020caedf8d71a4236538efe3535a75",
+    "BINARY_LOOKUP_MODELS.txt": "d874a6f626308511f88b50d5154cb11025d45574e8dbc2d18a7ce65bf91754eb",
+    "BINARY_LOOKUP_SCOPE_20261019.md": "e3cd0a793f2c8162d174491e3533066ab6f7c50c6a427ca6dc935c77bb50de16"
+  },
+  "root_axioms": {
+    "CircuitRecursion.BinaryLookupMachine.check_empty": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.check_zero": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.check_nonzero": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.advance_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.counter_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookup_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookupTime_trace": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookupTime_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookupRun_steps": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookupRun_steps_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.terminal_label": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.terminal_halts": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookup_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.terminal_source_value": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.terminal_getElem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookupRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 327,
+  "old_b288_prefix_diff": "empty",
+  "endpoints": [
+    "actual six-label Bool-stack TM2 lookup with inlined counter, proved terminal and getElem value",
+    "whole official EvalsToInTime <=(2*width+4)*cachelength+1; representation-height bound internally derived",
+    "exact machine steps = actual source counterTransitions+2*counterCalls+1, not a new independent ghost fee"
+  ],
+  "remaining": [
+    "encoded whole-packet record selection and all precision-index construction",
+    "whole compiler/provider/cache/AST and continuation encoded-control lowering",
+    "structured payload encodings, allocation, remaining general control and single-tape simulation",
+    "computing trace/cost annotations",
+    "full compiler machine bit-time"
+  ]
+}
