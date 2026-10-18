@@ -48,3 +48,4 @@ import SchurCompletion.DeterminantTrace
 import SchurCompletion.MinorMomentAsymptotic
 import SchurCompletion.GeneralPurity
 import SchurCompletion.GeneralStraightening
+import SchurCompletion.GeneralRank
