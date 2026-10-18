@@ -1,0 +1,479 @@
+{
+  "status": "GENERATED_AUTHOR_PREPARED_GRAY_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 29,
+  "model_count": 26,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.PreparedPauliPlan",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.preparePauliPlan",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.runPreparedPauli",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 26
+    },
+    {
+      "name": "EffectiveEncoding.preparedParity",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.runPreparedPauli_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.preparedParity_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 39
+    },
+    {
+      "name": "EffectiveEncoding.preparedMaskTable",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 44
+    },
+    {
+      "name": "EffectiveEncoding.preparedSelectedCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 49
+    },
+    {
+      "name": "EffectiveEncoding.preparedSelectedCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 55
+    },
+    {
+      "name": "EffectiveEncoding.preparedMaskTable_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.PreparedPauliPlan.payloadCells",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 67
+    },
+    {
+      "name": "EffectiveEncoding.preparePauliPlan_payloadCells",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 71
+    },
+    {
+      "name": "EffectiveEncoding.preparedMaskTablePayload",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 85
+    },
+    {
+      "name": "EffectiveEncoding.preparedMaskTablePayload_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "line": 89
+    },
+    {
+      "name": "EffectiveEncoding.preparedAdjacentSwapCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.preparedAdjacentRotationCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.preparedOrientedRotationCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 20
+    },
+    {
+      "name": "EffectiveEncoding.preparedAdjacentSwapCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 25
+    },
+    {
+      "name": "EffectiveEncoding.preparedAdjacentRotationCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.preparedOrientedRotationCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 35
+    },
+    {
+      "name": "EffectiveEncoding.preparedMoveCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 40
+    },
+    {
+      "name": "EffectiveEncoding.preparedMoveCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.preparedSwapCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 54
+    },
+    {
+      "name": "EffectiveEncoding.preparedSwapCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.preparedRotationCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 66
+    },
+    {
+      "name": "EffectiveEncoding.preparedRotationCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 73
+    },
+    {
+      "name": "EffectiveEncoding.preparedRawCompile",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 79
+    },
+    {
+      "name": "EffectiveEncoding.preparedRawCompile_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 84
+    },
+    {
+      "name": "EffectiveEncoding.preparedCompileRaw",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 89
+    },
+    {
+      "name": "EffectiveEncoding.preparedCompileRaw_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "line": 93
+    },
+    {
+      "name": "EffectiveEncoding.preparedIndexedRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedRankedPrograms.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.preparedIndexedRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedRankedPrograms.lean",
+      "line": 19
+    },
+    {
+      "name": "EffectiveEncoding.preparedRankedAlignmentRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedRankedPrograms.lean",
+      "line": 25
+    },
+    {
+      "name": "EffectiveEncoding.preparedRankedAlignmentRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedRankedPrograms.lean",
+      "line": 40
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeBranchRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedRankedPrograms.lean",
+      "line": 48
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeBranchRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedRankedPrograms.lean",
+      "line": 55
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeBranchTableRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeBranchTableRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeOccupationRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeOccupationRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 32
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeStageRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 38
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeStageRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeCompressionRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeCompressionRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 56
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeDescriptorRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 63
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeDescriptorRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 69
+    },
+    {
+      "name": "EffectiveEncoding.nativeActiveWires_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 74
+    },
+    {
+      "name": "EffectiveEncoding.activePreparedMaskPayload",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "line": 80
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeBooleanExtractionRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeExtraction.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeBooleanExtractionRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeExtraction.lean",
+      "line": 17
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeBooleanExtractionRun_onlineActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeExtraction.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeBooleanExtractionRun_providerRootCharge",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeExtraction.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.preparedNativeBooleanExtractionRun_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeExtraction.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.totalPreparedMaskPayload",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeExtraction.lean",
+      "line": 59
+    },
+    {
+      "name": "EffectiveEncoding.totalPreparedMaskPayload_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeExtraction.lean",
+      "line": 64
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean",
+      "sha256": "38b8c00f1c42bd23971d3881915bd1359f3bdb5ee36e37760b893191a7e288b2",
+      "declarations": [
+        "EffectiveEncoding.PreparedPauliPlan",
+        "EffectiveEncoding.preparePauliPlan",
+        "EffectiveEncoding.runPreparedPauli",
+        "EffectiveEncoding.preparedParity",
+        "EffectiveEncoding.runPreparedPauli_eq",
+        "EffectiveEncoding.preparedParity_eq",
+        "EffectiveEncoding.preparedMaskTable",
+        "EffectiveEncoding.preparedSelectedCode",
+        "EffectiveEncoding.preparedSelectedCode_eq",
+        "EffectiveEncoding.preparedMaskTable_length",
+        "EffectiveEncoding.PreparedPauliPlan.payloadCells",
+        "EffectiveEncoding.preparePauliPlan_payloadCells",
+        "EffectiveEncoding.preparedMaskTablePayload",
+        "EffectiveEncoding.preparedMaskTablePayload_bound"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean",
+      "sha256": "8c47afe9af4eff7809f1d4493c0899bf6df57ad66c04e0f06157f0ab093abbcc",
+      "declarations": [
+        "EffectiveEncoding.preparedAdjacentSwapCode",
+        "EffectiveEncoding.preparedAdjacentRotationCode",
+        "EffectiveEncoding.preparedOrientedRotationCode",
+        "EffectiveEncoding.preparedAdjacentSwapCode_eq",
+        "EffectiveEncoding.preparedAdjacentRotationCode_eq",
+        "EffectiveEncoding.preparedOrientedRotationCode_eq",
+        "EffectiveEncoding.preparedMoveCode",
+        "EffectiveEncoding.preparedMoveCode_eq",
+        "EffectiveEncoding.preparedSwapCode",
+        "EffectiveEncoding.preparedSwapCode_eq",
+        "EffectiveEncoding.preparedRotationCode",
+        "EffectiveEncoding.preparedRotationCode_eq",
+        "EffectiveEncoding.preparedRawCompile",
+        "EffectiveEncoding.preparedRawCompile_eq",
+        "EffectiveEncoding.preparedCompileRaw",
+        "EffectiveEncoding.preparedCompileRaw_eq"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedRankedPrograms.lean",
+      "sha256": "a72c79eabc423a648c2926ecbe06f8a22c277f4b79f1829a42ab2a59099350ac",
+      "declarations": [
+        "EffectiveEncoding.preparedIndexedRun",
+        "EffectiveEncoding.preparedIndexedRun_eq",
+        "EffectiveEncoding.preparedRankedAlignmentRun",
+        "EffectiveEncoding.preparedRankedAlignmentRun_eq",
+        "EffectiveEncoding.preparedNativeBranchRun",
+        "EffectiveEncoding.preparedNativeBranchRun_eq"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean",
+      "sha256": "4c3b0d20478d3bf9fee66643c984f3fba59d5dfa8b5ba3ee339ca02c79745671",
+      "declarations": [
+        "EffectiveEncoding.preparedNativeBranchTableRun",
+        "EffectiveEncoding.preparedNativeBranchTableRun_eq",
+        "EffectiveEncoding.preparedNativeOccupationRun",
+        "EffectiveEncoding.preparedNativeOccupationRun_eq",
+        "EffectiveEncoding.preparedNativeStageRun",
+        "EffectiveEncoding.preparedNativeStageRun_eq",
+        "EffectiveEncoding.preparedNativeCompressionRun",
+        "EffectiveEncoding.preparedNativeCompressionRun_eq",
+        "EffectiveEncoding.preparedNativeDescriptorRun",
+        "EffectiveEncoding.preparedNativeDescriptorRun_eq",
+        "EffectiveEncoding.nativeActiveWires_eq",
+        "EffectiveEncoding.activePreparedMaskPayload"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeExtraction.lean",
+      "sha256": "004115682873fc5d3a22430f82ea3fce59376ab93e513a991eebab47103bd222",
+      "declarations": [
+        "EffectiveEncoding.preparedNativeBooleanExtractionRun",
+        "EffectiveEncoding.preparedNativeBooleanExtractionRun_eq",
+        "EffectiveEncoding.preparedNativeBooleanExtractionRun_onlineActions",
+        "EffectiveEncoding.preparedNativeBooleanExtractionRun_providerRootCharge",
+        "EffectiveEncoding.preparedNativeBooleanExtractionRun_fidelity",
+        "EffectiveEncoding.totalPreparedMaskPayload",
+        "EffectiveEncoding.totalPreparedMaskPayload_bound"
+      ]
+    }
+  ]
+}
