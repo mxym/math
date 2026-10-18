@@ -1,5 +1,19 @@
-import CircuitRecursion.SpecialUnitaryNet
+import CircuitRecursion.BalancedCommutator
 
+#check CircuitRecursion.su2Commutator_unitary
+#print axioms CircuitRecursion.su2Commutator_unitary
+#check CircuitRecursion.unitaryCommutator_conjugate
+#print axioms CircuitRecursion.unitaryCommutator_conjugate
+#check CircuitRecursion.axisCommutator_scalar
+#print axioms CircuitRecursion.axisCommutator_scalar
+#check CircuitRecursion.axisX_distance
+#print axioms CircuitRecursion.axisX_distance
+#check CircuitRecursion.axisY_distance
+#print axioms CircuitRecursion.axisY_distance
+#check CircuitRecursion.su2_balanced_commutator
+#print axioms CircuitRecursion.su2_balanced_commutator
+#check CircuitRecursion.su2_near_identity_commutator
+#print axioms CircuitRecursion.su2_near_identity_commutator
 #check CircuitRecursion.zeroBits_append
 #print axioms CircuitRecursion.zeroBits_append
 #check CircuitRecursion.bellPairsWord_action
@@ -160,6 +174,20 @@ import CircuitRecursion.SpecialUnitaryNet
 #print axioms CircuitRecursion.bitPurePower_expansion
 #check CircuitRecursion.compressionCircuit_purePower
 #print axioms CircuitRecursion.compressionCircuit_purePower
+#check CircuitRecursion.quaternionMatrix_star_mul
+#print axioms CircuitRecursion.quaternionMatrix_star_mul
+#check CircuitRecursion.quaternionMatrix_det
+#print axioms CircuitRecursion.quaternionMatrix_det
+#check CircuitRecursion.normalizedQuaternion_val
+#print axioms CircuitRecursion.normalizedQuaternion_val
+#check CircuitRecursion.normalizedQuaternion_intertwines
+#print axioms CircuitRecursion.normalizedQuaternion_intertwines
+#check CircuitRecursion.quaternion_difference
+#print axioms CircuitRecursion.quaternion_difference
+#check CircuitRecursion.su2_intertwiner
+#print axioms CircuitRecursion.su2_intertwiner
+#check CircuitRecursion.intertwiner_conjugates
+#print axioms CircuitRecursion.intertwiner_conjugates
 #check CircuitRecursion.castBits_rfl
 #print axioms CircuitRecursion.castBits_rfl
 #check CircuitRecursion.castCircuit_rfl
@@ -194,6 +222,32 @@ import CircuitRecursion.SpecialUnitaryNet
 #print axioms CircuitRecursion.compiledExtraction_fidelity
 #check CircuitRecursion.compiledExtraction_length
 #print axioms CircuitRecursion.compiledExtraction_length
+#check CircuitRecursion.su2_inverse_conjugate
+#print axioms CircuitRecursion.su2_inverse_conjugate
+#check CircuitRecursion.su2_sameScalar_conjugate
+#print axioms CircuitRecursion.su2_sameScalar_conjugate
+#check CircuitRecursion.su2Conjugate_unitary
+#print axioms CircuitRecursion.su2Conjugate_unitary
+#check CircuitRecursion.unitaryDistance_conjugate_one
+#print axioms CircuitRecursion.unitaryDistance_conjugate_one
+#check CircuitRecursion.su2_adjugate
+#print axioms CircuitRecursion.su2_adjugate
+#check CircuitRecursion.su2_lower_left
+#print axioms CircuitRecursion.su2_lower_left
+#check CircuitRecursion.su2_lower_right
+#print axioms CircuitRecursion.su2_lower_right
+#check CircuitRecursion.su2_normalForm
+#print axioms CircuitRecursion.su2_normalForm
+#check CircuitRecursion.su2_mass
+#print axioms CircuitRecursion.su2_mass
+#check CircuitRecursion.su2_scalarPart_bounds
+#print axioms CircuitRecursion.su2_scalarPart_bounds
+#check CircuitRecursion.su2_trace
+#print axioms CircuitRecursion.su2_trace
+#check CircuitRecursion.su2_add_adjoint
+#print axioms CircuitRecursion.su2_add_adjoint
+#check CircuitRecursion.su2_distance_square
+#print axioms CircuitRecursion.su2_distance_square
 #check CircuitRecursion.specialUnitary_isCompact
 #print axioms CircuitRecursion.specialUnitary_isCompact
 #check CircuitRecursion.specialUnitary_compactSpace

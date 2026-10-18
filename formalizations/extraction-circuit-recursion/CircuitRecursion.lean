@@ -16,3 +16,7 @@ import CircuitRecursion.Check
 import CircuitRecursion.CommutatorError
 import CircuitRecursion.FiniteNet
 import CircuitRecursion.SpecialUnitaryNet
+import CircuitRecursion.SU2Coordinates
+import CircuitRecursion.QuaternionPlane
+import CircuitRecursion.SU2Conjugacy
+import CircuitRecursion.BalancedCommutator

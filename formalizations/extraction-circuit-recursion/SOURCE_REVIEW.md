@@ -18,6 +18,8 @@ No external SK theorem is imported into Lean, and no axiom or calibration
 certificate is supplied. `CommutatorError.lean` proves cancellation and an
 actual operator-norm perturbation bound. `FiniteNet.lean` and
 `SpecialUnitaryNet.lean` derive a uniform fixed finite net from inverse closure,
-density and proved compactness of the actual SU(2) matrix group. They do not
-provide an effective net-search algorithm, a balanced decomposition, or a
-complete finite-precision SK compiler.
+density and proved compactness of the actual SU(2) matrix group.
+`BalancedCommutator.lean` constructs the balanced decomposition with explicit
+square-root plane rotations and internally proved quaternion-form conjugacy.
+No effective net-search algorithm or complete finite-precision SK compiler is
+yet provided.
