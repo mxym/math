@@ -1,0 +1,9 @@
+# Internally derived whole-AST Boolean action bound
+
+The actual whole Word AST evaluator now satisfies an unconditional internal action bound: its executed trace costs at most 20000(2B+4)^2 times AST operations when B is the AST's own integerBitBudget. The theorem accepts no local-cost, final-correctness or polynomial-runtime certificate. The general bounded-budget version takes only the explicit computable inequality integerBitBudget <= B.
+
+The mutual proof internally derives the canonical width of every arithmetic operand from its decoded raw scalar/packet height. It derives each root's precision bound from the sqrt node's own 2p contribution to integerBitBudget. Every concrete Boolean primitive charge is included: signed arithmetic, cross comparisons, common-denominator packet multiply/tuple/inverse/distance, stored-score maximum selection, restoring division/square root and their shifts/trims. The generic AllLocalBound trace helper is discharged internally, then combined with the proved actual executed-node bound.
+
+The charged model remains the explicit Boolean/list/record action semantics attached to the actual executed trace. Host literal-adapter Nat.bits execution, gate/target providers and cache construction, AST/list allocation/index implementation and annotation/index/counter arithmetic remain separate. Output bit volume or dyadic correctness is not treated as provider runtime. No complete compiler machine-time theorem is asserted.
+
+This scope has guarded narrow author checks only, not a standard aggregate or independent kernel replay. Every older source and metadata file remains byte-identical and the frozen raw-resource scope does not import these additions. Next work is the actual synthesis-word decision program and its retained-expression trace, connecting this internally proved quadratic-in-height AST bound with the existing operation and p137 budgets.
