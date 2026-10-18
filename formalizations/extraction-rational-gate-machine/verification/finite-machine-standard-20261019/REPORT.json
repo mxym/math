@@ -1,0 +1,153 @@
+{
+  "utc": "2026-10-18T23:12:12.538940+00:00",
+  "status": "AUTHOR_STANDARD_TYPES_KINDS_AXIOMS_AND85_ACTUAL_MACHINE_RUNS_PASS_NOT_INDEPENDENT_REPLAY",
+  "parent_head": "cbc306cbe0ed197b198bcff057c0fe4acd4c103c",
+  "package": "extraction-rational-gate-machine",
+  "theorem_count": 23,
+  "build_jobs": 3994,
+  "source_snapshot": {
+    "formalizations/extraction-rational-gate-machine/.gitignore": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374",
+    "formalizations/extraction-rational-gate-machine/MACHINE_SOURCE_BINDING.json": "67d883899464212451dec5ff74648af6a767430c16ce31c43ef970d82b1cfae8",
+    "formalizations/extraction-rational-gate-machine/MODELS.txt": "b3a56723cfd07e4c675a11c04f07e0262603f0036e0cc57226e9867676c54b5d",
+    "formalizations/extraction-rational-gate-machine/README.md": "1efe26f92fb44f6df5d888ef57822896aa0d33194e5e2c66ac845fc192fba6f8",
+    "formalizations/extraction-rational-gate-machine/ROOTS.txt": "f9ac1e00adbf9dd0171bda71ca173c3aaa6d2769ad56c527400390e0eb721943",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/Check.lean": "ad8c7b164169620fe1f65bfdf132151e182e4926b8bd2c837d9e4b0191139233",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/Fifths.lean": "da77d0a625bbafce69ce6e5799a673c400454d6f7a0d6c41afc3b6707bd82b4d",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine.lean": "70f6c9c58ed1ebba94ddedc98fabd73a26a1ede8da3e18a9935e719754508951",
+    "formalizations/extraction-rational-gate-machine/lake-manifest.json": "915b9047726a76e402ae9107c8ec6a4ca529df8df519f8e72fd365eee722869e",
+    "formalizations/extraction-rational-gate-machine/lakefile.toml": "a9291c2e5e11758d09e5ee9bc82e9aae87243f4e4981337909c12ea91bd508f7",
+    "formalizations/extraction-rational-gate-machine/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "axioms": {
+    "RationalGateMachine.stackData_zero": [
+      "propext"
+    ],
+    "RationalGateMachine.stackData_one": [
+      "propext"
+    ],
+    "RationalGateMachine.stackData_two": [
+      "propext"
+    ],
+    "RationalGateMachine.update_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.update_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.update_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.step_empty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.step_cons": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.terminal_stops": [
+      "propext"
+    ],
+    "RationalGateMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.program_statement_depth": [
+      "propext"
+    ],
+    "RationalGateMachine.advance_iterate": [],
+    "RationalGateMachine.iterate_seed": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.advance_seed": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.machine_steps": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.finite_state_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.stack_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.label_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.fifthsRun_steps": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.fifths_terminal_numerator": [
+      "propext"
+    ],
+    "RationalGateMachine.fifths_terminal_denominator": [
+      "propext"
+    ],
+    "RationalGateMachine.fifths_terminal_dyadic_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.fifths_terminal_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.program": [
+      "propext"
+    ],
+    "RationalGateMachine.stackData": [
+      "propext"
+    ],
+    "RationalGateMachine.active": [
+      "propext"
+    ],
+    "RationalGateMachine.terminal": [
+      "propext"
+    ],
+    "RationalGateMachine.advance": [],
+    "RationalGateMachine.fifthsRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "model_roots": [
+    "RationalGateMachine.program",
+    "RationalGateMachine.stackData",
+    "RationalGateMachine.active",
+    "RationalGateMachine.terminal",
+    "RationalGateMachine.advance",
+    "RationalGateMachine.fifthsRun"
+  ],
+  "logs": {
+    "20261018T230907081061Z-root-owned-RationalGateMachine.Fifths.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "20261018T230911076554Z-root-owned-RationalGateMachine.Check.log": "e9bb2e3e271c757ffca0479e082027cd414084adbb3d0d1c1358d78f5ae7b9b7",
+    "20261018T230934754673Z-extraction-rational-gate-machine.log": "aa40772d83a408eaa068bf1d48383613783fe9010ef0e16396e08e2a7dfdca1a"
+  },
+  "proved": "Genuine official TM2 finite3Bool-stack/1label/10state transducer, static statement-depth6, exact p+1 iterated transitions and terminal eval membership, exact original fifths numerator+denominator words and strict dyadic error; 85 actual machine runs checked, no Nat/fuel register",
+  "excluded": "Unary clock input construction from binary precision; four-coordinate marshalling; canonical normalization; complete provider/compiler machine time; single-tape simulation complexity; independent new kernel/controls; outside fixed native8b78 audit",
+  "D_storage_and_global_lock": true,
+  "independent_empty_kernel_or_controls": false
+}
