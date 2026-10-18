@@ -1,0 +1,102 @@
+独立书面数学审读记录（2026-10-19）
+
+审读结论：在本记录列明的覆盖范围内，未发现尚未解决、应阻止进入最终冻结/独立Lean审计的定理级数学错误。这个结论仅为独立书面审读结果，不等于全稿Lean独立验证完成、外部人类同行评审通过、或任何首次发现/优先权认证。
+
+被审稿快照：cfdd2a6c7954f1956f1832cdabe28dd6e018fe3a。
+数学参考快照：be6424da5b1d1178136fa4aa4819c62806132ad2。
+源码：/mnt/lean-research-d/worktrees/extraction-lean-minimax-20261016/preprints/universal-entanglement-extraction-revision-2026-10。
+八TeX逐行阅读；后续小修逐项与原文比较，最终八TeX及两份source-map文件的精确SHA-256另见同目录SCOPE_MANIFEST.json。
+
+按严重程度的发现与处置：
+
+1. 未决高/中严重度数学发现：无。未产生可复现定理反例。
+2. 已解决的有限块定义清晰度问题：universal-protocol.tex:48 原来只称使用“unreserved geometric construction”，未局部展开fallback的sector与projection规则。最终稿明确以floor(a/J),floor(b/J)替换小sector维数、直接分配P_j差分、补全unitary及decoder；零sector时使用identity preprocessing与完整reset。此版本定义了所有有限k和正整数K的actual family，后续定量界仍只要求a_0>0。没有将另一协议的极限错用于所选family。
+3. 已解决的固定误差目标定义问题：asymptotic-laws.tex:111–119 现在明确operation class、最大正整数与actual state-aware protocol fidelity >=1-epsilon。Gaussian逆的符号、quantile方向和实际见证逻辑均一致。证明不假定所选family随K单调。
+4. 其他同轮已解决小修已重核：unknown-support.tex:139 明列0<=epsilon<1；:189 使用G=max(1,actual continuous-gate circuit size)，不把O(k^7 log^2 k)常数遗漏进log G；:192 不额外宣称未绑定的编码枚举算法；:211 使用2 ell_k=2(k-h_k)，无需另加“标签恰占最前r个整数”的编码假设。
+
+版本追核（仅新增文献段）：本报告保留原e4cf逐行审读的全部数学覆盖结论，并在本版追加核对75f641a88e9eebb6b7bb4e2a62decb9131403e0a引入的模型比较与cfdd2a6c7954f1956f1832cdabe28dd6e018fe3a的引用引号修复。git diff确认自e4cf只有introduction.tex和references.tex变化；其余六TeX和两source maps逐字节未变。未开展新数学研究或新增Lean审计。原e4cf的REVIEW和SCOPE_MANIFEST已逐字节保存在本目录带e4cfda12c3d6后缀的文件中。本版精确八TeX哈希及历史报告哈希见SCOPE_MANIFEST.json。
+
+认真覆盖与独立重推的数学主链：
+
+A. 原始协议与谱打包（introduction.tex:9–35；spectral-principles.tex:5–124）。
+- U明确是原输入空间上的任意global entangling resource；cPPT约束作用于后处理，不作用于U。
+- Rains方向的effect order inequalities与反向measure-and-prepare channel均正确。Q_+、Q_-系数及trace ranks给出CP和TP，K>=2的分母条件正确；K=1单独平凡。
+- Tr M^2<=N/K^2来自partial transpose保持Hilbert–Schmidt norm；norm cap<=min(1,a/K)由任意vector Schmidt trace-norm bound推出，没把整体U吸收到PPT约束本身。
+- coherent packing对全部logical off-diagonal coherences成立。不同garbage标签的完整product Kraus族将|psi_ij><psi_i'j'|送到delta_ii' delta_jj' Phi_d；unused-coordinate reset补TP；目标overlap为d/K。没有postselection。
+- one-shot envelope的d=max(1,floor(w/2))满足d>=w/4及floor packing条件；上界lambda_i<=L_i/i与effect eigenvalue bound给出H_N T_K。Holder的beta幂及alpha范围1<=alpha<=2均核对。
+
+B. matrix-orbit capture与同一个reserved protocol（universal-protocol.tex:5–92）。
+- arbitrary complex M的tensor-power orbit由degree-k homogeneous polynomial span给出B_Dk维数；composition与adjoint closure确实使P成为reducing projection。
+- 对任意eigenvalue labeling，U^{tensor k}e_w属于orbit range，所以captured mass正确；给矩阵所有columns赋同一z说明每个非空orbit space包含Sym^k。
+- H与所有P均和rho^{tensor k}相容；去除H后的nested differences正确，包括P_j=0时的分支。
+- small-sector总维数与large-sector reservation相容。a_*、b_*足以容纳rank r_k并使用width a_0，故d_*>=d_0。所有sector code的isometry可在原N维空间extend为同一unitary；实际完整local decoder可共用。
+- 与unused source complement之间的coherence由rho^{tensor k}与source projections交换而消失，code sector之间的coherence由local sector Kraus标签消失。不能只凭“正输入剩余贡献非负”而忽略这些交叉项；稿中已提供所需交换性。
+- prefix bound中B_j=Tr[(H+R_j)rho^k]的summation by parts方向、首项权重和所有非负系数核对正确。
+
+C. finite sandwich、all-rate exponents及capacity（universal-protocol.tex:94–127；asymptotic-laws.tex:1–99）。
+- lower cutoff中的16 Q^2 Q_Dk来自两侧floor损失与grid的4，h的符号正确；H(type)<=sample surprisal给出事件包含。
+- upper small-eigenvalue contribution使用sum z_i^2<=N/K^2，得到e^{-t/2}，不误用一般unitary后partial-transpose bounds。该upper proof本身对所有K成立，可用于固定误差逆对更大K的排除。
+- h<=10 D^2 log(k+D)是保守有效上界，未删dimension dependence。
+- fidelity exponent从同一个实际geometric grid取O(k)索引，J=(k+1)^2覆盖该索引；type近似保留rank-deficient support。全support均匀law的H=L边界可由非均匀law逼近；R=0另作target1。
+- capped exponent的(R-A)_+项及c_R=L-2min(R,A)正确。escort derivative与scalar identity给出alpha in[1,2]；未交换未经许可的minimax。
+- faithful capacity与eventual-exact capacity由actual positive-integer witnesses定义，零容量时仍含rate0。exact effect对support必须identity，推出rank s^k<=N/K^2与K<=a，正确。
+- strict reliability要求C0<R<C，因此H(p)<c<log s；classical prefix-tail type proof与effect eigenvalue tail converse给出相同I_p(c)。log s边界没有被连续延拓。稿内rank4 on4x4、K=2^k的exact-packing例子确实显示R=C0处不能套有限reliability公式。
+- sanity derivation：pure spectrum给E=(R-log m)_+；full maximally mixed spectrum给E=R，符合实际fidelity1/K；flat rank-s spectrum给供给维数sqrt(N/s^k)与local cap的较小者。以上为解析交叉核对，不是仿实现测试。
+
+D. fixed与triangular Gaussian（universal-protocol.tex:129–149；asymptotic-laws.tex:101–122）。
+- error bound用normal CDF Lipschitz常数1/sqrt(2pi)，两侧取max(h,t)而非丢失一个deviation，正确。
+- sufficient triangular conditions保留V>0/eventual positivity、K<=a_0整数预算、kV->infty、Berry–Esseen third-moment ratio与h/sigma->0；t=sqrt(sigma)使smoothing terms消失。
+- DV>=c、DT<=C推出T/V^{3/2}<=const sqrt D、sigma>=const sqrt(k/D)，与h上界合并确实需要D^5 log^2(k+D)=o(k)。这些没有被误称为自动APPT性质。
+- fixed Gaussian要求0<C<A、V>0，local cap gap使整数预算最终成立。threshold为-2z/sqrt V，fixed-error inverse为+0.5 sqrt(kV) Phi^{-1}(epsilon)，符号正确。V=0、C=A不在此定理内。
+
+E. actual Haar moments、rank与minimax（unknown-support.tex:3–168）。
+- literal Haar average的range等于所有rank<=s tensor ranges的span；continuity、nonnegative quadratic form与full-support Haar measure足以证明最小共同support。
+- minor moment递推可明确理解为：条件于第一Haar column的coordinate projection squared length x，再用block unitaries将其对齐；剩余rows2..s位于第一column的正交补，给(D-1,s-1) Haar minor，x有Beta(s,D-s)矩。因而M_{s,t}(q)=((s)_q/(D)_q) M_{s-1,t}(q)，product formula和q^g M_q->A_Ds的factorial常数一致。
+- trace identity为s^k Tr Omega^2=E Y^k，normalization没有漏一个s^k。
+- X<=Y^s、Y<=(s-1+X)/s以及固定整数N比较中的derivative、floor q和exponential remainder核对。得到s^k k^g Tr Omega^2->s^g A_Ds=1/c_Ds。
+- rank upper没有仅靠purity作假推论：cyclic eigenvalue permutations使每个tensor word的s个diagonal values之积为(det G)^k；AMGM再Haar twirl给det^q I。Omega属于permutation-operator algebra，故与所有rotated P_s^{tensor k}交换；compression lower确实排除任何小正eigenvalue。r<=s^k/M_ceil(k/s)与Cauchy–Schwarz lower合起来给实际rank渐近和r Tr Omega^2->1。
+- finite minimax average只用于converse；lower是一个知道s的actual common protocol，未把Haar randomization当操作。
+- n>ms时r/(b/a)->0，所以width a最终exact feasible；n<=ms时w/a,w/b->0且w->infty。floor-product lower与epsilon_k=sqrt(w/a+w/b)给d_k/w_k->1，包含n=ms的polynomial boundary。
+- ratio始终夹在d_k/w_k与eta_k间，故真正uniform于所有正整数K，含exponentially small fidelity；没有将逐K收敛冒充uniform。
+- exact targets的上界用actual success，不依赖unattained supremum。fixed-epsilon targets用实际floor(d/(1-epsilon))见证和eta w/(1-epsilon)上界，log rounding为o(1)。s=D另有exact1/K和epsilon范围。
+- arbitrary known positive spectrum只推出相同exact-target support约束；完整fixed-error profile仅flat spectrum使用。稿中没有错误扩大到一般非均匀谱。
+
+F. pure profile与原寄存器电路（unknown-support.tex:170–232）。
+- balanced pure full-output常数sqrt((D-1)!)正确，same-family reservation仅移走vanishing local fraction，可保持target-uniform sharp lower。
+- qubit h=floor(k-0.5 log_2 r_k)是nonnegative integer。ell_k=ceil(log_4 r_k)=k-h，故两个k-h garbage registers恰能容纳2ell_k memory qubits。
+- occupation branching vectors有disjoint computational supports、每个<=4 entries；每occupation<=3 real Givens与full active-basis permutation给polynomial two-level list。L_j<=16r_{j-1}=O(j^3)，每two-level operation O(q_j^2 L_j)且每step O(L_j) operations，求和得到O(k^7 log^2(k+3))。
+- Gray-path与Pauli projector expansion不需clean ancilla；parity circuits使用现有参与wire。生成Bell pairs的零wires来自unitary压缩，并非在global circuit之前供应/reset的ancilla。
+- exact necessity用common effect在entire Sym^k上identity，给r_k<=4^k/4^h，匹配integer optimum。
+- finite inverse-closed dense SU(2) library的fixed-net/Solovay–Kitaev word存在与保守log^5长度有标准依据。commutator误差4 delta epsilon+2 epsilon^2可由逐因素改变且利用接近identity的消去推导。embedding与whole-list telescoping给operator error<=delta（up to phase），实际discard后fidelity>=1-2delta。
+- 本稿明确不主张统一classical finite-precision synthesis-time或Turing bit-cost bound。occupation rational masses与angle bounds不能单独补该定理；此问题仍open。
+
+G. APPT应用（applications-verification.tex:3–39）。
+- compact APPT集上continuous entropy的minimum attained，capacity map的monotonic min公式给max C=min(log m,E1/2)。未在本稿解APPT entropy optimizer。
+- Renyi-2/Jensen给C<=0.5 log(D Pmax)，balanced purity law推出upper coefficient4。这一引用purity law本身的外部证明与旧audit不在本次重新核验范围。
+- spike(I+2vv*)/(D+2)在任何global rotation后PPT，因为rank-one partial transpose最小eigenvalue>=-1/2。spectrum(3,1,...,1)/(D+2)、capacity exact formula与(3 log3-2)/(2D)首项、有限error bound方向均正确，local cap确实inactive。
+- capacity先fixed dimensions再many-copy，joint growing-D Gaussian另需moments与integercaps；未混用两种limit。
+
+H. scope/source map（applications-verification.tex:41–75；THEOREM_SOURCE_MAP.md全文；MANUSCRIPT_CLAIMS.json全部metadata和27组scope）。
+- 作者map自称correspondence，明确pending final independent audit，声明数量不作发现数量。reference_math_snapshot指向数学源基线，符合本次仅稿件小修的情况。
+- old608与旧APPT记录不能certify later extensions的限制明确；不存在把ordinary build、selected snapshot check或same-type proof controls写成当前全量冻结成功。
+- Gaussian正variance/local budget、strict reliability、fixedD,s Haar渐近、rank promise、general-spectrum exact versus flat-spectrum fixed error、actual whole circuit word、APPT optimizer exclusion等scope均和正文一致。
+- 两个map列出的87 declarations只当作者映射。本次没有对每个Lean theorem type/axioms/dependency closure做独立kernel审计；不能据此确认每个声明与正文完全等价。最终必须把精确模型定义、theorem types、source/config inputs、八TeX与map共同冻结并重放。
+
+原始文献与novelty边界：
+
+已查看Rains的原始arXiv摘要、Lami 2610.12454原始摘要、Kondra等2605.29197原始摘要，以及下列原始全文的相关部分。没有依据arXiv年份/编号否认真实性。
+- Chen等2307.12024v2（https://arxiv.org/html/2307.12024v2）已有unknown pure iid symmetric compression、occupation/CG递推与finite-gate polynomial approximation。因此压缩机制本身不是本文新发现；稿中unknown-support.tex:182的明确credit与“specialization/resource conversion”表述合适。
+- Lin–Li–Fang2601.10190v3（https://arxiv.org/html/2601.10190v3）的universal finite-block/reliability框架在受free-operations约束的black-box state sets中工作。本文的任意global entangling U是额外resource，故不能把“universal/exact exponent”单独当区别；introduction.tex:40–44已经说明实际差别。
+- Tirone等2609.40080v1、Rizzo等2609.38038v1、Takagi等2609.40215v1的原始全文页已打开并作模型级比较；本次没有逐一定理穷尽比对其全部补充材料。
+- 邻近近期文献Hayden–Maloney–Wang–Yang2610.06741v1（https://arxiv.org/html/2610.06741v1）讨论known-spectrum/unknown-eigenbasis状态编程内存与orbit维数；其recovery error不要求保持purification，且不是本文two-stage entanglement extraction任务。最终稿已在introduction.tex:44及references.tex:14加入这一近邻。新增段落的模型比较与官方原文Fig.1及equation (10)一致：known spectrum、unknown eigenbasis、vanishing whole-state trace-distance recovery error，不要求preservation of purification；本文则度量common global unitary与deterministic local postprocessing可得的entangled target及其target-uniform relative fidelity。authors、title、year2026与arXiv:2610.06741元数据均正确；最初新增引用缺一个TeX关闭引号的排版小错已在最终cfdd快照修正。目前没有发现该文直接覆盖本文target-uniform sharp minimax operational profile。其companion的完整技术证明未在本次获得。
+
+本次不认证support-rank asymptotic或Haar minor identity在全体数学文献中的首次出现；经典Schur/Weyl/strip-tableaux文献可能包含相关维数计算。稿中将标准Haar计算和compression明确列为ingredients，仅将本模型中的sharp minimax比较与physical construction作为主要贡献，这是合理的保守边界。
+
+未覆盖与不能由本记录推断的事项：
+- 未运行Lean build、kernel replay、same-type forged-proof rejection、全量source/config audit或独立CI；未确认87个映射端点的全部类型及其语义桥。
+- 未重新验证旧39/91/235/444、83/11、608或APPT purity companion的机器审计；未重算其公理/dependency closures。
+- 未作PDF逐页视觉QA或出版包最终压缩/哈希核验；本文审读聚焦TeX数学内容。
+- 未做穷尽文献priority search、外部专家评审、算法最优门数证明、混态完整family efficient implementation、cap-boundary mixed Gaussian、zero-error-boundary reliability、growing-D sharp Haar inverse moments、或classical finite-precision compiler bit-time theorem。
+- 未审阅circuit作者分支上后续numeric/compiler WIP。该WIP不属于上述稳定快照。
+
+操作记录：已读AGENTS.md与STORAGE_POLICY.txt；guard确认/mnt/lean-research-d实际backed by D:\math\wsl-data\lean-research-20261016.ext4。WSL启动有/etc/fstab通用警告，但guard实际mount/backing检查通过。审读仅写本独占D:目录；未改Git源码、旧稿、旧audit、Gaussian dirty files；未清理/删除任何研究文件或缓存。
