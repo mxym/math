@@ -1,0 +1,549 @@
+{
+  "status": "AUTHOR_PROVIDER_ROOT_KIND_TYPE_AXIOM_CHECK_PASS_NOT_INDEPENDENT_REPLAY",
+  "source_head": "a688d5b38bb11be06a2dc205b42d5609353fd4b9",
+  "theorem_count": 59,
+  "model_count": 28,
+  "log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T191938048267Z-extraction-effective-encoding.log",
+  "log_sha256": "d4c30893ad019a36dbde91195ea5472ea9df7f8f278b0218948512b21444e793",
+  "inputs": {
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean": "1f184dba584c6349e3142ab9a87ca2a4272369364ef59745cec919e1d36045f0",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Check.lean": "abeb944ff4bf1d6eb9f8f642790e99226d9122fd954a0f5d9e06b3e08fe57a0f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean": "b48e277618ba89602a6473c6eef51d9a9d8651fafc1aa6c647a7addf4a03d145",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DescriptorBounds.lean": "365ac42f2eaa5adb6cbeb0dfd6c261d39de1584fc17a583baccb44dbef6fa598",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean": "9848a546e6a0e78a5bfde1980c3ff65b1dd82376d08fd6e3bb8470668db9fd64",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean": "0f2aa117988d43c8b7c509837aa7c7a20b3e0ccb7824058c2f722d1854f14f3a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean": "71f110f423531277842001e25a4972908b3596aacbe6f1957dea1f001a3a8941",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean": "079e5421531edf6c2a7c0657ee7fee6343be0e703d8257643e88ce41be398601",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean": "f8739bf08d31e3bcbf5e19fdac0ec3569f7951c5afcf5ba7bf6c6895ae40409c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean": "1c4f5d1e103dec09afd5a7ddde32c34d626ae61d18e4c5adf06c00315cc412f8",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean": "0cebf45fe3fa9c27c24f9110a150d610dcefc75150b0ac591bba021036fdc58c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean": "945e8e8933815ccb437054c5586a5b34c0ef6a44a63dba161896111d6d8384b3",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderCheck.lean": "e362eecb8c7d9a002ae20a7acd2d65827544f37826998b9611ceb3f2ea15c5e4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderExpressions.lean": "cf9263ddd0f39ebfdfbd5eb72238ab11ba95da273213e1a90e38bd2fa323bac0",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderIntermediateHeights.lean": "04d3419565d9903eebec5e09758c876a56a0d5984b9ec50d2262bcfd6b724052",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderPrecision.lean": "7682ec4292197cbebe92a4ce2d3de4cb4c8502199e37b8797b7aee5a3d577ade",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTerminal.lean": "46dd837718fbc93ed13db7ed1a7e66d1222dc1db75eeeef6b994f8973bd911a9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean": "d464dda9f998404f9a3286fdce7f843545f7669cf3bb52d4af443708fccd9f58",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean": "fe7c52779c261148b16a877c51fffd6363a882f9c12e0d6e54dc81b0717dd464",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding.lean": "0462dc842889f25c0efe48437f656903a339ed45ed46b3ebe2b929db51b6cad5",
+    "formalizations/extraction-effective-encoding/lakefile.toml": "e9e79c2a09320464590fe16365c9d8edd2791f50536e3aeb7780d9c72d7a53e9",
+    "formalizations/extraction-effective-encoding/lake-manifest.json": "f93161a21dd465f60d192f0bfb0ee8b13a5239f7993998498b0707a3d18cbd9d",
+    "formalizations/extraction-effective-encoding/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "formalizations/extraction-effective-encoding/PROVIDER_ROOTS.txt": "5344dc853afcad100bb6b1e5d4955c8f6e6e31be1b506f292180ff37a23919e2",
+    "formalizations/extraction-effective-encoding/PROVIDER_MODELS.txt": "7453b7ab5171b5eb57ee44755a981d0ad21cf9d88f5aed336e4fff5f055a81fa",
+    "formalizations/extraction-effective-encoding/PROVIDER_SOURCE_INVENTORY.json": "effe76bc62dbf0822de08a9170da4060af5650815a5a6261c5f566bd25b40b8a",
+    "formalizations/extraction-effective-encoding/reproduce_provider.py": "6d448ac88abc084d58bf71a9c55a2365d5a80bb5c95c06b7abe919052566cfd3"
+  },
+  "axioms": {
+    "EffectiveEncoding.meanPlusExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfCosExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfSinExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.cosExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.sinExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.cosExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.sinExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseCosExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseSinExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.packetExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.integerPacket_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfCosExpression_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfSinExpression_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.expression_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.expression_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.packetExpression_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.ratioLiteral_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.expression_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfExpressionBudget_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfExpressionBudget_ge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfCosExpression_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfSinExpression_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.expression_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.packetExpression_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.integerPacket_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_provider_resources": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.fourMax_le": [
+      "propext"
+    ],
+    "EffectiveEncoding.halfCosExpression_precision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfSinExpression_precision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.expression_precision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.expression_precision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.packetExpression_precision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halvingBudget_power": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.binaryWidth_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.providerHeightBudget_polynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_provider_precision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_provider_integerHeight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_targetCache_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_targetCache_precision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_targetCache_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionTargetCacheOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scalarIntermediateHeights_of_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.packetIntermediateHeights_of_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.packetExpression_intermediateHeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_provider_intermediateHeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_targetCache_intermediateHeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerRoot_work_operand_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerTargetCache_values": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerDescriptorSynthesis_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerNumericalExtractionCode_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerNumericalExtractionCode_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerNumericalExtractionCode_fidelity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerPacketBits_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_integerTargetCacheBits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionWithTargetOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_provider_BitEnvelope": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.packetLiteral_budget_of_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_cachedTarget_BitEnvelope": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_actualCachedTarget_BitEnvelope": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.meanPlusExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfCosExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfSinExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.cosExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleAtom.sinExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.cosExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AngleCode.sinExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseCosExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.phaseSinExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.packetExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.SingleCode.integerPacket": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.halfExpressionBudget": [
+      "propext"
+    ],
+    "EffectiveEncoding.providerHeightBudget": [
+      "propext"
+    ],
+    "EffectiveEncoding.fourMax": [
+      "propext"
+    ],
+    "EffectiveEncoding.scalarRootPrecision": [
+      "propext"
+    ],
+    "EffectiveEncoding.packetRootPrecision": [
+      "propext"
+    ],
+    "EffectiveEncoding.targetCacheOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.gateTargetCacheOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionTargetCacheOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scalarIntermediateHeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.packetIntermediateHeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerTargetCache": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerDescriptorSynthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerNumericalExtractionCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerPacketBits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.integerTargetCacheBits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionWithTargetOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.constantExpression": []
+  },
+  "roots": [
+    "EffectiveEncoding.meanPlusExpression_eval",
+    "EffectiveEncoding.halfCosExpression_eval",
+    "EffectiveEncoding.halfSinExpression_eval",
+    "EffectiveEncoding.AngleAtom.cosExpression_eval",
+    "EffectiveEncoding.AngleAtom.sinExpression_eval",
+    "EffectiveEncoding.AngleCode.cosExpression_eval",
+    "EffectiveEncoding.AngleCode.sinExpression_eval",
+    "EffectiveEncoding.phaseCosExpression_eval",
+    "EffectiveEncoding.phaseSinExpression_eval",
+    "EffectiveEncoding.SingleCode.packetExpression_eval",
+    "EffectiveEncoding.SingleCode.integerPacket_value",
+    "EffectiveEncoding.halfCosExpression_operations",
+    "EffectiveEncoding.halfSinExpression_operations",
+    "EffectiveEncoding.AngleAtom.expression_operations",
+    "EffectiveEncoding.AngleCode.expression_operations",
+    "EffectiveEncoding.SingleCode.packetExpression_operations",
+    "EffectiveEncoding.ratioLiteral_budget",
+    "EffectiveEncoding.AngleAtom.expression_budget",
+    "EffectiveEncoding.halfExpressionBudget_mono",
+    "EffectiveEncoding.halfExpressionBudget_ge",
+    "EffectiveEncoding.halfCosExpression_budget",
+    "EffectiveEncoding.halfSinExpression_budget",
+    "EffectiveEncoding.AngleCode.expression_budget",
+    "EffectiveEncoding.SingleCode.packetExpression_budget",
+    "EffectiveEncoding.SingleCode.integerPacket_height",
+    "EffectiveEncoding.extractionCode_provider_resources",
+    "EffectiveEncoding.fourMax_le",
+    "EffectiveEncoding.halfCosExpression_precision",
+    "EffectiveEncoding.halfSinExpression_precision",
+    "EffectiveEncoding.AngleAtom.expression_precision",
+    "EffectiveEncoding.AngleCode.expression_precision",
+    "EffectiveEncoding.SingleCode.packetExpression_precision",
+    "EffectiveEncoding.halvingBudget_power",
+    "EffectiveEncoding.binaryWidth_le",
+    "EffectiveEncoding.providerHeightBudget_polynomial",
+    "EffectiveEncoding.extractionCode_provider_precision",
+    "EffectiveEncoding.extractionCode_provider_integerHeight",
+    "EffectiveEncoding.extractionCode_targetCache_operations",
+    "EffectiveEncoding.extractionCode_targetCache_precision",
+    "EffectiveEncoding.extractionCode_targetCache_height",
+    "EffectiveEncoding.extractionTargetCacheOperations_bound",
+    "EffectiveEncoding.scalarIntermediateHeights_of_budget",
+    "EffectiveEncoding.packetIntermediateHeights_of_budget",
+    "EffectiveEncoding.SingleCode.packetExpression_intermediateHeights",
+    "EffectiveEncoding.extractionCode_provider_intermediateHeights",
+    "EffectiveEncoding.extractionCode_targetCache_intermediateHeights",
+    "EffectiveEncoding.integerRoot_work_operand_bound",
+    "EffectiveEncoding.integerTargetCache_values",
+    "EffectiveEncoding.integerDescriptorSynthesis_eq",
+    "EffectiveEncoding.integerNumericalExtractionCode_eq",
+    "EffectiveEncoding.integerNumericalExtractionCode_error",
+    "EffectiveEncoding.integerNumericalExtractionCode_fidelity",
+    "EffectiveEncoding.integerPacketBits_bound",
+    "EffectiveEncoding.extractionCode_integerTargetCacheBits",
+    "EffectiveEncoding.extractionWithTargetOperations_bound",
+    "EffectiveEncoding.extractionCode_provider_BitEnvelope",
+    "EffectiveEncoding.packetLiteral_budget_of_height",
+    "EffectiveEncoding.extractionCode_cachedTarget_BitEnvelope",
+    "EffectiveEncoding.extractionCode_actualCachedTarget_BitEnvelope"
+  ],
+  "models": [
+    "EffectiveEncoding.constantExpression",
+    "EffectiveEncoding.meanPlusExpression",
+    "EffectiveEncoding.halfCosExpression",
+    "EffectiveEncoding.halfSinExpression",
+    "EffectiveEncoding.AngleAtom.cosExpression",
+    "EffectiveEncoding.AngleAtom.sinExpression",
+    "EffectiveEncoding.AngleCode.cosExpression",
+    "EffectiveEncoding.AngleCode.sinExpression",
+    "EffectiveEncoding.phaseCosExpression",
+    "EffectiveEncoding.phaseSinExpression",
+    "EffectiveEncoding.SingleCode.packetExpression",
+    "EffectiveEncoding.SingleCode.integerPacket",
+    "EffectiveEncoding.halfExpressionBudget",
+    "EffectiveEncoding.providerHeightBudget",
+    "EffectiveEncoding.fourMax",
+    "EffectiveEncoding.scalarRootPrecision",
+    "EffectiveEncoding.packetRootPrecision",
+    "EffectiveEncoding.targetCacheOperations",
+    "EffectiveEncoding.gateTargetCacheOperations",
+    "EffectiveEncoding.extractionTargetCacheOperations",
+    "EffectiveEncoding.scalarIntermediateHeights",
+    "EffectiveEncoding.packetIntermediateHeights",
+    "EffectiveEncoding.integerTargetCache",
+    "EffectiveEncoding.integerDescriptorSynthesis",
+    "EffectiveEncoding.integerNumericalExtractionCode",
+    "EffectiveEncoding.integerPacketBits",
+    "EffectiveEncoding.integerTargetCacheBits",
+    "EffectiveEncoding.extractionWithTargetOperations"
+  ]
+}
