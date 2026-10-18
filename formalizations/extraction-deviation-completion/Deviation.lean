@@ -4,3 +4,8 @@ import Deviation.RoundedTarget
 import Deviation.FixedErrorTarget
 import Deviation.Reliability
 import Deviation.PrimalPerturbation
+import Deviation.TriangularInformation
+import Deviation.FourierIntegral
+import Deviation.NoiseSmoothing
+import Deviation.NoiseScaling
+import Deviation.InformationBerryEsseen
