@@ -1,0 +1,439 @@
+{
+  "status": "GENERATED_AUTHOR_ACCUMULATED_RANK_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 30,
+  "model_count": 20,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.RankWork",
+      "kind": "abbrev",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.rankWorkConstant",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.EncodedEndpoint",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 12
+    },
+    {
+      "name": "EffectiveEncoding.encodedOccupationProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 18
+    },
+    {
+      "name": "EffectiveEncoding.encodedOccupationProgram_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.encodedOccupationProgram_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 33
+    },
+    {
+      "name": "EffectiveEncoding.encodedBranchEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.encodedBranchEndpoint_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 49
+    },
+    {
+      "name": "EffectiveEncoding.encodedBranchEndpoint_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 55
+    },
+    {
+      "name": "EffectiveEncoding.encodedNextEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.encodedNextEndpoint_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 66
+    },
+    {
+      "name": "EffectiveEncoding.encodedNextEndpoint_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.endpointMassWork",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.endpointMassWork_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.RankedBranchRun",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean",
+      "line": 26
+    },
+    {
+      "name": "EffectiveEncoding.rankedIndexedRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean",
+      "line": 32
+    },
+    {
+      "name": "EffectiveEncoding.rankedIndexedRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean",
+      "line": 42
+    },
+    {
+      "name": "EffectiveEncoding.rankedIndexedRun_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean",
+      "line": 50
+    },
+    {
+      "name": "EffectiveEncoding.rankedBranchRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.rankedBranchRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean",
+      "line": 77
+    },
+    {
+      "name": "EffectiveEncoding.rankedBranchRun_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean",
+      "line": 82
+    },
+    {
+      "name": "EffectiveEncoding.RankedAlignmentRun",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedAlignmentWork.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.rankedAlignmentRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedAlignmentWork.lean",
+      "line": 12
+    },
+    {
+      "name": "EffectiveEncoding.rankedAlignmentRun_result",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedAlignmentWork.lean",
+      "line": 27
+    },
+    {
+      "name": "EffectiveEncoding.rankedAlignmentRun_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedAlignmentWork.lean",
+      "line": 37
+    },
+    {
+      "name": "EffectiveEncoding.encodedPivotEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedAlignmentWork.lean",
+      "line": 51
+    },
+    {
+      "name": "EffectiveEncoding.encodedPivotEndpoint_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedAlignmentWork.lean",
+      "line": 55
+    },
+    {
+      "name": "EffectiveEncoding.encodedPivotEndpoint_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedAlignmentWork.lean",
+      "line": 60
+    },
+    {
+      "name": "EffectiveEncoding.rankedBranchTableRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.rankedBranchTableRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.rankedBranchTableRun_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 23
+    },
+    {
+      "name": "EffectiveEncoding.rankedOccupationRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 37
+    },
+    {
+      "name": "EffectiveEncoding.rankedOccupationRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 44
+    },
+    {
+      "name": "EffectiveEncoding.rankedOccupationRun_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 51
+    },
+    {
+      "name": "EffectiveEncoding.rankedStageRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 70
+    },
+    {
+      "name": "EffectiveEncoding.rankedStageRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 75
+    },
+    {
+      "name": "EffectiveEncoding.rankedCompressionRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 79
+    },
+    {
+      "name": "EffectiveEncoding.rankedCompressionRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 88
+    },
+    {
+      "name": "EffectiveEncoding.rankedCompressionRun_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 95
+    },
+    {
+      "name": "EffectiveEncoding.rankedDescriptorRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 111
+    },
+    {
+      "name": "EffectiveEncoding.rankedDescriptorRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 117
+    },
+    {
+      "name": "EffectiveEncoding.rankedDescriptorRun_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "line": 121
+    },
+    {
+      "name": "EffectiveEncoding.RankedLabelRun",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.rankedExtractionRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.rankedExtractionRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean",
+      "line": 22
+    },
+    {
+      "name": "EffectiveEncoding.rankedExtractionRun_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean",
+      "line": 29
+    },
+    {
+      "name": "EffectiveEncoding.rankedExtractionRun_constructionSteps",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean",
+      "line": 36
+    },
+    {
+      "name": "EffectiveEncoding.rankedExtractionRun_predicateQueries",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean",
+      "line": 42
+    },
+    {
+      "name": "EffectiveEncoding.rankedExtractionRun_natEqualityQueries",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean",
+      "line": 48
+    },
+    {
+      "name": "EffectiveEncoding.rankedExtractionRun_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean",
+      "line": 54
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean",
+      "sha256": "d0abcdd5b152edb83a4f428132f2b1daa565840f380d5fcd6fa7f8c1a8e77a36",
+      "declarations": [
+        "EffectiveEncoding.RankWork",
+        "EffectiveEncoding.rankWorkConstant",
+        "EffectiveEncoding.EncodedEndpoint",
+        "EffectiveEncoding.encodedOccupationProgram",
+        "EffectiveEncoding.encodedOccupationProgram_value",
+        "EffectiveEncoding.encodedOccupationProgram_work",
+        "EffectiveEncoding.encodedBranchEndpoint",
+        "EffectiveEncoding.encodedBranchEndpoint_value",
+        "EffectiveEncoding.encodedBranchEndpoint_work",
+        "EffectiveEncoding.encodedNextEndpoint",
+        "EffectiveEncoding.encodedNextEndpoint_value",
+        "EffectiveEncoding.encodedNextEndpoint_work"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean",
+      "sha256": "b4aa4cc5d8161fe16e04be97cbe1a199122e8e89dc910bdb09fa681f03c79fc9",
+      "declarations": [
+        "EffectiveEncoding.endpointMassWork",
+        "EffectiveEncoding.endpointMassWork_bound",
+        "EffectiveEncoding.RankedBranchRun",
+        "EffectiveEncoding.rankedIndexedRun",
+        "EffectiveEncoding.rankedIndexedRun_word",
+        "EffectiveEncoding.rankedIndexedRun_work",
+        "EffectiveEncoding.rankedBranchRun",
+        "EffectiveEncoding.rankedBranchRun_word",
+        "EffectiveEncoding.rankedBranchRun_work"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedAlignmentWork.lean",
+      "sha256": "c4e042e77c8bbb9bd55ec350df9a0df6d7465b07795453b1eace4b5556b765f6",
+      "declarations": [
+        "EffectiveEncoding.RankedAlignmentRun",
+        "EffectiveEncoding.rankedAlignmentRun",
+        "EffectiveEncoding.rankedAlignmentRun_result",
+        "EffectiveEncoding.rankedAlignmentRun_work",
+        "EffectiveEncoding.encodedPivotEndpoint",
+        "EffectiveEncoding.encodedPivotEndpoint_value",
+        "EffectiveEncoding.encodedPivotEndpoint_work"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean",
+      "sha256": "cf55291148c567a6109dac07a6d04e9d22e2638aad83c13b9a09ded888694711",
+      "declarations": [
+        "EffectiveEncoding.rankedBranchTableRun",
+        "EffectiveEncoding.rankedBranchTableRun_word",
+        "EffectiveEncoding.rankedBranchTableRun_work",
+        "EffectiveEncoding.rankedOccupationRun",
+        "EffectiveEncoding.rankedOccupationRun_word",
+        "EffectiveEncoding.rankedOccupationRun_work",
+        "EffectiveEncoding.rankedStageRun",
+        "EffectiveEncoding.rankedStageRun_word",
+        "EffectiveEncoding.rankedCompressionRun",
+        "EffectiveEncoding.rankedCompressionRun_word",
+        "EffectiveEncoding.rankedCompressionRun_work",
+        "EffectiveEncoding.rankedDescriptorRun",
+        "EffectiveEncoding.rankedDescriptorRun_word",
+        "EffectiveEncoding.rankedDescriptorRun_work"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean",
+      "sha256": "746f2478f0d227866d9e2c364a8636e8947bb720bcfeb391411f079c44b1f092",
+      "declarations": [
+        "EffectiveEncoding.RankedLabelRun",
+        "EffectiveEncoding.rankedExtractionRun",
+        "EffectiveEncoding.rankedExtractionRun_word",
+        "EffectiveEncoding.rankedExtractionRun_work",
+        "EffectiveEncoding.rankedExtractionRun_constructionSteps",
+        "EffectiveEncoding.rankedExtractionRun_predicateQueries",
+        "EffectiveEncoding.rankedExtractionRun_natEqualityQueries",
+        "EffectiveEncoding.rankedExtractionRun_fidelity"
+      ]
+    }
+  ]
+}
