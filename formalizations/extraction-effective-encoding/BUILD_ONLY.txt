@@ -56,9 +56,9 @@ axiom sets. The only admitted Lean axioms are propext, Classical.choice
 and Quot.sound; no sorry/admit/axiom/native_decide/unsafe appears in the
 mathematical source. Log:
   /mnt/d/math/tmp/extraction-resume-20261018/build-logs/
-  20261018T184719387648Z-extraction-effective-encoding.log
+  20261018T185202375604Z-extraction-effective-encoding.log
 Author check report with exact source/config/script hashes:
-  verification/owned-root-check-20261018T184729797292Z/REPORT.json
+  verification/owned-root-check-20261018T185203479743Z/REPORT.json
 The report source_head is the clean pre-terminal merge baseline; the exact
 new terminal sources are bound by its inputs hashes and this commit.
 ROOTS.txt, MODELS.txt and SOURCE_INVENTORY.json enumerate all explicit
@@ -88,3 +88,11 @@ Remaining verification and complexity boundary:
   provider correctness is explicit, and its cost is not silently counted
   as unit-time arithmetic. This is not a proof of the complete manuscript
   or of the whole algorithm's polynomial machine bit-time bound.
+
+Metadata correction after 1fe49746:
+The root lake-manifest.json name is extractionEffectiveEncoding, matching
+lakefile.toml. All dependency entries and all mathematical sources are
+byte-identical to 1fe49746. Lake check-build and loaded LEAN_PATH dependency
+graph checks passed. The cached standard Check target above revalidated all
+286 roots and refreshed the 21 exact input hashes; no mathematical rebuild
+or new mathematical result is claimed by this metadata-only follow-up.
