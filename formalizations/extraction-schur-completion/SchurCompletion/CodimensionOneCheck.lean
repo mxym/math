@@ -1,4 +1,4 @@
-import SchurCompletion.CodimensionOneAsymptotic
+import SchurCompletion.CodimensionOneRank
 #print axioms ExtractionSchur.haarOrbitAverage_rank_one
 #print axioms ExtractionSchur.unitary_entry_power_moment
 #print axioms ExtractionSchur.flatHaarAverage_codimension_one_purity
@@ -6,3 +6,8 @@ import SchurCompletion.CodimensionOneAsymptotic
 #print axioms ExtractionSchur.flatHaarAverage_codimension_one_purity_scaled_limit
 #print axioms ExtractionSchur.flatHaarAverage_codimension_one_purity_isEquivalent
 #print axioms ExtractionSchur.rankBudget_codimension_one_sharp_lower
+
+#print axioms ExtractionSchur.rankBudget_codimension_one_rank_upper
+#print axioms ExtractionSchur.rankBudget_codimension_one_rank_scaled_limit
+#print axioms ExtractionSchur.rankBudget_codimension_one_rank_isEquivalent
+#print axioms ExtractionSchur.rankBudget_codimension_one_rank_times_purity_limit

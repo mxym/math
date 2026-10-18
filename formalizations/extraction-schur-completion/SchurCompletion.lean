@@ -38,3 +38,6 @@ import SchurCompletion.JucysSpectrum
 import SchurCompletion.JucysHaarProduct
 import SchurCompletion.CodimensionOneMoments
 import SchurCompletion.CodimensionOneAsymptotic
+import SchurCompletion.WordPatternCount
+import SchurCompletion.WordStraightening
+import SchurCompletion.CodimensionOneRank
