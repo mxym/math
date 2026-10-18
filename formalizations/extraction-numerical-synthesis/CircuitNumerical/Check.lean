@@ -10,7 +10,12 @@ import CircuitNumerical.ExpressionExecution
 import CircuitNumerical.ExpressionResources
 import CircuitNumerical.FactorDependencies
 import CircuitNumerical.FactorExpressions
+import CircuitNumerical.IntegerExpressionBudgets
+import CircuitNumerical.IntegerExpressionExecution
+import CircuitNumerical.IntegerPacketArithmetic
 import CircuitNumerical.IntegerPackets
+import CircuitNumerical.IntegerScalars
+import CircuitNumerical.IntegerTuplePackets
 import CircuitNumerical.NormalizedIntertwinerOracle
 import CircuitNumerical.NumericalCorrection
 import CircuitNumerical.NumericalDependencies
@@ -222,6 +227,38 @@ import CircuitNumerical.TracedNumericalSK
 #print axioms CircuitRecursion.expressionFactorX_eval
 #check CircuitRecursion.expressionFactorY_eval
 #print axioms CircuitRecursion.expressionFactorY_eval
+#check CircuitRecursion.rationalBinaryExponent_height
+#print axioms CircuitRecursion.rationalBinaryExponent_height
+#check CircuitRecursion.rationalBinaryExponent_le
+#print axioms CircuitRecursion.rationalBinaryExponent_le
+#check CircuitRecursion.ScalarExpression.integerRun_height
+#print axioms CircuitRecursion.ScalarExpression.integerRun_height
+#check CircuitRecursion.PacketExpression.integerRun_height
+#print axioms CircuitRecursion.PacketExpression.integerRun_height
+#check CircuitRecursion.IntegerScalar.meanMinus_value
+#print axioms CircuitRecursion.IntegerScalar.meanMinus_value
+#check CircuitRecursion.IntegerScalarHeight.mono
+#print axioms CircuitRecursion.IntegerScalarHeight.mono
+#check CircuitRecursion.IntegerScalar.meanMinus_height
+#print axioms CircuitRecursion.IntegerScalar.meanMinus_height
+#check CircuitRecursion.integerStoppingThreshold_value
+#print axioms CircuitRecursion.integerStoppingThreshold_value
+#check CircuitRecursion.rationalSqrtApprox_max
+#print axioms CircuitRecursion.rationalSqrtApprox_max
+#check CircuitRecursion.ScalarExpression.integerRun_correct
+#print axioms CircuitRecursion.ScalarExpression.integerRun_correct
+#check CircuitRecursion.PacketExpression.integerRun_correct
+#print axioms CircuitRecursion.PacketExpression.integerRun_correct
+#check CircuitRecursion.IntegerPacket.inverse_value
+#print axioms CircuitRecursion.IntegerPacket.inverse_value
+#check CircuitRecursion.IntegerPacket.inverse_height
+#print axioms CircuitRecursion.IntegerPacket.inverse_height
+#check CircuitRecursion.IntegerPacket.distanceScalar_value
+#print axioms CircuitRecursion.IntegerPacket.distanceScalar_value
+#check CircuitRecursion.IntegerPacket.distanceNumerator_bound
+#print axioms CircuitRecursion.IntegerPacket.distanceNumerator_bound
+#check CircuitRecursion.IntegerPacket.distanceScalar_height
+#print axioms CircuitRecursion.IntegerPacket.distanceScalar_height
 #check CircuitRecursion.IntegerPacket.mul_value
 #print axioms CircuitRecursion.IntegerPacket.mul_value
 #check CircuitRecursion.quaternionSign_natAbs
@@ -258,6 +295,46 @@ import CircuitNumerical.TracedNumericalSK
 #print axioms CircuitRecursion.IntegerPacketHeight.binary_bounds
 #check CircuitRecursion.cachedSynthesisWord_integerHeight
 #print axioms CircuitRecursion.cachedSynthesisWord_integerHeight
+#check CircuitRecursion.IntegerScalar.add_value
+#print axioms CircuitRecursion.IntegerScalar.add_value
+#check CircuitRecursion.IntegerScalar.neg_value
+#print axioms CircuitRecursion.IntegerScalar.neg_value
+#check CircuitRecursion.IntegerScalar.mul_value
+#print axioms CircuitRecursion.IntegerScalar.mul_value
+#check CircuitRecursion.IntegerScalar.inv_value
+#print axioms CircuitRecursion.IntegerScalar.inv_value
+#check CircuitRecursion.IntegerScalar.add_height
+#print axioms CircuitRecursion.IntegerScalar.add_height
+#check CircuitRecursion.IntegerScalar.neg_height
+#print axioms CircuitRecursion.IntegerScalar.neg_height
+#check CircuitRecursion.IntegerScalar.mul_height
+#print axioms CircuitRecursion.IntegerScalar.mul_height
+#check CircuitRecursion.IntegerScalar.inv_height
+#print axioms CircuitRecursion.IntegerScalar.inv_height
+#check CircuitRecursion.IntegerScalar.max_value
+#print axioms CircuitRecursion.IntegerScalar.max_value
+#check CircuitRecursion.IntegerScalar.root_value
+#print axioms CircuitRecursion.IntegerScalar.root_value
+#check CircuitRecursion.IntegerScalar.root_height
+#print axioms CircuitRecursion.IntegerScalar.root_height
+#check CircuitRecursion.IntegerScalar.ofRat_value
+#print axioms CircuitRecursion.IntegerScalar.ofRat_value
+#check CircuitRecursion.IntegerScalar.canonical_height
+#print axioms CircuitRecursion.IntegerScalar.canonical_height
+#check CircuitRecursion.IntegerPacket.coordinate_value
+#print axioms CircuitRecursion.IntegerPacket.coordinate_value
+#check CircuitRecursion.IntegerPacket.coordinate_height
+#print axioms CircuitRecursion.IntegerPacket.coordinate_height
+#check CircuitRecursion.IntegerPacket.ofScalars_value
+#print axioms CircuitRecursion.IntegerPacket.ofScalars_value
+#check CircuitRecursion.product_denominator_bound
+#print axioms CircuitRecursion.product_denominator_bound
+#check CircuitRecursion.IntegerPacket.ofScalars_height
+#print axioms CircuitRecursion.IntegerPacket.ofScalars_height
+#check CircuitRecursion.IntegerPacket.ofVector_value
+#print axioms CircuitRecursion.IntegerPacket.ofVector_value
+#check CircuitRecursion.IntegerPacket.ofVector_height
+#print axioms CircuitRecursion.IntegerPacket.ofVector_height
 #check CircuitRecursion.normalizedQuaternionSU2_unitary
 #print axioms CircuitRecursion.normalizedQuaternionSU2_unitary
 #check CircuitRecursion.normalizedIntertwiner_coordinates

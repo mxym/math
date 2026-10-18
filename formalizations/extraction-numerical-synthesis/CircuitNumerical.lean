@@ -10,7 +10,12 @@ import CircuitNumerical.ExpressionExecution
 import CircuitNumerical.ExpressionResources
 import CircuitNumerical.FactorDependencies
 import CircuitNumerical.FactorExpressions
+import CircuitNumerical.IntegerExpressionBudgets
+import CircuitNumerical.IntegerExpressionExecution
+import CircuitNumerical.IntegerPacketArithmetic
 import CircuitNumerical.IntegerPackets
+import CircuitNumerical.IntegerScalars
+import CircuitNumerical.IntegerTuplePackets
 import CircuitNumerical.NormalizedIntertwinerOracle
 import CircuitNumerical.NumericalCorrection
 import CircuitNumerical.NumericalDependencies
