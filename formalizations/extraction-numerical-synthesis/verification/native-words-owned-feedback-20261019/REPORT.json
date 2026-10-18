@@ -1,0 +1,84 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T21:45:52.054446+00:00",
+  "scope": "native binary literal evaluation/input normalization/cache interface with no Nat.bits re-encoding, eleven roots",
+  "baseline": "6c1271b50bd1d0d2649c088e45706500d2117919",
+  "modules": 4,
+  "root_count": 11,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T214535746923Z-owned-check-CircuitNumerical.NativeWordCheck.log",
+  "check_log_sha256": "6ef2e3dc0192c4642b0766ef140399f49ba2ed2c25cb7b4a9f3343a1918c30d8",
+  "source_sha256": {
+    "CircuitNumerical/NativeWordExpressions.lean": "236c33117495b90d9def6f1c5cf6be596bc195f2504ab71178708e58c241c883",
+    "CircuitNumerical/NativeWordEvaluation.lean": "d262301e1cef3e0bb4f56ef4f5dfad0d36dc06d7375c9b0c331120a2b4d4cdb9",
+    "CircuitNumerical/NativeBinaryPacketInput.lean": "9ed8b67e1e9332fb72ae3dd917c4abe2f5a54866e66e783e10671b300aba0aba",
+    "CircuitNumerical/NativePacketCache.lean": "58054738ff28bbd6bf03cf5f0e261e38aaa57ed09799ff09d8840464839b65c8",
+    "CircuitNumerical/NativeWordCheck.lean": "0c21f071cd5efb310dad8495552d4503cf99ee95e5761b916c33452ae57be20e",
+    "NATIVE_WORD_ROOTS.txt": "ecdbc101e38dd45c858e44dae6e965a8cd72cbf4cee16c2a44b741c0da7f68ed"
+  },
+  "root_axioms": {
+    "CircuitRecursion.NativeScalarExpression.wordRun_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativePacketExpression.wordRun_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeScalarExpression.wordRun_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativePacketExpression.wordRun_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryPacketInputProgram_decode": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryPacketInputProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.wordPacketOne_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.readNativePacketCache_build": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.readNativePacketCache_default": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.nativeCachedPacketOracle_interpret": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.buildNativePacketCache_length": [
+      "propext"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 213,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "binary primitive implementation bit costs and automatic fuel computation",
+    "native constructor/AST cost transfer, actual indexed cache access and provider construction",
+    "whole compiler Boolean-cost integration",
+    "structural allocation/index implementation costs",
+    "explicit effective fixed-library input provider costs"
+  ]
+}
