@@ -1,0 +1,33 @@
+AUTHOR STANDARD BUILD ONLY; NOT INDEPENDENT REPLAY
+
+Normal merge C1cf5827b8e39dbd1291c5be34d1fbe70b8b82e80; only new own
+ActualRawRootCharge math/check/inventory/report files. 5 theorem/3 model roots;
+standard ActualRawCostCheck build3937 jobs PASS, log
+20261018T202235564514Z-extraction-effective-encoding.log. Reproduce:
+python3 reproduce_actual_raw_cost.py --standard. Exact hashes:
+verification/actual-raw-cost-root-check-20261018T202238499857Z/REPORT.json.
+
+The actual costed raw input AST now has its correct operation envelope20,
+not the old canonical literal envelope1. C's generic raw operation recurrence
+is instantiated on the actual eager integer cache inputs, internally deriving
+result.operations<=1020*(n+1)*(2*L+1)*offsetGrowth*(q+1)^64.
+Combining this with the actual internally proved raw operand bound yields:
+rootCharge<=actualRawRootCoefficient(n,L,k)*(q+1)^201,
+coefficient=(16*(2*(actualTraceConstant(n,L)*(k+3)^7))+37)
+            *(1020*(n+1)*(2*L+1)*offsetGrowth).
+Actual q is <=p+21+9*clog_2(k+3). Summing these annotations over the actual
+extractionCode single gates (CNOT charge0) gives
+extractionRawRootCharge<=actualGatePolynomial(k)*actualRawRootCoefficient(n,L,k)
+                         *(p+22+9*clog_2(k+3))^201.
+Finite-label output/fidelity stay those of the sealed costedRawExtractionCode;
+no older mathematical sources/configuration/inventories/evidence were edited.
+
+The annotation concerns ROOT ROUTINES IN UNDERLYING ONLINE VALUE EVALUATION:
+explicit binary div/sqrt digit/scaling routines only. All other primitives
+(add/mul/compare, vector/list indexing and AST construction), the target and
+fixed-library provider computation during eager cache creation, output
+concatenation, and computation of the annotation itself remain excluded.
+In particular annotation evaluation itself may use extra arithmetic/division
+that this ghost counter does not charge. Therefore this is not complete
+program primitive count, total execution time or a polynomial Turing-time
+statement. Fixed dictionary provider costs remain separate from output bits.
