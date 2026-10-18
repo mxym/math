@@ -26,3 +26,9 @@ This independent continuation package proves the finite-dimensional channel mode
 The bridge covers all finite natural input and output dimensions, including zero dimensions. It does not assert that every cPPT map is product local; locality remains a distinct property of particular constructed protocols.
 
 Verification: BUILD_ONLY, not an independent audit. No custom axioms, sorry or admit are used. See `BUILD_ONLY_20261018.txt` for the final aggregate build record. Existing frozen audit scopes are unchanged.
+
+`verification/build-only-20261018/` records all 23 theorem roots and 36 named
+declarations in this new package, with exact source hashes and the ordinary
+elaborator axiom-dependency report. All use only propext, Classical.choice,
+Quot.sound, or no axioms. This check is BUILD_ONLY evidence, not an independent
+audit or a substitute for the planned empty-kernel and forged-proof controls.
