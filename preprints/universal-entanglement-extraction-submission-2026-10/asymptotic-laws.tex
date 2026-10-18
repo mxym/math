@@ -1,0 +1,122 @@
+\section{Exact asymptotic extraction laws}\label{sec:asymptotic}
+
+The limits in this section fix $m,n$ and an input state $\rho$. Let $p$ be its eigenvalue law, let $s=\rank\rho$, and put
+\[
+ A=\log m,\quad L=\log D,\quad
+ C(p)=\min\left(A,\frac{L-H(p)}2\right),\quad
+ C_0(p)=\min\left(A,\frac{L-\log s}2\right).
+\]
+Write $S_\alpha(p)=(1-\alpha)^{-1}\log\sum_i p_i^\alpha$, with $S_1=H$, and take $K_k=\lceil e^{kR}\rceil$ for a fixed $R\ge0$. At $R=0$ the target is one dimensional and fidelity is exactly one.
+
+\begin{theorem}[One all-state family with the optimal laws]\label{thm:universal-laws}
+The single family constructed in Section~\ref{sec:universal} has the following properties for every fixed input state, including rank-deficient states.
+\begin{enumerate}
+\item The faithful extraction capacities for $\LO$, $\LOCC$, and $\cPPT$ all equal $C(p)$. The common family achieves fidelity tending to one for each $R<C(p)$.
+\item At every rate, its fidelity exponent equals that of the state-aware optimum in each of the three operation classes:
+\begin{equation}\label{eq:exact-exponent}
+ \lim_{k\to\infty}-\frac1k\log F_k^{\rm u}(\rho,K_k)
+ =\lim_{k\to\infty}-\frac1k\log f_k^{\calC}(\rho,K_k)
+ =E_p(R),
+\end{equation}
+where
+\begin{equation}\label{eq:exponent-formula}
+ E_p(R)=\pos{R-A}+\max_{1\le\alpha\le2}
+ \frac{\alpha-1}{\alpha}\bigl(S_\alpha(p)-c_R\bigr),
+ \qquad c_R=L-2\min(R,A).
+\end{equation}
+The summand at $\alpha=1$ is zero. In particular $R>C(p)$ gives a strictly positive strong-converse exponent.
+\item In the strict direct regime $C_0(p)<R<C(p)$, put $c=L-2R$. Then
+\begin{equation}\label{eq:reliability}
+ \begin{aligned}
+ \lim_{k\to\infty}-\frac1k\log(1-F_k^{\rm u})
+ &=\lim_{k\to\infty}-\frac1k\log(1-F_k^\star)=I_p(c),\\
+ I_p(c)&:=\min_{H(q)\ge c}D(q\|p)
+ =\sup_{0<\alpha<1}\frac{1-\alpha}{\alpha}(c-S_\alpha(p)).
+ \end{aligned}
+\end{equation}
+Relative entropy is evaluated on the positive support of $p$.
+\item For $R<C_0(p)$ the same universal protocol has fidelity exactly one for all sufficiently large $k$. The eventual-exact capacity is $C_0(p)$, even for state-aware completely PPT postprocessing.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof of the fidelity exponent]
+The converse follows from \eqref{eq:holder-converse} on tensor powers and $k^{-1}\log K_k\to R$. For achievability assume first $R>0$ and fix a law $q$ on the positive support of $p$ with $H(q)<L$. Choose
+\[
+ 0<b<\min\{R,A,(L-H(q))/2\},\qquad d_k=\lceil e^{kb}\rceil.
+\]
+For large $k$, $d_k\le\min(K_k,a_0)$, and the geometric grid contains a width between $d_k/2$ and $d_k$. Indeed the required grid index is $O_{m,n}(k)$, whereas $J=(k+1)^2$. Its entropy cutoff tends to $L-2b>H(q)$. An empirical type $q_k\to q$ is therefore included eventually; its probability is at least $(k+1)^{-D}e^{-kD(q_k\|p)}$. Proposition~\ref{prop:prefix} yields a fidelity exponent at most $D(q\|p)+R-b$. Let $b$ approach the displayed minimum and approximate the equality cases in entropy by laws on the same positive support. The only full-entropy boundary is the uniform full-support law, which is approached by nonuniform laws. Rate zero has target one and fidelity exactly one. Consequently
+\begin{equation}\label{eq:variational-exponent}
+ \limsup_k-\frac1k\log F_k^{\rm u}
+ \le\min_q\left\{D(q\|p)+\max\left(0,R-A,R-L/2+H(q)/2\right)\right\}.
+\end{equation}
+All orbit, reservation and rounding factors have logarithm $O_{m,n}(\log k)$; the strict width approximation above removes them without a diagram or ordering assumption on $q$. The maximum in \eqref{eq:variational-exponent} is $\pos{R-A}+\pos{H(q)-c_R}/2$.
+
+For completeness the matching scalar identity, with no exchange of minimax operations, is
+\begin{equation}\label{eq:escort-identity}
+ \min_q\{D(q\|p)+\pos{H(q)-c}/2\}
+ =\max_{1\le\alpha\le2}\frac{\alpha-1}{\alpha}(S_\alpha(p)-c),\qquad c\ge0.
+\end{equation}
+Let $q_{\alpha,i}=p_i^\alpha/Z_\alpha$, $Z_\alpha=\sum_i p_i^\alpha$, and call the maximand $J_c(\alpha)$. Direct differentiation gives
+\[
+ J'_c(\alpha)=\frac{H(q_\alpha)-c}{\alpha^2},\qquad
+ \frac{d}{d\alpha}H(q_\alpha)=-\alpha\Var_{q_\alpha}(\log p_i)\le0.
+\]
+If $H(p)\le c$, use $q=p$, and both sides vanish. If $H(q_2)\ge c$, use $q=q_2$, giving $(S_2(p)-c)/2$. Otherwise an escort with $1<\alpha<2$ has $H(q_\alpha)=c$, and its relative entropy is $J_c(\alpha)$. Boundary cases agree. Conversely, for every $q$ and $1\le\alpha\le2$,
+\[
+ D(q\|p)=\alpha^{-1}D(q\|q_\alpha)
+ +\frac{\alpha-1}{\alpha}(S_\alpha(p)-H(q)),
+\]
+while $\pos{H-c}/2\ge(\alpha-1)(H-c)/\alpha$. This proves \eqref{eq:escort-identity}. Since $c_R\ge\log(n/m)\ge0$, the identity applies and proves \eqref{eq:exact-exponent} by squeezing all three operation classes between the common $\LO$ protocol and the $\cPPT$ converse.
+\end{proof}
+
+\begin{proof}[Proof of faithful and eventual-exact capacities]
+For $0<R<C(p)$ one has $R<A$, so eventually $K_k\le a_0$. In \eqref{eq:sandwich},
+$x-h=k(L-2R)+O(\log k)>k(H(p)+\delta)$ for a fixed $\delta>0$. The ordinary law of large numbers implies fidelity tending to one. Rate zero is trivial. Above $C(p)$ the exponent in \eqref{eq:exponent-formula} is positive: either $R>A$, or $J'_{L-2R}(1)>0$.
+
+If $R<C_0(p)$, every positive-probability word has empirical entropy at most $\log s$, while the first grid cutoff tends to $L-2R>\log s$. Thus the entire classical mass in \eqref{eq:good-mass} is one eventually, giving exact fidelity. Conversely, exact fidelity for a rank-$s^k$ state forces its rotated support into the eigenvalue-one space of $M$. Hence $s^k\le\Tr M^2\le N/K^2$ and $K\le a$. Capacities here are suprema of rates realized by actual positive-integer target sequences and actual protocol sequences. These sets contain zero, since every trace-preserving channel to the one-dimensional target has fidelity exactly one. The upper bounds and every strict subcritical achievable rate therefore identify the suprema even when $C(p)$ or $C_0(p)$ is zero; no boundary attainability is inferred.
+\end{proof}
+
+\begin{proof}[Proof of strict-direct reliability]
+The hypotheses imply $H(p)<c<\log s$. Proposition~\ref{prop:prefix} at $d_0=K_k$ bounds the actual error above by the probability that the empirical entropy exceeds $c-o(1)$. The number of types is polynomial, and each type has probability at most $e^{-kD(q\|p)}$. This gives the lower bound $I_p(c)$ on the error exponent of the same common protocol. The strict interval permits approximation of a boundary minimizer by laws of entropy strictly above the requested threshold.
+
+To prove optimality, fix $0<t<1$. At most $N/(K^2t^2)$ eigenvalues of $M$ exceed $t$. If $L_j$ is the mass of the largest $j$ input eigenvalues, capped at one beyond their support, the spectral trace inequality gives
+\begin{equation}\label{eq:tail-converse}
+ 1-F_k^\star\ge(1-t)
+ \left(1-L_{\lfloor N/(K^2t^2)\rfloor}(p^{\otimes k})\right).
+\end{equation}
+For integers $M_k$ with $k^{-1}\log M_k\to c\in(H(p),\log s)$, the optimal-prefix tail has exponent $I_p(c)$. Here is the needed type argument. Include all types with entropy at most $c-\delta$; their total cardinality is at most $(k+1)^s e^{k(c-\delta)}\le M_k$ eventually. The excluded mass is at most $(k+1)^s e^{-kI_p(c-\delta)}$. Conversely, a type approaching any $q$ with $H(q)>c$ has exponentially more words than $M_k$, and at least fraction $1-M_k/r_q$ of its equiprobable words must be excluded. Its mass is at least $(k+1)^{-s}e^{-kD(q\|p)}$. Approximate an entropy-$c$ minimizer and let $\delta\downarrow0$. With $t=1/2$, \eqref{eq:tail-converse} gives the matching upper bound on every error exponent.
+
+The requisite continuity and the last expression in \eqref{eq:reliability} follow from escorts with $0<\alpha<1$. Since $H(p)<c<\log s$, the positive eigenvalues are nonuniform and a unique escort has entropy $c$. The identity
+\[
+ D(q\|p)=\alpha^{-1}D(q\|q_\alpha)
+ +\frac{1-\alpha}{\alpha}(H(q)-S_\alpha(p))
+\]
+proves the variational formula, equality at that escort, and continuity in the strict interval.
+\end{proof}
+
+\begin{remark}[The exact zero-error boundary]
+Formula~\eqref{eq:reliability} excludes $R=C_0(p)$. For a rank-four state on $4\times4$, $K_k=2^k$ permits exact packing of its $4^k$-dimensional support into $\Phi_{2^k}$ and garbage. Thus the state-aware error can be exactly zero at $R=\log2=C_0(p)$ even for nonuniform positive eigenvalues. A finite reliability expression at $c=\log4$ would miss this integer packing effect.
+\end{remark}
+
+\begin{theorem}[Entropy-limited Gaussian threshold]\label{thm:gaussian}
+Suppose $0<C(p)<A$ and
+\[
+ V(p)=\sum_{p_i>0}p_i(-\log p_i-H(p))^2>0.
+\]
+For any target sequence with $\log K_k=kC(p)+z\sqrt k+o(\sqrt k)$,
+\begin{equation}\label{eq:gaussian-limit}
+ F_k^{\rm u}(\rho,K_k)\longrightarrow\Phi(-2z/\sqrt{V(p)}),\qquad
+ F_k^\star(\rho,K_k)\longrightarrow\Phi(-2z/\sqrt{V(p)}).
+\end{equation}
+For each operation class $\calC$ above and fixed $0<\varepsilon<1$, let $K_{k,\calC}^{\rm opt}(\varepsilon)$ be the largest positive integer target for which an actual state-aware protocol in that class attains fidelity at least $1-\varepsilon$. These maxima exist for all sufficiently large $k$ and obey
+\[
+ \log K_{k,\calC}^{\rm opt}(\varepsilon)=kC(p)
+ +\tfrac12\sqrt{kV(p)}\,\Phi^{-1}(\varepsilon)+o(\sqrt k),
+\]
+and the common family attains the same expansion.
+\end{theorem}
+\begin{proof}
+The strict local-dimension gap ensures $K_k\le a_0$ eventually. Here $h_{D,k}=O(\log k)$ and $\log(N/K_k^2)=kH(p)-2z\sqrt k+o(\sqrt k)$. Apply the ordinary central limit theorem to the two sides of \eqref{eq:sandwich}, for example with $t=k^{1/4}$; alternatively use Corollary~\ref{cor:berry}. The same squeeze applies to the genuine state-aware supremum in every intermediate physical class. For fixed error, define each optimum as the maximum of the set of positive integers admitting the requested actual fidelity. Bracket that entire set above and below a fixed Gaussian quantile: the converse excludes every larger integer, and rounded smaller targets provide actual witnesses. The feasible integer sets are eventually nonempty and bounded, hence their natural suprema are attained maxima. This establishes both expansions without assuming target monotonicity of the particular universal family.
+\end{proof}
+
+Theorem~\ref{thm:gaussian} retains both strict hypotheses. The local-dimension cap and zero varentropy are not included by continuity. The next section treats a cap-boundary phenomenon of a different, minimax kind.

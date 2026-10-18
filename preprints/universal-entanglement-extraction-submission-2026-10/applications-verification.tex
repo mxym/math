@@ -1,0 +1,78 @@
+\section{Applications, verification, and open questions}\label{sec:applications}
+
+\subsection{APPT entropy as an extraction budget}
+A state on $\C^m\otimes\C^n$ is absolutely PPT if every global unitary conjugate has positive partial transpose. The capacity formula connects its spectral entropy to a collective extraction resource, even though no single-copy global rotation can produce an NPT state. Qualitative activation from purity is known \cite{kondra}; the following identity records the quantitative link needed here.
+
+Let
+\[
+ E_1(m,n)=\log D-\min_{\rho\in\APPT(m,n)}S(\rho).
+\]
+The APPT set is compact: it is the intersection, inside the compact set of density matrices, of closed partial-transpose positivity conditions. Von Neumann entropy is continuous, so the minimum is attained. Theorem~\ref{thm:universal-laws} immediately gives
+\begin{equation}\label{eq:appt-capacity}
+ \max_{\rho\in\APPT(m,n)}C(p_\rho)
+ =\min\left(\log m,\frac{E_1(m,n)}2\right).
+\end{equation}
+Thus a minimum-entropy theorem for APPT spectra calibrates the maximal capacity in the present model. A companion all-dimension entropy profile can be substituted in this identity \cite{zhang-appt-entropy}; its proof and its verification status are separate from the present paper.
+
+One can obtain a self-contained operational comparison from the already verified purity asymptotic \cite{zhang-appt-purity}. For $P_{\max}(m,n)=\max_{\APPT}\Tr\rho^2$, Jensen's inequality gives $S(\rho)\ge-\log\Tr\rho^2$, and hence
+\begin{equation}\label{eq:appt-purity-upper}
+ \max_{\APPT}C\le\frac12\log(DP_{\max}).
+\end{equation}
+For balanced systems $D=m^2\to\infty$, the purity law $P_{\max}=D^{-1}+8D^{-2}+o(D^{-2})$ yields $\max_{\APPT}C\le4/D+o(D^{-1})$.
+
+For a lower example take $\rho=(I+2vv^*)/(D+2)$. It is APPT for every unit vector $v$: after every global rotation, the smallest eigenvalue of $(vv^*)^\Gamma$ is at least $-1/2$, by the Schmidt coefficient inequality $t_it_j\le1/2$. Its spectrum is $(3,1,\ldots,1)/(D+2)$, and the local cap is inactive for every $2\le m\le n$. Hence
+\[
+ C(p_\rho)=\frac12\left[\log\frac D{D+2}+\frac{3\log3}{D+2}\right]
+ =\frac{3\log3-2}{2D}+O(D^{-2}).
+\]
+With $c_{\rm sp}=(3\log3-2)/2$, an explicit error bound is
+\[
+ 0\le c_{\rm sp}/D-C(p_\rho)\le\frac{3\log3}{D(D+2)}.
+\]
+Together with \eqref{eq:appt-purity-upper}, this gives, along every sequence of balanced dimensions tending to infinity,
+\[
+ c_{\rm sp}\le\liminf D\max_{\APPT}C
+ \le\limsup D\max_{\APPT}C\le4.
+\]
+The actual maximum and the displayed comparison are established without solving the entropy optimizer. These are applications of the two-stage spectral capacity and do not assert ordinary fixed-state LOCC distillation at these rates.
+
+Equation~\eqref{eq:appt-capacity} fixes the dimensions before taking the many-copy capacity limit. A joint growing-dimension conclusion requires uniform finite-block control. Theorem~\ref{thm:sandwich} supplies such control without spectral assumptions; a Gaussian conclusion additionally requires the moment and output-size conditions in \eqref{eq:triangular}. No assertion that every APPT near optimizer satisfies those conditions is made.
+
+\subsection{Formalization and independent verification}
+The development uses Lean~4.34.1 and a fixed Mathlib commit. Its objects are the original complex density matrices, arbitrary global unitaries, actual finite Kraus channels and partial transpose on the stated first party. Complete positivity is defined by positivity of every finite auxiliary amplification; the Choi criterion and actual complete Kraus representations are derived. Finite LOCC is an adaptive local-instrument tree with public outcomes and hidden Kraus indices. Closure LOCC is its genuine finite-dimensional coefficient closure, and its completely PPT inclusion follows from closedness of the Choi positivity and trace identities.
+
+The coherent packing theorem includes unitary extension on the existing input, all unused-coordinate decoder branches and arbitrary logical coherences. The Rains converse is realized by the actual measure-and-prepare channel in Lemma~\ref{lem:rains}. Asymptotic endpoints use the selected common family itself and genuine physical suprema. Capacities and integer target optima are defined by actual protocol witnesses and success conditions; exact feasibility is not inferred from an unattained fidelity supremum. The probability development includes zero eigenvalues, finite Berry--Esseen control and true varying-law limits.
+
+The revision uses intrinsic orbit projections in Section~\ref{sec:universal} and Haar minor moments plus an operator lower bound in Theorem~\ref{thm:flat-average}. Its finite overhead is \eqref{eq:overhead}, rather than the different Schur-block overhead in the preserved predecessor. The tensor commutant result is proved internally; a caller-supplied Young decomposition, moment identity, asymptotic rank law or optimal-performance certificate is not a hypothesis of these endpoints.
+
+The verification archive separates the frozen mathematical completion from the effective compiler extension:
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.57\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}}
+\toprule
+Mathematical component & Exact source scope\\
+\midrule
+Actual coherent packing and channel-to-effect bounds & Preserved scoped Lean audits\\
+Complete positivity, Kraus equivalence, LOCC and Rains realization & Completion audit\\
+One common family, capacities, exponents, Gaussian and integer targets & Completion audit\\
+Actual Haar moments, rank, purity and physical minimax profiles & Completion audit\\
+Original-register circuits and finite-library word-length bounds & Completion audit\\
+APPT capacity extrema and explicit first-order comparisons & Completion audit\\
+Computable descriptors, numerical compiler and actual output fidelity & Separate algorithm scope\\
+Uniform classical compiler bit running time & Open; not a circuit-size claim\\
+\bottomrule
+\end{tabular}
+\end{center}
+The fixed-source completion audit contains 518 named theorem endpoints and 175 concrete model definitions. Its independent fresh build and empty-environment kernel replay cover a 72,820-declaration proof-and-definition closure at trust level zero. All 84 same-type forged-proof controls are rejected at their precise theorem roots after positive replay of their type dependencies. The only admitted foundational axioms are \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. A separate algorithm scope binds the new numerical program, computable descriptors, actual finite-label output and their concrete semantics. The exact declaration lists, source hashes, execution inputs, replay logs, control results and CI artifact checks are supplied as machine-readable evidence; source-map counts are not counts of discoveries.
+
+The archived manifests identify the source to which each result applies. The older 608-root and APPT audits retain their original inputs. This manuscript's predecessor and the first working revision are preserved, and new results do not inherit their verification claims merely by being in the same repository. The source maps connect the named mathematical statements and physical models to the formal declarations. Formal verification certifies those precise types under their listed hypotheses; the correspondence with prose is independently reviewed rather than automatically inferred from a passing build. Internal AI review is not external human peer review or a certification of novelty.
+
+\subsection{Implementation and further questions}
+The pure-promise result supplies an actual computable finite-label compiler on the original register, with the whole-circuit error and output-fidelity guarantees of Proposition~\ref{prop:effective-compiler}. Its fixed net and inverse-label table depend on the library; no uniform procedure for finding a net from an arbitrary real-valued library description is claimed. A full classical bit-time theorem still requires complete operand-size, provider and structural-cost bounds. The general mixed-state construction remains an existence theorem for a specified finite unitary and local channels. Efficient representation transforms \cite{bch,kirby,krovi} provide related tools; a complete implementation must also account for reversible sector indexing, variable Bell dimensions and unitary completion on the available register.
+
+The sharp minimax results fix $D$ and $s$. Their finite inequalities remain valid when these parameters vary, but the inverse-moment asymptotic requires additional uniform estimates before such a joint limit can be claimed. The explicit conditions in \eqref{eq:triangular} concern a different, information-spectrum route and do not replace those estimates. The exact reliability law at the zero-error boundary, cap-boundary Gaussian laws for arbitrary mixed inputs, and optimal circuit costs likewise remain open here.
+
+\paragraph{Acknowledgments and disclosure.}
+The author received no external funding. OpenAI AI assistants assisted with research, formalization, writing, and internal review. Responsibility for the mathematical statements and the distinction between written and machine-verified proofs remains with the author. Internal AI review is not external human peer review. Original materials retain all rights reserved; third-party results and software retain their own attribution and licenses.
+
+\paragraph{Predecessors and reproducibility.}
+This manuscript consolidates the author's repository preprints on state-aware and state-independent extraction \cite{zhang-extraction,zhang-universal}. Their original versions are preserved. The finite-block construction at all blocklengths, target-uniform rank-budget minimax theorem, support/average two-moment comparison, and exact pure-promise resource accounting are identified separately in the contribution and source maps. The reproduction bundle contains this manuscript, its sources, the mathematical verification records, and the separately scoped Lean packages; it does not turn earlier preprints into distinct additional discoveries.

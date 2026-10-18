@@ -1,0 +1,800 @@
+{
+  "status": "FIXED_SUBMISSION_CANDIDATE_SEE_SEPARATE_EXACT_SOURCE_VERIFICATION",
+  "meaning": "Source locations and restrictions, not a substitute for theorem-type review or kernel verification.",
+  "reference_math_snapshot": "3f78c5d66a80cc08fd3d3efd2fac3e5dbfa83661",
+  "protected_scopes": "All historical scopes and the frozen 518/175/84 scope remain unchanged",
+  "excluded_claims": [
+    "Uniform classical finite-precision compiler Turing bit complexity",
+    "Exact APPT entropy optimizer or maximum-capacity leading coefficient",
+    "Growing-D sharp inverse-Haar-moment asymptotics",
+    "Reliability at R=C0 or general cap-boundary mixed-state Gaussian laws"
+  ],
+  "claims": [
+    {
+      "label": "Physical protocol model",
+      "manuscript": "introduction.tex; spectral-principles.tex",
+      "declarations": [
+        {
+          "name": "MinimaxProfile.KrausPPTProtocol",
+          "path": "formalizations/extraction-minimax-profile/MinimaxProfile/Protocol.lean",
+          "line": 12,
+          "kind": "structure"
+        },
+        {
+          "name": "MinimaxProfile.tensorInput",
+          "path": "formalizations/extraction-minimax-profile/MinimaxProfile/UniversalFinite.lean",
+          "line": 11,
+          "kind": "def"
+        }
+      ],
+      "conditions_and_scope": "Actual original-space global unitary, complete Kraus output channel and complete Kraus representation of its partial-transpose conjugate; the global unitary is a separate entangling resource."
+    },
+    {
+      "label": "Complete positivity semantics",
+      "manuscript": "introduction.tex; applications-verification.tex",
+      "declarations": [
+        {
+          "name": "ExtractionCP.CompletelyPositive",
+          "path": "formalizations/extraction-cp-interface/CPInterface/Choi.lean",
+          "line": 19,
+          "kind": "def"
+        },
+        {
+          "name": "ExtractionCP.TracePreserving",
+          "path": "formalizations/extraction-cp-interface/CPInterface/Choi.lean",
+          "line": 23,
+          "kind": "def"
+        },
+        {
+          "name": "ExtractionCP.choi",
+          "path": "formalizations/extraction-cp-interface/CPInterface/Choi.lean",
+          "line": 27,
+          "kind": "def"
+        }
+      ],
+      "conditions_and_scope": "Complete positivity quantifies over every finite auxiliary amplification. Choi positivity and finite Kraus representations are derived, not supplied physical certificates."
+    },
+    {
+      "label": "Closure LOCC model",
+      "manuscript": "introduction.tex; asymptotic-laws.tex",
+      "declarations": [
+        {
+          "name": "ExtractionLOCC.IsClosureLOCC",
+          "path": "formalizations/extraction-locc-interface/LOCCInterface/Closure.lean",
+          "line": 98,
+          "kind": "def"
+        },
+        {
+          "name": "ExtractionLOCC.IsClosureLOCC.exists_actual_protocol",
+          "path": "formalizations/extraction-locc-interface/LOCCInterface/Closure.lean",
+          "line": 129,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Coefficient closure of genuine finite adaptive instrument trees. Product-local inclusion and complete-PPT inclusion are proved. No claim about the global unitary being LOCC."
+    },
+    {
+      "label": "Rains reverse realization",
+      "manuscript": "lem:rains",
+      "declarations": [
+        {
+          "name": "ExtractionRains.rainsEffect_exists_actual_protocol",
+          "path": "formalizations/extraction-rains-realization/RainsRealization/Protocol.lean",
+          "line": 60,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionRains.rainsEffect_iff_actual_protocol_effect",
+          "path": "formalizations/extraction-rains-realization/RainsRealization/Protocol.lean",
+          "line": 70,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "K >= 2 for the measure-and-prepare construction. K=1 is separately exact by protocol_fidelity_one."
+    },
+    {
+      "label": "Coherent packing",
+      "manuscript": "lem:packing; prop:prefix",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.heterogeneous_projection_protocol",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/HeterogeneousDecoder.lean",
+          "line": 11,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Actual original-space projection ranks and integer garbage budgets; complete local decoders, coherences and all unused coordinates are retained."
+    },
+    {
+      "label": "One-shot spectral envelope",
+      "manuscript": "thm:envelope; eq:envelope-bound",
+      "declarations": [
+        {
+          "name": "SpectralProtocol.oneShotSpectralEnvelope_actual_lower",
+          "path": "formalizations/extraction-spectral-protocol/SpectralProtocol/EnvelopeLower.lean",
+          "line": 63,
+          "kind": "theorem"
+        },
+        {
+          "name": "SpectralProtocol.oneShotSpectralEnvelope_actual_upper",
+          "path": "formalizations/extraction-spectral-protocol/SpectralProtocol/EnvelopeUpper.lean",
+          "line": 75,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Actual density eigenvalues and integer Bell/garbage packing. Harmonic-prefix upper and lower bounds refer to real physical channels, retaining the local cap."
+    },
+    {
+      "label": "General probability ensemble comparison",
+      "manuscript": "prop:average",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.density_ensemble_integrable",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ProbabilityEnsemble.lean",
+          "line": 34,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.measurable_physical_ensemble_bound",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ProbabilityEnsemble.lean",
+          "line": 98,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "AEStronglyMeasurable probability ensemble of actual density matrices; integrability is derived from compactness. This extends the earlier finite-ensemble interface."
+    },
+    {
+      "label": "Polynomial orbit projection",
+      "manuscript": "lem:orbit",
+      "declarations": [
+        {
+          "name": "MinimaxProfile.tensorProjection_rank_le",
+          "path": "formalizations/extraction-minimax-profile/MinimaxProfile/UniversalFinite.lean",
+          "line": 37,
+          "kind": "theorem"
+        },
+        {
+          "name": "MinimaxProfile.tensorProjection_mass_ge",
+          "path": "formalizations/extraction-minimax-profile/MinimaxProfile/UniversalFinite.lean",
+          "line": 45,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Original tensor coordinates; arbitrary complex-matrix tensor-power span, not a supplied Young decomposition. Captured mass uses the actual eigenvalue law."
+    },
+    {
+      "label": "Same selected universal family",
+      "manuscript": "prop:prefix; eq:reservation; eq:grid",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.reservedProtocol",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedFamily.lean",
+          "line": 90,
+          "kind": "def"
+        },
+        {
+          "name": "OperationalCompletion.reservedProtocol_isProductLocal",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedFamily.lean",
+          "line": 96,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.reservedProtocol_guarantees",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedFamily.lean",
+          "line": 103,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "One family fixed before quantifying over the state. Fallback cases cover every positive target. The pure and mixed-state guarantees use the same witness."
+    },
+    {
+      "label": "Exact finite overhead",
+      "manuscript": "thm:sandwich; eq:overhead; eq:overhead-explicit",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.reservedTotalLoss",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedQuantile.lean",
+          "line": 80,
+          "kind": "def"
+        },
+        {
+          "name": "OperationalCompletion.reservationSafeCutoff_expansion",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedQuantile.lean",
+          "line": 82,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.reservedTotalLoss_dimension_bound",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/DimensionLoss.lean",
+          "line": 20,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "h = log(16 Q^2 Q_Dk), including integer floor losses. The lower sandwich uses K <= reservationLocal; 10 D^2 log(k+D) requires D>=2, k>=1."
+    },
+    {
+      "label": "Finite and varying-law Gaussian bounds",
+      "manuscript": "cor:berry",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.reservedProtocol_gaussian_error",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedTriangular.lean",
+          "line": 21,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.reserved_optimum_gaussian_error",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedOptimumQuantitative.lean",
+          "line": 11,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.triangular_reserved_gaussian_error",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedTriangular.lean",
+          "line": 43,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.triangular_reserved_optimum_gaussian_error",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedOptimumQuantitative.lean",
+          "line": 36,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Actual family fidelity and real physical protocol suprema, with the common-family inclusion hypothesis. Positive/eventually positive variance and eventual integer local-sector caps remain explicit. Moving Gaussian threshold need not converge."
+    },
+    {
+      "label": "Concrete shrinking-variance condition",
+      "manuscript": "cor:berry; eq:triangular",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.shrinking_variance_numerical_conditions",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ShrinkingVariance.lean",
+          "line": 46,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.triangular_reserved_gaussian_shrinking_variance",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ShrinkingVariance.lean",
+          "line": 96,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "D V eventually >= c>0, D T eventually <= C, and D^5 log^2(k+D)/k ->0. These are sufficient conditions, not automatic APPT properties."
+    },
+    {
+      "label": "Full asymptotic laws of the same family",
+      "manuscript": "thm:universal-laws",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.reserved_fidelity_exponent",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedLaws.lean",
+          "line": 53,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.reserved_reliability_limit",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedLaws.lean",
+          "line": 35,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.reserved_eventually_exact",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedLaws.lean",
+          "line": 11,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Nonnegative rates; actual positive integer target sequences. Reliability only C0<R<C; eventual exactness only R<C0. Boundary equality is not inferred."
+    },
+    {
+      "label": "State-aware optimal exponents",
+      "manuscript": "thm:universal-laws; eq:holder-converse",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.protocolOptimum",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/OptimalFidelity.lean",
+          "line": 14,
+          "kind": "def"
+        },
+        {
+          "name": "OperationalCompletion.optimal_fidelity_exponent",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/SharpFidelity.lean",
+          "line": 76,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.optimal_reliability_limit",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/OptimalFidelity.lean",
+          "line": 50,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "The real supremum is over actual physical protocol classes containing the same common-family witness; arbitrary completely-PPT protocols supply uniform upper bounds."
+    },
+    {
+      "label": "Actual rate-set capacities",
+      "manuscript": "thm:universal-laws; eq:appt-capacity",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.faithfulAttainableRates",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/CapacitySets.lean",
+          "line": 29,
+          "kind": "def"
+        },
+        {
+          "name": "OperationalCompletion.exactAttainableRates",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/CapacitySets.lean",
+          "line": 39,
+          "kind": "def"
+        },
+        {
+          "name": "OperationalCompletion.faithfulCapacity",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/CapacitySets.lean",
+          "line": 48,
+          "kind": "def"
+        },
+        {
+          "name": "OperationalCompletion.exactCapacity",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/CapacitySets.lean",
+          "line": 53,
+          "kind": "def"
+        },
+        {
+          "name": "OperationalCompletion.faithfulCapacity_eq",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/CapacitySets.lean",
+          "line": 167,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.exactCapacity_eq",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/CapacitySets.lean",
+          "line": 179,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.finiteLOCC_capacities",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/LOCCCapacity.lean",
+          "line": 11,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.protocol_fidelity_one",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/CapacitySets.lean",
+          "line": 18,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Suprema of genuinely attainable rates, including the zero boundary via target one. No unattained fidelity supremum is used to infer exact feasibility."
+    },
+    {
+      "label": "Gaussian optimum and integer inverse",
+      "manuscript": "thm:gaussian",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.reserved_gaussian_limit",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedGaussian.lean",
+          "line": 39,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.reserved_optimal_gaussian_limit",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedOptimum.lean",
+          "line": 10,
+          "kind": "theorem"
+        },
+        {
+          "name": "OperationalCompletion.reservedFixedErrorTarget_gaussian",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedQuantile.lean",
+          "line": 53,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Fixed dimensions, positive varentropy, strict entropy-limited local gap. Natural target maximum is eventually nonempty, bounded and attained; no target monotonicity of the selected family is assumed."
+    },
+    {
+      "label": "Actual Haar average and support",
+      "manuscript": "thm:flat-average",
+      "declarations": [
+        {
+          "name": "ExtractionSchur.haarOrbitAverage_range",
+          "path": "formalizations/extraction-schur-completion/SchurCompletion/HaarSupport.lean",
+          "line": 73,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.haarOrbitAverage_rank",
+          "path": "formalizations/extraction-schur-completion/SchurCompletion/HaarSupport.lean",
+          "line": 108,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.haarOrbitAverage_trace_square",
+          "path": "formalizations/extraction-schur-completion/SchurCompletion/HaarPurity.lean",
+          "line": 73,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Literal normalized Haar integral over the original one-copy unitary group. Its range is the intrinsic common rank-budget support."
+    },
+    {
+      "label": "Minor moment and overlap asymptotic",
+      "manuscript": "eq:minor-moment; eq:two-moments",
+      "declarations": [
+        {
+          "name": "ExtractionSchur.haarMinorMoment_product",
+          "path": "formalizations/extraction-schur-completion/SchurCompletion/HaarMinorMoments.lean",
+          "line": 209,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.haarMinorMoment_scaled_limit",
+          "path": "formalizations/extraction-schur-completion/SchurCompletion/MinorMomentAsymptotic.lean",
+          "line": 75,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.haarOverlapMoment_scaled_limit",
+          "path": "formalizations/extraction-schur-completion/SchurCompletion/OverlapAsymptotic.lean",
+          "line": 17,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Fixed integer D and s; exact product moment and fixed-N comparison are proved internally. No uniform growing-D inverse-moment asymptotic is asserted."
+    },
+    {
+      "label": "Actual sharp rank and purity",
+      "manuscript": "thm:flat-average",
+      "declarations": [
+        {
+          "name": "ExtractionSchur.rankBudget_general_rank_isEquivalent",
+          "path": "formalizations/extraction-schur-completion/SchurCompletion/GeneralRank.lean",
+          "line": 123,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.rankBudget_rank_scaled_limit",
+          "path": "formalizations/extraction-schur-completion/SchurCompletion/GeneralRank.lean",
+          "line": 157,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.rankBudget_rank_times_purity_limit",
+          "path": "formalizations/extraction-schur-completion/SchurCompletion/GeneralRank.lean",
+          "line": 166,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "All 1<=s<=D in Lean, with fixed D,s. The paper separates s<D logarithmic growth from the full-rank exact finite formula."
+    },
+    {
+      "label": "Physical minimax profile",
+      "manuscript": "thm:minimax; eq:minimax-finite",
+      "declarations": [
+        {
+          "name": "ExtractionSchur.rankBudget_class_minimax_finite",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/Finite.lean",
+          "line": 136,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.rankBudget_target_uniform_minimax",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/Uniform.lean",
+          "line": 127,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.rankBudget_target_uniform_relative_error",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/Uniform.lean",
+          "line": 151,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.rankBudget_full_rank_minimax",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/FullRank.lean",
+          "line": 41,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Actual product-local, finite LOCC, closure LOCC and complete-PPT protocol classes; one eventual blocklength threshold before all positive integer targets."
+    },
+    {
+      "label": "Attained rank-budget targets",
+      "manuscript": "cor:targets",
+      "declarations": [
+        {
+          "name": "ExtractionSchur.exactRankBudgetMaximum_attained",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/Targets.lean",
+          "line": 141,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.exactRankBudgetMaximum_log_correction_limit",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/TargetAsymptotics.lean",
+          "line": 167,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.exactRankBudgetMaximum_eventually_local",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/TargetAsymptotics.lean",
+          "line": 218,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.errorRankBudgetMaximum_attained",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/ErrorTargets.lean",
+          "line": 68,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.errorRankBudgetMaximum_log_limit",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/TargetAsymptotics.lean",
+          "line": 103,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.errorRankBudgetMaximum_full_rank",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/FullRankTargets.lean",
+          "line": 38,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Success sets quantify an actual common protocol witness before all promised inputs. Fixed error log expansion needs s<D and 0<epsilon<1. Full-rank formula needs 0<=epsilon<1."
+    },
+    {
+      "label": "Known-spectrum orbit targets",
+      "manuscript": "cor:known-spectrum",
+      "declarations": [
+        {
+          "name": "ExtractionSchur.orbitExactMaximum_attained",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/OrbitTargets.lean",
+          "line": 58,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.orbitExactMaximum_log_correction_limit",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/OrbitTargets.lean",
+          "line": 88,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.orbitExactMaximum_eventually_local",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/OrbitTargets.lean",
+          "line": 108,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.flatOrbit_target_uniform_minimax",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/FlatOrbit.lean",
+          "line": 110,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionSchur.flatOrbitErrorMaximum_log_limit",
+          "path": "formalizations/extraction-schur-completion/physical-minimax/SchurMinimax/FlatErrorTargets.lean",
+          "line": 95,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Exact-target conclusions apply to arbitrary actual density spectra of the stated rank. Fixed-error minimax conclusions are for flat spectra, not arbitrary nonuniform fixed spectra."
+    },
+    {
+      "label": "Same-family sharp pure profile",
+      "manuscript": "unknown-support.tex: compatibility with the common family",
+      "declarations": [
+        {
+          "name": "OperationalCompletion.balanced_reserved_family_sharp",
+          "path": "formalizations/extraction-operational-completion/OperationalCompletion/ReservedPure.lean",
+          "line": 126,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Balanced fixed local dimensions, simultaneously all positive targets and unknown pure inputs; the selected reservedProtocol is the same as in the mixed-state laws."
+    },
+    {
+      "label": "Actual original-wire circuit",
+      "manuscript": "prop:pure-circuit",
+      "declarations": [
+        {
+          "name": "CircuitRecursion.compressionCircuit_action",
+          "path": "formalizations/extraction-circuit-recursion/CircuitRecursion/Compression.lean",
+          "line": 47,
+          "kind": "theorem"
+        },
+        {
+          "name": "CircuitRecursion.extractionOutput_purePower",
+          "path": "formalizations/extraction-circuit-recursion/CircuitRecursion/LocalDiscard.lean",
+          "line": 99,
+          "kind": "theorem"
+        },
+        {
+          "name": "CircuitRecursion.pairwiseCoordinates_physical",
+          "path": "formalizations/extraction-circuit-recursion/CircuitRecursion/PhysicalCoordinates.lean",
+          "line": 90,
+          "kind": "theorem"
+        },
+        {
+          "name": "CircuitRecursion.bellPairYield_floor",
+          "path": "formalizations/extraction-circuit-recursion/CircuitRecursion/Yield.lean",
+          "line": 46,
+          "kind": "theorem"
+        },
+        {
+          "name": "CircuitRecursion.bellPairYield_cPPT_maximal",
+          "path": "formalizations/extraction-circuit-recursion/CircuitRecursion/Yield.lean",
+          "line": 53,
+          "kind": "theorem"
+        },
+        {
+          "name": "CircuitRecursion.extractionCircuit_isBigO",
+          "path": "formalizations/extraction-circuit-recursion/CircuitRecursion/Growth.lean",
+          "line": 44,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Literal lists on the original 2k qubits, actual Bell preparation and separate local readout/discard. Gate counts refer to the whole constructed word, not an unassembled step budget."
+    },
+    {
+      "label": "Finite-library word and physical error",
+      "manuscript": "prop:pure-circuit",
+      "declarations": [
+        {
+          "name": "CircuitRecursion.su2_synthesis_dyadic",
+          "path": "formalizations/extraction-circuit-recursion/CircuitRecursion/SKSynthesis.lean",
+          "line": 88,
+          "kind": "theorem"
+        },
+        {
+          "name": "CircuitRecursion.finiteLibrary_extraction",
+          "path": "formalizations/extraction-circuit-recursion/CircuitRecursion/FinitePrecision.lean",
+          "line": 37,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Fixed finite inverse-closed dense SU(2) library plus CNOT. Actual word existence, operator error up to global phase and fidelity >=1-2delta. This is not a classical bit-time theorem."
+    },
+    {
+      "label": "APPT entropy and actual capacity extrema",
+      "manuscript": "eq:appt-capacity",
+      "declarations": [
+        {
+          "name": "ExtractionAPPT.quantumEntropy_eq_spectral",
+          "path": "formalizations/extraction-appt-applications/APPTApplications/Entropy.lean",
+          "line": 25,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionAPPT.exists_appt_entropy_isLeast",
+          "path": "formalizations/extraction-appt-applications/APPTApplications/Entropy.lean",
+          "line": 95,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionAPPT.exists_appt_capacity_isGreatest",
+          "path": "formalizations/extraction-appt-applications/APPTApplications/Capacity.lean",
+          "line": 56,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionAPPT.apptMaxCapacity_eq",
+          "path": "formalizations/extraction-appt-applications/APPTApplications/Capacity.lean",
+          "line": 76,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Actual complex density/APPT matrices, entropy as a CFC trace, attained min and max, and physical attainable-rate capacity. No APPT entropy optimizer is solved here."
+    },
+    {
+      "label": "APPT explicit example and comparisons",
+      "manuscript": "eq:appt-purity-upper; applications-verification.tex",
+      "declarations": [
+        {
+          "name": "ExtractionAPPT.apptMaxCapacity_le_puritySup",
+          "path": "formalizations/extraction-appt-applications/APPTApplications/Purity.lean",
+          "line": 78,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionAPPT.spikeState_absolutelyPPT",
+          "path": "formalizations/extraction-appt-applications/APPTApplications/SpikeState.lean",
+          "line": 74,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionAPPT.spikeState_capacity",
+          "path": "formalizations/extraction-appt-applications/APPTApplications/SpikeCapacity.lean",
+          "line": 10,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionAPPT.spikeState_capacity_error_bounds",
+          "path": "formalizations/extraction-appt-applications/APPTApplications/Asymptotic.lean",
+          "line": 51,
+          "kind": "theorem"
+        },
+        {
+          "name": "ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds",
+          "path": "formalizations/extraction-appt-applications/APPTApplications/Asymptotic.lean",
+          "line": 243,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Spike example for all 2<=m<=n; square-system comparison has lower coefficient (3log3-2)/2 and upper coefficient 4. No sharp maximum-capacity coefficient is claimed."
+    },
+    {
+      "label": "Computable original-register circuit descriptions",
+      "manuscript": "prop:effective-compiler; original-register circuit proof",
+      "declarations": [
+        {
+          "name": "EffectiveEncoding.extractionCode",
+          "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+          "line": 35,
+          "kind": "def"
+        },
+        {
+          "name": "EffectiveEncoding.extractionCode_polynomial_bound",
+          "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+          "line": 83,
+          "kind": "theorem"
+        },
+        {
+          "name": "EffectiveEncoding.extractionOutput_purePower",
+          "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+          "line": 153,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Explicit bounded occupation enumeration and finite angle/gate descriptors; original 2k wires, no supplied workspace before the circuit; actual same local discard."
+    },
+    {
+      "label": "Actual finite-label numerical compiler",
+      "manuscript": "prop:effective-compiler",
+      "declarations": [
+        {
+          "name": "EffectiveEncoding.descriptorSynthesis",
+          "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+          "line": 10,
+          "kind": "def"
+        },
+        {
+          "name": "EffectiveEncoding.numericalExtractionCode",
+          "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+          "line": 45,
+          "kind": "def"
+        },
+        {
+          "name": "EffectiveEncoding.numericalExtractionCode_error",
+          "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+          "line": 59,
+          "kind": "theorem"
+        },
+        {
+          "name": "EffectiveEncoding.numericalExtractionCode_length",
+          "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+          "line": 78,
+          "kind": "theorem"
+        },
+        {
+          "name": "EffectiveEncoding.numericalExtractionCode_fidelity",
+          "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+          "line": 97,
+          "kind": "theorem"
+        },
+        {
+          "name": "EffectiveEncoding.extractionArithmeticOperations_bound",
+          "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+          "line": 141,
+          "kind": "theorem"
+        },
+        {
+          "name": "EffectiveEncoding.numericalExtraction_from_universal",
+          "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+          "line": 161,
+          "kind": "theorem"
+        }
+      ],
+      "conditions_and_scope": "Fixed inverse-closed universal SU2 library, valid numerical entry routines and fixed finite net/table. Actual N determines q; actual list output has global-phase operator error and uniform unknown-pure-input fidelity. Arithmetic-expression count excludes provider bit time and structural cost."
+    }
+  ],
+  "core_mathematical_source": "cfdd2a6c7954f1956f1832cdabe28dd6e018fe3a"
+}
