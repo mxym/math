@@ -1,0 +1,133 @@
+import Lean.Replay
+import Lean
+
+open Lean Elab Command
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+namespace NativeExecutionVerification
+
+/-- Audit metaprogram only. Every proof and declaration dependency is retained. -/
+partial def collect (env : Environment) (todo : List Name)
+    (seen : Std.HashMap Name ConstantInfo) : Except String (Std.HashMap Name ConstantInfo) :=
+  match todo with
+  | [] => .ok seen
+  | n :: rest =>
+    if seen.contains n then collect env rest seen
+    else match env.find? n with
+    | none => .error s!"Missing dependency {n}"
+    | some ci =>
+      let extra := match ci with
+        | .inductInfo v => v.all ++ v.ctors
+        | .ctorInfo v => [v.induct]
+        | .recInfo v => v.all
+        | _ => []
+      collect env (extra ++ ci.getUsedConstantsAsSet.toList ++ rest) (seen.insert n ci)
+
+/-- Check the explicit theorem/model classification before any replay. A
+misnamed declaration or theorem listed as a definition must fail the type report. -/
+def checkKinds (theorems definitions : List Name) : CommandElabM Unit := do
+  let env ← getEnv
+  for n in theorems do
+    let some ci := env.find? n | throwError "Missing theorem {n}"
+    unless ci.isTheorem do throwError "Expected theorem declaration {n}"
+  for n in definitions do
+    let some ci := env.find? n | throwError "Missing model definition {n}"
+    match ci with
+    | .defnInfo _ => pure ()
+    | .inductInfo _ => pure ()
+    | _ => throwError "Expected model definition/inductive {n}"
+  logInfo m!"DECLARATION_KIND_CHECK_PASS {theorems.length} theorems; {definitions.length} definitions"
+
+/-- Replay selected endpoint theorems and concrete model definitions in a fresh
+trust-zero kernel. Closure size is a dependency statistic, not a result count. -/
+def replayAll (roots : List Name) (stem : String) : CommandElabM Unit := do
+  let env := (← getEnv).setExporting false
+  if roots.isEmpty then throwError "No roots selected"
+  let cs ← match collect env roots {} with
+    | .ok cs => pure cs
+    | .error msg => throwError msg
+  for (n, ci) in cs.toList do
+    if ci.isUnsafe || ci.isPartial then throwError "Unsafe/partial dependency {n}"
+    if ci.isAxiom then
+      unless [``propext, ``Classical.choice, ``Quot.sound].contains n do
+        throwError "Unexpected axiom {n}"
+  let base ← mkEmptyEnvironment 0
+  let verified ← base.toKernelEnv.replay cs
+  for root in roots do
+    let some original := env.find? root | throwError "Original root missing {root}"
+    let some checked := verified.find? root | throwError "Replayed root missing {root}"
+    unless original.type == checked.type && original.levelParams == checked.levelParams do
+      throwError "Changed type/levels {root}"
+  let names := (cs.toList.map (fun p => p.1.toString)).mergeSort (fun a b => decide (a < b))
+  let axioms := (cs.toList.filterMap (fun p => if p.2.isAxiom then some p.1.toString else none)).mergeSort (fun a b => decide (a < b))
+  IO.FS.writeFile s!"{stem}-roots.txt" (String.intercalate "\n" (roots.map Name.toString) ++ "\n")
+  IO.FS.writeFile s!"{stem}-closure.txt" (String.intercalate "\n" names ++ "\n")
+  IO.FS.writeFile s!"{stem}-axioms.txt" (String.intercalate "\n" axioms ++ "\n")
+  logInfo m!"EMPTY_KERNEL_REPLAY_PASS {cs.size} declarations; {roots.length} roots; trust level zero"
+
+/-- Paired with a preceding full positive theorem replay. After changing a
+proof to True.intro, replay only the dependencies actually used by the changed
+declaration (its original type plus True.intro), not the discarded proof's
+unused certificate dependencies. The expected theorem type is not altered. -/
+def rejectCorruptTheorem (root : Name) (stem : String) : CommandElabM Unit := do
+  let env := (← getEnv).setExporting false
+  let some ci := env.find? root | throwError "Original theorem missing {root}"
+  let bad := match ci with
+    | .thmInfo v => ConstantInfo.thmInfo {v with value := mkConst ``True.intro}
+    | _ => ci
+  unless ci.isTheorem do throwError "Corruption control must select a theorem"
+  unless bad.type == ci.type && bad.levelParams == ci.levelParams do
+    throwError "Corruption changed the expected theorem type or levels"
+  let deps ← match collect env bad.getUsedConstantsAsSet.toList {} with
+    | .ok cs => pure cs
+    | .error msg => throwError msg
+  if deps.contains root then throwError "Unexpected self-dependency in theorem type"
+  unless deps.contains ``True.intro do throwError "Missing corrupt proof constructor"
+  for (n, info) in deps.toList do
+    if info.isUnsafe || info.isPartial then throwError "Unsafe/partial dependency {n}"
+    if info.isAxiom then
+      unless [``propext, ``Classical.choice, ``Quot.sound].contains n do
+        throwError "Unexpected axiom {n}"
+  -- First verify these dependencies positively, so a missing or malformed
+  -- dependency cannot masquerade as rejection of the forged theorem.
+  let positiveBase ← mkEmptyEnvironment 0
+  let _ ← positiveBase.toKernelEnv.replay deps
+  let rejected ← try
+    let negativeBase ← mkEmptyEnvironment 0
+    let _ ← negativeBase.toKernelEnv.replay (deps.insert root bad)
+    pure false
+  catch e =>
+    let reason ← e.toMessageData.toString
+    unless (reason.splitOn "(kernel) declaration type mismatch").length > 1 do
+      throwError "Control failed for an unexpected reason: {reason}"
+    unless (reason.splitOn s!"while replaying declaration '{root}'").length > 1 do
+      throwError "Control failure did not identify the forged root: {reason}"
+    logInfo m!"EXPECTED_KERNEL_REJECTION: {reason}"
+    pure true
+  unless rejected do throwError "Corrupted final theorem was accepted"
+  let names := (deps.toList.map (fun p => p.1.toString)).mergeSort (fun a b => decide (a < b))
+  let axioms := (deps.toList.filterMap (fun p => if p.2.isAxiom then some p.1.toString else none)).mergeSort (fun a b => decide (a < b))
+  IO.FS.writeFile s!"{stem}-roots.txt" (root.toString ++ "\n")
+  IO.FS.writeFile s!"{stem}-type-dependencies.txt" (String.intercalate "\n" names ++ "\n")
+  IO.FS.writeFile s!"{stem}-axioms.txt" (String.intercalate "\n" axioms ++ "\n")
+  logInfo m!"TYPE_CLOSURE_REPLAY_PASS {deps.size} declarations; trust level zero"
+  logInfo m!"CORRUPTED_PROOF_REJECTED {root}"
+  logInfo m!"CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED {root}"
+
+
+/-- Export the actual closed Core Expr, including proof terms in model bodies.
+The Python producer hashes these bytes. Inductives have no definition value. -/
+def dumpModels (names : List Name) (directory : String) : CommandElabM Unit := do
+  let env ← getEnv
+  for (n, i) in names.zipIdx do
+    let some ci := env.find? n | throwError "Missing body model {n}"
+    let tail ← match ci with
+      | .defnInfo v => pure ("\nvalue " ++ reprStr v.value)
+      | .inductInfo v => pure ("\ninductive " ++ reprStr v.all ++ "\nconstructors " ++ reprStr v.ctors)
+      | _ => throwError "Expected definition/inductive body model {n}"
+    IO.FS.writeFile s!"{directory}/{i+1}.expr"
+      ("name " ++ n.toString ++ "\nlevels " ++ reprStr ci.levelParams ++
+        "\ntype " ++ reprStr ci.type ++ tail ++ "\n")
+  logInfo m!"ACTUAL_MODEL_CORE_EXPR_EXPORT_PASS {names.length} models"
+
+end NativeExecutionVerification

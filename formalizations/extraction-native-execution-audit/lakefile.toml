@@ -1,0 +1,14 @@
+name = "extractionNativeExecutionAudit"
+version = "0.1.0"
+defaultTargets = ["NativeExecutionAudit", "NativeExecutionVerification"]
+moreLeanArgs = ["-M4000"]
+
+[[require]]
+name = "extractionConcreteNative"
+path = "../extraction-concrete-native"
+
+[[lean_lib]]
+name = "NativeExecutionAudit"
+
+[[lean_lib]]
+name = "NativeExecutionVerification"
