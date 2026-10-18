@@ -38,3 +38,8 @@ import OperationalCompletion.ReservedTrial
 import OperationalCompletion.ReservedExponent
 import OperationalCompletion.ReservedLaws
 import OperationalCompletion.ReservedQuantile
+import OperationalCompletion.ReservedOptimum
+import OperationalCompletion.CapacitySets
+import OperationalCompletion.ProbabilityEnsemble
+import OperationalCompletion.LOCCCapacity
+import OperationalCompletion.ReservedTriangular

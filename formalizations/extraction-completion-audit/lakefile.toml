@@ -1,0 +1,29 @@
+name = "extractionCompletionAudit"
+version = "0.1.0"
+defaultTargets = ["CompletionAudit", "CompletionVerification"]
+
+[[require]]
+name = "extractionOperationalCompletion"
+path = "../extraction-operational-completion"
+
+[[require]]
+name = "extractionDeviationCompletion"
+path = "../extraction-deviation-completion"
+
+[[require]]
+name = "extractionCPInterface"
+path = "../extraction-cp-interface"
+
+[[require]]
+name = "extractionSchurCompletion"
+path = "../extraction-schur-completion"
+
+[[require]]
+name = "extractionCircuitRecursion"
+path = "../extraction-circuit-recursion"
+
+[[lean_lib]]
+name = "CompletionAudit"
+
+[[lean_lib]]
+name = "CompletionVerification"

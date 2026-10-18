@@ -1,0 +1,457 @@
+{
+  "status": "BUILD_ONLY",
+  "utc": "2026-10-18T15:18:28.505396+00:00",
+  "scope": "formalizations/extraction-circuit-recursion",
+  "modules": 14,
+  "root_count": 87,
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env PASS; all builds used worker_build.py shared flock",
+  "build_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T151747770201Z-extraction-circuit-recursion.log",
+  "build_log_sha256": "723c685e36490c45be2bfb22dbb3cc7073ad7c6df92652d240435e83e86c21d8",
+  "source_sha256": {
+    ".gitignore": "fde850d24186b6e99c8c0debd641fb3ab85198b109eb66f71a1fea02bd6ea1b3",
+    "CircuitRecursion/BellPairs.lean": "119ee7d581ba0d4637ef75165e6f059942170712427f9fcae586ca5912973ef4",
+    "CircuitRecursion/Check.lean": "a0afdb99e8c7b8d8870c8e88121c1262a1dc620fbc253ec80ed87c2f7c4bbb3a",
+    "CircuitRecursion/Compression.lean": "c5300207426885a24f379dd7b5743d2eaeec7bdbc6183ae705f92e3c5230a8b6",
+    "CircuitRecursion/Encoding.lean": "4d5d5fb39b5c4158794bb557935576fd42aca79600605aa39ea707f960110751",
+    "CircuitRecursion/Expansion.lean": "2df0796590bcaa142e9f4b50cf00fb3be73a4f85e6fce46f8230e513b1ca8fd6",
+    "CircuitRecursion/ExtractionCircuit.lean": "e5876000cba4ca485913f546794db59f36eb1d416334ced751b4c9864f546c62",
+    "CircuitRecursion/Growth.lean": "9426a000ab086d2d9ed10fee3f7261face57b63450a443e4366b5ee049629478",
+    "CircuitRecursion/InputDensity.lean": "6a8c6e761d7d26a5547334840507df68a0447eb674d7c599b96dc1bb16e7d5af",
+    "CircuitRecursion/LocalDiscard.lean": "454e8c5a92f843b861de8d45cc6a5e710edb47740c3fd77ccc0605ed27123c2f",
+    "CircuitRecursion/PhysicalCoordinates.lean": "5a7688a5d0094982283aa87df98cc7c35d473ee6eadd84e338ef86007c1a40f7",
+    "CircuitRecursion/Prefix.lean": "f9c7adac94349e5cd238f2a17271c77e59a361b4e6af11d10dc10dc5ec94cbf4",
+    "CircuitRecursion/PureInput.lean": "d18c67c839adc039e157371f2355aba9adb6c1b4b046308395af7c3f9a695bf5",
+    "CircuitRecursion/Registers.lean": "919b1d9e94f76a388819df248d39f0ddb061b644944daaaf11e122f60675173f",
+    "CircuitRecursion/Robustness.lean": "cb3f0c479fd57daeabf14300a27dccbd40c6a0613d2e8f0be4c0ff041ed6e082",
+    "CircuitRecursion/Yield.lean": "a0527d3d5979f7ab40095749a3229d7b7e5a8c0804b45b30818e4f29754118e7",
+    "CircuitRecursion.lean": "2dad236452350724dbb7f8b0a52a54a6e604f3f310ecafff2c66c8f60ff9f41a",
+    "README.md": "fc83744389b4c0a8e8b8b1330515b63a892b9dcd8fa2e560fcd57df3d4638e6d",
+    "ROOTS.txt": "c7edcbfca806f035454c644cc14251a74723142f28c0407636ec94343ca46bd9",
+    "lake-manifest.json": "14fc7f9948b335ae7b211c0e6468c6f7c4a960be4310afd404476e136d6c1c5f",
+    "lakefile.toml": "6459a3d1030245e5715aa49e1c510b1d53cdc60b2fc37727cfac35f336d39a00",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "root_axioms": {
+    "CircuitRecursion.zeroBits_append": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bellPairsWord_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bellPairsWord_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairwiseCoordinates_append": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cons_eq_iff": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bellPairsVector_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.sqrt_two_pow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bellPairs_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bellPairsVector_standard": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.letterBits_physical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.active_available": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.stageCircuit_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bitOccupation_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.compressionCircuit_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.stageCircuit_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.compressionCircuit_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.compressionCircuit_polynomial_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.codeWires_available": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.codeWires_step": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extendBits_injective": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.coordinateIsometry_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.run_scalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.run_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.encodedBranch_extend": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.shifted_occupation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.coordinateIsometry_trans": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extendVector_padding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tailBellCircuit_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tailBellCircuit_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.register_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionCircuit_coherent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionCircuit_purePower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionCircuit_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionCircuit_polynomial_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionCircuit_real_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionCircuit_isBigO": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bitPurePower_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bitPurePower_copywiseInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.readoutCoordinates_physical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.codeEmbedding_mulVec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionVector_readout": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.garbageVector_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bitPurePower_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pureOccupationCoefficients_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionOutput_coherent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionOutput_purePower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.castBits_apply": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairwiseCoordinates_alice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairwiseCoordinates_bob": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.codeWires_eq_original": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.local_register_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairwiseCoordinates_physical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.readoutCoordinates_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.prefixCircuit_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extendBits_eq_pad": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.prefixCircuit_eq_lift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extendBits_trans": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extendBits_append": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.paddedVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.prefixCircuit_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.compressionCircuit_matrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.compressionCircuit_coherent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bitPurePower_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.compressionCircuit_purePower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.castBits_rfl": [],
+    "CircuitRecursion.castCircuit_rfl": [],
+    "CircuitRecursion.castCircuit_length": [],
+    "CircuitRecursion.run_castCircuit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.prefix_append": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.suffix_append": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.single_append": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.run_shift_slice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.encodedBranch_apply_append": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.discardEffect_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.discardEffect_pairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionOutput_fidelity_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionOutput_robust": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.extractionOutput_robust_up_to_phase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.compiledExtraction_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.compiledExtraction_fidelity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.compiledExtraction_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bellPairYield_feasible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bellPairYield_maximal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bellPairYield_floor_log4": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.log4_eq_half_log2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bellPairYield_floor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bellPairYield_cPPT_maximal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "independent_kernel_replay": false,
+  "forged_proof_controls": false,
+  "remaining": [
+    "effective angle/circuit-description evaluation",
+    "finite-gate-set Solovay-Kitaev algorithm and linked complexity"
+  ]
+}

@@ -28,10 +28,42 @@ actual recursively assembled list length to the sum of stage budgets, and
 20480*k*(k+2)^6*(6*clog_2(k+3)+2)^2 + 100*k^2.
 ```
 
-The full extraction proposition is still incomplete here: final multiple-Bell
-preparation, its physical local discard channel, exact optimal integer yield,
-an asymptotic Big-O statement, effective angle evaluation and finite-library
-Solovay--Kitaev compilation remain to be connected/proved. The finite embedding
+`extractionCircuit k` appends literal H/CNOT operations on the freed original
+zero pairs. `extractionOutput_purePower` proves exact standard Bell output from
+every normalized unknown pure iid input after the explicit product family of
+local discard Kraus operators. The output has `bellPairYield k = k-encodingPairs k`
+Bell pairs. `pairwiseCoordinates_physical` connects the chosen bit coordinates
+to physical copywise Alice/Bob coordinates through separate local digit maps;
+`readoutCoordinates` then splits each party's original qubits locally.
+`extractionCircuit_polynomial_bound` binds the displayed bound to this complete
+actual word, including Bell preparation.
+
+`bellPairYield_floor` identifies the yield with exactly
+`floor(k - (1/2)*log_2(r_k))`. `bellPairYield_cPPT_maximal` applies the existing
+physical cPPT converse to exclude any larger uniform exact integer output,
+including arbitrary global unitaries. `extractionCircuit_isBigO` proves
+`O(k^7 * log_2(k+3)^2)` for the actual final word.
+
+`bitPurePower_copywiseInput` connects the input to the literal tensor density
+in the existing explicit copywise coordinates. `extractionOutput_robust` and
+its overall-phase version retain fidelity at least `1-2*delta` for an actual
+matrix approximation of the final circuit. `compiledExtraction_fidelity`
+derives that bound from per-gate error `delta/G` for any supplied literal
+replacement compiler; `compiledExtraction_length` counts its actual words.
+These are conditional stability/counting lemmas, and do not assert the
+existence of a finite-library compiler.
+
+The full extraction proposition is still incomplete here: effective angle
+evaluation and finite-library Solovay--Kitaev compilation remain open.
+The SK continuation now proves the commutator perturbation bound
+`4*delta*epsilon + 2*epsilon^2` directly from actual matrix algebra, and derives
+a fixed finite approximation net from inverse-closed universality and proved
+SU(2) compactness. `su2_balanced_commutator` constructs the actual balanced
+decomposition, with both factor distances at most the square root of the
+target distance from identity. Degenerate intertwiners are handled explicitly.
+The finite-word recursion and effective finite-precision algorithm remain
+open; see `SOURCE_REVIEW.md`.
+The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
 
@@ -42,6 +74,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build passed with 3771 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T145238417719Z-extraction-circuit-recursion.log`.
+The ordinary build and all 133 root type/axiom prints passed with 3797 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T154328688534Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.
