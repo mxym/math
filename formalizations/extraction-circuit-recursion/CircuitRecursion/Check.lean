@@ -1,4 +1,4 @@
-import CircuitRecursion.DyadicPrecision
+import CircuitRecursion.RationalSelection
 
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
@@ -248,6 +248,12 @@ import CircuitRecursion.DyadicPrecision
 #print axioms CircuitRecursion.unitary_two_phase_special
 #check CircuitRecursion.qubit_phase_special
 #print axioms CircuitRecursion.qubit_phase_special
+#check CircuitRecursion.rationalMinIndex_le
+#print axioms CircuitRecursion.rationalMinIndex_le
+#check CircuitRecursion.rationalMinIndex_error
+#print axioms CircuitRecursion.rationalMinIndex_error
+#check CircuitRecursion.rationalMinIndex_net_error
+#print axioms CircuitRecursion.rationalMinIndex_net_error
 #check CircuitRecursion.castBits_rfl
 #print axioms CircuitRecursion.castBits_rfl
 #check CircuitRecursion.castCircuit_rfl

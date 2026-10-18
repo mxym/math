@@ -111,3 +111,10 @@ present proof independently establishes conservative logarithmic exponent
 bit-complexity exponent. The safe manuscript endpoint is the proved finite
 gate count and error, with classical bit complexity explicitly left open
 unless these additional obligations are completed.
+
+`RationalSelection.lean` now supplies one small constructive component: a
+finite rational argmin without classical choice, together with the error
+bound rho+2*eta when the score errors are at most eta and a table entry is
+within rho. This removes a need for exact real tie tests in the selector.
+It neither constructs the fixed net nor evaluates matrix distances, and
+does not discharge those interfaces or the full bit-complexity claim.

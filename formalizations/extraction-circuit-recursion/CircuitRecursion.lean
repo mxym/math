@@ -29,3 +29,4 @@ import CircuitRecursion.FiniteLibrary
 import CircuitRecursion.FinitePrecision
 import CircuitRecursion.OccupationArithmetic
 import CircuitRecursion.DyadicPrecision
+import CircuitRecursion.RationalSelection

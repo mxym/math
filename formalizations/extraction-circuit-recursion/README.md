@@ -95,6 +95,10 @@ merge angles; these supply arithmetic support without a running-time claim.
 `2^-p`, fidelity at least `1-2*2^-p` and actual length at most
 `C*G(k)*(p+clog_2(max(1,G(k)))+1)^5`. Only the precision budget is computable
 here; selection of the approximating word remains an existence theorem.
+`RationalSelection.lean` implements a choice-free finite rational argmin and
+proves that score error at most eta increases the selected true distance by
+at most 2*eta. This supports a fixed net with numerical slack; table
+construction, matrix-score evaluation and their bit costs remain open.
 The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
@@ -106,6 +110,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build and all 185 root type/axiom prints passed with 3849 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T161008426882Z-extraction-circuit-recursion.log`.
+The ordinary build and all 188 root type/axiom prints passed with 3850 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T161253658220Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.
