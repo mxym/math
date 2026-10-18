@@ -1,0 +1,260 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T23:45:30.862238+00:00",
+  "scope": "eight actual finite packet-record controller/operational compiler modules; whole binary indexed variable-frame read",
+  "baseline": "e3ee84cea6180ab31294ae22cd9024c6dbdca706",
+  "modules": 8,
+  "root_count": 57,
+  "model_declarations": 33,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T234409384152Z-owned-check-CircuitNumerical.PacketRecordCheck.log",
+  "check_log_sha256": "673351630fcfec336a48bce81ec3b8eef1f8ed7a92262324d911d2e01ce7665f",
+  "source_sha256": {
+    "CircuitNumerical/PacketCounterAlphabet.lean": "429349d461056fc1955cd095e3a90e14e99292ca2cfca9e1c0418d22cfde6db3",
+    "CircuitNumerical/TM2ConfigurationMap.lean": "22e6d7e3f13a181b08af2166f2677b56b44f8725fd947ed89404f6d16c5535c3",
+    "CircuitNumerical/PacketCounterOperational.lean": "d07d432d988a806650f2a059b5e1f868b55ecceb3f78d90aa1cde656d3229e9f",
+    "CircuitNumerical/PacketStackPermutation.lean": "547dc7208383dad4d95c1bc13c1b945b4ce7fd773e34af2786aa14a4cc2e75ed",
+    "CircuitNumerical/PacketRecordPrimitives.lean": "5eba05ad13c0a409f4238a7f260d0b87f5966f827089a9be901ac0ee261b2b1e",
+    "CircuitNumerical/PacketRecordController.lean": "f10ddc487219035dbf4bc29a774f94f3bdb56aa18e2a43816d4bf0cc46cd0da7",
+    "CircuitNumerical/PacketRecordRuns.lean": "48d0c56924cf17c58b9b9da630f3f999f374fb9d3ee78a11aec384c4cae3a08a",
+    "CircuitNumerical/PacketRecordSemantics.lean": "d5b17bea642b1d131ebcac69adbfdcd14707ad574006f5a64b34b460a78fb62c",
+    "CircuitNumerical/PacketRecordCheck.lean": "49290893303206d10c263bdb3b1892e394aa3beb4a61a0223e47cf977ef26a0b",
+    "PACKET_RECORD_ROOTS.txt": "efbf6d009ec8bfa322c5476e18b06e7de111b7b2eba636fe4f8e3594dcffa67b",
+    "PACKET_RECORD_MODELS.txt": "1085938303765ba1c83aec187771761cd7e3bbbb3d0c15966c692a535aefd9bb",
+    "PACKET_RECORD_SCOPE_20261019.md": "7d998d27ccbccc2aeb6707428d6072d0caa9de820c681ec11ae5d761b63cda57"
+  },
+  "root_axioms": {
+    "CircuitRecursion.PacketCounterLift.lower_lift_memory": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCounterLift.liftStacks_active": [],
+    "CircuitRecursion.PacketCounterLift.liftStacks_update": [
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCounterLift.lower_head_map": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCounterLift.tail_map": [],
+    "CircuitRecursion.PacketCounterLift.compile_stepAux": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCounterLift.compile_statementDepth": [
+      "propext"
+    ],
+    "CircuitRecursion.TM2ConfigurationMap.iterate_map": [],
+    "CircuitRecursion.TM2ConfigurationMap.mapRun_steps": [],
+    "CircuitRecursion.PacketCounterLift.source_workFree": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCounterLift.program_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCounterLift.lift_source_configuration": [],
+    "CircuitRecursion.PacketCounterLift.counterRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCounterLift.counter_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCounterLift.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCounterLift.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCounterLift.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketStackPermutation.liftStacks_read": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketStackPermutation.liftStacks_update": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketStackPermutation.compile_stepAux": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketStackPermutation.program_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketStackPermutation.mapRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketStackPermutation.skip_roles": [
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketStackPermutation.copy_roles": [
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketStackPermutation.compile_statementDepth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.skipRecordRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.copyRecordRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.skip_statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.copy_statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.check_empty": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.check_zero": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.check_positive": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.done_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.counter_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.skip_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.copy_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.encodePacket_nonempty": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.frame_append_nonempty": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.read_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.readTime_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.readRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.terminal_label": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketRecordMachine.terminal_halts": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.read_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.readRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.readField_bits_eof": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketRecordMachine.readSigned_bits_eof": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketRecordMachine.decodeRaw_bits_eof": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketRecordMachine.terminal_source_value": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.terminal_getElem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.terminal_encoded_hit": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketRecordMachine.terminal_encoded_getElem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.terminal_cache_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketRecordMachine.terminal_typed_hit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 344,
+  "old_b288_prefix_diff": "empty",
+  "endpoints": [
+    "actual packet-alphabet counter and stack-role compilers, exact official operational/timed simulations",
+    "one nine-label finite TM2 reader with binary index, whole-frame skip/copy and internally derived actual transition bound",
+    "unconditional selected raw packet, exact typed frame hit, exact remaining encoded-cache suffix and terminal eval"
+  ],
+  "remaining": [
+    "persistent master cache working-copy/restoration and encoded index construction",
+    "machine lowering of complete field parser/serializer/normalization, compiler/AST/provider construction",
+    "other scalar primitive lowering, structured allocation and single-tape simulation",
+    "computing trace/cost annotations",
+    "full compiler machine bit-time"
+  ],
+  "aggregate_status": "not_requested_during_active_frozen_audit"
+}
