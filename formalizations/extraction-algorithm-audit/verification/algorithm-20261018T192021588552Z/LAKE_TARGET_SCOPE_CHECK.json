@@ -1,0 +1,62 @@
+{
+  "status": "READ_ONLY_PINNED_LAKE_SOURCE_AND_BOUND_CONFIG_REVIEW_PASS",
+  "lean_lake_version": "4.34.1",
+  "scope": "Explicit library targets root Glob.one plus actual import closure; future unused modules not scanned",
+  "inspection_only": true,
+  "no_concurrent_lake_command": true,
+  "no_frozen_input_modified": true,
+  "primary_lake_source": [
+    {
+      "path": "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/src/lean/lake/Lake/Config/LeanLibConfig.lean",
+      "sha256": "dae44e9afa142d3271e019c91c53aa08ed6fb32178e4c36023f0637a8e18ad66",
+      "first_line": 30,
+      "last_line": 46,
+      "excerpt": "  /--\n  The root module(s) of the library.\n  Submodules of these roots (e.g., `Lib.Foo` of `Lib`) are considered\n  part of the library.\n  Defaults to a single root of the target's name.\n  -/\n  roots : Array Name := #[name]\n\n  /--\n  An `Array` of module `Glob`s to build for the library.\n  Defaults to a `Glob.one` of each of the library's  `roots`.\n\n  Submodule globs build every source file within their directory.\n  Local imports of glob'ed files (i.e., fellow modules of the workspace) are\n  also recursively built.\n  -/\n  globs : Array Glob := roots.map Glob.one"
+    },
+    {
+      "path": "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/src/lean/lake/Lake/Load/Toml.lean",
+      "sha256": "a3a27e8d1f6f03b69ab1e4f1eb4896f9d6efc9d87832493880a401954c4f4efd",
+      "first_line": 276,
+      "last_line": 285,
+      "excerpt": "public def decodeRoots\n  (t : Table) (v : Value) (cfg : LeanLibConfig n)\n: DecodeM (LeanLibConfig n) := do\n  let cfg \u2190 decodeField `roots t v cfg\n  if t.contains `globs then\n    return cfg\n  else\n    return {cfg with globs := mkFieldDefault `globs cfg}\n\npublic instance : DecodeField (LeanLibConfig n) `roots := \u27e8decodeRoots\u27e9"
+    },
+    {
+      "path": "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/src/lean/lake/Lake/Config/Glob.lean",
+      "sha256": "2b6e32b01a286c7be5763e0a76bd026b955f8b2f78405b0650479a1a41bc6e7d",
+      "first_line": 48,
+      "last_line": 59,
+      "excerpt": "public def \u00abmatches\u00bb (m : Name) : (self : Glob) \u2192 Bool\n| one n => n == m\n| submodules n => n.isPrefixOf m && n != m\n| andSubmodules n => n.isPrefixOf m\n\n@[inline] public nonrec def forEachModuleIn [Monad m] [MonadLiftT IO m]\n(dir : FilePath) (f : Name \u2192 m PUnit) : (self : Glob) \u2192 m PUnit\n| one n => f n\n| submodules n =>\n  Lean.forEachModuleInDir (Lean.modToFilePath dir n \"\") (f <| n ++ \u00b7)\n| andSubmodules n =>\n  f n *> Lean.forEachModuleInDir (Lean.modToFilePath dir n \"\") (f <| n ++ \u00b7)"
+    },
+    {
+      "path": "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/src/lean/lake/Lake/Config/Module.lean",
+      "sha256": "103b9ef6960c849bccb806a6246807809bc91b57b5072225a91f293a539b123c",
+      "first_line": 61,
+      "last_line": 70,
+      "excerpt": "/-- Get an `Array` of the library's modules (as specified by its globs). -/\npublic def LeanLib.getModuleArray (self : LeanLib) : IO (Array Module) :=\n  (\u00b7.2) <$> StateT.run (s := #[]) do\n    self.config.globs.forM fun glob => do\n      glob.forEachModuleIn self.srcDir fun mod => do\n        modify (\u00b7.push {lib := self, name := mod})\n\n/-- The library's buildable root modules. -/\npublic def LeanLib.rootModules (self : LeanLib) : Array Module :=\n  self.config.roots.filterMap self.findModule?"
+    },
+    {
+      "path": "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/src/lean/lake/Lake/Build/Library.lean",
+      "sha256": "409fadf6558f1a9c4c7da8cbc46dc657d40a22fa3d198bfa1668e105b4a4de85",
+      "first_line": 32,
+      "last_line": 46,
+      "excerpt": "/--\nCollect the local modules of a library.\nThat is, the modules from `getModuleArray` plus their local transitive imports.\n-/\npartial def LeanLib.recCollectLocalModules\n  (self : LeanLib) : FetchM (Job (Array Module))\n:= ensureJob do\n  let mut col : ModuleCollection := {}\n  for mod in (\u2190 self.getModuleArray) do\n    col \u2190 go mod col (viaImport := false)\n  if col.hasErrors then\n    -- This is not considered a fatal error because we want the modules\n    -- built to provide better error categorization in the monitor.\n    logError s!\"{self.name}: some modules have bad imports or could not be read\"\n  return Job.pure col.mods"
+    }
+  ],
+  "bound_configurations": [
+    {
+      "path": "formalizations/extraction-numerical-synthesis/lakefile.toml",
+      "sha256": "9fb05074ef55e3f168f6f6b947e8b426f0072d4ab0d07bb3c5a8ab18f9e51220",
+      "contents": "name = \"extractionNumericalSynthesis\"\nversion = \"0.1.0\"\ndefaultTargets = [\"CircuitNumerical\"]\n[[require]]\nname = \"extractionCircuitRecursion\"\npath = \"../extraction-circuit-recursion\"\n[[lean_lib]]\nname = \"CircuitNumerical\"\n"
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/lakefile.toml",
+      "sha256": "e9e79c2a09320464590fe16365c9d8edd2791f50536e3aeb7780d9c72d7a53e9",
+      "contents": "name = \"extractionEffectiveEncoding\"\nversion = \"0.1.0\"\ndefaultTargets = [\"EffectiveEncoding\"]\n[[require]]\nname = \"extractionCircuitRecursion\"\npath = \"../extraction-circuit-recursion\"\n[[require]]\nname = \"extractionNumericalSynthesis\"\npath = \"../extraction-numerical-synthesis\"\n[[lean_lib]]\nname = \"EffectiveEncoding\"\n"
+    },
+    {
+      "path": "formalizations/extraction-algorithm-audit/lakefile.toml",
+      "sha256": "1d8da31a7d6bd77bf8f377b0067be913e4a7a1578a56f4cf0ff401dd1b1733aa",
+      "contents": "name = \"extractionAlgorithmAudit\"\nversion = \"0.1.0\"\ndefaultTargets = [\"AlgorithmAudit\", \"AlgorithmVerification\"]\n\n[[require]]\nname = \"extractionNumericalSynthesis\"\npath = \"../extraction-numerical-synthesis\"\n\n[[require]]\nname = \"extractionEffectiveEncoding\"\npath = \"../extraction-effective-encoding\"\n\n[[lean_lib]]\nname = \"AlgorithmAudit\"\n\n[[lean_lib]]\nname = \"AlgorithmVerification\"\n"
+    }
+  ]
+}
