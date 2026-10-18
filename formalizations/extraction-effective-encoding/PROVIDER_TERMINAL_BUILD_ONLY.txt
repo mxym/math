@@ -1,0 +1,76 @@
+STATUS: PROVIDER_TERMINAL_STANDARD_CHAIN_AND_AUTHOR_ROOT_CHECK_PASS
+Independent replay: pending, separate from the existing frozen algorithm scope.
+Prior descriptor checkpoint: bc5d70300
+Provider expression checkpoint: 6036478093e3bb500bb633880b23d4d5aa400866
+Numerical dependency: 263983366e557b5ea74c2b9f405be817823adabe (normal merge)
+Only new effective-encoding source/check/report files were added after those
+checkpoints. Every owned file tracked by bc5d70300 and 603647809 is unchanged.
+
+ProviderTerminal.lean implements an eager target cache of actual integer
+packets, interpreted as rationals only when feeding the numerical-word code.
+integerDescriptorSynthesis_eq and integerNumericalExtractionCode_eq prove
+that it emits exactly the prior finite dictionary-label word. The concrete
+new backend therefore has the same original-2k-wire matrix error <=2^(-(p+1))
+and uniform physical local-discard Bell fidelity >=1-2^(-p).
+
+The actual target provider has no opaque real or quaternion-provider premise:
+closed syntax is generated directly from SingleCode; all numerical precision
+shifts, signs, literal occupation masses and H/YBasis/inverse conventions are
+bound to the exact existing quaternionOracle.
+
+For each actual SingleCode of extractionCode k requested at p:
+- Expression primitive count <=100*(halvingBudget k+3)+4.
+- Maximum integer-sqrt precision <=512*(k+3)^6*(p+5).
+- Output and all scalar/packet subtree integer results have numerator and
+  denominator magnitudes <=2^(1000000*(k+3)^7*(p+5)).
+- integerRoot_work_operand_bound additionally bounds the actual shifted
+  numerator and division argument used by each integer sqrt routine.
+
+The cached target expression has a proved flat PacketBitEnvelope, with
+B=4*(1000000*(k+3)^7*(cachePrecisionBudget L q+5)+1), including out-of-cache
+default packets. This can feed the generic integer numerical trace bounds.
+Here cachePrecisionBudget L q=51200000*(L+1)*(q+1)^9 is an internal bound on
+actual eager requests 0..numericalDemand; no target-provider complexity
+certificate is supplied as a hypothesis. Target-cache signed-numerator and
+common-denominator storage widths are bounded as well.
+
+extractionWithTargetOperations_bound combines the earlier actual numerical
+arithmetic count with actual closed target-cache expression work, summed
+over extractionCode k at q=extractionPrecision k p. Fixed-library entry
+provider execution remains a separate explicit input cost.
+
+Validation:
+The standard serialized worker_build target EffectiveEncoding.ProviderCheck
+passed the entire four-module provider chain and complete root check:
+  59 theorem roots; 28 model roots; 3906 Lake jobs.
+  /mnt/d/math/tmp/extraction-resume-20261018/build-logs/
+  20261018T191938048267Z-extraction-effective-encoding.log
+Exact author report, including all input SHA256 and complete axiom sets:
+  verification/provider-root-check-20261018T191943254744Z/REPORT.json
+All explicit provider declarations have their theorem/model kind and type
+checked. Only propext, Classical.choice and Quot.sound occur in printed
+axiom sets. Mathematical source rejects sorry/admit/axiom/native_decide/unsafe.
+PROVIDER_ROOTS.txt, PROVIDER_MODELS.txt, PROVIDER_SOURCE_INVENTORY.json and
+reproduce_provider.py form this separate author scope. Frozen umbrella,
+ROOTS.txt, MODELS.txt, configuration and prior reports were not edited.
+No large runtime eval or runtime timing is claimed.
+
+Boundary:
+The operation total uses the existing ArithmeticExpressions charge model,
+not a Turing machine bit-time semantics. These proofs provide actual target
+provider expression, precision and represented operand-height bounds. They
+do not yet prove the bit-time of literal construction, all integer primitive
+implementations, fixed-library providers, or the complete extraction compiler.
+No new independent replay is claimed by this author build/check report.
+
+Verified frozen-file preservation:
+[
+  {
+    "commit": "bc5d703000f098cb3bda88afe8f99935d017880b",
+    "unchanged_owned_files": 28
+  },
+  {
+    "commit": "6036478093e3bb500bb633880b23d4d5aa400866",
+    "unchanged_owned_files": 32
+  }
+]
