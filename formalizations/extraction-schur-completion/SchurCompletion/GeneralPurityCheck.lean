@@ -1,0 +1,8 @@
+import SchurCompletion.GeneralPurity
+#print axioms ExtractionSchur.affineStep_power_near_one
+#print axioms ExtractionSchur.haarOverlapMoment_scaled_limit
+#print axioms ExtractionSchur.flatHaarAverage_purity_overlap
+#print axioms ExtractionSchur.flatHaarAverage_general_purity_scaled_limit
+#print axioms ExtractionSchur.flatHaarAverage_general_purity_isEquivalent
+#print axioms ExtractionSchur.flatHaarAverage_purity_scaled_limit
+#print axioms ExtractionSchur.rankBudget_general_sharp_lower
