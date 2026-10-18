@@ -18,6 +18,7 @@ ALLOW={'propext','Classical.choice','Quot.sound'}
 NEW=['extraction-operational-completion','extraction-deviation-completion',
      'extraction-cp-interface','extraction-schur-completion',
      'extraction-circuit-completion','extraction-circuit-recursion',
+     'extraction-locc-interface','extraction-rains-realization',
      'extraction-completion-audit']
 OLD=['extraction-matrix-projector','extraction-universal-orbit',
      'extraction-minimax-profile','appt-qutrit-purity',
@@ -59,11 +60,22 @@ def scope_lists():
         if len(ls)!=len(set(ls)) or (ROOT/filename).read_text().splitlines()!=ls:
             raise RuntimeError('Scope/list disagreement '+filename)
     if set(roots)&set(defs) or not set(controls)<=set(roots):raise RuntimeError('Bad declaration classes')
-    expected='import CompletionAudit\n\n'+''.join('#check '+n+'\n#print axioms '+n+'\n' for n in roots+defs)
+    expected='import CompletionAudit\nimport CompletionVerification.ReplaySupport\n\nrun_cmd (CompletionVerification.checkKinds [\n'+',\n'.join('  ``'+n for n in roots)+'\n] [\n'+',\n'.join('  ``'+n for n in defs)+'\n])\n\n'+''.join('#check '+n+'\n#print axioms '+n+'\n' for n in roots+defs)
     if (ROOT/'Check.lean').read_text()!=expected:raise RuntimeError('Check.lean scope drift')
-    audit='import CompletionAudit\nimport CompletionVerification.ReplaySupport\n\nrun_cmd CompletionVerification.replayAll [\n'+',\n'.join('  ``'+n for n in roots+defs)+'\n] "verification/completion-kernel"\n\n'+''.join('run_cmd CompletionVerification.rejectCorruptTheorem ``'+n+' "verification/completion-control-'+str(i+1)+'"\n' for i,n in enumerate(controls))
+    audit='import CompletionAudit\nimport CompletionVerification.ReplaySupport\n\nrun_cmd (CompletionVerification.replayAll [\n'+',\n'.join('  ``'+n for n in roots+defs)+'\n] "verification/completion-kernel")\n\n'+''.join('run_cmd CompletionVerification.rejectCorruptTheorem ``'+n+' "verification/completion-control-'+str(i+1)+'"\n' for i,n in enumerate(controls))
     if (ROOT/'Audit.lean').read_text()!=audit:raise RuntimeError('Audit.lean scope drift')
     return s,roots,defs,controls
+
+
+
+def parse_axiom_report(log,expected):
+    rows=[]
+    for name,axioms in re.findall(r"^'(.*)' depends on axioms: \[([^\]]*)\]$",log,re.M):
+        rows.append((name,[x.strip() for x in axioms.split(",") if x.strip()]))
+    rows += [(name,[]) for name in re.findall(r"^'(.*)' does not depend on any axioms$",log,re.M)]
+    if len(rows)!=len(expected) or {n for n,_ in rows}!=set(expected):raise RuntimeError("Missing/duplicate axiom report")
+    if any(not set(axs)<=ALLOW for _,axs in rows):raise RuntimeError("Unexpected selected declaration axiom")
+    return dict(rows)
 
 
 def package_roots():
@@ -117,6 +129,7 @@ def old_inventory():
         if kind!='blob':raise RuntimeError('Non-file old audit entry')
         expected[name.decode()]=(mode,oid)
     names=run('git','ls-files','--',*paths).splitlines()
+    if len(expected)!=4378:raise RuntimeError('Historical protected inventory count changed')
     if set(names)!=set(expected):raise RuntimeError('Old audit tracked file inventory changed')
     hashes={}
     for n in sorted(names):
@@ -142,7 +155,7 @@ def check_pins():
         if d['type']!='git':continue
         p=ROOT/'.lake/packages'/d['name']
         if run('git','-C',str(p),'rev-parse','HEAD')!=d['rev']:raise RuntimeError('Wrong actual dependency '+d['name'])
-        if subprocess.run(['git','-C',str(p),'diff','--quiet','HEAD','--']).returncode:raise RuntimeError('Dirty tracked dependency '+d['name'])
+        if subprocess.check_output(['git','-C',str(p),'status','--porcelain=v1','--untracked-files=all'],text=True).strip():raise RuntimeError('Dirty/untracked dependency source '+d['name'])
     # Preserve the previous audit's explicit safeguard against a nonstandard
     # Mathlib Multinomial cache without changing that audit or its cache.
     standard=REPO/'formalizations/extraction-connections/STANDARD_CACHE.json'
@@ -167,6 +180,7 @@ def check_binding():
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument('--plan',action='store_true')
+    ap.add_argument('--preflight',action='store_true',help='D guard, execution pins and old-input preservation; no final binding or Lean verification')
     ap.add_argument('--freeze-source',action='store_true')
     ap.add_argument('--check-only',action='store_true')
     ap.add_argument('--fresh',action='store_true')
@@ -183,6 +197,11 @@ def main():
     from ensure_d_storage import configure_env
     env=configure_env(dict(os.environ))
     env['PATH']='/root/.elan/toolchains/leanprover--lean4---v4.34.1/bin:'+env.get('PATH','')
+    if args.preflight:
+        check_pins()
+        old=old_inventory()
+        print(json.dumps(dict(status='PREFLIGHT_ONLY',source_head=s['source_head'],source_inputs=len(inventory()),protected_old_inputs=len(old),verification_performed=False)))
+        return
     if args.freeze_source:
         if s['state']!='READY' or s['pending_required']:raise RuntimeError('Refusing preliminary freeze')
         if (ROOT/'SOURCE_HASHES.json').exists():raise RuntimeError('Binding already exists; start a new audit revision')
@@ -222,13 +241,17 @@ def main():
         stage('toolchain',['lake','env','lean','--version'],90)
         for label,target in [('deviation','@extractionDeviationCompletion/Deviation'),
           ('operational','@extractionOperationalCompletion/OperationalCompletion'),
-          ('cp','@extractionCPInterface/CPInterface'),('schur','@extractionSchurCompletion/SchurCompletion'),
+          ('cp','@extractionCPInterface/CPInterface'),
+          ('locc','@extractionLOCCInterface/LOCCInterface'),('rains','@extractionRainsRealization/RainsRealization'),
+          ('schur','@extractionSchurCompletion/SchurCompletion'),
           ('circuits','@extractionCircuitRecursion/CircuitRecursion')]:
             stage('build-'+label,['lake','build',target],2400)
         stage('build-audit',['lake','build','CompletionAudit','CompletionVerification'],1800)
-        stage('root-types-axioms',['lake','env','lean','-j1','-M10000','Check.lean'],600)
+        types=stage('root-types-axioms',['lake','env','lean','-j1','-M10000','Check.lean'],600)
+        if types.count('DECLARATION_KIND_CHECK_PASS')!=1:raise RuntimeError('Missing declaration kind marker')
+        dump(out/'AXIOM_REPORT.json',parse_axiom_report(types,roots+defs))
         audit=stage('trust0-replay',['lake','env','lean','-j1','-M11000','Audit.lean'],2400)
-        if audit.count('EMPTY_KERNEL_REPLAY_PASS')!=1 or audit.count('CORRUPTED_PROOF_REJECTED')!=len(controls) or audit.count('TYPE_CLOSURE_REPLAY_PASS')!=len(controls):raise RuntimeError('Missing replay/control markers')
+        if audit.count('EMPTY_KERNEL_REPLAY_PASS')!=1 or audit.count('CORRUPTED_PROOF_REJECTED')!=len(controls) or audit.count('TYPE_CLOSURE_REPLAY_PASS')!=len(controls) or audit.count('CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED')!=len(controls):raise RuntimeError('Missing replay/control markers')
         axs=set((ROOT/'verification/completion-kernel-axioms.txt').read_text().splitlines())
         if not axs<=ALLOW:raise RuntimeError('Unexpected replay axiom')
         for p in (ROOT/'verification').glob('completion-*.txt'):shutil.copy2(p,out/p.name)
