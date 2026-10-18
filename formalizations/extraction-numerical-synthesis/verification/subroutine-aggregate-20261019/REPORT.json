@@ -1,0 +1,85 @@
+{
+  "status": "STANDARD_AGGREGATE_BUILD_ONLY_PASS",
+  "utc": "2026-10-18T23:20:18.569067+00:00",
+  "source_head": "72e18ec3494ea1f969461af5f7a0b746837e6bd3",
+  "target": "CircuitNumerical.SubroutineCheck",
+  "modules": 2,
+  "theorem_roots": 16,
+  "model_declarations": 7,
+  "build_exit_code": 0,
+  "jobs": 3994,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T231655464569Z-extraction-numerical-synthesis.log",
+  "check_log_sha256": "aa88c2a193c82fc614af376a5495cbf07ccb318c0abb337ddfdffe9e8baa6bcf",
+  "source_sha256": {
+    "CircuitNumerical/TM2Subroutine.lean": "7c02694f35aecff54dd948e0b5fbe4832cfec0cb73e8f5110fe5249c31073879",
+    "CircuitNumerical/TM2SubroutineSplice.lean": "a41f85a382a14457a6e9f0954d48e32fb86a1c23ea10f093e6242630b8936994",
+    "CircuitNumerical/SubroutineCheck.lean": "d25284fae9d26edd181019e41ae0ebf4083423740b3d1cee16529064d95c6b54",
+    "SUBROUTINE_ROOTS.txt": "b4a39086d4c050320731001e77862a5f79a8c58d03432f81e8fa98809a0c7dc9",
+    "SUBROUTINE_MODELS.txt": "ec46ddc878068b8f3df14a0a27ebb9393d29c26c74e98277b06342dbefaf729d",
+    "SUBROUTINE_SCOPE_20261019.md": "e65222853645631591e346ad8dbcbbac72f68b9a580fadacdd0ddf47464649f3"
+  },
+  "root_axioms": {
+    "CircuitRecursion.TM2Subroutine.redirect_stepAux": [],
+    "CircuitRecursion.TM2Subroutine.redirect_step": [
+      "propext"
+    ],
+    "CircuitRecursion.TM2Subroutine.active_of_step_some": [],
+    "CircuitRecursion.TM2Subroutine.redirect_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.redirectedRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.redirect_statementDepth": [
+      "propext"
+    ],
+    "CircuitRecursion.TM2Subroutine.liftConfiguration_return": [],
+    "CircuitRecursion.TM2Subroutine.liftConfiguration_stacks": [],
+    "CircuitRecursion.TM2Subroutine.splice_local": [],
+    "CircuitRecursion.TM2Subroutine.splice_outer": [],
+    "CircuitRecursion.TM2Subroutine.spliceRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.splice_local_statementDepth": [
+      "propext"
+    ],
+    "CircuitRecursion.TM2Subroutine.counterCall_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.supportsStmt_univ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.splice_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.splice_running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "worker_build.py; ensure_d_storage.configure_env; shared global build flock",
+  "aggregate_build": true,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 326,
+  "old_b288_prefix_diff": "empty",
+  "endpoints": [
+    "actual TM2 label/halt-return statement compilation, official step and complete-prefix semantics",
+    "actual sum-label splice, exact EvalsToInTime preservation and closed binary counterCall interface"
+  ],
+  "limitations": [
+    "ordinary aggregate only; no independent fresh/trust-zero replay",
+    "actual outer-loop execution and complete compiler encoded-control lowering remain separate",
+    "remaining provider/AST/cache/precision/payload/allocation and full-machine cost endpoints remain open"
+  ]
+}

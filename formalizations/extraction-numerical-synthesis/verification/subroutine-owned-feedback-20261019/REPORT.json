@@ -1,0 +1,87 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T23:16:46.954003+00:00",
+  "scope": "two actual TM2 halt-return/label compiler modules with exact operational timed-run lifting",
+  "baseline": "06d48296909d92128dd0f2b9a3764b2069f84fce",
+  "modules": 2,
+  "root_count": 16,
+  "model_declarations": 7,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T231630104492Z-owned-check-CircuitNumerical.SubroutineCheck.log",
+  "check_log_sha256": "a821fd56547ff3eac86eb2ebbe6fd52c9f92a97fb88f7365ca12b0ae11cca496",
+  "source_sha256": {
+    "CircuitNumerical/TM2Subroutine.lean": "7c02694f35aecff54dd948e0b5fbe4832cfec0cb73e8f5110fe5249c31073879",
+    "CircuitNumerical/TM2SubroutineSplice.lean": "a41f85a382a14457a6e9f0954d48e32fb86a1c23ea10f093e6242630b8936994",
+    "CircuitNumerical/SubroutineCheck.lean": "d25284fae9d26edd181019e41ae0ebf4083423740b3d1cee16529064d95c6b54",
+    "SUBROUTINE_ROOTS.txt": "b4a39086d4c050320731001e77862a5f79a8c58d03432f81e8fa98809a0c7dc9",
+    "SUBROUTINE_MODELS.txt": "ec46ddc878068b8f3df14a0a27ebb9393d29c26c74e98277b06342dbefaf729d",
+    "SUBROUTINE_SCOPE_20261019.md": "e65222853645631591e346ad8dbcbbac72f68b9a580fadacdd0ddf47464649f3"
+  },
+  "root_axioms": {
+    "CircuitRecursion.TM2Subroutine.redirect_stepAux": [],
+    "CircuitRecursion.TM2Subroutine.redirect_step": [
+      "propext"
+    ],
+    "CircuitRecursion.TM2Subroutine.active_of_step_some": [],
+    "CircuitRecursion.TM2Subroutine.redirect_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.redirectedRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.redirect_statementDepth": [
+      "propext"
+    ],
+    "CircuitRecursion.TM2Subroutine.liftConfiguration_return": [],
+    "CircuitRecursion.TM2Subroutine.liftConfiguration_stacks": [],
+    "CircuitRecursion.TM2Subroutine.splice_local": [],
+    "CircuitRecursion.TM2Subroutine.splice_outer": [],
+    "CircuitRecursion.TM2Subroutine.spliceRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.splice_local_statementDepth": [
+      "propext"
+    ],
+    "CircuitRecursion.TM2Subroutine.counterCall_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.supportsStmt_univ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.splice_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2Subroutine.splice_running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 319,
+  "old_b288_prefix_diff": "empty",
+  "endpoints": [
+    "actual TM2 statement redirection, stepAux/step semantics and exact complete-prefix iteration lifting",
+    "actual sum-label program splice and counterCall, internally installed code with no caller agreement/time certificate",
+    "source operational EvalsToInTime steps preserved exactly, stack/memory frame and statement depth preserved"
+  ],
+  "remaining": [
+    "actual outer loop proofs and whole compiler continuation/control lowering",
+    "full input/AST/closure/cache/provider encodings and structured payload allocation",
+    "remaining precision/index/fuel construction and finite-machine composition endpoints",
+    "computing trace/cost annotations",
+    "full compiler machine bit-time"
+  ]
+}

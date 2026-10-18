@@ -1,0 +1,41 @@
+import CircuitNumerical.TM2SubroutineSplice
+
+#check CircuitRecursion.TM2Subroutine.redirect_stepAux
+#print axioms CircuitRecursion.TM2Subroutine.redirect_stepAux
+#check CircuitRecursion.TM2Subroutine.redirect_step
+#print axioms CircuitRecursion.TM2Subroutine.redirect_step
+#check CircuitRecursion.TM2Subroutine.active_of_step_some
+#print axioms CircuitRecursion.TM2Subroutine.active_of_step_some
+#check CircuitRecursion.TM2Subroutine.redirect_iterate
+#print axioms CircuitRecursion.TM2Subroutine.redirect_iterate
+#check CircuitRecursion.TM2Subroutine.redirectedRun_steps
+#print axioms CircuitRecursion.TM2Subroutine.redirectedRun_steps
+#check CircuitRecursion.TM2Subroutine.redirect_statementDepth
+#print axioms CircuitRecursion.TM2Subroutine.redirect_statementDepth
+#check CircuitRecursion.TM2Subroutine.liftConfiguration_return
+#print axioms CircuitRecursion.TM2Subroutine.liftConfiguration_return
+#check CircuitRecursion.TM2Subroutine.liftConfiguration_stacks
+#print axioms CircuitRecursion.TM2Subroutine.liftConfiguration_stacks
+#check CircuitRecursion.TM2Subroutine.splice_local
+#print axioms CircuitRecursion.TM2Subroutine.splice_local
+#check CircuitRecursion.TM2Subroutine.splice_outer
+#print axioms CircuitRecursion.TM2Subroutine.splice_outer
+#check CircuitRecursion.TM2Subroutine.spliceRun_steps
+#print axioms CircuitRecursion.TM2Subroutine.spliceRun_steps
+#check CircuitRecursion.TM2Subroutine.splice_local_statementDepth
+#print axioms CircuitRecursion.TM2Subroutine.splice_local_statementDepth
+#check CircuitRecursion.TM2Subroutine.counterCall_steps
+#print axioms CircuitRecursion.TM2Subroutine.counterCall_steps
+#check CircuitRecursion.TM2Subroutine.supportsStmt_univ
+#print axioms CircuitRecursion.TM2Subroutine.supportsStmt_univ
+#check CircuitRecursion.TM2Subroutine.splice_supports
+#print axioms CircuitRecursion.TM2Subroutine.splice_supports
+#check CircuitRecursion.TM2Subroutine.splice_running_control_card
+#print axioms CircuitRecursion.TM2Subroutine.splice_running_control_card
+#check CircuitRecursion.TM2Subroutine.redirect
+#check CircuitRecursion.TM2Subroutine.liftConfiguration
+#check CircuitRecursion.TM2Subroutine.advance
+#check CircuitRecursion.TM2Subroutine.redirectedRun
+#check CircuitRecursion.TM2Subroutine.splice
+#check CircuitRecursion.TM2Subroutine.spliceRun
+#check CircuitRecursion.TM2Subroutine.counterCall
