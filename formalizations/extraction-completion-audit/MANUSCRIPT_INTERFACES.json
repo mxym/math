@@ -1,0 +1,100 @@
+{
+  "kind": "MANUSCRIPT_TO_FORMALIZATION_INTERFACE_REVIEW",
+  "baseline_math_head": "aa1cd0c497a4a9963013ec6dde76a5ed296e2c61",
+  "additional_read_only_commit": "fb02f44bd899c52e830ee7c7a53d15f15490ba84",
+  "meaning": "Coverage gaps relative to requested eventual full Lean formalization, not counterexamples to existing mathematical theorems or accusations against the preserved manuscript, which explicitly disclaims end-to-end Lean coverage.",
+  "items": [
+    {
+      "claim": "Named LOCC optimum/capacity claims",
+      "manuscript": "introduction.tex:16; asymptotic-laws.tex Theorem universal-laws",
+      "status": "MISSING_SEMANTIC_BRIDGE_AT_BASELINE",
+      "evidence": "4860 tracked Lean files at aa1; zero LOCC/classical-communication/finite-round/separable-channel hits. Actual optimum roots accept an arbitrary class predicate on KrausPPTProtocol.",
+      "needed": "Actual adaptive instrument-tree semantics; local-product inclusion and cPPT inclusion; if closure LOCC intended, topology and cPPT closedness.",
+      "owner_update": "root will add extraction-locc-interface"
+    },
+    {
+      "claim": "Partial-transpose convention",
+      "manuscript": "introduction.tex:16 names second party",
+      "status": "CONVENTION_ALIGNMENT_PENDING",
+      "evidence": "APPT/Quantum/Basic.lean:10 transposes first party, X(j.1,i.2)(i.1,j.2).",
+      "needed": "Align next manuscript convention to first party or prove first/second cPPT equivalence; preserve frozen Basic and original publication.",
+      "owner_update": "root will align next independent manuscript version"
+    },
+    {
+      "claim": "Every RainsEffect is an actual cPPT fidelity effect",
+      "manuscript": "spectral-principles.tex Lemma rains converse",
+      "status": "REVERSE_REALIZATION_MISSING_AT_BASELINE",
+      "evidence": "Only actual channel -> RainsEffect and derived budget/cap endpoints found; no measure-and-prepare realization in current CP/Kraus interfaces.",
+      "needed": "For K>=2 construct Lambda_M; prove CP, TP, PT-conjugate CP and exact target-effect identity. Handle K=1 separately.",
+      "does_existing_exponent_need_it": false
+    },
+    {
+      "claim": "State-aware Gaussian fidelity optimum",
+      "manuscript": "asymptotic-laws.tex Theorem gaussian",
+      "status": "SUPREMUM_WRAPPER_PENDING",
+      "evidence": "Pointwise protocol converse and common-family limit exist, actual protocolOptimum Gaussian endpoint absent at baseline.",
+      "needed": "Lift uniform upper Gaussian envelope and actual family lower to real sSup.",
+      "owner_update": "root implementing"
+    },
+    {
+      "claim": "Canonical rate zero exactness",
+      "manuscript": "asymptotic-laws.tex opening paragraph",
+      "status": "EXACT_ONE_TARGET_WRAPPER_PENDING",
+      "evidence": "Exponent R=0 covers general subexponential positive target sequences; it does not imply exact fidelity for such sequences.",
+      "needed": "TP to target K=1 gives fidelity exactly one for every density; canonical ceil(exp(k*0))=1.",
+      "owner_update": "root implementing"
+    },
+    {
+      "claim": "Actual faithful/eventual-exact capacities as rate-set suprema",
+      "manuscript": "asymptotic-laws.tex Theorem universal-laws items 1,4",
+      "status": "RATE_SET_SUPREMUM_DEFINITIONS_PENDING",
+      "evidence": "faithfulRate and eventualExactRate are formula definitions, with separate achievable and above-rate converse theorems.",
+      "needed": "Define actual attainable rate sets/capacities; bind the formula by lower/upper bounds including C=0/C0=0 via K=1.",
+      "owner_update": "root informed"
+    },
+    {
+      "claim": "General probability-average support/minimax comparison",
+      "manuscript": "spectral-principles.tex Proposition average",
+      "status": "FINITE_ENSEMBLE_FORMALIZED_GENERAL_PROBABILITY_MEASURE_INTERFACE_MISSING",
+      "evidence": "actual_minimax_finite_bounds and physical_finite_ensemble_bound assume finite beta. Genuine Haar/pure special cases have separate proofs.",
+      "needed": "If claiming the full general proposition, a measurable integrable probability-ensemble barycenter bridge, or explicitly restrict the formal scope."
+    },
+    {
+      "claim": "Same-family reserved finite BE and fixed-error maximum",
+      "manuscript": "universal-protocol.tex quantitative Gaussian; asymptotic-laws.tex Gaussian inverse; unknown-support.tex compatibility",
+      "status": "SOURCE_REVIEWED_NEW_ENDPOINTS_NO_FINAL_AUDIT",
+      "evidence": "fb02 ReservedQuantile actual reservedTargets/sSup attainment and reservedProtocol_berryEsseen instantiate the entropy-mass premise internally. No concrete defect found.",
+      "needed": "Include definitions/endpoints/controls in final frozen audit."
+    },
+    {
+      "claim": "Exact manuscript Schur finite loss and growing-dimension example",
+      "manuscript": "universal-protocol.tex finite sandwich and D^5 log^2 example",
+      "status": "INTRINSIC_ROUTE_FORMALIZED_SCHUR_IDENTIFICATION_AND_NUMERIC_COROLLARY_NOT_YET_BOUND",
+      "evidence": "Current finite BE/triangle use actual orbitOverhead/compressionLoss; manuscript uses Schur J/u*. The variance-floor sufficient theorem does not itself include V~1/D.",
+      "needed": "Maintain explicit intrinsic-vs-Schur scope; prove numeric shrinking-variance implication for the displayed example if claiming it formally."
+    },
+    {
+      "claim": "General-rank sharp support/purity and entire minimax profile",
+      "manuscript": "unknown-support.tex Theorems flat-average/minimax and corollaries",
+      "status": "KNOWN_MAJOR_REPRESENTATION_THEORY_GAP",
+      "evidence": "Unclassified Jucys products and codimension-one purity asymptotics do not give all D,s Young contents/multiplicities, Weyl-hook dimension identities or both general-rank sharp moments.",
+      "needed": "General-rank representation classification and two-moment asymptotics with actual scalar limits and target-set maxima.",
+      "owner_update": "Schur author active"
+    },
+    {
+      "claim": "Original-register Bell extraction/discard and finite-gate effectiveness",
+      "manuscript": "unknown-support.tex Proposition pure-circuit",
+      "status": "ACTUAL_ALL_K_COMPRESSION_FORMALIZED_FINAL_BELL_AND_SK_PENDING",
+      "evidence": "Current recursion endpoints count and act on the actual 2k-qubit word, but baseline stops at compression.",
+      "needed": "Actual Bell/discard endpoint, effective angle/enumeration algorithm and finite inverse-closed gate compilation/SK bound.",
+      "owner_update": "circuit author active"
+    },
+    {
+      "claim": "APPT entropy/capacity optimization and example asymptotics",
+      "manuscript": "applications-verification.tex subsection APPT entropy",
+      "status": "APPLICATION_WRAPPERS_NOT_FOUND_IN_EXTRACTION_SOURCES",
+      "evidence": "General-state capacity implication is available mathematically; actual APPT compactness/entropy minimizer and max-capacity identity/example endpoints not found in extraction code. Older APPT audits retain separate scopes.",
+      "needed": "Actual APPT feasible set/minimum/max definitions and continuity/attainment/application bridge if formalizing this section."
+    }
+  ]
+}
