@@ -1,0 +1,101 @@
+{
+  "status": "BUILD_ONLY",
+  "utc": "2026-10-18T19:59:14.813702+00:00",
+  "base_head": "e96f1c105671f715801c714ffefb38e8d1674c5d",
+  "scope": "one raw integer input embedding module and 13 roots",
+  "modules": 1,
+  "root_count": 13,
+  "targets": [
+    "CircuitNumerical.RawPacketCheck"
+  ],
+  "build_jobs": 3903,
+  "build_exit_code": 0,
+  "build_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T195844757435Z-extraction-numerical-synthesis.log",
+  "build_log_sha256": "5f7e25f236c9abbb003cd30fd62cc89e56d6e590cf7395fcefd124c3398af730",
+  "source_sha256": {
+    "CircuitNumerical/RawIntegerPacketExpressions.lean": "09e9754552e214f4a2f0d6eddf3570a24438e18e7b95fb230f8c53f9ad7526f1",
+    "CircuitNumerical/RawPacketCheck.lean": "e55331466a96c8abee95d4517567415b52a260cbb94b99e4c4e03281bec4a448",
+    "RAW_PACKET_ROOTS.txt": "d3be029ff662710d63d7f6cfaaab4ccbabdaf4b84724e9b63bd667c31f0a1a56"
+  },
+  "root_axioms": {
+    "CircuitRecursion.IntegerScalar.ofRat_intCast": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.ofInt_positive_inv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawScalarExpression_integerProgramRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawPacketExpression_integerProgramRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawPacketExpression_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawScalarExpression_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawPacketExpression_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rationalBinaryExponent_intCast_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawScalarExpression_integerBitBudget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawPacketExpression_integerBitBudget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawPacketExpression_integerProgramRun_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawPacketExpressionOracle_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawPacketExpressionOracle_bitEnvelope": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env PASS; worker_build.py shared global flock",
+  "aggregate_build": true,
+  "independent_kernel_replay": false,
+  "fresh_build": false,
+  "forged_proof_controls": false,
+  "frozen_baseline_files_byte_identical": 87,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "bounded integer primitive bit implementations and automatic fuel computation",
+    "input provider execution and rational packet materialization costs",
+    "structural allocation/index implementation costs",
+    "new independent audit of this later scope"
+  ]
+}
