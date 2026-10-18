@@ -1,0 +1,455 @@
+{
+  "status": "GENERATED_AUTHOR_BINARY_GENERATION_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 29,
+  "model_count": 23,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.BinaryRankProgramRecord",
+      "kind": "abbrev",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.binaryRankProgramsActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.binaryRankProgramsActions_append",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 14
+    },
+    {
+      "name": "EffectiveEncoding.binaryRankProgramsActions_flatMap",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 19
+    },
+    {
+      "name": "EffectiveEncoding.BinaryEncodedEndpoint",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 25
+    },
+    {
+      "name": "EffectiveEncoding.BinaryEncodedEndpoint.encodingActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeBranchEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeBranchEndpoint_endpoint",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeBranchEndpoint_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 53
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeNextEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeNextEndpoint_endpoint",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 66
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeNextEndpoint_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 71
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativePivotEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 78
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativePivotEndpoint_endpoint",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 82
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativePivotEndpoint_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "line": 87
+    },
+    {
+      "name": "EffectiveEncoding.BinaryGeneratedRun",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.BinaryGeneratedRun.encodingActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean",
+      "line": 11
+    },
+    {
+      "name": "EffectiveEncoding.binaryEndpointMassActions_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.binaryIndexedRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean",
+      "line": 27
+    },
+    {
+      "name": "EffectiveEncoding.binaryIndexedRun_result",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean",
+      "line": 39
+    },
+    {
+      "name": "EffectiveEncoding.binaryIndexedRun_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean",
+      "line": 46
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeBranchRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean",
+      "line": 66
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeBranchRun_result",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean",
+      "line": 73
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeBranchRun_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean",
+      "line": 81
+    },
+    {
+      "name": "EffectiveEncoding.BinaryAlignmentResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankAlignmentPrograms.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.BinaryAlignmentResult.encodingActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankAlignmentPrograms.lean",
+      "line": 11
+    },
+    {
+      "name": "EffectiveEncoding.binaryAlignmentRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankAlignmentPrograms.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.binaryAlignmentRun_result",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankAlignmentPrograms.lean",
+      "line": 32
+    },
+    {
+      "name": "EffectiveEncoding.binaryAlignmentRun_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankAlignmentPrograms.lean",
+      "line": 41
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeBranchTableRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankAlignmentPrograms.lean",
+      "line": 54
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeBranchTableRun_result",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankAlignmentPrograms.lean",
+      "line": 64
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeBranchTableRun_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankAlignmentPrograms.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeOccupationRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeOccupationRun_result",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 17
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeOccupationRun_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 27
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeStageRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 48
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeStageRun_result",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 53
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeCompressionRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 58
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeCompressionRun_result",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 67
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeCompressionRun_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 74
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeDescriptorRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 88
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeDescriptorRun_result",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 95
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeDescriptorRun_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "line": 100
+    },
+    {
+      "name": "EffectiveEncoding.BinaryNativeExtractionResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.BinaryNativeExtractionResult.erase",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeExtractionRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean",
+      "line": 20
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeExtractionRun_erase",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean",
+      "line": 29
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeExtractionRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean",
+      "line": 38
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeExtractionRun_encodingActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.BinaryNativeExtractionResult.accountedPrimitiveActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean",
+      "line": 54
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeExtractionRun_accountedPrimitiveActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean",
+      "line": 59
+    },
+    {
+      "name": "EffectiveEncoding.binaryNativeExtractionRun_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean",
+      "line": 74
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean",
+      "sha256": "789bfa0c871af5745fab04887bb515d45e061199ddb343633ae0f46d7ff74e80",
+      "declarations": [
+        "EffectiveEncoding.BinaryRankProgramRecord",
+        "EffectiveEncoding.binaryRankProgramsActions",
+        "EffectiveEncoding.binaryRankProgramsActions_append",
+        "EffectiveEncoding.binaryRankProgramsActions_flatMap",
+        "EffectiveEncoding.BinaryEncodedEndpoint",
+        "EffectiveEncoding.BinaryEncodedEndpoint.encodingActions",
+        "EffectiveEncoding.binaryNativeBranchEndpoint",
+        "EffectiveEncoding.binaryNativeBranchEndpoint_endpoint",
+        "EffectiveEncoding.binaryNativeBranchEndpoint_encodingActions",
+        "EffectiveEncoding.binaryNativeNextEndpoint",
+        "EffectiveEncoding.binaryNativeNextEndpoint_endpoint",
+        "EffectiveEncoding.binaryNativeNextEndpoint_encodingActions",
+        "EffectiveEncoding.binaryNativePivotEndpoint",
+        "EffectiveEncoding.binaryNativePivotEndpoint_endpoint",
+        "EffectiveEncoding.binaryNativePivotEndpoint_encodingActions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean",
+      "sha256": "225ba77b46c50a300090e0bf2347bedcd741d9b433893e79c56f7a49b8cfddd4",
+      "declarations": [
+        "EffectiveEncoding.BinaryGeneratedRun",
+        "EffectiveEncoding.BinaryGeneratedRun.encodingActions",
+        "EffectiveEncoding.binaryEndpointMassActions_bound",
+        "EffectiveEncoding.binaryIndexedRun",
+        "EffectiveEncoding.binaryIndexedRun_result",
+        "EffectiveEncoding.binaryIndexedRun_encodingActions",
+        "EffectiveEncoding.binaryNativeBranchRun",
+        "EffectiveEncoding.binaryNativeBranchRun_result",
+        "EffectiveEncoding.binaryNativeBranchRun_encodingActions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankAlignmentPrograms.lean",
+      "sha256": "30a85817ed4d7ea797ea9f40b8a22c23a899a1956750ea102b72f2b49194c3b1",
+      "declarations": [
+        "EffectiveEncoding.BinaryAlignmentResult",
+        "EffectiveEncoding.BinaryAlignmentResult.encodingActions",
+        "EffectiveEncoding.binaryAlignmentRun",
+        "EffectiveEncoding.binaryAlignmentRun_result",
+        "EffectiveEncoding.binaryAlignmentRun_encodingActions",
+        "EffectiveEncoding.binaryNativeBranchTableRun",
+        "EffectiveEncoding.binaryNativeBranchTableRun_result",
+        "EffectiveEncoding.binaryNativeBranchTableRun_encodingActions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean",
+      "sha256": "807e723943175f0fbf0bdfea223e0d28048ae5fcfdf0c312de7104a98186d5a7",
+      "declarations": [
+        "EffectiveEncoding.binaryNativeOccupationRun",
+        "EffectiveEncoding.binaryNativeOccupationRun_result",
+        "EffectiveEncoding.binaryNativeOccupationRun_encodingActions",
+        "EffectiveEncoding.binaryNativeStageRun",
+        "EffectiveEncoding.binaryNativeStageRun_result",
+        "EffectiveEncoding.binaryNativeCompressionRun",
+        "EffectiveEncoding.binaryNativeCompressionRun_result",
+        "EffectiveEncoding.binaryNativeCompressionRun_encodingActions",
+        "EffectiveEncoding.binaryNativeDescriptorRun",
+        "EffectiveEncoding.binaryNativeDescriptorRun_result",
+        "EffectiveEncoding.binaryNativeDescriptorRun_encodingActions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean",
+      "sha256": "9498cf4326db9229b8817ebdc9713ebfbec894ff47033473539a8a2be3f58d3e",
+      "declarations": [
+        "EffectiveEncoding.BinaryNativeExtractionResult",
+        "EffectiveEncoding.BinaryNativeExtractionResult.erase",
+        "EffectiveEncoding.binaryNativeExtractionRun",
+        "EffectiveEncoding.binaryNativeExtractionRun_erase",
+        "EffectiveEncoding.binaryNativeExtractionRun_word",
+        "EffectiveEncoding.binaryNativeExtractionRun_encodingActions",
+        "EffectiveEncoding.BinaryNativeExtractionResult.accountedPrimitiveActions",
+        "EffectiveEncoding.binaryNativeExtractionRun_accountedPrimitiveActions",
+        "EffectiveEncoding.binaryNativeExtractionRun_fidelity"
+      ]
+    }
+  ]
+}
