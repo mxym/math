@@ -1,0 +1,50 @@
+STATUS: OWNED_MODULE_CHECK_ONLY_PENDING_AGGREGATE
+Date: 2026-10-19 Asia/Shanghai
+Source baseline: 212bfa758719624ee61e90f5e31aeab33d803620
+Owned prefix: formalizations/extraction-effective-encoding/
+Storage: /mnt/lean-research-d/worktrees/extraction-effective-encoding-20261019
+Toolchain: leanprover/lean4:v4.34.1
+Mathlib: d13f23b723b8a846827a245b89c10fc7d3f11612 shared extended cache
+
+Completed endpoints:
+- Computable bounded triple enumeration, count reconstruction, coverage and
+  no duplicates; exact enumeration length equals choose(k+3,3).
+- Computable rank/unrank equivalence and optional code decoder, with both
+  inverse laws; actual Bits width is codeWires=2*ceil(log4 r_k).
+- Computable finite AngleCode, SingleCode, GateCode and all elementary
+  Pauli/Gray compilation lists. All finite choices use explicit scans,
+  sorted lists or minima. No matrix is a runtime instruction field.
+- Integer count accumulation specifies every actual merge angle.
+- Explicit swap-table alignment replaces arbitrary complement equivalence.
+- compressionCode k is computable on the original 2k wires, with the actual
+  normalized occupation/pure-power action proved.
+- extractionCode k is computable, bound gate by gate to extractionCircuit,
+  and has the same explicit O(k^7 log^2 k) elementary-list envelope.
+- Exact Bell output under the same physical local coordinate discard is
+  proved by extractionOutput_purePower.
+- Every signed half-angle has a total rational cos/sin approximation
+  procedure, including degenerate zero counts and zero denominators.
+
+Validation:
+The first three modules (Enumeration, Elementary, GrayCompiler) passed a
+serialized worker_build Lake target at 20261018T175309417708Z.
+After the independent full audit took the global build lock, the parent
+authorized a narrow per-owned-module Lean check (-j1 -M4000), using
+lean_owned_check.py and one shared author-feedback lock. This never builds
+or writes shared dependencies. These additional modules passed:
+RawCompiler: 20261018T180747427164Z-owned-check-EffectiveEncoding.RawCompiler.log
+Occupation: 20261018T180912979362Z-owned-check-EffectiveEncoding.Occupation.log
+Compression: 20261018T181313605853Z-owned-check-EffectiveEncoding.Compression.log
+Extraction: 20261018T181334368535Z-owned-check-EffectiveEncoding.Extraction.log
+AngleEvaluation: 20261018T181357596057Z-owned-check-EffectiveEncoding.AngleEvaluation.log
+Logs are in /mnt/d/math/tmp/extraction-resume-20261018/build-logs/.
+
+Pending:
+- Serialized aggregate Lake build after the independent audit releases
+  its global lock; these author checks are not aggregate audit evidence.
+- New independent root/axiom/replay scope; frozen old scopes are unchanged.
+- Complete finite-library numerical terminal integration: actual explicit
+  SU2 representative and quaternion packet for each SingleCode, plus the
+  post-b288 numerical-synthesis package and its arithmetic-cost bounds.
+- The current exact continuous-gate construction does not by itself
+  certify complete bit complexity of the final finite-library algorithm.

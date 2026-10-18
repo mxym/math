@@ -1,3 +1,2 @@
-import EffectiveEncoding.Enumeration
-import EffectiveEncoding.Elementary
-import EffectiveEncoding.GrayCompiler
+import EffectiveEncoding.Extraction
+import EffectiveEncoding.AngleEvaluation
