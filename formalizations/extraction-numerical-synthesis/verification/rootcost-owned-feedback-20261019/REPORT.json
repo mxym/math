@@ -1,0 +1,93 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T19:44:33.157920+00:00",
+  "scope": "two whole-trace root resource modules; all previous sources unchanged",
+  "baseline": "330c911982ad26f6e1ece384dd091920f20255ea",
+  "modules": 2,
+  "root_count": 12,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T194412984687Z-owned-check-CircuitNumerical.RootCostCheck.log",
+  "check_log_sha256": "086cf1a8ef6526b2aeac5296a8d1b16b437b6729329ad9b1d69cf58aea4f155b",
+  "source_sha256": {
+    "CircuitNumerical/RootProgramCosts.lean": "4b115f374cf3dfce2e457ceee28a8d0804fc6c5c8328d9a58ac715ce60395775",
+    "CircuitNumerical/BinaryProgramTrace.lean": "e2e5e4fcac621b701f566af905a0c83c1e9a20f789ce4888a2783968834e5dc9",
+    "CircuitNumerical/RootCostCheck.lean": "a17402c8df04652b8194e45a9727287e373cd35a51f62e0211d2fccfbb2d0ca1",
+    "ROOTCOST_ROOTS.txt": "8f272760a17527a0979e997a1eea0c1ffef2a6d85900e83ded0402f171b54629"
+  },
+  "root_axioms": {
+    "CircuitRecursion.ScalarExpression.binaryProgramOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.binaryProgramOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ArithmeticWordResult.binaryProgramOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_binaryProgramOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_rational_binaryProgramOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.binaryRootPrimitiveOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.binaryRootPrimitiveOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ArithmeticWordResult.binaryRootPrimitiveOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_binaryRootPrimitiveOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_envelope_binaryRootPrimitiveOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedRootCost_algebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_binaryRootPrimitiveOperations_polynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 73,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "binary primitive implementation bit costs and automatic fuel computation",
+    "other integer primitive internal operands",
+    "canonical-rational conversion/comparison costs",
+    "structural allocation/index implementation costs",
+    "explicit effective fixed-library input provider costs"
+  ]
+}
