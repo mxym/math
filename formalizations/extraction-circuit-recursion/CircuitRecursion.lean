@@ -22,3 +22,8 @@ import CircuitRecursion.SU2Conjugacy
 import CircuitRecursion.BalancedCommutator
 import CircuitRecursion.SKCorrection
 import CircuitRecursion.SKSynthesis
+import CircuitRecursion.WireNorm
+import CircuitRecursion.QubitPhase
+import CircuitRecursion.NormalizedWord
+import CircuitRecursion.FiniteLibrary
+import CircuitRecursion.FinitePrecision

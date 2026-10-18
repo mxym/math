@@ -21,5 +21,8 @@ actual operator-norm perturbation bound. `FiniteNet.lean` and
 density and proved compactness of the actual SU(2) matrix group.
 `BalancedCommutator.lean` constructs the balanced decomposition with explicit
 square-root plane rotations and internally proved quaternion-form conjugacy.
-No effective net-search algorithm or complete finite-precision SK compiler is
-yet provided.
+`SKSynthesis.lean` then proves a literal finite-word recursion with error
+`2^-p` and length `C*(p+1)^5`. `FinitePrecision.lean` connects its actual words
+to the original extraction circuit, its overall phase and actual local
+discard. No effective net-search or finite-precision classical running-time
+algorithm is yet provided.

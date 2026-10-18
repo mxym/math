@@ -1,4 +1,4 @@
-import CircuitRecursion.SKSynthesis
+import CircuitRecursion.FinitePrecision
 
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
@@ -102,6 +102,22 @@ import CircuitRecursion.SKSynthesis
 #print axioms CircuitRecursion.extractionCircuit_length
 #check CircuitRecursion.extractionCircuit_polynomial_bound
 #print axioms CircuitRecursion.extractionCircuit_polynomial_bound
+#check CircuitRecursion.libraryWireCircuit_value
+#print axioms CircuitRecursion.libraryWireCircuit_value
+#check CircuitRecursion.libraryWireCircuit_length
+#print axioms CircuitRecursion.libraryWireCircuit_length
+#check CircuitRecursion.libraryWireCircuit_uses
+#print axioms CircuitRecursion.libraryWireCircuit_uses
+#check CircuitRecursion.libraryGateCompiler_error
+#print axioms CircuitRecursion.libraryGateCompiler_error
+#check CircuitRecursion.libraryGateCompiler_length
+#print axioms CircuitRecursion.libraryGateCompiler_length
+#check CircuitRecursion.libraryGateCompiler_uses
+#print axioms CircuitRecursion.libraryGateCompiler_uses
+#check CircuitRecursion.finiteLibrary_wordApproximation
+#print axioms CircuitRecursion.finiteLibrary_wordApproximation
+#check CircuitRecursion.finiteLibrary_extraction_dyadic
+#print axioms CircuitRecursion.finiteLibrary_extraction_dyadic
 #check CircuitRecursion.instructionWordValue_append
 #print axioms CircuitRecursion.instructionWordValue_append
 #check CircuitRecursion.instructionWordValue_inverse
@@ -114,6 +130,12 @@ import CircuitRecursion.SKSynthesis
 #print axioms CircuitRecursion.finite_instructionNet
 #check CircuitRecursion.uniform_instructionLength
 #print axioms CircuitRecursion.uniform_instructionLength
+#check CircuitRecursion.libraryPrecision_error
+#print axioms CircuitRecursion.libraryPrecision_error
+#check CircuitRecursion.libraryPrecision_bound
+#print axioms CircuitRecursion.libraryPrecision_bound
+#check CircuitRecursion.finiteLibrary_extraction
+#print axioms CircuitRecursion.finiteLibrary_extraction
 #check CircuitRecursion.extractionCircuit_real_bound
 #print axioms CircuitRecursion.extractionCircuit_real_bound
 #check CircuitRecursion.extractionCircuit_isBigO
@@ -138,6 +160,22 @@ import CircuitRecursion.SKSynthesis
 #print axioms CircuitRecursion.extractionOutput_coherent
 #check CircuitRecursion.extractionOutput_purePower
 #print axioms CircuitRecursion.extractionOutput_purePower
+#check CircuitRecursion.qubitRepresentative_exists
+#print axioms CircuitRecursion.qubitRepresentative_exists
+#check CircuitRecursion.qubitRepresentative_spec
+#print axioms CircuitRecursion.qubitRepresentative_spec
+#check CircuitRecursion.gatePhase_normalized
+#print axioms CircuitRecursion.gatePhase_normalized
+#check CircuitRecursion.normalizedGate_phase
+#print axioms CircuitRecursion.normalizedGate_phase
+#check CircuitRecursion.circuitPhase_normalized
+#print axioms CircuitRecursion.circuitPhase_normalized
+#check CircuitRecursion.normalizedCircuit_phase
+#print axioms CircuitRecursion.normalizedCircuit_phase
+#check CircuitRecursion.normalized_word_error
+#print axioms CircuitRecursion.normalized_word_error
+#check CircuitRecursion.normalized_word_uniform_error
+#print axioms CircuitRecursion.normalized_word_uniform_error
 #check CircuitRecursion.castBits_apply
 #print axioms CircuitRecursion.castBits_apply
 #check CircuitRecursion.pairwiseCoordinates_alice
@@ -188,6 +226,10 @@ import CircuitRecursion.SKSynthesis
 #print axioms CircuitRecursion.su2_intertwiner
 #check CircuitRecursion.intertwiner_conjugates
 #print axioms CircuitRecursion.intertwiner_conjugates
+#check CircuitRecursion.unitary_two_phase_special
+#print axioms CircuitRecursion.unitary_two_phase_special
+#check CircuitRecursion.qubit_phase_special
+#print axioms CircuitRecursion.qubit_phase_special
 #check CircuitRecursion.castBits_rfl
 #print axioms CircuitRecursion.castBits_rfl
 #check CircuitRecursion.castCircuit_rfl
@@ -288,6 +330,16 @@ import CircuitRecursion.SKSynthesis
 #print axioms CircuitRecursion.specialUnitary_compactSpace
 #check CircuitRecursion.su2_uniform_instructionLength
 #print axioms CircuitRecursion.su2_uniform_instructionLength
+#check CircuitRecursion.matrixReindex_norm
+#print axioms CircuitRecursion.matrixReindex_norm
+#check CircuitRecursion.singleWire_eq_hom
+#print axioms CircuitRecursion.singleWire_eq_hom
+#check CircuitRecursion.singleWire_error
+#print axioms CircuitRecursion.singleWire_error
+#check CircuitRecursion.singleWire_phase
+#print axioms CircuitRecursion.singleWire_phase
+#check CircuitRecursion.su2ToBool_error
+#print axioms CircuitRecursion.su2ToBool_error
 #check CircuitRecursion.bellPairYield_feasible
 #print axioms CircuitRecursion.bellPairYield_feasible
 #check CircuitRecursion.bellPairYield_maximal

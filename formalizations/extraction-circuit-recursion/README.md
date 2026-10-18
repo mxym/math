@@ -53,8 +53,10 @@ replacement compiler; `compiledExtraction_length` counts its actual words.
 These are conditional stability/counting lemmas, and do not assert the
 existence of a finite-library compiler.
 
-The full extraction proposition is still incomplete here: effective angle
-evaluation and finite-library Solovay--Kitaev compilation remain open.
+The exact continuous-library circuit and finite-library synthesis existence,
+including their physical output and gate counts, are now proved here.
+Effective classical angle evaluation and finite-precision running time remain
+open; the complete manuscript is not thereby fully formalized.
 The SK continuation now proves the commutator perturbation bound
 `4*delta*epsilon + 2*epsilon^2` directly from actual matrix algebra, and derives
 a fixed finite approximation net from inverse-closed universality and proved
@@ -66,8 +68,22 @@ precision p and SU(2) target, inverse-closed universality implies a literal
 library word of length at most `C*(p+1)^5` and operator error at most `2^-p`.
 The net, balanced decomposition and correction bounds are all internally
 proved. This conservative exponent 5 is sufficient for the manuscript.
-The U(2) overall-phase/original-wire linkage and effective finite-precision
-classical algorithm remain open; see `SOURCE_REVIEW.md`.
+`finiteLibrary_extraction` connects that theorem through actual U(2) phase
+representatives and dimension-independent single-wire norm bounds to the same
+complete original-wire extraction program. For every delta>0 it constructs an
+actual word b using only the fixed finite library and CNOT, with operator
+error at most delta up to its harmless total phase and output fidelity at
+least `1-2*delta` under the same local discard channel. Its actual length obeys
+
+```
+length(b) <= C*G(k)*(log_2(max(1,G(k)/delta))+2)^5,
+G(k) = length(extractionCircuit k).
+```
+
+The constant C depends only on the finite inverse-closed universal library.
+No net, calibration or synthesis conclusion is supplied as a premise.
+The effective finite-precision classical algorithm remains open; see
+`SOURCE_REVIEW.md`.
 The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
@@ -79,6 +95,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build and all 150 root type/axiom prints passed with 3799 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T155118768202Z-extraction-circuit-recursion.log`.
+The ordinary build and all 176 root type/axiom prints passed with 3847 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T160118176970Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.
