@@ -1,0 +1,270 @@
+{
+  "status": "AUTHOR_NATIVE_INPUT_STANDARD_ROOT_CHECK_PASS_NOT_INDEPENDENT_REPLAY",
+  "source_head": "2e2970a43368fc2119a13771f166567a80d799cb",
+  "theorem_count": 16,
+  "model_count": 16,
+  "log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T220540121283Z-extraction-effective-encoding.log",
+  "log_sha256": "23fdff24a0e5fa076f03f054c1129976a9440827af6db6cdbb103d91ea4ae1fd",
+  "inputs": {
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankCheck.lean": "563a766eb3a101f635d5c3df2d5bd3b4e296558bdcd0e35bf408af80ce1642d1",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean": "746f2478f0d227866d9e2c364a8636e8947bb720bcfeb391411f079c44b1f092",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean": "cf55291148c567a6109dac07a6d04e9d22e2638aad83c13b9a09ded888694711",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ActualBooleanCheck.lean": "b5a905563ae6081277b8910132f3dd4d0afac4535d81fb975c2c2c629aeaf16a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ActualRawCostCheck.lean": "4a5f48153d3641f570a1d9ec24bbca21e819cf5e3c7636ec12859c5766012506",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ActualRawRootCharge.lean": "dab159eb045d04ba9c1c734070b391b7a1bd25991bd8f570b04025ba3936e7eb",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean": "1f184dba584c6349e3142ab9a87ca2a4272369364ef59745cec919e1d36045f0",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanDescriptorBudgets.lean": "242b753be97761e412ec3463d367831fd9e6e1a127b64d93c07ae4ad759a2e25",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanLabelCompilation.lean": "68a69560692726fcb12f76ac396aef599a33383fa17b73ae016e3a12c340fd98",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanRawDescriptor.lean": "0c40faa61b4ac621a2e32c665d4c2f8ccf184d872cb3bcac89dbf83e8d1236ac",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CarriedOccupationRank.lean": "e02bb863a7c84a37ec9863d47a27bd8527ccb0553618cb6e10216f8fb27f0709",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CarriedRankCheck.lean": "6ff900c291208f1674191703aeab06a47a132bee5a1f93a6d975860751cf76b4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CarriedRankEndpoints.lean": "7098f6d94384e24bfcfdc05595dc7da6f107708a4ddb8dbc45385aab82e643d2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CarriedRankExtraction.lean": "da5251103a000f25c0caccdac90129ca2d439f79ff81054ceaec0375a6caa39e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CarriedRankGeneration.lean": "0a02656cf0fd609959bdae59c4119164de44c005997944d379b2d7a45db5b144",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ChargedProviderCheck.lean": "c2a6179fa50a08ebe2324d6b33244444276227a11e59825dbed09f811bec1873",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ChargedProviderCompiler.lean": "2dc3b0ae1d9eedda7c8e646546639b3a76e2c8efc8b88c30e8a3f09523f4f947",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Check.lean": "abeb944ff4bf1d6eb9f8f642790e99226d9122fd954a0f5d9e06b3e08fe57a0f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean": "b48e277618ba89602a6473c6eef51d9a9d8651fafc1aa6c647a7addf4a03d145",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ConstructiveRankCheck.lean": "5afe9f3f8330aa8e6819bb58f7fa80cb186913bf29997bfb5011e8f2a0eadf4e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ConstructiveRankExtraction.lean": "ddd23c85b9c41bec1b381f40a098d4ec5ab3781f546b974d0b53f2d8fe493c6c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ConstructiveTriples.lean": "9db6ce48a079ceb431c94c5cd80af8f95177ad866bba5b4fa174e3f9bd17035d",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CostedRawCheck.lean": "63f00acfe5d777e3b2a0e8a01cc33f01b5a915016348e76747eb388c05b8f822",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CostedRawCompiler.lean": "0e826b4dcce5cb1b60915c922fb7d2a88eb14875cfd5f0812df2a90fddeb94dc",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedDescriptorFields.lean": "a7e3802edfc7ed922769c6f9ef7f4365300c8faf797bc5b9cc9c29cd0609d262",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedEnumeration.lean": "e63dee2e23e73c6d988723ec460012a33832d75bb3389ac2f74b0416741c2c8e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedEnumerationCheck.lean": "3bd13d1d54bfffc9a2a6545c3680215006e21d8dc833b2c4fa3bbc4c5dd897b2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedFieldsCheck.lean": "407d3dea363cd03290c763bbdea7db7e6882fa84df9822fb0af32ed7d6c66989",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DescriptorBounds.lean": "365ac42f2eaa5adb6cbeb0dfd6c261d39de1584fc17a583baccb44dbef6fa598",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DescriptorSerialization.lean": "ae09674bcfdcf5e0699490bab1af1b41a37e50cd8e3c42a3fbfa82bdb0c7ed17",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DirectPackedCheck.lean": "7392c9da768f5a13fbceec3450c8b951d4a51ef77df66aa9cc827c8b79f7c2b6",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DirectPackedExtraction.lean": "b54954c4826b2b26c352d792498bf6b1a13f98ae20499cc7780d578d3e333cda",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean": "9848a546e6a0e78a5bfde1980c3ff65b1dd82376d08fd6e3bb8470668db9fd64",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean": "d0abcdd5b152edb83a4f428132f2b1daa565840f380d5fcd6fa7f8c1a8e77a36",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean": "0f2aa117988d43c8b7c509837aa7c7a20b3e0ccb7824058c2f722d1854f14f3a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean": "71f110f423531277842001e25a4972908b3596aacbe6f1957dea1f001a3a8941",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean": "079e5421531edf6c2a7c0657ee7fee6343be0e703d8257643e88ce41be398601",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/GenerationBooleanAggregate.lean": "907956ee5ce6ce4c044d73ee4057f1ccfb318b3443fbf6ab011c5308b52cbbe5",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean": "f8739bf08d31e3bcbf5e19fdac0ec3569f7951c5afcf5ba7bf6c6895ae40409c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LiteralOccupationCheck.lean": "368506ede1bf5ab2f06508a31011b8140ec295a2ced140ae69d3c6053eec30f3",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LiteralOccupationExtraction.lean": "f619d94c951efe240a8bc386a4dcd1661b6e14bb661b113ff0aea06d0440865d",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LiteralOccupations.lean": "59150ebf671a005b2fde55843ec4e4b5752c3c4782aa1c67cbb27b394f56df95",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LogarithmicPrecision.lean": "acd6d4b9d6bbb3d9c163452fe58e4c85164f934b9c26181397b2eda8acee93cd",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeBooleanExtraction.lean": "ab3ef995f137bc1dbb64cff266c7d49fd73f5a510bd3394a4cbbd6c2d212079b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeInputCheck.lean": "9beb646545b876bfc577c76f5c71aae623b71205fca67a92b2dc68b9a4346eb1",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeInputEvaluation.lean": "98fc265e983287974ae6c1f8086d6b2831779883588f07a22d2d8d3a3a9165ff",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeMergeInputs.lean": "8abbb65cd23278a79408b5d2b80f15d41d7bb30630fa4632a089ecdef0ebeb9a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean": "7b69bc68be3094e5d3326f7b80610422a3eff1bfde346c1afdc5c121fa82b205",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankCheck.lean": "e1b8a0f1a4dffbf7cb1d16f35efe9064f50e75bb9898b88b672812575900348b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean": "06776b93b498a5810c16f248f2dc4857be4e7686004da4ca8adba13ab68dcfc5",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankExtraction.lean": "30ed38fd62f8666235cb5607252aabec754018f473c31dc7d38a2538b58cd4fb",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean": "8c376fd6bf1446c7df7a4fbec379a3579e57e874ab514682e23d008642dd9d4b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeSelectionEvaluation.lean": "f2730bf59f240963616acde4be14b8b3fd02d955c99052301a9700a13fd3642b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean": "1c4f5d1e103dec09afd5a7ddde32c34d626ae61d18e4c5adf06c00315cc412f8",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean": "0cebf45fe3fa9c27c24f9110a150d610dcefc75150b0ac591bba021036fdc58c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean": "945e8e8933815ccb437054c5586a5b34c0ef6a44a63dba161896111d6d8384b3",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointCheck.lean": "40c1707f7af03ce56f0b8ca8be3a03388dceddd6c8140a286a9e7190e468ca3f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean": "6435ea22845e98c5c280d99766ddae455ab1add1f3c73228f649c2dd603da0d9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedIndexedBranch.lean": "ee9a84a54e6387299aa883eb6cf26ef58e766558814826c57560fcc35b590958",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean": "46ec6b2d37312df98f921091980c91cce4702d5c5576f042fcf415426d1af2d1",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean": "8c47afe9af4eff7809f1d4493c0899bf6df57ad66c04e0f06157f0ab093abbcc",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeCheck.lean": "155155abaf533b6042cd77d1aecfb58cc090f8e6faf946cfd6a109882ca10dfc",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeExtraction.lean": "004115682873fc5d3a22430f82ea3fce59376ab93e513a991eebab47103bd222",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean": "4c3b0d20478d3bf9fee66643c984f3fba59d5dfa8b5ba3ee339ca02c79745671",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeInputs.lean": "7d44ee6199de29382b93bdaa22665fef144c4456f2b022e1f47d7fa2ddfe1fa4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean": "38b8c00f1c42bd23971d3881915bd1359f3bdb5ee36e37760b893191a7e288b2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliEvaluation.lean": "5ae8d9c7e84e471a477f688eef294773c5b12a3baf43ecc77ff3505ba19a0ccf",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedRankedPrograms.lean": "a72c79eabc423a648c2926ecbe06f8a22c277f4b79f1829a42ab2a59099350ac",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderCheck.lean": "e362eecb8c7d9a002ae20a7acd2d65827544f37826998b9611ceb3f2ea15c5e4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderExpressions.lean": "cf9263ddd0f39ebfdfbd5eb72238ab11ba95da273213e1a90e38bd2fa323bac0",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderIntermediateHeights.lean": "04d3419565d9903eebec5e09758c876a56a0d5984b9ec50d2262bcfd6b724052",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderPrecision.lean": "7682ec4292197cbebe92a4ce2d3de4cb4c8502199e37b8797b7aee5a3d577ade",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTerminal.lean": "46dd837718fbc93ed13db7ed1a7e66d1222dc1db75eeeef6b994f8973bd911a9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTrace.lean": "b0e9aed7868c26a1bfd60d92bd10199d8915133508c046f0e59c105ac5645039",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTraceCheck.lean": "60dde81b190c01b4ec568ec006244624cd9ebbe6cd2f191065daf2ad239d4a8a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTraceCore.lean": "dddef8324221ee9f2a31319127e60508d2557d687256747b38417b97516d0cdd",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean": "bd40ba4433b41c65ab4badb813753d22c9abbb3a3af30268502ddddc4dc97b3c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean": "ed720004584e66ac8344d37e6f9499630fa604daec4b3c9fb0c9ed5154c892ef",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCheck.lean": "bfe4a6d54e64cc2520b555b2ed22260d7da0ccf69dc60f68f4ea087d2984744e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCompiler.lean": "d6de0df95dc7a4cd08549e419d16724f124fdd751103276b64399b63f54040cb",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean": "3ac83d5b71c77f291e0a38769b9854a08e97a1cd72150accc2abe4b4abfa3a83",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RankByTriples.lean": "4659a72c558aae8038d8538cf22c8abf33dbe1ffec726a88b50c821d41e5dbfa",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedAlignmentWork.lean": "c4e042e77c8bbb9bd55ec350df9a0df6d7465b07795453b1eace4b5556b765f6",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean": "b4aa4cc5d8161fe16e04be97cbe1a199122e8e89dc910bdb09fa681f03c79fc9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean": "d464dda9f998404f9a3286fdce7f843545f7669cf3bb52d4af443708fccd9f58",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawProviderBudgets.lean": "fcc1d6c4af4d924b910e632f9db3ba3d69dec8c0fcaeb18b0e663f7352869a79",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawProviderCacheBounds.lean": "d7fb41adab33db65b9b405c6ebfbbb316bca1723cb062f1518b15784df5a844d",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawProviderExpressions.lean": "283eaf7993709fdb5ae40f6127e7f65a26c7c1b36b3c93ca25030b842fb32c02",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean": "fe7c52779c261148b16a877c51fffd6363a882f9c12e0d6e54dc81b0717dd464",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RequestedPackedAlignment.lean": "1c6d95780414bc54f4d35bff2718ee830ffab6d8ace915e698cbbfe5f6d0e444",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/SharedRawCheck.lean": "9333e6eeece7bb5c7a4a5eb211556896f9471e8aa64990de780a8a7b281a9aed",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/SharedRawCompiler.lean": "4eb8dd07528fd4c132a80d7b842446735590f8c1db44c559e6012ff3fafd25e8",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/StoredSwapAlignment.lean": "18fbea9f96a04f5de84ae9f2dcc1535ed21524b7c6decdb119c5c4972d74f94b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/StoredSwapCheck.lean": "e95085f6a193f8dff088ee2b5c8d51f7f84422a1f5646e9ce1c1e5380c07c2f4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/StoredSwapExtraction.lean": "4902609fac0bdfa19e0465201e4ddd708cdb516c609d9bf858707a322394d615",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/TripleRankCheck.lean": "95acac0735ea400be0d44f7c009ac8635d9dd1913276f7a6a87b4a0b6c39cd7f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/TripleRankExtraction.lean": "e3a4f45cfb5d830150c915eae713826d44af75b5b59049b26370cec12d9fe025",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/UnaryWordEncoding.lean": "393e985e8a8c3890711dfb227a94663b84cc97c0bdcae05f470e5e5d19d1c570",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding.lean": "0462dc842889f25c0efe48437f656903a339ed45ed46b3ebe2b929db51b6cad5",
+    "formalizations/extraction-effective-encoding/lakefile.toml": "e9e79c2a09320464590fe16365c9d8edd2791f50536e3aeb7780d9c72d7a53e9",
+    "formalizations/extraction-effective-encoding/lake-manifest.json": "f93161a21dd465f60d192f0bfb0ee8b13a5239f7993998498b0707a3d18cbd9d",
+    "formalizations/extraction-effective-encoding/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "formalizations/extraction-effective-encoding/NATIVE_INPUT_ROOTS.txt": "7fc715da2d4f745ef1d1b5394904a9a8f8141c37ec6cd79a1518c0adb76ebf1b",
+    "formalizations/extraction-effective-encoding/NATIVE_INPUT_MODELS.txt": "5e4113418bd2b1bb34301fb2212a65fd2ea5747150d41d98912b073ba25266c6",
+    "formalizations/extraction-effective-encoding/NATIVE_INPUT_SOURCE_INVENTORY.json": "e21d446c03317a2e37e27fc172f9e1454f652aa4d3f3683283ea566cde08cd68",
+    "formalizations/extraction-effective-encoding/reproduce_native_input.py": "9bc55bf759a4b17dc20b68b8c286722923ce4ca92f7f7e8e5ebb01d054c73e03"
+  },
+  "axioms": {
+    "EffectiveEncoding.unaryWordEncoding_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.unaryWordEncoding_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.unaryWordEncoding_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.unaryWordEncoding_incrementCount": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.unaryWordEncoding_incrementTrimActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.unaryWordEncoding_width": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.nativeMergeInputProgram_cosine_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.nativeMergeInputProgram_sine_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.nativeMergeInputProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.nativeMergeInputProgram_incrementCount": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.nativeMergeInputProgram_cosine_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.nativeMergeInputProgram_sine_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.prepareNativeAngleInput_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.prepareNativeSingleInput_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionCode_nativeInput_preparationActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.preparedNativeCode_input_preparationActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.unaryWordEncoding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.nativeMergeInputProgram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.prepareNativeAtomInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.prepareNativeAngleInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.prepareNativeSingleInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.UnaryWordTrace": [],
+    "EffectiveEncoding.UnaryWordEncodingResult": [],
+    "EffectiveEncoding.UnaryWordTrace.incrementCount": [],
+    "EffectiveEncoding.UnaryWordTrace.incrementTrimActions": [],
+    "EffectiveEncoding.NativeMergeInputResult": [],
+    "EffectiveEncoding.NativeMergeInputResult.incrementTrimActions": [],
+    "EffectiveEncoding.NativeAtomInput": [],
+    "EffectiveEncoding.NativeAtomInput.preparationActions": [],
+    "EffectiveEncoding.NativeAngleInput": [],
+    "EffectiveEncoding.NativeSingleInput": [],
+    "EffectiveEncoding.NativeSingleInput.preparationActions": []
+  },
+  "roots": [
+    "EffectiveEncoding.unaryWordEncoding_value",
+    "EffectiveEncoding.unaryWordEncoding_canonical",
+    "EffectiveEncoding.unaryWordEncoding_length",
+    "EffectiveEncoding.unaryWordEncoding_incrementCount",
+    "EffectiveEncoding.unaryWordEncoding_incrementTrimActions",
+    "EffectiveEncoding.unaryWordEncoding_width",
+    "EffectiveEncoding.nativeMergeInputProgram_cosine_decode",
+    "EffectiveEncoding.nativeMergeInputProgram_sine_decode",
+    "EffectiveEncoding.nativeMergeInputProgram_actions",
+    "EffectiveEncoding.nativeMergeInputProgram_incrementCount",
+    "EffectiveEncoding.nativeMergeInputProgram_cosine_height",
+    "EffectiveEncoding.nativeMergeInputProgram_sine_height",
+    "EffectiveEncoding.prepareNativeAngleInput_actions",
+    "EffectiveEncoding.prepareNativeSingleInput_actions",
+    "EffectiveEncoding.extractionCode_nativeInput_preparationActions",
+    "EffectiveEncoding.preparedNativeCode_input_preparationActions"
+  ],
+  "models": [
+    "EffectiveEncoding.UnaryWordTrace",
+    "EffectiveEncoding.UnaryWordEncodingResult",
+    "EffectiveEncoding.unaryWordEncoding",
+    "EffectiveEncoding.UnaryWordTrace.incrementCount",
+    "EffectiveEncoding.UnaryWordTrace.incrementTrimActions",
+    "EffectiveEncoding.NativeMergeInputResult",
+    "EffectiveEncoding.nativeMergeInputProgram",
+    "EffectiveEncoding.NativeMergeInputResult.incrementTrimActions",
+    "EffectiveEncoding.NativeAtomInput",
+    "EffectiveEncoding.prepareNativeAtomInput",
+    "EffectiveEncoding.NativeAtomInput.preparationActions",
+    "EffectiveEncoding.NativeAngleInput",
+    "EffectiveEncoding.prepareNativeAngleInput",
+    "EffectiveEncoding.NativeSingleInput",
+    "EffectiveEncoding.prepareNativeSingleInput",
+    "EffectiveEncoding.NativeSingleInput.preparationActions"
+  ]
+}
