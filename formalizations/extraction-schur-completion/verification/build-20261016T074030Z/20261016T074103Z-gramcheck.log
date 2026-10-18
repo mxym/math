@@ -1,0 +1,96 @@
+{"cwd": "/mnt/lean-research-d/worktrees/extraction-lean-schur-20261016/formalizations/extraction-schur-completion", "args": ["env", "lean", "Check.lean"], "storage": "D-backed"}
+ExtractionSchur.unitaryHaar (D : ℕ) : MeasureTheory.Measure ↥(ExtractionSchur.OneCopyUnitary D)
+ExtractionSchur.haarOrbitAverage_density (D k : ℕ) (X : Matrix (Fin D) (Fin D) ℂ) (hX : X.PosSemidef ∧ X.trace = 1) :
+  (ExtractionSchur.haarOrbitAverage D k X).PosSemidef ∧ (ExtractionSchur.haarOrbitAverage D k X).trace = 1
+ExtractionSchur.haarOrbitAverage_range (D k : ℕ) (X : Matrix (Fin D) (Fin D) ℂ) (hX : X.PosSemidef ∧ X.trace = 1) :
+  (ExtractionSchur.haarOrbitAverage D k X).mulVecLin.range = ExtractionRankSupport.rankBudgetSpace D k X.rank
+ExtractionSchur.flatHaarAverage_rank (D s k : ℕ) (hs : 0 < s) (hsD : s ≤ D) :
+  (ExtractionSchur.flatHaarAverage D s k hsD).rank = (ExtractionRankSupport.rankBudgetProjector D k s).rank
+ExtractionSchur.haarOrbitAverage_trace_square (D k : ℕ) (X : Matrix (Fin D) (Fin D) ℂ) :
+  (ExtractionSchur.haarOrbitAverage D k X * ExtractionSchur.haarOrbitAverage D k X).trace =
+    ∫ (U : ↥(ExtractionSchur.OneCopyUnitary D)),
+      (X * (↑U * X * (↑U).conjTranspose)).trace ^ k ∂ExtractionSchur.unitaryHaar D
+ExtractionSchur.mem_tensorPowerSpan_iff_commutes (D k : ℕ)
+  (M : Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) ℂ) :
+  M ∈ ExtractionSchur.tensorPowerSpan D k ↔
+    ∀ (σ : Equiv.Perm (Fin k)),
+      ExtractionSchur.copyPermutationMatrix D k σ * M = M * ExtractionSchur.copyPermutationMatrix D k σ
+ExtractionSchur.tensorPowerSpan_finrank (D k : ℕ) :
+  Module.finrank ℂ ↥(ExtractionSchur.tensorPowerSpan D k) = (D * D + k - 1).choose k
+ExtractionSchur.weylProduct_ratio_padRows (s t : ℕ) (rows : Fin s → ℕ) (hrows : Antitone rows) :
+  ExtractionSchur.weylProduct (s + t) (ExtractionSchur.padRows s t rows) / ExtractionSchur.weylProduct s rows =
+    ExtractionSchur.weylCrossRatio s t rows
+ExtractionSchur.weylCrossRatio_uniform_limit (s t : ℕ) (rows : ℕ → Fin s → ℕ)
+  (hrows : ∀ (i : Fin s), Filter.Tendsto (fun k => ↑(rows k i) / ↑k) Filter.atTop (nhds (↑s)⁻¹)) :
+  Filter.Tendsto (fun k => ExtractionSchur.weylCrossRatio s t (rows k) / ↑k ^ (s * t)) Filter.atTop
+    (nhds (ExtractionSchur.sharpSupportConstant s t))
+ExtractionSchur.weylCrossRatio_reciprocal_uniform_limit (s t : ℕ) (hs : 0 < s) (rows : ℕ → Fin s → ℕ)
+  (hrows : ∀ (i : Fin s), Filter.Tendsto (fun k => ↑(rows k i) / ↑k) Filter.atTop (nhds (↑s)⁻¹)) :
+  Filter.Tendsto (fun k => ↑k ^ (s * t) / ExtractionSchur.weylCrossRatio s t (rows k)) Filter.atTop
+    (nhds (ExtractionSchur.sharpSupportConstant s t)⁻¹)
+ExtractionSchur.unitaryTensorSpan_eq_tensorPowerSpan (D k : ℕ) :
+  ExtractionSchur.unitaryTensorSpan D k = ExtractionSchur.tensorPowerSpan D k
+ExtractionSchur.mem_matrix_bicommutant.{u_1} {ι : Type u_1} [Fintype ι] [DecidableEq ι] (A : Submodule ℂ (Matrix ι ι ℂ))
+  (hOne : 1 ∈ A) (hMul : ∀ B ∈ A, ∀ C ∈ A, B * C ∈ A) (hStar : ∀ B ∈ A, B.conjTranspose ∈ A) (M : Matrix ι ι ℂ)
+  (hM : ∀ (T : Matrix ι ι ℂ), (∀ B ∈ A, T * B = B * T) → M * T = T * M) : M ∈ A
+ExtractionSchur.mem_permutationSpan_iff_commutes_unitaryTensor (D k : ℕ)
+  (M : Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) ℂ) :
+  M ∈ ExtractionSchur.permutationSpan D k ↔
+    ∀ (U : ↥(ExtractionSchur.OneCopyUnitary D)),
+      M * ExtractionSpectrum.tensorMatrix (↑U) k = ExtractionSpectrum.tensorMatrix (↑U) k * M
+'ExtractionSchur.haarOrbitAverage_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.haarOrbitAverage_trace_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.mem_tensorPowerSpan_iff_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.weylProduct_ratio_padRows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.weylCrossRatio_uniform_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.unitaryTensorSpan_eq_tensorPowerSpan' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.mem_matrix_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.mem_permutationSpan_iff_commutes_unitaryTensor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ExtractionSchur.haarTwirl_eq_finiteHaarProjection (D k : ℕ)
+  (A : Matrix (SymmetricSupport.Word D k) (SymmetricSupport.Word D k) ℂ) :
+  ExtractionSchur.haarTwirl D k A = ExtractionSchur.finiteHaarProjection D k A
+ExtractionSchur.flatHaarAverage_two_finite_quantities (D s k : ℕ) (hs : 0 < s) (hsD : s ≤ D) :
+  (ExtractionSchur.flatHaarAverage D s k hsD).rank = (ExtractionRankSupport.supportCoefficientMatrix D k s).rank ∧
+    (ExtractionSchur.flatHaarAverage D s k hsD * ExtractionSchur.flatHaarAverage D s k hsD).trace =
+      star
+          (ExtractionSchur.matrixVectorEquiv
+            (ExtractionSpectrum.tensorMatrix (ExtractionRankSupport.flatCoordinateDensity D s hsD) k)) ⬝ᵥ
+        (ExtractionSchur.permutationHSProjector D k).mulVec
+          (ExtractionSchur.matrixVectorEquiv
+            (ExtractionSpectrum.tensorMatrix (ExtractionRankSupport.flatCoordinateDensity D s hsD) k))
+ExtractionSchur.prefixAntisymmetrizer_mul_rankBudgetProjector (D l t s : ℕ) (hsl : s < l) :
+  ExtractionSchur.prefixAntisymmetrizer D l t * ExtractionRankSupport.rankBudgetProjector D (l + t) s = 0
+ExtractionSchur.rankBudgetProjector_mem_permutationSpan (D k s : ℕ) :
+  ExtractionRankSupport.rankBudgetProjector D k s ∈ ExtractionSchur.permutationSpan D k
+ExtractionSchur.flatHaarAverage_permutation_cycle_moment (D s k : ℕ) (hsD : s ≤ D) (σ : Equiv.Perm (Fin k)) :
+  (ExtractionSchur.copyPermutationMatrix D k σ * ExtractionSchur.flatHaarAverage D s k hsD).trace =
+    (↑s ^ k)⁻¹ • ↑s ^ ExtractionSchur.positionCycleCount k σ
+ExtractionSchur.flatHaarAverage_finite_gram_solution (D s k : ℕ) (hsD : s ≤ D) :
+  ∃ c,
+    ExtractionSchur.permutationCombination D k c = ExtractionSchur.flatHaarAverage D s k hsD ∧
+      ∀ (σ : Equiv.Perm (Fin k)),
+        ∑ τ, c τ * ↑D ^ ExtractionSchur.positionCycleCount k (σ⁻¹ * τ) =
+          (↑s ^ k)⁻¹ • ↑s ^ ExtractionSchur.positionCycleCount k σ⁻¹
+ExtractionSchur.flatHaarAverage_eq_combination_iff (D s k : ℕ) (hsD : s ≤ D) (c : Equiv.Perm (Fin k) → ℂ) :
+  ExtractionSchur.permutationCombination D k c = ExtractionSchur.flatHaarAverage D s k hsD ↔
+    ∀ (σ : Equiv.Perm (Fin k)),
+      ∑ τ, c τ * ↑D ^ ExtractionSchur.positionCycleCount k (σ⁻¹ * τ) =
+        (↑s ^ k)⁻¹ • ↑s ^ ExtractionSchur.positionCycleCount k σ⁻¹
+ExtractionSchur.flatHaarAverage_purity_of_gram_solution (D s k : ℕ) (hsD : s ≤ D) (c : Equiv.Perm (Fin k) → ℂ)
+  (hc :
+    ∀ (σ : Equiv.Perm (Fin k)),
+      ∑ τ, c τ * ↑D ^ ExtractionSchur.positionCycleCount k (σ⁻¹ * τ) =
+        (↑s ^ k)⁻¹ • ↑s ^ ExtractionSchur.positionCycleCount k σ⁻¹) :
+  (ExtractionSchur.flatHaarAverage D s k hsD * ExtractionSchur.flatHaarAverage D s k hsD).trace =
+    ∑ σ, c σ * (↑s ^ k)⁻¹ • ↑s ^ ExtractionSchur.positionCycleCount k σ
+'ExtractionSchur.haarTwirl_eq_finiteHaarProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.flatHaarAverage_two_finite_quantities' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.prefixAntisymmetrizer_mul_rankBudgetProjector' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ExtractionSchur.flatHaarAverage_permutation_cycle_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.flatHaarAverage_finite_gram_solution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.flatHaarAverage_eq_combination_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExtractionSchur.flatHaarAverage_purity_of_gram_solution' depends on axioms: [propext, Classical.choice, Quot.sound]
