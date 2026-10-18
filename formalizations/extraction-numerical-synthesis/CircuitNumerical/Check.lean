@@ -1,4 +1,24 @@
+import CircuitNumerical.ArithmeticExpressions
+import CircuitNumerical.BalancedReference
+import CircuitNumerical.CacheResources
 import CircuitNumerical.CachedArithmeticSynthesis
+import CircuitNumerical.CachedNumericalSK
+import CircuitNumerical.ConditionedFactors
+import CircuitNumerical.ConditionedOracleSelection
+import CircuitNumerical.ExpressionCosts
+import CircuitNumerical.ExpressionExecution
+import CircuitNumerical.ExpressionResources
+import CircuitNumerical.FactorDependencies
+import CircuitNumerical.FactorExpressions
+import CircuitNumerical.IntegerPackets
+import CircuitNumerical.NormalizedIntertwinerOracle
+import CircuitNumerical.NumericalCorrection
+import CircuitNumerical.NumericalDependencies
+import CircuitNumerical.NumericalOperationCount
+import CircuitNumerical.NumericalSK
+import CircuitNumerical.OperationGrowth
+import CircuitNumerical.OracleDependencies
+import CircuitNumerical.TracedNumericalSK
 
 #check CircuitRecursion.expressionAdd_eval
 #print axioms CircuitRecursion.expressionAdd_eval
@@ -202,6 +222,42 @@ import CircuitNumerical.CachedArithmeticSynthesis
 #print axioms CircuitRecursion.expressionFactorX_eval
 #check CircuitRecursion.expressionFactorY_eval
 #print axioms CircuitRecursion.expressionFactorY_eval
+#check CircuitRecursion.IntegerPacket.mul_value
+#print axioms CircuitRecursion.IntegerPacket.mul_value
+#check CircuitRecursion.quaternionSign_natAbs
+#print axioms CircuitRecursion.quaternionSign_natAbs
+#check CircuitRecursion.integerQuaternionProduct_bound
+#print axioms CircuitRecursion.integerQuaternionProduct_bound
+#check CircuitRecursion.IntegerPacketHeight.mono
+#print axioms CircuitRecursion.IntegerPacketHeight.mono
+#check CircuitRecursion.IntegerPacket.one_height
+#print axioms CircuitRecursion.IntegerPacket.one_height
+#check CircuitRecursion.IntegerPacket.mul_height
+#print axioms CircuitRecursion.IntegerPacket.mul_height
+#check CircuitRecursion.integerPacketWord_value
+#print axioms CircuitRecursion.integerPacketWord_value
+#check CircuitRecursion.integerPacketWord_height
+#print axioms CircuitRecursion.integerPacketWord_height
+#check CircuitRecursion.dyadicIntegerPacket_value
+#print axioms CircuitRecursion.dyadicIntegerPacket_value
+#check CircuitRecursion.dyadicIntegerPacket_height
+#print axioms CircuitRecursion.dyadicIntegerPacket_height
+#check CircuitRecursion.IntegerPacket.one_value
+#print axioms CircuitRecursion.IntegerPacket.one_value
+#check CircuitRecursion.cachedIntegerPacket_value
+#print axioms CircuitRecursion.cachedIntegerPacket_value
+#check CircuitRecursion.cachedIntegerPacket_height
+#print axioms CircuitRecursion.cachedIntegerPacket_height
+#check CircuitRecursion.cachedIntegerPacketWord_height
+#print axioms CircuitRecursion.cachedIntegerPacketWord_height
+#check CircuitRecursion.cachedIntegerPacketWord_value
+#print axioms CircuitRecursion.cachedIntegerPacketWord_value
+#check CircuitRecursion.commonDenominator_binary_bound
+#print axioms CircuitRecursion.commonDenominator_binary_bound
+#check CircuitRecursion.IntegerPacketHeight.binary_bounds
+#print axioms CircuitRecursion.IntegerPacketHeight.binary_bounds
+#check CircuitRecursion.cachedSynthesisWord_integerHeight
+#print axioms CircuitRecursion.cachedSynthesisWord_integerHeight
 #check CircuitRecursion.normalizedQuaternionSU2_unitary
 #print axioms CircuitRecursion.normalizedQuaternionSU2_unitary
 #check CircuitRecursion.normalizedIntertwiner_coordinates

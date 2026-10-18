@@ -54,8 +54,15 @@ root and stored-packet access. Packet product nodes evaluate two stored
 operands once. Stopping-threshold construction is included in the trace.
 The executable backend uses binary shifts for dyadic powers, and `run_correct`
 connects it to the expression semantics. This is an explicit arithmetic-model
-bound. Intermediate operand bit lengths, primitive/provider Turing costs and
-structural allocation/index costs remain open. The original extraction-family
+bound. `IntegerPackets.lean` implements an integer-numerator/common-denominator
+packet product and proves it equals the cached rational word-product evaluator.
+With input packet exponent B, a word of length l has numerator/denominator
+exponent at most `(B+2)*l`. For the actual synthesized word the proved exponent
+bound is `(D_budget+3)*(32*L*(p+1)^5)`, polynomial of degree 14 in p; its binary
+lengths are at most this exponent plus 2. This closes word-product operand
+sizes for an explicit integer representation. Factor-normalization operand
+sizes, primitive/provider Turing costs and structural allocation/index costs
+remain open. The original extraction-family
 description/encoding binding is a separate sibling extension.
 
 The pre-port 58-module/416-root source passed authorized own-module feedback
