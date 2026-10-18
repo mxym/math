@@ -26,3 +26,11 @@ square-root plane rotations and internally proved quaternion-form conjugacy.
 to the original extraction circuit, its overall phase and actual local
 discard. No effective net-search or finite-precision classical running-time
 algorithm is yet provided.
+
+`EFFECTIVE_MODEL.md` records the necessary finite descriptions and precision
+interfaces. The original proposition does explicitly assume an efficiently
+computable library; that assumption is stronger than this package's
+finite-library gate-count existence theorem. `OccupationArithmetic.lean` and
+`DyadicPrecision.lean` add integer-mass arithmetic and an integer precision
+schedule without claiming that the remaining classical algorithm exists
+under the theorem's weaker hypotheses.

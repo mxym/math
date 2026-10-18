@@ -83,7 +83,18 @@ G(k) = length(extractionCircuit k).
 The constant C depends only on the finite inverse-closed universal library.
 No net, calibration or synthesis conclusion is supplied as a premise.
 The effective finite-precision classical algorithm remains open; see
-`SOURCE_REVIEW.md`.
+`SOURCE_REVIEW.md` and `EFFECTIVE_MODEL.md`. The latter distinguishes the
+manuscript's effective-library assumption from the weaker hypotheses of the
+proved gate-count existence theorem, and records the required finite-input,
+net-selection, numerical-stability and bit-cost interfaces.
+`OccupationArithmetic.lean` proves integer-ratio identities, nonzero-mass
+lower bounds and the exact rational square-root coefficients of the actual
+merge angles; these supply arithmetic support without a running-time claim.
+`DyadicPrecision.lean` gives the finite integer request
+`p + clog_2(max(1,G(k)))` and proves an actual library word with error at most
+`2^-p`, fidelity at least `1-2*2^-p` and actual length at most
+`C*G(k)*(p+clog_2(max(1,G(k)))+1)^5`. Only the precision budget is computable
+here; selection of the approximating word remains an existence theorem.
 The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
@@ -95,6 +106,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build and all 176 root type/axiom prints passed with 3847 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T160118176970Z-extraction-circuit-recursion.log`.
+The ordinary build and all 185 root type/axiom prints passed with 3849 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T161008426882Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.

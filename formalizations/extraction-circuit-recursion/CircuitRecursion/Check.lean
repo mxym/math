@@ -1,4 +1,4 @@
-import CircuitRecursion.FinitePrecision
+import CircuitRecursion.DyadicPrecision
 
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
@@ -68,6 +68,10 @@ import CircuitRecursion.FinitePrecision
 #print axioms CircuitRecursion.compressionCircuit_length
 #check CircuitRecursion.compressionCircuit_polynomial_bound
 #print axioms CircuitRecursion.compressionCircuit_polynomial_bound
+#check CircuitRecursion.dyadicCircuitPrecision_error
+#print axioms CircuitRecursion.dyadicCircuitPrecision_error
+#check CircuitRecursion.finiteLibrary_extraction_precision
+#print axioms CircuitRecursion.finiteLibrary_extraction_precision
 #check CircuitRecursion.codeWires_available
 #print axioms CircuitRecursion.codeWires_available
 #check CircuitRecursion.codeWires_step
@@ -176,6 +180,20 @@ import CircuitRecursion.FinitePrecision
 #print axioms CircuitRecursion.normalized_word_error
 #check CircuitRecursion.normalized_word_uniform_error
 #print axioms CircuitRecursion.normalized_word_uniform_error
+#check CircuitRecursion.occupationMass_pos_iff
+#print axioms CircuitRecursion.occupationMass_pos_iff
+#check CircuitRecursion.occupationMass_ge_inverse
+#print axioms CircuitRecursion.occupationMass_ge_inverse
+#check CircuitRecursion.occupationMass_partial_count
+#print axioms CircuitRecursion.occupationMass_partial_count
+#check CircuitRecursion.occupationMass_partial_le_one
+#print axioms CircuitRecursion.occupationMass_partial_le_one
+#check CircuitRecursion.occupationMass_partial_ge_inverse
+#print axioms CircuitRecursion.occupationMass_partial_ge_inverse
+#check CircuitRecursion.rational_mergeAngle_trig
+#print axioms CircuitRecursion.rational_mergeAngle_trig
+#check CircuitRecursion.occupation_partial_mergeAngle_trig
+#print axioms CircuitRecursion.occupation_partial_mergeAngle_trig
 #check CircuitRecursion.castBits_apply
 #print axioms CircuitRecursion.castBits_apply
 #check CircuitRecursion.pairwiseCoordinates_alice
