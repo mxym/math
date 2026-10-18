@@ -1,0 +1,23 @@
+import CircuitNumerical.BinaryWordAddition
+import CircuitNumerical.BinaryWordMultiplication
+
+#check CircuitRecursion.binaryBitValue_le_one
+#print axioms CircuitRecursion.binaryBitValue_le_one
+#check CircuitRecursion.binaryFullAdder_value
+#print axioms CircuitRecursion.binaryFullAdder_value
+#check CircuitRecursion.binaryAddCarry_value
+#print axioms CircuitRecursion.binaryAddCarry_value
+#check CircuitRecursion.binaryAddCarry_length
+#print axioms CircuitRecursion.binaryAddCarry_length
+#check CircuitRecursion.binaryAddBitOperations_bound
+#print axioms CircuitRecursion.binaryAddBitOperations_bound
+#check CircuitRecursion.binaryWordValue_lt_power_length
+#print axioms CircuitRecursion.binaryWordValue_lt_power_length
+#check CircuitRecursion.binaryMultiplyWord_value
+#print axioms CircuitRecursion.binaryMultiplyWord_value
+#check CircuitRecursion.binaryMultiplyWord_length
+#print axioms CircuitRecursion.binaryMultiplyWord_length
+#check CircuitRecursion.binaryMultiplyBitOperations_bound
+#print axioms CircuitRecursion.binaryMultiplyBitOperations_bound
+#check CircuitRecursion.binaryMultiplyBitOperations_uniform
+#print axioms CircuitRecursion.binaryMultiplyBitOperations_uniform

@@ -1,0 +1,79 @@
+{
+  "status": "BUILD_ONLY",
+  "utc": "2026-10-18T20:03:47.779982+00:00",
+  "base_head": "33f1f708be8cb1b03361ab47969830664085c0d6",
+  "scope": "two Boolean word arithmetic modules and 10 roots",
+  "modules": 2,
+  "root_count": 10,
+  "targets": [
+    "CircuitNumerical.BitWordCheck"
+  ],
+  "build_jobs": 3904,
+  "build_exit_code": 0,
+  "build_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T200141925969Z-extraction-numerical-synthesis.log",
+  "build_log_sha256": "13c4b0ffb6f4e6512b3dfd828a3fb11767be472003afebd1f8739339952f1648",
+  "source_sha256": {
+    "CircuitNumerical/BinaryWordAddition.lean": "332f3a2257fadd769aa167c064350dd5017f5cc9b742fcf9cc3a156fb79dcf49",
+    "CircuitNumerical/BinaryWordMultiplication.lean": "6fd51154454ca01eff858279aef8f594b1007ce01992953ebc0599fed0924e99",
+    "CircuitNumerical/BitWordCheck.lean": "2a803bc81975caff7441023955749c6f7d1db12b59261ca69003988c8bceb651",
+    "BITWORD_ROOTS.txt": "36399682475dec8e52733bb5dda1a3ee140707fbbabbbe5608685da9724f0351"
+  },
+  "root_axioms": {
+    "CircuitRecursion.binaryBitValue_le_one": [],
+    "CircuitRecursion.binaryFullAdder_value": [],
+    "CircuitRecursion.binaryAddCarry_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryAddCarry_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryAddBitOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryWordValue_lt_power_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryMultiplyWord_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryMultiplyWord_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryMultiplyBitOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryMultiplyBitOperations_uniform": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env PASS; worker_build.py shared global flock",
+  "aggregate_build": true,
+  "independent_kernel_replay": false,
+  "fresh_build": false,
+  "forged_proof_controls": false,
+  "frozen_baseline_files_byte_identical": 92,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "bounded integer primitive bit implementations and automatic fuel computation",
+    "input provider execution and rational packet materialization costs",
+    "structural allocation/index implementation costs",
+    "new independent audit of this later scope"
+  ]
+}
