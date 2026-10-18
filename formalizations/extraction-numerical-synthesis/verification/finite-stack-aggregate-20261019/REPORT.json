@@ -1,0 +1,193 @@
+{
+  "status": "STANDARD_AGGREGATE_BUILD_ONLY_PASS",
+  "utc": "2026-10-18T23:04:36.470264+00:00",
+  "source_head": "fb4fa11e449255bde8526b18509a4963513f728a",
+  "target": "CircuitNumerical.FiniteStackCheck",
+  "modules": 4,
+  "theorem_roots": 43,
+  "model_declarations": 13,
+  "build_exit_code": 0,
+  "jobs": 3987,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T230332588578Z-extraction-numerical-synthesis.log",
+  "check_log_sha256": "69b8d2039dfab362c3cd3a3a34bbdb7630b041dd40e0b116bd58e94dafd3663a",
+  "source_sha256": {
+    "CircuitNumerical/FiniteStackAssembly.lean": "d1539392d0e2b4b98e0645d4b79d4e2ed338fb3e62088467f241c2965d03bd14",
+    "CircuitNumerical/FiniteStackAssemblyRuns.lean": "1df4d734b8e3b8be5c4017206dbc43e68981236004a166fac2b5ba037748120b",
+    "CircuitNumerical/FiniteStackReverseMap.lean": "28b4ef45bc160950e0dcdba68dd100bdbd939029de4708be70e8272724e76dc7",
+    "CircuitNumerical/FiniteStackOperationalBridge.lean": "cac45431a0da8681b898cf7a4686e74b42129b4c2cf98e9fac3d7364ead43599",
+    "CircuitNumerical/FiniteStackCheck.lean": "5fe8fd9c38d34c7fb2389ad10b0479f8b21eb9775a407af48ce17b917bd6a9e8",
+    "FINITE_STACK_ROOTS.txt": "75cb3b8bd75d899a32b843434de2612e3b6fdfe1a607efe2915da3a2c20766b3",
+    "FINITE_STACK_MODELS.txt": "67a5323dc05d4cfba34bae470b26efe5cd3cafd70fdef4db303b36ecf6ba132a",
+    "FINITE_STACK_SCOPE_20261019.md": "ff63a1cd3e31b2cd0e9a23e7aa7b79dc66d1a029c3c88ac0cff06ea84a41eecf"
+  },
+  "root_axioms": {
+    "CircuitRecursion.ListAssemblyMachine.stackData_left": [],
+    "CircuitRecursion.ListAssemblyMachine.stackData_right": [],
+    "CircuitRecursion.ListAssemblyMachine.stackData_work": [],
+    "CircuitRecursion.ListAssemblyMachine.update_stackData_left": [
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.update_stackData_right": [
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.update_stackData_work": [
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.step_move_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.step_move_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.step_restore_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.step_restore_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.step_halt": [],
+    "CircuitRecursion.ListAssemblyMachine.advance_some": [],
+    "CircuitRecursion.ListAssemblyMachine.move_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.restore_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.append_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.appendRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.append_terminal": [],
+    "CircuitRecursion.ListAssemblyMachine.append_output": [],
+    "CircuitRecursion.ListAssemblyMachine.appendRun_steps_le_source_actions": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.reverseProgram_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.reverse_step_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.reverse_step_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.reverse_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.reverseRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.reverse_terminal": [],
+    "CircuitRecursion.ListAssemblyMachine.reverse_output": [
+      "propext"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.reverseRun_steps_le_source_actions": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.instructionInverseRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.lifted_iterate_none": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.lifted_iterate_some_reaches": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.evalsTo_reaches": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.evalsTo_terminal_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.append_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.reverse_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.stack_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.label_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.finite_local_memory_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.finite_running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.program_statementDepth": [],
+    "CircuitRecursion.ListAssemblyMachine.reverseProgram_statementDepth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.bool_running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ListAssemblyMachine.instruction_running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "worker_build.py; ensure_d_storage.configure_env; shared global build flock",
+  "aggregate_build": true,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 307,
+  "old_b288_prefix_diff": "empty",
+  "endpoints": [
+    "actual finite Mathlib TM2 append and reverse-map programs with explicit stack/local-state representation",
+    "official EvalsToInTime exact transition counts, halting/value and source-copy-fee bridge"
+  ],
+  "limitations": [
+    "ordinary aggregate only; no independent fresh/trust-zero replay",
+    "no complete compiler lowering, arbitrary structured payload encoding or all source primitive simulations",
+    "all remaining Nat/fuel/index/closure/provider/construction and full-machine cost obligations remain open"
+  ]
+}
