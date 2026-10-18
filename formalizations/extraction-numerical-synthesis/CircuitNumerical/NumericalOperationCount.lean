@@ -1,4 +1,4 @@
-import CircuitRecursion.ExpressionResources
+import CircuitNumerical.ExpressionResources
 
 namespace CircuitRecursion
 

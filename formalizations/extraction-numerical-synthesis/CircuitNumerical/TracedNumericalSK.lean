@@ -1,4 +1,4 @@
-import CircuitRecursion.FactorExpressions
+import CircuitNumerical.FactorExpressions
 
 namespace CircuitRecursion
 

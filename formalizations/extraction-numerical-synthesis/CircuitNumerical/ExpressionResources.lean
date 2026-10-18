@@ -1,4 +1,4 @@
-import CircuitRecursion.TracedNumericalSK
+import CircuitNumerical.TracedNumericalSK
 
 namespace CircuitRecursion
 

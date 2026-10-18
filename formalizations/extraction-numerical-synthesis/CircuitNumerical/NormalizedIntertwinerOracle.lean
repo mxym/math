@@ -1,4 +1,4 @@
-import CircuitRecursion.BalancedReference
+import CircuitNumerical.BalancedReference
 
 open scoped Matrix.Norms.L2Operator
 open Matrix

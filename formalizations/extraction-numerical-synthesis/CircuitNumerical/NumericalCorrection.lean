@@ -1,4 +1,4 @@
-import CircuitRecursion.ConditionedFactors
+import CircuitNumerical.ConditionedFactors
 
 open scoped Matrix.Norms.L2Operator
 namespace CircuitRecursion

@@ -1,4 +1,4 @@
-import CircuitRecursion.FactorDependencies
+import CircuitNumerical.FactorDependencies
 
 namespace CircuitRecursion
 

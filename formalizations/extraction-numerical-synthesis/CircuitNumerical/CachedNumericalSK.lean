@@ -1,4 +1,4 @@
-import CircuitRecursion.NumericalDependencies
+import CircuitNumerical.NumericalDependencies
 import Mathlib.Data.Vector.Mem
 
 namespace CircuitRecursion

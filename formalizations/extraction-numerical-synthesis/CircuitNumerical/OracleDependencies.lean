@@ -1,4 +1,4 @@
-import CircuitRecursion.NumericalSK
+import CircuitNumerical.NumericalSK
 
 namespace CircuitRecursion
 

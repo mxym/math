@@ -1,4 +1,4 @@
-import CircuitRecursion.ExpressionCosts
+import CircuitNumerical.ExpressionCosts
 
 namespace CircuitRecursion
 

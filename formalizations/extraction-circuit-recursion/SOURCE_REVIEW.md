@@ -24,10 +24,8 @@ square-root plane rotations and internally proved quaternion-form conjugacy.
 `SKSynthesis.lean` then proves a literal finite-word recursion with error
 `2^-p` and length `C*(p+1)^5`. `FinitePrecision.lean` connects its actual words
 to the original extraction circuit, its overall phase and actual local
-discard. The later numerical modules implement finite rational net selection,
-conditioned factor oracles and a complete relative-oracle word recursion
-with the same error and length endpoint. Turing bit complexity is not yet
-proved.
+discard. No effective net-search or finite-precision classical running-time
+algorithm is yet provided.
 
 `EFFECTIVE_MODEL.md` records the necessary finite descriptions and precision
 interfaces. The original proposition does explicitly assume an efficiently

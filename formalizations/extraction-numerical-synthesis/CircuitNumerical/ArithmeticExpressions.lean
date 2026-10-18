@@ -1,4 +1,4 @@
-import CircuitRecursion.CacheResources
+import CircuitNumerical.CacheResources
 
 namespace CircuitRecursion
 

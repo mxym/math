@@ -1,4 +1,4 @@
-import CircuitRecursion.OperationGrowth
+import CircuitNumerical.OperationGrowth
 
 namespace CircuitRecursion
 

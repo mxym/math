@@ -1,4 +1,4 @@
-import CircuitRecursion.NumericalOperationCount
+import CircuitNumerical.NumericalOperationCount
 
 namespace CircuitRecursion
 

@@ -82,7 +82,7 @@ G(k) = length(extractionCircuit k).
 
 The constant C depends only on the finite inverse-closed universal library.
 No net, calibration or synthesis conclusion is supplied as a premise.
-Classical bit complexity remains open; see
+The effective finite-precision classical algorithm remains open; see
 `SOURCE_REVIEW.md` and `EFFECTIVE_MODEL.md`. The latter distinguishes the
 manuscript's effective-library assumption from the weaker hypotheses of the
 proved gate-count existence theorem, and records the required finite-input,
@@ -97,13 +97,14 @@ merge angles; these supply arithmetic support without a running-time claim.
 here; selection of the approximating word remains an existence theorem.
 `RationalSelection.lean` implements a choice-free finite rational argmin and
 proves that score error at most eta increases the selected true distance by
-at most 2*eta. The subsequent modules supply its actual numerical scores
-and an internally derived fixed table; their Turing bit costs remain open.
+at most 2*eta. This supports a fixed net with numerical slack; table
+construction, matrix-score evaluation and their bit costs remain open.
 `ConditionedConjugacy.lean` supplies four explicit Pauli frames. Their
 intertwiner masses sum to `8*(1-r^2)`. Rational approximate mass selection
 then gives a normalization denominator at least half a positive residual
 stopping threshold. The actual chart conjugator and its conjugacy action
-are proved. Subsequent modules implement the conditioned oracle formulas.
+are proved. This improves conditioning of a numerical refinement, but is
+not yet a complete oracle-based SK implementation.
 `OracleArithmetic.lean` implements rational-output oracle addition, negation,
 bounded multiplication and inversion with explicit input precision schedules.
 `OracleSqrt.lean` implements square-root approximation with natural floor
@@ -115,8 +116,8 @@ square roots and `2*n` rational arithmetic nodes, and return dyadic outputs
 with numerator at most `2^(p+1)`. At the actual active-register width their
 largest square-root precision is at most `16*(k+3)^3*(p+2)`. These are actual
 program/error/operation-count results. They do not yet attach descriptions
-to every gate of the extraction compiler or prove Turing bit costs of the
-arithmetic subroutines.
+to every gate of the extraction compiler, complete numerical SK recursion,
+or prove Turing bit costs of the arithmetic subroutines.
 `QuaternionOracles.lean` composes stored four-coordinate numerical packets
 for actual SU(2) word products, with input query precision at most
 `p+4*length(w)` and exactly `length(w)` gate-packet requests in the explicit
@@ -127,54 +128,8 @@ internally by enumerating all words below a fixed library-dependent bound
 obtained from universality. Its `numericalBase_exists` needs only correctness
 of the numerical input oracles online. A concrete integer-packet / `2^p`
 dyadic entry interface and its numerator-size bound are included. These
-results close numerical base selection.
-`ConditionedOracleSelection.lean` now implements the chart-mass scoring and
-overlapping rational residual stopping branches. `BalancedReference.lean`
-computes the actual reference-axis factor oracles. The normalized
-intertwiner and its SU(2) entry oracle are proved in
-`NormalizedIntertwinerOracle.lean`, using the derived positive denominator
-bound and the implemented inverse/square-root precision schedules.
-`ConditionedFactors.lean` closes the complete numerical factor routine:
-above a dyadic stopping threshold it emits two entry oracles whose exact
-SU(2) values form the target commutator and obey the required balance bound.
-No decomposition certificate is supplied as a premise.
-`NumericalCorrection.lean` and `NumericalSK.lean` now close the complete
-relative-oracle numerical word recursion. `numericalSU2Synthesis_dyadic`
-uses only a fixed finite word table, an explicit inverse-label table,
-dyadic gate/target entry packets and integer p online. The actual computed
-word has length at most `C*(p+1)^5` and operator error at most `2^-p`.
-No exact-real target, classical choice or unimplemented commutator primitive
-occurs in this online program. All factor and stopping correctness is
-derived internally. The stopping exponent at the selected depth is at most
-`8*(p+1)+40`. `OracleDependencies.lean`, `FactorDependencies.lean` and
-`NumericalDependencies.lean` prove the complete finite input dependency bound
-`D <= 51200000*(L+1)*(p+1)^9`. `CachedNumericalSK.lean` implements an eager
-cache: every library gate and the target are queried once at each precision
-0 through D, and the remaining computation reads stored packets. Its actual
-word is proved equal to `numericalPairWord`. Gate and target request counts
-are respectively exactly `m*(D+1)` and `D+1`. `CacheResources.lean` proves
-these polynomial request/precision bounds and bounds the signed-numerator
-bits of the dyadic input prefixes by `4*(m+1)*(D+1)*(D+3)`.
-These are provider-query and input-data bounds. The subsequent finite scalar
-and stored-packet expression language implements all numerical factor and
-word routines, and `tracedPairWord_word` proves equality with the actual
-numerical word. Its arithmetic trace includes stopping-threshold construction
-and rational comparisons. Packet multiplication evaluates two stored input
-packets once. The executable expression backend constructs dyadic powers by
-binary shifts and uses natural floor and integer square root; `run_correct`
-proves that backend equals the expression semantics. A selective execution
-cost is bounded by the conservative expression cost, which charges all four
-chart branches. `cachedArithmeticSU2Synthesis` combines the actual word's
-error `2^-p`, length `32*L*(p+1)^5` and internal expression-operation bound
-`1001*(n+1)*(L+1)*2^64*(p+1)^64`. The model counts rational arithmetic and
-comparisons, binary shifts, floor, integer square root and stored-packet
-access as its explicit primitives. This is a polynomial arithmetic-model
-count, including repeated subexpressions, rather than a Turing bit bound.
-Intermediate bit sizes, provider costs, primitive machine costs and structural
-allocation/index costs remain separate obligations.
-Original gate-description binding, phase normalization
-and a computable occupation encoding are also still required to turn the
-original extraction family into a uniform classical synthesis algorithm.
+results close numerical base selection; composed conditioned factor oracles
+and the full numerical SK recursion remain open.
 The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
@@ -186,11 +141,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The last completed serialized aggregate build passed 338 root type/axiom
-prints with 3868 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T175256727397Z-extraction-circuit-recursion.log`.
-The cache-resource extension and all 344 root type/axiom prints passed the
-parent-authorized own-module feedback checks at 18:07--18:08 UTC. Its fresh
-serialized aggregate is pending the independent audit's shared build lock;
-the feedback checks do not replace that aggregate or independent replay.
+The ordinary build and all 256 root type/axiom prints passed with 3857 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T171145397949Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.

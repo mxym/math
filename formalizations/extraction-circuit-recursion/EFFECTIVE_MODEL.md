@@ -130,8 +130,11 @@ calls, 2*n rational arithmetic nodes, bounded dyadic output numerators, and
 maximum requested precision polynomial in the actual active dimension and p.
 They avoid using an exact-real `arg` operation as a computational primitive.
 
-The angle routines have not yet been attached to every instruction of an
-explicit rank/unrank extraction compiler. Counting rational arithmetic nodes and integer-square-root calls
+The full numerical SK recursion has not yet been implemented with composed
+entry oracles, stopping thresholds, fixed-net score evaluation and stable
+factor-oracle propagation. The angle routines have also not yet been
+attached to every instruction of an explicit rank/unrank extraction
+compiler. Counting rational arithmetic nodes and integer-square-root calls
 does not bound their Turing bit cost without bit-size and machine-algorithm
 analysis. These remain separate obligations.
 
@@ -148,41 +151,7 @@ with a proved numerator-size bound. Efficient execution of an input
 provider is an explicit additional input-model condition, not a consequence
 of inverse closure or density.
 
-The full numerical SK word algorithm is now implemented in
-`NumericalCorrection.lean` and `NumericalSK.lean`. The preceding conditioned
-factor modules implement the four-chart normalization and its entry
-oracles; rational overlapping threshold branches avoid unstable exact zero
-tests. Two actual corrections retain the proved squared-error recurrence,
-with a stopping exponent linear in the requested final precision. The
-final theorem `numericalSU2Synthesis_dyadic` certifies the actual output of
-`numericalPairWord`, with gate count `C*(p+1)^5` and true error `2^-p`.
-The online definition contains no exact-real target or classical choice.
-The library-dependent offline table is still fixed as described above.
-
-This theorem is relative to entry oracles. Correct packet values and
-numerator-size bounds do not prove that their providers execute in
-polynomial time. Total original-provider query/precision bounds are now
-proved for an explicit eager-cache implementation: with
-`D <= 51200000*(L+1)*(p+1)^9`, gate queries number `m*(D+1)` and target queries
-number `D+1`, with no requested precision above D. The cached and uncached
-words are equal. Each supplied dyadic signed numerator uses at most q+3
-bits, and the complete input prefixes contain at most
-`4*(m+1)*(D+1)*(D+3)` signed-numerator bits; shared dyadic denominators are
-specified by the precision indices. These bounds concern input data and
-provider requests, not repeated internal rational evaluation.
-Internal arithmetic-expression operation counts are now proved for an actual
-finite trace program whose output word equals the numerical algorithm.
-The trace explicitly includes stopping-threshold construction and comparison
-counts. A separate executable backend generates dyadic constants using binary
-shifts and is proved equal to the expression semantics. Its selective cost
-is bounded by a conservative all-chart-branch cost. The full recursion has
-cost at most `1001*(n+1)*(L+1)*2^64*(p+1)^64`, with n and L fixed by the library.
-The counted primitives are rational arithmetic/comparison, binary shift,
-natural floor, integer square root and stored-packet access. This is an
-explicit arithmetic-model theorem; it is not a Turing bit-cost theorem.
-Intermediate bit sizes, provider costs, primitive machine costs and
-structural allocation/index costs remain to be proved.
-A generic U(2) phase evaluator and explicit computable occupation
-encoding/whole-instruction description binding are additional obligations
-for the complete original extraction algorithm. No final compilation or
-polynomial running-time certificate is supplied as a premise.
+The remaining numerical SK step must construct the conditioned factor
+oracles from these interfaces and propagate the stopping/error/precision
+schedule through the recursive word algorithm. The base-stage result does
+not supply that remaining algorithm or its polynomial cost as a premise.

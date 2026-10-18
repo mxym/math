@@ -1,4 +1,4 @@
-import CircuitRecursion.ArithmeticExpressions
+import CircuitNumerical.ArithmeticExpressions
 
 namespace CircuitRecursion
 
