@@ -1,0 +1,144 @@
+\section{One common protocol from polynomial orbit spaces}\label{sec:universal}
+
+We give an intrinsic construction on the original tensor coordinates. It needs neither a supplied eigenbasis nor a Schur decomposition. All spaces, bases and integer packings below are fixed before the input state is quantified.
+
+\subsection{Universal orbit projections}
+Write $\mathcal W_{D,k}=\{1,\ldots,D\}^k$, and let $e_w$ denote a computational word. For $E\subseteq\mathcal W_{D,k}$ define
+\begin{equation}\label{eq:orbit-space}
+ V_k(E)=\operatorname{span}\{M^{\otimes k}e_w:M\in\C^{D\times D},\ w\in E\},
+ \qquad B_{D,k}=\binom{k+D^2-1}{D^2-1}.
+\end{equation}
+Here the generating matrices are arbitrary complex matrices, not only unitaries. Let $P_k(E)$ be the orthogonal projection onto this known space.
+
+\begin{lemma}[Polynomial orbit dimension and captured mass]\label{lem:orbit}
+The projections are nested with $E$, commute with every $M^{\otimes k}$, and obey
+\begin{equation}\label{eq:orbit-bound}
+ \rank P_k(E)\le B_{D,k}|E|,\qquad
+ \Tr[P_k(E)\rho^{\otimes k}]\ge\sum_{w\in E}p_{w_1}\cdots p_{w_k},
+\end{equation}
+where $p$ is any eigenvalue labeling of $\rho$. Every nonempty $V_k(E)$ contains $\operatorname{Sym}^k(\C^D)$.
+\end{lemma}
+\begin{proof}
+For fixed $w$, the vector $M^{\otimes k}e_w$ is a homogeneous degree-$k$ polynomial in the $D^2$ entries of $M$. More precisely it is the image, under a fixed linear contraction, of $(\operatorname{vec}M)^{\otimes k}$. The span of these latter vectors has dimension $B_{D,k}$. Summing the resulting dimension bound over $E$ proves the rank estimate.
+
+Composition of matrices makes $V_k(E)$ invariant under every $M^{\otimes k}$, including the adjoint powers. It is therefore a reducing subspace and its orthogonal projection commutes with those powers. If $U$ diagonalizes $\rho$, then $P_k(E)$ fixes $U^{\otimes k}e_w$ for $w\in E$. Its other diagonal entries in that eigenbasis are nonnegative, which proves the mass bound. Finally, for any $w\in E$ and vector $z$, choosing every column of $M$ equal to $z$ gives $M^{\otimes k}e_w=z^{\otimes k}$. Such powers span the symmetric subspace.
+\end{proof}
+
+Let $\widehat p_w$ be a word's empirical law and set
+\[
+ E_k(c)=\{w:H(\widehat p_w)\le c\},\qquad
+ Q_{D,k}=B_{D,k}(k+1)^D.
+\]
+There are at most $(k+1)^D$ types, each containing at most $e^{kH(q)}$ words, so
+\begin{equation}\label{eq:dimension-bounds}
+ |E_k(c)|\le(k+1)^D e^{kc},\qquad
+ \rank P_k(E_k(c))\le Q_{D,k}e^{kc}.
+\end{equation}
+These estimates hold for all real $c$, with the empty event allowed. For a law $p$, let $A_k(p,c)=\Prb_p\{H(\widehat p)\le c\}$.
+
+\subsection{Geometric packing and a reserved pure sector}
+Put
+\begin{equation}\label{eq:reservation}
+ J=(k+1)^2,\quad r_k=\binom{k+D-1}{D-1},\quad Q=4Jr_k,
+ \quad a_0=\lfloor a/Q\rfloor,\quad b_0=\lfloor b/Q\rfloor,
+ \quad a_*=a-Ja_0,\quad b_*=b-Jb_0.
+\end{equation}
+If $a_0=0$, choose the unreserved geometric construction with $J$ equal sectors; if its sectors are also empty, choose any fixed complete product channel. This specifies a physical family at every finite block and every positive integer target. The following bounds concern $a_0>0$, which holds eventually for fixed dimensions.
+
+For $0\le j<J$ define
+\begin{equation}\label{eq:grid}
+ d_j=\max\{1,\lfloor\min(K,a_0)/2^j\rfloor\},\qquad
+ c_j=\frac{\log(a_0b_0/(4d_j^2))-\log Q_{D,k}}k.
+\end{equation}
+The $d_j$ decrease and the $c_j$ increase. Let $P_0=0$ and $P_{j+1}=P_k(E_k(c_j))$. By \eqref{eq:dimension-bounds},
+\begin{equation}\label{eq:grid-budget}
+ \rank P_{j+1}\le\frac{a_0b_0}{4d_j^2}
+ \le\lfloor a_0/d_j\rfloor\lfloor b_0/d_j\rfloor.
+\end{equation}
+The last inequality follows from $1\le d_j\le a_0\le b_0$ and $\lfloor x\rfloor\ge x/2$ for $x\ge1$.
+
+Let $H_k$ be the symmetric projector. Define $R_j=P_j-H_k$ when $P_j\ne0$, and $R_j=0$ otherwise. Lemma~\ref{lem:orbit} shows that these are nested projections orthogonal to $H_k$. Assign each orthogonal difference $R_{j+1}-R_j$ to its own pair of $a_0,b_0$ local sectors and use Bell width $d_j$. Its rank satisfies \eqref{eq:grid-budget}. Assign $H_k$ to the remaining $a_*,b_*$ sectors, with Bell width
+\[
+ d_* = \min\{K,d_{a_*,b_*}(r_k)\}.
+\]
+The reservation $Q=4Jr_k$ ensures $r_k\le a_*b_*$ and $d_{a_*,b_*}(r_k)\ge a_0$, so $d_*\ge d_0$. Indeed each large local sector contains at least $(4r_k-1)$ times its small local sector; width $a_0$ is consequently feasible for the symmetric rank $r_k$.
+
+Apply Lemma~\ref{lem:packing} coherently to all assigned source sectors. Their images are orthogonal; their isometry extends to one unitary on the existing $N$-dimensional input. Sector-specific discard maps, together with reset Kraus maps on every remaining local coordinate, give two complete local channels. Orthogonal sector labels remove all cross-sector terms; commutation with $\rho^{\otimes k}$ also removes coherences with the unused source complement. This construction defines our single family $F_k^{\rm u}$.
+
+\begin{proposition}[All prefixes and the pure promise in one family]\label{prop:prefix}
+For every input density matrix and every $0\le j<J$,
+\begin{equation}\label{eq:good-mass}
+ F_k^{\rm u}(\rho,K)\ge\frac{d_j}K A_k(p,c_j).
+\end{equation}
+For every state $Y$ supported on $H_k$, the same protocol has fidelity at least $\min(1,d_{a_*,b_*}(r_k)/K)\Tr Y$.
+\end{proposition}
+\begin{proof}
+Write $w_j=d_j/K$ and $B_j=\Tr[(H_k+R_j)\rho^{\otimes k}]$. The sector construction gives
+\[
+ F_k^{\rm u}\ge(d_*/K)B_0+\sum_{j=0}^{J-1}w_j(B_{j+1}-B_j).
+\]
+Since $d_*/K\ge w_0$, summation by parts makes its right side at least
+\[
+ w_{J-1}B_J+\sum_{j=1}^{J-1}(w_{j-1}-w_j)B_j.
+\]
+Every coefficient is nonnegative. Lemma~\ref{lem:orbit} bounds $B_{j+1}$ below by $A_k(p,c_j)$, and the corresponding classical cumulative masses increase. The resulting weighted sum is at least $w_jA_k(p,c_j)$ for every $j$. The pure-sector statement follows directly from coherent packing; it uses the same unitary and local channels.
+\end{proof}
+
+For fixed $m,n$, all reservation and orbit factors have logarithm $O_{m,n}(\log k)$. Also $Jr_k/Q=1/4$ is not the reserved fraction: the removed fraction is $J/Q=1/(4r_k)\to0$. Thus $a_*/a,b_*/b\to1$. The construction does not assert an efficient implementation for arbitrary mixed inputs.
+
+\subsection{An information-spectrum sandwich}
+Sample $X$ with law $p$ on its positive support, put $Z=-\log p_X$, and let $S_k=Z_1+\cdots+Z_k$. Define the exact overhead
+\begin{equation}\label{eq:overhead}
+ h_{D,k}=\log(16Q^2Q_{D,k}).
+\end{equation}
+
+\begin{theorem}[Dimension-explicit finite-block sandwich]\label{thm:sandwich}
+Whenever $K\le a_0$, put $x=\log(N/K^2)$. For every $t\ge0$,
+\begin{equation}\label{eq:sandwich}
+ \Prb\{S_k\le x-h_{D,k}\}\le F_k^{\rm u}(\rho,K)
+ \le f_k^{\calC}(\rho,K)\le F_k^\star(\rho,K)
+ \le\Prb\{S_k\le x+t\}+e^{-t/2},
+\end{equation}
+for each physical operation class containing product channels and contained in $\cPPT$. Zero eigenvalues are permitted. If $D\ge2$ and $k\ge1$, then
+\begin{equation}\label{eq:overhead-explicit}
+ 0\le h_{D,k}\le10D^2\log(k+D).
+\end{equation}
+\end{theorem}
+\begin{proof}
+For $d_0=K$, Proposition~\ref{prop:prefix} gives $F_k^{\rm u}\ge A_k(p,c_0)$. Since $a_0\ge a/(2Q)$ and $b_0\ge b/(2Q)$, one has $kc_0\ge x-h_{D,k}$. For every positive-probability word,
+\[
+ kH(\widehat p_w)\le-\log p^{\otimes k}(w),
+\]
+by nonnegativity of relative entropy. This proves the lower bound.
+
+For the converse, diagonalize the input and absorb the arbitrary preprocessing unitary into the fidelity effect. Its diagonal entries $z_i$ satisfy $0\le z_i\le1$ and $\sum_i z_i^2\le N/K^2$. With $r=N/K^2$, eigenvalues below $e^{-\log r-t}$ contribute at most
+\[
+ \sqrt{\sum_{\rm small}(p_i^{(k)})^2\sum_{\rm small}z_i^2}
+ \le\sqrt{e^{-\log r-t}r}=e^{-t/2}.
+\]
+The remaining contribution is bounded by the event in \eqref{eq:sandwich}.
+
+For \eqref{eq:overhead-explicit}, use $B_{D,k}\le(k+D^2)^{D^2-1}$, $r_k\le(k+D)^{D-1}$ and $\log(k+D^2)\le2\log(k+D)$. Substitution into \eqref{eq:overhead}, with $Q=4(k+1)^2r_k$, gives the displayed conservative constant, retaining every floor loss above.
+\end{proof}
+
+\begin{corollary}[Finite Gaussian error and shrinking variance]\label{cor:berry}
+Let $V=\Var Z>0$, $T=\E|Z-H(p)|^3$, $\sigma=\sqrt{kV}$,
+\[
+ \beta=\frac{C_{\rm BE}T}{V^{3/2}\sqrt k},\qquad
+ y=\frac{\log(N/K^2)-kH(p)}\sigma.
+\]
+There is an absolute Berry--Esseen constant $C_{\rm BE}$ such that, under the integer budget $K\le a_0$, both $F_k^{\rm u}$ and each $f_k^{\calC}$ in \eqref{eq:sandwich} differ from $\Phi(y)$ by at most
+\begin{equation}\label{eq:gaussian-error}
+ \beta+\frac{\max(h_{D,k},t)}{\sqrt{2\pi}\,\sigma}+e^{-t/2}
+ \qquad(t\ge0).
+\end{equation}
+For changing dimensions and input laws, sufficient conditions are the eventual integer budget and
+\begin{equation}\label{eq:triangular}
+ kV\to\infty,\qquad T/(V^{3/2}\sqrt k)\to0,\qquad
+ h_{D,k}/\sqrt{kV}\to0.
+\end{equation}
+In particular these follow if $DV$ is eventually bounded below by a positive constant, $DT$ is eventually bounded above, and $D^5\log^2(k+D)=o(k)$. The moving threshold $y$ need not converge.
+\end{corollary}
+\begin{proof}
+Apply the finite iid Berry--Esseen inequality to both probability terms in \eqref{eq:sandwich}; the normal CDF has Lipschitz constant $1/\sqrt{2\pi}$. For \eqref{eq:triangular} choose $t=\sqrt\sigma$. This makes the smoothing ratio and exponential remainder vanish. For the concrete condition, $\sqrt{kV}\ge\sqrt c\sqrt{k/D}$ when $DV\ge c>0$, while $T/V^{3/2}\le C\sqrt D/c^{3/2}$ when $DT\le C$. Equation~\eqref{eq:overhead-explicit} reduces the overhead ratio to a constant times $D^{5/2}\log(k+D)/\sqrt k$. Its square tends to zero by hypothesis, and the same hypothesis forces $k/D\to\infty$. These are sufficient conditions for this construction, not necessary conditions or automatic APPT moment properties. Standard Berry--Esseen and source-coding results are credited in \cite{shevtsova,hayashi-second}.
+\end{proof}
