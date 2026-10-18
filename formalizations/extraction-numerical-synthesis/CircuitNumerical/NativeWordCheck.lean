@@ -1,0 +1,24 @@
+import CircuitNumerical.NativePacketCache
+
+#check CircuitRecursion.NativeScalarExpression.wordRun_decode
+#print axioms CircuitRecursion.NativeScalarExpression.wordRun_decode
+#check CircuitRecursion.NativePacketExpression.wordRun_decode
+#print axioms CircuitRecursion.NativePacketExpression.wordRun_decode
+#check CircuitRecursion.NativeScalarExpression.wordRun_correct
+#print axioms CircuitRecursion.NativeScalarExpression.wordRun_correct
+#check CircuitRecursion.NativePacketExpression.wordRun_correct
+#print axioms CircuitRecursion.NativePacketExpression.wordRun_correct
+#check CircuitRecursion.binaryPacketInputProgram_decode
+#print axioms CircuitRecursion.binaryPacketInputProgram_decode
+#check CircuitRecursion.binaryPacketInputProgram_actions
+#print axioms CircuitRecursion.binaryPacketInputProgram_actions
+#check CircuitRecursion.wordPacketOne_decode
+#print axioms CircuitRecursion.wordPacketOne_decode
+#check CircuitRecursion.readNativePacketCache_build
+#print axioms CircuitRecursion.readNativePacketCache_build
+#check CircuitRecursion.readNativePacketCache_default
+#print axioms CircuitRecursion.readNativePacketCache_default
+#check CircuitRecursion.nativeCachedPacketOracle_interpret
+#print axioms CircuitRecursion.nativeCachedPacketOracle_interpret
+#check CircuitRecursion.buildNativePacketCache_length
+#print axioms CircuitRecursion.buildNativePacketCache_length
