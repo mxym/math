@@ -41,3 +41,6 @@ import SchurCompletion.CodimensionOneAsymptotic
 import SchurCompletion.WordPatternCount
 import SchurCompletion.WordStraightening
 import SchurCompletion.CodimensionOneRank
+import SchurCompletion.ColumnProjectionMoments
+import SchurCompletion.HaarSubgroupAverage
+import SchurCompletion.HaarMinorMoments
