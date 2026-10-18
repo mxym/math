@@ -1,0 +1,117 @@
+{
+  "status": "STANDARD_AGGREGATE_BUILD_ONLY_PASS",
+  "utc": "2026-10-18T23:23:07.918392+00:00",
+  "source_head": "3b15f5d4cbc39e9faa90f33054213e070bc4ac59",
+  "target": "CircuitNumerical.BinaryLookupCheck",
+  "modules": 2,
+  "theorem_roots": 19,
+  "model_declarations": 11,
+  "build_exit_code": 0,
+  "jobs": 3996,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T232248825981Z-extraction-numerical-synthesis.log",
+  "check_log_sha256": "af4310bf25cd024b28aaf51f161cfc080a3ce1aba5930405aeb74000ca7f4e32",
+  "source_sha256": {
+    "CircuitNumerical/FiniteBinaryLookup.lean": "83ae6b8ce2569f8c9cbe65bdd3acd21280602ad071e417935939f9f1784da9a4",
+    "CircuitNumerical/FiniteBinaryLookupTerminal.lean": "0da5ab312feb5759b245ebaaed01edb820dad2f1326c46c6a28f237905e81f48",
+    "CircuitNumerical/BinaryLookupCheck.lean": "dd247f18980a1e4c1f09539af35732652056eca9830b4062420a9b317bd6feb4",
+    "BINARY_LOOKUP_ROOTS.txt": "c4cb89e798c724939b40c7f83e19e27ebd020caedf8d71a4236538efe3535a75",
+    "BINARY_LOOKUP_MODELS.txt": "d874a6f626308511f88b50d5154cb11025d45574e8dbc2d18a7ce65bf91754eb",
+    "BINARY_LOOKUP_SCOPE_20261019.md": "e3cd0a793f2c8162d174491e3533066ab6f7c50c6a427ca6dc935c77bb50de16"
+  },
+  "root_axioms": {
+    "CircuitRecursion.BinaryLookupMachine.check_empty": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.check_zero": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.check_nonzero": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.advance_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.counter_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookup_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookupTime_trace": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookupTime_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookupRun_steps": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookupRun_steps_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.terminal_label": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.terminal_halts": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookup_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.terminal_source_value": [
+      "propext"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.terminal_getElem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.lookupRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryLookupMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "worker_build.py; ensure_d_storage.configure_env; shared global build flock",
+  "aggregate_build": true,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 334,
+  "old_b288_prefix_diff": "empty",
+  "endpoints": [
+    "whole six-label official TM2 Boolean lookup controller using a represented binary index and inlined counter",
+    "official bounded terminal execution, getElem correctness and exact operational/source trace count bridge"
+  ],
+  "limitations": [
+    "ordinary aggregate only; no independent fresh/trust-zero replay",
+    "encoded whole-packet records and all precision-index construction and compiler lowering remain open",
+    "remaining provider/AST/cache/payload/allocation, other control and complete single-tape machine costs remain open"
+  ]
+}
