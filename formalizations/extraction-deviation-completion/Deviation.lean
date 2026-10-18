@@ -12,3 +12,4 @@ import Deviation.InformationBerryEsseen
 import Deviation.QuantitativeQuantile
 import Deviation.QuantitativeExtraction
 import Deviation.QuantitativeTriangular
+import Deviation.QuantitativeConditions

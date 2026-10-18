@@ -1,0 +1,31 @@
+import Deviation
+
+/- Ordinary elaborator axiom-dependency report; not an independent kernel audit. -/
+#print axioms ExtractionDeviation.finiteQuantile_gaussian_bracket
+#print axioms ExtractionDeviation.informationBerryEsseenError
+#print axioms ExtractionDeviation.informationBerryEsseenError_nonneg
+#print axioms ExtractionDeviation.informationQuantile_berryEsseen_bracket
+#print axioms ExtractionDeviation.compressionLoss
+#print axioms ExtractionDeviation.universalBlockProtocol_berryEsseen
+#print axioms ExtractionDeviation.protocol_berryEsseen_upper
+#print axioms ExtractionDeviation.universalTarget_of_log_le
+#print axioms ExtractionDeviation.pptTarget_log_le
+#print axioms ExtractionDeviation.finiteCappedTarget
+#print axioms ExtractionDeviation.finiteCappedTarget_pos
+#print axioms ExtractionDeviation.finiteCappedTarget_log_le
+#print axioms ExtractionDeviation.protocol_berryEsseen_lower_of_entropyMass
+#print axioms ExtractionDeviation.finiteCappedTarget_achievable
+#print axioms ExtractionDeviation.log_natFloor_exp_bounds
+#print axioms ExtractionDeviation.finiteCappedTarget_log_lower
+#print axioms ExtractionDeviation.compressionLoss_nonneg
+#print axioms ExtractionDeviation.compressionLoss_le
+#print axioms ExtractionDeviation.gaussian_sandwich_error
+#print axioms ExtractionDeviation.universalBlockProtocol_gaussian_error
+#print axioms ExtractionDeviation.triangular_informationQuantile_gaussian
+#print axioms ExtractionDeviation.triangular_universal_gaussian_error
+#print axioms ExtractionDeviation.dimensionLossBound
+#print axioms ExtractionDeviation.compressionLoss_le_dimensionLossBound
+#print axioms ExtractionDeviation.informationLyapunov_of_variance_floor
+#print axioms ExtractionDeviation.sigma_tendsto_of_variance_floor
+#print axioms ExtractionDeviation.compressionLoss_ratio_of_dimension_bound
+#print axioms ExtractionDeviation.triangular_universal_gaussian_of_variance_floor

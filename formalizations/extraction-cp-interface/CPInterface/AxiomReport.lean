@@ -1,0 +1,39 @@
+import CPInterface
+
+/- Ordinary elaborator axiom-dependency report; not an independent kernel audit. -/
+#print axioms ExtractionCP.amplification
+#print axioms ExtractionCP.CompletelyPositive
+#print axioms ExtractionCP.TracePreserving
+#print axioms ExtractionCP.choi
+#print axioms ExtractionCP.entangledVector
+#print axioms ExtractionCP.choi_eq_amplification
+#print axioms ExtractionCP.CompletelyPositive.choi_posSemidef
+#print axioms ExtractionCP.choiKraus
+#print axioms ExtractionCP.choiKraus_gram
+#print axioms ExtractionCP.map_eq_choi_sum
+#print axioms ExtractionCP.krausApply_entry
+#print axioms ExtractionCP.choiKraus_apply
+#print axioms ExtractionCP.krausLinearMap
+#print axioms ExtractionCP.amplification_krausLinearMap
+#print axioms ExtractionCP.krausLinearMap_completelyPositive
+#print axioms ExtractionCP.completelyPositive_iff_choi_posSemidef
+#print axioms ExtractionCP.kraus_complete_of_tracePreserving
+#print axioms ExtractionCP.choiKraus_complete
+#print axioms ExtractionCP.CompletelyPositive.exists_kraus
+#print axioms ExtractionCP.CompletelyPositive.exists_complete_kraus
+#print axioms ExtractionCP.partialTransposeLinearMap
+#print axioms ExtractionCP.ptConjugate
+#print axioms ExtractionCP.ptConjugate_apply
+#print axioms ExtractionCP.TracePreserving.ptConjugate
+#print axioms ExtractionCP.finiteKraus
+#print axioms ExtractionCP.finiteKraus_apply
+#print axioms ExtractionCP.finiteKraus_complete
+#print axioms ExtractionCP.PPTChannel
+#print axioms ExtractionCP.PPTChannel.toKrausPPTProtocol
+#print axioms ExtractionCP.PPTChannel.toKrausPPTProtocol_apply
+#print axioms ExtractionCP.PPTChannel.toKrausPPTProtocol_fidelity
+#print axioms ExtractionCP.ofKrausPPTProtocol
+#print axioms ExtractionCP.completelyPositive_iff_exists_finiteKraus
+#print axioms ExtractionCP.completelyPositive_tracePreserving_iff_exists_complete_finiteKraus
+#print axioms ExtractionCP.abstract_ppt_iff_actual_protocol
+#print axioms ExtractionCP.actual_abstract_actual_fidelity
