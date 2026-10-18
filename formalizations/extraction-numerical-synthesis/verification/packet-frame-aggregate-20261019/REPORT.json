@@ -1,0 +1,244 @@
+{
+  "status": "STANDARD_AGGREGATE_BUILD_ONLY_PASS",
+  "utc": "2026-10-18T23:50:03.423548+00:00",
+  "source_head": "3ef4cc5dda4ec20e8cf606bff4fa5ca7ca6fd3a7",
+  "target": "CircuitNumerical.PacketFrameCheck",
+  "modules": 4,
+  "theorem_roots": 49,
+  "model_declarations": 27,
+  "build_exit_code": 0,
+  "jobs": 4009,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T234723655424Z-extraction-numerical-synthesis.log",
+  "check_log_sha256": "70fa21f06e216331c6435ed47fb7616055854ba22f212ec22bb794484fb78416",
+  "source_sha256": {
+    "CircuitNumerical/PacketFraming.lean": "90dc78d1e9796a1c3c94828e1850ce31b850e3f6741e6217461048bad66b06f3",
+    "CircuitNumerical/PacketFrameDecoder.lean": "d64614d27b587aefaaaf1091f47bebb688b96d4a44f0de08a334fd4128c6177d",
+    "CircuitNumerical/PacketFrameMachines.lean": "ff124ad4de8929b6427e653bd9f428ac086d211c12a96c0cced2be15281bf0e3",
+    "CircuitNumerical/PacketFrameRuns.lean": "91efc0c7532ded6c37f9832f5e703b6d6c0293d28b0e74d39819e90038a5c1a4",
+    "CircuitNumerical/PacketFrameCheck.lean": "7704f82e5fd7363247d77ef6cdfd8f6bc08e9d64e1920cf8c61ee3a362678e2c",
+    "PACKET_FRAME_ROOTS.txt": "6e199d6580d9dd90426fbc86bb07f5787c53974e23f28b70eb61101ad6ef5a9f",
+    "PACKET_FRAME_MODELS.txt": "8f59a29ee5077e6bb5e1b5cf7c4ec433c0c87cb67ac5eb8367aa991601be265c",
+    "PACKET_FRAME_SCOPE_20261019.md": "396635d576a8886f80a21629e10eae60655efe17d8e6097f33e14ccb90b5ac51"
+  },
+  "root_axioms": {
+    "CircuitRecursion.PacketFraming.rawNumerators_rawPacket": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.rawPacket_valid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.wordPacket_eq_fields": [],
+    "CircuitRecursion.PacketFraming.rawPacket_toWord": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.bitMap_no_end": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.signedField_no_end": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.payload_no_end": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.signedField_length": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketFraming.encodeRaw_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.encodePacket_length_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.encodeCache_length": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketFraming.encodeCache_length_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.symbol_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.readField_bits_append": [],
+    "CircuitRecursion.PacketFraming.readSigned_signedField": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketFraming.readDenominator_bits_append": [],
+    "CircuitRecursion.PacketFraming.decodeRaw_encodeRaw": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.decodeRaw_encodePacket": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.decodeRaw_cache_head": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.encodeRaw_injective": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.encodePacket_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFraming.decoded_typed_roundtrip": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skip_end": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skip_payload": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skip_halt": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copy_end": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copy_payload": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copy_restore_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copy_restore_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copy_halt": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skip_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copy_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skip_running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copy_running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skip_statement_depth": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copy_statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skipFrame_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copyScan_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copyRestore_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copyFrame_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skipPacketRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copyPacketRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skipPacket_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copyPacket_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skipCache_head_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copyCache_head_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copied_output_decode": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.skipPacketRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketFrameMachine.copyPacketRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "worker_build.py; ensure_d_storage.configure_env; shared global build flock",
+  "aggregate_build": true,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 357,
+  "old_b288_prefix_diff": "empty",
+  "endpoints": [
+    "actual four-symbol packet encoding/parser, injective and exact typed/cache-head roundtrip",
+    "official finite TM2 skip/copy frame executions with exact encoded-length and twice-length-plus-one transitions",
+    "variable boundary correctness, terminal eval and internally derived actual transition bounds from packet height"
+  ],
+  "limitations": [
+    "whole binary-indexed packet selection controller and alphabet embedding",
+    "machine lowering of source serializers/parsers, normalization and cache/AST/provider construction",
+    "precision-index construction, structured allocation, other scalar primitive lowering and single-tape simulation",
+    "computing trace/cost annotations",
+    "full compiler machine bit-time",
+    "ordinary aggregate only; no independent fresh/trust-zero replay"
+  ]
+}
