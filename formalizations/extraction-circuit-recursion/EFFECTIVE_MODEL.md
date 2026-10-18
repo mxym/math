@@ -170,8 +170,18 @@ bits, and the complete input prefixes contain at most
 `4*(m+1)*(D+1)*(D+3)` signed-numerator bits; shared dyadic denominators are
 specified by the precision indices. These bounds concern input data and
 provider requests, not repeated internal rational evaluation.
-Internal arithmetic operation counts, intermediate bit sizes, provider
-costs and the Turing costs of integer arithmetic remain to be proved.
+Internal arithmetic-expression operation counts are now proved for an actual
+finite trace program whose output word equals the numerical algorithm.
+The trace explicitly includes stopping-threshold construction and comparison
+counts. A separate executable backend generates dyadic constants using binary
+shifts and is proved equal to the expression semantics. Its selective cost
+is bounded by a conservative all-chart-branch cost. The full recursion has
+cost at most `1001*(n+1)*(L+1)*2^64*(p+1)^64`, with n and L fixed by the library.
+The counted primitives are rational arithmetic/comparison, binary shift,
+natural floor, integer square root and stored-packet access. This is an
+explicit arithmetic-model theorem; it is not a Turing bit-cost theorem.
+Intermediate bit sizes, provider costs, primitive machine costs and
+structural allocation/index costs remain to be proved.
 A generic U(2) phase evaluator and explicit computable occupation
 encoding/whole-instruction description binding are additional obligations
 for the complete original extraction algorithm. No final compilation or

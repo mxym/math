@@ -1,5 +1,29 @@
-import CircuitRecursion.CacheResources
+import CircuitRecursion.CachedArithmeticSynthesis
 
+#check CircuitRecursion.expressionAdd_eval
+#print axioms CircuitRecursion.expressionAdd_eval
+#check CircuitRecursion.expressionNeg_eval
+#print axioms CircuitRecursion.expressionNeg_eval
+#check CircuitRecursion.expressionMul_eval
+#print axioms CircuitRecursion.expressionMul_eval
+#check CircuitRecursion.expressionInv_eval
+#print axioms CircuitRecursion.expressionInv_eval
+#check CircuitRecursion.expressionSqrt_eval
+#print axioms CircuitRecursion.expressionSqrt_eval
+#check CircuitRecursion.expressionMeanMinus_eval
+#print axioms CircuitRecursion.expressionMeanMinus_eval
+#check CircuitRecursion.expressionCoordinate_eval
+#print axioms CircuitRecursion.expressionCoordinate_eval
+#check CircuitRecursion.expressionPacketMul_eval
+#print axioms CircuitRecursion.expressionPacketMul_eval
+#check CircuitRecursion.expressionPacketInverse_eval
+#print axioms CircuitRecursion.expressionPacketInverse_eval
+#check CircuitRecursion.expressionPacketOne_eval
+#print axioms CircuitRecursion.expressionPacketOne_eval
+#check CircuitRecursion.expressionFrame_eval
+#print axioms CircuitRecursion.expressionFrame_eval
+#check CircuitRecursion.expressionDistance_eval
+#print axioms CircuitRecursion.expressionDistance_eval
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
 #check CircuitRecursion.unitaryCommutator_conjugate
@@ -68,6 +92,14 @@ import CircuitRecursion.CacheResources
 #print axioms CircuitRecursion.cachedInputBits_bound
 #check CircuitRecursion.cachedInputBits_precision_bound
 #print axioms CircuitRecursion.cachedInputBits_precision_bound
+#check CircuitRecursion.cachedArithmeticRun_word
+#print axioms CircuitRecursion.cachedArithmeticRun_word
+#check CircuitRecursion.cachedArithmeticRun_operations
+#print axioms CircuitRecursion.cachedArithmeticRun_operations
+#check CircuitRecursion.cachedArithmeticRun_executedOperations
+#print axioms CircuitRecursion.cachedArithmeticRun_executedOperations
+#check CircuitRecursion.cachedArithmeticSU2Synthesis
+#print axioms CircuitRecursion.cachedArithmeticSU2Synthesis
 #check CircuitRecursion.buildPacketCache_agrees
 #print axioms CircuitRecursion.buildPacketCache_agrees
 #check CircuitRecursion.buildPacketCache_requests
@@ -178,6 +210,62 @@ import CircuitRecursion.CacheResources
 #print axioms CircuitRecursion.encodedBranch_extend
 #check CircuitRecursion.shifted_occupation
 #print axioms CircuitRecursion.shifted_occupation
+#check CircuitRecursion.ScalarExpression.executedOperations_le
+#print axioms CircuitRecursion.ScalarExpression.executedOperations_le
+#check CircuitRecursion.PacketExpression.executedOperations_le
+#print axioms CircuitRecursion.PacketExpression.executedOperations_le
+#check CircuitRecursion.ArithmeticWordResult.executedOperations_le
+#print axioms CircuitRecursion.ArithmeticWordResult.executedOperations_le
+#check CircuitRecursion.expressionPowerTwo_eq
+#print axioms CircuitRecursion.expressionPowerTwo_eq
+#check CircuitRecursion.executeExpressionRoot_correct
+#print axioms CircuitRecursion.executeExpressionRoot_correct
+#check CircuitRecursion.executeStoppingThreshold_correct
+#print axioms CircuitRecursion.executeStoppingThreshold_correct
+#check CircuitRecursion.ScalarExpression.run_correct
+#print axioms CircuitRecursion.ScalarExpression.run_correct
+#check CircuitRecursion.PacketExpression.run_correct
+#print axioms CircuitRecursion.PacketExpression.run_correct
+#check CircuitRecursion.expressionAdd_bound
+#print axioms CircuitRecursion.expressionAdd_bound
+#check CircuitRecursion.expressionNeg_bound
+#print axioms CircuitRecursion.expressionNeg_bound
+#check CircuitRecursion.expressionMul_bound
+#print axioms CircuitRecursion.expressionMul_bound
+#check CircuitRecursion.expressionInv_bound
+#print axioms CircuitRecursion.expressionInv_bound
+#check CircuitRecursion.expressionSqrt_bound
+#print axioms CircuitRecursion.expressionSqrt_bound
+#check CircuitRecursion.expressionMeanMinus_bound
+#print axioms CircuitRecursion.expressionMeanMinus_bound
+#check CircuitRecursion.expressionCoordinate_bound
+#print axioms CircuitRecursion.expressionCoordinate_bound
+#check CircuitRecursion.expressionPacketMul_bound
+#print axioms CircuitRecursion.expressionPacketMul_bound
+#check CircuitRecursion.expressionPacketInverse_bound
+#print axioms CircuitRecursion.expressionPacketInverse_bound
+#check CircuitRecursion.expressionDistance_bound
+#print axioms CircuitRecursion.expressionDistance_bound
+#check CircuitRecursion.expressionBalancedS_bound
+#print axioms CircuitRecursion.expressionBalancedS_bound
+#check CircuitRecursion.expressionBalancedC_bound
+#print axioms CircuitRecursion.expressionBalancedC_bound
+#check CircuitRecursion.expressionReferenceX_bound
+#print axioms CircuitRecursion.expressionReferenceX_bound
+#check CircuitRecursion.expressionReferenceY_bound
+#print axioms CircuitRecursion.expressionReferenceY_bound
+#check CircuitRecursion.expressionBalancedReference_bound
+#print axioms CircuitRecursion.expressionBalancedReference_bound
+#check CircuitRecursion.expressionChartTarget_bound
+#print axioms CircuitRecursion.expressionChartTarget_bound
+#check CircuitRecursion.expressionChartMass_bound
+#print axioms CircuitRecursion.expressionChartMass_bound
+#check CircuitRecursion.expressionNormalized_bound
+#print axioms CircuitRecursion.expressionNormalized_bound
+#check CircuitRecursion.expressionConjugator_bound
+#print axioms CircuitRecursion.expressionConjugator_bound
+#check CircuitRecursion.expressionFactor_bounds
+#print axioms CircuitRecursion.expressionFactor_bounds
 #check CircuitRecursion.coordinateIsometry_trans
 #print axioms CircuitRecursion.coordinateIsometry_trans
 #check CircuitRecursion.extendVector_padding
@@ -210,6 +298,32 @@ import CircuitRecursion.CacheResources
 #print axioms CircuitRecursion.conditionedFactorXOracle_agrees
 #check CircuitRecursion.conditionedFactorYOracle_agrees
 #print axioms CircuitRecursion.conditionedFactorYOracle_agrees
+#check CircuitRecursion.expressionBalancedS_eval
+#print axioms CircuitRecursion.expressionBalancedS_eval
+#check CircuitRecursion.expressionBalancedC_eval
+#print axioms CircuitRecursion.expressionBalancedC_eval
+#check CircuitRecursion.expressionReferenceX_eval
+#print axioms CircuitRecursion.expressionReferenceX_eval
+#check CircuitRecursion.expressionReferenceY_eval
+#print axioms CircuitRecursion.expressionReferenceY_eval
+#check CircuitRecursion.expressionBalancedReference_eval
+#print axioms CircuitRecursion.expressionBalancedReference_eval
+#check CircuitRecursion.expressionChartTarget_eval
+#print axioms CircuitRecursion.expressionChartTarget_eval
+#check CircuitRecursion.expressionChartMass_eval
+#print axioms CircuitRecursion.expressionChartMass_eval
+#check CircuitRecursion.expressionRadius_eval
+#print axioms CircuitRecursion.expressionRadius_eval
+#check CircuitRecursion.expressionNormalized_eval
+#print axioms CircuitRecursion.expressionNormalized_eval
+#check CircuitRecursion.expressionConjugator_eval
+#print axioms CircuitRecursion.expressionConjugator_eval
+#check CircuitRecursion.expressionConjugate_eval
+#print axioms CircuitRecursion.expressionConjugate_eval
+#check CircuitRecursion.expressionFactorX_eval
+#print axioms CircuitRecursion.expressionFactorX_eval
+#check CircuitRecursion.expressionFactorY_eval
+#print axioms CircuitRecursion.expressionFactorY_eval
 #check CircuitRecursion.libraryWireCircuit_value
 #print axioms CircuitRecursion.libraryWireCircuit_value
 #check CircuitRecursion.libraryWireCircuit_length
@@ -384,6 +498,14 @@ import CircuitRecursion.CacheResources
 #print axioms CircuitRecursion.numericalDemand_bound
 #check CircuitRecursion.numericalDemand_precision_bound
 #print axioms CircuitRecursion.numericalDemand_precision_bound
+#check CircuitRecursion.expressionWord_bound
+#print axioms CircuitRecursion.expressionWord_bound
+#check CircuitRecursion.tracedBase_operations
+#print axioms CircuitRecursion.tracedBase_operations
+#check CircuitRecursion.tracedCorrection_operations
+#print axioms CircuitRecursion.tracedCorrection_operations
+#check CircuitRecursion.tracedPairWord_operations
+#print axioms CircuitRecursion.tracedPairWord_operations
 #check CircuitRecursion.numerical_stop_budget
 #print axioms CircuitRecursion.numerical_stop_budget
 #check CircuitRecursion.numericalDoubleCorrection_error
@@ -414,6 +536,20 @@ import CircuitRecursion.CacheResources
 #print axioms CircuitRecursion.rational_mergeAngle_trig
 #check CircuitRecursion.occupation_partial_mergeAngle_trig
 #print axioms CircuitRecursion.occupation_partial_mergeAngle_trig
+#check CircuitRecursion.pairOperationSlope_pos
+#print axioms CircuitRecursion.pairOperationSlope_pos
+#check CircuitRecursion.pairOperationSlope_bound
+#print axioms CircuitRecursion.pairOperationSlope_bound
+#check CircuitRecursion.pairOperationSlope_length_bound
+#print axioms CircuitRecursion.pairOperationSlope_length_bound
+#check CircuitRecursion.pairedOffset_step_bound
+#print axioms CircuitRecursion.pairedOffset_step_bound
+#check CircuitRecursion.pairOperationOffset_bound
+#print axioms CircuitRecursion.pairOperationOffset_bound
+#check CircuitRecursion.tracedPairWord_literal_operations
+#print axioms CircuitRecursion.tracedPairWord_literal_operations
+#check CircuitRecursion.offsetGrowth_precision_bound
+#print axioms CircuitRecursion.offsetGrowth_precision_bound
 #check CircuitRecursion.oracleAdd_correct
 #print axioms CircuitRecursion.oracleAdd_correct
 #check CircuitRecursion.oracleNeg_correct
@@ -666,6 +802,14 @@ import CircuitRecursion.CacheResources
 #print axioms CircuitRecursion.specialUnitary_compactSpace
 #check CircuitRecursion.su2_uniform_instructionLength
 #print axioms CircuitRecursion.su2_uniform_instructionLength
+#check CircuitRecursion.expressionWord_eval
+#print axioms CircuitRecursion.expressionWord_eval
+#check CircuitRecursion.tracedBase_word
+#print axioms CircuitRecursion.tracedBase_word
+#check CircuitRecursion.tracedCorrection_word
+#print axioms CircuitRecursion.tracedCorrection_word
+#check CircuitRecursion.tracedPairWord_word
+#print axioms CircuitRecursion.tracedPairWord_word
 #check CircuitRecursion.matrixReindex_norm
 #print axioms CircuitRecursion.matrixReindex_norm
 #check CircuitRecursion.singleWire_eq_hom

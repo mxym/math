@@ -155,9 +155,24 @@ word is proved equal to `numericalPairWord`. Gate and target request counts
 are respectively exactly `m*(D+1)` and `D+1`. `CacheResources.lean` proves
 these polynomial request/precision bounds and bounds the signed-numerator
 bits of the dyadic input prefixes by `4*(m+1)*(D+1)*(D+3)`.
-These are provider-query and input-data bounds. Internal arithmetic operation
-counts, intermediate bit sizes, provider costs and Turing bit costs remain
-separate obligations. Original gate-description binding, phase normalization
+These are provider-query and input-data bounds. The subsequent finite scalar
+and stored-packet expression language implements all numerical factor and
+word routines, and `tracedPairWord_word` proves equality with the actual
+numerical word. Its arithmetic trace includes stopping-threshold construction
+and rational comparisons. Packet multiplication evaluates two stored input
+packets once. The executable expression backend constructs dyadic powers by
+binary shifts and uses natural floor and integer square root; `run_correct`
+proves that backend equals the expression semantics. A selective execution
+cost is bounded by the conservative expression cost, which charges all four
+chart branches. `cachedArithmeticSU2Synthesis` combines the actual word's
+error `2^-p`, length `32*L*(p+1)^5` and internal expression-operation bound
+`1001*(n+1)*(L+1)*2^64*(p+1)^64`. The model counts rational arithmetic and
+comparisons, binary shifts, floor, integer square root and stored-packet
+access as its explicit primitives. This is a polynomial arithmetic-model
+count, including repeated subexpressions, rather than a Turing bit bound.
+Intermediate bit sizes, provider costs, primitive machine costs and structural
+allocation/index costs remain separate obligations.
+Original gate-description binding, phase normalization
 and a computable occupation encoding are also still required to turn the
 original extraction family into a uniform classical synthesis algorithm.
 The finite embedding

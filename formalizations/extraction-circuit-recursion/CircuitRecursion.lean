@@ -48,3 +48,12 @@ import CircuitRecursion.FactorDependencies
 import CircuitRecursion.NumericalDependencies
 import CircuitRecursion.CachedNumericalSK
 import CircuitRecursion.CacheResources
+import CircuitRecursion.ArithmeticExpressions
+import CircuitRecursion.FactorExpressions
+import CircuitRecursion.TracedNumericalSK
+import CircuitRecursion.ExpressionResources
+import CircuitRecursion.NumericalOperationCount
+import CircuitRecursion.OperationGrowth
+import CircuitRecursion.ExpressionExecution
+import CircuitRecursion.ExpressionCosts
+import CircuitRecursion.CachedArithmeticSynthesis
