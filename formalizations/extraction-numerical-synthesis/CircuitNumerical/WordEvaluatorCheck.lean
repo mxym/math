@@ -1,0 +1,22 @@
+import CircuitNumerical.WordExpressionTrace
+
+#check CircuitRecursion.ScalarExpression.wordRun_decode
+#print axioms CircuitRecursion.ScalarExpression.wordRun_decode
+#check CircuitRecursion.PacketExpression.wordRun_decode
+#print axioms CircuitRecursion.PacketExpression.wordRun_decode
+#check CircuitRecursion.ScalarExpression.wordRun_correct
+#print axioms CircuitRecursion.ScalarExpression.wordRun_correct
+#check CircuitRecursion.PacketExpression.wordRun_correct
+#print axioms CircuitRecursion.PacketExpression.wordRun_correct
+#check CircuitRecursion.WordExpressionTrace.literalAdapters_le_nodes
+#print axioms CircuitRecursion.WordExpressionTrace.literalAdapters_le_nodes
+#check CircuitRecursion.WordExpressionTrace.booleanActions_le
+#print axioms CircuitRecursion.WordExpressionTrace.booleanActions_le
+#check CircuitRecursion.ScalarExpression.wordRun_nodes
+#print axioms CircuitRecursion.ScalarExpression.wordRun_nodes
+#check CircuitRecursion.PacketExpression.wordRun_nodes
+#print axioms CircuitRecursion.PacketExpression.wordRun_nodes
+#check CircuitRecursion.ScalarExpression.wordRun_literalAdapters
+#print axioms CircuitRecursion.ScalarExpression.wordRun_literalAdapters
+#check CircuitRecursion.PacketExpression.wordRun_literalAdapters
+#print axioms CircuitRecursion.PacketExpression.wordRun_literalAdapters

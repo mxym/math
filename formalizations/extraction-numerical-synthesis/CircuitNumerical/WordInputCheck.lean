@@ -1,0 +1,32 @@
+import CircuitNumerical.WordScalarConstants
+
+#check CircuitRecursion.binaryWordValue_natBits
+#print axioms CircuitRecursion.binaryWordValue_natBits
+#check CircuitRecursion.natBits_canonical
+#print axioms CircuitRecursion.natBits_canonical
+#check CircuitRecursion.natBits_height_width
+#print axioms CircuitRecursion.natBits_height_width
+#check CircuitRecursion.signedWordInput_value
+#print axioms CircuitRecursion.signedWordInput_value
+#check CircuitRecursion.signedWordInput_canonical
+#print axioms CircuitRecursion.signedWordInput_canonical
+#check CircuitRecursion.wordScalarInput_decode
+#print axioms CircuitRecursion.wordScalarInput_decode
+#check CircuitRecursion.wordScalarInputVolume_height
+#print axioms CircuitRecursion.wordScalarInputVolume_height
+#check CircuitRecursion.wordScalarLiteralProgram_decode
+#print axioms CircuitRecursion.wordScalarLiteralProgram_decode
+#check CircuitRecursion.wordPacketLiteralProgram_decode
+#print axioms CircuitRecursion.wordPacketLiteralProgram_decode
+#check CircuitRecursion.wordScalarOne_decode
+#print axioms CircuitRecursion.wordScalarOne_decode
+#check CircuitRecursion.wordScalarHalf_decode
+#print axioms CircuitRecursion.wordScalarHalf_decode
+#check CircuitRecursion.wordScalarMeanMinusProgram_decode
+#print axioms CircuitRecursion.wordScalarMeanMinusProgram_decode
+#check CircuitRecursion.wordScalarMeanMinusProgram_height_actions
+#print axioms CircuitRecursion.wordScalarMeanMinusProgram_height_actions
+#check CircuitRecursion.wordStoppingThresholdProgram_decode
+#print axioms CircuitRecursion.wordStoppingThresholdProgram_decode
+#check CircuitRecursion.wordStoppingThresholdProgram_actions
+#print axioms CircuitRecursion.wordStoppingThresholdProgram_actions

@@ -1,0 +1,155 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T20:53:24.390888+00:00",
+  "scope": "canonical signed Boolean addition/subtraction/multiplication with actual execution trees, twenty-six roots",
+  "baseline": "062ae82eec37b34ea2f21fa5f4bfba9e29595908",
+  "modules": 3,
+  "root_count": 26,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T205308951770Z-owned-check-CircuitNumerical.SignedWordCheck.log",
+  "check_log_sha256": "14d89ba4495e54573cea596c9ffb82b12cbe0978886182fb39abcf6a129974aa",
+  "source_sha256": {
+    "CircuitNumerical/SignedBinaryWords.lean": "fdba867848b0d364530525d5baec90bce1990e241b98f26aa9a10fe18c30231b",
+    "CircuitNumerical/SignedWordAddition.lean": "b31b39eb133392fd9e5fedbbfa56842a85c981faffa187b72ccd78e920db8574",
+    "CircuitNumerical/SignedWordMultiplication.lean": "4a87196c6bd9a29169e9f17cad09a49228ccb3c13436b17738324c10916b31fc",
+    "CircuitNumerical/SignedWordCheck.lean": "ea3a9faff7023c0a65246ed9d22dcb3ec2fe6ec5571372c83384c9569a2ba4d1",
+    "SIGNED_WORD_ROOTS.txt": "0da4fcab23556ac4ad0a4c0ee116d34c3ab27afb6702d647cd09527fcd7c5928"
+  },
+  "root_axioms": {
+    "CircuitRecursion.SignedBinaryWord.natAbs_value": [
+      "propext"
+    ],
+    "CircuitRecursion.signedBinaryNormalizeProgram_value": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedBinaryNormalizeProgram_canonical": [
+      "propext"
+    ],
+    "CircuitRecursion.signedBinaryNormalizeProgram_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.SignedBinaryWord.canonical_width": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedBinaryNormalizeProgram_width": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedBinaryNormalizeProgram_actions": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.SignedBinaryWord.negate_value": [
+      "propext"
+    ],
+    "CircuitRecursion.binarySubtractProgram_intValue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedRawAddProgram_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedRawAddProgram_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedRawAddProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedAddProgram_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedAddProgram_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedAddProgram_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedAddProgram_height_width": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedAddProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedMultiplyProgram_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedMultiplyProgram_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedMultiplyProgram_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedMultiplyProgram_height_width": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedMultiplyProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedMultiplyProgram_uniform_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedSubtractProgram_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedSubtractProgram_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.signedSubtractProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 145,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "binary primitive implementation bit costs and automatic fuel computation",
+    "canonical fraction/packet representation and whole-evaluator representation/cost bridge",
+    "whole compiler Boolean-cost integration",
+    "structural allocation/index implementation costs",
+    "explicit effective fixed-library input provider costs"
+  ]
+}

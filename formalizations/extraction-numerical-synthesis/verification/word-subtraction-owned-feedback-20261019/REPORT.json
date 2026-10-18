@@ -1,0 +1,58 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T20:38:45.088558+00:00",
+  "scope": "one concrete Boolean ripple-borrow subtraction algorithm with execution trace, six roots",
+  "baseline": "f50ff98c05581c4c4b7b02c3cc8e8f0dd8923564",
+  "modules": 1,
+  "root_count": 6,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T203828485691Z-owned-check-CircuitNumerical.WordSubtractionCheck.log",
+  "check_log_sha256": "0313452c97fcac9cca6920a4c5053325d7195e49b4aefc07c9af599c776c4c0f",
+  "source_sha256": {
+    "CircuitNumerical/BinaryWordSubtraction.lean": "07fdf31b675e24bd4613433599399deb15a328455817b37236ebb2192cbdf652",
+    "CircuitNumerical/WordSubtractionCheck.lean": "55d320002e2f241f9bb26880f8d8242ccb9b8f41a59c3accd3cc85070a3652e5",
+    "WORD_SUBTRACTION_ROOTS.txt": "601bb8df2ca02e6b2a1809266a457f7c3033f3b26ff62ee34b0f5b20fab0eba9"
+  },
+  "root_axioms": {
+    "CircuitRecursion.binaryFullSubtractor_value": [],
+    "CircuitRecursion.binarySubtractProgram_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binarySubtractProgram_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binarySubtractProgram_borrow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binarySubtractProgram_nonnegative_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binarySubtractProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 124,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "binary primitive implementation bit costs and automatic fuel computation",
+    "composition with signed Boolean arithmetic and division/sqrt algorithms",
+    "whole compiler Boolean-cost integration",
+    "structural allocation/index implementation costs",
+    "explicit effective fixed-library input provider costs"
+  ]
+}

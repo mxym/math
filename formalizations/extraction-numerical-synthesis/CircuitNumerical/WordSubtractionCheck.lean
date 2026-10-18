@@ -1,0 +1,14 @@
+import CircuitNumerical.BinaryWordSubtraction
+
+#check CircuitRecursion.binaryFullSubtractor_value
+#print axioms CircuitRecursion.binaryFullSubtractor_value
+#check CircuitRecursion.binarySubtractProgram_value
+#print axioms CircuitRecursion.binarySubtractProgram_value
+#check CircuitRecursion.binarySubtractProgram_length
+#print axioms CircuitRecursion.binarySubtractProgram_length
+#check CircuitRecursion.binarySubtractProgram_borrow
+#print axioms CircuitRecursion.binarySubtractProgram_borrow
+#check CircuitRecursion.binarySubtractProgram_nonnegative_value
+#print axioms CircuitRecursion.binarySubtractProgram_nonnegative_value
+#check CircuitRecursion.binarySubtractProgram_actions
+#print axioms CircuitRecursion.binarySubtractProgram_actions

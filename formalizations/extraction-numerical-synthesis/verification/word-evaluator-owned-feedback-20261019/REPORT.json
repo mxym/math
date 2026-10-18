@@ -1,0 +1,82 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T21:24:01.420332+00:00",
+  "scope": "unconditional whole mutual Boolean-word AST evaluator correctness and actual execution trace/node accumulation, ten roots",
+  "baseline": "270bf4bd05ac415f2ba83498d7ed9daf0234e07b",
+  "modules": 2,
+  "root_count": 10,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T212343562327Z-owned-check-CircuitNumerical.WordEvaluatorCheck.log",
+  "check_log_sha256": "09c0d4ac471a5c772cb003ba81c783fe94df7e330f46453b358bf8691d0d8748",
+  "source_sha256": {
+    "CircuitNumerical/WordExpressionEvaluation.lean": "0071c5319214d7d1ab53792dfdababb2e17d75cdb23105f767b0999ded596387",
+    "CircuitNumerical/WordExpressionTrace.lean": "73ad747c6a027a4b9b8b01f5174948b1ec9354c1afee9d1e237a7859bc8307bc",
+    "CircuitNumerical/WordEvaluatorCheck.lean": "a2f1c7da8731e33ab06bef271716f05e8e25a920b459110d32a3055490336f69",
+    "WORD_EVALUATOR_ROOTS.txt": "90b7f13c50daf58f08f7db71219272f53c05a1b97001f15a3ea7e76443f3d805"
+  },
+  "root_axioms": {
+    "CircuitRecursion.ScalarExpression.wordRun_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.wordRun_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.wordRun_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.wordRun_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.WordExpressionTrace.literalAdapters_le_nodes": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.WordExpressionTrace.booleanActions_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.wordRun_nodes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.wordRun_nodes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.wordRun_literalAdapters": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.wordRun_literalAdapters": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 193,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "binary primitive implementation bit costs and automatic fuel computation",
+    "internal derivation of all local action bounds from actual AST integerBitBudget and p137/p64 connection",
+    "literal input-adapter execution and whole compiler Boolean-cost integration",
+    "structural allocation/index implementation costs",
+    "explicit effective fixed-library input provider costs"
+  ]
+}

@@ -1,0 +1,20 @@
+import CircuitNumerical.BinaryWordSquareRoot
+
+#check CircuitRecursion.binaryWordSqrtStep_correct
+#print axioms CircuitRecursion.binaryWordSqrtStep_correct
+#check CircuitRecursion.binaryWordSqrtProgram_correct
+#print axioms CircuitRecursion.binaryWordSqrtProgram_correct
+#check CircuitRecursion.binaryWordSqrtProgram_sqrt
+#print axioms CircuitRecursion.binaryWordSqrtProgram_sqrt
+#check CircuitRecursion.binaryWordSqrtStep_lengths
+#print axioms CircuitRecursion.binaryWordSqrtStep_lengths
+#check CircuitRecursion.binaryWordSqrtProgram_lengths
+#print axioms CircuitRecursion.binaryWordSqrtProgram_lengths
+#check CircuitRecursion.binaryWordSqrtProgram_root_width
+#print axioms CircuitRecursion.binaryWordSqrtProgram_root_width
+#check CircuitRecursion.binaryWordSqrtProgram_root_length
+#print axioms CircuitRecursion.binaryWordSqrtProgram_root_length
+#check CircuitRecursion.binaryWordSqrtStep_actions
+#print axioms CircuitRecursion.binaryWordSqrtStep_actions
+#check CircuitRecursion.binaryWordSqrtProgram_actions
+#print axioms CircuitRecursion.binaryWordSqrtProgram_actions

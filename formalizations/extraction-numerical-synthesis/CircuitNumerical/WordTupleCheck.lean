@@ -1,0 +1,18 @@
+import CircuitNumerical.WordPacketTuple
+
+#check CircuitRecursion.naturalFourProductProgram_value
+#print axioms CircuitRecursion.naturalFourProductProgram_value
+#check CircuitRecursion.naturalFourProductProgram_canonical
+#print axioms CircuitRecursion.naturalFourProductProgram_canonical
+#check CircuitRecursion.naturalFourProductProgram_uniform_actions
+#print axioms CircuitRecursion.naturalFourProductProgram_uniform_actions
+#check CircuitRecursion.naturalFourProductProgram_height
+#print axioms CircuitRecursion.naturalFourProductProgram_height
+#check CircuitRecursion.naturalProduct_replace_one
+#print axioms CircuitRecursion.naturalProduct_replace_one
+#check CircuitRecursion.wordTupleComplement_value
+#print axioms CircuitRecursion.wordTupleComplement_value
+#check CircuitRecursion.wordPacketTupleProgram_decode
+#print axioms CircuitRecursion.wordPacketTupleProgram_decode
+#check CircuitRecursion.wordPacketTupleProgram_height_actions
+#print axioms CircuitRecursion.wordPacketTupleProgram_height_actions

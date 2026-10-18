@@ -1,0 +1,96 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T21:01:13.230979+00:00",
+  "scope": "actual canonical Boolean fraction-root backend with all nested shift/division/sqrt/trim trace charges, sixteen roots",
+  "baseline": "994f93715c53f595728348916ec7a99ba58d017e",
+  "modules": 2,
+  "root_count": 16,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T210057089405Z-owned-check-CircuitNumerical.WordRootCheck.log",
+  "check_log_sha256": "3644be45e1f49865baab72b47bba85e9ef79111640f4b8fc248c10dbb1a41dca",
+  "source_sha256": {
+    "CircuitNumerical/WordShifts.lean": "a1515b094a8f1dcdbcc3e2c6cd4654cf3b1d8f2e363fd05ccbbb582fe48b5543",
+    "CircuitNumerical/WordScalarRoot.lean": "d42907490bf1dbb5f059ab1e133b755fdfb67ae8427a47686cec855685ec3b53",
+    "CircuitNumerical/WordRootCheck.lean": "07a688f9fc18ad7a00ac4fdb20c61b0bcb7633618cc15f2021e076caf723d6a6",
+    "WORD_ROOT_ROOTS.txt": "84a4a07d4a578121e9d28044cbfc4a739c334effb5205c4ce081bbc2863364f9"
+  },
+  "root_axioms": {
+    "CircuitRecursion.binaryRawShiftProgram_value": [
+      "propext"
+    ],
+    "CircuitRecursion.binaryRawShiftProgram_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryRawShiftProgram_actions": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryShiftProgram_value": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryShiftProgram_canonical": [
+      "propext"
+    ],
+    "CircuitRecursion.binaryShiftProgram_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryShiftProgram_actions": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryPowerTwoProgram_value": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryPowerTwoProgram_canonical": [
+      "propext"
+    ],
+    "CircuitRecursion.binaryPowerTwoProgram_actions": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.SignedBinaryWord.positiveBits_value": [
+      "propext"
+    ],
+    "CircuitRecursion.SignedBinaryWord.positiveBits_length": [
+      "propext"
+    ],
+    "CircuitRecursion.wordScalarRootProgram_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.wordScalarRootProgram_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.wordScalarRootProgram_height_width": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.wordScalarRootProgram_height_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 161,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "binary primitive implementation bit costs and automatic fuel computation",
+    "literal/input encoding, packet operations and whole-evaluator representation/cost bridge",
+    "whole compiler Boolean-cost integration",
+    "structural allocation/index implementation costs",
+    "explicit effective fixed-library input provider costs"
+  ]
+}

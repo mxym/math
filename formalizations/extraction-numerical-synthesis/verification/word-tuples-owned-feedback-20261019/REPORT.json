@@ -1,0 +1,73 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T21:10:08.642322+00:00",
+  "scope": "actual canonical Boolean common-denominator tuple assembly with height-derived local costs, eight roots",
+  "baseline": "114247317d419d5871fe9bc969268f5b71f1e5ef",
+  "modules": 2,
+  "root_count": 8,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T210953156042Z-owned-check-CircuitNumerical.WordTupleCheck.log",
+  "check_log_sha256": "228f98c333ee20c3efa53e85115f605200a857d916b94f312b7d8d28e2b1647d",
+  "source_sha256": {
+    "CircuitNumerical/NaturalWordFourProduct.lean": "a918bc6b8442ce2ce985ca359b778bd7cbdf4a72852bfa5b03d3c9a5548e2c5b",
+    "CircuitNumerical/WordPacketTuple.lean": "4eefb5c06d7f11eb4c825562422c263181100abd1c179ff7431148b78c91e7ba",
+    "CircuitNumerical/WordTupleCheck.lean": "e39a366b24b0b542e335c0e8ac9404a0e18bb04493d84b1af4cbf31159138610",
+    "WORD_TUPLE_ROOTS.txt": "b8b2729b164876e706a3fc57e7935ca7c72b5fb2e2a1e5e874d55667c834f5f2"
+  },
+  "root_axioms": {
+    "CircuitRecursion.naturalFourProductProgram_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.naturalFourProductProgram_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.naturalFourProductProgram_uniform_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.naturalFourProductProgram_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.naturalProduct_replace_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.wordTupleComplement_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.wordPacketTupleProgram_decode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.wordPacketTupleProgram_height_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 174,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "binary primitive implementation bit costs and automatic fuel computation",
+    "distance/selector nodes, literal encoding and whole-evaluator representation/cost bridge",
+    "whole compiler Boolean-cost integration",
+    "structural allocation/index implementation costs",
+    "explicit effective fixed-library input provider costs"
+  ]
+}

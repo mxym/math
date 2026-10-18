@@ -1,0 +1,59 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T20:34:18.086297+00:00",
+  "scope": "one concrete Boolean comparison algorithm with execution branch trace, six roots",
+  "baseline": "a111f65c7d469886461aad051b4915ec3309ae2c",
+  "modules": 1,
+  "root_count": 6,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T203346749997Z-owned-check-CircuitNumerical.WordComparisonCheck.log",
+  "check_log_sha256": "744e053a43eee95d342f8b122ec55868010929ac3f5ddc009ba3855f1420b7b0",
+  "source_sha256": {
+    "CircuitNumerical/BinaryWordComparison.lean": "a0e1ca608b0f885d6e193605abbe70123fa8811892232423d8d5101b57f5d700",
+    "CircuitNumerical/WordComparisonCheck.lean": "09ca5a9c22a6f00922cc6014921890d561a6c3fff83d90c2281d770c071c649e",
+    "WORD_COMPARISON_ROOTS.txt": "805f1cc54c54b8ecb71a65097be9bb1a21cd835aa25ec5bace5cfc70e72f7890"
+  },
+  "root_axioms": {
+    "CircuitRecursion.binaryComparisonChoice_correct": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryWordCompareProgram_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryComparisonChoice_actions": [
+      "propext"
+    ],
+    "CircuitRecursion.binaryWordCompareProgram_depth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryWordCompareProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryWordLEProgram_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 119,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "binary primitive implementation bit costs and automatic fuel computation",
+    "composition with Boolean arithmetic and signed division/sqrt algorithms",
+    "whole compiler Boolean-cost integration",
+    "structural allocation/index implementation costs",
+    "explicit effective fixed-library input provider costs"
+  ]
+}

@@ -1,0 +1,24 @@
+import CircuitNumerical.WordExpressionBudgets
+
+#check CircuitRecursion.wordNodeBooleanBudget_square
+#print axioms CircuitRecursion.wordNodeBooleanBudget_square
+#check CircuitRecursion.wordNodeBooleanBudget_linear
+#print axioms CircuitRecursion.wordNodeBooleanBudget_linear
+#check CircuitRecursion.wordNodeBooleanBudget_minimum
+#print axioms CircuitRecursion.wordNodeBooleanBudget_minimum
+#check CircuitRecursion.ScalarExpression.wordRun_height
+#print axioms CircuitRecursion.ScalarExpression.wordRun_height
+#check CircuitRecursion.PacketExpression.wordRun_height
+#print axioms CircuitRecursion.PacketExpression.wordRun_height
+#check CircuitRecursion.ScalarExpression.wordRun_allLocalBound
+#print axioms CircuitRecursion.ScalarExpression.wordRun_allLocalBound
+#check CircuitRecursion.PacketExpression.wordRun_allLocalBound
+#print axioms CircuitRecursion.PacketExpression.wordRun_allLocalBound
+#check CircuitRecursion.ScalarExpression.wordRun_booleanActions
+#print axioms CircuitRecursion.ScalarExpression.wordRun_booleanActions
+#check CircuitRecursion.PacketExpression.wordRun_booleanActions
+#print axioms CircuitRecursion.PacketExpression.wordRun_booleanActions
+#check CircuitRecursion.ScalarExpression.wordRun_booleanActions_internal
+#print axioms CircuitRecursion.ScalarExpression.wordRun_booleanActions_internal
+#check CircuitRecursion.PacketExpression.wordRun_booleanActions_internal
+#print axioms CircuitRecursion.PacketExpression.wordRun_booleanActions_internal

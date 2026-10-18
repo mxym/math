@@ -1,0 +1,9 @@
+# Word input representation and explicit scalar constants
+
+The integer input adapter uses the pinned Mathlib Nat.bits binary recursion, with proofs that its LSB list has exactly the input value and is canonical. Signed input uses the Int constructor sign, and the fraction adapter decodes exactly to the original raw IntegerScalar. Scalar rational literals read their existing numerator and positive denominator data; packet literals materialize four such scalar values once, then use the actual common-denominator Boolean tuple program. These adapters are total computable definitions with unconditional semantic correctness.
+
+The output bit volume of a scalar adapter is bounded by 2(B+1)+1 under raw scalar height B. This is explicitly an output-volume bound, not the time for executing Nat.bits, reading an input, or running any provider. Those input conversion/provider costs remain separate and are not silently charged as constant in later local Boolean action models.
+
+One and one-half are fixed canonical Boolean data. The actual meanMinus program executes one normalization/negation, one scalar addition, and one scalar multiplication, storing their results once. It decodes exactly to IntegerScalar.meanMinus; input height A gives at most 1000(A+3)^2 specified nested actions. The stopping-threshold program forms its denominator with the actual word shift, decodes exactly to integerStoppingThreshold, and costs at most 32(t+2) specified actions. Precision-index arithmetic and annotation evaluation are separate.
+
+This scope has guarded narrow author checks only, with no new standard aggregate or independent kernel replay. All earlier files remain byte-identical and these modules are unused by the frozen raw-resource audit. Whole mutual AST composition and its actual trace accumulation, structure/cache/provider construction, input-adapter execution and fixed-library provider costs remain open. No complete compiler machine-time theorem is asserted.
