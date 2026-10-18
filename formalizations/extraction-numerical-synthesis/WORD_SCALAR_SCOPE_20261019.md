@@ -1,0 +1,11 @@
+# Actual canonical Boolean fraction arithmetic
+
+WordIntegerScalar stores a canonical signed numerator and canonical positive denominator as Boolean lists. Its decode definition is semantic only and is not called by the finite word programs. No gcd reduction or rational normalization is used. The invariants allow a decoded IntegerScalarHeight B to imply that both actual input lists have width at most B+1.
+
+The actual scalar adder executes two signed cross products, a signed sum, and a positive denominator product, storing each run once. The actual scalar multiplier executes its numerator and denominator products once. Both normalize every arithmetic output. Their decoded raw fractions equal IntegerScalar.add and IntegerScalar.mul exactly, including numerator and denominator, rather than merely representing the same rational. From input scalar heights B, their explicit action models are bounded by 500(B+2)^2 and 208(B+2)^2, respectively.
+
+Signed comparison computes one canonical difference then inspects its sign/empty-list result. Fraction comparison executes two signed cross products and that signed comparison, and its Boolean agrees with IntegerScalar.crossLE and rational order. From input scalar heights B, it costs at most 400(B+2)^2 specified actions. Negation normalizes once. Reciprocal uses a canonical empty-list zero test; for nonzero input it copies/swaps the magnitude list values and retains sign. It decodes exactly to IntegerScalar.inv, without integer division or rational operations. Its twelve-action charge uses shared immutable list values; full cell copying is not silently constant-time.
+
+These are explicit Boolean/list/record action models attached to the actual local programs. Annotation evaluation, arbitrary-width counters and allocation/index implementation are not automatically included. The current scope has guarded narrow author checks only, with no new standard aggregate or independent-kernel claim. All older files are byte-identical and the frozen raw-resource audit closure does not import these additions.
+
+Remaining work includes the Boolean fraction root backend, literal/input encoding, packet and whole AST/selector composition, structural/cache/provider construction costs, and explicit fixed-library provider execution costs. No complete compiler machine-time theorem is asserted.
