@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-18T22:56:04.829900+00:00",
+  "status": "AUTHOR_STANDARD_TYPES_KINDS_AXIOMS_PASS_NOT_INDEPENDENT_REPLAY",
+  "parent_head": "a6938c9f5331d328d687777bbd5da3ed683bd621",
+  "package": "extraction-concrete-native",
+  "theorem_count": 7,
+  "build_jobs": 4105,
+  "source_snapshot": {
+    "formalizations/extraction-concrete-native/.gitignore": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374",
+    "formalizations/extraction-concrete-native/ConcreteNativeExtraction/Check.lean": "d32004ec0376013a06079a30ea84d1b312c6d2f4b13a44865f175a4b16398626",
+    "formalizations/extraction-concrete-native/ConcreteNativeExtraction/InputCheck.lean": "d17c2709b636d396d932946964e441421e418ef5e11cea5129e4608fdc30c697",
+    "formalizations/extraction-concrete-native/ConcreteNativeExtraction/InputProgram.lean": "ecd40cdcc42dee0944020cd87c553fefbc655b75aba94d4e63c15926803820e9",
+    "formalizations/extraction-concrete-native/ConcreteNativeExtraction/Program.lean": "a347664ed5e62ae4401aeac3b856c46a3343b21f5a0c2523903edeee0d1915b2",
+    "formalizations/extraction-concrete-native/ConcreteNativeExtraction/Resources.lean": "5e2b848f52ecaebb2116e898bdac31285ab378add5020f496249f12f7a3645d0",
+    "formalizations/extraction-concrete-native/ConcreteNativeExtraction.lean": "574e4060381c3213dac19ddbdc97235eb509db6eb7eb1ee00f8fb0de2e518409",
+    "formalizations/extraction-concrete-native/INPUT_EXECUTION.md": "edce42c32df68c0fb81f6ed9536a8d89edb5c81ed72cb9cf555cbd3070fcb51d",
+    "formalizations/extraction-concrete-native/INPUT_MODELS.txt": "1052da5804ab845672618aa26ff6c88c7acfce5beed6edb1362a621032113edd",
+    "formalizations/extraction-concrete-native/INPUT_ROOTS.txt": "c848f31272b1ddc109a157e2a5d9f7ba5f2d39ea27c01d8165624c64c823b46c",
+    "formalizations/extraction-concrete-native/MODELS.txt": "d33531e5ac6d626ab5936ad2eb34097806a25ac20e4cf84fd449c1758d900e45",
+    "formalizations/extraction-concrete-native/README.md": "fca4f32b75282c4fec490aab4fc942d0061c886fd69726391e210731be53f785",
+    "formalizations/extraction-concrete-native/ROOTS.txt": "6838c96d7c9c218b0125d535ff19f3fe40605a8f501626df8405ef17a36b2a1c",
+    "formalizations/extraction-concrete-native/lake-manifest.json": "6a2dd6603f29e88c2fb0da58e717a274f59c07817f0601e726e03343f866f4ea",
+    "formalizations/extraction-concrete-native/lakefile.toml": "7a51ae69c1cd55a1405f6d6776d5863754cb107d656e459277e03cb394e628f3",
+    "formalizations/extraction-concrete-native/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "axioms": {
+    "ConcreteNativeExtraction.inputRun_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.inputRun_word_eq_run": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.inputRun_uses_finite_library": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.inputRun_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.inputRun_fidelity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.inputRun_accounted_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.concrete_input_compiler_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.inputRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ConcreteNativeExtraction.inputPrimitiveBound": [
+      "propext"
+    ]
+  },
+  "model_roots": [
+    "ConcreteNativeExtraction.inputRun",
+    "ConcreteNativeExtraction.inputPrimitiveBound"
+  ],
+  "logs": {
+    "20261018T225546630282Z-root-owned-ConcreteNativeExtraction.InputCheck.log": "f6bff3a1e787693f3da11e664b613d4bfb609bf30f1412bd2b739ee8630950ea",
+    "20261018T225156081891Z-extraction-concrete-native.log": "c0c0e04761fe6d36d3cc33e6a2020a1402a7539b6f2e4b61dbfa42d74b3de392"
+  },
+  "proved": "Concrete four-gate/nativeEntry exact input-reference compiler; original physical fidelity/library/output length; actual sameexecution retained rank-bit/preparation/target-provider/numerical+cache-read primitive bound; all queried library heights internally proved; one fixed offline net before every k,p and unknown input",
+  "excluded": "Later Bool rankscan and listassembly paths are not installed here; full library provider/emission/normalization, general Nat/control/fuel/structure/index/counter/memory machine time remains open; no new independent kernel or controls",
+  "D_storage_and_global_lock": true,
+  "independent_empty_kernel_or_controls": false
+}
