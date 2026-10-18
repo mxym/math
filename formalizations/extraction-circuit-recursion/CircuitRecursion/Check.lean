@@ -1,4 +1,4 @@
-import CircuitRecursion.BalancedCommutator
+import CircuitRecursion.SKSynthesis
 
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
@@ -222,6 +222,40 @@ import CircuitRecursion.BalancedCommutator
 #print axioms CircuitRecursion.compiledExtraction_fidelity
 #check CircuitRecursion.compiledExtraction_length
 #print axioms CircuitRecursion.compiledExtraction_length
+#check CircuitRecursion.su2AsUnitary_mul
+#print axioms CircuitRecursion.su2AsUnitary_mul
+#check CircuitRecursion.su2AsUnitary_inv
+#print axioms CircuitRecursion.su2AsUnitary_inv
+#check CircuitRecursion.balancedFactors_spec
+#print axioms CircuitRecursion.balancedFactors_spec
+#check CircuitRecursion.skCorrection_value
+#print axioms CircuitRecursion.skCorrection_value
+#check CircuitRecursion.skCorrection_length
+#print axioms CircuitRecursion.skCorrection_length
+#check CircuitRecursion.skCorrection_error
+#print axioms CircuitRecursion.skCorrection_error
+#check CircuitRecursion.skDoubleCorrection_error
+#print axioms CircuitRecursion.skDoubleCorrection_error
+#check CircuitRecursion.skPairError_zero
+#print axioms CircuitRecursion.skPairError_zero
+#check CircuitRecursion.skPairError_nonneg
+#print axioms CircuitRecursion.skPairError_nonneg
+#check CircuitRecursion.skPairError_succ
+#print axioms CircuitRecursion.skPairError_succ
+#check CircuitRecursion.skPairError_small
+#print axioms CircuitRecursion.skPairError_small
+#check CircuitRecursion.skPairError_precision
+#print axioms CircuitRecursion.skPairError_precision
+#check CircuitRecursion.skPairWord_error
+#print axioms CircuitRecursion.skPairWord_error
+#check CircuitRecursion.skPairWord_length
+#print axioms CircuitRecursion.skPairWord_length
+#check CircuitRecursion.pow_clog_two_le
+#print axioms CircuitRecursion.pow_clog_two_le
+#check CircuitRecursion.precisionDepth_length
+#print axioms CircuitRecursion.precisionDepth_length
+#check CircuitRecursion.su2_synthesis_dyadic
+#print axioms CircuitRecursion.su2_synthesis_dyadic
 #check CircuitRecursion.su2_inverse_conjugate
 #print axioms CircuitRecursion.su2_inverse_conjugate
 #check CircuitRecursion.su2_sameScalar_conjugate

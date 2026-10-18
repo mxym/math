@@ -20,3 +20,5 @@ import CircuitRecursion.SU2Coordinates
 import CircuitRecursion.QuaternionPlane
 import CircuitRecursion.SU2Conjugacy
 import CircuitRecursion.BalancedCommutator
+import CircuitRecursion.SKCorrection
+import CircuitRecursion.SKSynthesis

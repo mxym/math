@@ -61,8 +61,13 @@ a fixed finite approximation net from inverse-closed universality and proved
 SU(2) compactness. `su2_balanced_commutator` constructs the actual balanced
 decomposition, with both factor distances at most the square root of the
 target distance from identity. Degenerate intertwiners are handled explicitly.
-The finite-word recursion and effective finite-precision algorithm remain
-open; see `SOURCE_REVIEW.md`.
+`su2_synthesis_dyadic` closes the actual finite-word recursion: for every
+precision p and SU(2) target, inverse-closed universality implies a literal
+library word of length at most `C*(p+1)^5` and operator error at most `2^-p`.
+The net, balanced decomposition and correction bounds are all internally
+proved. This conservative exponent 5 is sufficient for the manuscript.
+The U(2) overall-phase/original-wire linkage and effective finite-precision
+classical algorithm remain open; see `SOURCE_REVIEW.md`.
 The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
@@ -74,6 +79,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build and all 133 root type/axiom prints passed with 3797 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T154328688534Z-extraction-circuit-recursion.log`.
+The ordinary build and all 150 root type/axiom prints passed with 3799 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T155118768202Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.
