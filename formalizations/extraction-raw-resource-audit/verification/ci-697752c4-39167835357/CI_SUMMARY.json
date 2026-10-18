@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "scope": "Actual shared raw finite-label extraction compiler, represented integer budgets, actual target-provider cache plus online root-subprogram annotations, stored-swap and cons/append component annotations; fixed-library provider execution and full machine time are excluded.",
+  "mathematical_source_head": "04044ad0e1dc94634a8005f5f6abebe4518a012b",
+  "source_inputs": 372,
+  "endpoint_theorems": 364,
+  "model_definitions": 186,
+  "same_type_forged_proof_controls": 135,
+  "kernel_trust": 0,
+  "runtime_guard": "GITHUB_HOSTED_LINUX_RUNNER_VERIFIED",
+  "audit_invocation_sha256": "c98a824f80c9180a297ca17997bc7e4f09e7aef5e750fa81ec386cfef0a4def0",
+  "kernel_declarations": 57224,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "fresh_owned_build": true,
+  "fresh_packages": [
+    "extraction-numerical-synthesis",
+    "extraction-effective-encoding",
+    "extraction-raw-resource-audit"
+  ],
+  "source_manifest_sha256": "582008527e7b22047496b0e0a462a96415575047d804d1340f11021034b46f41",
+  "resource_source_head": "04044ad0e1dc94634a8005f5f6abebe4518a012b",
+  "resource_scope": "actual raw compiler and partial resource bounds",
+  "new_math_modules": 47,
+  "protected_frozen_tex": 8,
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.515,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+      "peak_child_rss_kib_cumulative": 853264
+    },
+    {
+      "stage": "build-audit",
+      "command": [
+        "lake",
+        "build",
+        "RawResourceAudit",
+        "RawResourceVerification"
+      ],
+      "exit_code": 0,
+      "seconds": 586.838,
+      "log": "build-audit.log",
+      "sha256": "f7a39a4ce914db5334f71f4c684d4d2d6449fac98e59c943ecf84f64333b3269",
+      "peak_child_rss_kib_cumulative": 4018060
+    },
+    {
+      "stage": "root-types-axioms",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M10000",
+        "Check.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 5.777,
+      "log": "root-types-axioms.log",
+      "sha256": "7f90e31afc64a84b2e34c431e892d59057a948faeb498917f4a85a89afc527ab",
+      "peak_child_rss_kib_cumulative": 4403808
+    },
+    {
+      "stage": "finite-syntax-bytecode",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M7000",
+        "--run",
+        "ExecutableCheck.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 2.67,
+      "log": "finite-syntax-bytecode.log",
+      "sha256": "50df06c0ec34d119dbf2a81366ba873c8891ef3221f71388b16153b317ea482f",
+      "peak_child_rss_kib_cumulative": 4403808
+    },
+    {
+      "stage": "trust0-replay",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M11000",
+        "/home/runner/work/_temp/extraction-raw-resource-39167835357-1/evidence/raw-resource-20261018T213013256366Z/AuditInvocation.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 1419.494,
+      "log": "trust0-replay.log",
+      "sha256": "5a6bf0b399d72f3c6e9cbafc85bb6da0681c703cd9a3c332aee8c632ab3e4366",
+      "peak_child_rss_kib_cumulative": 4440072
+    }
+  ]
+}
