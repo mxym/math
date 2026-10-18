@@ -1,0 +1,64 @@
+OWNED_MODULE_AND_KIND_TYPE_AXIOM_CHECK_ONLY_PENDING_AGGREGATE
+
+Three new mathematical modules: BinaryMaskPlanProgram, MaskedCandidateGeneration,
+MaskedSerializedRun. Authorized M4000 lean_owned_check.py checked every module
+in dependency order; BinaryMaskCheck checked every new kind/type/axiom root:
+26 theorem declarations, 18 model declarations. Only propext/Classical.choice/
+Quot.sound allowed. Author report: verification/binary-mask-root-check-20261018T234632272408Z/REPORT.json.
+One genuinely executed four-mask test passed:
+([[false, false], [true, false], [false, true], [true, true]], 4, 137).
+No standard aggregate was queued during the independent global audit; this
+scope and its new generation/terminal dependencies remain pending aggregate and
+independent verification. No old scope is extended by this author feedback.
+
+ACTUAL BINARY MASK CONSTRUCTION
+binaryMaskPlanProgram builds binaryCountRangeProgram(2^n-1) once. Actual saved
+increment/trim words are copied/padded by endpointBitsProgram once per mask.
+Those stored bits directly feed maskOfBits/preparePauliPlan. It never invokes
+boundedBits/Nat.testBit/Nat.bits in this runtime value path. The exact complete
+plan list equals preparedMaskTable, in its original order, not just a permutation.
+Actual retained range/copy actions <=40*(2^n)^2+2^n*(3*n+1); at the actual active
+width n=2+codeWires(k), this is internally <=10592*(k+3)^6.
+
+ACTUAL CALLER AND TERMINAL
+maskedCandidateOccupationRun actually creates one new mask program and passes
+its same plans to candidateBranchTableRun and candidateAlignmentRun. Common
+rank/table generation records and all actual mask records persist. Exact plan
+list equality proves equality of the entire common CandidateDescriptorResult;
+it does not pretend that the old source executed this new mask constructor.
+maskedCandidateDescriptorRun generates literally extractionCode k and retains
+all stage mask programs; its common+mask partial actions <=14098*k*(k+5)^9.
+
+maskedSerializedRun actually calls this masked generator once, then passes the
+same generated word into materializeWord(retainedAssembledTargetRun) and the
+same emitted labels into binaryLabelStream. It retains all generation, target,
+provider, cache, numeric/read, inner assembly, outer materialization, stream
+and additional mask records. It does not evaluate candidateSerializedRun as an
+erasure/compatibility field. maskedSerializedRun_execution proves exact equality
+of the full COMMON RETAINED record with the b1 terminal, via exact common
+generation/plan equality, not word-only equivalence. Mask records are separately
+retained and come from the actual new calls. This equality transports only
+already-specified common record projections, not whole-source runtime cost.
+
+maskedSerializedRun_suffix_roundtrip and decoded_word bind the actual Bool
+stream to its exact finite LabelGate list; maskedSerializedRun_fidelity closes
+original 2k-wire all-pure-input Bell/discard fidelity >=1-2^(-p), under the
+existing SU2 approximation/inverse/net/table hypotheses.
+The actual same-execution accountedPrimitiveActions internally satisfies
+ maskedSerializedPolynomialConstant(m,n,L,gateB)*(k+3)^24
+   *(p+22+9*Nat.clog 2(k+3))^338,
+where the constant is candidateSerializedPolynomialConstant+10592. Only the
+existing finite queried library packet-height contract remains; no final cost
+certificate is supplied. Actual target-provider height/fees are internal.
+
+EXPLICIT BOUNDARY
+Range/copy/bit arithmetic record projections do not pay Nat-fuel/pow/successor/
+index/width/clog/precision/control work; finite-set membership/filter/sort and
+Pauli-plan construction; generic map/cache/record allocation; remaining Gray,
+prefix/Bell/descriptor AST/word-append and unrepresented swap work; annotation
+traversal/counter arithmetic; decoder execution; fixed-library or inverse-label
+provider time; or full host-machine bit runtime. Library height alone is not a
+time contract. This is a concrete partial primitive model, not Turing time.
+
+All b1/2605/9eef/6ed8/041f mathematics/config/ROOTS/reports and frozen native531
+source inputs remain unchanged. Only new unused successor files were added.
