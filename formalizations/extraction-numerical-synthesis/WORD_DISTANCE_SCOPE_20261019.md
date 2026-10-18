@@ -1,0 +1,9 @@
+# Actual Boolean packet distance and stored-score selection
+
+Packet distance stores four coordinate runs once. Each coordinate stores two signed cross products, a signed difference, and its square; a stored three-add sum combines the four squares. Two stored natural products form the squared common denominator. The decoded raw scalar equals IntegerPacket.distanceScalar exactly. Input packet heights B yield at most 11000(B+2)^2 specified Boolean/list/record actions, with intermediate widths derived from the actual word algorithms.
+
+The minimum selector takes a materialized vector of canonical word scalars, stores its recursive minimum once, and executes one actual word-scalar comparison for each remaining input. Its index equals integerMinIndex on the decoded values. Maximum selection first materializes the negated score vector once, then runs that minimum. Its index equals integerMaxIndex. Four-score selection costs at most 1300(B+2)^2 from decoded score heights B. It reads stored scalar data, so a repeated winning-score lookup does not rerun a score expression evaluator.
+
+These are local finite execution-tree cost models; vector lookup and immutable list sharing use the stated structural model. Annotation evaluation, general allocation/index machinery, and arbitrary-width counter/precision arithmetic are separate. This scope has only guarded narrow author checks, not a standard aggregate or independent-kernel claim. Every older source and metadata file is byte-identical, and the frozen raw-resource audit does not import these additions.
+
+Remaining work is literal/input encoding, scalar constants and whole mutual scalar/packet AST composition, followed by actual cache/provider/word construction and explicit fixed-library provider execution costs. No complete compiler machine-time theorem is asserted.
