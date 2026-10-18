@@ -1,0 +1,268 @@
+import CircuitRecursion.BalancedCommutator
+
+#check CircuitRecursion.su2Commutator_unitary
+#print axioms CircuitRecursion.su2Commutator_unitary
+#check CircuitRecursion.unitaryCommutator_conjugate
+#print axioms CircuitRecursion.unitaryCommutator_conjugate
+#check CircuitRecursion.axisCommutator_scalar
+#print axioms CircuitRecursion.axisCommutator_scalar
+#check CircuitRecursion.axisX_distance
+#print axioms CircuitRecursion.axisX_distance
+#check CircuitRecursion.axisY_distance
+#print axioms CircuitRecursion.axisY_distance
+#check CircuitRecursion.su2_balanced_commutator
+#print axioms CircuitRecursion.su2_balanced_commutator
+#check CircuitRecursion.su2_near_identity_commutator
+#print axioms CircuitRecursion.su2_near_identity_commutator
+#check CircuitRecursion.zeroBits_append
+#print axioms CircuitRecursion.zeroBits_append
+#check CircuitRecursion.bellPairsWord_action
+#print axioms CircuitRecursion.bellPairsWord_action
+#check CircuitRecursion.bellPairsWord_length
+#print axioms CircuitRecursion.bellPairsWord_length
+#check CircuitRecursion.pairwiseCoordinates_append
+#print axioms CircuitRecursion.pairwiseCoordinates_append
+#check CircuitRecursion.cons_eq_iff
+#print axioms CircuitRecursion.cons_eq_iff
+#check CircuitRecursion.bellPairsVector_coordinates
+#print axioms CircuitRecursion.bellPairsVector_coordinates
+#check CircuitRecursion.sqrt_two_pow
+#print axioms CircuitRecursion.sqrt_two_pow
+#check CircuitRecursion.bellPairs_coefficient
+#print axioms CircuitRecursion.bellPairs_coefficient
+#check CircuitRecursion.bellPairsVector_standard
+#print axioms CircuitRecursion.bellPairsVector_standard
+#check CircuitRecursion.letterBits_physical
+#print axioms CircuitRecursion.letterBits_physical
+#check CircuitRecursion.unitaryDistance_nonneg
+#print axioms CircuitRecursion.unitaryDistance_nonneg
+#check CircuitRecursion.unitaryDistance_symm
+#print axioms CircuitRecursion.unitaryDistance_symm
+#check CircuitRecursion.unitaryDistance_triangle
+#print axioms CircuitRecursion.unitaryDistance_triangle
+#check CircuitRecursion.unitaryDistance_mul_right
+#print axioms CircuitRecursion.unitaryDistance_mul_right
+#check CircuitRecursion.unitaryDistance_mul_left
+#print axioms CircuitRecursion.unitaryDistance_mul_left
+#check CircuitRecursion.unitaryDistance_star
+#print axioms CircuitRecursion.unitaryDistance_star
+#check CircuitRecursion.unitaryDistance_conjugation
+#print axioms CircuitRecursion.unitaryDistance_conjugation
+#check CircuitRecursion.unitaryCommutator_first_error
+#print axioms CircuitRecursion.unitaryCommutator_first_error
+#check CircuitRecursion.unitaryCommutator_second_error
+#print axioms CircuitRecursion.unitaryCommutator_second_error
+#check CircuitRecursion.unitaryCommutator_error
+#print axioms CircuitRecursion.unitaryCommutator_error
+#check CircuitRecursion.active_available
+#print axioms CircuitRecursion.active_available
+#check CircuitRecursion.stageCircuit_action
+#print axioms CircuitRecursion.stageCircuit_action
+#check CircuitRecursion.bitOccupation_zero
+#print axioms CircuitRecursion.bitOccupation_zero
+#check CircuitRecursion.compressionCircuit_action
+#print axioms CircuitRecursion.compressionCircuit_action
+#check CircuitRecursion.stageCircuit_length
+#print axioms CircuitRecursion.stageCircuit_length
+#check CircuitRecursion.compressionCircuit_length
+#print axioms CircuitRecursion.compressionCircuit_length
+#check CircuitRecursion.compressionCircuit_polynomial_bound
+#print axioms CircuitRecursion.compressionCircuit_polynomial_bound
+#check CircuitRecursion.codeWires_available
+#print axioms CircuitRecursion.codeWires_available
+#check CircuitRecursion.codeWires_step
+#print axioms CircuitRecursion.codeWires_step
+#check CircuitRecursion.extendBits_injective
+#print axioms CircuitRecursion.extendBits_injective
+#check CircuitRecursion.coordinateIsometry_single
+#print axioms CircuitRecursion.coordinateIsometry_single
+#check CircuitRecursion.run_scalar
+#print axioms CircuitRecursion.run_scalar
+#check CircuitRecursion.run_zero
+#print axioms CircuitRecursion.run_zero
+#check CircuitRecursion.encodedBranch_extend
+#print axioms CircuitRecursion.encodedBranch_extend
+#check CircuitRecursion.shifted_occupation
+#print axioms CircuitRecursion.shifted_occupation
+#check CircuitRecursion.coordinateIsometry_trans
+#print axioms CircuitRecursion.coordinateIsometry_trans
+#check CircuitRecursion.extendVector_padding
+#print axioms CircuitRecursion.extendVector_padding
+#check CircuitRecursion.tailBellCircuit_action
+#print axioms CircuitRecursion.tailBellCircuit_action
+#check CircuitRecursion.tailBellCircuit_length
+#print axioms CircuitRecursion.tailBellCircuit_length
+#check CircuitRecursion.register_split
+#print axioms CircuitRecursion.register_split
+#check CircuitRecursion.extractionCircuit_coherent
+#print axioms CircuitRecursion.extractionCircuit_coherent
+#check CircuitRecursion.extractionCircuit_purePower
+#print axioms CircuitRecursion.extractionCircuit_purePower
+#check CircuitRecursion.extractionCircuit_length
+#print axioms CircuitRecursion.extractionCircuit_length
+#check CircuitRecursion.extractionCircuit_polynomial_bound
+#print axioms CircuitRecursion.extractionCircuit_polynomial_bound
+#check CircuitRecursion.instructionWordValue_append
+#print axioms CircuitRecursion.instructionWordValue_append
+#check CircuitRecursion.instructionWordValue_inverse
+#print axioms CircuitRecursion.instructionWordValue_inverse
+#check CircuitRecursion.subgroup_instructionWord
+#print axioms CircuitRecursion.subgroup_instructionWord
+#check CircuitRecursion.dense_instructionWords
+#print axioms CircuitRecursion.dense_instructionWords
+#check CircuitRecursion.finite_instructionNet
+#print axioms CircuitRecursion.finite_instructionNet
+#check CircuitRecursion.uniform_instructionLength
+#print axioms CircuitRecursion.uniform_instructionLength
+#check CircuitRecursion.extractionCircuit_real_bound
+#print axioms CircuitRecursion.extractionCircuit_real_bound
+#check CircuitRecursion.extractionCircuit_isBigO
+#print axioms CircuitRecursion.extractionCircuit_isBigO
+#check CircuitRecursion.bitPurePower_density
+#print axioms CircuitRecursion.bitPurePower_density
+#check CircuitRecursion.bitPurePower_copywiseInput
+#print axioms CircuitRecursion.bitPurePower_copywiseInput
+#check CircuitRecursion.readoutCoordinates_physical
+#print axioms CircuitRecursion.readoutCoordinates_physical
+#check CircuitRecursion.codeEmbedding_mulVec
+#print axioms CircuitRecursion.codeEmbedding_mulVec
+#check CircuitRecursion.extractionVector_readout
+#print axioms CircuitRecursion.extractionVector_readout
+#check CircuitRecursion.garbageVector_square
+#print axioms CircuitRecursion.garbageVector_square
+#check CircuitRecursion.bitPurePower_square
+#print axioms CircuitRecursion.bitPurePower_square
+#check CircuitRecursion.pureOccupationCoefficients_square
+#print axioms CircuitRecursion.pureOccupationCoefficients_square
+#check CircuitRecursion.extractionOutput_coherent
+#print axioms CircuitRecursion.extractionOutput_coherent
+#check CircuitRecursion.extractionOutput_purePower
+#print axioms CircuitRecursion.extractionOutput_purePower
+#check CircuitRecursion.castBits_apply
+#print axioms CircuitRecursion.castBits_apply
+#check CircuitRecursion.pairwiseCoordinates_alice
+#print axioms CircuitRecursion.pairwiseCoordinates_alice
+#check CircuitRecursion.pairwiseCoordinates_bob
+#print axioms CircuitRecursion.pairwiseCoordinates_bob
+#check CircuitRecursion.codeWires_eq_original
+#print axioms CircuitRecursion.codeWires_eq_original
+#check CircuitRecursion.local_register_split
+#print axioms CircuitRecursion.local_register_split
+#check CircuitRecursion.pairwiseCoordinates_physical
+#print axioms CircuitRecursion.pairwiseCoordinates_physical
+#check CircuitRecursion.readoutCoordinates_split
+#print axioms CircuitRecursion.readoutCoordinates_split
+#check CircuitRecursion.prefixCircuit_length
+#print axioms CircuitRecursion.prefixCircuit_length
+#check CircuitRecursion.extendBits_eq_pad
+#print axioms CircuitRecursion.extendBits_eq_pad
+#check CircuitRecursion.prefixCircuit_eq_lift
+#print axioms CircuitRecursion.prefixCircuit_eq_lift
+#check CircuitRecursion.extendBits_trans
+#print axioms CircuitRecursion.extendBits_trans
+#check CircuitRecursion.extendBits_append
+#print axioms CircuitRecursion.extendBits_append
+#check CircuitRecursion.paddedVector
+#print axioms CircuitRecursion.paddedVector
+#check CircuitRecursion.prefixCircuit_action
+#print axioms CircuitRecursion.prefixCircuit_action
+#check CircuitRecursion.compressionCircuit_matrix
+#print axioms CircuitRecursion.compressionCircuit_matrix
+#check CircuitRecursion.compressionCircuit_coherent
+#print axioms CircuitRecursion.compressionCircuit_coherent
+#check CircuitRecursion.bitPurePower_expansion
+#print axioms CircuitRecursion.bitPurePower_expansion
+#check CircuitRecursion.compressionCircuit_purePower
+#print axioms CircuitRecursion.compressionCircuit_purePower
+#check CircuitRecursion.quaternionMatrix_star_mul
+#print axioms CircuitRecursion.quaternionMatrix_star_mul
+#check CircuitRecursion.quaternionMatrix_det
+#print axioms CircuitRecursion.quaternionMatrix_det
+#check CircuitRecursion.normalizedQuaternion_val
+#print axioms CircuitRecursion.normalizedQuaternion_val
+#check CircuitRecursion.normalizedQuaternion_intertwines
+#print axioms CircuitRecursion.normalizedQuaternion_intertwines
+#check CircuitRecursion.quaternion_difference
+#print axioms CircuitRecursion.quaternion_difference
+#check CircuitRecursion.su2_intertwiner
+#print axioms CircuitRecursion.su2_intertwiner
+#check CircuitRecursion.intertwiner_conjugates
+#print axioms CircuitRecursion.intertwiner_conjugates
+#check CircuitRecursion.castBits_rfl
+#print axioms CircuitRecursion.castBits_rfl
+#check CircuitRecursion.castCircuit_rfl
+#print axioms CircuitRecursion.castCircuit_rfl
+#check CircuitRecursion.castCircuit_length
+#print axioms CircuitRecursion.castCircuit_length
+#check CircuitRecursion.run_castCircuit
+#print axioms CircuitRecursion.run_castCircuit
+#check CircuitRecursion.prefix_append
+#print axioms CircuitRecursion.prefix_append
+#check CircuitRecursion.suffix_append
+#print axioms CircuitRecursion.suffix_append
+#check CircuitRecursion.single_append
+#print axioms CircuitRecursion.single_append
+#check CircuitRecursion.run_shift_slice
+#print axioms CircuitRecursion.run_shift_slice
+#check CircuitRecursion.encodedBranch_apply_append
+#print axioms CircuitRecursion.encodedBranch_apply_append
+#check CircuitRecursion.discardEffect_bounds
+#print axioms CircuitRecursion.discardEffect_bounds
+#check CircuitRecursion.discardEffect_pairing
+#print axioms CircuitRecursion.discardEffect_pairing
+#check CircuitRecursion.extractionOutput_fidelity_one
+#print axioms CircuitRecursion.extractionOutput_fidelity_one
+#check CircuitRecursion.extractionOutput_robust
+#print axioms CircuitRecursion.extractionOutput_robust
+#check CircuitRecursion.extractionOutput_robust_up_to_phase
+#print axioms CircuitRecursion.extractionOutput_robust_up_to_phase
+#check CircuitRecursion.compiledExtraction_error
+#print axioms CircuitRecursion.compiledExtraction_error
+#check CircuitRecursion.compiledExtraction_fidelity
+#print axioms CircuitRecursion.compiledExtraction_fidelity
+#check CircuitRecursion.compiledExtraction_length
+#print axioms CircuitRecursion.compiledExtraction_length
+#check CircuitRecursion.su2_inverse_conjugate
+#print axioms CircuitRecursion.su2_inverse_conjugate
+#check CircuitRecursion.su2_sameScalar_conjugate
+#print axioms CircuitRecursion.su2_sameScalar_conjugate
+#check CircuitRecursion.su2Conjugate_unitary
+#print axioms CircuitRecursion.su2Conjugate_unitary
+#check CircuitRecursion.unitaryDistance_conjugate_one
+#print axioms CircuitRecursion.unitaryDistance_conjugate_one
+#check CircuitRecursion.su2_adjugate
+#print axioms CircuitRecursion.su2_adjugate
+#check CircuitRecursion.su2_lower_left
+#print axioms CircuitRecursion.su2_lower_left
+#check CircuitRecursion.su2_lower_right
+#print axioms CircuitRecursion.su2_lower_right
+#check CircuitRecursion.su2_normalForm
+#print axioms CircuitRecursion.su2_normalForm
+#check CircuitRecursion.su2_mass
+#print axioms CircuitRecursion.su2_mass
+#check CircuitRecursion.su2_scalarPart_bounds
+#print axioms CircuitRecursion.su2_scalarPart_bounds
+#check CircuitRecursion.su2_trace
+#print axioms CircuitRecursion.su2_trace
+#check CircuitRecursion.su2_add_adjoint
+#print axioms CircuitRecursion.su2_add_adjoint
+#check CircuitRecursion.su2_distance_square
+#print axioms CircuitRecursion.su2_distance_square
+#check CircuitRecursion.specialUnitary_isCompact
+#print axioms CircuitRecursion.specialUnitary_isCompact
+#check CircuitRecursion.specialUnitary_compactSpace
+#print axioms CircuitRecursion.specialUnitary_compactSpace
+#check CircuitRecursion.su2_uniform_instructionLength
+#print axioms CircuitRecursion.su2_uniform_instructionLength
+#check CircuitRecursion.bellPairYield_feasible
+#print axioms CircuitRecursion.bellPairYield_feasible
+#check CircuitRecursion.bellPairYield_maximal
+#print axioms CircuitRecursion.bellPairYield_maximal
+#check CircuitRecursion.bellPairYield_floor_log4
+#print axioms CircuitRecursion.bellPairYield_floor_log4
+#check CircuitRecursion.log4_eq_half_log2
+#print axioms CircuitRecursion.log4_eq_half_log2
+#check CircuitRecursion.bellPairYield_floor
+#print axioms CircuitRecursion.bellPairYield_floor
+#check CircuitRecursion.bellPairYield_cPPT_maximal
+#print axioms CircuitRecursion.bellPairYield_cPPT_maximal
