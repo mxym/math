@@ -9,3 +9,6 @@ import Deviation.FourierIntegral
 import Deviation.NoiseSmoothing
 import Deviation.NoiseScaling
 import Deviation.InformationBerryEsseen
+import Deviation.QuantitativeQuantile
+import Deviation.QuantitativeExtraction
+import Deviation.QuantitativeTriangular
