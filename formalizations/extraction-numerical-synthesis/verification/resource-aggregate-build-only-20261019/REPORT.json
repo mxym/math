@@ -1,0 +1,440 @@
+{
+  "status": "BUILD_ONLY",
+  "utc": "2026-10-18T19:46:07.798829+00:00",
+  "source_head": "66c360fc279f592bce85e2c10057a388fc6f5c46",
+  "scope": "13 new numerical resource modules and 80 new roots after baseline263983",
+  "modules": 13,
+  "root_count": 80,
+  "targets": [
+    "CircuitNumerical.ContinuationCheck",
+    "CircuitNumerical.PrimitiveCheck",
+    "CircuitNumerical.RootCostCheck"
+  ],
+  "build_jobs": 3901,
+  "build_exit_code": 0,
+  "build_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T194451220833Z-extraction-numerical-synthesis.log",
+  "build_log_sha256": "b15837e27c4fd16bc730497ba0726a5bcfec0eb8ea529c639ad0267c0f6b6a74",
+  "source_sha256": {
+    "CircuitNumerical/NumericalBitTrace.lean": "4ed58b740a4de3392f0818edc71de687299efd2ee3d5349cd0ebc55322b43fb1",
+    "CircuitNumerical/BitTraceGrowth.lean": "91ae9a05528fd03f33e664e50249fa06696a925581215b0a990bbbf88c31300c",
+    "CircuitNumerical/CachedIntegerBudgets.lean": "4da52cd4649c804f7f13eb087abb7be2ce056290149da1e0301bdc52c4d0d7c4",
+    "CircuitNumerical/IntegerSubtreeBounds.lean": "904c93531e68de5fc626fef46f0e1ee89aa5b1c651ec0da86981eacae6e89c2d",
+    "CircuitNumerical/RationalCacheBudgets.lean": "3388a547768cee31a4d88b7455b0df914f5cd7b4300f1bdea0e335e95e017d02",
+    "CircuitNumerical/RootOperandTrace.lean": "3ae84869ea942cf48069be00f93968f14e10dc4a8f2d89132e03e38488ef373a",
+    "CircuitNumerical/RootTraceBudgets.lean": "1edbfbd331a41716aefd0b89fec6d1d671691c937d37d61dbc05bd7ca3851670",
+    "CircuitNumerical/BinaryIntegerSqrt.lean": "feac41b82852b5e6a97c3173fe4cdef916fead6727a6091ae06cecebfe96929f",
+    "CircuitNumerical/BinaryIntegerDivision.lean": "ebb8b7549bdf901d4ab98f2ba398976255667cad4cda6f1272ea87d47a4112ed",
+    "CircuitNumerical/BinaryRootBackend.lean": "621d6745bd38ed86cef0ce72652161c6e6723c225f936ca23c4374356af4377d",
+    "CircuitNumerical/BinaryRootResources.lean": "2c35da9fac18bed7bd2c3d4e4bce12ffcb962b4233991c8b46aaa8aeb49c8978",
+    "CircuitNumerical/RootProgramCosts.lean": "4b115f374cf3dfce2e457ceee28a8d0804fc6c5c8328d9a58ac715ce60395775",
+    "CircuitNumerical/BinaryProgramTrace.lean": "e2e5e4fcac621b701f566af905a0c83c1e9a20f789ce4888a2783968834e5dc9",
+    "CircuitNumerical/ContinuationCheck.lean": "a928cffbfb476fdf2c53ef15bd56084840bd86837e2074172cd38ef21db4cd0b",
+    "CircuitNumerical/PrimitiveCheck.lean": "9811a8cfcae790b0c22c552cd2023e4c00546dbede02b5fc1d92cfec40631308",
+    "CircuitNumerical/RootCostCheck.lean": "a17402c8df04652b8194e45a9727287e373cd35a51f62e0211d2fccfbb2d0ca1",
+    "CONTINUATION_ROOTS.txt": "f53ac7acb21dd6446368e95d435cbbc167b98ae8d6f25c866533daf2f927ddfd",
+    "PRIMITIVE_ROOTS.txt": "a0a280dc21a723952c195fdca5270c979455943f3672940f259068d7b6a8eb92",
+    "ROOTCOST_ROOTS.txt": "8f272760a17527a0979e997a1eea0c1ffef2a6d85900e83ded0402f171b54629"
+  },
+  "root_axioms": {
+    "CircuitRecursion.pairTraceT_pos": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairTraceT_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.numericalThreshold_pow_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.traceT_threshold_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairedTraceS_step": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairTraceS_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.pairedTraceR_step": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.mul_extra_scale": [
+      "propext"
+    ],
+    "CircuitRecursion.pairTraceR_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.traceRGrowth_precision_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedPairWord_flat_integerBitBudget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedIntegerBudget_algebra": [
+      "propext"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_eq_packetExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_integerBitBudget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ArithmeticWordResult.expression_integerHeight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_expression_integerHeight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.integerSubtreeBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.integerSubtreeBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ArithmeticWordResult.expression_integerSubtreeBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_expression_integerSubtreeBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.bitFactorEnvelope_closed": [
+      "propext"
+    ],
+    "CircuitRecursion.tracedBase_integerBitBudget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedCorrection_integerBitBudget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedPairWord_integerBitBudget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedRationalPacketExpression_bitEnvelope": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_eq_rationalPacketExpression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_envelope_integerBitBudget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_rational_integerBitBudget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_rational_expression_integerSubtreeBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryDivDigits_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryDivDigits_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIntegerDiv_input_fuel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIntegerDivMod_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIntegerDiv_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIntegerMod_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIntegerDiv_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryDivOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binarySqrtDigits_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binarySqrtDigits_le_input": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIntegerSqrt_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIntegerSqrtFuel_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binarySqrtDigitOperations_eq": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIntegerSqrt_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binarySqrtOperandTrace_height": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIntegerSqrt_operandTrace_height": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.binaryRoot_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.binaryRoot_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.binaryRoot_operandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.binaryRootRun_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.binaryRootRun_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.binaryRootRun_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.binaryRootRun_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.binaryRootPrimitiveOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.binaryRootOperandTrace_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.binaryRootOperandTrace_binaryLength": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.binaryRootRun_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.binaryRootRun_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.natural_le_power_two": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.rootOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.integerStoppingThresholdOperandTrace_height": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.rootOperandTrace_binaryLength": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.root_numerator_in_operandTrace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.IntegerScalar.root_denominator_in_operandTrace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.rootOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.rootOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ArithmeticWordResult.rootOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_rootOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_rational_rootOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.binaryProgramOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.binaryProgramOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ArithmeticWordResult.binaryProgramOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_binaryProgramOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_rational_binaryProgramOperandTrace_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ScalarExpression.binaryRootPrimitiveOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketExpression.binaryRootPrimitiveOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.ArithmeticWordResult.binaryRootPrimitiveOperations_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_binaryRootPrimitiveOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_envelope_binaryRootPrimitiveOperations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedRootCost_algebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.cachedArithmeticRun_binaryRootPrimitiveOperations_polynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env PASS; worker_build.py shared global flock",
+  "aggregate_build": true,
+  "independent_kernel_replay": false,
+  "fresh_build": false,
+  "forged_proof_controls": false,
+  "frozen_baseline_files_byte_identical": 79,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "bounded integer primitive bit implementations and automatic fuel computation",
+    "canonical-rational conversion/comparison costs",
+    "structural allocation/index implementation costs",
+    "effective fixed-library input provider costs",
+    "new independent audit of this later scope"
+  ]
+}
