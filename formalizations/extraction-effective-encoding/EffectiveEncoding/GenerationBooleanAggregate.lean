@@ -1,0 +1,16 @@
+import EffectiveEncoding.CountedEnumerationCheck
+import EffectiveEncoding.StoredSwapCheck
+import EffectiveEncoding.ChargedProviderCheck
+import EffectiveEncoding.TripleRankCheck
+import EffectiveEncoding.PackedEndpointCheck
+import EffectiveEncoding.ConstructiveRankCheck
+import EffectiveEncoding.LiteralOccupationCheck
+import EffectiveEncoding.DirectPackedCheck
+import EffectiveEncoding.AccumulatedRankCheck
+import EffectiveEncoding.CarriedRankCheck
+import EffectiveEncoding.NativeRankCheck
+import EffectiveEncoding.ActualBooleanCheck
+import EffectiveEncoding.NativeSelectionEvaluation
+
+-- Explicit author standard target: new generation, cached Boolean bridge,
+-- all their declaration checks, and only tiny native evaluation examples.
