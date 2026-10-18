@@ -36,3 +36,5 @@ import SchurCompletion.JucysRecursion
 import SchurCompletion.JucysFactorization
 import SchurCompletion.JucysSpectrum
 import SchurCompletion.JucysHaarProduct
+import SchurCompletion.CodimensionOneMoments
+import SchurCompletion.CodimensionOneAsymptotic
