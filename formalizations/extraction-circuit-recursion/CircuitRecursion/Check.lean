@@ -1,4 +1,4 @@
-import CircuitRecursion.NumericalSK
+import CircuitRecursion.CacheResources
 
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
@@ -56,6 +56,36 @@ import CircuitRecursion.NumericalSK
 #print axioms CircuitRecursion.bellPairsVector_standard
 #check CircuitRecursion.letterBits_physical
 #print axioms CircuitRecursion.letterBits_physical
+#check CircuitRecursion.cachedNumericalRun_query_bounds
+#print axioms CircuitRecursion.cachedNumericalRun_query_bounds
+#check CircuitRecursion.cachedNumericalRun_precision_bounds
+#print axioms CircuitRecursion.cachedNumericalRun_precision_bounds
+#check CircuitRecursion.dyadic_numerator_bits
+#print axioms CircuitRecursion.dyadic_numerator_bits
+#check CircuitRecursion.dyadicPacketBits_bound
+#print axioms CircuitRecursion.dyadicPacketBits_bound
+#check CircuitRecursion.cachedInputBits_bound
+#print axioms CircuitRecursion.cachedInputBits_bound
+#check CircuitRecursion.cachedInputBits_precision_bound
+#print axioms CircuitRecursion.cachedInputBits_precision_bound
+#check CircuitRecursion.buildPacketCache_agrees
+#print axioms CircuitRecursion.buildPacketCache_agrees
+#check CircuitRecursion.buildPacketCache_requests
+#print axioms CircuitRecursion.buildPacketCache_requests
+#check CircuitRecursion.buildPacketCache_precision
+#print axioms CircuitRecursion.buildPacketCache_precision
+#check CircuitRecursion.cachedNumericalRun_word
+#print axioms CircuitRecursion.cachedNumericalRun_word
+#check CircuitRecursion.cachedNumericalRun_gateRequests
+#print axioms CircuitRecursion.cachedNumericalRun_gateRequests
+#check CircuitRecursion.cachedNumericalRun_targetRequests
+#print axioms CircuitRecursion.cachedNumericalRun_targetRequests
+#check CircuitRecursion.cachedNumericalRun_gatePrecision
+#print axioms CircuitRecursion.cachedNumericalRun_gatePrecision
+#check CircuitRecursion.cachedNumericalRun_targetPrecision
+#print axioms CircuitRecursion.cachedNumericalRun_targetPrecision
+#check CircuitRecursion.cachedNumericalSU2Synthesis
+#print axioms CircuitRecursion.cachedNumericalSU2Synthesis
 #check CircuitRecursion.unitaryDistance_nonneg
 #print axioms CircuitRecursion.unitaryDistance_nonneg
 #check CircuitRecursion.unitaryDistance_symm
@@ -166,6 +196,20 @@ import CircuitRecursion.NumericalSK
 #print axioms CircuitRecursion.extractionCircuit_length
 #check CircuitRecursion.extractionCircuit_polynomial_bound
 #print axioms CircuitRecursion.extractionCircuit_polynomial_bound
+#check CircuitRecursion.chooseChart_agrees
+#print axioms CircuitRecursion.chooseChart_agrees
+#check CircuitRecursion.coordinateSubOracle_agrees
+#print axioms CircuitRecursion.coordinateSubOracle_agrees
+#check CircuitRecursion.intertwinerRadiusOracle_agrees
+#print axioms CircuitRecursion.intertwinerRadiusOracle_agrees
+#check CircuitRecursion.normalizedIntertwinerOracle_agrees
+#print axioms CircuitRecursion.normalizedIntertwinerOracle_agrees
+#check CircuitRecursion.conditionedConjugatorOracle_agrees
+#print axioms CircuitRecursion.conditionedConjugatorOracle_agrees
+#check CircuitRecursion.conditionedFactorXOracle_agrees
+#print axioms CircuitRecursion.conditionedFactorXOracle_agrees
+#check CircuitRecursion.conditionedFactorYOracle_agrees
+#print axioms CircuitRecursion.conditionedFactorYOracle_agrees
 #check CircuitRecursion.libraryWireCircuit_value
 #print axioms CircuitRecursion.libraryWireCircuit_value
 #check CircuitRecursion.libraryWireCircuit_length
@@ -320,6 +364,26 @@ import CircuitRecursion.NumericalSK
 #print axioms CircuitRecursion.numericalCorrection_length
 #check CircuitRecursion.numericalCorrection_error
 #print axioms CircuitRecursion.numericalCorrection_error
+#check CircuitRecursion.quaternionWordOracle_agrees
+#print axioms CircuitRecursion.quaternionWordOracle_agrees
+#check CircuitRecursion.fixedNetWord_agrees
+#print axioms CircuitRecursion.fixedNetWord_agrees
+#check CircuitRecursion.residualSmall_agrees
+#print axioms CircuitRecursion.residualSmall_agrees
+#check CircuitRecursion.correctionDemand_ge
+#print axioms CircuitRecursion.correctionDemand_ge
+#check CircuitRecursion.numericalCorrection_agrees
+#print axioms CircuitRecursion.numericalCorrection_agrees
+#check CircuitRecursion.numericalDemand_ge
+#print axioms CircuitRecursion.numericalDemand_ge
+#check CircuitRecursion.numericalPairWord_agrees
+#print axioms CircuitRecursion.numericalPairWord_agrees
+#check CircuitRecursion.numericalDemand_succ
+#print axioms CircuitRecursion.numericalDemand_succ
+#check CircuitRecursion.numericalDemand_bound
+#print axioms CircuitRecursion.numericalDemand_bound
+#check CircuitRecursion.numericalDemand_precision_bound
+#print axioms CircuitRecursion.numericalDemand_precision_bound
 #check CircuitRecursion.numerical_stop_budget
 #print axioms CircuitRecursion.numerical_stop_budget
 #check CircuitRecursion.numericalDoubleCorrection_error
@@ -360,6 +424,46 @@ import CircuitRecursion.NumericalSK
 #print axioms CircuitRecursion.oracleMul_correct
 #check CircuitRecursion.oracleInv_correct
 #print axioms CircuitRecursion.oracleInv_correct
+#check CircuitRecursion.AgreesThrough.mono
+#print axioms CircuitRecursion.AgreesThrough.mono
+#check CircuitRecursion.AgreesThrough.refl
+#print axioms CircuitRecursion.AgreesThrough.refl
+#check CircuitRecursion.oracleAdd_agrees
+#print axioms CircuitRecursion.oracleAdd_agrees
+#check CircuitRecursion.oracleNeg_agrees
+#print axioms CircuitRecursion.oracleNeg_agrees
+#check CircuitRecursion.oracleMul_agrees
+#print axioms CircuitRecursion.oracleMul_agrees
+#check CircuitRecursion.oracleInv_agrees
+#print axioms CircuitRecursion.oracleInv_agrees
+#check CircuitRecursion.oracleSqrt_agrees
+#print axioms CircuitRecursion.oracleSqrt_agrees
+#check CircuitRecursion.oracleMeanMinus_agrees
+#print axioms CircuitRecursion.oracleMeanMinus_agrees
+#check CircuitRecursion.coordinateOracle_agrees
+#print axioms CircuitRecursion.coordinateOracle_agrees
+#check CircuitRecursion.quaternionOracleMul_agrees
+#print axioms CircuitRecursion.quaternionOracleMul_agrees
+#check CircuitRecursion.quaternionOracleInverse_agrees
+#print axioms CircuitRecursion.quaternionOracleInverse_agrees
+#check CircuitRecursion.quaternionConjugateOracle_agrees
+#print axioms CircuitRecursion.quaternionConjugateOracle_agrees
+#check CircuitRecursion.balancedSOracle_agrees
+#print axioms CircuitRecursion.balancedSOracle_agrees
+#check CircuitRecursion.balancedCOracle_agrees
+#print axioms CircuitRecursion.balancedCOracle_agrees
+#check CircuitRecursion.referenceXOracle_agrees
+#print axioms CircuitRecursion.referenceXOracle_agrees
+#check CircuitRecursion.referenceYOracle_agrees
+#print axioms CircuitRecursion.referenceYOracle_agrees
+#check CircuitRecursion.balancedReferenceOracle_agrees
+#print axioms CircuitRecursion.balancedReferenceOracle_agrees
+#check CircuitRecursion.chartTargetOracle_agrees
+#print axioms CircuitRecursion.chartTargetOracle_agrees
+#check CircuitRecursion.distanceScore_agrees
+#print axioms CircuitRecursion.distanceScore_agrees
+#check CircuitRecursion.chartMassScore_agrees
+#print axioms CircuitRecursion.chartMassScore_agrees
 #check CircuitRecursion.rationalSqrtApprox_correct
 #print axioms CircuitRecursion.rationalSqrtApprox_correct
 #check CircuitRecursion.sqrt_input_error

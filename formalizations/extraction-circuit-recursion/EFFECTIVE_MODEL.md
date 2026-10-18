@@ -161,9 +161,18 @@ The library-dependent offline table is still fixed as described above.
 
 This theorem is relative to entry oracles. Correct packet values and
 numerator-size bounds do not prove that their providers execute in
-polynomial time. Total composed query/precision bounds, intermediate bit
-sizes, provider costs and the Turing costs of integer arithmetic remain to
-be proved. A generic U(2) phase evaluator and explicit computable occupation
+polynomial time. Total original-provider query/precision bounds are now
+proved for an explicit eager-cache implementation: with
+`D <= 51200000*(L+1)*(p+1)^9`, gate queries number `m*(D+1)` and target queries
+number `D+1`, with no requested precision above D. The cached and uncached
+words are equal. Each supplied dyadic signed numerator uses at most q+3
+bits, and the complete input prefixes contain at most
+`4*(m+1)*(D+1)*(D+3)` signed-numerator bits; shared dyadic denominators are
+specified by the precision indices. These bounds concern input data and
+provider requests, not repeated internal rational evaluation.
+Internal arithmetic operation counts, intermediate bit sizes, provider
+costs and the Turing costs of integer arithmetic remain to be proved.
+A generic U(2) phase evaluator and explicit computable occupation
 encoding/whole-instruction description binding are additional obligations
 for the complete original extraction algorithm. No final compilation or
 polynomial running-time certificate is supplied as a premise.

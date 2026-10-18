@@ -43,3 +43,8 @@ import CircuitRecursion.NormalizedIntertwinerOracle
 import CircuitRecursion.ConditionedFactors
 import CircuitRecursion.NumericalCorrection
 import CircuitRecursion.NumericalSK
+import CircuitRecursion.OracleDependencies
+import CircuitRecursion.FactorDependencies
+import CircuitRecursion.NumericalDependencies
+import CircuitRecursion.CachedNumericalSK
+import CircuitRecursion.CacheResources

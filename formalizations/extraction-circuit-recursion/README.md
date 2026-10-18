@@ -146,8 +146,17 @@ word has length at most `C*(p+1)^5` and operator error at most `2^-p`.
 No exact-real target, classical choice or unimplemented commutator primitive
 occurs in this online program. All factor and stopping correctness is
 derived internally. The stopping exponent at the selected depth is at most
-`8*(p+1)+40`. This is correctness of an explicit finite oracle program;
-aggregate query/precision bounds, provider costs and Turing bit costs remain
+`8*(p+1)+40`. `OracleDependencies.lean`, `FactorDependencies.lean` and
+`NumericalDependencies.lean` prove the complete finite input dependency bound
+`D <= 51200000*(L+1)*(p+1)^9`. `CachedNumericalSK.lean` implements an eager
+cache: every library gate and the target are queried once at each precision
+0 through D, and the remaining computation reads stored packets. Its actual
+word is proved equal to `numericalPairWord`. Gate and target request counts
+are respectively exactly `m*(D+1)` and `D+1`. `CacheResources.lean` proves
+these polynomial request/precision bounds and bounds the signed-numerator
+bits of the dyadic input prefixes by `4*(m+1)*(D+1)*(D+3)`.
+These are provider-query and input-data bounds. Internal arithmetic operation
+counts, intermediate bit sizes, provider costs and Turing bit costs remain
 separate obligations. Original gate-description binding, phase normalization
 and a computable occupation encoding are also still required to turn the
 original extraction family into a uniform classical synthesis algorithm.
@@ -162,6 +171,11 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build and all 292 root type/axiom prints passed with 3863 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T173344763419Z-extraction-circuit-recursion.log`.
+The last completed serialized aggregate build passed 338 root type/axiom
+prints with 3868 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T175256727397Z-extraction-circuit-recursion.log`.
+The cache-resource extension and all 344 root type/axiom prints passed the
+parent-authorized own-module feedback checks at 18:07--18:08 UTC. Its fresh
+serialized aggregate is pending the independent audit's shared build lock;
+the feedback checks do not replace that aggregate or independent replay.
 No independent empty-kernel replay or forged-proof control is claimed.
