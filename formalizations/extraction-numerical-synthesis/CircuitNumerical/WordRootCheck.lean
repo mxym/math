@@ -1,0 +1,34 @@
+import CircuitNumerical.WordScalarRoot
+
+#check CircuitRecursion.binaryRawShiftProgram_value
+#print axioms CircuitRecursion.binaryRawShiftProgram_value
+#check CircuitRecursion.binaryRawShiftProgram_length
+#print axioms CircuitRecursion.binaryRawShiftProgram_length
+#check CircuitRecursion.binaryRawShiftProgram_actions
+#print axioms CircuitRecursion.binaryRawShiftProgram_actions
+#check CircuitRecursion.binaryShiftProgram_value
+#print axioms CircuitRecursion.binaryShiftProgram_value
+#check CircuitRecursion.binaryShiftProgram_canonical
+#print axioms CircuitRecursion.binaryShiftProgram_canonical
+#check CircuitRecursion.binaryShiftProgram_length
+#print axioms CircuitRecursion.binaryShiftProgram_length
+#check CircuitRecursion.binaryShiftProgram_actions
+#print axioms CircuitRecursion.binaryShiftProgram_actions
+#check CircuitRecursion.binaryPowerTwoProgram_value
+#print axioms CircuitRecursion.binaryPowerTwoProgram_value
+#check CircuitRecursion.binaryPowerTwoProgram_canonical
+#print axioms CircuitRecursion.binaryPowerTwoProgram_canonical
+#check CircuitRecursion.binaryPowerTwoProgram_actions
+#print axioms CircuitRecursion.binaryPowerTwoProgram_actions
+#check CircuitRecursion.SignedBinaryWord.positiveBits_value
+#print axioms CircuitRecursion.SignedBinaryWord.positiveBits_value
+#check CircuitRecursion.SignedBinaryWord.positiveBits_length
+#print axioms CircuitRecursion.SignedBinaryWord.positiveBits_length
+#check CircuitRecursion.wordScalarRootProgram_decode
+#print axioms CircuitRecursion.wordScalarRootProgram_decode
+#check CircuitRecursion.wordScalarRootProgram_value
+#print axioms CircuitRecursion.wordScalarRootProgram_value
+#check CircuitRecursion.wordScalarRootProgram_height_width
+#print axioms CircuitRecursion.wordScalarRootProgram_height_width
+#check CircuitRecursion.wordScalarRootProgram_height_actions
+#print axioms CircuitRecursion.wordScalarRootProgram_height_actions

@@ -1,0 +1,9 @@
+# Canonical Boolean common-denominator packets
+
+WordIntegerPacket retains the original four-numerator common-denominator representation using canonical signed Boolean magnitude lists and one canonical positive denominator list. Semantic decoding is not called by the actual word programs. Decoded packet height B bounds each actual list width by B+1. Coordinate projection decodes exactly to IntegerPacket.coordinate and shares the existing denominator value.
+
+Quaternion coordinate multiplication materializes four signed products and three signed sums once. The fixed sixteen-entry sign table only inspects bounded constants. Packet multiplication materializes all four coordinate runs once and one positive denominator product once. Its decoded raw numerator vector and denominator equal IntegerPacket.mul exactly. From input packet heights B, the explicit nested Boolean/list/record action model is bounded by 6200(B+2)^2. No four-independent-denominator representation is introduced.
+
+Packet inverse materializes four signed normalizers once, flipping the three imaginary-coordinate signs. It decodes exactly to IntegerPacket.inverse and preserves canonical zero signs. Input height B gives an explicit action bound 40(B+3). List values are shared immutable inputs; copying all cells and evaluating annotations are separate implementation issues.
+
+This scope has guarded narrow author checks only, with no new standard aggregate or independent-kernel claim. All earlier files remain byte-identical and the frozen raw-resource audit does not import these additions. Tuple common-denominator assembly, distance/selector nodes, literal/input encoding, the whole AST composition, structure/cache/provider construction and fixed-library provider execution costs remain open. No complete compiler machine-time theorem is asserted.
