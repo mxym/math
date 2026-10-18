@@ -1,0 +1,9 @@
+import SchurMinimax.TargetAsymptotics
+#print axioms ExtractionSchur.exact_fixedOrbit_physical_budget
+#print axioms ExtractionSchur.exactRankBudgetMaximum_attained
+#print axioms ExtractionSchur.exactRankBudgetMaximum_bounds
+#print axioms ExtractionSchur.errorRankBudgetMaximum_attained
+#print axioms ExtractionSchur.errorRankBudgetMaximum_isGreatest
+#print axioms ExtractionSchur.exactRankBudgetMaximum_log_correction_limit
+#print axioms ExtractionSchur.exactRankBudgetMaximum_eventually_local
+#print axioms ExtractionSchur.errorRankBudgetMaximum_log_limit

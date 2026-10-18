@@ -2,3 +2,10 @@ import SchurMinimax.Finite
 import SchurMinimax.Packing
 import SchurMinimax.Uniform
 import SchurMinimax.FullRank
+import SchurMinimax.Targets
+import SchurMinimax.ErrorTargets
+import SchurMinimax.TargetAsymptotics
+import SchurMinimax.OrbitTargets
+import SchurMinimax.FlatOrbit
+import SchurMinimax.FlatErrorTargets
+import SchurMinimax.FullRankTargets

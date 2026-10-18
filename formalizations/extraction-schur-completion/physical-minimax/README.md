@@ -63,3 +63,12 @@ Classical.choice, Quot.sound. Owned sources contain no sorry/admit/new axiom.
 SOURCE_SHA256.json hashes owned Lean sources and package configuration.
 Status is BUILD_ONLY. Independent audit, integration and manuscript review
 are separate root tasks; no publication/push has been performed.
+
+Actual natural maximum target and known-spectrum orbit corollaries are now
+formalized as well. See MILESTONE_ORBIT_TARGETS_20261019.md for the exact
+existential protocol definitions, attained maxima, logarithmic corrections,
+arbitrary-spectrum exact orbit bounds, flat-spectrum fixed-error/profile
+results, and full-rank finite formulas. Aggregate + all three check modules
+PASS 3857 jobs in 20261018T170425019921Z-physical-minimax.log. The current
+ROOTS_THEOREMS.txt has 34 roots, all with only the standard three axioms.
+Earlier milestone job/root counts above describe their historical builds.

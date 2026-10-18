@@ -1,0 +1,18 @@
+import SchurMinimax.FullRankTargets
+#print axioms ExtractionSchur.orbitExactMaximum_attained
+#print axioms ExtractionSchur.orbitExactMaximum_isGreatest
+#print axioms ExtractionSchur.orbitExactMaximum_bounds
+#print axioms ExtractionSchur.orbitExactMaximum_log_correction_limit
+#print axioms ExtractionSchur.orbitExactMaximum_eventually_local
+#print axioms ExtractionSchur.flatOrbit_minimax_profile_bounds
+#print axioms ExtractionSchur.flatOrbit_target_uniform_minimax
+#print axioms ExtractionSchur.flatOrbit_target_uniform_relative_error
+#print axioms ExtractionSchur.flatOrbitErrorMaximum_attained
+#print axioms ExtractionSchur.flatOrbitErrorMaximum_isGreatest
+#print axioms ExtractionSchur.flatOrbitErrorMaximum_bounds
+#print axioms ExtractionSchur.flatOrbitErrorMaximum_log_limit
+#print axioms ExtractionSchur.exactRankBudgetMaximum_full_rank
+#print axioms ExtractionSchur.errorRankBudgetMaximum_full_rank
+#print axioms ExtractionSchur.orbitExactMaximum_full_rank
+#print axioms ExtractionSchur.flatOrbit_full_rank_minimax
+#print axioms ExtractionSchur.flatOrbitErrorMaximum_full_rank
