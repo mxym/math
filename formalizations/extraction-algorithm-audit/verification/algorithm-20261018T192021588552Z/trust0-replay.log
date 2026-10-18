@@ -1,0 +1,2163 @@
+EMPTY_KERNEL_REPLAY_PASS 56276 declarations; 735 roots; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.normalizedIntertwinerOracle_correct':
+(kernel) declaration type mismatch, 'CircuitRecursion.normalizedIntertwinerOracle_correct' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 17624 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.normalizedIntertwinerOracle_correct
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.normalizedIntertwinerOracle_correct
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.chooseChart_denominator':
+(kernel) declaration type mismatch, 'CircuitRecursion.chooseChart_denominator' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 29650 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.chooseChart_denominator
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.chooseChart_denominator
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.residualSmall_correct':
+(kernel) declaration type mismatch, 'CircuitRecursion.residualSmall_correct' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 28915 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.residualSmall_correct
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.residualSmall_correct
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.conditionedFactors_correct':
+(kernel) declaration type mismatch, 'CircuitRecursion.conditionedFactors_correct' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 29025 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.conditionedFactors_correct
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.conditionedFactors_correct
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.numericalCorrection_error':
+(kernel) declaration type mismatch, 'CircuitRecursion.numericalCorrection_error' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 29039 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.numericalCorrection_error
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.numericalCorrection_error
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.numericalDoubleCorrection_error':
+(kernel) declaration type mismatch, 'CircuitRecursion.numericalDoubleCorrection_error' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 29039 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.numericalDoubleCorrection_error
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.numericalDoubleCorrection_error
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.numericalPairWord_error':
+(kernel) declaration type mismatch, 'CircuitRecursion.numericalPairWord_error' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 29047 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.numericalPairWord_error
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.numericalPairWord_error
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.numericalSU2Synthesis_dyadic':
+(kernel) declaration type mismatch, 'CircuitRecursion.numericalSU2Synthesis_dyadic' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 29081 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.numericalSU2Synthesis_dyadic
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.numericalSU2Synthesis_dyadic
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.numericalPairWord_agrees':
+(kernel) declaration type mismatch, 'CircuitRecursion.numericalPairWord_agrees' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry entry' : Fin m → CircuitRecursion.QuaternionOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L : Nat) →
+            ((j : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) →
+                @LE.le Nat instLENat (@List.length (Fin m) (@table j)) L) →
+              (k : Nat) →
+                ((i : Fin m) →
+                    @CircuitRecursion.AgreesThrough (@List.Vector Rat 4) (entry i) (entry' i)
+                      (CircuitRecursion.numericalDemand L k)) →
+                  (f f' : CircuitRecursion.QuaternionOracle) →
+                    @CircuitRecursion.AgreesThrough (@List.Vector Rat 4) f f' (CircuitRecursion.numericalDemand L k) →
+                      @Eq (@List (Fin m)) (CircuitRecursion.numericalPairWord m n entry inverseLabel table k f)
+                        (CircuitRecursion.numericalPairWord m n entry' inverseLabel table k f')
+TYPE_CLOSURE_REPLAY_PASS 4181 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.numericalPairWord_agrees
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.numericalPairWord_agrees
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.numericalDemand_precision_bound':
+(kernel) declaration type mismatch, 'CircuitRecursion.numericalDemand_precision_bound' has type
+  True
+but it is expected to have type
+  (L p : Nat) →
+    @LE.le Nat instLENat
+      (CircuitRecursion.numericalDemand L (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1)))
+      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 51200000
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L 1))
+        (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1) 9))
+TYPE_CLOSURE_REPLAY_PASS 429 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.numericalDemand_precision_bound
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.numericalDemand_precision_bound
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.cachedNumericalRun_word':
+(kernel) declaration type mismatch, 'CircuitRecursion.cachedNumericalRun_word' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.QuaternionOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L p : Nat) →
+            ((j : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) →
+                @LE.le Nat instLENat (@List.length (Fin m) (@table j)) L) →
+              (f : CircuitRecursion.QuaternionOracle) →
+                @Eq (@List (Fin m))
+                  (CircuitRecursion.CachedWordResult.word m
+                    (CircuitRecursion.cachedNumericalRun m n entry inverseLabel table L p f))
+                  (CircuitRecursion.numericalPairWord m n entry inverseLabel table
+                    (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1)) f)
+TYPE_CLOSURE_REPLAY_PASS 4198 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.cachedNumericalRun_word
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.cachedNumericalRun_word
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.cachedNumericalRun_query_bounds':
+(kernel) declaration type mismatch, 'CircuitRecursion.cachedNumericalRun_query_bounds' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.QuaternionOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L p : Nat) →
+            (f : CircuitRecursion.QuaternionOracle) →
+              And
+                (@LE.le Nat instLENat
+                  (@List.length (@Prod (Fin m) Nat)
+                    (CircuitRecursion.CachedWordResult.gateRequests m
+                      (CircuitRecursion.cachedNumericalRun m n entry inverseLabel table L p f)))
+                  (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) m
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (CircuitRecursion.cachePrecisionBudget L p) 1)))
+                (@LE.le Nat instLENat
+                  (@List.length Nat
+                    (CircuitRecursion.CachedWordResult.targetRequests m
+                      (CircuitRecursion.cachedNumericalRun m n entry inverseLabel table L p f)))
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (CircuitRecursion.cachePrecisionBudget L p) 1))
+TYPE_CLOSURE_REPLAY_PASS 4200 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.cachedNumericalRun_query_bounds
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.cachedNumericalRun_query_bounds
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.cachedInputBits_precision_bound':
+(kernel) declaration type mismatch, 'CircuitRecursion.cachedInputBits_precision_bound' has type
+  True
+but it is expected to have type
+  {m : Nat} →
+    (entry : Fin m → CircuitRecursion.DyadicQuaternionOracle) →
+      (G :
+          Fin m →
+            @Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+              @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2)))))
+                (@SetLike.instMembership
+                  (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@Matrix.semiring (Fin 2) Complex
+                          (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                          (Fin.fintype 2) (instDecidableEqFin 2)))))
+                  (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@Matrix.semiring (Fin 2) Complex
+                          (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                          (Fin.fintype 2) (instDecidableEqFin 2))))))
+                CircuitRecursion.SU2 x) →
+        ((i : Fin m) → CircuitRecursion.DyadicQApproximates (entry i) (@G i)) →
+          (f : CircuitRecursion.DyadicQuaternionOracle) →
+            (U :
+                @Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+                  @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                          (@Matrix.semiring (Fin 2) Complex
+                            (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                            (Fin.fintype 2) (instDecidableEqFin 2)))))
+                    (@SetLike.instMembership
+                      (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                          (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                            (@Matrix.semiring (Fin 2) Complex
+                              (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                              (Fin.fintype 2) (instDecidableEqFin 2)))))
+                      (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                          (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                            (@Matrix.semiring (Fin 2) Complex
+                              (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                              (Fin.fintype 2) (instDecidableEqFin 2))))))
+                    CircuitRecursion.SU2 x) →
+              CircuitRecursion.DyadicQApproximates f U →
+                (L p : Nat) →
+                  @LE.le Nat instLENat
+                    (CircuitRecursion.cachedInputBits m entry f
+                      (CircuitRecursion.numericalDemand L
+                        (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1))))
+                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 4
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) m 1))
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (CircuitRecursion.cachePrecisionBudget L p)
+                          1))
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (CircuitRecursion.cachePrecisionBudget L p) 3))
+TYPE_CLOSURE_REPLAY_PASS 10390 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.cachedInputBits_precision_bound
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.cachedInputBits_precision_bound
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.ScalarExpression.run_correct':
+(kernel) declaration type mismatch, 'CircuitRecursion.ScalarExpression.run_correct' has type
+  True
+but it is expected to have type
+  (e : CircuitRecursion.ScalarExpression) →
+    @Eq Rat (CircuitRecursion.ScalarExpression.run e) (CircuitRecursion.ScalarExpression.eval e)
+TYPE_CLOSURE_REPLAY_PASS 4163 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.ScalarExpression.run_correct
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.ScalarExpression.run_correct
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.PacketExpression.run_correct':
+(kernel) declaration type mismatch, 'CircuitRecursion.PacketExpression.run_correct' has type
+  True
+but it is expected to have type
+  (e : CircuitRecursion.PacketExpression) →
+    @Eq (@List.Vector Rat 4) (CircuitRecursion.PacketExpression.run e) (CircuitRecursion.PacketExpression.eval e)
+TYPE_CLOSURE_REPLAY_PASS 4163 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.PacketExpression.run_correct
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.PacketExpression.run_correct
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.tracedPairWord_word':
+(kernel) declaration type mismatch, 'CircuitRecursion.tracedPairWord_word' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.PacketExpressionOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (k : Nat) →
+            (f : CircuitRecursion.PacketExpressionOracle) →
+              @Eq (@List (Fin m))
+                (CircuitRecursion.ArithmeticWordResult.word m
+                  (CircuitRecursion.tracedPairWord m n entry inverseLabel table k f))
+                (CircuitRecursion.numericalPairWord m n (fun i => CircuitRecursion.evaluatePacketOracle (entry i))
+                  inverseLabel table k (CircuitRecursion.evaluatePacketOracle f))
+TYPE_CLOSURE_REPLAY_PASS 4256 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.tracedPairWord_word
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.tracedPairWord_word
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.ArithmeticWordResult.executedOperations_le':
+(kernel) declaration type mismatch, 'CircuitRecursion.ArithmeticWordResult.executedOperations_le' has type
+  True
+but it is expected to have type
+  {m : Nat} →
+    (r : CircuitRecursion.ArithmeticWordResult m) →
+      @LE.le Nat instLENat (CircuitRecursion.ArithmeticWordResult.executedOperations m r)
+        (CircuitRecursion.ArithmeticWordResult.operations m r)
+TYPE_CLOSURE_REPLAY_PASS 4179 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.ArithmeticWordResult.executedOperations_le
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.ArithmeticWordResult.executedOperations_le
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.cachedArithmeticRun_word':
+(kernel) declaration type mismatch, 'CircuitRecursion.cachedArithmeticRun_word' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.QuaternionOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L p : Nat) →
+            (f : CircuitRecursion.QuaternionOracle) →
+              @Eq (@List (Fin m))
+                (CircuitRecursion.ArithmeticWordResult.word m
+                  (CircuitRecursion.cachedArithmeticRun m n entry inverseLabel table L p f))
+                (CircuitRecursion.CachedWordResult.word m
+                  (CircuitRecursion.cachedNumericalRun m n entry inverseLabel table L p f))
+TYPE_CLOSURE_REPLAY_PASS 4270 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.cachedArithmeticRun_word
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.cachedArithmeticRun_word
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.cachedArithmeticSU2Synthesis':
+(kernel) declaration type mismatch, 'CircuitRecursion.cachedArithmeticSU2Synthesis' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 29124 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.cachedArithmeticSU2Synthesis
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.cachedArithmeticSU2Synthesis
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.IntegerPacket.mul_value':
+(kernel) declaration type mismatch, 'CircuitRecursion.IntegerPacket.mul_value' has type
+  True
+but it is expected to have type
+  (a b : CircuitRecursion.IntegerPacket) →
+    @Eq (@List.Vector Rat 4) (CircuitRecursion.IntegerPacket.value (CircuitRecursion.IntegerPacket.mul a b))
+      (@List.Vector.ofFn Rat 4
+        (@CircuitRecursion.quaternionProduct Rat Rat.commRing
+          (@List.Vector.get Rat 4 (CircuitRecursion.IntegerPacket.value a))
+          (@List.Vector.get Rat 4 (CircuitRecursion.IntegerPacket.value b))))
+TYPE_CLOSURE_REPLAY_PASS 2865 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.IntegerPacket.mul_value
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.IntegerPacket.mul_value
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.IntegerPacket.mul_height':
+(kernel) declaration type mismatch, 'CircuitRecursion.IntegerPacket.mul_height' has type
+  True
+but it is expected to have type
+  (a b : CircuitRecursion.IntegerPacket) →
+    (A B : Nat) →
+      CircuitRecursion.IntegerPacketHeight a A →
+        CircuitRecursion.IntegerPacketHeight b B →
+          CircuitRecursion.IntegerPacketHeight (CircuitRecursion.IntegerPacket.mul a b)
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) A B)
+              2)
+TYPE_CLOSURE_REPLAY_PASS 2261 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.IntegerPacket.mul_height
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.IntegerPacket.mul_height
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.cachedIntegerPacketWord_value':
+(kernel) declaration type mismatch, 'CircuitRecursion.cachedIntegerPacketWord_value' has type
+  True
+but it is expected to have type
+  {m : Nat} →
+    (entry : Fin m → CircuitRecursion.DyadicQuaternionOracle) →
+      (P : Nat) →
+        (w : @List (Fin m)) →
+          @Eq CircuitRecursion.QuaternionOracle
+            (CircuitRecursion.integerPacketOracle
+              (CircuitRecursion.integerPacketWord m (fun i => CircuitRecursion.cachedIntegerPacket (entry i) P) w))
+            (CircuitRecursion.quaternionWordOracle m
+              (fun i =>
+                CircuitRecursion.readPacketCache P
+                  (@Prod.fst (@List.Vector (@List.Vector Rat 4) (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) P 1))
+                    (@List Nat)
+                    (CircuitRecursion.buildPacketCache (CircuitRecursion.dyadicQuaternionOracle (entry i)) P)))
+              w)
+TYPE_CLOSURE_REPLAY_PASS 4316 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.cachedIntegerPacketWord_value
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.cachedIntegerPacketWord_value
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.cachedSynthesisWord_integerHeight':
+(kernel) declaration type mismatch, 'CircuitRecursion.cachedSynthesisWord_integerHeight' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.DyadicQuaternionOracle) →
+      (G :
+          Fin m →
+            @Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+              @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2)))))
+                (@SetLike.instMembership
+                  (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@Matrix.semiring (Fin 2) Complex
+                          (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                          (Fin.fintype 2) (instDecidableEqFin 2)))))
+                  (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@Matrix.semiring (Fin 2) Complex
+                          (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                          (Fin.fintype 2) (instDecidableEqFin 2))))))
+                CircuitRecursion.SU2 x) →
+        ((i : Fin m) → CircuitRecursion.DyadicQApproximates (entry i) (@G i)) →
+          (inverseLabel : Fin m → Fin m) →
+            (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+              (L p : Nat) →
+                ((j : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) →
+                    @LE.le Nat instLENat (@List.length (Fin m) (@table j)) L) →
+                  (f : CircuitRecursion.DyadicQuaternionOracle) →
+                    (q : Nat) →
+                      have P :=
+                        CircuitRecursion.numericalDemand L
+                          (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1));
+                      have w :=
+                        CircuitRecursion.ArithmeticWordResult.word m
+                          (CircuitRecursion.cachedArithmeticRun m n
+                            (fun i => CircuitRecursion.dyadicQuaternionOracle (entry i)) inverseLabel table L p
+                            (CircuitRecursion.dyadicQuaternionOracle f));
+                      CircuitRecursion.IntegerPacketHeight
+                        (CircuitRecursion.integerPacketWord m
+                          (fun i => CircuitRecursion.cachedIntegerPacket (entry i) P) w q)
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (CircuitRecursion.cachePrecisionBudget L p)
+                            3)
+                          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 32 L)
+                            (@HPow.hPow Nat Nat Nat
+                              (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1) 5)))
+TYPE_CLOSURE_REPLAY_PASS 10945 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.cachedSynthesisWord_integerHeight
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.cachedSynthesisWord_integerHeight
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.IntegerPacketHeight.binary_bounds':
+(kernel) declaration type mismatch, 'CircuitRecursion.IntegerPacketHeight.binary_bounds' has type
+  True
+but it is expected to have type
+  (a : CircuitRecursion.IntegerPacket) →
+    (B : Nat) →
+      CircuitRecursion.IntegerPacketHeight a B →
+        And
+          (@LE.le Nat instLENat
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+              (Nat.clog 2
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (CircuitRecursion.IntegerPacket.denominator a) 1))
+              1)
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) B 2))
+          ((i : Fin 4) →
+            @LE.le Nat instLENat
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                (Nat.clog 2
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                    (Int.natAbs (@List.Vector.get Int 4 (CircuitRecursion.IntegerPacket.numerators a) i)) 1))
+                1)
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) B 2))
+TYPE_CLOSURE_REPLAY_PASS 453 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.IntegerPacketHeight.binary_bounds
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.IntegerPacketHeight.binary_bounds
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.IntegerScalar.inv_value':
+(kernel) declaration type mismatch, 'CircuitRecursion.IntegerScalar.inv_value' has type
+  True
+but it is expected to have type
+  (a : CircuitRecursion.IntegerScalar) →
+    @Eq Rat (CircuitRecursion.IntegerScalar.value (CircuitRecursion.IntegerScalar.inv a))
+      (@Inv.inv Rat Rat.instInv (CircuitRecursion.IntegerScalar.value a))
+TYPE_CLOSURE_REPLAY_PASS 1733 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.IntegerScalar.inv_value
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.IntegerScalar.inv_value
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.IntegerScalar.root_value':
+(kernel) declaration type mismatch, 'CircuitRecursion.IntegerScalar.root_value' has type
+  True
+but it is expected to have type
+  (a : CircuitRecursion.IntegerScalar) →
+    (p : Nat) →
+      @Eq Rat (CircuitRecursion.IntegerScalar.value (CircuitRecursion.IntegerScalar.root a p))
+        (CircuitRecursion.rationalSqrtApprox (CircuitRecursion.IntegerScalar.value a) p)
+TYPE_CLOSURE_REPLAY_PASS 4900 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.IntegerScalar.root_value
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.IntegerScalar.root_value
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.IntegerScalar.root_height':
+(kernel) declaration type mismatch, 'CircuitRecursion.IntegerScalar.root_height' has type
+  True
+but it is expected to have type
+  (a : CircuitRecursion.IntegerScalar) →
+    (A p : Nat) →
+      CircuitRecursion.IntegerScalarHeight a A →
+        CircuitRecursion.IntegerScalarHeight (CircuitRecursion.IntegerScalar.root a p)
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) A (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2 p))
+TYPE_CLOSURE_REPLAY_PASS 2437 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.IntegerScalar.root_height
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.IntegerScalar.root_height
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.IntegerPacket.ofScalars_value':
+(kernel) declaration type mismatch, 'CircuitRecursion.IntegerPacket.ofScalars_value' has type
+  True
+but it is expected to have type
+  (s : Fin 4 → CircuitRecursion.IntegerScalar) →
+    @Eq (@List.Vector Rat 4) (CircuitRecursion.IntegerPacket.value (CircuitRecursion.IntegerPacket.ofScalars s))
+      (@List.Vector.ofFn Rat 4 fun i => CircuitRecursion.IntegerScalar.value (s i))
+TYPE_CLOSURE_REPLAY_PASS 2719 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.IntegerPacket.ofScalars_value
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.IntegerPacket.ofScalars_value
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.IntegerPacket.distanceScalar_height':
+(kernel) declaration type mismatch, 'CircuitRecursion.IntegerPacket.distanceScalar_height' has type
+  True
+but it is expected to have type
+  (a b : CircuitRecursion.IntegerPacket) →
+    (A B : Nat) →
+      CircuitRecursion.IntegerPacketHeight a A →
+        CircuitRecursion.IntegerPacketHeight b B →
+          CircuitRecursion.IntegerScalarHeight (CircuitRecursion.IntegerPacket.distanceScalar a b)
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2 A)
+                (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2 B))
+              4)
+TYPE_CLOSURE_REPLAY_PASS 2390 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.IntegerPacket.distanceScalar_height
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.IntegerPacket.distanceScalar_height
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.ScalarExpression.integerRun_correct':
+(kernel) declaration type mismatch, 'CircuitRecursion.ScalarExpression.integerRun_correct' has type
+  True
+but it is expected to have type
+  (e : CircuitRecursion.ScalarExpression) →
+    @Eq Rat (CircuitRecursion.IntegerScalar.value (CircuitRecursion.ScalarExpression.integerRun e))
+      (CircuitRecursion.ScalarExpression.eval e)
+TYPE_CLOSURE_REPLAY_PASS 5461 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.ScalarExpression.integerRun_correct
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.ScalarExpression.integerRun_correct
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.PacketExpression.integerRun_correct':
+(kernel) declaration type mismatch, 'CircuitRecursion.PacketExpression.integerRun_correct' has type
+  True
+but it is expected to have type
+  (e : CircuitRecursion.PacketExpression) →
+    @Eq (@List.Vector Rat 4) (CircuitRecursion.IntegerPacket.value (CircuitRecursion.PacketExpression.integerRun e))
+      (CircuitRecursion.PacketExpression.eval e)
+TYPE_CLOSURE_REPLAY_PASS 5466 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.PacketExpression.integerRun_correct
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.PacketExpression.integerRun_correct
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.ScalarExpression.integerRun_height':
+(kernel) declaration type mismatch, 'CircuitRecursion.ScalarExpression.integerRun_height' has type
+  True
+but it is expected to have type
+  (e : CircuitRecursion.ScalarExpression) →
+    CircuitRecursion.IntegerScalarHeight (CircuitRecursion.ScalarExpression.integerRun e)
+      (CircuitRecursion.ScalarExpression.integerBitBudget e)
+TYPE_CLOSURE_REPLAY_PASS 4214 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.ScalarExpression.integerRun_height
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.ScalarExpression.integerRun_height
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.PacketExpression.integerRun_height':
+(kernel) declaration type mismatch, 'CircuitRecursion.PacketExpression.integerRun_height' has type
+  True
+but it is expected to have type
+  (e : CircuitRecursion.PacketExpression) →
+    CircuitRecursion.IntegerPacketHeight (CircuitRecursion.PacketExpression.integerRun e)
+      (CircuitRecursion.PacketExpression.integerBitBudget e)
+TYPE_CLOSURE_REPLAY_PASS 4214 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.PacketExpression.integerRun_height
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.PacketExpression.integerRun_height
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.bitNormalized_bound':
+(kernel) declaration type mismatch, 'CircuitRecursion.bitNormalized_bound' has type
+  True
+but it is expected to have type
+  (f g : CircuitRecursion.PacketExpressionOracle) →
+    (e d : CircuitRecursion.BitEnvelope) →
+      CircuitRecursion.PacketBitEnvelope f e →
+        CircuitRecursion.PacketBitEnvelope g d →
+          (t : Nat) →
+            (j : Fin 4) →
+              CircuitRecursion.PacketBitEnvelope (CircuitRecursion.expressionNormalized f g t j)
+                (CircuitRecursion.bitNormalizedEnvelope e d t)
+TYPE_CLOSURE_REPLAY_PASS 2125 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.bitNormalized_bound
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.bitNormalized_bound
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.fixedFactor_integerBitBudget':
+(kernel) declaration type mismatch, 'CircuitRecursion.fixedFactor_integerBitBudget' has type
+  True
+but it is expected to have type
+  (f : CircuitRecursion.PacketExpressionOracle) →
+    (C t p : Nat) →
+      CircuitRecursion.PacketBitEnvelope f (@Prod.mk Nat Nat 0 C) →
+        And
+          (@LE.le Nat instLENat
+            (CircuitRecursion.PacketExpression.integerBitBudget (CircuitRecursion.expressionFactorX f t p))
+            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1000000
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) C p) t)
+                1)))
+          (@LE.le Nat instLENat
+            (CircuitRecursion.PacketExpression.integerBitBudget (CircuitRecursion.expressionFactorY f t p))
+            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1000000
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) C p) t)
+                1)))
+TYPE_CLOSURE_REPLAY_PASS 2145 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.fixedFactor_integerBitBudget
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.fixedFactor_integerBitBudget
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.cachedResidualFactor_integerHeight':
+(kernel) declaration type mismatch, 'CircuitRecursion.cachedResidualFactor_integerHeight' has type
+  True
+but it is expected to have type
+  {m : Nat} →
+    (entry : Fin m → CircuitRecursion.DyadicQuaternionOracle) →
+      (G :
+          Fin m →
+            @Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+              @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2)))))
+                (@SetLike.instMembership
+                  (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@Matrix.semiring (Fin 2) Complex
+                          (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                          (Fin.fintype 2) (instDecidableEqFin 2)))))
+                  (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@Matrix.semiring (Fin 2) Complex
+                          (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                          (Fin.fintype 2) (instDecidableEqFin 2))))))
+                CircuitRecursion.SU2 x) →
+        ((i : Fin m) → CircuitRecursion.DyadicQApproximates (entry i) (@G i)) →
+          (f : CircuitRecursion.DyadicQuaternionOracle) →
+            (U :
+                @Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+                  @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                          (@Matrix.semiring (Fin 2) Complex
+                            (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                            (Fin.fintype 2) (instDecidableEqFin 2)))))
+                    (@SetLike.instMembership
+                      (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                          (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                            (@Matrix.semiring (Fin 2) Complex
+                              (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                              (Fin.fintype 2) (instDecidableEqFin 2)))))
+                      (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                        (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                          (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                            (@Matrix.semiring (Fin 2) Complex
+                              (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                              (Fin.fintype 2) (instDecidableEqFin 2))))))
+                    CircuitRecursion.SU2 x) →
+              CircuitRecursion.DyadicQApproximates f U →
+                (P t p : Nat) →
+                  (w : @List (Fin m)) →
+                    have r :=
+                      CircuitRecursion.expressionPacketMul (CircuitRecursion.cachedPacketExpression f P)
+                        (CircuitRecursion.expressionPacketInverse
+                          (CircuitRecursion.expressionWord m
+                            (fun i => CircuitRecursion.cachedPacketExpression (entry i) P) w));
+                    And
+                      (CircuitRecursion.IntegerPacketHeight
+                        (CircuitRecursion.PacketExpression.integerRun (CircuitRecursion.expressionFactorX r t p))
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1000000
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 4
+                                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) P 2))
+                                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 4
+                                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) P 2))
+                                        2)
+                                      (@List.length (Fin m) w)))
+                                  6)
+                                p)
+                              t)
+                            1)))
+                      (CircuitRecursion.IntegerPacketHeight
+                        (CircuitRecursion.PacketExpression.integerRun (CircuitRecursion.expressionFactorY r t p))
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1000000
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 4
+                                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) P 2))
+                                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 4
+                                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) P 2))
+                                        2)
+                                      (@List.length (Fin m) w)))
+                                  6)
+                                p)
+                              t)
+                            1)))
+TYPE_CLOSURE_REPLAY_PASS 10876 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED CircuitRecursion.cachedResidualFactor_integerHeight
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.cachedResidualFactor_integerHeight
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.occupations_length':
+(kernel) declaration type mismatch, 'EffectiveEncoding.occupations_length' has type
+  True
+but it is expected to have type
+  (k : Nat) →
+    @Eq Nat (@List.length (@Sym (Fin 4) k) (EffectiveEncoding.occupations k)) (CircuitCompletion.occupationRank k)
+TYPE_CLOSURE_REPLAY_PASS 1742 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.occupations_length
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.occupations_length
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.unrank_rank':
+(kernel) declaration type mismatch, 'EffectiveEncoding.unrank_rank' has type
+  True
+but it is expected to have type
+  {k : Nat} → (ν : @Sym (Fin 4) k) → @Eq (@Sym (Fin 4) k) (EffectiveEncoding.unrank k (EffectiveEncoding.rank k ν)) ν
+TYPE_CLOSURE_REPLAY_PASS 17394 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.unrank_rank
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.unrank_rank
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.decode_some_iff':
+(kernel) declaration type mismatch, 'EffectiveEncoding.decode_some_iff' has type
+  True
+but it is expected to have type
+  {k : Nat} →
+    (b : CircuitCompletion.Bits (CircuitRecursion.codeWires k)) →
+      (ν : @Sym (Fin 4) k) →
+        Iff (@Eq (@Option (@Sym (Fin 4) k)) (EffectiveEncoding.decode k b) (@Option.some (@Sym (Fin 4) k) ν))
+          (@Eq (CircuitCompletion.Bits (CircuitRecursion.codeWires k))
+            (@DFunLike.coe
+              (@Function.Embedding (@Sym (Fin 4) k) (CircuitCompletion.Bits (CircuitRecursion.codeWires k)))
+              (@Sym (Fin 4) k) (fun x => CircuitCompletion.Bits (CircuitRecursion.codeWires k))
+              (@Function.instFunLikeEmbedding (@Sym (Fin 4) k) (CircuitCompletion.Bits (CircuitRecursion.codeWires k)))
+              (EffectiveEncoding.compactEncoding k) ν)
+            b)
+TYPE_CLOSURE_REPLAY_PASS 17553 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.decode_some_iff
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.decode_some_iff
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.alignmentCode_on_embedding':
+(kernel) declaration type mismatch, 'EffectiveEncoding.alignmentCode_on_embedding' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    [@DecidableEq ι] →
+      {n : Nat} →
+        (hn : @LT.lt Nat instLTNat 0 n) →
+          (e f : @Function.Embedding ι (CircuitCompletion.Bits n)) →
+            (xs : @List ι) →
+              ((i : ι) → @Membership.mem ι (@List ι) (@List.instMembership ι) xs i) →
+                (i : ι) →
+                  (a : Complex) →
+                    @Eq (CircuitCompletion.Bits n → Complex)
+                      (CircuitCompletion.run n
+                        (EffectiveEncoding.interpret n (@EffectiveEncoding.alignmentCode ι n hn e f xs 1))
+                        (@Pi.single (CircuitCompletion.Bits n) (fun a => Complex) (fun i => Complex.instZero)
+                          (fun a b =>
+                            @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                              (Fin.fintype n) a b)
+                          (@DFunLike.coe (@Function.Embedding ι (CircuitCompletion.Bits n)) ι
+                            (fun x => CircuitCompletion.Bits n)
+                            (@Function.instFunLikeEmbedding ι (CircuitCompletion.Bits n)) e i)
+                          a))
+                      (@Pi.single (CircuitCompletion.Bits n) (fun j => Complex) (fun i => Complex.instZero)
+                        (fun a b =>
+                          @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                            (Fin.fintype n) a b)
+                        (@DFunLike.coe (@Function.Embedding ι (CircuitCompletion.Bits n)) ι
+                          (fun x => CircuitCompletion.Bits n)
+                          (@Function.instFunLikeEmbedding ι (CircuitCompletion.Bits n)) f i)
+                        a)
+TYPE_CLOSURE_REPLAY_PASS 18483 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.alignmentCode_on_embedding
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.alignmentCode_on_embedding
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.integerIndexedCode_action':
+(kernel) declaration type mismatch, 'EffectiveEncoding.integerIndexedCode_action' has type
+  True
+but it is expected to have type
+  {ι : Type u_1} →
+    [inst : @Fintype ι] →
+      [inst_1 : @LinearOrder ι] →
+        {n : Nat} →
+          (hn : @LT.lt Nat instLTNat 0 n) →
+            (e : @Function.Embedding ι (CircuitCompletion.Bits n)) →
+              (c : ι → Nat) →
+                (p : ι) →
+                  (j : Nat) →
+                    @Eq Real
+                        (@Finset.sum ι Real Real.instAddCommMonoid (@Finset.univ ι inst) fun i =>
+                          @HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                            (@Nat.cast Real Real.instNatCast (c i)) (@Nat.cast Real Real.instNatCast j))
+                        1 →
+                      @Eq (CircuitCompletion.Bits n → Complex)
+                        (CircuitCompletion.run n
+                          (EffectiveEncoding.interpret n
+                            (@EffectiveEncoding.integerIndexedCode ι inst inst_1 n hn e c p j))
+                          (@Matrix.mulVec (CircuitCompletion.Bits n) ι Complex
+                            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+                              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+                                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))
+                            inst
+                            (@Extraction.coordinateIsometry (CircuitCompletion.Bits n) ι
+                              (fun a b =>
+                                @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                                  (Fin.fintype n) a b)
+                              e)
+                            fun i =>
+                            Complex.ofReal
+                              (Real.sqrt
+                                (@HDiv.hDiv Real Real Real
+                                  (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                  (@Nat.cast Real Real.instNatCast (c i)) (@Nat.cast Real Real.instNatCast j)))))
+                        (@Pi.single (CircuitCompletion.Bits n) (fun j => Complex) (fun i => Complex.instZero)
+                          (fun a b =>
+                            @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                              (Fin.fintype n) a b)
+                          (@DFunLike.coe (@Function.Embedding ι (CircuitCompletion.Bits n)) ι
+                            (fun x => CircuitCompletion.Bits n)
+                            (@Function.instFunLikeEmbedding ι (CircuitCompletion.Bits n)) e p)
+                          1)
+TYPE_CLOSURE_REPLAY_PASS 18505 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.integerIndexedCode_action
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.integerIndexedCode_action
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.branchCode_action':
+(kernel) declaration type mismatch, 'EffectiveEncoding.branchCode_action' has type
+  True
+but it is expected to have type
+  {k q : Nat} →
+    (enc : @Function.Embedding (@Sym (Fin 4) k) (CircuitCompletion.Bits q)) →
+      (ν : @Sym (Fin 4) (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 1)) →
+        @Eq (CircuitCompletion.Bits (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) 2 q) → Complex)
+          (CircuitCompletion.run (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) 2 q)
+            (EffectiveEncoding.interpret (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) 2 q)
+              (EffectiveEncoding.branchCode k q enc ν))
+            (CircuitCompletion.encodedBranch k q enc ν))
+          (@Pi.single (CircuitCompletion.Bits (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) 2 q))
+            (fun j => Complex) (fun i => Complex.instZero)
+            (fun a b =>
+              @Fintype.decidablePiFintype (Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) 2 q)) (fun a => Bool)
+                (fun a => instDecidableEqBool) (Fin.fintype (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) 2 q)) a
+                b)
+            (EffectiveEncoding.pivotCoordinates k q enc ν) 1)
+TYPE_CLOSURE_REPLAY_PASS 18680 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.branchCode_action
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.branchCode_action
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.compressionCircuit_purePower':
+(kernel) declaration type mismatch, 'EffectiveEncoding.compressionCircuit_purePower' has type
+  True
+but it is expected to have type
+  (k : Nat) →
+    (z : Fin 4 → Complex) →
+      @Eq (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k) → Complex)
+        (CircuitCompletion.run (CircuitCompletion.originalWireCount k) (EffectiveEncoding.compressionCircuit k)
+          (CircuitRecursion.bitPurePower k z))
+        (@Matrix.mulVec (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) (@Sym (Fin 4) k) Complex
+          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring Complex
+            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing Complex
+              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing Complex Complex.instNonUnitalCommRing)))
+          (@Sym.instFintype (Fin 4) (instDecidableEqFin 4) (Fin.fintype 4) k)
+          (@Extraction.coordinateIsometry (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+            (@Sym (Fin 4) k)
+            (fun a b =>
+              @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                (fun a => instDecidableEqBool) (Fin.fintype (CircuitCompletion.originalWireCount k)) a b)
+            (EffectiveEncoding.originalEncoding k))
+          (CircuitRecursion.pureOccupationCoefficients k z))
+TYPE_CLOSURE_REPLAY_PASS 24716 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.compressionCircuit_purePower
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.compressionCircuit_purePower
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.extractionCircuit_gate':
+(kernel) declaration type mismatch, 'EffectiveEncoding.extractionCircuit_gate' has type
+  True
+but it is expected to have type
+  {k : Nat} →
+    (i :
+        Fin
+          (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+            (EffectiveEncoding.extractionCode k))) →
+      @Eq (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+        (@GetElem.getElem (CircuitCompletion.Circuit (CircuitCompletion.originalWireCount k)) Nat
+          (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+          (fun as i =>
+            @LT.lt Nat instLTNat i (@List.length (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k)) as))
+          (@List.instGetElemNatLtLength (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k)))
+          (EffectiveEncoding.extractionCircuit k)
+          (Fin.val
+            (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+              (EffectiveEncoding.extractionCode k))
+            i)
+          (@Eq.mpr
+            (@LT.lt Nat instLTNat
+              (Fin.val
+                (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                  (EffectiveEncoding.extractionCode k))
+                i)
+              (@List.length (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+                (EffectiveEncoding.extractionCircuit k)))
+            (@LT.lt Nat instLTNat
+              (Fin.val
+                (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                  (EffectiveEncoding.extractionCode k))
+                i)
+              (@List.length (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+                (EffectiveEncoding.interpret (CircuitCompletion.originalWireCount k)
+                  (EffectiveEncoding.extractionCode k))))
+            (@id
+              (@Eq Prop
+                (@LT.lt Nat instLTNat
+                  (Fin.val
+                    (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                      (EffectiveEncoding.extractionCode k))
+                    i)
+                  (@List.length (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+                    (EffectiveEncoding.extractionCircuit k)))
+                (@LT.lt Nat instLTNat
+                  (Fin.val
+                    (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                      (EffectiveEncoding.extractionCode k))
+                    i)
+                  (@List.length (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+                    (EffectiveEncoding.interpret (CircuitCompletion.originalWireCount k)
+                      (EffectiveEncoding.extractionCode k)))))
+              (@congrArg (CircuitCompletion.Circuit (CircuitCompletion.originalWireCount k)) Prop
+                (EffectiveEncoding.extractionCircuit k)
+                (EffectiveEncoding.interpret (CircuitCompletion.originalWireCount k)
+                  (EffectiveEncoding.extractionCode k))
+                (fun _a =>
+                  @LT.lt Nat instLTNat
+                    (Fin.val
+                      (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                        (EffectiveEncoding.extractionCode k))
+                      i)
+                    (@List.length (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k)) _a))
+                (EffectiveEncoding.extractionCircuit.eq_1 k)))
+            (@Eq.mpr
+              (@LT.lt Nat instLTNat
+                (Fin.val
+                  (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                    (EffectiveEncoding.extractionCode k))
+                  i)
+                (@List.length (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+                  (EffectiveEncoding.interpret (CircuitCompletion.originalWireCount k)
+                    (EffectiveEncoding.extractionCode k))))
+              (@LT.lt Nat instLTNat
+                (Fin.val
+                  (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                    (EffectiveEncoding.extractionCode k))
+                  i)
+                (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                  (EffectiveEncoding.extractionCode k)))
+              (@id
+                (@Eq Prop
+                  (@LT.lt Nat instLTNat
+                    (Fin.val
+                      (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                        (EffectiveEncoding.extractionCode k))
+                      i)
+                    (@List.length (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+                      (EffectiveEncoding.interpret (CircuitCompletion.originalWireCount k)
+                        (EffectiveEncoding.extractionCode k))))
+                  (@LT.lt Nat instLTNat
+                    (Fin.val
+                      (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                        (EffectiveEncoding.extractionCode k))
+                      i)
+                    (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                      (EffectiveEncoding.extractionCode k))))
+                (@congrArg Nat Prop
+                  (@List.length (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+                    (EffectiveEncoding.interpret (CircuitCompletion.originalWireCount k)
+                      (EffectiveEncoding.extractionCode k)))
+                  (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                    (EffectiveEncoding.extractionCode k))
+                  (fun _a =>
+                    @LT.lt Nat instLTNat
+                      (Fin.val
+                        (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                          (EffectiveEncoding.extractionCode k))
+                        i)
+                      _a)
+                  (EffectiveEncoding.interpret_length (CircuitCompletion.originalWireCount k)
+                    (EffectiveEncoding.extractionCode k))))
+              (Fin.isLt
+                (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                  (EffectiveEncoding.extractionCode k))
+                i))))
+        (EffectiveEncoding.GateCode.value (CircuitCompletion.originalWireCount k)
+          (@GetElem.getElem (EffectiveEncoding.WordCode (CircuitCompletion.originalWireCount k)) Nat
+            (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+            (fun as i =>
+              @LT.lt Nat instLTNat i
+                (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k)) as))
+            (@List.instGetElemNatLtLength (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k)))
+            (EffectiveEncoding.extractionCode k)
+            (Fin.val
+              (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                (EffectiveEncoding.extractionCode k))
+              i)
+            (Decidable.byContradiction
+              (@LT.lt Nat instLTNat
+                (Fin.val
+                  (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                    (EffectiveEncoding.extractionCode k))
+                  i)
+                (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                  (EffectiveEncoding.extractionCode k)))
+              (Nat.decLt
+                (Fin.val
+                  (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                    (EffectiveEncoding.extractionCode k))
+                  i)
+                (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                  (EffectiveEncoding.extractionCode k)))
+              fun a => EffectiveEncoding.extractionCircuit_gate._proof_2 k i a)))
+TYPE_CLOSURE_REPLAY_PASS 24644 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.extractionCircuit_gate
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.extractionCircuit_gate
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.extractionCode_polynomial_bound':
+(kernel) declaration type mismatch, 'EffectiveEncoding.extractionCode_polynomial_bound' has type
+  True
+but it is expected to have type
+  (k : Nat) →
+    @LE.le Nat instLENat
+      (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+        (EffectiveEncoding.extractionCode k))
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 20480 k)
+            (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2) 6))
+          (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+              (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 6
+                (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 3)))
+              2)
+            2))
+        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 100
+          (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid))) k 2)))
+TYPE_CLOSURE_REPLAY_PASS 18196 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.extractionCode_polynomial_bound
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.extractionCode_polynomial_bound
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.extractionOutput_purePower':
+(kernel) declaration type mismatch, 'EffectiveEncoding.extractionOutput_purePower' has type
+  True
+but it is expected to have type
+  (k : Nat) →
+    (z : Fin 4 → Complex) →
+      SymmetricSupport.IsUnitVector 4 z →
+        @Eq
+          (@Matrix
+            (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+              (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+            (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+              (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+            Complex)
+          (EffectiveEncoding.extractionOutput k
+            (@CircuitCompletion.pureMatrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+              (CircuitRecursion.bitPurePower k z)))
+          (@CircuitCompletion.pureMatrix
+            (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+              (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+            (@Extraction.bellVector (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+              (fun a b =>
+                @Fintype.decidablePiFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                  (fun a => instDecidableEqBool) (Fin.fintype (CircuitRecursion.bellPairYield k)) a b)
+              (@Extraction.bellCoeff (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                  (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                  (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype))))
+TYPE_CLOSURE_REPLAY_PASS 24722 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.extractionOutput_purePower
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.extractionOutput_purePower
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.AngleCode.evaluation':
+(kernel) declaration type mismatch, 'EffectiveEncoding.AngleCode.evaluation' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 16106 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.AngleCode.evaluation
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.AngleCode.evaluation
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.SingleCode.quaternionOracle_correct':
+(kernel) declaration type mismatch, 'EffectiveEncoding.SingleCode.quaternionOracle_correct' has type
+  True
+but it is expected to have type
+  (u : EffectiveEncoding.SingleCode) →
+    CircuitRecursion.QApproximates (EffectiveEncoding.SingleCode.quaternionOracle u)
+      (EffectiveEncoding.SingleCode.representative u)
+TYPE_CLOSURE_REPLAY_PASS 19169 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.SingleCode.quaternionOracle_correct
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.SingleCode.quaternionOracle_correct
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.SingleCode.representative_spec':
+(kernel) declaration type mismatch, 'EffectiveEncoding.SingleCode.representative_spec' has type
+  True
+but it is expected to have type
+  (u : EffectiveEncoding.SingleCode) →
+    @Eq (@Matrix Bool Bool Complex)
+      (@Subtype.val (@Matrix Bool Bool Complex)
+        (fun x =>
+          @Membership.mem (@Matrix Bool Bool Complex)
+            (@Submonoid (@Matrix Bool Bool Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix Bool Bool Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix Bool Bool Complex)
+                  (@Matrix.semiring Bool Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing)) Bool.fintype
+                    instDecidableEqBool))))
+            (@SetLike.instMembership
+              (@Submonoid (@Matrix Bool Bool Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix Bool Bool Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix Bool Bool Complex)
+                    (@Matrix.semiring Bool Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      Bool.fintype instDecidableEqBool))))
+              (@Matrix Bool Bool Complex)
+              (@Submonoid.instSetLike (@Matrix Bool Bool Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix Bool Bool Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix Bool Bool Complex)
+                    (@Matrix.semiring Bool Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      Bool.fintype instDecidableEqBool)))))
+            (@Matrix.unitaryGroup Bool instDecidableEqBool Bool.fintype Complex Complex.commRing Complex.instStarRing)
+            x)
+        (EffectiveEncoding.SingleCode.value u))
+      (@HSMul.hSMul Complex (@Matrix Bool Bool Complex) (@Matrix Bool Bool Complex)
+        (@instHSMul Complex (@Matrix Bool Bool Complex)
+          (@Matrix.smul Bool Bool Complex Complex (@instSMulOfMul Complex Complex.instMul)))
+        (EffectiveEncoding.SingleCode.globalPhase u)
+        (@Subtype.val (@Matrix Bool Bool Complex)
+          (fun x =>
+            @Membership.mem (@Matrix Bool Bool Complex)
+              (@Submonoid (@Matrix Bool Bool Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix Bool Bool Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix Bool Bool Complex)
+                    (@Matrix.semiring Bool Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      Bool.fintype instDecidableEqBool))))
+              (@SetLike.instMembership
+                (@Submonoid (@Matrix Bool Bool Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix Bool Bool Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix Bool Bool Complex)
+                      (@Matrix.semiring Bool Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        Bool.fintype instDecidableEqBool))))
+                (@Matrix Bool Bool Complex)
+                (@Submonoid.instSetLike (@Matrix Bool Bool Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix Bool Bool Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix Bool Bool Complex)
+                      (@Matrix.semiring Bool Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        Bool.fintype instDecidableEqBool)))))
+              (@Matrix.unitaryGroup Bool instDecidableEqBool Bool.fintype Complex Complex.commRing Complex.instStarRing)
+              x)
+          (CircuitRecursion.su2ToBool (EffectiveEncoding.SingleCode.representative u))))
+TYPE_CLOSURE_REPLAY_PASS 19503 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.SingleCode.representative_spec
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.SingleCode.representative_spec
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.representativeCircuit_phase':
+(kernel) declaration type mismatch, 'EffectiveEncoding.representativeCircuit_phase' has type
+  True
+but it is expected to have type
+  {n : Nat} →
+    (w : EffectiveEncoding.WordCode n) →
+      @Eq (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+        (@Subtype.val (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+          (fun x =>
+            @Membership.mem (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+              (@Submonoid (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                  (@instMulZeroOneClassOfSemiring
+                    (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                    (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a =>
+                        Bool.fintype)
+                      fun a b =>
+                      @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool) (Fin.fintype n)
+                        a b))))
+              (@SetLike.instMembership
+                (@Submonoid (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                  (@MulZeroOneClass.toMulOneClass
+                    (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                    (@instMulZeroOneClassOfSemiring
+                      (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                      (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a =>
+                          Bool.fintype)
+                        fun a b =>
+                        @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                          (Fin.fintype n) a b))))
+                (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                (@Submonoid.instSetLike (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                  (@MulZeroOneClass.toMulOneClass
+                    (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                    (@instMulZeroOneClassOfSemiring
+                      (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                      (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a =>
+                          Bool.fintype)
+                        fun a b =>
+                        @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                          (Fin.fintype n) a b)))))
+              (@Matrix.unitaryGroup (CircuitCompletion.Bits n)
+                (fun a b =>
+                  @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool) (Fin.fintype n) a
+                    b)
+                (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a => Bool.fintype)
+                Complex Complex.commRing Complex.instStarRing)
+              x)
+          (CircuitCompletion.denote n (EffectiveEncoding.interpret n w)))
+        (@HSMul.hSMul Complex (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+          (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+          (@instHSMul Complex (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+            (@Matrix.smul (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex Complex
+              (@instSMulOfMul Complex Complex.instMul)))
+          (EffectiveEncoding.wordPhase n w)
+          (@Subtype.val (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+            (fun x =>
+              @Membership.mem (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                (@Submonoid (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                  (@MulZeroOneClass.toMulOneClass
+                    (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                    (@instMulZeroOneClassOfSemiring
+                      (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                      (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a =>
+                          Bool.fintype)
+                        fun a b =>
+                        @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                          (Fin.fintype n) a b))))
+                (@SetLike.instMembership
+                  (@Submonoid (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                    (@MulZeroOneClass.toMulOneClass
+                      (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                      (@instMulZeroOneClassOfSemiring
+                        (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                        (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                          (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                          (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a =>
+                            Bool.fintype)
+                          fun a b =>
+                          @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                            (Fin.fintype n) a b))))
+                  (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                  (@Submonoid.instSetLike (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                    (@MulZeroOneClass.toMulOneClass
+                      (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                      (@instMulZeroOneClassOfSemiring
+                        (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                        (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                          (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                          (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a =>
+                            Bool.fintype)
+                          fun a b =>
+                          @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                            (Fin.fintype n) a b)))))
+                (@Matrix.unitaryGroup (CircuitCompletion.Bits n)
+                  (fun a b =>
+                    @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool) (Fin.fintype n) a
+                      b)
+                  (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a => Bool.fintype)
+                  Complex Complex.commRing Complex.instStarRing)
+                x)
+            (CircuitCompletion.denote n (EffectiveEncoding.representativeCircuit n w))))
+TYPE_CLOSURE_REPLAY_PASS 19565 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.representativeCircuit_phase
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.representativeCircuit_phase
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.compileLabelWord_error':
+(kernel) declaration type mismatch, 'EffectiveEncoding.compileLabelWord_error' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (G :
+        Fin m →
+          @Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+            @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+              (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2)))))
+              (@SetLike.instMembership
+                (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2)))))
+                (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2))))))
+              CircuitRecursion.SU2 x) →
+      (synth : EffectiveEncoding.SingleCode → @List (Fin m)) →
+        (w : EffectiveEncoding.WordCode n) →
+          (ε : Real) →
+            @LE.le Real Real.instLE 0 ε →
+              ((u : EffectiveEncoding.SingleCode) →
+                  @LE.le Real Real.instLE
+                    (@CircuitRecursion.unitaryDistance (Fin 2) (Fin.fintype 2) (instDecidableEqFin 2)
+                      (CircuitRecursion.su2AsUnitary (EffectiveEncoding.SingleCode.representative u))
+                      (CircuitRecursion.su2AsUnitary
+                        (@CircuitRecursion.instructionWordValue
+                          (@Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+                            @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+                              (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                                    (@Matrix.semiring (Fin 2) Complex
+                                      (@CommSemiring.toSemiring Complex
+                                        (@CommRing.toCommSemiring Complex Complex.commRing))
+                                      (Fin.fintype 2) (instDecidableEqFin 2)))))
+                              (@SetLike.instMembership
+                                (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                                      (@Matrix.semiring (Fin 2) Complex
+                                        (@CommSemiring.toSemiring Complex
+                                          (@CommRing.toCommSemiring Complex Complex.commRing))
+                                        (Fin.fintype 2) (instDecidableEqFin 2)))))
+                                (@Matrix (Fin 2) (Fin 2) Complex)
+                                (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                                      (@Matrix.semiring (Fin 2) Complex
+                                        (@CommSemiring.toSemiring Complex
+                                          (@CommRing.toCommSemiring Complex Complex.commRing))
+                                        (Fin.fintype 2) (instDecidableEqFin 2))))))
+                              (@Matrix.specialUnitaryGroup (Fin 2) (instDecidableEqFin 2) (Fin.fintype 2) Complex
+                                Complex.commRing Complex.instStarRing)
+                              x)
+                          (@Matrix.instGroupSubtypeMemSubmonoidSpecialUnitaryGroup (Fin 2) (instDecidableEqFin 2)
+                            (Fin.fintype 2) Complex Complex.commRing Complex.instStarRing)
+                          m G (@synth u))))
+                    ε) →
+                @LE.le Real Real.instLE
+                  (@Norm.norm (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                    (@NormedRing.toNorm (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                      (@Matrix.instL2OpNormedRing Complex (CircuitCompletion.Bits n) Complex.instRCLike
+                        (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a =>
+                          Bool.fintype)
+                        fun a b =>
+                        @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                          (Fin.fintype n) a b))
+                    (@HSub.hSub (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                      (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                      (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                      (@instHSub (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                        (@Matrix.sub (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex Complex.instSub))
+                      (@Subtype.val (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                        (fun x =>
+                          @Membership.mem (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                            (@Submonoid (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                              (@MulZeroOneClass.toMulOneClass
+                                (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                (@instMulZeroOneClassOfSemiring
+                                  (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                  (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                                    (@CommSemiring.toSemiring Complex
+                                      (@CommRing.toCommSemiring Complex Complex.commRing))
+                                    (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n)
+                                      fun a => Bool.fintype)
+                                    fun a b =>
+                                    @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                                      (Fin.fintype n) a b))))
+                            (@SetLike.instMembership
+                              (@Submonoid (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                (@MulZeroOneClass.toMulOneClass
+                                  (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                  (@instMulZeroOneClassOfSemiring
+                                    (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                    (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                                      (@CommSemiring.toSemiring Complex
+                                        (@CommRing.toCommSemiring Complex Complex.commRing))
+                                      (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n)
+                                        fun a => Bool.fintype)
+                                      fun a b =>
+                                      @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                                        (Fin.fintype n) a b))))
+                              (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                              (@Submonoid.instSetLike
+                                (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                (@MulZeroOneClass.toMulOneClass
+                                  (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                  (@instMulZeroOneClassOfSemiring
+                                    (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                    (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                                      (@CommSemiring.toSemiring Complex
+                                        (@CommRing.toCommSemiring Complex Complex.commRing))
+                                      (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n)
+                                        fun a => Bool.fintype)
+                                      fun a b =>
+                                      @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                                        (Fin.fintype n) a b)))))
+                            (@Matrix.unitaryGroup (CircuitCompletion.Bits n)
+                              (fun a b =>
+                                @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                                  (Fin.fintype n) a b)
+                              (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a =>
+                                Bool.fintype)
+                              Complex Complex.commRing Complex.instStarRing)
+                            x)
+                        (CircuitCompletion.denote n (EffectiveEncoding.interpret n w)))
+                      (@HSMul.hSMul Complex (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                        (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                        (@instHSMul Complex (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                          (@Matrix.smul (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex Complex
+                            (@instSMulOfMul Complex Complex.instMul)))
+                        (EffectiveEncoding.wordPhase n w)
+                        (@Subtype.val (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                          (fun x =>
+                            @Membership.mem (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                              (@Submonoid (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                (@MulZeroOneClass.toMulOneClass
+                                  (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                  (@instMulZeroOneClassOfSemiring
+                                    (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                    (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                                      (@CommSemiring.toSemiring Complex
+                                        (@CommRing.toCommSemiring Complex Complex.commRing))
+                                      (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n)
+                                        fun a => Bool.fintype)
+                                      fun a b =>
+                                      @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                                        (Fin.fintype n) a b))))
+                              (@SetLike.instMembership
+                                (@Submonoid (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                  (@MulZeroOneClass.toMulOneClass
+                                    (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                    (@instMulZeroOneClassOfSemiring
+                                      (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                      (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                                        (@CommSemiring.toSemiring Complex
+                                          (@CommRing.toCommSemiring Complex Complex.commRing))
+                                        (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n)
+                                          fun a => Bool.fintype)
+                                        fun a b =>
+                                        @Fintype.decidablePiFintype (Fin n) (fun a => Bool)
+                                          (fun a => instDecidableEqBool) (Fin.fintype n) a b))))
+                                (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                (@Submonoid.instSetLike
+                                  (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                  (@MulZeroOneClass.toMulOneClass
+                                    (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                    (@instMulZeroOneClassOfSemiring
+                                      (@Matrix (CircuitCompletion.Bits n) (CircuitCompletion.Bits n) Complex)
+                                      (@Matrix.semiring (CircuitCompletion.Bits n) Complex
+                                        (@CommSemiring.toSemiring Complex
+                                          (@CommRing.toCommSemiring Complex Complex.commRing))
+                                        (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n)
+                                          fun a => Bool.fintype)
+                                        fun a b =>
+                                        @Fintype.decidablePiFintype (Fin n) (fun a => Bool)
+                                          (fun a => instDecidableEqBool) (Fin.fintype n) a b)))))
+                              (@Matrix.unitaryGroup (CircuitCompletion.Bits n)
+                                (fun a b =>
+                                  @Fintype.decidablePiFintype (Fin n) (fun a => Bool) (fun a => instDecidableEqBool)
+                                    (Fin.fintype n) a b)
+                                (@Pi.instFintype (Fin n) (fun a => Bool) (instDecidableEqFin n) (Fin.fintype n) fun a =>
+                                  Bool.fintype)
+                                Complex Complex.commRing Complex.instStarRing)
+                              x)
+                          (CircuitCompletion.denote n
+                            (EffectiveEncoding.labelCircuit m n G (EffectiveEncoding.compileLabelWord m n synth w)))))))
+                  (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                    (@Nat.cast Real Real.instNatCast (@List.length (EffectiveEncoding.GateCode n) w)) ε)
+TYPE_CLOSURE_REPLAY_PASS 30113 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.compileLabelWord_error
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.compileLabelWord_error
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.compileLabelWord_length':
+(kernel) declaration type mismatch, 'EffectiveEncoding.compileLabelWord_length' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (synth : EffectiveEncoding.SingleCode → @List (Fin m)) →
+      (L : Nat) →
+        @LE.le Nat instLENat 1 L →
+          ((u : EffectiveEncoding.SingleCode) → @LE.le Nat instLENat (@List.length (Fin m) (@synth u)) L) →
+            (w : EffectiveEncoding.WordCode n) →
+              @LE.le Nat instLENat
+                (@List.length (EffectiveEncoding.LabelGate m n) (EffectiveEncoding.compileLabelWord m n synth w))
+                (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (@List.length (EffectiveEncoding.GateCode n) w) L)
+TYPE_CLOSURE_REPLAY_PASS 108 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.compileLabelWord_length
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.compileLabelWord_length
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.extractionOutput_robust_up_to_phase':
+(kernel) declaration type mismatch, 'EffectiveEncoding.extractionOutput_robust_up_to_phase' has type
+  True
+but it is expected to have type
+  (k : Nat) →
+    (V :
+        @Subtype
+          (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+            (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+          fun x =>
+          @Membership.mem
+            (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+              (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+            (@Submonoid
+              (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+              (@MulZeroOneClass.toMulOneClass
+                (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                  (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                (@instMulZeroOneClassOfSemiring
+                  (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                    (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                  (@Matrix.semiring (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                      (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                      (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+                    fun a b =>
+                    @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                      (fun a => instDecidableEqBool) (Fin.fintype (CircuitCompletion.originalWireCount k)) a b))))
+            (@SetLike.instMembership
+              (@Submonoid
+                (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                  (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                (@MulZeroOneClass.toMulOneClass
+                  (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                    (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                  (@instMulZeroOneClassOfSemiring
+                    (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                      (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                    (@Matrix.semiring (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                        (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                        (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+                      fun a b =>
+                      @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                        (fun a => instDecidableEqBool) (Fin.fintype (CircuitCompletion.originalWireCount k)) a b))))
+              (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+              (@Submonoid.instSetLike
+                (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                  (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                (@MulZeroOneClass.toMulOneClass
+                  (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                    (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                  (@instMulZeroOneClassOfSemiring
+                    (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                      (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                    (@Matrix.semiring (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                        (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                        (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+                      fun a b =>
+                      @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                        (fun a => instDecidableEqBool) (Fin.fintype (CircuitCompletion.originalWireCount k)) a b)))))
+            (@Matrix.unitaryGroup (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+              (fun a b =>
+                @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                  (fun a => instDecidableEqBool) (Fin.fintype (CircuitCompletion.originalWireCount k)) a b)
+              (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+              Complex Complex.commRing Complex.instStarRing)
+            x) →
+      (z : Fin 4 → Complex) →
+        SymmetricSupport.IsUnitVector 4 z →
+          (δ : Real) →
+            @LE.le Real Real.instLE 0 δ →
+              (c : Complex) →
+                @Eq Real
+                    (@DFunLike.coe
+                      (@MonoidWithZeroHom Complex Real (@instMulZeroOneClassOfSemiring Complex Complex.instSemiring)
+                        (@instMulZeroOneClassOfSemiring Real Real.semiring))
+                      Complex (fun x => Real)
+                      (@MonoidWithZeroHom.funLike Complex Real
+                        (@instMulZeroOneClassOfSemiring Complex Complex.instSemiring)
+                        (@instMulZeroOneClassOfSemiring Real Real.semiring))
+                      Complex.normSq c)
+                    1 →
+                  @LE.le Real Real.instLE
+                      (@Norm.norm
+                        (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                          (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                        (@NormedRing.toNorm
+                          (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                            (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                          (@Matrix.instL2OpNormedRing Complex
+                            (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex.instRCLike
+                            (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                              (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                              (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+                            fun a b =>
+                            @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                              (fun a => instDecidableEqBool) (Fin.fintype (CircuitCompletion.originalWireCount k)) a b))
+                        (@HSub.hSub
+                          (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                            (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                          (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                            (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                          (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                            (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                          (@instHSub
+                            (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                              (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                            (@Matrix.sub (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                              (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex Complex.instSub))
+                          (@Subtype.val
+                            (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                              (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                            (fun x =>
+                              @Membership.mem
+                                (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                  (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                (@Submonoid
+                                  (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                    (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                  (@MulZeroOneClass.toMulOneClass
+                                    (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                      (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                    (@instMulZeroOneClassOfSemiring
+                                      (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                        (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                      (@Matrix.semiring (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                        Complex
+                                        (@CommSemiring.toSemiring Complex
+                                          (@CommRing.toCommSemiring Complex Complex.commRing))
+                                        (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                                          (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                                          (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+                                        fun a b =>
+                                        @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k))
+                                          (fun a => Bool) (fun a => instDecidableEqBool)
+                                          (Fin.fintype (CircuitCompletion.originalWireCount k)) a b))))
+                                (@SetLike.instMembership
+                                  (@Submonoid
+                                    (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                      (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                    (@MulZeroOneClass.toMulOneClass
+                                      (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                        (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                      (@instMulZeroOneClassOfSemiring
+                                        (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                          (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                        (@Matrix.semiring
+                                          (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex
+                                          (@CommSemiring.toSemiring Complex
+                                            (@CommRing.toCommSemiring Complex Complex.commRing))
+                                          (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                                            (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                                            (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+                                          fun a b =>
+                                          @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k))
+                                            (fun a => Bool) (fun a => instDecidableEqBool)
+                                            (Fin.fintype (CircuitCompletion.originalWireCount k)) a b))))
+                                  (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                    (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                  (@Submonoid.instSetLike
+                                    (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                      (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                    (@MulZeroOneClass.toMulOneClass
+                                      (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                        (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                      (@instMulZeroOneClassOfSemiring
+                                        (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                          (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                        (@Matrix.semiring
+                                          (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex
+                                          (@CommSemiring.toSemiring Complex
+                                            (@CommRing.toCommSemiring Complex Complex.commRing))
+                                          (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                                            (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                                            (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+                                          fun a b =>
+                                          @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k))
+                                            (fun a => Bool) (fun a => instDecidableEqBool)
+                                            (Fin.fintype (CircuitCompletion.originalWireCount k)) a b)))))
+                                (@Matrix.unitaryGroup (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                  (fun a b =>
+                                    @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k))
+                                      (fun a => Bool) (fun a => instDecidableEqBool)
+                                      (Fin.fintype (CircuitCompletion.originalWireCount k)) a b)
+                                  (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                                    (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                                    (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+                                  Complex Complex.commRing Complex.instStarRing)
+                                x)
+                            (CircuitCompletion.denote (CircuitCompletion.originalWireCount k)
+                              (EffectiveEncoding.extractionCircuit k)))
+                          (@HSMul.hSMul Complex
+                            (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                              (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                            (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                              (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                            (@instHSMul Complex
+                              (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                              (@Matrix.smul (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex Complex
+                                (@instSMulOfMul Complex Complex.instMul)))
+                            c
+                            (@Subtype.val
+                              (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                              (fun x =>
+                                @Membership.mem
+                                  (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                    (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                  (@Submonoid
+                                    (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                      (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                    (@MulZeroOneClass.toMulOneClass
+                                      (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                        (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                      (@instMulZeroOneClassOfSemiring
+                                        (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                          (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                        (@Matrix.semiring
+                                          (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex
+                                          (@CommSemiring.toSemiring Complex
+                                            (@CommRing.toCommSemiring Complex Complex.commRing))
+                                          (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                                            (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                                            (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+                                          fun a b =>
+                                          @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k))
+                                            (fun a => Bool) (fun a => instDecidableEqBool)
+                                            (Fin.fintype (CircuitCompletion.originalWireCount k)) a b))))
+                                  (@SetLike.instMembership
+                                    (@Submonoid
+                                      (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                        (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                      (@MulZeroOneClass.toMulOneClass
+                                        (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                          (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                        (@instMulZeroOneClassOfSemiring
+                                          (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                            (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                          (@Matrix.semiring
+                                            (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex
+                                            (@CommSemiring.toSemiring Complex
+                                              (@CommRing.toCommSemiring Complex Complex.commRing))
+                                            (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k))
+                                              (fun a => Bool)
+                                              (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                                              (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a =>
+                                              Bool.fintype)
+                                            fun a b =>
+                                            @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k))
+                                              (fun a => Bool) (fun a => instDecidableEqBool)
+                                              (Fin.fintype (CircuitCompletion.originalWireCount k)) a b))))
+                                    (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                      (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                    (@Submonoid.instSetLike
+                                      (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                        (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                      (@MulZeroOneClass.toMulOneClass
+                                        (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                          (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                        (@instMulZeroOneClassOfSemiring
+                                          (@Matrix (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                            (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex)
+                                          (@Matrix.semiring
+                                            (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k)) Complex
+                                            (@CommSemiring.toSemiring Complex
+                                              (@CommRing.toCommSemiring Complex Complex.commRing))
+                                            (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k))
+                                              (fun a => Bool)
+                                              (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                                              (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a =>
+                                              Bool.fintype)
+                                            fun a b =>
+                                            @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k))
+                                              (fun a => Bool) (fun a => instDecidableEqBool)
+                                              (Fin.fintype (CircuitCompletion.originalWireCount k)) a b)))))
+                                  (@Matrix.unitaryGroup (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                    (fun a b =>
+                                      @Fintype.decidablePiFintype (Fin (CircuitCompletion.originalWireCount k))
+                                        (fun a => Bool) (fun a => instDecidableEqBool)
+                                        (Fin.fintype (CircuitCompletion.originalWireCount k)) a b)
+                                    (@Pi.instFintype (Fin (CircuitCompletion.originalWireCount k)) (fun a => Bool)
+                                      (instDecidableEqFin (CircuitCompletion.originalWireCount k))
+                                      (Fin.fintype (CircuitCompletion.originalWireCount k)) fun a => Bool.fintype)
+                                    Complex Complex.commRing Complex.instStarRing)
+                                  x)
+                              V))))
+                      δ →
+                    @LE.le Real Real.instLE
+                      (@HSub.hSub Real Real Real (@instHSub Real Real.instSub) 1
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) 2 δ))
+                      (Complex.re
+                        (@Matrix.trace
+                          (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                            (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                          Complex
+                          (@instFintypeProd (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                            (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                            (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                              (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                              (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype)
+                            (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                              (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                              (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype))
+                          Complex.instAddCommMonoid
+                          (@HMul.hMul
+                            (@Matrix
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              Complex)
+                            (@Matrix
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              Complex)
+                            (@Matrix
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              Complex)
+                            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              Complex
+                              (@instFintypeProd (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                                  (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                                  (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype)
+                                (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                                  (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                                  (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype))
+                              Complex.instMul Complex.instAddCommMonoid)
+                            (@Extraction.bellProjector (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                              (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                                (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                                (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype)
+                              fun a b =>
+                              @Fintype.decidablePiFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                                (fun a => instDecidableEqBool) (Fin.fintype (CircuitRecursion.bellPairYield k)) a b)
+                            (CircuitRecursion.approximateExtractionOutput k V
+                              (@CircuitCompletion.pureMatrix
+                                (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                (CircuitRecursion.bitPurePower k z))))))
+TYPE_CLOSURE_REPLAY_PASS 30308 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.extractionOutput_robust_up_to_phase
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.extractionOutput_robust_up_to_phase
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.finiteLabels_fidelity':
+(kernel) declaration type mismatch, 'EffectiveEncoding.finiteLabels_fidelity' has type
+  True
+but it is expected to have type
+  {m : Nat} →
+    (G :
+        Fin m →
+          @Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+            @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+              (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2)))))
+              (@SetLike.instMembership
+                (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2)))))
+                (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2))))))
+              CircuitRecursion.SU2 x) →
+      (synth : EffectiveEncoding.SingleCode → @List (Fin m)) →
+        (k : Nat) →
+          (ε : Real) →
+            @LE.le Real Real.instLE 0 ε →
+              ((u : EffectiveEncoding.SingleCode) →
+                  @LE.le Real Real.instLE
+                    (@CircuitRecursion.unitaryDistance (Fin 2) (Fin.fintype 2) (instDecidableEqFin 2)
+                      (CircuitRecursion.su2AsUnitary (EffectiveEncoding.SingleCode.representative u))
+                      (CircuitRecursion.su2AsUnitary
+                        (@CircuitRecursion.instructionWordValue
+                          (@Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+                            @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+                              (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                                    (@Matrix.semiring (Fin 2) Complex
+                                      (@CommSemiring.toSemiring Complex
+                                        (@CommRing.toCommSemiring Complex Complex.commRing))
+                                      (Fin.fintype 2) (instDecidableEqFin 2)))))
+                              (@SetLike.instMembership
+                                (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                                      (@Matrix.semiring (Fin 2) Complex
+                                        (@CommSemiring.toSemiring Complex
+                                          (@CommRing.toCommSemiring Complex Complex.commRing))
+                                        (Fin.fintype 2) (instDecidableEqFin 2)))))
+                                (@Matrix (Fin 2) (Fin 2) Complex)
+                                (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                                      (@Matrix.semiring (Fin 2) Complex
+                                        (@CommSemiring.toSemiring Complex
+                                          (@CommRing.toCommSemiring Complex Complex.commRing))
+                                        (Fin.fintype 2) (instDecidableEqFin 2))))))
+                              (@Matrix.specialUnitaryGroup (Fin 2) (instDecidableEqFin 2) (Fin.fintype 2) Complex
+                                Complex.commRing Complex.instStarRing)
+                              x)
+                          (@Matrix.instGroupSubtypeMemSubmonoidSpecialUnitaryGroup (Fin 2) (instDecidableEqFin 2)
+                            (Fin.fintype 2) Complex Complex.commRing Complex.instStarRing)
+                          m G (@synth u))))
+                    ε) →
+                (z : Fin 4 → Complex) →
+                  SymmetricSupport.IsUnitVector 4 z →
+                    @LE.le Real Real.instLE
+                      (@HSub.hSub Real Real Real (@instHSub Real Real.instSub) 1
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) 2
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                            (@Nat.cast Real Real.instNatCast
+                              (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                                (EffectiveEncoding.extractionCode k)))
+                            ε)))
+                      (Complex.re
+                        (@Matrix.trace
+                          (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                            (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                          Complex
+                          (@instFintypeProd (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                            (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                            (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                              (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                              (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype)
+                            (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                              (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                              (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype))
+                          Complex.instAddCommMonoid
+                          (@HMul.hMul
+                            (@Matrix
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              Complex)
+                            (@Matrix
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              Complex)
+                            (@Matrix
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              Complex)
+                            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              (@Prod (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k)))
+                              Complex
+                              (@instFintypeProd (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                                (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                                  (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                                  (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype)
+                                (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                                  (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                                  (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype))
+                              Complex.instMul Complex.instAddCommMonoid)
+                            (@Extraction.bellProjector (CircuitCompletion.Bits (CircuitRecursion.bellPairYield k))
+                              (@Pi.instFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                                (instDecidableEqFin (CircuitRecursion.bellPairYield k))
+                                (Fin.fintype (CircuitRecursion.bellPairYield k)) fun a => Bool.fintype)
+                              fun a b =>
+                              @Fintype.decidablePiFintype (Fin (CircuitRecursion.bellPairYield k)) (fun a => Bool)
+                                (fun a => instDecidableEqBool) (Fin.fintype (CircuitRecursion.bellPairYield k)) a b)
+                            (CircuitRecursion.approximateExtractionOutput k
+                              (CircuitCompletion.denote (CircuitCompletion.originalWireCount k)
+                                (EffectiveEncoding.labelCircuit m (CircuitCompletion.originalWireCount k) G
+                                  (EffectiveEncoding.compileLabelWord m (CircuitCompletion.originalWireCount k) synth
+                                    (EffectiveEncoding.extractionCode k))))
+                              (@CircuitCompletion.pureMatrix
+                                (CircuitCompletion.Bits (CircuitCompletion.originalWireCount k))
+                                (CircuitRecursion.bitPurePower k z))))))
+TYPE_CLOSURE_REPLAY_PASS 30914 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.finiteLabels_fidelity
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.finiteLabels_fidelity
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.descriptorSynthesis_spec':
+(kernel) declaration type mismatch, 'EffectiveEncoding.descriptorSynthesis_spec' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 29851 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.descriptorSynthesis_spec
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.descriptorSynthesis_spec
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.numericalExtractionCode_uses':
+(kernel) declaration type mismatch, 'EffectiveEncoding.numericalExtractionCode_uses' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (G :
+        Fin m →
+          @Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+            @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+              (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2)))))
+              (@SetLike.instMembership
+                (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2)))))
+                (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2))))))
+              CircuitRecursion.SU2 x) →
+      (entry : Fin m → CircuitRecursion.QuaternionOracle) →
+        (inverseLabel : Fin m → Fin m) →
+          (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+            (L k p : Nat) →
+              (g : CircuitCompletion.Gate (CircuitCompletion.originalWireCount k)) →
+                @Membership.mem (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+                    (CircuitCompletion.Circuit (CircuitCompletion.originalWireCount k))
+                    (@List.instMembership (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k)))
+                    (EffectiveEncoding.labelCircuit m (CircuitCompletion.originalWireCount k) G
+                      (EffectiveEncoding.numericalExtractionCode m n entry inverseLabel table L k p))
+                    g →
+                  CircuitRecursion.usesFiniteLibrary m (CircuitCompletion.originalWireCount k) G g
+TYPE_CLOSURE_REPLAY_PASS 19687 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.numericalExtractionCode_uses
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.numericalExtractionCode_uses
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.numericalExtractionCode_error':
+(kernel) declaration type mismatch, 'EffectiveEncoding.numericalExtractionCode_error' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 30743 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.numericalExtractionCode_error
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.numericalExtractionCode_error
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.numericalExtractionCode_length':
+(kernel) declaration type mismatch, 'EffectiveEncoding.numericalExtractionCode_length' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 30329 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.numericalExtractionCode_length
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.numericalExtractionCode_length
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.numericalExtractionCode_fidelity':
+(kernel) declaration type mismatch, 'EffectiveEncoding.numericalExtractionCode_fidelity' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 30735 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.numericalExtractionCode_fidelity
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.numericalExtractionCode_fidelity
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.descriptorArithmeticOperations_bound':
+(kernel) declaration type mismatch, 'EffectiveEncoding.descriptorArithmeticOperations_bound' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.QuaternionOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L p : Nat) →
+            ((j : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) →
+                @LE.le Nat instLENat (@List.length (Fin m) (@table j)) L) →
+              (u : EffectiveEncoding.SingleCode) →
+                @LE.le Nat instLENat
+                  (EffectiveEncoding.descriptorArithmeticOperations m n entry inverseLabel table L p u)
+                  (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1001
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1))
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L 1))
+                      CircuitRecursion.offsetGrowth)
+                    (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1) 64))
+TYPE_CLOSURE_REPLAY_PASS 4299 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.descriptorArithmeticOperations_bound
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.descriptorArithmeticOperations_bound
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.extractionArithmeticOperations_bound':
+(kernel) declaration type mismatch, 'EffectiveEncoding.extractionArithmeticOperations_bound' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.QuaternionOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L k p : Nat) →
+            ((j : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) →
+                @LE.le Nat instLENat (@List.length (Fin m) (@table j)) L) →
+              @LE.le Nat instLENat (EffectiveEncoding.extractionArithmeticOperations m n entry inverseLabel table L k p)
+                (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                  (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+                    (EffectiveEncoding.extractionCode k))
+                  (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1001
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1))
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L 1))
+                      CircuitRecursion.offsetGrowth)
+                    (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (EffectiveEncoding.extractionPrecision k p) 1)
+                      64)))
+TYPE_CLOSURE_REPLAY_PASS 18454 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.extractionArithmeticOperations_bound
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.extractionArithmeticOperations_bound
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.numericalExtraction_from_universal':
+(kernel) declaration type mismatch, 'EffectiveEncoding.numericalExtraction_from_universal' has type
+  True
+but it is expected to have type
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+TYPE_CLOSURE_REPLAY_PASS 30830 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.numericalExtraction_from_universal
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.numericalExtraction_from_universal
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.extractionCode_fits':
+(kernel) declaration type mismatch, 'EffectiveEncoding.extractionCode_fits' has type
+  True
+but it is expected to have type
+  (k : Nat) →
+    EffectiveEncoding.WordFits (CircuitCompletion.originalWireCount k)
+      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 4 k) (EffectiveEncoding.halvingBudget k) 1
+      (EffectiveEncoding.extractionCode k)
+TYPE_CLOSURE_REPLAY_PASS 18217 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.extractionCode_fits
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.extractionCode_fits
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.SingleCode.descriptionWeight_bound':
+(kernel) declaration type mismatch, 'EffectiveEncoding.SingleCode.descriptionWeight_bound' has type
+  True
+but it is expected to have type
+  {M H : Nat} →
+    (u : EffectiveEncoding.SingleCode) →
+      EffectiveEncoding.SingleCode.Fits M H u →
+        @LE.le Nat instLENat (EffectiveEncoding.SingleCode.descriptionWeight u)
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+              (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2 (EffectiveEncoding.angleWeightBudget M H)) 1)
+            (EffectiveEncoding.SingleCode.inverseDepth u))
+TYPE_CLOSURE_REPLAY_PASS 414 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.SingleCode.descriptionWeight_bound
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.SingleCode.descriptionWeight_bound
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.extractionCode_descriptionWeight':
+(kernel) declaration type mismatch, 'EffectiveEncoding.extractionCode_descriptionWeight' has type
+  True
+but it is expected to have type
+  (k : Nat) →
+    @LE.le Nat instLENat
+      (EffectiveEncoding.codeDescriptionWeight (CircuitCompletion.originalWireCount k)
+        (EffectiveEncoding.extractionCode k))
+      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+        (@List.length (EffectiveEncoding.GateCode (CircuitCompletion.originalWireCount k))
+          (EffectiveEncoding.extractionCode k))
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2
+              (EffectiveEncoding.binaryWidth (CircuitCompletion.originalWireCount k)))
+            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2
+              (EffectiveEncoding.angleWeightBudget (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 4 k)
+                (EffectiveEncoding.halvingBudget k))))
+          3))
+TYPE_CLOSURE_REPLAY_PASS 18214 declarations; trust level zero
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.extractionCode_descriptionWeight
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.extractionCode_descriptionWeight
