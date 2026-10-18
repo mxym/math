@@ -1,0 +1,22 @@
+AUTHOR STANDARD BUILD ONLY; NOT INDEPENDENT REPLAY
+
+One new mathematical module CountedDescriptorFields; 12 theorem / 9 model
+roots. Exact inventory/kind/type/axiom checks PASS, only standard allowlist.
+Standard serialized CountedFieldsCheck build 3915 jobs, exit0. Log
+20261018T202050056419Z-extraction-effective-encoding.log. Reproduce:
+python3 reproduce_counted_fields.py --standard. Hash evidence is in
+verification/counted-fields-root-check-20261018T202052868876Z/REPORT.json.
+
+countedProgramFields is an explicit annotated serializer. Its erased fields
+are exactly programFields, including the gate-count header; the actual
+parser recovers the original extractionCode and arbitrary suffix at fuel2.
+The specified structural model charges empty=1, emit=1 cons, append=left
+list cons copies plus its nil case. Induction proves at most 54*N+2 steps
+for the ACTUAL extraction descriptor list, and <=54*actualGatePolynomial(k)+2.
+The interpreter materializes each recursive result once. The annotation is
+a ghost source-model counter; arithmetic used to maintain the counter itself
+is outside its meaning. This count covers descriptor field serialization
+ONLY: generation of extractionCode, enumeration/rank/embedding, Nat bit work,
+bitstream coding, cache/provider computation and machine costs remain outside.
+No field width or bitstream codec theorem is added in this checkpoint.
+Earlier sealed files/configuration/inventories/evidence are unchanged.
