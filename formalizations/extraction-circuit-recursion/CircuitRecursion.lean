@@ -30,3 +30,10 @@ import CircuitRecursion.FinitePrecision
 import CircuitRecursion.OccupationArithmetic
 import CircuitRecursion.DyadicPrecision
 import CircuitRecursion.RationalSelection
+import CircuitRecursion.ConditionedConjugacy
+import CircuitRecursion.OracleArithmetic
+import CircuitRecursion.OracleSqrt
+import CircuitRecursion.HalfAngleEvaluation
+import CircuitRecursion.QuaternionOracles
+import CircuitRecursion.NetOracle
+import CircuitRecursion.PrecomputedNet
