@@ -1,4 +1,4 @@
-import LOCCInterface.Protocol
+import LOCCInterface.Instruments
 import LOCCInterface.Closure
 #print axioms ExtractionLOCC.Tree.leafKraus_complete
 #print axioms ExtractionLOCC.Tree.channel_completelyPositive
@@ -31,3 +31,7 @@ import LOCCInterface.Closure
 #print axioms ExtractionLOCC.finiteLOCC_isClosureLOCCProtocol
 #print axioms ExtractionLOCC.productLocal_isClosureLOCCProtocol
 #print axioms ExtractionLOCC.IsClosureLOCC.exists_actual_protocol
+#print axioms ExtractionLOCC.Instrument.outcome_completelyPositive
+#print axioms ExtractionLOCC.Instrument.ofCP_outcomeMap
+#print axioms ExtractionLOCC.Tree.channel_aliceInstrument
+#print axioms ExtractionLOCC.Tree.channel_bobInstrument

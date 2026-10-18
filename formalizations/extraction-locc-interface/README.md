@@ -6,6 +6,12 @@ communicated and selects a subtree and the acting party's next local dimension.
 The terminal systems are `Fin c` and `Fin d`. Individual Kraus outcomes refine
 coarser instrument outcomes; repeated continuation subtrees implement the latter.
 All node hypotheses are local instrument completeness identities.
+`Instrument.ofCP` further constructs actual Kraus instruments from arbitrary
+finite local CP outcome maps whose total trace is preserved, deriving the
+completeness equation internally. `Tree.aliceInstrument`/`bobInstrument` handle
+coarse public outcomes with multiple hidden Kraus indices, using the same
+continuation and next dimension for all hidden indices. Their channel equations
+sum those indices internally and retain only the public outcome for adaptivity.
 
 `Tree.Leaf` is the complete communicated history and is proved finite.
 `leafAlice`, `leafBob`, and `leafKraus` construct the actual ordered products
