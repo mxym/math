@@ -1,0 +1,2369 @@
+{
+  "status": "GENERATED_AUTHOR_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 175,
+  "model_count": 111,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.AngleAtom.cosOracle",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.AngleAtom.sinOracle",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 11
+    },
+    {
+      "name": "EffectiveEncoding.mergeAngle_degenerate",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.AngleAtom.cosOracle_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.AngleAtom.sinOracle_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 35
+    },
+    {
+      "name": "EffectiveEncoding.AngleAtom.value_bounds",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 46
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.cosOracle",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 53
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.sinOracle",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 56
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.cosOracle_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.sinOracle_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 69
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.evaluation",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "line": 81
+    },
+    {
+      "name": "EffectiveEncoding.interpret_flatMap",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 11
+    },
+    {
+      "name": "EffectiveEncoding.allBranchCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.allBranchCode_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 18
+    },
+    {
+      "name": "EffectiveEncoding.allBranchCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 33
+    },
+    {
+      "name": "EffectiveEncoding.occupationStepCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 44
+    },
+    {
+      "name": "EffectiveEncoding.occupationStepCode_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 49
+    },
+    {
+      "name": "EffectiveEncoding.occupationStepCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 57
+    },
+    {
+      "name": "EffectiveEncoding.GateCode.extend",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 67
+    },
+    {
+      "name": "EffectiveEncoding.prefixCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.prefixCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 75
+    },
+    {
+      "name": "EffectiveEncoding.interpret_prefix",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 78
+    },
+    {
+      "name": "EffectiveEncoding.GateCode.shift",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 86
+    },
+    {
+      "name": "EffectiveEncoding.shiftCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 93
+    },
+    {
+      "name": "EffectiveEncoding.shiftCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 96
+    },
+    {
+      "name": "EffectiveEncoding.interpret_shift",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 99
+    },
+    {
+      "name": "EffectiveEncoding.stageCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 107
+    },
+    {
+      "name": "EffectiveEncoding.stageCircuit",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 111
+    },
+    {
+      "name": "EffectiveEncoding.stageCircuit_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 114
+    },
+    {
+      "name": "EffectiveEncoding.compressionCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 123
+    },
+    {
+      "name": "EffectiveEncoding.compressionCircuit",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 128
+    },
+    {
+      "name": "EffectiveEncoding.compressionCircuit_succ",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 131
+    },
+    {
+      "name": "EffectiveEncoding.bitOccupation_zero",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 140
+    },
+    {
+      "name": "EffectiveEncoding.compressionCircuit_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 150
+    },
+    {
+      "name": "EffectiveEncoding.stageCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 159
+    },
+    {
+      "name": "EffectiveEncoding.compressionCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 165
+    },
+    {
+      "name": "EffectiveEncoding.compressionCircuit_matrix",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 174
+    },
+    {
+      "name": "EffectiveEncoding.compressionCircuit_coherent",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 183
+    },
+    {
+      "name": "EffectiveEncoding.compressionCircuit_purePower",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "line": 190
+    },
+    {
+      "name": "EffectiveEncoding.AngleAtom",
+      "kind": "inductive",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.AngleAtom.value",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 22
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.value",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 26
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.neg",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 29
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.half",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.neg_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 33
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.half_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 36
+    },
+    {
+      "name": "EffectiveEncoding.piCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 41
+    },
+    {
+      "name": "EffectiveEncoding.piCode_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode",
+      "kind": "inductive",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 46
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode.value",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 53
+    },
+    {
+      "name": "EffectiveEncoding.GateCode",
+      "kind": "inductive",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 63
+    },
+    {
+      "name": "EffectiveEncoding.GateCode.value",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 67
+    },
+    {
+      "name": "EffectiveEncoding.GateCode.inverse",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 71
+    },
+    {
+      "name": "EffectiveEncoding.GateCode.inverse_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 75
+    },
+    {
+      "name": "EffectiveEncoding.WordCode",
+      "kind": "abbrev",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 78
+    },
+    {
+      "name": "EffectiveEncoding.interpret",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 80
+    },
+    {
+      "name": "EffectiveEncoding.interpret_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 83
+    },
+    {
+      "name": "EffectiveEncoding.interpret_append",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 86
+    },
+    {
+      "name": "EffectiveEncoding.reverseCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 89
+    },
+    {
+      "name": "EffectiveEncoding.interpret_reverse",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 92
+    },
+    {
+      "name": "EffectiveEncoding.reverseCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 96
+    },
+    {
+      "name": "EffectiveEncoding.maskOfBits",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 99
+    },
+    {
+      "name": "EffectiveEncoding.maskOfBits_injective",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 102
+    },
+    {
+      "name": "EffectiveEncoding.masks",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 109
+    },
+    {
+      "name": "EffectiveEncoding.maskIndex_injective",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 112
+    },
+    {
+      "name": "EffectiveEncoding.masks_nodup",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 116
+    },
+    {
+      "name": "EffectiveEncoding.mem_masks",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 119
+    },
+    {
+      "name": "EffectiveEncoding.masks_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 126
+    },
+    {
+      "name": "EffectiveEncoding.masks_perm",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 128
+    },
+    {
+      "name": "EffectiveEncoding.controls",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 135
+    },
+    {
+      "name": "EffectiveEncoding.controls_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 139
+    },
+    {
+      "name": "EffectiveEncoding.controls_character",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 142
+    },
+    {
+      "name": "EffectiveEncoding.cnotCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 156
+    },
+    {
+      "name": "EffectiveEncoding.interpret_cnotCode",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 159
+    },
+    {
+      "name": "EffectiveEncoding.parityCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 163
+    },
+    {
+      "name": "EffectiveEncoding.parityCode_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 167
+    },
+    {
+      "name": "EffectiveEncoding.parityCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 177
+    },
+    {
+      "name": "EffectiveEncoding.pauliCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 182
+    },
+    {
+      "name": "EffectiveEncoding.pauliCode_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 187
+    },
+    {
+      "name": "EffectiveEncoding.pauliCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 206
+    },
+    {
+      "name": "EffectiveEncoding.signedCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 215
+    },
+    {
+      "name": "EffectiveEncoding.signedCode_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 217
+    },
+    {
+      "name": "EffectiveEncoding.maskParity",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 221
+    },
+    {
+      "name": "EffectiveEncoding.maskParity_sign",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 224
+    },
+    {
+      "name": "EffectiveEncoding.selectedCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 230
+    },
+    {
+      "name": "EffectiveEncoding.run_pauliCodes",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 233
+    },
+    {
+      "name": "EffectiveEncoding.selectedCode_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 246
+    },
+    {
+      "name": "EffectiveEncoding.selectedCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "line": 258
+    },
+    {
+      "name": "EffectiveEncoding.Triple",
+      "kind": "abbrev",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.total",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 12
+    },
+    {
+      "name": "EffectiveEncoding.triples",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.mem_triples",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 20
+    },
+    {
+      "name": "EffectiveEncoding.triples_nodup",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 29
+    },
+    {
+      "name": "EffectiveEncoding.fromTriple",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 33
+    },
+    {
+      "name": "EffectiveEncoding.fromTriple_count_zero",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 40
+    },
+    {
+      "name": "EffectiveEncoding.fromTriple_count_one",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 44
+    },
+    {
+      "name": "EffectiveEncoding.fromTriple_count_two",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 48
+    },
+    {
+      "name": "EffectiveEncoding.fromTriple_count_three",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 52
+    },
+    {
+      "name": "EffectiveEncoding.toTriple",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 56
+    },
+    {
+      "name": "EffectiveEncoding.count_total",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 59
+    },
+    {
+      "name": "EffectiveEncoding.toTriple_le",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 67
+    },
+    {
+      "name": "EffectiveEncoding.toTriple_fromTriple",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.fromTriple_toTriple",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 76
+    },
+    {
+      "name": "EffectiveEncoding.occupations",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 84
+    },
+    {
+      "name": "EffectiveEncoding.occupations_nodup",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 87
+    },
+    {
+      "name": "EffectiveEncoding.mem_occupations",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 93
+    },
+    {
+      "name": "EffectiveEncoding.occupations_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 98
+    },
+    {
+      "name": "EffectiveEncoding.rank",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 108
+    },
+    {
+      "name": "EffectiveEncoding.unrank",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 113
+    },
+    {
+      "name": "EffectiveEncoding.unrank_rank",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 116
+    },
+    {
+      "name": "EffectiveEncoding.rank_unrank",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 120
+    },
+    {
+      "name": "EffectiveEncoding.rankEquiv",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 125
+    },
+    {
+      "name": "EffectiveEncoding.boundedBits",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 131
+    },
+    {
+      "name": "EffectiveEncoding.boundedBits_injective",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 134
+    },
+    {
+      "name": "EffectiveEncoding.rank_fits",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 147
+    },
+    {
+      "name": "EffectiveEncoding.compactEncoding",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 153
+    },
+    {
+      "name": "EffectiveEncoding.originalEncoding",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 164
+    },
+    {
+      "name": "EffectiveEncoding.nextEncoding",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 167
+    },
+    {
+      "name": "EffectiveEncoding.decode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 171
+    },
+    {
+      "name": "EffectiveEncoding.find_unique",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 174
+    },
+    {
+      "name": "EffectiveEncoding.decode_encode",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 189
+    },
+    {
+      "name": "EffectiveEncoding.decode_some_iff",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 196
+    },
+    {
+      "name": "EffectiveEncoding.enumeration_candidate_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 206
+    },
+    {
+      "name": "EffectiveEncoding.compactEncoding_testBit",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 214
+    },
+    {
+      "name": "EffectiveEncoding.originalEncoding_high_zero",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "line": 218
+    },
+    {
+      "name": "EffectiveEncoding.castCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.interpret_cast",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.castCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.bellPreparationCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.interpret_bellPreparationCode",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 19
+    },
+    {
+      "name": "EffectiveEncoding.bellPairsCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.interpret_bellPairsCode",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 27
+    },
+    {
+      "name": "EffectiveEncoding.extractionCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 35
+    },
+    {
+      "name": "EffectiveEncoding.extractionCircuit",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 41
+    },
+    {
+      "name": "EffectiveEncoding.extractionCircuit_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 44
+    },
+    {
+      "name": "EffectiveEncoding.extractionCircuit_gate",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 50
+    },
+    {
+      "name": "EffectiveEncoding.extractionVector",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 55
+    },
+    {
+      "name": "EffectiveEncoding.extractionCircuit_coherent",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.extractionCircuit_purePower",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 67
+    },
+    {
+      "name": "EffectiveEncoding.extractionCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.extractionCode_polynomial_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 83
+    },
+    {
+      "name": "EffectiveEncoding.extractionCircuit_polynomial_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 88
+    },
+    {
+      "name": "EffectiveEncoding.garbageVector",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 94
+    },
+    {
+      "name": "EffectiveEncoding.extractionVector_readout",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 98
+    },
+    {
+      "name": "EffectiveEncoding.garbageVector_square",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 109
+    },
+    {
+      "name": "EffectiveEncoding.extractionOutput",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 117
+    },
+    {
+      "name": "EffectiveEncoding.extractionOutput_coherent",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 129
+    },
+    {
+      "name": "EffectiveEncoding.extractionOutput_purePower",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "line": 153
+    },
+    {
+      "name": "EffectiveEncoding.LabelGate",
+      "kind": "inductive",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 11
+    },
+    {
+      "name": "EffectiveEncoding.LabelGate.value",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.labelCircuit",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 19
+    },
+    {
+      "name": "EffectiveEncoding.wireLabels",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 22
+    },
+    {
+      "name": "EffectiveEncoding.wireLabels_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 25
+    },
+    {
+      "name": "EffectiveEncoding.compileLabels",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.compileLabelWord",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 38
+    },
+    {
+      "name": "EffectiveEncoding.labelCircuit_flatMap",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 41
+    },
+    {
+      "name": "EffectiveEncoding.labelCircuit_uses",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 46
+    },
+    {
+      "name": "EffectiveEncoding.compileLabels_error",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 54
+    },
+    {
+      "name": "EffectiveEncoding.compileLabelWord_error",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 71
+    },
+    {
+      "name": "EffectiveEncoding.compileLabels_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 81
+    },
+    {
+      "name": "EffectiveEncoding.compileLabelWord_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 88
+    },
+    {
+      "name": "EffectiveEncoding.extractionOutput_fidelity_one",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 100
+    },
+    {
+      "name": "EffectiveEncoding.extractionOutput_robust",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 108
+    },
+    {
+      "name": "EffectiveEncoding.extractionOutput_robust_up_to_phase",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 138
+    },
+    {
+      "name": "EffectiveEncoding.finiteLabels_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "line": 152
+    },
+    {
+      "name": "EffectiveEncoding.selectedCode_run_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.adjacentSwapCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 11
+    },
+    {
+      "name": "EffectiveEncoding.adjacentSwapCode_run_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.adjacentSwapCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 22
+    },
+    {
+      "name": "EffectiveEncoding.adjacentRotationCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 28
+    },
+    {
+      "name": "EffectiveEncoding.adjacentRotationCode_run_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.adjacentRotationCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 42
+    },
+    {
+      "name": "EffectiveEncoding.orientedRotationCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 50
+    },
+    {
+      "name": "EffectiveEncoding.orientedRotationCode_run_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 54
+    },
+    {
+      "name": "EffectiveEncoding.otherWires",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 62
+    },
+    {
+      "name": "EffectiveEncoding.mem_otherWires",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 65
+    },
+    {
+      "name": "EffectiveEncoding.otherWires_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 68
+    },
+    {
+      "name": "EffectiveEncoding.differing_exists",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.differingWire",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 80
+    },
+    {
+      "name": "EffectiveEncoding.differingWire_spec",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 83
+    },
+    {
+      "name": "EffectiveEncoding.clearBits_otherWires",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 88
+    },
+    {
+      "name": "EffectiveEncoding.moveCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 99
+    },
+    {
+      "name": "EffectiveEncoding.moveCode_run_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 105
+    },
+    {
+      "name": "EffectiveEncoding.moveCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 116
+    },
+    {
+      "name": "EffectiveEncoding.swapCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 130
+    },
+    {
+      "name": "EffectiveEncoding.swapCode_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 136
+    },
+    {
+      "name": "EffectiveEncoding.swapCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 167
+    },
+    {
+      "name": "EffectiveEncoding.rotationCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 178
+    },
+    {
+      "name": "EffectiveEncoding.rotationCode_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 184
+    },
+    {
+      "name": "EffectiveEncoding.rotationCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "line": 227
+    },
+    {
+      "name": "EffectiveEncoding.GateCode.representative",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.GateCode.globalPhase",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 12
+    },
+    {
+      "name": "EffectiveEncoding.GateCode.globalPhase_norm",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.GateCode.representative_spec",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 22
+    },
+    {
+      "name": "EffectiveEncoding.representativeCircuit",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 29
+    },
+    {
+      "name": "EffectiveEncoding.wordPhase",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 32
+    },
+    {
+      "name": "EffectiveEncoding.wordPhase_norm",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 35
+    },
+    {
+      "name": "EffectiveEncoding.interpret_cons",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 40
+    },
+    {
+      "name": "EffectiveEncoding.representativeCircuit_cons",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.representativeCircuit_phase",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 48
+    },
+    {
+      "name": "EffectiveEncoding.descriptor_word_error",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 59
+    },
+    {
+      "name": "EffectiveEncoding.descriptor_word_uniform_error",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "line": 83
+    },
+    {
+      "name": "EffectiveEncoding.descriptorSynthesis",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.descriptorSynthesis_spec",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.extractionPrecision",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 40
+    },
+    {
+      "name": "EffectiveEncoding.numericalExtractionCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 45
+    },
+    {
+      "name": "EffectiveEncoding.numericalExtractionCode_uses",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 52
+    },
+    {
+      "name": "EffectiveEncoding.numericalExtractionCode_error",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 59
+    },
+    {
+      "name": "EffectiveEncoding.numericalExtractionCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 78
+    },
+    {
+      "name": "EffectiveEncoding.numericalExtractionCode_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 97
+    },
+    {
+      "name": "EffectiveEncoding.descriptorArithmeticOperations",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 117
+    },
+    {
+      "name": "EffectiveEncoding.descriptorArithmeticOperations_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 122
+    },
+    {
+      "name": "EffectiveEncoding.gateArithmeticOperations",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 130
+    },
+    {
+      "name": "EffectiveEncoding.extractionArithmeticOperations",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 136
+    },
+    {
+      "name": "EffectiveEncoding.extractionArithmeticOperations_bound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 141
+    },
+    {
+      "name": "EffectiveEncoding.numericalExtraction_from_universal",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "line": 161
+    },
+    {
+      "name": "EffectiveEncoding.countProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.countProgram_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.countProgram_sparse",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 22
+    },
+    {
+      "name": "EffectiveEncoding.indexedCount",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 35
+    },
+    {
+      "name": "EffectiveEncoding.indexedCount_image",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 39
+    },
+    {
+      "name": "EffectiveEncoding.indexedCount_ratio",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 44
+    },
+    {
+      "name": "EffectiveEncoding.explicitOthers",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 53
+    },
+    {
+      "name": "EffectiveEncoding.explicitOthers_perm",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 58
+    },
+    {
+      "name": "EffectiveEncoding.explicitOthers_nodup",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 62
+    },
+    {
+      "name": "EffectiveEncoding.explicitOthers_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 66
+    },
+    {
+      "name": "EffectiveEncoding.integerIndexedCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 70
+    },
+    {
+      "name": "EffectiveEncoding.integerIndexedCode_raw",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 74
+    },
+    {
+      "name": "EffectiveEncoding.integerIndexedCode_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 84
+    },
+    {
+      "name": "EffectiveEncoding.integerIndexedCode_fixes_zero",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 113
+    },
+    {
+      "name": "EffectiveEncoding.integerIndexedCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 125
+    },
+    {
+      "name": "EffectiveEncoding.occupiedPivot",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 130
+    },
+    {
+      "name": "EffectiveEncoding.branchEmbedding",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 136
+    },
+    {
+      "name": "EffectiveEncoding.branchEmbedding_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 141
+    },
+    {
+      "name": "EffectiveEncoding.pivotCoordinates",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 145
+    },
+    {
+      "name": "EffectiveEncoding.pivotEmbedding",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 149
+    },
+    {
+      "name": "EffectiveEncoding.branchCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 156
+    },
+    {
+      "name": "EffectiveEncoding.branchCode_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 161
+    },
+    {
+      "name": "EffectiveEncoding.branchCode_fixes_other",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 171
+    },
+    {
+      "name": "EffectiveEncoding.branchCode_fixes_other_pivot",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 178
+    },
+    {
+      "name": "EffectiveEncoding.branchCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "line": 190
+    },
+    {
+      "name": "EffectiveEncoding.swapCode_denote",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.rotationCode_denote_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.RawCode",
+      "kind": "inductive",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.mergeCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 28
+    },
+    {
+      "name": "EffectiveEncoding.mergeCode_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.RawCode.value",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.RawCode.compile",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 39
+    },
+    {
+      "name": "EffectiveEncoding.RawCode.compile_denote",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.RawCode.compile_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 51
+    },
+    {
+      "name": "EffectiveEncoding.compileRaw",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.compileRaw_denote",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 64
+    },
+    {
+      "name": "EffectiveEncoding.compileRaw_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 73
+    },
+    {
+      "name": "EffectiveEncoding.alignmentPerm",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 85
+    },
+    {
+      "name": "EffectiveEncoding.alignmentCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 90
+    },
+    {
+      "name": "EffectiveEncoding.alignmentPerm_complete",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 96
+    },
+    {
+      "name": "EffectiveEncoding.alignmentCode_action",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 118
+    },
+    {
+      "name": "EffectiveEncoding.alignmentCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 136
+    },
+    {
+      "name": "EffectiveEncoding.alignmentCode_on_embedding",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "line": 148
+    },
+    {
+      "name": "EffectiveEncoding.hadRepresentative",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.yRepresentative",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 12
+    },
+    {
+      "name": "EffectiveEncoding.phaseRepresentative",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.star_complexPhase",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 18
+    },
+    {
+      "name": "EffectiveEncoding.phaseRepresentative_bool",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.su2ToBool_star",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode.representative",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 37
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode.globalPhase",
+      "kind": "def",
+      "noncomputable": true,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode.globalPhase_norm",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 49
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode.representative_spec",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 59
+    },
+    {
+      "name": "EffectiveEncoding.quaternionCoordinates_star",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 95
+    },
+    {
+      "name": "EffectiveEncoding.invSqrtTwoOracle",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 103
+    },
+    {
+      "name": "EffectiveEncoding.sqrt_half_eq_invSqrtTwo",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 105
+    },
+    {
+      "name": "EffectiveEncoding.invSqrtTwoOracle_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 110
+    },
+    {
+      "name": "EffectiveEncoding.phaseCosOracle",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 115
+    },
+    {
+      "name": "EffectiveEncoding.phaseSinOracle",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 120
+    },
+    {
+      "name": "EffectiveEncoding.phaseCosOracle_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 125
+    },
+    {
+      "name": "EffectiveEncoding.phaseSinOracle_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 139
+    },
+    {
+      "name": "EffectiveEncoding.quaternionStarOracle",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 154
+    },
+    {
+      "name": "EffectiveEncoding.quaternionStarOracle_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 158
+    },
+    {
+      "name": "EffectiveEncoding.coordinatePacket",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 174
+    },
+    {
+      "name": "EffectiveEncoding.coordinatePacket_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 177
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode.quaternionOracle",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 185
+    },
+    {
+      "name": "EffectiveEncoding.hadRepresentative_coordinates",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 193
+    },
+    {
+      "name": "EffectiveEncoding.phaseRepresentative_coordinates",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 199
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode.quaternionOracle_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "line": 205
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean",
+      "sha256": "1f184dba584c6349e3142ab9a87ca2a4272369364ef59745cec919e1d36045f0",
+      "declarations": [
+        "EffectiveEncoding.AngleAtom.cosOracle",
+        "EffectiveEncoding.AngleAtom.sinOracle",
+        "EffectiveEncoding.mergeAngle_degenerate",
+        "EffectiveEncoding.AngleAtom.cosOracle_correct",
+        "EffectiveEncoding.AngleAtom.sinOracle_correct",
+        "EffectiveEncoding.AngleAtom.value_bounds",
+        "EffectiveEncoding.AngleCode.cosOracle",
+        "EffectiveEncoding.AngleCode.sinOracle",
+        "EffectiveEncoding.AngleCode.cosOracle_correct",
+        "EffectiveEncoding.AngleCode.sinOracle_correct",
+        "EffectiveEncoding.AngleCode.evaluation"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean",
+      "sha256": "b48e277618ba89602a6473c6eef51d9a9d8651fafc1aa6c647a7addf4a03d145",
+      "declarations": [
+        "EffectiveEncoding.interpret_flatMap",
+        "EffectiveEncoding.allBranchCode",
+        "EffectiveEncoding.allBranchCode_action",
+        "EffectiveEncoding.allBranchCode_length",
+        "EffectiveEncoding.occupationStepCode",
+        "EffectiveEncoding.occupationStepCode_action",
+        "EffectiveEncoding.occupationStepCode_length",
+        "EffectiveEncoding.GateCode.extend",
+        "EffectiveEncoding.prefixCode",
+        "EffectiveEncoding.prefixCode_length",
+        "EffectiveEncoding.interpret_prefix",
+        "EffectiveEncoding.GateCode.shift",
+        "EffectiveEncoding.shiftCode",
+        "EffectiveEncoding.shiftCode_length",
+        "EffectiveEncoding.interpret_shift",
+        "EffectiveEncoding.stageCode",
+        "EffectiveEncoding.stageCircuit",
+        "EffectiveEncoding.stageCircuit_action",
+        "EffectiveEncoding.compressionCode",
+        "EffectiveEncoding.compressionCircuit",
+        "EffectiveEncoding.compressionCircuit_succ",
+        "EffectiveEncoding.bitOccupation_zero",
+        "EffectiveEncoding.compressionCircuit_action",
+        "EffectiveEncoding.stageCode_length",
+        "EffectiveEncoding.compressionCode_length",
+        "EffectiveEncoding.compressionCircuit_matrix",
+        "EffectiveEncoding.compressionCircuit_coherent",
+        "EffectiveEncoding.compressionCircuit_purePower"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean",
+      "sha256": "9848a546e6a0e78a5bfde1980c3ff65b1dd82376d08fd6e3bb8470668db9fd64",
+      "declarations": [
+        "EffectiveEncoding.AngleAtom",
+        "EffectiveEncoding.AngleCode",
+        "EffectiveEncoding.AngleAtom.value",
+        "EffectiveEncoding.AngleCode.value",
+        "EffectiveEncoding.AngleCode.neg",
+        "EffectiveEncoding.AngleCode.half",
+        "EffectiveEncoding.AngleCode.neg_value",
+        "EffectiveEncoding.AngleCode.half_value",
+        "EffectiveEncoding.piCode",
+        "EffectiveEncoding.piCode_value",
+        "EffectiveEncoding.SingleCode",
+        "EffectiveEncoding.SingleCode.value",
+        "EffectiveEncoding.GateCode",
+        "EffectiveEncoding.GateCode.value",
+        "EffectiveEncoding.GateCode.inverse",
+        "EffectiveEncoding.GateCode.inverse_value",
+        "EffectiveEncoding.WordCode",
+        "EffectiveEncoding.interpret",
+        "EffectiveEncoding.interpret_length",
+        "EffectiveEncoding.interpret_append",
+        "EffectiveEncoding.reverseCode",
+        "EffectiveEncoding.interpret_reverse",
+        "EffectiveEncoding.reverseCode_length",
+        "EffectiveEncoding.maskOfBits",
+        "EffectiveEncoding.maskOfBits_injective",
+        "EffectiveEncoding.masks",
+        "EffectiveEncoding.maskIndex_injective",
+        "EffectiveEncoding.masks_nodup",
+        "EffectiveEncoding.mem_masks",
+        "EffectiveEncoding.masks_length",
+        "EffectiveEncoding.masks_perm",
+        "EffectiveEncoding.controls",
+        "EffectiveEncoding.controls_length",
+        "EffectiveEncoding.controls_character",
+        "EffectiveEncoding.cnotCode",
+        "EffectiveEncoding.interpret_cnotCode",
+        "EffectiveEncoding.parityCode",
+        "EffectiveEncoding.parityCode_action",
+        "EffectiveEncoding.parityCode_length",
+        "EffectiveEncoding.pauliCode",
+        "EffectiveEncoding.pauliCode_action",
+        "EffectiveEncoding.pauliCode_length",
+        "EffectiveEncoding.signedCode",
+        "EffectiveEncoding.signedCode_value",
+        "EffectiveEncoding.maskParity",
+        "EffectiveEncoding.maskParity_sign",
+        "EffectiveEncoding.selectedCode",
+        "EffectiveEncoding.run_pauliCodes",
+        "EffectiveEncoding.selectedCode_action",
+        "EffectiveEncoding.selectedCode_length"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean",
+      "sha256": "0f2aa117988d43c8b7c509837aa7c7a20b3e0ccb7824058c2f722d1854f14f3a",
+      "declarations": [
+        "EffectiveEncoding.Triple",
+        "EffectiveEncoding.total",
+        "EffectiveEncoding.triples",
+        "EffectiveEncoding.mem_triples",
+        "EffectiveEncoding.triples_nodup",
+        "EffectiveEncoding.fromTriple",
+        "EffectiveEncoding.fromTriple_count_zero",
+        "EffectiveEncoding.fromTriple_count_one",
+        "EffectiveEncoding.fromTriple_count_two",
+        "EffectiveEncoding.fromTriple_count_three",
+        "EffectiveEncoding.toTriple",
+        "EffectiveEncoding.count_total",
+        "EffectiveEncoding.toTriple_le",
+        "EffectiveEncoding.toTriple_fromTriple",
+        "EffectiveEncoding.fromTriple_toTriple",
+        "EffectiveEncoding.occupations",
+        "EffectiveEncoding.occupations_nodup",
+        "EffectiveEncoding.mem_occupations",
+        "EffectiveEncoding.occupations_length",
+        "EffectiveEncoding.rank",
+        "EffectiveEncoding.unrank",
+        "EffectiveEncoding.unrank_rank",
+        "EffectiveEncoding.rank_unrank",
+        "EffectiveEncoding.rankEquiv",
+        "EffectiveEncoding.boundedBits",
+        "EffectiveEncoding.boundedBits_injective",
+        "EffectiveEncoding.rank_fits",
+        "EffectiveEncoding.compactEncoding",
+        "EffectiveEncoding.originalEncoding",
+        "EffectiveEncoding.nextEncoding",
+        "EffectiveEncoding.decode",
+        "EffectiveEncoding.find_unique",
+        "EffectiveEncoding.decode_encode",
+        "EffectiveEncoding.decode_some_iff",
+        "EffectiveEncoding.enumeration_candidate_bound",
+        "EffectiveEncoding.compactEncoding_testBit",
+        "EffectiveEncoding.originalEncoding_high_zero"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean",
+      "sha256": "71f110f423531277842001e25a4972908b3596aacbe6f1957dea1f001a3a8941",
+      "declarations": [
+        "EffectiveEncoding.castCode",
+        "EffectiveEncoding.interpret_cast",
+        "EffectiveEncoding.castCode_length",
+        "EffectiveEncoding.bellPreparationCode",
+        "EffectiveEncoding.interpret_bellPreparationCode",
+        "EffectiveEncoding.bellPairsCode",
+        "EffectiveEncoding.interpret_bellPairsCode",
+        "EffectiveEncoding.extractionCode",
+        "EffectiveEncoding.extractionCircuit",
+        "EffectiveEncoding.extractionCircuit_eq",
+        "EffectiveEncoding.extractionCircuit_gate",
+        "EffectiveEncoding.extractionVector",
+        "EffectiveEncoding.extractionCircuit_coherent",
+        "EffectiveEncoding.extractionCircuit_purePower",
+        "EffectiveEncoding.extractionCode_length",
+        "EffectiveEncoding.extractionCode_polynomial_bound",
+        "EffectiveEncoding.extractionCircuit_polynomial_bound",
+        "EffectiveEncoding.garbageVector",
+        "EffectiveEncoding.extractionVector_readout",
+        "EffectiveEncoding.garbageVector_square",
+        "EffectiveEncoding.extractionOutput",
+        "EffectiveEncoding.extractionOutput_coherent",
+        "EffectiveEncoding.extractionOutput_purePower"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean",
+      "sha256": "079e5421531edf6c2a7c0657ee7fee6343be0e703d8257643e88ce41be398601",
+      "declarations": [
+        "EffectiveEncoding.LabelGate",
+        "EffectiveEncoding.LabelGate.value",
+        "EffectiveEncoding.labelCircuit",
+        "EffectiveEncoding.wireLabels",
+        "EffectiveEncoding.wireLabels_value",
+        "EffectiveEncoding.compileLabels",
+        "EffectiveEncoding.compileLabelWord",
+        "EffectiveEncoding.labelCircuit_flatMap",
+        "EffectiveEncoding.labelCircuit_uses",
+        "EffectiveEncoding.compileLabels_error",
+        "EffectiveEncoding.compileLabelWord_error",
+        "EffectiveEncoding.compileLabels_length",
+        "EffectiveEncoding.compileLabelWord_length",
+        "EffectiveEncoding.extractionOutput_fidelity_one",
+        "EffectiveEncoding.extractionOutput_robust",
+        "EffectiveEncoding.extractionOutput_robust_up_to_phase",
+        "EffectiveEncoding.finiteLabels_fidelity"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean",
+      "sha256": "f8739bf08d31e3bcbf5e19fdac0ec3569f7951c5afcf5ba7bf6c6895ae40409c",
+      "declarations": [
+        "EffectiveEncoding.selectedCode_run_eq",
+        "EffectiveEncoding.adjacentSwapCode",
+        "EffectiveEncoding.adjacentSwapCode_run_eq",
+        "EffectiveEncoding.adjacentSwapCode_length",
+        "EffectiveEncoding.adjacentRotationCode",
+        "EffectiveEncoding.adjacentRotationCode_run_eq",
+        "EffectiveEncoding.adjacentRotationCode_length",
+        "EffectiveEncoding.orientedRotationCode",
+        "EffectiveEncoding.orientedRotationCode_run_eq",
+        "EffectiveEncoding.otherWires",
+        "EffectiveEncoding.mem_otherWires",
+        "EffectiveEncoding.otherWires_length",
+        "EffectiveEncoding.differing_exists",
+        "EffectiveEncoding.differingWire",
+        "EffectiveEncoding.differingWire_spec",
+        "EffectiveEncoding.clearBits_otherWires",
+        "EffectiveEncoding.moveCode",
+        "EffectiveEncoding.moveCode_run_eq",
+        "EffectiveEncoding.moveCode_length",
+        "EffectiveEncoding.swapCode",
+        "EffectiveEncoding.swapCode_action",
+        "EffectiveEncoding.swapCode_length",
+        "EffectiveEncoding.rotationCode",
+        "EffectiveEncoding.rotationCode_action",
+        "EffectiveEncoding.rotationCode_length"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean",
+      "sha256": "1c4f5d1e103dec09afd5a7ddde32c34d626ae61d18e4c5adf06c00315cc412f8",
+      "declarations": [
+        "EffectiveEncoding.GateCode.representative",
+        "EffectiveEncoding.GateCode.globalPhase",
+        "EffectiveEncoding.GateCode.globalPhase_norm",
+        "EffectiveEncoding.GateCode.representative_spec",
+        "EffectiveEncoding.representativeCircuit",
+        "EffectiveEncoding.wordPhase",
+        "EffectiveEncoding.wordPhase_norm",
+        "EffectiveEncoding.interpret_cons",
+        "EffectiveEncoding.representativeCircuit_cons",
+        "EffectiveEncoding.representativeCircuit_phase",
+        "EffectiveEncoding.descriptor_word_error",
+        "EffectiveEncoding.descriptor_word_uniform_error"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean",
+      "sha256": "0cebf45fe3fa9c27c24f9110a150d610dcefc75150b0ac591bba021036fdc58c",
+      "declarations": [
+        "EffectiveEncoding.descriptorSynthesis",
+        "EffectiveEncoding.descriptorSynthesis_spec",
+        "EffectiveEncoding.extractionPrecision",
+        "EffectiveEncoding.numericalExtractionCode",
+        "EffectiveEncoding.numericalExtractionCode_uses",
+        "EffectiveEncoding.numericalExtractionCode_error",
+        "EffectiveEncoding.numericalExtractionCode_length",
+        "EffectiveEncoding.numericalExtractionCode_fidelity",
+        "EffectiveEncoding.descriptorArithmeticOperations",
+        "EffectiveEncoding.descriptorArithmeticOperations_bound",
+        "EffectiveEncoding.gateArithmeticOperations",
+        "EffectiveEncoding.extractionArithmeticOperations",
+        "EffectiveEncoding.extractionArithmeticOperations_bound",
+        "EffectiveEncoding.numericalExtraction_from_universal"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean",
+      "sha256": "945e8e8933815ccb437054c5586a5b34c0ef6a44a63dba161896111d6d8384b3",
+      "declarations": [
+        "EffectiveEncoding.countProgram",
+        "EffectiveEncoding.countProgram_length",
+        "EffectiveEncoding.countProgram_sparse",
+        "EffectiveEncoding.indexedCount",
+        "EffectiveEncoding.indexedCount_image",
+        "EffectiveEncoding.indexedCount_ratio",
+        "EffectiveEncoding.explicitOthers",
+        "EffectiveEncoding.explicitOthers_perm",
+        "EffectiveEncoding.explicitOthers_nodup",
+        "EffectiveEncoding.explicitOthers_length",
+        "EffectiveEncoding.integerIndexedCode",
+        "EffectiveEncoding.integerIndexedCode_raw",
+        "EffectiveEncoding.integerIndexedCode_action",
+        "EffectiveEncoding.integerIndexedCode_fixes_zero",
+        "EffectiveEncoding.integerIndexedCode_length",
+        "EffectiveEncoding.occupiedPivot",
+        "EffectiveEncoding.branchEmbedding",
+        "EffectiveEncoding.branchEmbedding_eq",
+        "EffectiveEncoding.pivotCoordinates",
+        "EffectiveEncoding.pivotEmbedding",
+        "EffectiveEncoding.branchCode",
+        "EffectiveEncoding.branchCode_action",
+        "EffectiveEncoding.branchCode_fixes_other",
+        "EffectiveEncoding.branchCode_fixes_other_pivot",
+        "EffectiveEncoding.branchCode_length"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean",
+      "sha256": "d464dda9f998404f9a3286fdce7f843545f7669cf3bb52d4af443708fccd9f58",
+      "declarations": [
+        "EffectiveEncoding.swapCode_denote",
+        "EffectiveEncoding.rotationCode_denote_eq",
+        "EffectiveEncoding.RawCode",
+        "EffectiveEncoding.mergeCode",
+        "EffectiveEncoding.mergeCode_value",
+        "EffectiveEncoding.RawCode.value",
+        "EffectiveEncoding.RawCode.compile",
+        "EffectiveEncoding.RawCode.compile_denote",
+        "EffectiveEncoding.RawCode.compile_length",
+        "EffectiveEncoding.compileRaw",
+        "EffectiveEncoding.compileRaw_denote",
+        "EffectiveEncoding.compileRaw_length",
+        "EffectiveEncoding.alignmentPerm",
+        "EffectiveEncoding.alignmentCode",
+        "EffectiveEncoding.alignmentPerm_complete",
+        "EffectiveEncoding.alignmentCode_action",
+        "EffectiveEncoding.alignmentCode_length",
+        "EffectiveEncoding.alignmentCode_on_embedding"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean",
+      "sha256": "fe7c52779c261148b16a877c51fffd6363a882f9c12e0d6e54dc81b0717dd464",
+      "declarations": [
+        "EffectiveEncoding.hadRepresentative",
+        "EffectiveEncoding.yRepresentative",
+        "EffectiveEncoding.phaseRepresentative",
+        "EffectiveEncoding.star_complexPhase",
+        "EffectiveEncoding.phaseRepresentative_bool",
+        "EffectiveEncoding.su2ToBool_star",
+        "EffectiveEncoding.SingleCode.representative",
+        "EffectiveEncoding.SingleCode.globalPhase",
+        "EffectiveEncoding.SingleCode.globalPhase_norm",
+        "EffectiveEncoding.SingleCode.representative_spec",
+        "EffectiveEncoding.quaternionCoordinates_star",
+        "EffectiveEncoding.invSqrtTwoOracle",
+        "EffectiveEncoding.sqrt_half_eq_invSqrtTwo",
+        "EffectiveEncoding.invSqrtTwoOracle_correct",
+        "EffectiveEncoding.phaseCosOracle",
+        "EffectiveEncoding.phaseSinOracle",
+        "EffectiveEncoding.phaseCosOracle_correct",
+        "EffectiveEncoding.phaseSinOracle_correct",
+        "EffectiveEncoding.quaternionStarOracle",
+        "EffectiveEncoding.quaternionStarOracle_correct",
+        "EffectiveEncoding.coordinatePacket",
+        "EffectiveEncoding.coordinatePacket_correct",
+        "EffectiveEncoding.SingleCode.quaternionOracle",
+        "EffectiveEncoding.hadRepresentative_coordinates",
+        "EffectiveEncoding.phaseRepresentative_coordinates",
+        "EffectiveEncoding.SingleCode.quaternionOracle_correct"
+      ]
+    }
+  ]
+}
