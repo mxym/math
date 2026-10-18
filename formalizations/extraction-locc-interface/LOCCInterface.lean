@@ -1,2 +1,3 @@
 import LOCCInterface.Protocol
+import LOCCInterface.Closure
 import LOCCInterface.AxiomReport

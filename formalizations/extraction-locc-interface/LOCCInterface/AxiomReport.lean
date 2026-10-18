@@ -1,4 +1,5 @@
 import LOCCInterface.Protocol
+import LOCCInterface.Closure
 #print axioms ExtractionLOCC.Tree.leafKraus_complete
 #print axioms ExtractionLOCC.Tree.channel_completelyPositive
 #print axioms ExtractionLOCC.Tree.channel_tracePreserving
@@ -16,3 +17,17 @@ import LOCCInterface.Protocol
 #print axioms ExtractionLOCC.tree_isFiniteLOCCProtocol
 #print axioms ExtractionLOCC.productLocal_isFiniteLOCCProtocol
 #print axioms ExtractionLOCC.IsFiniteLOCC.exists_actual_protocol
+#print axioms ExtractionLOCC.choi_injective
+#print axioms ExtractionLOCC.continuous_evaluation
+#print axioms ExtractionLOCC.isClosed_completelyPositive
+#print axioms ExtractionLOCC.isClosed_tracePreserving
+#print axioms ExtractionLOCC.choi_ptConjugate
+#print axioms ExtractionLOCC.continuous_choi_ptConjugate
+#print axioms ExtractionLOCC.isClosed_pt_completelyPositive
+#print axioms ExtractionLOCC.IsFiniteLOCC.isClosureLOCC
+#print axioms ExtractionLOCC.IsClosureLOCC.completelyPositive
+#print axioms ExtractionLOCC.IsClosureLOCC.tracePreserving
+#print axioms ExtractionLOCC.IsClosureLOCC.pt_completelyPositive
+#print axioms ExtractionLOCC.finiteLOCC_isClosureLOCCProtocol
+#print axioms ExtractionLOCC.productLocal_isClosureLOCCProtocol
+#print axioms ExtractionLOCC.IsClosureLOCC.exists_actual_protocol
