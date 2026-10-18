@@ -55,6 +55,11 @@ existence of a finite-library compiler.
 
 The full extraction proposition is still incomplete here: effective angle
 evaluation and finite-library Solovay--Kitaev compilation remain open.
+The SK continuation now proves the commutator perturbation bound
+`4*delta*epsilon + 2*epsilon^2` directly from actual matrix algebra, and derives
+a fixed finite approximation net from inverse-closed universality and proved
+SU(2) compactness. The near-identity balanced decomposition and effective
+finite-precision recursion remain open; see `SOURCE_REVIEW.md`.
 The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
@@ -66,6 +71,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build and all 87 root type/axiom prints passed with 3784 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T151747770201Z-extraction-circuit-recursion.log`.
+The ordinary build and all 106 root type/axiom prints passed with 3793 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T152927012415Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.

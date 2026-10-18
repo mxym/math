@@ -13,3 +13,6 @@ import CircuitRecursion.Growth
 import CircuitRecursion.Robustness
 import CircuitRecursion.InputDensity
 import CircuitRecursion.Check
+import CircuitRecursion.CommutatorError
+import CircuitRecursion.FiniteNet
+import CircuitRecursion.SpecialUnitaryNet

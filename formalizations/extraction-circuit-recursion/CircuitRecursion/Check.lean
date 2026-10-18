@@ -1,4 +1,4 @@
-import CircuitRecursion.InputDensity
+import CircuitRecursion.SpecialUnitaryNet
 
 #check CircuitRecursion.zeroBits_append
 #print axioms CircuitRecursion.zeroBits_append
@@ -20,6 +20,26 @@ import CircuitRecursion.InputDensity
 #print axioms CircuitRecursion.bellPairsVector_standard
 #check CircuitRecursion.letterBits_physical
 #print axioms CircuitRecursion.letterBits_physical
+#check CircuitRecursion.unitaryDistance_nonneg
+#print axioms CircuitRecursion.unitaryDistance_nonneg
+#check CircuitRecursion.unitaryDistance_symm
+#print axioms CircuitRecursion.unitaryDistance_symm
+#check CircuitRecursion.unitaryDistance_triangle
+#print axioms CircuitRecursion.unitaryDistance_triangle
+#check CircuitRecursion.unitaryDistance_mul_right
+#print axioms CircuitRecursion.unitaryDistance_mul_right
+#check CircuitRecursion.unitaryDistance_mul_left
+#print axioms CircuitRecursion.unitaryDistance_mul_left
+#check CircuitRecursion.unitaryDistance_star
+#print axioms CircuitRecursion.unitaryDistance_star
+#check CircuitRecursion.unitaryDistance_conjugation
+#print axioms CircuitRecursion.unitaryDistance_conjugation
+#check CircuitRecursion.unitaryCommutator_first_error
+#print axioms CircuitRecursion.unitaryCommutator_first_error
+#check CircuitRecursion.unitaryCommutator_second_error
+#print axioms CircuitRecursion.unitaryCommutator_second_error
+#check CircuitRecursion.unitaryCommutator_error
+#print axioms CircuitRecursion.unitaryCommutator_error
 #check CircuitRecursion.active_available
 #print axioms CircuitRecursion.active_available
 #check CircuitRecursion.stageCircuit_action
@@ -68,6 +88,18 @@ import CircuitRecursion.InputDensity
 #print axioms CircuitRecursion.extractionCircuit_length
 #check CircuitRecursion.extractionCircuit_polynomial_bound
 #print axioms CircuitRecursion.extractionCircuit_polynomial_bound
+#check CircuitRecursion.instructionWordValue_append
+#print axioms CircuitRecursion.instructionWordValue_append
+#check CircuitRecursion.instructionWordValue_inverse
+#print axioms CircuitRecursion.instructionWordValue_inverse
+#check CircuitRecursion.subgroup_instructionWord
+#print axioms CircuitRecursion.subgroup_instructionWord
+#check CircuitRecursion.dense_instructionWords
+#print axioms CircuitRecursion.dense_instructionWords
+#check CircuitRecursion.finite_instructionNet
+#print axioms CircuitRecursion.finite_instructionNet
+#check CircuitRecursion.uniform_instructionLength
+#print axioms CircuitRecursion.uniform_instructionLength
 #check CircuitRecursion.extractionCircuit_real_bound
 #print axioms CircuitRecursion.extractionCircuit_real_bound
 #check CircuitRecursion.extractionCircuit_isBigO
@@ -162,6 +194,12 @@ import CircuitRecursion.InputDensity
 #print axioms CircuitRecursion.compiledExtraction_fidelity
 #check CircuitRecursion.compiledExtraction_length
 #print axioms CircuitRecursion.compiledExtraction_length
+#check CircuitRecursion.specialUnitary_isCompact
+#print axioms CircuitRecursion.specialUnitary_isCompact
+#check CircuitRecursion.specialUnitary_compactSpace
+#print axioms CircuitRecursion.specialUnitary_compactSpace
+#check CircuitRecursion.su2_uniform_instructionLength
+#print axioms CircuitRecursion.su2_uniform_instructionLength
 #check CircuitRecursion.bellPairYield_feasible
 #print axioms CircuitRecursion.bellPairYield_feasible
 #check CircuitRecursion.bellPairYield_maximal
