@@ -38,10 +38,24 @@ to physical copywise Alice/Bob coordinates through separate local digit maps;
 `extractionCircuit_polynomial_bound` binds the displayed bound to this complete
 actual word, including Bell preparation.
 
-The full extraction proposition is still incomplete here: the real-log form
-and cPPT maximality of the integer yield, an asymptotic Big-O statement,
-effective angle evaluation and finite-library Solovay--Kitaev compilation
-remain to be connected/proved. The finite embedding
+`bellPairYield_floor` identifies the yield with exactly
+`floor(k - (1/2)*log_2(r_k))`. `bellPairYield_cPPT_maximal` applies the existing
+physical cPPT converse to exclude any larger uniform exact integer output,
+including arbitrary global unitaries. `extractionCircuit_isBigO` proves
+`O(k^7 * log_2(k+3)^2)` for the actual final word.
+
+`bitPurePower_copywiseInput` connects the input to the literal tensor density
+in the existing explicit copywise coordinates. `extractionOutput_robust` and
+its overall-phase version retain fidelity at least `1-2*delta` for an actual
+matrix approximation of the final circuit. `compiledExtraction_fidelity`
+derives that bound from per-gate error `delta/G` for any supplied literal
+replacement compiler; `compiledExtraction_length` counts its actual words.
+These are conditional stability/counting lemmas, and do not assert the
+existence of a finite-library compiler.
+
+The full extraction proposition is still incomplete here: effective angle
+evaluation and finite-library Solovay--Kitaev compilation remain open.
+The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
 
@@ -52,6 +66,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build passed with 3776 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T150624131886Z-extraction-circuit-recursion.log`.
+The ordinary build and all 87 root type/axiom prints passed with 3784 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T151747770201Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.

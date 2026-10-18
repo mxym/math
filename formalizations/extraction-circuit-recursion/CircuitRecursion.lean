@@ -8,3 +8,8 @@ import CircuitRecursion.BellPairs
 import CircuitRecursion.ExtractionCircuit
 import CircuitRecursion.PhysicalCoordinates
 import CircuitRecursion.LocalDiscard
+import CircuitRecursion.Yield
+import CircuitRecursion.Growth
+import CircuitRecursion.Robustness
+import CircuitRecursion.InputDensity
+import CircuitRecursion.Check
