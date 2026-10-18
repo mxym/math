@@ -6,6 +6,12 @@ communicated and selects a subtree and the acting party's next local dimension.
 The terminal systems are `Fin c` and `Fin d`. Individual Kraus outcomes refine
 coarser instrument outcomes; repeated continuation subtrees implement the latter.
 All node hypotheses are local instrument completeness identities.
+`Instrument.ofCP` further constructs actual Kraus instruments from arbitrary
+finite local CP outcome maps whose total trace is preserved, deriving the
+completeness equation internally. `Tree.aliceInstrument`/`bobInstrument` handle
+coarse public outcomes with multiple hidden Kraus indices, using the same
+continuation and next dimension for all hidden indices. Their channel equations
+sum those indices internally and retain only the public outcome for adaptivity.
 
 `Tree.Leaf` is the complete communicated history and is proved finite.
 `leafAlice`, `leafBob`, and `leafKraus` construct the actual ordered products
@@ -24,7 +30,17 @@ an actual `KrausPPTProtocol` through the proved CP/Choi/Kraus construction.
 As in the existing extraction model, arbitrary global `P.U` is a separate
 preprocessing operation; the finite-LOCC restriction concerns the subsequent
 map. No claim is made that adjoining arbitrary global U is itself LOCC/PPT.
-This package covers finite-round LOCC, not the topological closure of LOCC.
+`IsClosureLOCC` separately defines the topological closure of these actual
+finite-round maps, in the topology induced by the complete matrix-unit
+coefficient array (`coefficientTopology`). Choi injectivity proves that this
+array retains the full map. Evaluation on each actual input is continuous.
+CP is closed by Choi PSD closedness; TP is an intersection of closed trace
+identities; the transpose-conjugate Choi array is a continuous coordinate
+rearrangement, so its CP constraint is also closed. Thus closure LOCC is CP,
+TP, and cPPT, and has actual complete Kraus representatives as well.
+`IsClosureLOCCProtocol` and `productLocal_isClosureLOCCProtocol` expose the
+corresponding actual postprocessing class. Finite-round and closure LOCC
+remain distinct definitions.
 
 Lean 4.34.1; Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612.
 Use the guarded serialized `worker_build.py` helper. Shared frozen dependency
