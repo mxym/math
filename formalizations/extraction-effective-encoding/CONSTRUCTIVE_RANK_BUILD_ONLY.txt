@@ -1,0 +1,48 @@
+OWNED MODULE CHECK ONLY; STANDARD AGGREGATE PENDING; NOT INDEPENDENT REPLAY
+
+Two new unused math modules ConstructiveTriples/ConstructiveRankExtraction,
+25 theorem / 21 model roots. Authorized narrow module and all-root kind/type/
+axiom checks PASS (standard allowlist). Exact evidence:
+verification/constructive-rank-root-check-20261018T210325837473Z/REPORT.json,
+log 20261018T210321650687Z-owned-check-EffectiveEncoding.ConstructiveRankCheck.log.
+Reproduce narrow: python3 reproduce_constructive_rank.py --owned.
+Standard after audit lock release: same script --standard.
+
+Actual list construction is explicit: rangeBuild uses recursive append
+(quadratic, deliberately simple); productRowBuild constructs a pair and cons
+per item; productBuild stores each row and appends it to the recursively stored
+suffix. filterBuild stores its predicate result once and its suffix once.
+ListBuild charges empty1/emit1/append left-length+1, row pair+cons2;
+filter charges one visit+one predicate request and an extra accepted cons.
+These are fully specified source structural events, not Nat bit operations
+or the runtime of counter maintenance. Erasure theorems prove the lists equal
+List.range, List.product and List.filter in exactly the same order.
+
+triplesBuild materializes ONE range and reuses it for both nested products,
+then filters. Its actual result equals triples; predicate calls exactly(k+1)^3
+and its specified total list-construction annotation is <=28*(k+1)^3.
+No bound was inferred merely from output gate count.
+
+constructiveRankProgram actually uses this stored candidate table and the
+explicit three-Nat-equality scan. It records the above construction bound,
+exact filtering calls, and at most3*(k+1)^3 Nat equality requests. The returned
+Fin index equals rankByTriples (hence rank). The new embedding is wired into
+packed alignment stages/compression/extraction. Each stage also builds ONE
+occupation list from triplesBuild and reuses it for branch/alignment traversal,
+rather than calling occupations twice. Candidate occupation constructors
+remain the original fromTriple and their own replicate/append cost is separate.
+
+The entire GateCode word and finite-label list remain literally equal to the
+previous packedEndpointExtractionCode. The new terminal includes actual raw
+target-provider and online shared-root programs, deriving precision from the
+once-materialized descriptor word; all-input original-register fidelity is
+internally preserved. Prior sealed mathematical files/config/inventories/
+evidence and all frozen independent import closures are unchanged.
+
+Remaining: global frequency of ranking/embedding/coordinate requests, input
+occupation counts, fromTriple literal construction, Nat arithmetic/comparison
+bit work, endpoint equality/get traversal, Gray/masks, branch controls, full
+shift/concat work, other integer primitives and counter maintenance. The
+fixed library provider still needs its explicit external time contract.
+This is an executable representation/construction improvement with partial
+source models, not a complete generation or polynomial Turing-time theorem.
