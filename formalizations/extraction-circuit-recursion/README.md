@@ -99,6 +99,12 @@ here; selection of the approximating word remains an existence theorem.
 proves that score error at most eta increases the selected true distance by
 at most 2*eta. This supports a fixed net with numerical slack; table
 construction, matrix-score evaluation and their bit costs remain open.
+`ConditionedConjugacy.lean` supplies four explicit Pauli frames. Their
+intertwiner masses sum to `8*(1-r^2)`. Rational approximate mass selection
+then gives a normalization denominator at least half a positive residual
+stopping threshold. The actual chart conjugator and its conjugacy action
+are proved. This improves conditioning of a numerical refinement, but is
+not yet a complete oracle-based SK implementation.
 The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
@@ -110,6 +116,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build and all 188 root type/axiom prints passed with 3850 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T161253658220Z-extraction-circuit-recursion.log`.
+The ordinary build and all 196 root type/axiom prints passed with 3851 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T164745228610Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.

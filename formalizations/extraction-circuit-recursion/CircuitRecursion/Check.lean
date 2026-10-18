@@ -1,4 +1,4 @@
-import CircuitRecursion.RationalSelection
+import CircuitRecursion.ConditionedConjugacy
 
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
@@ -68,6 +68,22 @@ import CircuitRecursion.RationalSelection
 #print axioms CircuitRecursion.compressionCircuit_length
 #check CircuitRecursion.compressionCircuit_polynomial_bound
 #print axioms CircuitRecursion.compressionCircuit_polynomial_bound
+#check CircuitRecursion.conjugacyTarget_entries
+#print axioms CircuitRecursion.conjugacyTarget_entries
+#check CircuitRecursion.conjugacyTarget_scalar
+#print axioms CircuitRecursion.conjugacyTarget_scalar
+#check CircuitRecursion.intertwinerMass_nonneg
+#print axioms CircuitRecursion.intertwinerMass_nonneg
+#check CircuitRecursion.intertwinerMass_sum
+#print axioms CircuitRecursion.intertwinerMass_sum
+#check CircuitRecursion.intertwinerMass_large
+#print axioms CircuitRecursion.intertwinerMass_large
+#check CircuitRecursion.rationalMaxIndex_error
+#print axioms CircuitRecursion.rationalMaxIndex_error
+#check CircuitRecursion.conditionedChart_denominator
+#print axioms CircuitRecursion.conditionedChart_denominator
+#check CircuitRecursion.chartConjugator_action
+#print axioms CircuitRecursion.chartConjugator_action
 #check CircuitRecursion.dyadicCircuitPrecision_error
 #print axioms CircuitRecursion.dyadicCircuitPrecision_error
 #check CircuitRecursion.finiteLibrary_extraction_precision
