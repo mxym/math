@@ -23,6 +23,21 @@ partial def collect (env : Environment) (todo : List Name)
         | _ => []
       collect env (extra ++ ci.getUsedConstantsAsSet.toList ++ rest) (seen.insert n ci)
 
+/-- Check the explicit theorem/model classification before any replay. A
+misnamed declaration or theorem listed as a definition must fail the type report. -/
+def checkKinds (theorems definitions : List Name) : CommandElabM Unit := do
+  let env ← getEnv
+  for n in theorems do
+    let some ci := env.find? n | throwError "Missing theorem {n}"
+    unless ci.isTheorem do throwError "Expected theorem declaration {n}"
+  for n in definitions do
+    let some ci := env.find? n | throwError "Missing model definition {n}"
+    match ci with
+    | .defnInfo _ => pure ()
+    | .inductInfo _ => pure ()
+    | _ => throwError "Expected model definition/inductive {n}"
+  logInfo m!"DECLARATION_KIND_CHECK_PASS {theorems.length} theorems; {definitions.length} definitions"
+
 /-- Replay selected endpoint theorems and concrete model definitions in a fresh
 trust-zero kernel. Closure size is a dependency statistic, not a result count. -/
 def replayAll (roots : List Name) (stem : String) : CommandElabM Unit := do
@@ -82,7 +97,12 @@ def rejectCorruptTheorem (root : Name) (stem : String) : CommandElabM Unit := do
     let _ ← negativeBase.toKernelEnv.replay (deps.insert root bad)
     pure false
   catch e =>
-    logInfo m!"EXPECTED_KERNEL_REJECTION: {e.toMessageData}"
+    let reason ← e.toMessageData.toString
+    unless (reason.splitOn "(kernel) declaration type mismatch").length > 1 do
+      throwError "Control failed for an unexpected reason: {reason}"
+    unless (reason.splitOn s!"while replaying declaration '{root}'").length > 1 do
+      throwError "Control failure did not identify the forged root: {reason}"
+    logInfo m!"EXPECTED_KERNEL_REJECTION: {reason}"
     pure true
   unless rejected do throwError "Corrupted final theorem was accepted"
   let names := (deps.toList.map (fun p => p.1.toString)).mergeSort (fun a b => decide (a < b))
@@ -92,5 +112,6 @@ def rejectCorruptTheorem (root : Name) (stem : String) : CommandElabM Unit := do
   IO.FS.writeFile s!"{stem}-axioms.txt" (String.intercalate "\n" axioms ++ "\n")
   logInfo m!"TYPE_CLOSURE_REPLAY_PASS {deps.size} declarations; trust level zero"
   logInfo m!"CORRUPTED_PROOF_REJECTED {root}"
+  logInfo m!"CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED {root}"
 
 end CompletionVerification
