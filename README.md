@@ -20,7 +20,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 预印本／研究稿 | 主结论范围 | 证明状态 | 版本 DOI |
 | --- | --- | --- | --- |
-| [纠缠提取的有限块长普适性代价](preprints/universal-entanglement-extraction-2026-10/README.md) · [PDF](preprints/universal-entanglement-extraction-2026-10/paper.pdf) | 整合谱方法与普适协议；未知秩预算的全目标维数锐 minimax 轮廓、显式对数代价、有限块长界及纯两比特最优整数 Bell 对 | 完整书面稿；独立 608 根 Lean 覆盖均衡纯态 minimax、两比特整数 Bell 最优及固定维数通用高斯律；[新增 Lean 覆盖](preprints/universal-entanglement-extraction-2026-10/FORMALIZATION_SUPPLEMENT_20261016.md)；全稿尚未完整形式化 | — |
+| [纠缠提取的有限块长普适性代价：工作修订](preprints/universal-entanglement-extraction-revision-2026-10/README.md) · [PDF](preprints/universal-entanglement-extraction-revision-2026-10/paper.pdf) | 同一实际普适协议的最优极限律、一般秩全目标维数锐 minimax、实际容量与整数目标、有限 Gaussian 界及原寄存器电路 | 完整书面修订经独立内部审读；主要数学端点 Lean 编译通过，[新独立范围](formalizations/extraction-completion-audit/README.md)正在全量重放／CI；经典编译器位复杂度仍开放；[原冻结稿](preprints/universal-entanglement-extraction-2026-10/README.md)保留 | — |
 | [有限树模型的全实 Jacobian 与精确实解纤维](preprints/finite-tree-jacobian-2026-10/README.md) · [PDF](preprints/finite-tree-jacobian-2026-10/paper.pdf) | 任意泄漏位置的全实分解、精确重数、完整正目标的全部实解及计数 | 主定理对应既有固定 Lean；235 输入／原归档独立核对，论文为公开准备稿 | — |
 | [qutrit–qudit APPT 最大纯度](preprints/appt-qutrit-purity-2026-10/README.md) · [PDF](preprints/appt-qutrit-purity-2026-10/main.pdf) | 所有 n≥3 的绝对 PPT qutrit–qudit 态纯度精确最大值，并证明实际取到 | 主 APPT 定理完整 Lean；绝对可分态推论为独立书面证明 | [23269470](https://doi.org/10.5281/zenodo.23269470) |
 | [APPT 纯度：qutrit 精确定理与高维渐近律](preprints/appt-purity-unified-2026-10/README.md) · [PDF](preprints/appt-purity-unified-2026-10/main.pdf) | 合并 qutrit–qudit 精确最大值、一般维数反例、全域渐近律及充分长方形区间的精确最大值与极值谱分类 | qutrit、10×38 反例、充分长方形区域精确最大值及全部极值态分类、所有维数增长方式的统一首阶纯度渐近律均已完整 Lean；完整熵极值及渐近谱刚性仍按覆盖表区分 | — |
@@ -113,7 +113,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 | 等质量高斯单元锐界与等号 | 所有 k≥2、足够维数的单纯形最优值与全部等号；四胞锐常数与四面体分类 | [全部 k](preprints/gaussian-equal-cells-2026-10/README.md)与[四胞证明](preprints/gaussian-four-cell-global-2026-10/README.md)；使用已发表 Gaussian multi-bubble 和等周定理 | 内部证明链有部分 Lean；外部多泡输入及部分积分尚未整体形式化 |
 | 任意质量正四面体最优性反例 | 对每个 0<p<1/4 的指定四胞质量族严格否定正四面体最优性 | [完整书面反例](preprints/gaussian-fixed-mass-propeller-counterexample-2026-10/README.md)与精确代数诊断；等质量情形不在范围内 | 部分 Lean；最终几何比较未完整形式化 |
 | 全整数高斯维数阶 | 对所有充分大的整数 k，O(1/k) 精度对应匹配 Θ((log k)²) 维数阶 | [完整证明](preprints/gaussian-quadratic-dimension-all-k-2026-10/README.md)；明确引用 Berry–Esseen 外部定理 | 未完整 Lean；不是对有限样本的渐近外推 |
-| 纠缠提取的普适性代价：整合稿 | 有限块长谱方法、全速率／可靠性／高斯律、未知支撑全目标维数锐 minimax 与纯态整数 Bell 对 | [完整投稿准备稿与定理来源表](preprints/universal-entanglement-extraction-2026-10/README.md)；原两份研究稿保留 | 完整书面证明；[新增 Lean 覆盖](preprints/universal-entanglement-extraction-2026-10/FORMALIZATION_SUPPLEMENT_20261016.md)为独立 608 根；一般秩尖锐常数、匹配指数与电路复杂度仍未完整 Lean；全局纠缠酉为明确资源 |
+| 纠缠提取的普适性代价：整合稿 | 有限块长谱方法、全速率／严格可靠性／Gaussian 律、未知支撑全目标维数锐 minimax 与纯态整数 Bell 对 | [工作修订与源码对应表](preprints/universal-entanglement-extraction-revision-2026-10/THEOREM_SOURCE_MAP.md)；[原冻结稿](preprints/universal-entanglement-extraction-2026-10/README.md)及两份前身保留 | 主要数学端点已编写 Lean，普通编译和独立书面审读完成；新范围全量独立验证进行中，不能借用旧 608 根结果；经典有限精度编译器整机位复杂度未闭合 |
 | 指定避免置换多面体的 Ehrhart 实根性 | (132,213)-避免族全部 d≥3 的负实根性 | [完整解析证明与有理证书](notes/ehrhart-uniform-real-rootedness/README.md)；d≤1000 使用原作者已发表有限定理 | 非 Lean；不泛化到任意置换多面体 |
 | 恒等补齐永久量不等式 | Pan–Skandera–Wang Conjecture 9.3 的所述命题 | [完整书面推导](notes/permanent-inequality-padding/README.md)；直接由原作者 Theorem 8.18 推出 | 非 Lean；明确属于既有定理的推论 |
 
