@@ -1,29 +1,22 @@
 \section{The sharp cost of an unknown support}\label{sec:support}
 
 \subsection{A common support and an adversarial average}
-Fix $1\le s\le D$. Define the known subspace
+Fix $1\le s\le D$. Define the intrinsic common support
 \begin{equation}\label{eq:rank-support}
- S_{k,s}=\bigoplus_{\ell(\lambda)\le s}Q_\lambda(D)\otimes P_\lambda,
- \qquad r_{k,s}=\sum_{\ell(\lambda)\le s}u_\lambda(D)v_\lambda.
+ S_{k,s}=\operatorname{span}\{z_1\otimes\cdots\otimes z_k:
+ \dim\operatorname{span}(z_1,\ldots,z_k)\le s\},\qquad r_{k,s}=\dim S_{k,s}.
 \end{equation}
-Every $\rho^{\otimes k}$ with $\rank\rho\le s$ is supported on $S_{k,s}$. Let $P_s$ be one fixed rank-$s$ projection on $\C^D$, and form the mathematical average
+Every $\rho^{\otimes k}$ with $\rank\rho\le s$ is supported here. Let $P_s$ be a fixed rank-$s$ orthogonal projection on $\C^D$, and form the literal Haar average
 \begin{equation}\label{eq:haar-average}
- \Omega_{k,s}=\int_{W\in U(D)}(WP_sW^*/s)^{\otimes k}\,dW.
+ \Omega_{k,s}=\int_{U(D)}(UP_sU^*/s)^{\otimes k}\,dU.
 \end{equation}
-The normalized Haar measure is used only to construct an adversarial input ensemble; it is never implemented as preprocessing.
-
-Schur's lemma and the character identity give, on a block with at most $s$ rows, the eigenvalue
-\begin{equation}\label{eq:average-eigenvalues}
- \frac{u_\lambda(s)}{s^ku_\lambda(D)}
- \quad\text{with multiplicity }u_\lambda(D)v_\lambda.
-\end{equation}
-Indeed the trace of $Q_\lambda(P_s)$ is $s_\lambda(1,\ldots,1,0,\ldots,0)=u_\lambda(s)$; averaging the irreducible representation divides this trace by $u_\lambda(D)$. All these eigenvalues are positive. Thus $S_{k,s}$ is exactly the smallest common support subspace of the rank-budget class.
+Haar measure constructs an adversarial ensemble and is never implemented as preprocessing. The range of $\Omega_{k,s}$ is exactly $S_{k,s}$: a vector has zero quadratic form against this average precisely when it is orthogonal to every rotated tensor-product range. The integrand is continuous and nonnegative and Haar measure has full support. Those ranges span \eqref{eq:rank-support}. This also proves minimality of the common support, without assuming a character or eigenvalue formula.
 
 \begin{theorem}[Support dimension and reciprocal average purity]\label{thm:flat-average}
 For fixed $D$ and $1\le s<D$, put
 \begin{equation}\label{eq:rank-constant}
- g=s(D-s),\qquad
- c_{D,s}=\frac{s^{-g}}{\displaystyle\prod_{1\le i\le s<j\le D}(j-i)}.
+ g=s(D-s),\qquad A_{D,s}=\prod_{1\le i\le s<j\le D}(j-i),\qquad
+ c_{D,s}=s^{-g}/A_{D,s}.
 \end{equation}
 Then
 \begin{equation}\label{eq:support-asymptotic}
@@ -33,29 +26,57 @@ Then
 \end{equation}
 \end{theorem}
 \begin{proof}
-Cancel the factors in the Weyl products to obtain, for $\ell(\lambda)\le s$,
-\begin{equation}\label{eq:weyl-ratio}
- R_\lambda:=\frac{u_\lambda(D)}{u_\lambda(s)}
- =\prod_{1\le i\le s<j\le D}\frac{\lambda_i+j-i}{j-i}\ge1.
-\end{equation}
-The Schur--Weyl probability law for $I_s/s$ is
+Let $C:\C^s\to\C^D$ be the coordinate isometry, so $P_s=CC^*$. For Haar $U$ set
 \[
- t_\lambda=\frac{u_\lambda(s)v_\lambda}{s^k},\qquad\sum_\lambda t_\lambda=1.
+ G(U)=C^*UP_sU^*C,\qquad X(U)=\det G(U)=|\det(C^*UC)|^2,
+ \qquad Y(U)=\Tr G(U)/s.
 \]
-Equations~\eqref{eq:rank-support} and \eqref{eq:average-eigenvalues} now give the exact two-moment identities
+The matrix $G$ is a positive contraction. Write $D=s+t$ and $M_q=\E X^q$. The standard unitary-minor moment calculation gives
+\begin{equation}\label{eq:minor-moment}
+ M_q=\prod_{i=0}^{s-1}\frac{\binom{q+i}{q}}{\binom{q+t+i}{q}},
+ \qquad q^gM_q\longrightarrow
+ \prod_{i=0}^{s-1}\frac{(t+i)!}{i!}=A_{D,s}.
+\end{equation}
+Here is a recursive derivation. After fixing the first Haar column, align its projections into the $s$-dimensional coordinate space and its orthogonal complement by block unitaries. In the determinant expansion the remaining coisometry has $s-1$ rows in dimension $D-1$; averaging over the stabilizer gives the same smaller minor moment. The squared projected column length has moment $(s)_q/(D)_q$, as follows by expanding coordinate monomials on the complex unit sphere. Thus $M_{s,t}(q)=\binom{q+s-1}{q}\binom{q+t+s-1}{q}^{-1}M_{s-1,t}(q)$, with $M_{0,t}(q)=1$. This proves the product; cancellation of its finite factorial ratios proves the limit. We use these standard Haar calculations as ingredients, not as novelty claims; see also the general polynomial integration framework in \cite{collins-sniady}.
+
+Haar invariance and the tensor trace identity give
 \begin{equation}\label{eq:two-moments}
- r_{k,s}=s^k\E_tR_\lambda,\qquad
- \Tr\Omega_{k,s}^2=s^{-k}\E_t(R_\lambda^{-1}).
+ s^k\Tr\Omega_{k,s}^2=\E Y^k.
 \end{equation}
-
-Under $t$, $\lambda/k$ concentrates exponentially near $(1/s,\ldots,1/s)$. To see this directly, the character and dimension bounds yield
+If $\lambda_1,\ldots,\lambda_s\in[0,1]$ are the eigenvalues of $G$, arithmetic--geometric mean and $1-\prod_i\lambda_i\le\sum_i(1-\lambda_i)$ show
 \[
- t_\lambda\le(k+s)^{s(s-1)/2}
- \exp\{-kD(\lambda/k\|I_s/s)\}.
+ X\le Y^s,\qquad Y\le(s-1+X)/s.
 \]
-There are at most $(k+1)^s$ diagrams. Off any fixed neighborhood of the uniform vector, compactness gives a strictly positive lower bound on the relative entropy. The probability there is consequently bounded by a polynomial times $e^{-ck}$.
+Consequently $\E Y^k\ge M_{\lceil k/s\rceil}$. To match this bound, fix an integer $N\ge1$, put $b=s(N+1)$ and $\delta=1-[2(N+1)^2]^{-1}$. For $\delta\le x\le1$,
+\[
+ ((s-1+x)/s)^b\le x^N.
+\]
+For $u=1-x$, the logarithm of the left side divided by the right side vanishes at $u=0$ and has derivative
+\[
+ \frac{-1+[(N+1)-N/s]u}{(1-u)(1-u/s)}\le0
+ \quad\text{for }0\le u\le[2(N+1)^2]^{-1}.
+\]
+This proves the comparison. Splitting according to $X\ge\delta$ and setting $q=\lfloor k/b\rfloor$ therefore gives the exact bound
+\[
+ \E Y^k\le M_{Nq}+((s-1+\delta)/s)^{bq}.
+\]
+The exponential remainder is negligible after multiplication by $k^g$. Equation~\eqref{eq:minor-moment} bounds the resulting limsup by $A_{D,s}[s(N+1)/N]^g$. Let $N\to\infty$ and combine with the lower bound. This proves $s^kk^g\Tr\Omega_{k,s}^2\to s^gA_{D,s}=1/c_{D,s}$.
 
-The ratio $R_\lambda/k^g$ is uniformly bounded for $k\ge1$. Near the uniform vector, its product formula tends to $c_{D,s}$. Hence $k^{-g}\E R_\lambda\to c_{D,s}$. For the inverse moment fix a sufficiently small neighborhood in which $\lambda_i\ge k/(2s)$ for every $i\le s$. On this neighborhood, $k^g/R_\lambda$ is uniformly bounded and tends to $1/c_{D,s}$ as the neighborhood contracts. On its complement, $R_\lambda\ge1$ bounds $k^g/R_\lambda$ by $k^g$; its expectation there tends to zero by the exponential tail. This supplies the required uniform integrability, and proves $k^g\E R_\lambda^{-1}\to1/c_{D,s}$. Substitute into \eqref{eq:two-moments}.
+It remains to match the support rank; purity alone supplies only its lower bound. For a positive contraction $G$ and $k\le sq$, its $U(s)$ tensor twirl satisfies
+\begin{equation}\label{eq:twirl-lower}
+ \int_{U(s)}(VGV^*)^{\otimes k}\,dV\ \ge\ (\det G)^q I.
+\end{equation}
+To prove this, diagonalize $G$ and cyclically permute its $s$ eigenvalues. On each tensor word the product of the $s$ resulting diagonal entries is $(\det G)^k$. Arithmetic--geometric mean bounds their average below by $(\det G)^q$, since $0\le\det G\le1$ and $k\le sq$. Applying the positive Haar twirl makes every cyclic conjugate have the same average, proving \eqref{eq:twirl-lower}.
+
+The compression $C^{\otimes k*}\Omega_{k,s}C^{\otimes k}$ is fixed by this $U(s)$ twirl. Integrating \eqref{eq:twirl-lower} for the actual $G(U)$ gives
+\[
+ C^{\otimes k*}\Omega_{k,s}C^{\otimes k}\ge s^{-k}M_q I.
+\]
+The averaged matrix belongs to the permutation-operator algebra by the tensor commutant identity, so it commutes with every rotated $(UP_sU^*)^{\otimes k}$. Haar invariance transfers the same lower bound to each such range. An eigenvector of $\Omega_{k,s}$ with eigenvalue below $s^{-k}M_q$ must therefore be orthogonal to all these ranges. Their span is $S_{k,s}$, so every positive eigenvalue is at least $s^{-k}M_q$. Taking traces and then $q=\lceil k/s\rceil$ proves
+\[
+ r_{k,s}\le s^k/M_{\lceil k/s\rceil}.
+\]
+On the other side, Cauchy--Schwarz gives $r_{k,s}\Tr\Omega_{k,s}^2\ge1$. The already proved purity limit and \eqref{eq:minor-moment} squeeze $r_{k,s}/(s^kk^g)$ to $c_{D,s}$. Multiplying the two limits proves the last assertion. No concentration hypothesis for Young diagrams or supplied spectral certificate is used.
 \end{proof}
 
 At $s=1$, these identities reduce to
@@ -115,7 +136,7 @@ $1+2\sqrt{q_k}-q_k^{3/2}>1$. Thus $d$ is feasible. Also every feasible integer i
 Finally \eqref{eq:minimax-finite} bounds the ratio in \eqref{eq:minimax-uniform} between $d_k/w_k$ and $\eta_k$, independently of $K$. This proves both assertions.
 \end{proof}
 
-For $s=D$ the exact minimax value is $1/K$ at every blocklength: the maximally mixed state gives this upper bound and a product output attains it.
+For $s=D$ the exact minimax value is $1/K$ at every blocklength: the maximally mixed state gives this upper bound and a product output attains it. Consequently its largest exact target is one, and its largest target with worst-class fidelity at least $1-\varepsilon$ is exactly $\lfloor(1-\varepsilon)^{-1}\rfloor$.
 
 \begin{corollary}[Exact and fixed-error target sizes]\label{cor:targets}
 Let $K_{\calC}^0(k;s)$ be the largest target dimension admitting exact fidelity for every state in the rank-budget class. Then
@@ -127,7 +148,7 @@ If $n\le ms$ and $s<D$,
  \log K_{\calC}^0(k;s)
  =\frac k2\log(D/s)-\frac{s(D-s)}2\log k-\frac12\log c_{D,s}+o(1).
 \end{equation}
-If $n>ms$, instead $K_{\calC}^0(k;s)=m^k$ eventually. For fixed $0<\varepsilon<1$, the largest target admitting worst-class fidelity at least $1-\varepsilon$ satisfies
+If $n>ms$, instead $K_{\calC}^0(k;s)=m^k$ eventually. For $s<D$ and fixed $0<\varepsilon<1$, the largest target admitting worst-class fidelity at least $1-\varepsilon$ satisfies
 \begin{equation}\label{eq:fixed-error-minimax}
  \log K_{\calC}^{\varepsilon}(k;s)
  =\log w_k-\log(1-\varepsilon)+o(1).
@@ -143,7 +164,7 @@ The boundary $n=ms$ has first-order capacity $\log m$, but still incurs the loga
 Fix any positive rank-$s$ spectrum. Requiring one exact protocol for its entire global-unitary orbit gives the same bounds \eqref{eq:exact-target-bound} and hence the same exact-target asymptotic. If the known spectrum is flat on rank $s$, the full target-uniform minimax profile \eqref{eq:minimax-uniform} also holds for that orbit alone.
 \end{corollary}
 \begin{proof}
-For any positive rank-$s$ spectrum the orbit average has a strictly positive coefficient on every Schur block with at most $s$ rows, and zero elsewhere. Its support is exactly $S_{k,s}$. The exact converse and common-subspace packing are unchanged. For the flat spectrum its average is precisely \eqref{eq:haar-average}, so the entire previous minimax argument applies. No fixed-error profile for an arbitrary nonuniform spectrum is inferred from this support statement.
+For any positive rank-$s$ spectrum, each rotated tensor state is strictly positive on the tensor power of its rotated $s$-dimensional support. Those ranges span exactly $S_{k,s}$, so its orbit average has that range. The exact converse and common-subspace packing are unchanged. For the flat spectrum its average is precisely \eqref{eq:haar-average}, so the entire previous minimax argument applies. No fixed-error profile for an arbitrary nonuniform spectrum is inferred from this support statement.
 \end{proof}
 
 \subsection{Balanced unknown pure inputs and an exact circuit}
@@ -165,7 +186,7 @@ For $m=n=2$ and every $k\ge1$, one circuit on the original $2k$ qubits, followed
 \[
  h_k=\left\lfloor k-\frac12\log_2\binom{k+3}{3}\right\rfloor
 \]
-Bell pairs from every unknown pure iid input. This integer is optimal even for a common global unitary followed by completely PPT postprocessing. The circuit can be synthesized with $O(k^7\log^2(k+3))$ CNOT and arbitrary single-qubit gates, with no qubit supplied, reset, measured, or discarded before the global circuit. A fixed efficiently computable inverse-closed universal one-qubit gate set with CNOT gives operator-norm approximation, up to global phase, within $\delta$ using an additional $O(\log^c(G/\delta))$ factor for a Solovay--Kitaev exponent $c$, where $G=O(k^7\log^2(k+3))$. The output fidelity is at least $1-2\delta$.
+Bell pairs from every unknown pure iid input. This integer is optimal even for a common global unitary followed by completely PPT postprocessing. The circuit can be synthesized with $O(k^7\log^2(k+3))$ CNOT and arbitrary single-qubit gates, with no qubit supplied, reset, measured, or discarded before the global circuit. For any fixed finite inverse-closed library whose generated subgroup is dense in $SU(2)$, and every $\delta>0$, there is a circuit using that library and CNOT on those same wires whose operator-norm error, up to global phase, is at most $\delta$, whose length is at most $C G\,[\log_2\max(1,G/\delta)+2]^5$, and whose output fidelity is at least $1-2\delta$. Here $G$ is the larger of one and the actual continuous-gate circuit size, which has the preceding asymptotic bound, and $C$ depends only on the fixed library. This is a circuit-size assertion; a classical finite-precision synthesis-time bound is not included.
 \end{proposition}
 \begin{proof}
 Let $r_j=\binom{j+3}{3}$ and $\ell_j=\lceil\log_4 r_j\rceil$. Fix a computable enumeration $\operatorname{enc}_j$ of the four-component occupations of $j$. Sequentially compress the first $j$ four-level systems into $\ell_j$ of those same systems; all other processed systems become zero on the entire symmetric subspace. This is possible because $r_j/r_{j-1}=(j+3)/j\le4$, so $\ell_j\le\ell_{j-1}+1\le j$.
@@ -191,18 +212,21 @@ After compression at $j=k$, at most $\lceil\log_2r_k\rceil\le2(k-h_k)$ memory qu
 
 For necessity, exact fidelity for every pure input makes the effect the identity on the whole symmetric subspace. Lemma~\ref{lem:rains} then gives $r_k\le4^k/4^h$, proving the exact integer optimum.
 
-The elementary angles are square roots and inverse trigonometric functions of rational occupation ratios. They can be computed to accuracy $O(\delta/G)$ in time polynomial in $k$ and $\log(1/\delta)$. The Solovay--Kitaev theorem \cite{dawson} compiles the rotations into the stated finite library. A telescoping unitary error bound, after choosing the irrelevant overall phase, gives trace-norm output error at most $2\delta$. Trace-norm contraction under local channels proves the fidelity claim.
+For the finite-library size statement, compactness and the density assumption give a fixed finite basic net. Every $SU(2)$ residual admits an exact balanced commutator $[A,B]$, with each factor at distance at most the square root of the residual's distance to the identity. Cancellation in an approximate commutator gives the error bound $4\delta\varepsilon+2\varepsilon^2$ when the exact factors are $\delta$-close to identity and their approximations have error $\varepsilon$. Recursive correction gives actual finite words of error $2^{-p}$ and length at most $C(p+1)^5$. These are the standard Solovay--Kitaev ingredients \cite{dawson}; the stated conservative power is sufficient here. Remove the overall phase of each original single-qubit gate, approximate its $SU(2)$ representative to error $\delta/G$, and place its word on the same original wire. The wire embedding preserves the operator norm. Telescoping over the whole original gate list gives error at most $\delta$ up to a total phase. The same actual local discard then has output fidelity at least $1-2\delta$.
+
+The exact occupation masses have integer numerators and a common denominator, and every nonzero mass is at least $1/(k+1)$. These facts support finite-precision analysis of the Givens angles. They do not by themselves prove a uniform classical bit-complexity bound for net selection, stable commutator evaluation and the full recursive compiler. We keep that algorithmic question separate from the proved finite-word and circuit-size statements.
 \end{proof}
 
 This proposition implements the pure-promise task. It does not provide an efficient implementation of the complete all-state mixed-input family of Section~\ref{sec:universal}.
 
 \subsection{Compatibility with an all-state family}
-The sharp balanced pure profile can also be attained by a family retaining every pointwise mixed-state law of Section~\ref{sec:asymptotic}. To see this, put $q=(k+1)J$ and give each nonsymmetric diagram sectors of sizes $\lfloor a/q\rfloor$ and $\lfloor b/q\rfloor$. Give the symmetric block all remaining coordinates at each party. Apply the same multiplicity-only selection and maximal feasible Bell packing in each sector.
-
-The nonsymmetric blocks still retain at least an inverse-polynomial fraction of their mass, with exponent loss at most $\log(64q^3)=O_D(\log k)$. Blocks below the corresponding good-rank threshold are still extracted exactly; the information-spectrum overhead is at most $\log(16q^2u_*)=O_D(\log k)$. The capacity, exact exponent, strict reliability, eventual-exact rate, and entropy-limited Gaussian theorem are consequently unchanged.
-
-For a pure input only the symmetric block occurs. In balanced dimensions its allocated local dimension $a_{\rm sym}$ satisfies $a_{\rm sym}/a\to1$. Packing this whole block gives fidelity at least
+The family in Section~\ref{sec:universal} already reserves the symmetric sector, so it retains the sharp balanced pure profile without a purity flag. Let $a=b=m^k$. In \eqref{eq:reservation} the remaining local dimensions satisfy $a_*/a,b_*/a\to1$. Integer packing of their symmetric rank $r_k$ then gives
 \[
- \min\left(1,\frac{\lfloor a_{\rm sym}/\lceil\sqrt{r_k}\rceil\rfloor}{K}\right),
+ \frac{d_{a_*,a_*}(r_k)}{a/\sqrt{r_k}}\longrightarrow1.
 \]
-which matches \eqref{eq:pure-full-output} and its entire target-uniform profile. Thus the pure-state sharp law need not require a purity flag. The general rank-$s$ sharp minimax theorem, however, retains its stated rank-budget promise; this modification does not establish simultaneous sharp minimax constants for every $s>1$.
+For example $\lfloor a_*/\lceil\sqrt{r_k}\rceil\rfloor$ is feasible; $r_k\to\infty$ and $a/\sqrt{r_k}\to\infty$ remove its relative rounding loss. Proposition~\ref{prop:prefix} therefore proves, for every $\varepsilon>0$, one blocklength threshold such that simultaneously for all positive integer $K$ and every unknown pure input,
+\[
+ F_k^{\rm u}(\rho,K)\ge(1-\varepsilon)
+ \min\left(1,\frac{m^k}{K\sqrt{r_k}}\right).
+\]
+The averaged-state converse supplies the matching upper profile for any uniform guarantee over pure inputs. The same selected family retains all the mixed-state laws, the finite Gaussian estimates and the fixed-error inverse above. The general rank-$s$ sharp minimax theorem retains its rank-budget promise; simultaneous sharp constants for every $s>1$ without such a promise are not inferred.

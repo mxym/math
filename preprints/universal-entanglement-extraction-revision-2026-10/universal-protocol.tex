@@ -16,7 +16,7 @@ The projections are nested with $E$, commute with every $M^{\otimes k}$, and obe
  \rank P_k(E)\le B_{D,k}|E|,\qquad
  \Tr[P_k(E)\rho^{\otimes k}]\ge\sum_{w\in E}p_{w_1}\cdots p_{w_k},
 \end{equation}
-where $p$ is any eigenvalue labeling of $\rho$. Every nonempty $V_k(E)$ contains $\operatorname{Sym}^k(\C^D)$.
+where $p$ is any eigenvalue labeling of $\rho$. If $E\ne\varnothing$, then $V_k(E)$ contains $\operatorname{Sym}^k(\C^D)$.
 \end{lemma}
 \begin{proof}
 For fixed $w$, the vector $M^{\otimes k}e_w$ is a homogeneous degree-$k$ polynomial in the $D^2$ entries of $M$. More precisely it is the image, under a fixed linear contraction, of $(\operatorname{vec}M)^{\otimes k}$. The span of these latter vectors has dimension $B_{D,k}$. Summing the resulting dimension bound over $E$ proves the rank estimate.
@@ -39,9 +39,11 @@ These estimates hold for all real $c$, with the empty event allowed. For a law $
 \subsection{Geometric packing and a reserved pure sector}
 Put
 \begin{equation}\label{eq:reservation}
- J=(k+1)^2,\quad r_k=\binom{k+D-1}{D-1},\quad Q=4Jr_k,
- \quad a_0=\lfloor a/Q\rfloor,\quad b_0=\lfloor b/Q\rfloor,
+ \begin{aligned}
+ J&=(k+1)^2,\qquad r_k=\binom{k+D-1}{D-1},\qquad Q=4Jr_k,\\
+ a_0&=\lfloor a/Q\rfloor,\quad b_0=\lfloor b/Q\rfloor,
  \quad a_*=a-Ja_0,\quad b_*=b-Jb_0.
+ \end{aligned}
 \end{equation}
 If $a_0=0$, choose the unreserved geometric construction with $J$ equal sectors; if its sectors are also empty, choose any fixed complete product channel. This specifies a physical family at every finite block and every positive integer target. The following bounds concern $a_0>0$, which holds eventually for fixed dimensions.
 
@@ -70,7 +72,10 @@ For every input density matrix and every $0\le j<J$,
 \begin{equation}\label{eq:good-mass}
  F_k^{\rm u}(\rho,K)\ge\frac{d_j}K A_k(p,c_j).
 \end{equation}
-For every state $Y$ supported on $H_k$, the same protocol has fidelity at least $\min(1,d_{a_*,b_*}(r_k)/K)\Tr Y$.
+For every state $Y$ supported on $H_k$, the same protocol has fidelity at least
+\[
+ \min\{1,d_{a_*,b_*}(r_k)/K\}\Tr Y.
+\]
 \end{proposition}
 \begin{proof}
 Write $w_j=d_j/K$ and $B_j=\Tr[(H_k+R_j)\rho^{\otimes k}]$. The sector construction gives
@@ -84,7 +89,7 @@ Since $d_*/K\ge w_0$, summation by parts makes its right side at least
 Every coefficient is nonnegative. Lemma~\ref{lem:orbit} bounds $B_{j+1}$ below by $A_k(p,c_j)$, and the corresponding classical cumulative masses increase. The resulting weighted sum is at least $w_jA_k(p,c_j)$ for every $j$. The pure-sector statement follows directly from coherent packing; it uses the same unitary and local channels.
 \end{proof}
 
-For fixed $m,n$, all reservation and orbit factors have logarithm $O_{m,n}(\log k)$. Also $Jr_k/Q=1/4$ is not the reserved fraction: the removed fraction is $J/Q=1/(4r_k)\to0$. Thus $a_*/a,b_*/b\to1$. The construction does not assert an efficient implementation for arbitrary mixed inputs.
+For fixed $m,n$, all reservation and orbit factors have logarithm $O_{m,n}(\log k)$. The removed local fraction is at most $J/Q=1/(4r_k)\to0$, so $a_*/a,b_*/b\to1$. An efficient implementation for arbitrary mixed inputs remains a separate question.
 
 \subsection{An information-spectrum sandwich}
 Sample $X$ with law $p$ on its positive support, put $Z=-\log p_X$, and let $S_k=Z_1+\cdots+Z_k$. Define the exact overhead

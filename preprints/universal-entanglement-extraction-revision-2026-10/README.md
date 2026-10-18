@@ -15,9 +15,11 @@ All new extensions currently have ordinary build evidence only. The independent
 completion audit is PRELIMINARY and is being performed on an explicitly named
 mathematical snapshot. No final full-paper machine-verification claim is made.
 
-Outstanding integration includes the physical general-rank minimax endpoints,
-the explicit APPT example and asymptotics, theorem-to-source correspondence,
-final independent replay/controls/CI, bibliography and visual PDF verification.
+The revision now includes the physical general-rank minimax endpoints, attained
+integer targets and spectral-orbit corollaries, and the explicit APPT example
+and asymptotic bounds. A 24-page PDF has been built and visually inspected.
+Outstanding work includes independent review of the complete revised proof text,
+theorem-to-source correspondence, and final independent replay/controls/CI.
 Classical finite-precision bit complexity remains a separate unproved endpoint;
 finite-library word existence and gate-count bounds must not be presented as an
 effective classical synthesis algorithm.

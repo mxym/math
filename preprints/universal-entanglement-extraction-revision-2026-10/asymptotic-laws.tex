@@ -40,12 +40,16 @@ Relative entropy is evaluated on the positive support of $p$.
 \end{theorem}
 
 \begin{proof}[Proof of the fidelity exponent]
-The converse follows from \eqref{eq:holder-converse} on tensor powers and $k^{-1}\log K_k\to R$. For achievability, approximate a decreasing distribution $q$ on the positive support of $p$ by diagrams $\lambda^{(k)}/k$. Equations~\eqref{eq:dimension-bounds}, \eqref{eq:schur-probability}, and \eqref{eq:univ-exponent-bound} imply
+The converse follows from \eqref{eq:holder-converse} on tensor powers and $k^{-1}\log K_k\to R$. For achievability assume first $R>0$ and fix a law $q$ on the positive support of $p$ with $H(q)<L$. Choose
+\[
+ 0<b<\min\{R,A,(L-H(q))/2\},\qquad d_k=\lceil e^{kb}\rceil.
+\]
+For large $k$, $d_k\le\min(K_k,a_0)$, and the geometric grid contains a width between $d_k/2$ and $d_k$. Indeed the required grid index is $O_{m,n}(k)$, whereas $J=(k+1)^2$. Its entropy cutoff tends to $L-2b>H(q)$. An empirical type $q_k\to q$ is therefore included eventually; its probability is at least $(k+1)^{-D}e^{-kD(q_k\|p)}$. Proposition~\ref{prop:prefix} yields a fidelity exponent at most $D(q\|p)+R-b$. Let $b$ approach the displayed minimum and approximate the equality cases in entropy by laws on the same positive support. The only full-entropy boundary is the uniform full-support law, which is approached by nonuniform laws. Rate zero has target one and fidelity exactly one. Consequently
 \begin{equation}\label{eq:variational-exponent}
  \limsup_k-\frac1k\log F_k^{\rm u}
  \le\min_q\left\{D(q\|p)+\max\left(0,R-A,R-L/2+H(q)/2\right)\right\}.
 \end{equation}
-Every omitted factor has logarithm $O_{m,n}(\log k)$. Sorting $q$ cannot increase $D(q\|p)$, by rearrangement with decreasing $p$, and leaves its entropy unchanged; hence decreasing diagrams lose no minimizer. The maximum in \eqref{eq:variational-exponent} is $\pos{R-A}+\pos{H(q)-c_R}/2$.
+All orbit, reservation and rounding factors have logarithm $O_{m,n}(\log k)$; the strict width approximation above removes them without a diagram or ordering assumption on $q$. The maximum in \eqref{eq:variational-exponent} is $\pos{R-A}+\pos{H(q)-c_R}/2$.
 
 For completeness the matching scalar identity, with no exchange of minimax operations, is
 \begin{equation}\label{eq:escort-identity}
@@ -69,19 +73,11 @@ while $\pos{H-c}/2\ge(\alpha-1)(H-c)/\alpha$. This proves \eqref{eq:escort-ident
 For $0<R<C(p)$ one has $R<A$, so eventually $K_k\le a_0$. In \eqref{eq:sandwich},
 $x-h=k(L-2R)+O(\log k)>k(H(p)+\delta)$ for a fixed $\delta>0$. The ordinary law of large numbers implies fidelity tending to one. Rate zero is trivial. Above $C(p)$ the exponent in \eqref{eq:exponent-formula} is positive: either $R>A$, or $J'_{L-2R}(1)>0$.
 
-If $R<C_0(p)$, every block of nonzero probability has at most $s$ rows and $r_\lambda\le Qs^k$. On the other hand,
-\[
- G\ge\frac{N}{16J^2K_k^2}\ge\frac{e^{k(L-2R)}}{64J^2}
-\]
-eventually. Since $L-2R>\log s$, all nonzero blocks are good and \eqref{eq:good-mass} equals one. Conversely, exact fidelity for a rank-$s^k$ state forces its rotated support into the eigenvalue-one space of $M$. Thus $s^k\le\Tr M^2\le N/K^2$ and $K\le a$. These bounds give the claimed eventual-exact capacity.
+If $R<C_0(p)$, every positive-probability word has empirical entropy at most $\log s$, while the first grid cutoff tends to $L-2R>\log s$. Thus the entire classical mass in \eqref{eq:good-mass} is one eventually, giving exact fidelity. Conversely, exact fidelity for a rank-$s^k$ state forces its rotated support into the eigenvalue-one space of $M$. Hence $s^k\le\Tr M^2\le N/K^2$ and $K\le a$. Capacities here are suprema of rates realized by actual positive-integer target sequences and actual protocol sequences. These sets contain zero, since every trace-preserving channel to the one-dimensional target has fidelity exactly one. The upper bounds and every strict subcritical achievable rate therefore identify the suprema even when $C(p)$ or $C_0(p)$ is zero; no boundary attainability is inferred.
 \end{proof}
 
 \begin{proof}[Proof of strict-direct reliability]
-The hypotheses imply $H(p)<c<\log s$. If a block fails \eqref{eq:good-block}, the bounds above give
-\[
- H(\lambda/k)>c-\frac{\log(64J^2Q)}k.
-\]
-Using \eqref{eq:schur-probability} and at most polynomially many diagrams yields the lower bound $I_p(c)$ on the error exponent of the common protocol.
+The hypotheses imply $H(p)<c<\log s$. Proposition~\ref{prop:prefix} at $d_0=K_k$ bounds the actual error above by the probability that the empirical entropy exceeds $c-o(1)$. The number of types is polynomial, and each type has probability at most $e^{-kD(q\|p)}$. This gives the lower bound $I_p(c)$ on the error exponent of the same common protocol. The strict interval permits approximation of a boundary minimizer by laws of entropy strictly above the requested threshold.
 
 To prove optimality, fix $0<t<1$. At most $N/(K^2t^2)$ eigenvalues of $M$ exceed $t$. If $L_j$ is the mass of the largest $j$ input eigenvalues, capped at one beyond their support, the spectral trace inequality gives
 \begin{equation}\label{eq:tail-converse}
@@ -120,7 +116,7 @@ For fixed $0<\varepsilon<1$, the state-aware optimal fixed-error target obeys
 and the common family attains the same expansion.
 \end{theorem}
 \begin{proof}
-The strict local-dimension gap ensures $K_k\le a_0$ eventually. Here $h=O(\log k)$ and $\log(N/K_k^2)=kH(p)-2z\sqrt k+o(\sqrt k)$. Apply the ordinary central limit theorem to the two sides of \eqref{eq:sandwich}, for example with $t=k^{1/4}$; alternatively use Corollary~\ref{cor:berry}. To obtain the fixed-error expansion, bracket each requested integer target above and below a fixed Gaussian quantile. The converse applies to every larger target, and the construction applies to the chosen smaller target, so no monotonicity of the particular universal family is needed.
+The strict local-dimension gap ensures $K_k\le a_0$ eventually. Here $h_{D,k}=O(\log k)$ and $\log(N/K_k^2)=kH(p)-2z\sqrt k+o(\sqrt k)$. Apply the ordinary central limit theorem to the two sides of \eqref{eq:sandwich}, for example with $t=k^{1/4}$; alternatively use Corollary~\ref{cor:berry}. The same squeeze applies to the genuine state-aware supremum in every intermediate physical class. For fixed error, define each optimum as the maximum of the set of positive integers admitting the requested actual fidelity. Bracket that entire set above and below a fixed Gaussian quantile: the converse excludes every larger integer, and rounded smaller targets provide actual witnesses. The feasible integer sets are eventually nonempty and bounded, hence their natural suprema are attained maxima. This establishes both expansions without assuming target monotonicity of the particular universal family.
 \end{proof}
 
 Theorem~\ref{thm:gaussian} retains both strict hypotheses. The local-dimension cap and zero varentropy are not included by continuity. The next section treats a cap-boundary phenomenon of a different, minimax kind.

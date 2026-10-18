@@ -20,41 +20,51 @@ One can obtain a self-contained operational comparison from the already verified
 \end{equation}
 For balanced systems $D=m^2\to\infty$, the purity law $P_{\max}=D^{-1}+8D^{-2}+o(D^{-2})$ yields $\max_{\APPT}C\le4/D+o(D^{-1})$.
 
-For a lower example take $\rho=(I+2vv^*)/(D+2)$. It is APPT for every unit vector $v$: after every global rotation, the smallest eigenvalue of $(vv^*)^\Gamma$ is at least $-1/2$, by the Schmidt coefficient inequality $t_it_j\le1/2$. Its spectrum is $(3,1,\ldots,1)/(D+2)$, so for balanced sufficiently large dimensions
+For a lower example take $\rho=(I+2vv^*)/(D+2)$. It is APPT for every unit vector $v$: after every global rotation, the smallest eigenvalue of $(vv^*)^\Gamma$ is at least $-1/2$, by the Schmidt coefficient inequality $t_it_j\le1/2$. Its spectrum is $(3,1,\ldots,1)/(D+2)$, and the local cap is inactive for every $2\le m\le n$. Hence
 \[
  C(p_\rho)=\frac12\left[\log\frac D{D+2}+\frac{3\log3}{D+2}\right]
  =\frac{3\log3-2}{2D}+O(D^{-2}).
 \]
-These comparisons are applications of spectral and capacity results, not new claims about ordinary fixed-state LOCC distillation.
+With $c_{\rm sp}=(3\log3-2)/2$, an explicit error bound is
+\[
+ 0\le c_{\rm sp}/D-C(p_\rho)\le\frac{3\log3}{D(D+2)}.
+\]
+Together with \eqref{eq:appt-purity-upper}, this gives, along every sequence of balanced dimensions tending to infinity,
+\[
+ c_{\rm sp}\le\liminf D\max_{\APPT}C
+ \le\limsup D\max_{\APPT}C\le4.
+\]
+The actual maximum and the displayed comparison are established without solving the entropy optimizer. These are applications of the two-stage spectral capacity and do not assert ordinary fixed-state LOCC distillation at these rates.
 
 Equation~\eqref{eq:appt-capacity} fixes the dimensions before taking the many-copy capacity limit. A joint growing-dimension conclusion requires uniform finite-block control. Theorem~\ref{thm:sandwich} supplies such control without spectral assumptions; a Gaussian conclusion additionally requires the moment and output-size conditions in \eqref{eq:triangular}. No assertion that every APPT near optimizer satisfies those conditions is made.
 
-\subsection{Scope of machine verification}
-The accompanying Lean development checks the actual finite-dimensional matrix and channel core of the method. Its inputs are complex matrices, genuine Hermitian projections, finite Kraus families with completeness, and positivity of the partial-transpose-conjugated map. The bounds are derived from those objects; the quadratic or dimension budgets are not supplied as extra assumptions.
+\subsection{Formalization and independent verification}
+The development uses Lean~4.34.1 and a fixed Mathlib commit. Its objects are the original complex density matrices, arbitrary global unitaries, actual finite Kraus channels and partial transpose on the stated first party. Complete positivity is defined by positivity of every finite auxiliary amplification; the Choi criterion and actual complete Kraus representations are derived. Finite LOCC is an adaptive local-instrument tree with public outcomes and hidden Kraus indices. Closure LOCC is its genuine finite-dimensional coefficient closure, and its completely PPT inclusion follows from closedness of the Choi positivity and trace identities.
 
-The core package proves the following statement: if a projection $P$ has
-$\rank P\le\lfloor a/d\rfloor\lfloor b/d\rfloor$ and $0<d\le K$, there exist a fixed unitary on the original input and two complete local Kraus channels such that every positive trace-one matrix supported on $P$ has target overlap exactly $d/K$. It includes projection factorization, unitary extension, all unused-coordinate Kraus branches, and arbitrary off-diagonal logical matrices. This is the coherent construction of Lemma~\ref{lem:packing}, including the actual target embedding.
+The coherent packing theorem includes unitary extension on the existing input, all unused-coordinate decoder branches and arbitrary logical coherences. The Rains converse is realized by the actual measure-and-prepare channel in Lemma~\ref{lem:rains}. Asymptotic endpoints use the selected common family itself and genuine physical suprema. Capacities and integer target optima are defined by actual protocol witnesses and success conditions; exact feasibility is not inferred from an unattained fidelity supremum. The probability development includes zero eigenvalues, finite Berry--Esseen control and true varying-law limits.
 
-It also derives the Rains order constraints and collision upper bound from actual channels. A separately scoped extension derives the $a/K$ bound and combines the three pointwise bounds in \eqref{eq:general-minimax}. Source and configuration pins, fresh builds, empty-kernel replay, axiom reports, and proof-substitution controls are recorded separately for the two packages. Their original evidence and the previously fixed APPT audits retain their individual scopes.
+The revision uses intrinsic orbit projections in Section~\ref{sec:universal} and Haar minor moments plus an operator lower bound in Theorem~\ref{thm:flat-average}. Its finite overhead is \eqref{eq:overhead}, rather than the different Schur-block overhead in the preserved predecessor. The tensor commutant result is proved internally; a caller-supplied Young decomposition, moment identity, asymptotic rank law or optimal-performance certificate is not a hypothesis of these endpoints.
 
-The following distinctions are essential to the coverage statement.
+The current working revision distinguishes authored Lean endpoints from final independent verification:
 \begin{center}
 \begin{tabular}{>{\raggedright\arraybackslash}p{0.57\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}}
 \toprule
 Mathematical component & Verification status\\
 \midrule
-Actual coherent subspace extraction, integer ranks and complete local channels & Lean\\
-Actual channel-to-effect bounds, including the local-dimension cap & Lean, two scoped packages\\
-Schur--Weyl identification, characters and Haar-average eigenvalues & Ordinary mathematical inputs and proofs\\
-Support asymptotics, target-uniform minimax synthesis and limit laws & Ordinary mathematical proofs\\
-Pure-input circuit synthesis and complexity estimates & Ordinary mathematical proof\\
+Actual coherent packing and channel-to-effect bounds & Preserved scoped Lean audits\\
+Complete positivity, Kraus equivalence, LOCC and Rains realization & Lean; completion audit pending\\
+One common family, capacities, exponents, Gaussian and integer targets & Lean; completion audit pending\\
+Actual Haar moments, rank, purity and physical minimax profiles & Lean; completion audit pending\\
+Original-register circuit and finite-library gate-count bound & Lean; completion audit pending\\
+APPT capacity extrema and explicit first-order comparisons & Lean; completion audit pending\\
+Uniform classical finite-precision compiler bit complexity & Open; excluded from the circuit-size claim\\
 \bottomrule
 \end{tabular}
 \end{center}
-In particular, the full paper is not represented as end-to-end Lean formalization. Finite exact calculations are additional diagnostics, not proofs of the unbounded representation-theoretic or probabilistic statements. The source archive gives theorem-to-source correspondence and literal hashes, so each verification claim can be checked against its actual endpoint.
+All new completion packages currently have ordinary build evidence. Independent snapshot checks have covered selected dependency closures and proof-substitution controls; the final whole-scope source manifest, replay and CI for this revision have not yet been frozen. The older 608-root and APPT audit evidence retains its original inputs and cannot certify the later extensions. The final reproduction archive must bind the precise theorem types, model definitions, source/configuration inputs and these eight TeX files, with separate successful replay and same-type forged-proof rejection records. Until that final check is complete, this working revision does not claim a fully independently verified manuscript.
 
 \subsection{Implementation and further questions}
-The pure-promise circuit of Proposition~\ref{prop:pure-circuit} is an effective implementation on the original register. The general mixed-state construction remains an existence theorem for a specified finite unitary and local channels. Efficient Schur transforms alone do not account for reversible sector indexing, variable Bell dimensions, and a resource-compatible completion \cite{bch,kirby,krovi}. An efficient implementation of that entire construction remains a separate problem.
+The pure-promise result supplies an original-register circuit with a proved gate-count bound. Turning its finite-library word existence theorem into a uniform finite-precision compiler additionally requires effective gate and target access, a usable fixed net, stable numerical branches, and a full classical cost model. The general mixed-state construction remains an existence theorem for a specified finite unitary and local channels. Efficient representation transforms \cite{bch,kirby,krovi} provide related tools; a complete implementation must also account for reversible sector indexing, variable Bell dimensions and unitary completion on the available register.
 
 The sharp minimax results fix $D$ and $s$. Their finite inequalities remain valid when these parameters vary, but the inverse-moment asymptotic requires additional uniform estimates before such a joint limit can be claimed. The explicit conditions in \eqref{eq:triangular} concern a different, information-spectrum route and do not replace those estimates. The exact reliability law at the zero-error boundary, cap-boundary Gaussian laws for arbitrary mixed inputs, and optimal circuit costs likewise remain open here.
 
