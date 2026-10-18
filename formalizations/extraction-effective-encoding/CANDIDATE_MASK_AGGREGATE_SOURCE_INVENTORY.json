@@ -1,0 +1,1603 @@
+{
+  "status": "GENERATED_AUTHOR_CANDIDATE_MASK_AGGREGATE_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 113,
+  "model_count": 75,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.SavedCountWord",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.savedCountSuccessor",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.savedCountSuccessor_exact",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.BinaryCountRangeResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.binaryCountRangeProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 32
+    },
+    {
+      "name": "EffectiveEncoding.binaryCountRangeProgram_current",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.binaryCountRangeProgram_items",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 51
+    },
+    {
+      "name": "EffectiveEncoding.binaryCountRangeProgram_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.binaryCountRangeProgram_counts",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 66
+    },
+    {
+      "name": "EffectiveEncoding.BinaryCountRangeResult.incrementTrimActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.binaryCountRangeProgram_incrementCount",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 76
+    },
+    {
+      "name": "EffectiveEncoding.binaryCountRangeProgram_incrementTrimActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 82
+    },
+    {
+      "name": "EffectiveEncoding.binaryCountRangeProgram_copyActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 89
+    },
+    {
+      "name": "EffectiveEncoding.BinaryCountRangeResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 100
+    },
+    {
+      "name": "EffectiveEncoding.binaryCountRangeProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "line": 104
+    },
+    {
+      "name": "EffectiveEncoding.nativeOrderIsAtMost",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.nativeOrderIsAtMost_correct",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 12
+    },
+    {
+      "name": "EffectiveEncoding.BinaryTriplePredicateResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 27
+    },
+    {
+      "name": "EffectiveEncoding.binaryTripleBoundProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 36
+    },
+    {
+      "name": "EffectiveEncoding.binaryTripleBoundProgram_accepted",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.BinaryTriplePredicateResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 51
+    },
+    {
+      "name": "EffectiveEncoding.binaryTripleBoundProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 55
+    },
+    {
+      "name": "EffectiveEncoding.BinaryCandidateFilterResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 76
+    },
+    {
+      "name": "EffectiveEncoding.binaryCandidateFilterProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 82
+    },
+    {
+      "name": "EffectiveEncoding.binaryCandidateFilterProgram_items",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 91
+    },
+    {
+      "name": "EffectiveEncoding.binaryCandidateFilterProgram_tests",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 101
+    },
+    {
+      "name": "EffectiveEncoding.BinaryCandidateFilterResult.predicateActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 109
+    },
+    {
+      "name": "EffectiveEncoding.binaryCandidateFilterProgram_predicateActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "line": 113
+    },
+    {
+      "name": "EffectiveEncoding.CandidateProductTrace",
+      "kind": "inductive",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.CandidateProductTrace.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "line": 14
+    },
+    {
+      "name": "EffectiveEncoding.CandidateProductResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "line": 19
+    },
+    {
+      "name": "EffectiveEncoding.candidateProductRowProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.candidateProductRowProgram_items",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "line": 31
+    },
+    {
+      "name": "EffectiveEncoding.candidateProductRowProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "line": 38
+    },
+    {
+      "name": "EffectiveEncoding.candidateProductProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.candidateProductProgram_items",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "line": 56
+    },
+    {
+      "name": "EffectiveEncoding.candidateProductProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "line": 63
+    },
+    {
+      "name": "EffectiveEncoding.candidateProduct_map",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "line": 73
+    },
+    {
+      "name": "EffectiveEncoding.SavedTripleWords",
+      "kind": "abbrev",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.savedTripleCounts",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.savedTriplePrepared",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.specSavedTriple",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.specSavedTriple_counts",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 19
+    },
+    {
+      "name": "EffectiveEncoding.specSavedTriple_prepared",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.BinaryTriplesResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_candidates",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 42
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_candidateLength",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 50
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_filtered",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 57
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_counts",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 66
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_prepared",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 73
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_tests",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 79
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_testCount",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 85
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_candidateWidth",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 90
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_predicateActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 108
+    },
+    {
+      "name": "EffectiveEncoding.BinaryTriplesResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 123
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 127
+    },
+    {
+      "name": "EffectiveEncoding.binaryTriplesProgram_actions_polynomial",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "line": 142
+    },
+    {
+      "name": "EffectiveEncoding.BinaryGeneratedRankResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.binaryGeneratedRankProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "line": 19
+    },
+    {
+      "name": "EffectiveEncoding.binaryGeneratedRankProgram_scan",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "line": 35
+    },
+    {
+      "name": "EffectiveEncoding.binaryGeneratedRankProgram_input",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "line": 40
+    },
+    {
+      "name": "EffectiveEncoding.binaryGeneratedRankProgram_index",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "line": 45
+    },
+    {
+      "name": "EffectiveEncoding.binaryGeneratedRankProgram_encoding",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "line": 52
+    },
+    {
+      "name": "EffectiveEncoding.binaryGeneratedRankProgram_output",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "line": 59
+    },
+    {
+      "name": "EffectiveEncoding.BinaryGeneratedRankResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "line": 69
+    },
+    {
+      "name": "EffectiveEncoding.binaryGeneratedRankProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "line": 74
+    },
+    {
+      "name": "EffectiveEncoding.binaryGeneratedRankProgram_actions_polynomial",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "line": 94
+    },
+    {
+      "name": "EffectiveEncoding.CandidateRankRecord",
+      "kind": "abbrev",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.CandidateRankEndpoint",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeBranchEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeNextEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 26
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativePivotEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 31
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeBranchEndpoint_point",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeNextEndpoint_point",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 41
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativePivotEndpoint_point",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.candidateRankRecordsActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 52
+    },
+    {
+      "name": "EffectiveEncoding.candidateRankRecordsActions_append",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 56
+    },
+    {
+      "name": "EffectiveEncoding.CandidateRankEndpoint.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeBranchEndpoint_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 65
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeNextEndpoint_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 74
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativePivotEndpoint_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "line": 82
+    },
+    {
+      "name": "EffectiveEncoding.CandidateNativeTableResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateNativeTable.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeTableProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateNativeTable.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeTableProgram_counts",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateNativeTable.lean",
+      "line": 23
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeTableProgram_items",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateNativeTable.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeTableProgram_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateNativeTable.lean",
+      "line": 37
+    },
+    {
+      "name": "EffectiveEncoding.CandidateWordRun",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.CandidateWordRun.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 12
+    },
+    {
+      "name": "EffectiveEncoding.candidateEndpointMassActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.candidateIndexedRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.candidateIndexedRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 41
+    },
+    {
+      "name": "EffectiveEncoding.candidateIndexedRun_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 49
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeBranchRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 69
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeBranchRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 76
+    },
+    {
+      "name": "EffectiveEncoding.candidateNativeBranchRun_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 83
+    },
+    {
+      "name": "EffectiveEncoding.candidateAlignmentRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 95
+    },
+    {
+      "name": "EffectiveEncoding.candidateAlignmentRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 108
+    },
+    {
+      "name": "EffectiveEncoding.candidateAlignmentRun_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "line": 119
+    },
+    {
+      "name": "EffectiveEncoding.candidateBranchTableRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.candidateBranchTableRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 17
+    },
+    {
+      "name": "EffectiveEncoding.candidateBranchTableRun_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 25
+    },
+    {
+      "name": "EffectiveEncoding.CandidateDescriptorResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 36
+    },
+    {
+      "name": "EffectiveEncoding.CandidateDescriptorResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 42
+    },
+    {
+      "name": "EffectiveEncoding.candidateOccupationRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 48
+    },
+    {
+      "name": "EffectiveEncoding.candidateOccupationRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 56
+    },
+    {
+      "name": "EffectiveEncoding.candidateOccupationRun_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 66
+    },
+    {
+      "name": "EffectiveEncoding.candidateStageRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 92
+    },
+    {
+      "name": "EffectiveEncoding.candidateStageRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 97
+    },
+    {
+      "name": "EffectiveEncoding.candidateCompressionRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 102
+    },
+    {
+      "name": "EffectiveEncoding.candidateCompressionRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 111
+    },
+    {
+      "name": "EffectiveEncoding.candidateCompressionRun_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 118
+    },
+    {
+      "name": "EffectiveEncoding.candidateDescriptorRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 137
+    },
+    {
+      "name": "EffectiveEncoding.candidateDescriptorRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 143
+    },
+    {
+      "name": "EffectiveEncoding.candidateDescriptorRun_extractionCode",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 148
+    },
+    {
+      "name": "EffectiveEncoding.candidateDescriptorRun_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "line": 154
+    },
+    {
+      "name": "EffectiveEncoding.CandidateSerializedResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "line": 17
+    },
+    {
+      "name": "EffectiveEncoding.CandidateSerializedResult.decoded",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "line": 27
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_generation",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "line": 31
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_precision",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "line": 36
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_suffix_roundtrip",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "line": 42
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_roundtrip",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "line": 50
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "line": 58
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_decoded_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "line": 80
+    },
+    {
+      "name": "EffectiveEncoding.RetainedAssembledTargetResult.primitiveActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.RetainedAssembledTargetResult.primitiveActions_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.retainedAssembledTargetRun_primitiveActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.CandidateSerializedResult.targetActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 37
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_targetActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 41
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_outputLength",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 75
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_outerActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 95
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_streamLength",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 117
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_streamActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 128
+    },
+    {
+      "name": "EffectiveEncoding.CandidateSerializedResult.accountedPrimitiveActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 140
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedPrimitiveBudget",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 145
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_accountedPrimitiveActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "line": 155
+    },
+    {
+      "name": "EffectiveEncoding.candidateBudget_add_algebra",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedPolynomial.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedPrimitiveBudget_enlarge",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedPolynomial.lean",
+      "line": 14
+    },
+    {
+      "name": "EffectiveEncoding.candidateGeneration_uniform",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedPolynomial.lean",
+      "line": 28
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedPolynomialConstant",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedPolynomial.lean",
+      "line": 44
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedPrimitiveBudget_polynomial",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedPolynomial.lean",
+      "line": 49
+    },
+    {
+      "name": "EffectiveEncoding.candidateSerializedRun_accountedPrimitiveActions_polynomial",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedPolynomial.lean",
+      "line": 61
+    },
+    {
+      "name": "EffectiveEncoding.endpointBitsProgram_unary_exact",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.naturalRange_map_ofFn",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 17
+    },
+    {
+      "name": "EffectiveEncoding.BinaryMaskPlanResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.binaryMaskPlanProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.binaryMaskPlanProgram_outputs",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 37
+    },
+    {
+      "name": "EffectiveEncoding.binaryMaskPlanProgram_plans",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 48
+    },
+    {
+      "name": "EffectiveEncoding.binaryMaskPlanProgram_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 58
+    },
+    {
+      "name": "EffectiveEncoding.BinaryMaskPlanResult.copyActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 65
+    },
+    {
+      "name": "EffectiveEncoding.endpointBitsMap_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 69
+    },
+    {
+      "name": "EffectiveEncoding.binaryMaskPlanProgram_copyActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 80
+    },
+    {
+      "name": "EffectiveEncoding.BinaryMaskPlanResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 87
+    },
+    {
+      "name": "EffectiveEncoding.binaryMaskPlanProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 91
+    },
+    {
+      "name": "EffectiveEncoding.binaryMaskPlanProgram_active_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "line": 100
+    },
+    {
+      "name": "EffectiveEncoding.BinaryMaskRecord",
+      "kind": "abbrev",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.MaskedCandidateResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateOccupationRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateOccupationRun_generation",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 25
+    },
+    {
+      "name": "EffectiveEncoding.MaskedCandidateResult.maskActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateOccupationRun_maskActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateStageRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 41
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateStageRun_generation",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateCompressionRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 52
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateCompressionRun_generation",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 63
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateCompressionRun_maskActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 70
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateDescriptorRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 87
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateDescriptorRun_generation",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 94
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateDescriptorRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 99
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateDescriptorRun_maskActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 104
+    },
+    {
+      "name": "EffectiveEncoding.MaskedCandidateResult.accountedActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 110
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateDescriptorRun_accountedActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 114
+    },
+    {
+      "name": "EffectiveEncoding.maskedCandidateDescriptorRun_accountedActions_polynomial",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "line": 122
+    },
+    {
+      "name": "EffectiveEncoding.MaskedSerializedResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.maskedSerializedRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 14
+    },
+    {
+      "name": "EffectiveEncoding.maskedSerializedRun_execution",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 27
+    },
+    {
+      "name": "EffectiveEncoding.MaskedSerializedResult.decoded",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 35
+    },
+    {
+      "name": "EffectiveEncoding.maskedSerializedRun_suffix_roundtrip",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 39
+    },
+    {
+      "name": "EffectiveEncoding.maskedSerializedRun_decoded_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 48
+    },
+    {
+      "name": "EffectiveEncoding.MaskedSerializedResult.maskActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 58
+    },
+    {
+      "name": "EffectiveEncoding.maskedSerializedRun_maskActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 62
+    },
+    {
+      "name": "EffectiveEncoding.MaskedSerializedResult.accountedPrimitiveActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 68
+    },
+    {
+      "name": "EffectiveEncoding.maskedGeneration_uniform",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.maskedSerializedPolynomialConstant",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 86
+    },
+    {
+      "name": "EffectiveEncoding.maskedSerializedRun_accountedPrimitiveActions_polynomial",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 92
+    },
+    {
+      "name": "EffectiveEncoding.maskedSerializedRun_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "line": 108
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean",
+      "sha256": "c943187012763a8276787dc001944950123a7a1209b49ebc1df0c0193ed7d5c3",
+      "declarations": [
+        "EffectiveEncoding.SavedCountWord",
+        "EffectiveEncoding.savedCountSuccessor",
+        "EffectiveEncoding.savedCountSuccessor_exact",
+        "EffectiveEncoding.BinaryCountRangeResult",
+        "EffectiveEncoding.binaryCountRangeProgram",
+        "EffectiveEncoding.binaryCountRangeProgram_current",
+        "EffectiveEncoding.binaryCountRangeProgram_items",
+        "EffectiveEncoding.binaryCountRangeProgram_length",
+        "EffectiveEncoding.binaryCountRangeProgram_counts",
+        "EffectiveEncoding.BinaryCountRangeResult.incrementTrimActions",
+        "EffectiveEncoding.binaryCountRangeProgram_incrementCount",
+        "EffectiveEncoding.binaryCountRangeProgram_incrementTrimActions",
+        "EffectiveEncoding.binaryCountRangeProgram_copyActions",
+        "EffectiveEncoding.BinaryCountRangeResult.actions",
+        "EffectiveEncoding.binaryCountRangeProgram_actions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean",
+      "sha256": "ded7ec5f92cac8a84acfe99618f0346767f7e3d820272051b0bbfcddb9d13251",
+      "declarations": [
+        "EffectiveEncoding.nativeOrderIsAtMost",
+        "EffectiveEncoding.nativeOrderIsAtMost_correct",
+        "EffectiveEncoding.BinaryTriplePredicateResult",
+        "EffectiveEncoding.binaryTripleBoundProgram",
+        "EffectiveEncoding.binaryTripleBoundProgram_accepted",
+        "EffectiveEncoding.BinaryTriplePredicateResult.actions",
+        "EffectiveEncoding.binaryTripleBoundProgram_actions",
+        "EffectiveEncoding.BinaryCandidateFilterResult",
+        "EffectiveEncoding.binaryCandidateFilterProgram",
+        "EffectiveEncoding.binaryCandidateFilterProgram_items",
+        "EffectiveEncoding.binaryCandidateFilterProgram_tests",
+        "EffectiveEncoding.BinaryCandidateFilterResult.predicateActions",
+        "EffectiveEncoding.binaryCandidateFilterProgram_predicateActions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean",
+      "sha256": "31d9c4a7aef3fff1d38cb7272a3505b57c5c0a36d7b731d5e59a6cce5eea1178",
+      "declarations": [
+        "EffectiveEncoding.CandidateProductTrace",
+        "EffectiveEncoding.CandidateProductTrace.actions",
+        "EffectiveEncoding.CandidateProductResult",
+        "EffectiveEncoding.candidateProductRowProgram",
+        "EffectiveEncoding.candidateProductRowProgram_items",
+        "EffectiveEncoding.candidateProductRowProgram_actions",
+        "EffectiveEncoding.candidateProductProgram",
+        "EffectiveEncoding.candidateProductProgram_items",
+        "EffectiveEncoding.candidateProductProgram_actions",
+        "EffectiveEncoding.candidateProduct_map"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean",
+      "sha256": "1413509d24b5e48d75ef393d12f7d12cef7dd0391b6baaa50cf32dfacb9d9b28",
+      "declarations": [
+        "EffectiveEncoding.SavedTripleWords",
+        "EffectiveEncoding.savedTripleCounts",
+        "EffectiveEncoding.savedTriplePrepared",
+        "EffectiveEncoding.specSavedTriple",
+        "EffectiveEncoding.specSavedTriple_counts",
+        "EffectiveEncoding.specSavedTriple_prepared",
+        "EffectiveEncoding.BinaryTriplesResult",
+        "EffectiveEncoding.binaryTriplesProgram",
+        "EffectiveEncoding.binaryTriplesProgram_candidates",
+        "EffectiveEncoding.binaryTriplesProgram_candidateLength",
+        "EffectiveEncoding.binaryTriplesProgram_filtered",
+        "EffectiveEncoding.binaryTriplesProgram_counts",
+        "EffectiveEncoding.binaryTriplesProgram_prepared",
+        "EffectiveEncoding.binaryTriplesProgram_tests",
+        "EffectiveEncoding.binaryTriplesProgram_testCount",
+        "EffectiveEncoding.binaryTriplesProgram_candidateWidth",
+        "EffectiveEncoding.binaryTriplesProgram_predicateActions",
+        "EffectiveEncoding.BinaryTriplesResult.actions",
+        "EffectiveEncoding.binaryTriplesProgram_actions",
+        "EffectiveEncoding.binaryTriplesProgram_actions_polynomial"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean",
+      "sha256": "4e2f553bf00c0e5aefc840b25812061e4ca342ab2e9f45fc0b07ae10bd016623",
+      "declarations": [
+        "EffectiveEncoding.BinaryGeneratedRankResult",
+        "EffectiveEncoding.binaryGeneratedRankProgram",
+        "EffectiveEncoding.binaryGeneratedRankProgram_scan",
+        "EffectiveEncoding.binaryGeneratedRankProgram_input",
+        "EffectiveEncoding.binaryGeneratedRankProgram_index",
+        "EffectiveEncoding.binaryGeneratedRankProgram_encoding",
+        "EffectiveEncoding.binaryGeneratedRankProgram_output",
+        "EffectiveEncoding.BinaryGeneratedRankResult.actions",
+        "EffectiveEncoding.binaryGeneratedRankProgram_actions",
+        "EffectiveEncoding.binaryGeneratedRankProgram_actions_polynomial"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean",
+      "sha256": "9107c1ff79235bd6103ebe2ee2bc8e68d1472cf505dffe68546630b76dce7112",
+      "declarations": [
+        "EffectiveEncoding.CandidateRankRecord",
+        "EffectiveEncoding.CandidateRankEndpoint",
+        "EffectiveEncoding.candidateNativeBranchEndpoint",
+        "EffectiveEncoding.candidateNativeNextEndpoint",
+        "EffectiveEncoding.candidateNativePivotEndpoint",
+        "EffectiveEncoding.candidateNativeBranchEndpoint_point",
+        "EffectiveEncoding.candidateNativeNextEndpoint_point",
+        "EffectiveEncoding.candidateNativePivotEndpoint_point",
+        "EffectiveEncoding.candidateRankRecordsActions",
+        "EffectiveEncoding.candidateRankRecordsActions_append",
+        "EffectiveEncoding.CandidateRankEndpoint.actions",
+        "EffectiveEncoding.candidateNativeBranchEndpoint_actions",
+        "EffectiveEncoding.candidateNativeNextEndpoint_actions",
+        "EffectiveEncoding.candidateNativePivotEndpoint_actions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateNativeTable.lean",
+      "sha256": "06c70e14f773e68b6d71e044598f5bbfc7d032d0017b32693e49ff2ae6d56a3d",
+      "declarations": [
+        "EffectiveEncoding.CandidateNativeTableResult",
+        "EffectiveEncoding.candidateNativeTableProgram",
+        "EffectiveEncoding.candidateNativeTableProgram_counts",
+        "EffectiveEncoding.candidateNativeTableProgram_items",
+        "EffectiveEncoding.candidateNativeTableProgram_length"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean",
+      "sha256": "3c3e1a9bcea73a26d5cf52ecf0efd151720edb8738a28c4bf13c9a5946eae6fe",
+      "declarations": [
+        "EffectiveEncoding.CandidateWordRun",
+        "EffectiveEncoding.CandidateWordRun.actions",
+        "EffectiveEncoding.candidateEndpointMassActions",
+        "EffectiveEncoding.candidateIndexedRun",
+        "EffectiveEncoding.candidateIndexedRun_word",
+        "EffectiveEncoding.candidateIndexedRun_actions",
+        "EffectiveEncoding.candidateNativeBranchRun",
+        "EffectiveEncoding.candidateNativeBranchRun_word",
+        "EffectiveEncoding.candidateNativeBranchRun_actions",
+        "EffectiveEncoding.candidateAlignmentRun",
+        "EffectiveEncoding.candidateAlignmentRun_word",
+        "EffectiveEncoding.candidateAlignmentRun_actions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean",
+      "sha256": "af6d47546348f0548a1e69fe48b652eb2eef1b14c15df7474852da67b240e829",
+      "declarations": [
+        "EffectiveEncoding.candidateBranchTableRun",
+        "EffectiveEncoding.candidateBranchTableRun_word",
+        "EffectiveEncoding.candidateBranchTableRun_actions",
+        "EffectiveEncoding.CandidateDescriptorResult",
+        "EffectiveEncoding.CandidateDescriptorResult.actions",
+        "EffectiveEncoding.candidateOccupationRun",
+        "EffectiveEncoding.candidateOccupationRun_word",
+        "EffectiveEncoding.candidateOccupationRun_actions",
+        "EffectiveEncoding.candidateStageRun",
+        "EffectiveEncoding.candidateStageRun_word",
+        "EffectiveEncoding.candidateCompressionRun",
+        "EffectiveEncoding.candidateCompressionRun_word",
+        "EffectiveEncoding.candidateCompressionRun_actions",
+        "EffectiveEncoding.candidateDescriptorRun",
+        "EffectiveEncoding.candidateDescriptorRun_word",
+        "EffectiveEncoding.candidateDescriptorRun_extractionCode",
+        "EffectiveEncoding.candidateDescriptorRun_actions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean",
+      "sha256": "ad14c71e4517c7f7156071cb65a17d21edec5277012053c86b1b83f56f24e38a",
+      "declarations": [
+        "EffectiveEncoding.CandidateSerializedResult",
+        "EffectiveEncoding.candidateSerializedRun",
+        "EffectiveEncoding.CandidateSerializedResult.decoded",
+        "EffectiveEncoding.candidateSerializedRun_generation",
+        "EffectiveEncoding.candidateSerializedRun_precision",
+        "EffectiveEncoding.candidateSerializedRun_suffix_roundtrip",
+        "EffectiveEncoding.candidateSerializedRun_roundtrip",
+        "EffectiveEncoding.candidateSerializedRun_word",
+        "EffectiveEncoding.candidateSerializedRun_decoded_word",
+        "EffectiveEncoding.candidateSerializedRun_fidelity"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean",
+      "sha256": "1072ea9e89a2baa6e5a9d5117e9894804cc9bd82cbcf68bb20e4eeaeea8ae6ae",
+      "declarations": [
+        "EffectiveEncoding.RetainedAssembledTargetResult.primitiveActions",
+        "EffectiveEncoding.RetainedAssembledTargetResult.primitiveActions_eq",
+        "EffectiveEncoding.retainedAssembledTargetRun_primitiveActions",
+        "EffectiveEncoding.CandidateSerializedResult.targetActions",
+        "EffectiveEncoding.candidateSerializedRun_targetActions",
+        "EffectiveEncoding.candidateSerializedRun_outputLength",
+        "EffectiveEncoding.candidateSerializedRun_outerActions",
+        "EffectiveEncoding.candidateSerializedRun_streamLength",
+        "EffectiveEncoding.candidateSerializedRun_streamActions",
+        "EffectiveEncoding.CandidateSerializedResult.accountedPrimitiveActions",
+        "EffectiveEncoding.candidateSerializedPrimitiveBudget",
+        "EffectiveEncoding.candidateSerializedRun_accountedPrimitiveActions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedPolynomial.lean",
+      "sha256": "cb10708a6d381c615f3d96ef2a9ba698099acefe7a85ec86ba31e59ceecc4c2e",
+      "declarations": [
+        "EffectiveEncoding.candidateBudget_add_algebra",
+        "EffectiveEncoding.candidateSerializedPrimitiveBudget_enlarge",
+        "EffectiveEncoding.candidateGeneration_uniform",
+        "EffectiveEncoding.candidateSerializedPolynomialConstant",
+        "EffectiveEncoding.candidateSerializedPrimitiveBudget_polynomial",
+        "EffectiveEncoding.candidateSerializedRun_accountedPrimitiveActions_polynomial"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean",
+      "sha256": "919d3db3767a9982b4b1424350ba9be1e475f3169ebbe5708cba230348fd9e94",
+      "declarations": [
+        "EffectiveEncoding.endpointBitsProgram_unary_exact",
+        "EffectiveEncoding.naturalRange_map_ofFn",
+        "EffectiveEncoding.BinaryMaskPlanResult",
+        "EffectiveEncoding.binaryMaskPlanProgram",
+        "EffectiveEncoding.binaryMaskPlanProgram_outputs",
+        "EffectiveEncoding.binaryMaskPlanProgram_plans",
+        "EffectiveEncoding.binaryMaskPlanProgram_length",
+        "EffectiveEncoding.BinaryMaskPlanResult.copyActions",
+        "EffectiveEncoding.endpointBitsMap_actions",
+        "EffectiveEncoding.binaryMaskPlanProgram_copyActions",
+        "EffectiveEncoding.BinaryMaskPlanResult.actions",
+        "EffectiveEncoding.binaryMaskPlanProgram_actions",
+        "EffectiveEncoding.binaryMaskPlanProgram_active_actions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean",
+      "sha256": "090fa4cfd5c3bb32f066bc93f554821a74e99acfbead88b627e9e22ffecd8c32",
+      "declarations": [
+        "EffectiveEncoding.BinaryMaskRecord",
+        "EffectiveEncoding.MaskedCandidateResult",
+        "EffectiveEncoding.maskedCandidateOccupationRun",
+        "EffectiveEncoding.maskedCandidateOccupationRun_generation",
+        "EffectiveEncoding.MaskedCandidateResult.maskActions",
+        "EffectiveEncoding.maskedCandidateOccupationRun_maskActions",
+        "EffectiveEncoding.maskedCandidateStageRun",
+        "EffectiveEncoding.maskedCandidateStageRun_generation",
+        "EffectiveEncoding.maskedCandidateCompressionRun",
+        "EffectiveEncoding.maskedCandidateCompressionRun_generation",
+        "EffectiveEncoding.maskedCandidateCompressionRun_maskActions",
+        "EffectiveEncoding.maskedCandidateDescriptorRun",
+        "EffectiveEncoding.maskedCandidateDescriptorRun_generation",
+        "EffectiveEncoding.maskedCandidateDescriptorRun_word",
+        "EffectiveEncoding.maskedCandidateDescriptorRun_maskActions",
+        "EffectiveEncoding.MaskedCandidateResult.accountedActions",
+        "EffectiveEncoding.maskedCandidateDescriptorRun_accountedActions",
+        "EffectiveEncoding.maskedCandidateDescriptorRun_accountedActions_polynomial"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean",
+      "sha256": "e3aa49ec4a66c5139cbb34a1d23b5cbf596e4bbf9492955352b8ccc93a1d5f2b",
+      "declarations": [
+        "EffectiveEncoding.MaskedSerializedResult",
+        "EffectiveEncoding.maskedSerializedRun",
+        "EffectiveEncoding.maskedSerializedRun_execution",
+        "EffectiveEncoding.MaskedSerializedResult.decoded",
+        "EffectiveEncoding.maskedSerializedRun_suffix_roundtrip",
+        "EffectiveEncoding.maskedSerializedRun_decoded_word",
+        "EffectiveEncoding.MaskedSerializedResult.maskActions",
+        "EffectiveEncoding.maskedSerializedRun_maskActions",
+        "EffectiveEncoding.MaskedSerializedResult.accountedPrimitiveActions",
+        "EffectiveEncoding.maskedGeneration_uniform",
+        "EffectiveEncoding.maskedSerializedPolynomialConstant",
+        "EffectiveEncoding.maskedSerializedRun_accountedPrimitiveActions_polynomial",
+        "EffectiveEncoding.maskedSerializedRun_fidelity"
+      ]
+    }
+  ]
+}
