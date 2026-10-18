@@ -1,0 +1,23 @@
+{
+  "status": "PASS_LOCAL_ENVIRONMENT_TESTS_ONLY_NOT_HOSTED_CI",
+  "records": [
+    {
+      "case": "plain_local",
+      "status": "EXPECTED_REJECTION",
+      "reason": "GitHub CI mode requires the explicit hosted Linux/X64 runner context"
+    },
+    {
+      "case": "spoofed_ci_flags",
+      "status": "EXPECTED_REJECTION",
+      "reason": "GitHub CI mode is forbidden on local Windows/WSL"
+    },
+    {
+      "case": "default_local",
+      "status": "D_GUARD_PASS",
+      "guard": "D_BACKED_STORAGE_VERIFIED",
+      "memory_mb": 11000,
+      "available_memory_mb": 13781,
+      "available_disk_bytes": 9954115584
+    }
+  ]
+}
