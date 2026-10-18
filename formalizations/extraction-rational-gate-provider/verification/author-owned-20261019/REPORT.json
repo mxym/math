@@ -1,0 +1,114 @@
+{
+  "utc": "2026-10-18T21:49:02.637538+00:00",
+  "status": "AUTHOR_OWNED_ONLY_PASS_NOT_AGGREGATE_OR_INDEPENDENT_REPLAY",
+  "parent_head": "7ddeb51e363711e3b4ae50ea530d2f3140497003",
+  "named_theorems": 19,
+  "axioms": {
+    "RationalGateProvider.remainder_lt_five": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.transition_conserves": [
+      "propext"
+    ],
+    "RationalGateProvider.next_conserves": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.run_conserves": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.run_bits_length": [
+      "propext"
+    ],
+    "RationalGateProvider.run_quotient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.run_remainder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.run_dyadic_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.run_steps": [],
+    "RationalGateProvider.three_fifths": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.four_fifths": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.denominator_value": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.denominator_length": [
+      "propext"
+    ],
+    "RationalGateProvider.denominator_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.signedRun_length": [
+      "propext"
+    ],
+    "RationalGateProvider.signedRun_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.signedRun_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.signedRun_error_real": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateProvider.total_output_bits": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "source_snapshot": {
+    "formalizations/extraction-rational-gate-provider/.gitignore": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374",
+    "formalizations/extraction-rational-gate-provider/README.md": "12a8f558d47245bbf41aef71b7d87283f302625f9e37499c4ef9ddb5f5894b9f",
+    "formalizations/extraction-rational-gate-provider/ROOTS.txt": "abcc065a4da0052f1288b3126343edff919214ca59ea00ae92a3c16696884413",
+    "formalizations/extraction-rational-gate-provider/RationalGateProvider/Check.lean": "c8ff7d748529d92f48728a7d88db502b763c3a6c90d51fb2adc6a28628a10e2b",
+    "formalizations/extraction-rational-gate-provider/RationalGateProvider/Fifths.lean": "d990e5ec3647c266c958d853419bf390c1019578e355e9ca4e25ae1366b164b0",
+    "formalizations/extraction-rational-gate-provider/RationalGateProvider/ProofCheck.lean": "3eb6477ed00744641ad072931f3e46affaadd609fe544da57486fec656458307",
+    "formalizations/extraction-rational-gate-provider/RationalGateProvider/SignedFifths.lean": "cad893e3ce4f76215c05d5eef2c3c086b0839cc4b0faf9d50abb5ea39a475a62",
+    "formalizations/extraction-rational-gate-provider/RationalGateProvider.lean": "0776cade1c1f255c80991d076074a8376e0a1089bd04c542ae9d36c2d77401db",
+    "formalizations/extraction-rational-gate-provider/lake-manifest.json": "93aea388b41965765094ec4d37a95e48aaf704c596cb226b33b43e8316c3364d",
+    "formalizations/extraction-rational-gate-provider/lakefile.toml": "f49af139038f73ef68a0e2537f0a16c805c8c2a4595a7378f9d7e33fc8e72432",
+    "formalizations/extraction-rational-gate-provider/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "logs": {
+    "20261018T213958775439Z-root-owned-RationalGateProvider.Fifths.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "20261018T214224439841Z-root-owned-RationalGateProvider.SignedFifths.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "20261018T214232297530Z-root-owned-RationalGateProvider.Check.log": "890a1a993158eb5d3c8bcc34ea50d5e11b530046b31ec6a9166a3e3d2ce9c863",
+    "20261018T214751990429Z-root-owned-RationalGateProvider.ProofCheck.log": "0ce0f6c098ca5e16c4e4c7ff1d304b34b60601296bbdd9127460bed35c331060"
+  },
+  "actual_bounded_bytecode_smoke": "PASS",
+  "compiler_binaries_on_verified_D": true,
+  "shared_mathlib_copy": false,
+  "aggregate_build": "NOT_YET_RUN",
+  "empty_kernel_replay": "NOT_RUN",
+  "forged_proof_controls": "NOT_RUN",
+  "transducer_contract": "Actual five-state table and p transitions/output bits; exact quotient/remainder and signed dyadic error",
+  "excluded": "Canonical normalization, integer materialization, clocks/fuel/structures/counters and full compiler machine time; concrete SU2 membership/inverse/density and compiler integration are separate"
+}
