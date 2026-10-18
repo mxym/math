@@ -1,0 +1,43 @@
+OWNED MODULE CHECK ONLY; STANDARD AGGREGATE PENDING; NOT INDEPENDENT REPLAY
+
+Two new unused math modules LiteralOccupations/LiteralOccupationExtraction,
+19 theorem / 13 model roots. Authorized narrow module and all-root kind/type/
+axiom checks PASS (standard allowlist). Exact evidence:
+verification/literal-occupation-root-check-20261018T210748872431Z/REPORT.json,
+log 20261018T210746554509Z-owned-check-EffectiveEncoding.LiteralOccupationCheck.log.
+Reproduce narrow: python3 reproduce_literal_occupation.py --owned.
+Standard after audit lock release: same script --standard.
+
+The actual occupation constructor now uses explicit replicateBuild lists for
+counts a,b,c,k-a-b-c and three left-associated ListBuild append operations.
+The constructed list is stored once; its quotient supplies the actual Sym
+occupation. Full occupationLiteralProgram_value=fromTriple is proved, without
+choosing an arbitrary multiset representative. The specified cons/append
+source fee includes all four replicate lists and all append copies and is
+<=4*k+7 for one literal occupation of size k.
+
+literalOccupationTable starts from triplesBuild, computes and stores one
+literal result per accepted candidate, then reads its occupation/fee fields.
+The resulting ordered occupation list equals builtOccupations. The sum of
+literal cons/append fees is <=(4*k+7)*(k+1)^3; its separate candidate table
+fee remains <=28*(k+1)^3. Across actual compression stages, these partial fees
+are respectively <=k*((4*k+11)*(k+2)^3) and <=k*(28*(k+2)^3).
+Table attach/map/record and counter arithmetic are explicitly outside the
+literal cons/append fee; these source annotations are not full machine time.
+
+This constructor is wired into actual stages, sharing one occupation list
+between branch generation and packed alignment, and through compression and
+extraction. The actual terminal uses constructed Nat-triple ranks, explicit
+Bool-vector alignment endpoints, and charged raw target-provider/shared-online
+integer evaluation. Entire GateCode and finite-label lists remain literally
+equal to the previous constructiveRankExtractionCode; the original-register
+all-input Bell fidelity is internally preserved.
+
+Still open: global rank/embedding/bit request frequency, input multiset counts,
+Nat bit arithmetic/comparisons, vector/list equality and get traversal, table
+map overhead, Gray/mask/control construction, full prefix shift/concatenation,
+other numerical primitives and annotation maintenance. Fixed dictionary
+provider time retains its external input contract. No full-program primitive
+count or polynomial Turing-time theorem is claimed. All previous sealed files
+and independent frozen scopes remain unchanged; this successor is unused by
+their explicit import closures.

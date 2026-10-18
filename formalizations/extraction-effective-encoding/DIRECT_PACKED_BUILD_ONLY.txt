@@ -1,0 +1,50 @@
+OWNED MODULE CHECK ONLY; STANDARD AGGREGATE PENDING; NOT INDEPENDENT REPLAY
+
+Three new unused math modules PackedIndexedBranch, RequestedPackedAlignment,
+DirectPackedExtraction, 18 theorem / 14 model roots. Authorized ordered narrow
+module checks and explicit all-root kind/type/axiom checks PASS (standard
+allowlist). Exact evidence:
+verification/direct-packed-root-check-20261018T211507855158Z/REPORT.json,
+log 20261018T211505561970Z-owned-check-EffectiveEncoding.DirectPackedCheck.log.
+Reproduce narrow: python3 reproduce_direct_packed.py --owned.
+Standard after audit lock release: same script --standard.
+
+packedIndexedRun explicitly stores its pivot endpoint/mass and a finite list
+of other packed endpoints/masses, each computed once. packedEntryProgram
+merges using those stored Nat masses; it never calls indexedCount or the
+embedding during Gray compilation. Valid branch endpoints are internally
+proved distinct. packedEntryProgram_indexed proves equality of the ENTIRE
+RawCode list to the old countProgram(indexedCount...), using indexedCount_image.
+Consequently packedIndexedRun/packedBranchRun produce the literal old compiled
+GateCode list. The generic request annotations are exactly Fintype.card(ι)
+for both endpoint and mass callbacks, hence <=4 in each actual occupation branch.
+Finite vector equality, occupied-pivot/support construction and other work
+are not hidden inside that request count.
+
+requestedAlignmentRun explicitly requests and stores one source and one target
+per entry. Its entire PackedAlignmentRun result equals the previous interpreter;
+its embedding-request annotation is exactly2*list.length. packedBranchTableRun
+stores each branch result once. The actual directPackedOccupationRun reuses
+one literal occupation table for both branch/alignment, has <=6*occupationRank(k+1)
+embedding callbacks and <=4*occupationRank(k+1) mass callbacks. Summed over
+actual stages, embedding requests<=6*k*(k+2)^3.
+
+Actual stages use constructedCompactEncoding/constructedNextEncoding:
+a branch endpoint callback invokes the closed child encoder, and each alignment
+source/target callback invokes its corresponding child/next encoder. Branch
+Gray compilation receives stored packed points, so it does not re-request that
+embedding. This is a source-level callback-event model, not a complete bit-cost
+semantics for each callback. In particular the per-call constructedRank record
+fees have NOT yet been accumulated into one global runtime record.
+
+The replacement is wired through actual stage/compression/extraction and the
+charged raw provider/shared-online finite-label terminal. Entire GateCode and
+finite-label lists remain literally equal to literalOccupationExtractionCode;
+original-register all-input Bell fidelity is internally preserved.
+
+Remaining: callback internal bit costs/input occupation operations, cumulative
+rank-construction fees, Bool-vector comparisons/get traversal, Gray/masks,
+control sorting, full list shifts/concatenation, nonroot numerical primitives,
+fixed dictionary provider time and annotation maintenance. No full generation,
+full primitive-count or polynomial Turing-time theorem is asserted. All prior
+sealed files/inventories/configuration and independent frozen scopes are unchanged.
