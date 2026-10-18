@@ -1,0 +1,38 @@
+OWNED MODULE CHECK ONLY; STANDARD AGGREGATE PENDING; NOT INDEPENDENT REPLAY
+
+Two new unused math modules RankByTriples and TripleRankExtraction,
+18 theorem / 11 model roots. Direct authorized narrow checks and explicit
+all-root kind/type/axiom checks PASS (standard allowlist). Exact evidence:
+verification/triple-rank-root-check-20261018T205427523736Z/REPORT.json,
+log 20261018T205425038991Z-owned-check-EffectiveEncoding.TripleRankCheck.log.
+Reproduce narrow: python3 reproduce_triple_rank.py --owned.
+After audit lock release, standard: same script --standard.
+
+This is an executable replacement of actual ranking, not only an added fee.
+tripleRankProgram constructs the same filtered bounded Nat-triple candidate
+list once and scans it, using the input occupation's three counts. Every
+comparison explicitly evaluates and stores three Nat equalities; it never
+constructs or compares candidate occupation multisets. Predicate calls are
+exactly(k+1)^3, and Nat equality calls are <=3*(k+1)^3.
+The input toTriple still counts three letters in the actual input multiset;
+those costs and the bit cost of each Nat equality are not assumed constant.
+
+The ordered map-toTriple of occupations equals triples, and toTriple is
+injective. rankByTriples_eq proves the full Fin index equals the old rank.
+tripleCompactEncoding has the identical pair-aligned width, with every bit
+identical to compactEncoding. This implementation is wired into real stored
+swap occupation stages, compression and extraction generation. Literal entire
+GateCode lists remain identical. tripleRankExtractionCode then executes the
+charged target-provider/shared-online raw integer compiler, choosing precision
+from its once-materialized descriptor word. Its entire finite-label list equals
+chargedProviderExtractionCode and its original-register all-input Bell
+fidelity theorem is internally preserved.
+
+Uncharged: input multiset counting, range/product/filter allocation, Nat bit
+operations, list/index traversal details, endpoint evaluation/equality, Gray
+and mask generation, shift/concatenation, annotations and provider nonroot
+costs. The new query model removes the old candidate-multiset ranking path;
+it does not assert complete generation cost or polynomial Turing time.
+The fixed library provider retains its explicit external cost contract.
+No arbitrary declaredFee wrapper was introduced. All previously sealed files,
+inventories, configuration and frozen independent closures remain unchanged.
