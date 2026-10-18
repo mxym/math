@@ -1,0 +1,337 @@
+{
+  "status": "GENERATED_AUTHOR_NATIVE_RANK_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 20,
+  "model_count": 18,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.NativeOccupation",
+      "kind": "abbrev",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.nativeOccupationValue",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 11
+    },
+    {
+      "name": "EffectiveEncoding.nativeMass",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.nativeMass_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 20
+    },
+    {
+      "name": "EffectiveEncoding.nativeSelected",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 25
+    },
+    {
+      "name": "EffectiveEncoding.nativeSelected_mem",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 29
+    },
+    {
+      "name": "EffectiveEncoding.nativeSelected_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 36
+    },
+    {
+      "name": "EffectiveEncoding.nativeOccupiedFintype",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 44
+    },
+    {
+      "name": "EffectiveEncoding.nativeOccupiedPivot",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 58
+    },
+    {
+      "name": "EffectiveEncoding.nativeOccupiedPivot_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 66
+    },
+    {
+      "name": "EffectiveEncoding.nativeOccupationTable",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 72
+    },
+    {
+      "name": "EffectiveEncoding.nativeOccupationTable_values",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "line": 78
+    },
+    {
+      "name": "EffectiveEncoding.nativeBranchEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.nativeBranchEndpoint_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean",
+      "line": 20
+    },
+    {
+      "name": "EffectiveEncoding.nativeNextEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean",
+      "line": 29
+    },
+    {
+      "name": "EffectiveEncoding.nativeNextEndpoint_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.nativePivotEndpoint",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean",
+      "line": 41
+    },
+    {
+      "name": "EffectiveEncoding.nativePivotEndpoint_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean",
+      "line": 45
+    },
+    {
+      "name": "EffectiveEncoding.nativeBranchRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean",
+      "line": 52
+    },
+    {
+      "name": "EffectiveEncoding.nativeBranchRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean",
+      "line": 58
+    },
+    {
+      "name": "EffectiveEncoding.nativeBranchTableRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.nativeBranchTableRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.nativeAlignmentRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 22
+    },
+    {
+      "name": "EffectiveEncoding.nativeAlignmentRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 26
+    },
+    {
+      "name": "EffectiveEncoding.nativeOccupationRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 33
+    },
+    {
+      "name": "EffectiveEncoding.nativeOccupationRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 40
+    },
+    {
+      "name": "EffectiveEncoding.nativeStageRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 45
+    },
+    {
+      "name": "EffectiveEncoding.nativeStageRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 50
+    },
+    {
+      "name": "EffectiveEncoding.nativeCompressionRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 54
+    },
+    {
+      "name": "EffectiveEncoding.nativeCompressionRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 63
+    },
+    {
+      "name": "EffectiveEncoding.nativeDescriptorRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 69
+    },
+    {
+      "name": "EffectiveEncoding.nativeDescriptorRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 75
+    },
+    {
+      "name": "EffectiveEncoding.nativeDescriptorRun_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "line": 79
+    },
+    {
+      "name": "EffectiveEncoding.nativeRankExtractionRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankExtraction.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.nativeRankExtractionRun_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankExtraction.lean",
+      "line": 17
+    },
+    {
+      "name": "EffectiveEncoding.nativeRankExtractionRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankExtraction.lean",
+      "line": 23
+    },
+    {
+      "name": "EffectiveEncoding.nativeRankExtractionRun_work",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankExtraction.lean",
+      "line": 31
+    },
+    {
+      "name": "EffectiveEncoding.nativeRankExtractionRun_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankExtraction.lean",
+      "line": 39
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean",
+      "sha256": "7b69bc68be3094e5d3326f7b80610422a3eff1bfde346c1afdc5c121fa82b205",
+      "declarations": [
+        "EffectiveEncoding.NativeOccupation",
+        "EffectiveEncoding.nativeOccupationValue",
+        "EffectiveEncoding.nativeMass",
+        "EffectiveEncoding.nativeMass_value",
+        "EffectiveEncoding.nativeSelected",
+        "EffectiveEncoding.nativeSelected_mem",
+        "EffectiveEncoding.nativeSelected_eq",
+        "EffectiveEncoding.nativeOccupiedFintype",
+        "EffectiveEncoding.nativeOccupiedPivot",
+        "EffectiveEncoding.nativeOccupiedPivot_eq",
+        "EffectiveEncoding.nativeOccupationTable",
+        "EffectiveEncoding.nativeOccupationTable_values"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean",
+      "sha256": "06776b93b498a5810c16f248f2dc4857be4e7686004da4ca8adba13ab68dcfc5",
+      "declarations": [
+        "EffectiveEncoding.nativeBranchEndpoint",
+        "EffectiveEncoding.nativeBranchEndpoint_eq",
+        "EffectiveEncoding.nativeNextEndpoint",
+        "EffectiveEncoding.nativeNextEndpoint_eq",
+        "EffectiveEncoding.nativePivotEndpoint",
+        "EffectiveEncoding.nativePivotEndpoint_eq",
+        "EffectiveEncoding.nativeBranchRun",
+        "EffectiveEncoding.nativeBranchRun_eq"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean",
+      "sha256": "8c376fd6bf1446c7df7a4fbec379a3579e57e874ab514682e23d008642dd9d4b",
+      "declarations": [
+        "EffectiveEncoding.nativeBranchTableRun",
+        "EffectiveEncoding.nativeBranchTableRun_eq",
+        "EffectiveEncoding.nativeAlignmentRun",
+        "EffectiveEncoding.nativeAlignmentRun_eq",
+        "EffectiveEncoding.nativeOccupationRun",
+        "EffectiveEncoding.nativeOccupationRun_eq",
+        "EffectiveEncoding.nativeStageRun",
+        "EffectiveEncoding.nativeStageRun_eq",
+        "EffectiveEncoding.nativeCompressionRun",
+        "EffectiveEncoding.nativeCompressionRun_eq",
+        "EffectiveEncoding.nativeDescriptorRun",
+        "EffectiveEncoding.nativeDescriptorRun_eq",
+        "EffectiveEncoding.nativeDescriptorRun_work"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankExtraction.lean",
+      "sha256": "30ed38fd62f8666235cb5607252aabec754018f473c31dc7d38a2538b58cd4fb",
+      "declarations": [
+        "EffectiveEncoding.nativeRankExtractionRun",
+        "EffectiveEncoding.nativeRankExtractionRun_eq",
+        "EffectiveEncoding.nativeRankExtractionRun_word",
+        "EffectiveEncoding.nativeRankExtractionRun_work",
+        "EffectiveEncoding.nativeRankExtractionRun_fidelity"
+      ]
+    }
+  ]
+}
