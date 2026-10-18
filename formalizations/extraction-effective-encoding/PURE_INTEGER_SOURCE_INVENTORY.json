@@ -1,0 +1,441 @@
+{
+  "status": "GENERATED_AUTHOR_PURE_INTEGER_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 34,
+  "model_count": 17,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.integerFraction",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.integerHalf",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 11
+    },
+    {
+      "name": "EffectiveEncoding.integerScalar_ext_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.integerLiteral_zero",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.integerLiteral_one",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.integerLiteral_half",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 27
+    },
+    {
+      "name": "EffectiveEncoding.integerLiteral_halfInv",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 33
+    },
+    {
+      "name": "EffectiveEncoding.integerRoot_congr_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 38
+    },
+    {
+      "name": "EffectiveEncoding.rawAtomCos",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 44
+    },
+    {
+      "name": "EffectiveEncoding.rawAtomSin",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 50
+    },
+    {
+      "name": "EffectiveEncoding.rawAtomCos_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 56
+    },
+    {
+      "name": "EffectiveEncoding.rawAtomSin_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 69
+    },
+    {
+      "name": "EffectiveEncoding.RawScalarOracle",
+      "kind": "abbrev",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 82
+    },
+    {
+      "name": "EffectiveEncoding.rawHalfCos",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 84
+    },
+    {
+      "name": "EffectiveEncoding.rawHalfSin",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 89
+    },
+    {
+      "name": "EffectiveEncoding.rawHalfCos_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 93
+    },
+    {
+      "name": "EffectiveEncoding.rawHalfSin_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 102
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.rawCos",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 111
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.rawSin",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 113
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.rawCos_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 117
+    },
+    {
+      "name": "EffectiveEncoding.AngleCode.rawSin_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 121
+    },
+    {
+      "name": "EffectiveEncoding.rawPhaseCos",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 127
+    },
+    {
+      "name": "EffectiveEncoding.rawPhaseSin",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 131
+    },
+    {
+      "name": "EffectiveEncoding.rawPhaseCos_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 135
+    },
+    {
+      "name": "EffectiveEncoding.rawPhaseSin_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 140
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode.rawPacket",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 148
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode.rawPacket_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 158
+    },
+    {
+      "name": "EffectiveEncoding.SingleCode.rawPacket_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 183
+    },
+    {
+      "name": "EffectiveEncoding.extractionCode_rawPacket_height",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "line": 186
+    },
+    {
+      "name": "EffectiveEncoding.buildRawPacketCache",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.readRawPacketCache",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.rawPacketCache_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.rawPacketCache_expression_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.rawCachedIntegerRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.rawCachedIntegerRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean",
+      "line": 42
+    },
+    {
+      "name": "EffectiveEncoding.rawDescriptorRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean",
+      "line": 53
+    },
+    {
+      "name": "EffectiveEncoding.rawDescriptorRun_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean",
+      "line": 58
+    },
+    {
+      "name": "EffectiveEncoding.rawExtractionCode",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCompiler.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.rawExtractionCode_eq",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCompiler.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.rawExtractionCode_uses",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCompiler.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.rawExtractionCode_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCompiler.lean",
+      "line": 27
+    },
+    {
+      "name": "EffectiveEncoding.rawExtractionCode_error",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCompiler.lean",
+      "line": 38
+    },
+    {
+      "name": "EffectiveEncoding.rawExtractionCode_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCompiler.lean",
+      "line": 51
+    },
+    {
+      "name": "EffectiveEncoding.rawPacketCache_height",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.rawCachedIntegerRun_integerBitBudget",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean",
+      "line": 18
+    },
+    {
+      "name": "EffectiveEncoding.rawBudget_double",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean",
+      "line": 39
+    },
+    {
+      "name": "EffectiveEncoding.rawDescriptorRun_integerBitBudget",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean",
+      "line": 46
+    },
+    {
+      "name": "EffectiveEncoding.rawDescriptorRun_polynomial",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean",
+      "line": 63
+    },
+    {
+      "name": "EffectiveEncoding.rawExtraction_expression_budget",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean",
+      "line": 73
+    },
+    {
+      "name": "EffectiveEncoding.rawExtraction_expression_subtreeBound",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean",
+      "line": 89
+    },
+    {
+      "name": "EffectiveEncoding.rawExtraction_integerProgramRun_height",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean",
+      "line": 102
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean",
+      "sha256": "3ac83d5b71c77f291e0a38769b9854a08e97a1cd72150accc2abe4b4abfa3a83",
+      "declarations": [
+        "EffectiveEncoding.integerFraction",
+        "EffectiveEncoding.integerHalf",
+        "EffectiveEncoding.integerScalar_ext_value",
+        "EffectiveEncoding.integerLiteral_zero",
+        "EffectiveEncoding.integerLiteral_one",
+        "EffectiveEncoding.integerLiteral_half",
+        "EffectiveEncoding.integerLiteral_halfInv",
+        "EffectiveEncoding.integerRoot_congr_value",
+        "EffectiveEncoding.rawAtomCos",
+        "EffectiveEncoding.rawAtomSin",
+        "EffectiveEncoding.rawAtomCos_eq",
+        "EffectiveEncoding.rawAtomSin_eq",
+        "EffectiveEncoding.RawScalarOracle",
+        "EffectiveEncoding.rawHalfCos",
+        "EffectiveEncoding.rawHalfSin",
+        "EffectiveEncoding.rawHalfCos_eq",
+        "EffectiveEncoding.rawHalfSin_eq",
+        "EffectiveEncoding.AngleCode.rawCos",
+        "EffectiveEncoding.AngleCode.rawSin",
+        "EffectiveEncoding.AngleCode.rawCos_eq",
+        "EffectiveEncoding.AngleCode.rawSin_eq",
+        "EffectiveEncoding.rawPhaseCos",
+        "EffectiveEncoding.rawPhaseSin",
+        "EffectiveEncoding.rawPhaseCos_eq",
+        "EffectiveEncoding.rawPhaseSin_eq",
+        "EffectiveEncoding.SingleCode.rawPacket",
+        "EffectiveEncoding.SingleCode.rawPacket_eq",
+        "EffectiveEncoding.SingleCode.rawPacket_value",
+        "EffectiveEncoding.extractionCode_rawPacket_height"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean",
+      "sha256": "ed720004584e66ac8344d37e6f9499630fa604daec4b3c9fb0c9ed5154c892ef",
+      "declarations": [
+        "EffectiveEncoding.buildRawPacketCache",
+        "EffectiveEncoding.readRawPacketCache",
+        "EffectiveEncoding.rawPacketCache_value",
+        "EffectiveEncoding.rawPacketCache_expression_value",
+        "EffectiveEncoding.rawCachedIntegerRun",
+        "EffectiveEncoding.rawCachedIntegerRun_word",
+        "EffectiveEncoding.rawDescriptorRun",
+        "EffectiveEncoding.rawDescriptorRun_word"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCompiler.lean",
+      "sha256": "d6de0df95dc7a4cd08549e419d16724f124fdd751103276b64399b63f54040cb",
+      "declarations": [
+        "EffectiveEncoding.rawExtractionCode",
+        "EffectiveEncoding.rawExtractionCode_eq",
+        "EffectiveEncoding.rawExtractionCode_uses",
+        "EffectiveEncoding.rawExtractionCode_length",
+        "EffectiveEncoding.rawExtractionCode_error",
+        "EffectiveEncoding.rawExtractionCode_fidelity"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean",
+      "sha256": "bd40ba4433b41c65ab4badb813753d22c9abbb3a3af30268502ddddc4dc97b3c",
+      "declarations": [
+        "EffectiveEncoding.rawPacketCache_height",
+        "EffectiveEncoding.rawCachedIntegerRun_integerBitBudget",
+        "EffectiveEncoding.rawBudget_double",
+        "EffectiveEncoding.rawDescriptorRun_integerBitBudget",
+        "EffectiveEncoding.rawDescriptorRun_polynomial",
+        "EffectiveEncoding.rawExtraction_expression_budget",
+        "EffectiveEncoding.rawExtraction_expression_subtreeBound",
+        "EffectiveEncoding.rawExtraction_integerProgramRun_height"
+      ]
+    }
+  ]
+}
