@@ -130,6 +130,18 @@ of the numerical input oracles online. A concrete integer-packet / `2^p`
 dyadic entry interface and its numerator-size bound are included. These
 results close numerical base selection; composed conditioned factor oracles
 and the full numerical SK recursion remain open.
+`ConditionedOracleSelection.lean` now implements the chart-mass scoring and
+overlapping rational residual stopping branches. `BalancedReference.lean`
+computes the actual reference-axis factor oracles. The normalized
+intertwiner and its SU(2) entry oracle are proved in
+`NormalizedIntertwinerOracle.lean`, using the derived positive denominator
+bound and the implemented inverse/square-root precision schedules.
+`ConditionedFactors.lean` closes the complete numerical factor routine:
+above a dyadic stopping threshold it emits two entry oracles whose exact
+SU(2) values form the target commutator and obey the required balance bound.
+No decomposition certificate is supplied as a premise. The remaining
+numerical task is to connect these routines and the safe stopping branch
+through the complete finite word recursion, then analyze its costs.
 The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
@@ -141,6 +153,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build and all 256 root type/axiom prints passed with 3857 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T171145397949Z-extraction-circuit-recursion.log`.
+The ordinary build and all 282 root type/axiom prints passed with 3861 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T172544031208Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.
