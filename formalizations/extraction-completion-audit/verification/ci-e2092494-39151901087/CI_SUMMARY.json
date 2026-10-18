@@ -1,0 +1,229 @@
+{
+  "status": "PASS",
+  "scope": "Independent completion verification of the revised manuscript statements explicitly mapped to 518 theorem endpoints and 175 concrete model definitions at fixed source cfdd2a6c7954f1956f1832cdabe28dd6e018fe3a, including every transitive proof/definition dependency and 84 strict same-type forged-proof controls. Input counts are not discovery counts. All stated hypotheses and excluded boundaries remain; classical uniform Turing compiler bit complexity is not certified. A successful result applies only to exact bound source and is internal AI/kernel verification, not external human peer review or novelty certification.",
+  "mathematical_source_head": "cfdd2a6c7954f1956f1832cdabe28dd6e018fe3a",
+  "source_inputs": 605,
+  "endpoint_theorems": 518,
+  "model_definitions": 175,
+  "same_type_forged_proof_controls": 84,
+  "kernel_trust": 0,
+  "runtime_guard": "GITHUB_HOSTED_LINUX_RUNNER_VERIFIED",
+  "audit_invocation_sha256": "20d2173fd5a4825e9566f035861ac22b7cc3abeac46dbc8a1b5712fbfbaef93c",
+  "kernel_declarations": 72820,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "fresh_owned_build": true,
+  "fresh_packages": [
+    "extraction-operational-completion",
+    "extraction-deviation-completion",
+    "extraction-cp-interface",
+    "extraction-schur-completion",
+    "extraction-circuit-completion",
+    "extraction-circuit-recursion",
+    "extraction-locc-interface",
+    "extraction-rains-realization",
+    "extraction-schur-completion/physical-minimax",
+    "extraction-appt-applications",
+    "extraction-completion-audit"
+  ],
+  "source_manifest_sha256": "e6fc2db8b4b41597bdf6120a78893c16e4230079e971fb1a630e07acdd673d38",
+  "manuscript_source_head": "cfdd2a6c7954f1956f1832cdabe28dd6e018fe3a",
+  "manuscript_inputs": [
+    "preprints/universal-entanglement-extraction-revision-2026-10/paper.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/introduction.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/spectral-principles.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/universal-protocol.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/asymptotic-laws.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/unknown-support.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/applications-verification.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/references.tex"
+  ],
+  "manuscript_documents": [
+    "preprints/universal-entanglement-extraction-revision-2026-10/README.md",
+    "preprints/universal-entanglement-extraction-revision-2026-10/THEOREM_SOURCE_MAP.md",
+    "preprints/universal-entanglement-extraction-revision-2026-10/MANUSCRIPT_CLAIMS.json"
+  ],
+  "protected_frozen_tex": 8,
+  "stages": [
+    {
+      "stage": "toolchain",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.515,
+      "log": "toolchain.log",
+      "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+      "peak_child_rss_kib_cumulative": 849720
+    },
+    {
+      "stage": "build-deviation",
+      "command": [
+        "lake",
+        "build",
+        "@extractionDeviationCompletion/Deviation"
+      ],
+      "exit_code": 0,
+      "seconds": 238.873,
+      "log": "build-deviation.log",
+      "sha256": "54a753f8b5acb13377fb8aa7046eb6ba0787d9b734dbdb219d54e0ca9f872d92",
+      "peak_child_rss_kib_cumulative": 4053504
+    },
+    {
+      "stage": "build-operational",
+      "command": [
+        "lake",
+        "build",
+        "@extractionOperationalCompletion/OperationalCompletion"
+      ],
+      "exit_code": 0,
+      "seconds": 88.542,
+      "log": "build-operational.log",
+      "sha256": "5ec1e440bb90b72ffbad6b190006d69b6788fb5ace033a5683de70fd891d3712",
+      "peak_child_rss_kib_cumulative": 4067168
+    },
+    {
+      "stage": "build-cp",
+      "command": [
+        "lake",
+        "build",
+        "@extractionCPInterface/CPInterface"
+      ],
+      "exit_code": 0,
+      "seconds": 3.019,
+      "log": "build-cp.log",
+      "sha256": "7d716f34c9cd390ea032cec25f01d063bb3557dbf2d418f2c2c9bd33c43095f2",
+      "peak_child_rss_kib_cumulative": 4067168
+    },
+    {
+      "stage": "build-locc",
+      "command": [
+        "lake",
+        "build",
+        "@extractionLOCCInterface/LOCCInterface"
+      ],
+      "exit_code": 0,
+      "seconds": 6.732,
+      "log": "build-locc.log",
+      "sha256": "351cb41390a56673717a348e11e8c401acb05bc66b12f790102c6784720353e9",
+      "peak_child_rss_kib_cumulative": 4067168
+    },
+    {
+      "stage": "build-rains",
+      "command": [
+        "lake",
+        "build",
+        "@extractionRainsRealization/RainsRealization"
+      ],
+      "exit_code": 0,
+      "seconds": 12.841,
+      "log": "build-rains.log",
+      "sha256": "15a46e54b848ced5fec4a819a3f59384b46337d2387caa3c8caa6d71d1436eee",
+      "peak_child_rss_kib_cumulative": 4067168
+    },
+    {
+      "stage": "build-schur",
+      "command": [
+        "lake",
+        "build",
+        "@extractionSchurCompletion/SchurCompletion"
+      ],
+      "exit_code": 0,
+      "seconds": 114.714,
+      "log": "build-schur.log",
+      "sha256": "ecf989715dd1fc571415f4b6f6681e2b19c9dcebeaf3053db089d1b678889c04",
+      "peak_child_rss_kib_cumulative": 4067168
+    },
+    {
+      "stage": "build-circuits",
+      "command": [
+        "lake",
+        "build",
+        "@extractionCircuitRecursion/CircuitRecursion"
+      ],
+      "exit_code": 0,
+      "seconds": 151.852,
+      "log": "build-circuits.log",
+      "sha256": "850f6c71c5a58672afaa2c5c1fa443949f1a2937b3c844b02e721dd874b347e8",
+      "peak_child_rss_kib_cumulative": 4067168
+    },
+    {
+      "stage": "build-schur-minimax",
+      "command": [
+        "lake",
+        "build",
+        "@extractionSchurMinimax/SchurMinimax"
+      ],
+      "exit_code": 0,
+      "seconds": 32.798,
+      "log": "build-schur-minimax.log",
+      "sha256": "c8271a4f1683da256565a38ac51312eed14a331d935d36c44b078afa60818201",
+      "peak_child_rss_kib_cumulative": 4067168
+    },
+    {
+      "stage": "build-appt-applications",
+      "command": [
+        "lake",
+        "build",
+        "@extractionAPPTApplications/APPTApplications"
+      ],
+      "exit_code": 0,
+      "seconds": 90.76,
+      "log": "build-appt-applications.log",
+      "sha256": "5ff9254a22ecca89b43598a86f863c2f1f6cfd749fed1ccce77aa4743f7bd1b6",
+      "peak_child_rss_kib_cumulative": 4082396
+    },
+    {
+      "stage": "build-audit",
+      "command": [
+        "lake",
+        "build",
+        "CompletionAudit",
+        "CompletionVerification"
+      ],
+      "exit_code": 0,
+      "seconds": 19.665,
+      "log": "build-audit.log",
+      "sha256": "395607848ea97ba444ab9272daaaa13390911f7c5199f579e8e85f7077f90082",
+      "peak_child_rss_kib_cumulative": 4102012
+    },
+    {
+      "stage": "root-types-axioms",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M10000",
+        "Check.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 5.273,
+      "log": "root-types-axioms.log",
+      "sha256": "316bf834f4809aa265b8d09cf92ef38013858381ce1105aed9cd62d7741ab63c",
+      "peak_child_rss_kib_cumulative": 4597540
+    },
+    {
+      "stage": "trust0-replay",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-M11000",
+        "/home/runner/work/_temp/extraction-completion-39151901087-1/evidence/completion-20261018T180017860408Z/AuditInvocation.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 2943.004,
+      "log": "trust0-replay.log",
+      "sha256": "1d9acdcc94d6f35c1ebcb6a60f1edc0584dd6a572feb0cb32a61f9a3314b9b59",
+      "peak_child_rss_kib_cumulative": 4697208
+    }
+  ]
+}
