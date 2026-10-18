@@ -1,0 +1,14 @@
+import CircuitNumerical.BinaryWordComparison
+
+#check CircuitRecursion.binaryComparisonChoice_correct
+#print axioms CircuitRecursion.binaryComparisonChoice_correct
+#check CircuitRecursion.binaryWordCompareProgram_correct
+#print axioms CircuitRecursion.binaryWordCompareProgram_correct
+#check CircuitRecursion.binaryComparisonChoice_actions
+#print axioms CircuitRecursion.binaryComparisonChoice_actions
+#check CircuitRecursion.binaryWordCompareProgram_depth
+#print axioms CircuitRecursion.binaryWordCompareProgram_depth
+#check CircuitRecursion.binaryWordCompareProgram_actions
+#print axioms CircuitRecursion.binaryWordCompareProgram_actions
+#check CircuitRecursion.binaryWordLEProgram_correct
+#print axioms CircuitRecursion.binaryWordLEProgram_correct
