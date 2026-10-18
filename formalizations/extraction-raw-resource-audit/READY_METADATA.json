@@ -1,0 +1,76 @@
+{
+  "status": "READY_METADATA_NOT_KERNEL_REPLAY",
+  "mathematical_source_head": "04044ad0e1dc94634a8005f5f6abebe4518a012b",
+  "entry_modules": [
+    "EffectiveEncoding.ChargedProviderCompiler",
+    "EffectiveEncoding.CountedDescriptorFields"
+  ],
+  "theorems": 364,
+  "models": 186,
+  "positive_roots": 550,
+  "strict_same_type_controls": 135,
+  "new_mathematical_modules": 47,
+  "actual_local_import_sources": 277,
+  "transitive_package_configuration_inputs": 39,
+  "owned_package_configuration_inputs": 3,
+  "author_claim_snapshots": 16,
+  "planned_bound_input_count": 372,
+  "root_list_sha256": "a7bf832d6a8b3de60821016768a1d0a30984a81c1ff1563862949ea773699aa3",
+  "model_list_sha256": "7cc27316d5fd1586ee2bc21b34362b5aa177db9f5a7d5877d5c2089d1dda9656",
+  "control_list_sha256": "00ab77dc31de26de3f3e948c1d261570e3eabbaa2c98251f71f9e28b2d8ce9b1",
+  "actual_import_closure_manifest_sha256": "4f154ea536d2a76fd5a757e2a69485c080b97310fe3fc3a45f273186477a8dca",
+  "claim_snapshots_manifest_sha256": "b73d9b9673ee5b6bc4e970d0fdaab8796404cf34010cc7b3a017f9b823cd3503",
+  "type_axiom_report_log_sha256": "7f90e31afc64a84b2e34c431e892d59057a948faeb498917f4a85a89afc527ab",
+  "bounded_bytecode_log_sha256": "50df06c0ec34d119dbf2a81366ba873c8891ef3221f71388b16153b317ea482f",
+  "ordinary_preflight_archive": "verification/raw-resource-preliminary-types-20261018T210544533052Z.tar.gz",
+  "ordinary_preflight_archive_sha256": "29395120ff2ada5cde26cb1c9105bf0aba9b66d1f4d42a22dd0c72425a5bd1a2",
+  "actual_workflow": ".github/workflows/extraction-raw-resource.yml",
+  "bound_template": "extraction-raw-resource.workflow.yml",
+  "template_sha256": "e918e9602baf05401f816e43e834118f4090ccf12e04a556310e6d83ce23a430",
+  "compile_stages": [
+    [
+      "lake",
+      "build",
+      "RawResourceAudit",
+      "RawResourceVerification"
+    ],
+    [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M<CAP\u226410000>",
+      "Check.lean"
+    ],
+    [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M<CAP\u22647000>",
+      "--run",
+      "ExecutableCheck.lean"
+    ]
+  ],
+  "future_full_replay": [
+    "lake",
+    "env",
+    "lean",
+    "-j1",
+    "-M<CAP\u226411000>",
+    "<owned-output>/AuditInvocation.lean"
+  ],
+  "future_fresh_packages": [
+    "extraction-numerical-synthesis",
+    "extraction-effective-encoding",
+    "extraction-raw-resource-audit"
+  ],
+  "resource_estimate": "RESOURCE_ESTIMATE.json",
+  "limitations": "MODEL_LIMITS.md",
+  "preserved_prior_counts": {
+    "algorithm_inputs": 340,
+    "completion_inputs": 605,
+    "earlier_inputs": 4378
+  },
+  "full_kernel_verification_performed": false
+}

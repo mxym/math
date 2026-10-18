@@ -1,0 +1,58 @@
+AUTHOR STANDARD BUILD ONLY; NOT INDEPENDENT REPLAY
+
+Four new mathematical modules: PureIntegerProvider, PureIntegerCache,
+PureIntegerCompiler, PureIntegerBudgets. Explicit new inventory: 34 theorem
+roots, 17 model roots; all kind/type/axiom checks PASS (only propext,
+Classical.choice, Quot.sound). Standard serialized PureIntegerCheck build:
+3930 jobs, exit 0, log 20261018T201247534979Z-extraction-effective-encoding.log.
+Exact source/input/log hashes: verification/pure-integer-root-check-20261018T201257690683Z/REPORT.json.
+Reproduce: python3 reproduce_pure_integer.py --standard.
+
+Runtime entry: rawExtractionCode entry inverseLabel table L k p.
+It traverses actual extractionCode on the original 2*k wires and calls
+rawDescriptorRun at extractionPrecision k p for each single-qubit descriptor.
+The target rawPacket uses direct noncanonical integer fractions, integer
+arithmetic, binary long division and binary digit square-root routines.
+SingleCode.rawPacket_eq proves full integer payload equality to integerPacket,
+not merely equality after converting to rational values. The fixed library
+entry has type Fin m -> Nat -> Vector Int 4; dyadicIntegerPacket directly
+wraps these integer numerators with denominator 2^r.
+
+rawCachedIntegerRun eagerly stores all raw gate/target packets for r=0..P,
+P=numericalDemand L (clog 2 (q+1)). The cache read default is integer one.
+No target/gate packet.value, canonical rational cache, or ofVector fraction
+round-trip occurs in this runtime path. C.rawPacketExpression embeds integer
+numerators/denominators as denominator-one rational literal DATA; the integer
+evaluator reads these fields as ofInt (C.ofRat_intCast), without rational
+arithmetic, normalization or rational comparisons. Fixed AST constants are
+finite rational literal data. Dynamic chart/base/stopping choices use signed
+integer cross-products; root evaluation uses explicit binary div/sqrt.
+
+Only .word is equated to the previous algorithm: the raw tuple AST differs
+from the prior canonical-rational literal AST. rawExtractionCode_eq proves
+literal finite-label-list equality to numericalExtractionCode. Consequently
+rawExtractionCode_error/fidelity retain the same original-register matrix
+error 2^(-(p+1)), actual discard, and Bell fidelity >=1-2^(-p) for every
+normalized four-component pure input, relative to the supplied correct fixed
+finite SU2 dictionary, inverse labels and finite covering table. The same
+actual finite-label word-length and library-membership statements hold.
+
+Resource statement: raw AST input envelope is 8*(B+1), where B is the
+internally proved actual target-cache height; rawDescriptorRun integerBitBudget
+is <=2*actualDescriptorTraceBudget and <=2*actualTraceConstant(n,L)*(k+3)^7*(q+1)^137.
+At the actual extraction precision, all represented expression subtrees and
+the integerProgramRun root payload have exponent <=2*extractionOperandPolynomial(n,L,k,p).
+This is a represented-operand / expression-height bound, not machine time.
+Provider output payload heights are internally transported from exact equality.
+
+Explicit limits: dictionary entry evaluation cost remains an external input
+routine; computability plus output-height bounds do not imply polynomial
+provider time. Denominator-one literal construction, cache/index/list access,
+raw provider program construction, repeated expression evaluation, comparisons,
+and output concatenation are not assigned a complete bit-cost here. This entry
+uses C.integerTracedPairWord, whose tuple/chart functions can be reevaluated;
+no memoization or p64 operation-bound claim is made for these raw tuple inputs.
+C's separately sealed successor costed evaluator is not used in this checkpoint.
+The p201 sqrt/div-only AST counter is not asserted as a total primitive count.
+No polynomial Turing-time conclusion is claimed. Existing frozen sources,
+umbrellas, metadata, inventories and evidence remain byte-for-byte unchanged.

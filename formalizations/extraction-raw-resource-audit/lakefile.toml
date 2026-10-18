@@ -1,0 +1,17 @@
+name = "extractionRawResourceAudit"
+version = "0.1.0"
+defaultTargets = ["RawResourceAudit", "RawResourceVerification"]
+
+[[require]]
+name = "extractionNumericalSynthesis"
+path = "../extraction-numerical-synthesis"
+
+[[require]]
+name = "extractionEffectiveEncoding"
+path = "../extraction-effective-encoding"
+
+[[lean_lib]]
+name = "RawResourceAudit"
+
+[[lean_lib]]
+name = "RawResourceVerification"
