@@ -1,0 +1,15 @@
+--- frozen372/evidence.py
++++ local-reader-v2/evidence_v2.py
+@@ -71,6 +71,11 @@
+         elif command[-1]!=filename:raise RuntimeError('Wrong check file')
+     execution=a.readj(out/'EXECUTION.json')
+     if execution['guard']!=guard or execution['execution_inputs']!=pre['execution_inputs']:raise RuntimeError('Wrong actual execution inputs')
+-    actual_binaries=execution['portable_binary_inputs']if guard=='GITHUB_HOSTED_LINUX_RUNNER_VERIFIED'else execution['runtime']['actual_executables']
++    if guard=='GITHUB_HOSTED_LINUX_RUNNER_VERIFIED':
++        actual_binaries=execution['portable_binary_inputs']
++    else:
++        recorded=execution['runtime']['actual_executables']
++        if type(recorded)is not str or recorded!=str(pre['binaries']):raise RuntimeError('Noncanonical actual local executable record')
++        actual_binaries=pre['binaries']
+     if actual_binaries!=pre['binaries']:raise RuntimeError('Actual tool binary drift')
+     return dict(status='FULL_RAW_RESOURCE_RUN_EVIDENCE_VERIFIED',source_head=scope['source_head'],theorems=len(roots),models=len(definitions),controls=len(controls),kernel_declarations=summary['kernel_declarations'],summary_sha256=a.sha(out/'SUMMARY.json'))

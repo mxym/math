@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "revision": "raw-resource-local-reader-v2",
+  "parent_approval": "Parent independently reviewed/approved the exact minimal patch and additional current D-pinned tool check; no change to the frozen 372 inputs",
+  "mathematical_source_head": "04044ad0e1dc94634a8005f5f6abebe4518a012b",
+  "mathematical_source_manifest_sha256": "582008527e7b22047496b0e0a462a96415575047d804d1340f11021034b46f41",
+  "original_producer": {
+    "path": "reproduce.py",
+    "sha256": "b32dd42648892253c1a7946b8fd77f44045353d423eed382d2bc15f50b8da02f"
+  },
+  "original_evidence_reader": {
+    "path": "evidence.py",
+    "sha256": "57b5fa74e9a60093281a6602813e50b55668a0e527d83ecb703335fcdc9162f0"
+  },
+  "original_local_reader": {
+    "path": "verify_local.py",
+    "sha256": "cb1cd24888121dd40df3b198d695a4bfcf782790aed358ce72775a7ef5c95cbc"
+  },
+  "corrected_evidence_reader_sha256": "7a24042088ffa33204237ec990d5b3e988b47be5b95c3868452e9cc23dcd6729",
+  "minimal_diff_sha256": "71e86092dda29535f965ead61b63eea4deb7745640306b477626fe1742feac28",
+  "specific_issue": "Local producer str(actual_executables) was compared to a JSON object; the synthetic original fixture missed this actual serializer path",
+  "original_full_run": "verification/raw-resource-20261018T212418452269Z",
+  "original_failure_to_retain": "verification/raw-resource-20261018T212418452269Z/ORIGINAL_READER_FAILURE.json",
+  "additional_Lean_or_kernel_execution": false,
+  "hosted_branch_changed": false
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/lean-research-d/worktrees/extraction-independent-review-20261019/formalizations/extraction-raw-resource-audit/verify_local.py", line 19, in <module>
+    ap=argparse.ArgumentParser();ap.add_argument('directory');args=ap.parse_args();print(json.dumps(verify(args.directory),indent=2))
+  File "/mnt/lean-research-d/worktrees/extraction-independent-review-20261019/formalizations/extraction-raw-resource-audit/verify_local.py", line 13, in verify
+    result=verify_run(out,'D_BACKED_STORAGE_VERIFIED')
+  File "/mnt/lean-research-d/worktrees/extraction-independent-review-20261019/formalizations/extraction-raw-resource-audit/evidence.py", line 75, in verify_run
+    if actual_binaries!=pre['binaries']:raise RuntimeError('Actual tool binary drift')
+RuntimeError: Actual tool binary drift
