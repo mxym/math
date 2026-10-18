@@ -1,0 +1,89 @@
+[
+  {
+    "stage": "toolchain",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 0.465,
+    "log": "toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "peak_child_rss_kib_cumulative": 826168
+  },
+  {
+    "stage": "build-numerical",
+    "command": [
+      "lake",
+      "build",
+      "@extractionNumericalSynthesis/CircuitNumerical"
+    ],
+    "exit_code": 0,
+    "seconds": 1.117,
+    "log": "build-numerical.log",
+    "sha256": "782e6f16f15b4ab3db1be5bff22ef2f59f6bee064130556f4802b50fd99372a0",
+    "peak_child_rss_kib_cumulative": 896216
+  },
+  {
+    "stage": "build-effective",
+    "command": [
+      "lake",
+      "build",
+      "@extractionEffectiveEncoding/EffectiveEncoding"
+    ],
+    "exit_code": 0,
+    "seconds": 1.117,
+    "log": "build-effective.log",
+    "sha256": "847bf416fbf92e9cda3d5e7f986d45c140f9f59f6578b77eca5400cf519e5e24",
+    "peak_child_rss_kib_cumulative": 896216
+  },
+  {
+    "stage": "build-audit",
+    "command": [
+      "lake",
+      "build",
+      "AlgorithmAudit",
+      "AlgorithmVerification"
+    ],
+    "exit_code": 0,
+    "seconds": 1.168,
+    "log": "build-audit.log",
+    "sha256": "6fd4ab0f2007347fe6541afcfe2d8ab5c225f8a7a6ea78244ea12c700f7823a5",
+    "peak_child_rss_kib_cumulative": 896216
+  },
+  {
+    "stage": "root-types-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M10000",
+      "Check.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 4.628,
+    "log": "root-types-axioms.log",
+    "sha256": "28219d0fdbe19c1fb2c250b3454527135858d646fe829dca76e48ea6266aecc7",
+    "peak_child_rss_kib_cumulative": 4323468
+  },
+  {
+    "stage": "finite-syntax-bytecode",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M4000",
+      "--run",
+      "ExecutableCheck.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 2.171,
+    "log": "finite-syntax-bytecode.log",
+    "sha256": "d71afe88e9920ba317f31914e9292e68e0bfc4ade543ccedf3c7fd7a637aa13d",
+    "peak_child_rss_kib_cumulative": 4323468
+  }
+]

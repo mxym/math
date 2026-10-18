@@ -1,0 +1,59 @@
+name: Extraction algorithm independent Lean audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "formalizations/**"
+      - "!formalizations/**/verification/**"
+      - "preprints/universal-entanglement-extraction-submission-2026-10/**"
+      - ".github/workflows/extraction-algorithm.yml"
+permissions:
+  contents: read
+jobs:
+  algorithm-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      LEAN_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Configure exclusive hosted-runner storage
+        working-directory: formalizations/extraction-algorithm-audit
+        run: python3 ci_driver.py environment
+      - name: Install exact toolchain and pinned Mathlib cache
+        working-directory: formalizations/extraction-algorithm-audit
+        run: python3 ci_driver.py bootstrap
+      - name: Fresh whole-scope trust-zero replay and every strict control
+        working-directory: formalizations/extraction-algorithm-audit
+        run: python3 ci_driver.py run
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: extraction-algorithm-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ env.EXTRACTION_ALGORITHM_EVIDENCE }}/
+          if-no-files-found: error
+          retention-days: 30
+  verify-downloaded-artifact:
+    needs: algorithm-audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: extraction-algorithm-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/downloaded-extraction-algorithm
+      - name: Verify every downloaded byte and full-scope evidence
+        working-directory: formalizations/extraction-algorithm-audit
+        env:
+          ARTIFACT_DIRECTORY: ${{ runner.temp }}/downloaded-extraction-algorithm
+        run: python3 verify_artifact.py "$ARTIFACT_DIRECTORY" --expected-commit "$GITHUB_SHA" --run-id "$GITHUB_RUN_ID"

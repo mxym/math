@@ -1,0 +1,17 @@
+name = "extractionAlgorithmAudit"
+version = "0.1.0"
+defaultTargets = ["AlgorithmAudit", "AlgorithmVerification"]
+
+[[require]]
+name = "extractionNumericalSynthesis"
+path = "../extraction-numerical-synthesis"
+
+[[require]]
+name = "extractionEffectiveEncoding"
+path = "../extraction-effective-encoding"
+
+[[lean_lib]]
+name = "AlgorithmAudit"
+
+[[lean_lib]]
+name = "AlgorithmVerification"

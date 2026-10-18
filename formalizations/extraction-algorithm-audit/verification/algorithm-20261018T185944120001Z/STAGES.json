@@ -1,0 +1,88 @@
+[
+  {
+    "stage": "toolchain",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 0.466,
+    "log": "toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "peak_child_rss_kib_cumulative": 826172
+  },
+  {
+    "stage": "build-numerical",
+    "command": [
+      "lake",
+      "build",
+      "@extractionNumericalSynthesis/CircuitNumerical"
+    ],
+    "exit_code": 0,
+    "seconds": 1.167,
+    "log": "build-numerical.log",
+    "sha256": "5fce91133710947a33d34a966e15dcaa19c78d13bdaf16c6947693bc7a30e22b",
+    "peak_child_rss_kib_cumulative": 890160
+  },
+  {
+    "stage": "build-effective",
+    "command": [
+      "lake",
+      "build",
+      "@extractionEffectiveEncoding/EffectiveEncoding"
+    ],
+    "exit_code": 0,
+    "seconds": 1.117,
+    "log": "build-effective.log",
+    "sha256": "f8c8dfb210c69b5265d48935c7e77e6e304c2d9a718a958c48a425f6087fb40c",
+    "peak_child_rss_kib_cumulative": 897988
+  },
+  {
+    "stage": "build-audit",
+    "command": [
+      "lake",
+      "build",
+      "AlgorithmAudit",
+      "AlgorithmVerification"
+    ],
+    "exit_code": 0,
+    "seconds": 1.117,
+    "log": "build-audit.log",
+    "sha256": "51360b9d92ee180ac6d3380452fa5be7d752ba6767bfa8e2f93c1bd6b69c35a5",
+    "peak_child_rss_kib_cumulative": 897988
+  },
+  {
+    "stage": "root-types-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M10000",
+      "Check.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 4.326,
+    "log": "root-types-axioms.log",
+    "sha256": "d51a51281f989f94897859d8a43edd3a03fbdcf9e740614dea24994e7765f5e0",
+    "peak_child_rss_kib_cumulative": 4302660
+  },
+  {
+    "stage": "finite-syntax-bytecode",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M4000",
+      "ExecutableCheck.lean"
+    ],
+    "exit_code": 124,
+    "seconds": 300.02,
+    "log": "finite-syntax-bytecode.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "peak_child_rss_kib_cumulative": 4302660
+  }
+]
