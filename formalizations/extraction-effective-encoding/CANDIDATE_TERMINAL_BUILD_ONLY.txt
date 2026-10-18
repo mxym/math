@@ -1,0 +1,63 @@
+OWNED_MODULE_AND_KIND_TYPE_AXIOM_CHECK_ONLY_PENDING_AGGREGATE
+
+Three new mathematical modules: CandidateSerializedRun, CandidateSerializedCosts,
+CandidateSerializedPolynomial. All checked in dependency order by the authorized
+M4000 lean_owned_check.py; CandidateTerminalCheck checked all 20 theorem and 8
+model declarations for kind/type/axioms. Only propext/Classical.choice/Quot.sound
+allowed. Author report: verification/candidate-terminal-root-check-20261018T234006887887Z/REPORT.json.
+A single tiny new terminal smoke also passed (Fin 0 library, empty k=0 circuit):
+(1, 0, 0, [false], 0, 3).
+No standard aggregate was queued while the independent global audit occupied
+the shared lock; this new scope and its new generation dependencies remain
+pending aggregate/independent verification. No old frozen scope certifies it.
+
+ACTUAL TERMINAL AND EVALUATION STRATEGY
+candidateSerializedRun retains exactly one candidateDescriptorRun result, uses
+that same generated word to compute precision and call materializeWord, then
+runs binaryLabelStream on that same compilation.value.word. materializeWord
+calls retainedAssembledTargetRun once per single and retains preparation,
+target provider evaluations, gate/target cache values, actual input-AST numeric
+and visited-read records, and actual inner assembly records. Concrete outer
+word/program copies and stream encoding records also persist. No old generator
+or old whole-execution record is evaluated as a compatibility erasure field.
+Ordinary source let sharing is explicit; this is not a theorem about a complete
+compiled host-machine evaluation strategy.
+
+VALUE AND FIDELITY
+candidateSerializedRun_suffix_roundtrip proves exact finite LabelGate list and
+arbitrary suffix through the actual Bool decoder; roundtrip and decoded_word
+identify its genuinely decoded word with numericalExtractionCode.
+candidateSerializedRun_fidelity proves original 2k-wire all-input Bell/discard
+fidelity >= 1-2^(-p), under the existing SU2 library approximation/inverse/net
+cover and finite table-length hypotheses. No change to the physical circuit.
+
+SAME-EXECUTION PARTIAL FEES
+CandidateSerializedResult.accountedPrimitiveActions directly projects this new
+run's generation records, each same target's preparation/provider/input-numeric
+(including actual cache reads)/assembly records, outer materialization trace and
+Boolean encoder trace. No word-only old execution cost equality is used.
+candidateSerializedRun_accountedPrimitiveActions internally proves its explicit
+candidateSerializedPrimitiveBudget. The uniform theorem proves <=
+ candidateSerializedPolynomialConstant(m,n,L,gateB)*(k+3)^24
+   *(p+22+9*Nat.clog 2 (k+3))^338.
+The constant is explicit: 3506*2^9 + serializedPolynomialConstant(m,n,L,gateB).
+Reusing the previous constant/envelope is purely arithmetic with nonnegative
+slack, not identification of the old and new execution records. No supplied
+final-cost/budget certificate is a premise.
+
+FIXED LIBRARY CONTRACT AND REMAINING BOUNDARY
+Only the finite queried library height condition remains for the fee theorem:
+ forall i r <= numericalDemand L(clog2(extractionPrecision(k,p)+1)),
+ IntegerPacketHeight((entry i r).decode, gateB*(extractionPrecision(k,p)+1)^9).
+Actual target-provider height/fees are proved internally. Library provider
+execution time is not inferred from this output-height contract; inverse-label
+provider execution is also separate. Remaining Nat fuel/successor/index/width/
+clog/selector arithmetic and word-length/precision computation, generic cache/
+record/map allocation, Gray/mask/descriptor AST/prefix/Bell/outside generation
+append work, unrepresented swap application costs, annotation traversal and
+counter arithmetic, decoding execution cost and whole host-machine control are
+not paid by this specified partial primitive model. It is not full bit runtime.
+
+All 2605/9eef/6ed8 mathematical sources, old 041f terminal and native frozen
+scope inputs/config/umbrella/ROOTS/reports remain unchanged. This is a separate
+append-only successor scope.
