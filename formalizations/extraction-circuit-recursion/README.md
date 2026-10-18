@@ -118,6 +118,18 @@ largest square-root precision is at most `16*(k+3)^3*(p+2)`. These are actual
 program/error/operation-count results. They do not yet attach descriptions
 to every gate of the extraction compiler, complete numerical SK recursion,
 or prove Turing bit costs of the arithmetic subroutines.
+`QuaternionOracles.lean` composes stored four-coordinate numerical packets
+for actual SU(2) word products, with input query precision at most
+`p+4*length(w)` and exactly `length(w)` gate-packet requests in the explicit
+schedule. `NetOracle.lean` computes rational squared-distance scores and
+proves their error, then implements the online fixed-table selector with
+base error at most `1/288`. `PrecomputedNet.lean` derives the offline table
+internally by enumerating all words below a fixed library-dependent bound
+obtained from universality. Its `numericalBase_exists` needs only correctness
+of the numerical input oracles online. A concrete integer-packet / `2^p`
+dyadic entry interface and its numerator-size bound are included. These
+results close numerical base selection; composed conditioned factor oracles
+and the full numerical SK recursion remain open.
 The finite embedding
 and real gate construction are still `noncomputable`; this package makes no
 classical running-time claim.
@@ -129,6 +141,6 @@ On the current workspace, run the storage-verifying, shared-lock wrapper:
 wsl -d Ubuntu-22.04 -- python3 /mnt/d/math/tmp/extraction-resume-20261018/worker_build.py /mnt/lean-research-d/worktrees/extraction-lean-protocol-20261016 formalizations/extraction-circuit-recursion
 ```
 
-The ordinary build and all 233 root type/axiom prints passed with 3854 jobs in
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T170225837463Z-extraction-circuit-recursion.log`.
+The ordinary build and all 256 root type/axiom prints passed with 3857 jobs in
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T171145397949Z-extraction-circuit-recursion.log`.
 No independent empty-kernel replay or forged-proof control is claimed.

@@ -1,4 +1,4 @@
-import CircuitRecursion.HalfAngleEvaluation
+import CircuitRecursion.PrecomputedNet
 
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
@@ -234,6 +234,20 @@ import CircuitRecursion.HalfAngleEvaluation
 #print axioms CircuitRecursion.extractionOutput_coherent
 #check CircuitRecursion.extractionOutput_purePower
 #print axioms CircuitRecursion.extractionOutput_purePower
+#check CircuitRecursion.quaternionMatrix_norm_square
+#print axioms CircuitRecursion.quaternionMatrix_norm_square
+#check CircuitRecursion.su2_sub_quaternion
+#print axioms CircuitRecursion.su2_sub_quaternion
+#check CircuitRecursion.su2_distance_coordinates
+#print axioms CircuitRecursion.su2_distance_coordinates
+#check CircuitRecursion.square_distance_error
+#print axioms CircuitRecursion.square_distance_error
+#check CircuitRecursion.distanceScore_correct
+#print axioms CircuitRecursion.distanceScore_correct
+#check CircuitRecursion.fixedNetWord_correct
+#print axioms CircuitRecursion.fixedNetWord_correct
+#check CircuitRecursion.fixedNetWord_length
+#print axioms CircuitRecursion.fixedNetWord_length
 #check CircuitRecursion.qubitRepresentative_exists
 #print axioms CircuitRecursion.qubitRepresentative_exists
 #check CircuitRecursion.qubitRepresentative_spec
@@ -298,6 +312,16 @@ import CircuitRecursion.HalfAngleEvaluation
 #print axioms CircuitRecursion.pairwiseCoordinates_physical
 #check CircuitRecursion.readoutCoordinates_split
 #print axioms CircuitRecursion.readoutCoordinates_split
+#check CircuitRecursion.boundedWords_mem
+#print axioms CircuitRecursion.boundedWords_mem
+#check CircuitRecursion.boundedWords_length
+#print axioms CircuitRecursion.boundedWords_length
+#check CircuitRecursion.precomputedNet_exists
+#print axioms CircuitRecursion.precomputedNet_exists
+#check CircuitRecursion.numericalBase_exists
+#print axioms CircuitRecursion.numericalBase_exists
+#check CircuitRecursion.dyadic_numerator_bound
+#print axioms CircuitRecursion.dyadic_numerator_bound
 #check CircuitRecursion.prefixCircuit_length
 #print axioms CircuitRecursion.prefixCircuit_length
 #check CircuitRecursion.extendBits_eq_pad
@@ -320,6 +344,28 @@ import CircuitRecursion.HalfAngleEvaluation
 #print axioms CircuitRecursion.bitPurePower_expansion
 #check CircuitRecursion.compressionCircuit_purePower
 #print axioms CircuitRecursion.compressionCircuit_purePower
+#check CircuitRecursion.quaternionCoordinates_bound
+#print axioms CircuitRecursion.quaternionCoordinates_bound
+#check CircuitRecursion.quaternionCoordinates_mul
+#print axioms CircuitRecursion.quaternionCoordinates_mul
+#check CircuitRecursion.quaternionSign_abs
+#print axioms CircuitRecursion.quaternionSign_abs
+#check CircuitRecursion.unit_product_error
+#print axioms CircuitRecursion.unit_product_error
+#check CircuitRecursion.quaternionProduct_error
+#print axioms CircuitRecursion.quaternionProduct_error
+#check CircuitRecursion.quaternionProduct_cast
+#print axioms CircuitRecursion.quaternionProduct_cast
+#check CircuitRecursion.quaternionOracleMul_correct
+#print axioms CircuitRecursion.quaternionOracleMul_correct
+#check CircuitRecursion.quaternionOracleOne_correct
+#print axioms CircuitRecursion.quaternionOracleOne_correct
+#check CircuitRecursion.quaternionWordOracle_correct
+#print axioms CircuitRecursion.quaternionWordOracle_correct
+#check CircuitRecursion.wordOracleQueries_count
+#print axioms CircuitRecursion.wordOracleQueries_count
+#check CircuitRecursion.wordOracleQueries_precision
+#print axioms CircuitRecursion.wordOracleQueries_precision
 #check CircuitRecursion.quaternionMatrix_star_mul
 #print axioms CircuitRecursion.quaternionMatrix_star_mul
 #check CircuitRecursion.quaternionMatrix_det
