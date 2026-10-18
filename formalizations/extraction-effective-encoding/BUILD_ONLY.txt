@@ -43,8 +43,32 @@ Pending:
 - Serialized aggregate Lake build after the independent audit releases
   its global lock; these author checks are not aggregate audit evidence.
 - New independent root/axiom/replay scope; frozen old scopes are unchanged.
-- Complete finite-library numerical terminal integration: actual explicit
-  SU2 representative and quaternion packet for each SingleCode, plus the
+- Complete finite-library numerical terminal integration using the
   post-b288 numerical-synthesis package and its arithmetic-cost bounds.
+  Concrete per-SingleCode SU2 representative/packet and full word phase
+  product/telescoping are now proved; see the addendum below.
 - The current exact continuous-gate construction does not by itself
   certify complete bit complexity of the final finite-library algorithm.
+
+Concrete representative/packet addendum (2026-10-19):
+Representatives.lean: OWNED check exit 0,
+  20261018T182845322561Z-owned-check-EffectiveEncoding.Representatives.log
+Normalized.lean: OWNED check exit 0,
+  20261018T183018387231Z-owned-check-EffectiveEncoding.Normalized.log
+H uses quaternion a=b=-i/sqrt(2), phase i.
+YBasis uses quaternion a=b=(1+i)/2, phase (1-i)/sqrt(2).
+phase(a,b) uses exp(i(a-b)/2); inverse uses star recursively.
+The computable quaternionOracle is proved to approximate exactly that
+specific representative. The explicit wordPhase product has modulus one,
+equals the full actual original-register circuit phase, and satisfies
+descriptor_word_uniform_error for per-descriptor replacements.
+No arbitrary U2 representative or determinant-root choice remains.
+Extra runtime evaluations were removed at parent direction; Check.lean
+contains only #check interface declarations. No runtime timing is claimed.
+
+Only one missing prebuilt old dependency olean was copied from the fresh
+independent-audit tree after verifying the whole 36-module recursion import
+closure against this tree and Git b288. No audit tree was modified.
+Provenance: /mnt/d/math/tmp/extraction-resume-20261018/
+effective-encoding-20261019/quaternion-dependency-provenance.json
+This cache reuse is not new proof evidence.
