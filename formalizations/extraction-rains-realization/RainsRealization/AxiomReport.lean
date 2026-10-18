@@ -1,0 +1,21 @@
+import RainsRealization.Protocol
+#print axioms ExtractionRains.choi_measurePrepare
+#print axioms ExtractionRains.measurePrepare_completelyPositive
+#print axioms ExtractionRains.failureState_posSemidef
+#print axioms ExtractionRains.failureState_trace
+#print axioms ExtractionRains.channel_completelyPositive
+#print axioms ExtractionRains.channel_tracePreserving
+#print axioms ExtractionRains.bell_failureState_trace
+#print axioms ExtractionRains.channel_target_overlap
+#print axioms ExtractionRains.plusProjection_posSemidef
+#print axioms ExtractionRains.minusProjection_posSemidef
+#print axioms ExtractionRains.plusEffect_posSemidef
+#print axioms ExtractionRains.minusEffect_posSemidef
+#print axioms ExtractionRains.pt_channel_formula
+#print axioms ExtractionRains.pt_channel_decomposition
+#print axioms ExtractionRains.channel_pt_completelyPositive
+#print axioms ExtractionRains.protocol_apply
+#print axioms ExtractionRains.protocol_targetEffect
+#print axioms ExtractionRains.protocol_fidelity
+#print axioms ExtractionRains.rainsEffect_exists_actual_protocol
+#print axioms ExtractionRains.rainsEffect_iff_actual_protocol_effect

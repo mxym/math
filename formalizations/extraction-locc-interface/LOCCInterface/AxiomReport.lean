@@ -1,0 +1,37 @@
+import LOCCInterface.Instruments
+import LOCCInterface.Closure
+#print axioms ExtractionLOCC.Tree.leafKraus_complete
+#print axioms ExtractionLOCC.Tree.channel_completelyPositive
+#print axioms ExtractionLOCC.Tree.channel_tracePreserving
+#print axioms ExtractionLOCC.Tree.channel_done
+#print axioms ExtractionLOCC.Tree.channel_alice
+#print axioms ExtractionLOCC.Tree.channel_bob
+#print axioms ExtractionLOCC.Tree.pt_identity
+#print axioms ExtractionLOCC.Tree.channel_pt_completelyPositive
+#print axioms ExtractionLOCC.Tree.ptLeafKraus_complete
+#print axioms ExtractionLOCC.Tree.product_channel
+#print axioms ExtractionLOCC.Tree.protocol_apply
+#print axioms ExtractionLOCC.IsFiniteLOCC.completelyPositive
+#print axioms ExtractionLOCC.IsFiniteLOCC.tracePreserving
+#print axioms ExtractionLOCC.IsFiniteLOCC.pt_completelyPositive
+#print axioms ExtractionLOCC.tree_isFiniteLOCCProtocol
+#print axioms ExtractionLOCC.productLocal_isFiniteLOCCProtocol
+#print axioms ExtractionLOCC.IsFiniteLOCC.exists_actual_protocol
+#print axioms ExtractionLOCC.choi_injective
+#print axioms ExtractionLOCC.continuous_evaluation
+#print axioms ExtractionLOCC.isClosed_completelyPositive
+#print axioms ExtractionLOCC.isClosed_tracePreserving
+#print axioms ExtractionLOCC.choi_ptConjugate
+#print axioms ExtractionLOCC.continuous_choi_ptConjugate
+#print axioms ExtractionLOCC.isClosed_pt_completelyPositive
+#print axioms ExtractionLOCC.IsFiniteLOCC.isClosureLOCC
+#print axioms ExtractionLOCC.IsClosureLOCC.completelyPositive
+#print axioms ExtractionLOCC.IsClosureLOCC.tracePreserving
+#print axioms ExtractionLOCC.IsClosureLOCC.pt_completelyPositive
+#print axioms ExtractionLOCC.finiteLOCC_isClosureLOCCProtocol
+#print axioms ExtractionLOCC.productLocal_isClosureLOCCProtocol
+#print axioms ExtractionLOCC.IsClosureLOCC.exists_actual_protocol
+#print axioms ExtractionLOCC.Instrument.outcome_completelyPositive
+#print axioms ExtractionLOCC.Instrument.ofCP_outcomeMap
+#print axioms ExtractionLOCC.Tree.channel_aliceInstrument
+#print axioms ExtractionLOCC.Tree.channel_bobInstrument
