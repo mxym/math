@@ -1,0 +1,59 @@
+STATUS: PROVIDER_STANDARD_MODULE_CHAIN_PASS_PENDING_ADDED_SCOPE
+Frozen source is unchanged: 417accbe9 plus DescriptorBounds bc5d70300.
+This follow-up is a separate scope, not covered by the earlier audit.
+
+Three modules passed the standard serialized worker_build chain, 3903 jobs:
+/mnt/d/math/tmp/extraction-resume-20261018/build-logs/
+20261018T191447895271Z-extraction-effective-encoding.log
+
+Every finite SingleCode builds a closed scalar/packet expression, including
+all actual precision shifts, signs, H/YBasis constants and inverse handling.
+Its value equals the existing quaternionOracle exactly. The computable
+integerRun produces exactly that same packet with explicit integer fields.
+There is no external target real or quaternion oracle assumption.
+
+For every SingleCode actually occurring in extractionCode k, requested at p:
+- Expression primitives <=100*(halvingBudget k+3)+4.
+- Maximum integer sqrt precision <=512*(k+3)^6*(p+5).
+- All scalar/packet subtree integer results have numerator and denominator
+  magnitudes <=2^(1000000*(k+3)^7*(p+5)), including the actual output packet.
+- The integer sqrt's shifted numerator and division input have the separate
+  proved integerRoot_work_operand_bound; no real square root is evaluated.
+
+The actual eager target cache evaluates each p from 0 through numericalDemand
+once. numericalDemand<=cachePrecisionBudget L q=51200000*(L+1)*(q+1)^9
+is used internally for the complete target-cache expression count and each
+cached expression's sqrt precision, output height and intermediate heights.
+q may be the actual extractionPrecision k p used in NumericalTerminal.
+
+The operation count is the existing ArithmeticExpressions primitive charge
+model. It does not prove a runtime Turing bit-time bound. Rational literal
+construction, fixed-library providers and integer primitive implementation
+costs are not silently included as machine unit-time operations.
+
+Frozen umbrella, ROOTS/MODELS, configuration and old reports were not edited.
+These new modules are standalone import targets. A separate provider root
+inventory and full kind/type/axiom check will follow the cache/backend word
+binding terminal. No runtime eval is claimed.
+
+Source hashes and explicit declaration counts:
+[
+  {
+    "module": "ProviderExpressions",
+    "sha256": "cf9263ddd0f39ebfdfbd5eb72238ab11ba95da273213e1a90e38bd2fa323bac0",
+    "theorems": 20,
+    "models": 14
+  },
+  {
+    "module": "ProviderPrecision",
+    "sha256": "7682ec4292197cbebe92a4ce2d3de4cb4c8502199e37b8797b7aee5a3d577ade",
+    "theorems": 15,
+    "models": 6
+  },
+  {
+    "module": "ProviderIntermediateHeights",
+    "sha256": "04d3419565d9903eebec5e09758c876a56a0d5984b9ec50d2262bcfd6b724052",
+    "theorems": 6,
+    "models": 2
+  }
+]
