@@ -1,0 +1,32 @@
+PINNED LOCAL PRIMARY API NOTES -- AUTHOR SOURCE ANALYSIS
+
+Shared Mathlib source HEAD verified d13f23b723b8a846827a245b89c10fc7d3f11612.
+The files below were read directly and checked byte-for-byte against that Git
+pin. No upstream unpinned documentation was substituted for actual APIs:
+Mathlib/Data/Finset/Sort.lean SHA256 2fd791b340659c85aea7c548aa01c61e9b73f02bc68346e2eb22b53cc9a1ec4d
+Mathlib/Data/List/Sort.lean SHA256 054c3fd69c9756013d6c895c70b45c8a25d62d68e87bcd1dca5aef3d7d86eca0
+Mathlib/Data/Vector/Basic.lean SHA256 c1b729fe06aa832e524ef23c0df69da97266c63d6060482304d845dbbc2d345f
+
+Finset.Sort defines sort via Multiset.sort (documented there as merge sort).
+Its pairwise_sort/sort_nodup/mem_sort/length_sort provide exact list membership
+and order facts. min'_eq_sorted_zero identifies the sorted head as min'; these
+are used ONLY in proofs. The new sortedList_head_erase proof derives the sorted
+erased tail from strict order, membership and no duplicates.
+List.Pairwise.eq_of_mem_iff identifies the Boolean-filtered finRange with the
+exact old sorted mask coordinates; Vector.ofFn_get/toList_ofFn connect stored
+bits to their semantic function without adding indexed reads to the runtime.
+
+Actual old call path: preparePauliPlan constructs parityWires=S.sort, calls
+S.Nonempty/min', controls(target,S) uses erase+sort+attach, leading=cnotCode and
+trailing=reverseCode. The new BooleanMaskCoordinates/ListPauliPlanProgram path
+replaces these VALUE computations with one synchronized wire/bit pass, first
+selected coordinate as target, direct CNOT cons construction and one actual
+listReverseMapIntoProgram inverse traversal. All original set/order reasoning
+is erased proof data; no old preparePauliPlan call is used to fill a runtime
+compatibility result. BooleanPlanTableProgram retains each builder exactly once
+and constructs both plan/program lists in one pass.
+
+The finite constructor/list model counts actual visits and returned traces;
+Finrange generation, native index bits, annotation traversal, allocation/host
+control and full machine execution remain outside that model. No theorem
+about the asymptotic runtime of Mathlib's old sort is assumed or needed.

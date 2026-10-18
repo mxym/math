@@ -1,0 +1,56 @@
+AUTHOR_STANDARD_ROOT_CHECK_PASS_NOT_INDEPENDENT_REPLAY
+
+Four new mathematical modules: BooleanMaskCoordinates, ListPauliPlanProgram,
+BooleanPauliPlanProgram, BooleanMaskContextProgram. All checked in dependency
+order with authorized M4000 OWNED feedback; BooleanPlanCheck then passed one
+normal worker_build.py standard target with shared global flock: exit 0,
+4063 jobs, every 25 theorem / 24 model declaration kind/type/axiom checked.
+Only propext/Classical.choice/Quot.sound allowed. Author report:
+verification/boolean-plan-root-check-20261018T235803380688Z/REPORT.json.
+Source/API analysis is in BOOLEAN_PLAN_API_NOTES.txt; three local Mathlib primary
+source files were verified against pin d13f23b723b8a846827a245b89c10fc7d3f11612.
+This is author standard evidence, not independent fresh or kernel replay.
+
+ACTUAL VALUE PROGRAM
+booleanMaskCoordinates zips the native wire list and stored Boolean mask list
+in one synchronized recursive pass, with actual keep/skip records. It selects
+exactly the old sorted mask coordinate list, but performs no Finset membership,
+filter, sort or minimum operation in its value path.
+listPauliPlanProgram takes the first selected wire as target and the tail as
+controls. It creates each CNOT directly once, then runs the real
+listReverseMapIntoProgram inverse on that leading list once. Distinctness and
+ordering obligations are erased proofs. The empty-list case creates the same
+fixed fallback target/flag. listPauliPlanProgram_plan and
+booleanPauliPlanProgram_plan prove the entire PreparedPauliPlan record equals
+preparePauliPlan: target, leading/trailing words, ordered parity wires and sign
+flag, not just semantic matrix equivalence.
+booleanPlanTableProgram invokes every builder exactly once and constructs the
+plan and retained-program spines in the same pass with actual traversal traces.
+booleanMaskContextProgram executes the saved binary range/copy path and this
+new Bool/list plan table. It does not run any old finite-set plan constructor
+for a compatibility field. Its complete common(range,outputs,plans) record
+internally equals binaryMaskPlanProgram, with new plan records separately stored.
+
+PARTIAL ACTUAL CONSTRUCTOR/LIST MODELS
+Per concrete mask: booleanPauliPlanProgram.actions <=14*n+5.
+Plan table: <=maskCount*(14*n+11)+1.
+At active width 2+codeWires(k), new plan-only actions <=1553*(k+3)^6;
+actual common binary range/copy + plan construction <=12145*(k+3)^6.
+All bounds are internal from returned records, with no final-cost certificate.
+One actual n=2 context exercised all empty/nonempty/one-control branches:
+([(0, [], 0, 0, false, 11), (0, [0], 0, 0, true, 12), (1, [1], 0, 0, true, 12), (0, [0, 1], 1, 1, true, 23)], 83, 220).
+
+BOUNDARY AND INTEGRATION
+This checkpoint supplies a genuine replacement context with whole-record
+refinement. The immutable maskedSerializedRun terminal still uses its earlier
+context constructor; these new plan fees have NOT been added to that different
+execution merely from equal output plans. A future new actual caller must run
+booleanMaskContextProgram once and retain its plan records to integrate them.
+
+Wire finRange creation/native index payload bit costs, generic wrappers and
+annotation computation, remaining Nat/control/Gray/prefix/Bell/AST work,
+fixed-library/inverse-provider time, decode costs and complete host-machine bit
+runtime remain outside this finite local constructor/list model. The absence
+of runtime sort/minimum/erase in this component does not close those other costs.
+All earlier mathematical sources, configs, inventories, ROOTS and reports,
+including native531/2605/be2/b7d02 fixed inputs, remain byte unchanged.
