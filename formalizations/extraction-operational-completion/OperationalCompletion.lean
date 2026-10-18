@@ -37,3 +37,4 @@ import OperationalCompletion.ReservedCoverage
 import OperationalCompletion.ReservedTrial
 import OperationalCompletion.ReservedExponent
 import OperationalCompletion.ReservedLaws
+import OperationalCompletion.ReservedQuantile
