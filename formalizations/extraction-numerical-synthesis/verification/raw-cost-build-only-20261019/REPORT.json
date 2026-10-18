@@ -1,0 +1,93 @@
+{
+  "status": "BUILD_ONLY",
+  "utc": "2026-10-18T20:19:51.176797+00:00",
+  "base_head": "830929eb37b66c06965d7389161a037040c06b12",
+  "scope": "two raw-input AST operation and root-charge interface modules, 11 roots",
+  "modules": 2,
+  "root_count": 11,
+  "targets": [
+    "CircuitNumerical.RawCostCheck"
+  ],
+  "build_jobs": 3907,
+  "build_exit_code": 0,
+  "build_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T201926492993Z-extraction-numerical-synthesis.log",
+  "build_log_sha256": "4feff815f5a125a2f13cd1b28c1b93dbd22272988dcfb5fe757dcfefc7e88fa6",
+  "source_sha256": {
+    "CircuitNumerical/RawOperationRecursion.lean": "9c83f5b86542609c27a3b6eaf81dbb051d8098cf4a971e241c3c4aa22013e35a",
+    "CircuitNumerical/RawOperationGrowth.lean": "a1b2790b05b2872766c7bcf62667b1d5d8854ca3add984a629e0a681f09f8208",
+    "CircuitNumerical/RawCostCheck.lean": "88dd4a52f29244b08e6b3300e4f54f6fb6f37f40714d9f4cbdff296290dc8ade",
+    "RAW_COST_ROOTS.txt": "856d225283fae72bcf39254c7834ca2f68b97e667b72feb7548e485c5609e215"
+  },
+  "root_axioms": {
+    "CircuitRecursion.rawCorrectionOperationOffset_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawPairOperationOffset_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedPairWord_twenty_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.tracedPairWord_twenty_precision_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawPacketExpressionOracle_operationBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.costedRawPacketPairWord_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.costedTracedPairWord_twenty_rootCharge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawExpressionWord_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawTracedBase_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawTracedCorrection_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.rawTracedPairWord_operations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env PASS; worker_build.py shared global flock",
+  "aggregate_build": true,
+  "independent_kernel_replay": false,
+  "fresh_build": false,
+  "forged_proof_controls": false,
+  "frozen_baseline_files_byte_identical": 105,
+  "old_b288_prefix_diff": "empty",
+  "remaining": [
+    "bounded integer primitive bit implementations and automatic fuel computation",
+    "explicit fixed-library/target provider execution and cache materialization costs",
+    "AST/list/vector construction/allocation/index costs; annotation counter computation overhead",
+    "new independent audit of this later scope"
+  ]
+}
