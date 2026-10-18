@@ -1,0 +1,68 @@
+import CircuitNumerical.InputCachePolynomial
+
+#check CircuitRecursion.inputTracedBase_word
+#print axioms CircuitRecursion.inputTracedBase_word
+#check CircuitRecursion.inputTracedBase_evaluations
+#print axioms CircuitRecursion.inputTracedBase_evaluations
+#check CircuitRecursion.inputTracedCorrection_word
+#print axioms CircuitRecursion.inputTracedCorrection_word
+#check CircuitRecursion.inputTracedCorrection_evaluations
+#print axioms CircuitRecursion.inputTracedCorrection_evaluations
+#check CircuitRecursion.inputTracedPairWord_word
+#print axioms CircuitRecursion.inputTracedPairWord_word
+#check CircuitRecursion.inputTracedPairWord_evaluations
+#print axioms CircuitRecursion.inputTracedPairWord_evaluations
+#check CircuitRecursion.InputArithmeticWordResult.readActions_bound
+#print axioms CircuitRecursion.InputArithmeticWordResult.readActions_bound
+#check CircuitRecursion.inputTracedPairWord_readActions
+#print axioms CircuitRecursion.inputTracedPairWord_readActions
+#check CircuitRecursion.inputScalarList_refines_operations
+#print axioms CircuitRecursion.inputScalarList_refines_operations
+#check CircuitRecursion.InputArithmeticRefines.operations_le
+#print axioms CircuitRecursion.InputArithmeticRefines.operations_le
+#check CircuitRecursion.inputTracedBase_refines
+#print axioms CircuitRecursion.inputTracedBase_refines
+#check CircuitRecursion.inputTracedCorrection_refines
+#print axioms CircuitRecursion.inputTracedCorrection_refines
+#check CircuitRecursion.inputTracedPairWord_refines
+#print axioms CircuitRecursion.inputTracedPairWord_refines
+#check CircuitRecursion.inputTargetOracle_resolve
+#print axioms CircuitRecursion.inputTargetOracle_resolve
+#check CircuitRecursion.inputGateOracle_resolve
+#print axioms CircuitRecursion.inputGateOracle_resolve
+#check CircuitRecursion.inputCachedRun_word_eq_native
+#print axioms CircuitRecursion.inputCachedRun_word_eq_native
+#check CircuitRecursion.inputCachedRun_word
+#print axioms CircuitRecursion.inputCachedRun_word
+#check CircuitRecursion.inputCachedRun_length
+#print axioms CircuitRecursion.inputCachedRun_length
+#check CircuitRecursion.inputCachedRun_error
+#print axioms CircuitRecursion.inputCachedRun_error
+#check CircuitRecursion.inputCacheLeaf_refines
+#print axioms CircuitRecursion.inputCacheLeaf_refines
+#check CircuitRecursion.inputTracedCache_operations
+#print axioms CircuitRecursion.inputTracedCache_operations
+#check CircuitRecursion.InputArithmeticWordResult.readCount_bound
+#print axioms CircuitRecursion.InputArithmeticWordResult.readCount_bound
+#check CircuitRecursion.inputTracedCache_readCount
+#print axioms CircuitRecursion.inputTracedCache_readCount
+#check CircuitRecursion.inputTracedCache_readActions
+#print axioms CircuitRecursion.inputTracedCache_readActions
+#check CircuitRecursion.inputCache_precision_fee_algebra
+#print axioms CircuitRecursion.inputCache_precision_fee_algebra
+#check CircuitRecursion.inputCachedRun_readCount
+#print axioms CircuitRecursion.inputCachedRun_readCount
+#check CircuitRecursion.inputCachedRun_readActions_degree73
+#print axioms CircuitRecursion.inputCachedRun_readActions_degree73
+#check CircuitRecursion.InputArithmeticWordResult
+#check CircuitRecursion.inputTracedBase
+#check CircuitRecursion.inputTracedCorrection
+#check CircuitRecursion.inputTracedPairWord
+#check CircuitRecursion.InputArithmeticWordResult.operations
+#check CircuitRecursion.InputArithmeticWordResult.readActions
+#check CircuitRecursion.InputArithmeticRefines
+#check CircuitRecursion.inputTargetOracle
+#check CircuitRecursion.inputGateOracle
+#check CircuitRecursion.InputCachedWordResult
+#check CircuitRecursion.inputCachedRun
+#check CircuitRecursion.InputArithmeticWordResult.readCount
