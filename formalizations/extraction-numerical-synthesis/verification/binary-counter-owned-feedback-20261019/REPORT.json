@@ -1,0 +1,201 @@
+{
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "utc": "2026-10-18T23:12:10.078648+00:00",
+  "scope": "five represented binary counter/index modules; official TM2 predecessor execution and Nat-free lookup value path",
+  "baseline": "ae7b199a9beac68f505b8c8dcc0d0f4d52faa7e5",
+  "modules": 5,
+  "root_count": 44,
+  "model_declarations": 17,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T231153441246Z-owned-check-CircuitNumerical.BinaryCounterCheck.log",
+  "check_log_sha256": "3a465939c192329939521b90d3607d82139494122167ab936056935468ba374a",
+  "source_sha256": {
+    "CircuitNumerical/BinaryCounterPredecessor.lean": "3aa2cb5a80dfeee6729eade6bbd89a6efced839cdcb12278f5b457da627e994d",
+    "CircuitNumerical/FiniteBinaryCounter.lean": "552cfc5181ed4cb98b1c2093443639aaf4a0b0e05bea8009ef01bd62c99edfe9",
+    "CircuitNumerical/FiniteBinaryCounterRuns.lean": "c46ec018d71b615f0ef262d0eeba1beef8dec3a7bb51431d83a1dc63bd4357db",
+    "CircuitNumerical/FiniteBinaryCounterTerminal.lean": "1cfbef28102d1dd9d77ccabf74da96a4eb170bb97fdcea1e265bdd6bd44a6cc3",
+    "CircuitNumerical/BinaryIndexedLookup.lean": "820430363a781a1d82b76a77f7e60441415296ac96be9bde03db7d0c48f02993",
+    "CircuitNumerical/BinaryCounterCheck.lean": "94d7b9d8ece560a89690237ee6b2f38eed072a13b2b73680c217f5ea8b8047d1",
+    "BINARY_COUNTER_ROOTS.txt": "68febaaed32cff6e3a91dea8706198c0777f1e35f7f583dba2cd62176a386258",
+    "BINARY_COUNTER_MODELS.txt": "83ce3f2dfe27a9ffd6decbd6b7525d6e5a209711f9ce494fa21e410b0a6d565e",
+    "BINARY_COUNTER_SCOPE_20261019.md": "7aba5e06ac128840ac2c75c65cb6c9add0b993aed061118acb8514a4063bd40e"
+  },
+  "root_axioms": {
+    "CircuitRecursion.binaryWordCanonical_true_cons": [],
+    "CircuitRecursion.binaryPredecessorBits_canonical": [],
+    "CircuitRecursion.binaryPredecessorBits_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryPredecessorBits_length": [],
+    "CircuitRecursion.BinaryCounterMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.borrow_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.borrow_false": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.borrow_true_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.borrow_true_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.drain_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.drain_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.restore_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.restore_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.clear_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.clear_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.halt": [],
+    "CircuitRecursion.BinaryCounterMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.drain_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.restore_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.clear_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.borrowTime_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.borrow_iterate_positive": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.counter_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.counterRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.counterRun_steps_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.terminal_halts": [],
+    "CircuitRecursion.BinaryCounterMachine.counter_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.terminal_counter_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.terminal_counter_canonical": [],
+    "CircuitRecursion.BinaryCounterMachine.terminal_counter_length": [],
+    "CircuitRecursion.BinaryCounterMachine.terminal_scratch_empty": [],
+    "CircuitRecursion.BinaryCounterMachine.terminal_preserves_work": [],
+    "CircuitRecursion.BinaryCounterMachine.terminal_counter_progress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.counterRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.counter_nat_le_two_pow": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryCounterMachine.counterRun_steps_index_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryIndex.predecessor_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.BinaryIndex.predecessor_width": [],
+    "CircuitRecursion.BinaryIndex.predecessor_progress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIndexedLookup_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIndexedLookup_getElem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIndexedLookup_counterTransitions": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.binaryIndexedLookup_counterCalls": [
+      "propext"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 308,
+  "old_b288_prefix_diff": "empty",
+  "endpoints": [
+    "actual four-label Bool-stack TM2 predecessor, saturating value and canonical/width invariants",
+    "official EvalsToInTime counter transitions bounded by 2*width+2; terminal eval and frame preservation",
+    "actual represented-index lookup without Nat runtime decode/pred; value and summed operational counter macro bounds"
+  ],
+  "remaining": [
+    "whole precision-index data construction and outer lookup finite-machine lowering",
+    "AST/closure/cache/provider construction, structured payload encoding and allocation",
+    "remaining precision/control paths, continuation composition and encoded payload movement",
+    "computing trace/cost annotations",
+    "full compiler machine bit-time"
+  ]
+}

@@ -1,0 +1,107 @@
+import CircuitNumerical.BinaryIndexedLookup
+
+#check CircuitRecursion.binaryWordCanonical_true_cons
+#print axioms CircuitRecursion.binaryWordCanonical_true_cons
+#check CircuitRecursion.binaryPredecessorBits_canonical
+#print axioms CircuitRecursion.binaryPredecessorBits_canonical
+#check CircuitRecursion.binaryPredecessorBits_value
+#print axioms CircuitRecursion.binaryPredecessorBits_value
+#check CircuitRecursion.binaryPredecessorBits_length
+#print axioms CircuitRecursion.binaryPredecessorBits_length
+#check CircuitRecursion.BinaryCounterMachine.program_supports
+#print axioms CircuitRecursion.BinaryCounterMachine.program_supports
+#check CircuitRecursion.BinaryCounterMachine.borrow_nil
+#print axioms CircuitRecursion.BinaryCounterMachine.borrow_nil
+#check CircuitRecursion.BinaryCounterMachine.borrow_false
+#print axioms CircuitRecursion.BinaryCounterMachine.borrow_false
+#check CircuitRecursion.BinaryCounterMachine.borrow_true_nil
+#print axioms CircuitRecursion.BinaryCounterMachine.borrow_true_nil
+#check CircuitRecursion.BinaryCounterMachine.borrow_true_cons
+#print axioms CircuitRecursion.BinaryCounterMachine.borrow_true_cons
+#check CircuitRecursion.BinaryCounterMachine.drain_nil
+#print axioms CircuitRecursion.BinaryCounterMachine.drain_nil
+#check CircuitRecursion.BinaryCounterMachine.drain_cons
+#print axioms CircuitRecursion.BinaryCounterMachine.drain_cons
+#check CircuitRecursion.BinaryCounterMachine.restore_nil
+#print axioms CircuitRecursion.BinaryCounterMachine.restore_nil
+#check CircuitRecursion.BinaryCounterMachine.restore_cons
+#print axioms CircuitRecursion.BinaryCounterMachine.restore_cons
+#check CircuitRecursion.BinaryCounterMachine.clear_nil
+#print axioms CircuitRecursion.BinaryCounterMachine.clear_nil
+#check CircuitRecursion.BinaryCounterMachine.clear_cons
+#print axioms CircuitRecursion.BinaryCounterMachine.clear_cons
+#check CircuitRecursion.BinaryCounterMachine.halt
+#print axioms CircuitRecursion.BinaryCounterMachine.halt
+#check CircuitRecursion.BinaryCounterMachine.running_control_card
+#print axioms CircuitRecursion.BinaryCounterMachine.running_control_card
+#check CircuitRecursion.BinaryCounterMachine.statement_depth
+#print axioms CircuitRecursion.BinaryCounterMachine.statement_depth
+#check CircuitRecursion.BinaryCounterMachine.drain_iterate
+#print axioms CircuitRecursion.BinaryCounterMachine.drain_iterate
+#check CircuitRecursion.BinaryCounterMachine.restore_iterate
+#print axioms CircuitRecursion.BinaryCounterMachine.restore_iterate
+#check CircuitRecursion.BinaryCounterMachine.clear_iterate
+#print axioms CircuitRecursion.BinaryCounterMachine.clear_iterate
+#check CircuitRecursion.BinaryCounterMachine.borrowTime_bound
+#print axioms CircuitRecursion.BinaryCounterMachine.borrowTime_bound
+#check CircuitRecursion.BinaryCounterMachine.borrow_iterate_positive
+#print axioms CircuitRecursion.BinaryCounterMachine.borrow_iterate_positive
+#check CircuitRecursion.BinaryCounterMachine.counter_iterate
+#print axioms CircuitRecursion.BinaryCounterMachine.counter_iterate
+#check CircuitRecursion.BinaryCounterMachine.counterRun_steps
+#print axioms CircuitRecursion.BinaryCounterMachine.counterRun_steps
+#check CircuitRecursion.BinaryCounterMachine.counterRun_steps_bound
+#print axioms CircuitRecursion.BinaryCounterMachine.counterRun_steps_bound
+#check CircuitRecursion.BinaryCounterMachine.terminal_halts
+#print axioms CircuitRecursion.BinaryCounterMachine.terminal_halts
+#check CircuitRecursion.BinaryCounterMachine.counter_mem_eval
+#print axioms CircuitRecursion.BinaryCounterMachine.counter_mem_eval
+#check CircuitRecursion.BinaryCounterMachine.terminal_counter_value
+#print axioms CircuitRecursion.BinaryCounterMachine.terminal_counter_value
+#check CircuitRecursion.BinaryCounterMachine.terminal_counter_canonical
+#print axioms CircuitRecursion.BinaryCounterMachine.terminal_counter_canonical
+#check CircuitRecursion.BinaryCounterMachine.terminal_counter_length
+#print axioms CircuitRecursion.BinaryCounterMachine.terminal_counter_length
+#check CircuitRecursion.BinaryCounterMachine.terminal_scratch_empty
+#print axioms CircuitRecursion.BinaryCounterMachine.terminal_scratch_empty
+#check CircuitRecursion.BinaryCounterMachine.terminal_preserves_work
+#print axioms CircuitRecursion.BinaryCounterMachine.terminal_preserves_work
+#check CircuitRecursion.BinaryCounterMachine.terminal_counter_progress
+#print axioms CircuitRecursion.BinaryCounterMachine.terminal_counter_progress
+#check CircuitRecursion.BinaryCounterMachine.counterRun_steps_height
+#print axioms CircuitRecursion.BinaryCounterMachine.counterRun_steps_height
+#check CircuitRecursion.BinaryCounterMachine.counter_nat_le_two_pow
+#print axioms CircuitRecursion.BinaryCounterMachine.counter_nat_le_two_pow
+#check CircuitRecursion.BinaryCounterMachine.counterRun_steps_index_bound
+#print axioms CircuitRecursion.BinaryCounterMachine.counterRun_steps_index_bound
+#check CircuitRecursion.BinaryIndex.predecessor_value
+#print axioms CircuitRecursion.BinaryIndex.predecessor_value
+#check CircuitRecursion.BinaryIndex.predecessor_width
+#print axioms CircuitRecursion.BinaryIndex.predecessor_width
+#check CircuitRecursion.BinaryIndex.predecessor_progress
+#print axioms CircuitRecursion.BinaryIndex.predecessor_progress
+#check CircuitRecursion.binaryIndexedLookup_value
+#print axioms CircuitRecursion.binaryIndexedLookup_value
+#check CircuitRecursion.binaryIndexedLookup_getElem
+#print axioms CircuitRecursion.binaryIndexedLookup_getElem
+#check CircuitRecursion.binaryIndexedLookup_counterTransitions
+#print axioms CircuitRecursion.binaryIndexedLookup_counterTransitions
+#check CircuitRecursion.binaryIndexedLookup_counterCalls
+#print axioms CircuitRecursion.binaryIndexedLookup_counterCalls
+#check CircuitRecursion.binaryPredecessorBits
+#check CircuitRecursion.BinaryCounterMachine.Label
+#check CircuitRecursion.BinaryCounterMachine.Configuration
+#check CircuitRecursion.BinaryCounterMachine.configuration
+#check CircuitRecursion.BinaryCounterMachine.program
+#check CircuitRecursion.BinaryCounterMachine.advance
+#check CircuitRecursion.BinaryCounterMachine.borrowTime
+#check CircuitRecursion.BinaryCounterMachine.counterRun
+#check CircuitRecursion.BinaryCounterMachine.terminal
+#check CircuitRecursion.BinaryIndex
+#check CircuitRecursion.BinaryIndex.value
+#check CircuitRecursion.BinaryIndex.predecessor
+#check CircuitRecursion.BinaryIndexedLookupTrace
+#check CircuitRecursion.BinaryIndexedLookupResult
+#check CircuitRecursion.binaryIndexedLookup
+#check CircuitRecursion.BinaryIndexedLookupTrace.counterTransitions
+#check CircuitRecursion.BinaryIndexedLookupTrace.counterCalls
