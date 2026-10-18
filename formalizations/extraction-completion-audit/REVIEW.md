@@ -75,6 +75,33 @@ that `Phi o Ad_U` is itself cPPT for arbitrary global U, and the existing actual
 protocol model does not impose that claim. No channel-model substitution was
 found in the bridge.
 
+## Unfilled manuscript LOCC interface
+
+A tracked-source scan of all 4,865 Lean files at the initial review baseline
+(including historical source snapshots) found no LOCC, classical-communication,
+finite-round, or separable-channel semantics. The actual optimum theorems accept
+an arbitrary predicate `C` on `KrausPPTProtocol` with membership of the common
+local family as a premise. They correctly prove a sandwich result for any such
+class, but this premise is not a definition or proof of LOCC inclusion.
+
+Consequently the frozen formalization does not yet certify the manuscript's
+named LOCC optimum claims. It still needs an actual adaptive finite-round
+instrument-tree/channel semantics, local-product inclusion, and the induced
+cPPT/actual-Kraus inclusion. If closure LOCC is intended, its channel topology
+and cPPT closedness also need a bridge. The new abstract CP/PPT equivalence alone
+does not supply these missing operational semantics. This is a concrete
+coverage/interface gap, not a counterexample to the generic optimum theorem.
+The scan evidence is saved at
+`D:/math/tmp/extraction-resume-20261018/review/LOCC_SCAN.json`.
+
+A second convention must be explicit in the final prose: the Lean
+`APPT.Quantum.partialTranspose` transposes the first party, as its entry formula
+is `X (j.1,i.2) (i.1,j.2)`; the manuscript introduction currently names the second
+party. Their cPPT classes are mathematically equivalent, but the present formal
+bridge directly implements the first-party convention. Aligning the manuscript
+convention or proving the convention-change equivalence will avoid a silent
+interface substitution. No error was found in the existing first-party bridge.
+
 ## Finite probability and actual target inversion
 
 `finite_iid_berryEsseen_sup` and `information_iid_berryEsseen` retain every
