@@ -43,3 +43,5 @@ import OperationalCompletion.CapacitySets
 import OperationalCompletion.ProbabilityEnsemble
 import OperationalCompletion.LOCCCapacity
 import OperationalCompletion.ReservedTriangular
+import OperationalCompletion.DimensionLoss
+import OperationalCompletion.ShrinkingVariance

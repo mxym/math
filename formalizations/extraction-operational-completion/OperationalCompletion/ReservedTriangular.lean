@@ -46,7 +46,7 @@ theorem triangular_reserved_gaussian_error (m n K : ℕ → ℕ)
     (hKa : ∀ᶠ k : ℕ in atTop,K k≤reservationLocal (m k) (n k) k (m k))
     (X : (k : ℕ) → Matrix (Fin (m k*n k)) (Fin (m k*n k)) ℂ)
     (hX : ∀ k,(X k).PosSemidef ∧ (X k).trace=1)
-    (hv : ∀ k,0<varentropy (hX k).1.isHermitian.eigenvalues)
+    (hv : ∀ᶠ k : ℕ in atTop,0<varentropy (hX k).1.isHermitian.eigenvalues)
     (hLyap : Tendsto (fun k : ℕ => thirdInformationMoment (hX k).1.isHermitian.eigenvalues/
       ((varentropy (hX k).1.isHermitian.eigenvalues)^(3/2:ℝ)*Real.sqrt k)) atTop (nhds 0))
     (hSigma : Tendsto (fun k : ℕ => Real.sqrt ((k:ℝ)*
@@ -66,8 +66,8 @@ theorem triangular_reserved_gaussian_error (m n K : ℕ → ℕ)
   have ht := Real.tendsto_sqrt_atTop.comp hSigma
   have hdiv : Tendsto (fun k => Real.sqrt (s k)/s k) atTop (nhds 0) := by
     apply (tendsto_inv_atTop_zero.comp ht).congr'
-    filter_upwards [eventually_gt_atTop 0] with k hk
-    have hs : 0<s k := Real.sqrt_pos.mpr (mul_pos (Nat.cast_pos.mpr hk) (hv k))
+    filter_upwards [hv,eventually_gt_atTop 0] with k hvk hk
+    have hs : 0<s k := Real.sqrt_pos.mpr (mul_pos (Nat.cast_pos.mpr hk) hvk)
     have hr := Real.sq_sqrt hs.le
     have htpos := Real.sqrt_pos.mpr hs
     change (Real.sqrt (s k))⁻¹ = Real.sqrt (s k) / s k
@@ -80,9 +80,9 @@ theorem triangular_reserved_gaussian_error (m n K : ℕ → ℕ)
   simp only [max_self,mul_zero,add_zero] at hbound
   apply (tendsto_zero_iff_abs_tendsto_zero _).mpr
   apply squeeze_zero' (Eventually.of_forall (fun _ => abs_nonneg _)) _ hbound
-  filter_upwards [hKa,eventually_gt_atTop 0] with k hcap hk
+  filter_upwards [hKa,hv,eventually_gt_atTop 0] with k hcap hvk hk
   exact reservedProtocol_gaussian_error (m k) (n k) k (K k) (hm k) (hn k) (hmn k) hk
-    (hK k) hcap (X k) (hX k) (hv k) _ (Real.sqrt_nonneg _)
+    (hK k) hcap (X k) (hX k) hvk _ (Real.sqrt_nonneg _)
 
 end
 end OperationalCompletion
