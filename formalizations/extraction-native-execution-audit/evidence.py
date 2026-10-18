@@ -24,6 +24,11 @@ def verify(out,commit=None,run_id=None,attempt=None):
     summary=c.readj(out/'SUMMARY.json');pre=c.readj(out/'PRE_AUDIT.json');post=c.readj(out/'POST_AUDIT.json');stages=c.readj(out/'STAGES.json')
     if pre!=post:raise ValueError('Source/executable/protected pre-post drift')
     executable_object(pre['actual_executables'])
+    wantdeps={x['name']:x['rev']for x in c.readj(c.ROOT/'lake-manifest.json')['packages']if x['type']=='git'}
+    if type(pre['dependencies'])is not dict or set(pre['dependencies'])!=set(wantdeps):raise ValueError('Missing actual dependency pins')
+    for name,want in wantdeps.items():
+        row=pre['dependencies'][name]
+        if type(row)is not dict or set(row)!={'rev','path'}or row['rev']!=want or type(row['path'])is not str or not row['path'].startswith('/'):raise ValueError('Wrong actual dependency pin record')
     if pre['source_inputs']!=c.readj(c.ROOT/'SOURCE_HASHES.json')or pre['protected_inputs']!=c.readj(c.ROOT/'PROTECTED_OLD_INPUTS.json')['files']or pre['source_commit']!=s['source_commit']:raise ValueError('Wrong bound snapshot')
     if summary['status']!='PASS'or summary['kernel_trust']!=0 or summary['fresh_owned_build']is not True or summary['memory_mb']!=4000 or summary['source_commit']!=s['source_commit']or summary['source_manifest_sha256']!=b['source_manifest_sha256']:raise ValueError('Incomplete full fresh trust-zero run')
     expected=[('toolchain',['lake','env','lean','--version']),('build',['lake','build','NativeExecutionAudit','NativeExecutionVerification']),('types',['lake','env','lean','-j1','-M4000','@EVIDENCE@/CheckInvocation.lean']),('kernel',['lake','env','lean','-j1','-M4000','@EVIDENCE@/AuditInvocation.lean'])]
@@ -57,7 +62,8 @@ def verify(out,commit=None,run_id=None,attempt=None):
         p=out/'models'/f'{i}.expr';raw=p.read_text()
         if row!={'name':s['models'][i-1],'file':f'models/{i}.expr','sha256':c.sha(p)}or not raw.startswith('name '+row['name']+'\nlevels ')or '\ntype 'not in raw or not ('\nvalue 'in raw or '\ninductive 'in raw):raise ValueError('Missing actual Core Expr body/type binding')
     owned=c.readj(out/'OWNED_OLEANS.json')
-    if not owned or any(not n.endswith('.olean')or type(h)is not str or not re.fullmatch('[a-f0-9]{64}',h)for n,h in owned.items()):raise ValueError('No independently fresh owned outputs')
+    allowed=[(p/'.lake/build/lib/lean').relative_to(c.REPO).as_posix()+'/'for p in c.package_roots()]
+    if type(owned)is not dict or not c.expected_owned_outputs()<=set(owned)or any(not n.endswith('.olean')or not any(n.startswith(a)for a in allowed)or type(h)is not str or not re.fullmatch('[a-f0-9]{64}',h)for n,h in owned.items()):raise ValueError('Missing/invalid independently fresh actual import output receipts')
     if summary['fresh_packages']!=[p.relative_to(c.REPO).as_posix()for p in c.package_roots()]:raise ValueError('Wrong fresh package scope')
     if commit is not None:
         ctx=c.readj(out/'CI_CONTEXT.json')

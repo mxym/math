@@ -8,7 +8,8 @@ def fixture(out):
     s,b=c.binding();out.mkdir();(out/'models').mkdir()
     for n in ['SCOPE.json','BINDING.json','SOURCE_HASHES.json','IMPORT_CLOSURE_HASHES.json','PROTECTED_OLD_INPUTS.json','CI_POLICY.json']:(out/n).write_bytes((c.ROOT/n).read_bytes())
     executables={n:{'path':'/fixture/'+n,'sha256':v}for n,v in c.readj(c.ROOT/'CI_POLICY.json')['binary_sha256'].items()}
-    snap={'source_commit':s['source_commit'],'source_inputs':c.readj(c.ROOT/'SOURCE_HASHES.json'),'protected_inputs':c.readj(c.ROOT/'PROTECTED_OLD_INPUTS.json')['files'],'actual_executables':executables,'dependencies':{}}
+    deps={x['name']:{'rev':x['rev'],'path':'/fixture/'+x['name']}for x in c.readj(c.ROOT/'lake-manifest.json')['packages']if x['type']=='git'}
+    snap={'source_commit':s['source_commit'],'source_inputs':c.readj(c.ROOT/'SOURCE_HASHES.json'),'protected_inputs':c.readj(c.ROOT/'PROTECTED_OLD_INPUTS.json')['files'],'actual_executables':executables,'dependencies':deps}
     c.dump(out/'PRE_AUDIT.json',snap);c.dump(out/'POST_AUDIT.json',snap)
     for n in ['Check','Audit']:(out/(n+'Invocation.lean')).write_text((c.ROOT/(n+'.lean')).read_text().replace('@EVIDENCE@',str(out.resolve())))
     selected=s['theorems']+s['models'];typ=f"DECLARATION_KIND_CHECK_PASS {len(s['theorems'])} theorems; {len(s['models'])} definitions\nACTUAL_MODEL_CORE_EXPR_EXPORT_PASS {len(s['models'])} models\n"+'\n'.join("'"+n+"' does not depend on any axioms"for n in selected)+'\n';(out/'types.log').write_text(typ);c.dump(out/'AXIOM_REPORT.json',{n:[]for n in selected})
@@ -21,7 +22,7 @@ def fixture(out):
     bodies=[]
     for i,n in enumerate(s['models'],1):
         p=out/'models'/f'{i}.expr';p.write_text('name '+n+'\nlevels []\ntype fixture\nvalue fixture\n');bodies.append({'name':n,'file':f'models/{i}.expr','sha256':c.sha(p)})
-    c.dump(out/'MODEL_BODIES.json',bodies);c.dump(out/'OWNED_OLEANS.json',{'fixture.olean':'a'*64})
+    c.dump(out/'MODEL_BODIES.json',bodies);c.dump(out/'OWNED_OLEANS.json',{n:'a'*64 for n in c.expected_owned_outputs()})
     commands=[('toolchain',['lake','env','lean','--version']),('build',['lake','build','NativeExecutionAudit','NativeExecutionVerification']),('types',['lake','env','lean','-j1','-M4000','@EVIDENCE@/CheckInvocation.lean']),('kernel',['lake','env','lean','-j1','-M4000','@EVIDENCE@/AuditInvocation.lean'])]
     c.dump(out/'STAGES.json',[{'stage':n,'command':cmd,'exit_code':0,'log':n+'.log','sha256':c.sha(out/(n+'.log'))}for n,cmd in commands])
     c.dump(out/'SUMMARY.json',{'status':'PASS','kernel_trust':0,'fresh_owned_build':True,'memory_mb':4000,'source_commit':s['source_commit'],'source_manifest_sha256':b['source_manifest_sha256'],'producer_output':str(out.resolve()),'kernel_declarations':len(names),'fresh_packages':[p.relative_to(c.REPO).as_posix()for p in c.package_roots()]})
@@ -57,12 +58,23 @@ def main():
         reject('changed_model_body',lambda:(out/'models/1.expr').write_text('value tampered\n'))
         reject('missing_kinds',lambda:(out/'types.log').write_text((out/'types.log').read_text().replace('DECLARATION_KIND_CHECK_PASS','absent')))
         reject('changed_invocation',lambda:(out/'AuditInvocation.lean').write_text('import Lean\n'))
+        reject('missing_actual_import_olean_receipt',lambda:json_change('OWNED_OLEANS.json',lambda d:d.pop(next(iter(d)))))
+        reject('missing_actual_dependency_pin',lambda:[json_change(f,lambda d:d['dependencies'].pop(next(iter(d['dependencies']))))for f in ['PRE_AUDIT.json','POST_AUDIT.json']])
         reject('duplicate_json_key',lambda:(out/'SUMMARY.json').write_text('{"status":"PASS","status":"PASS"}'))
         # Byte inventory must reject unsealed extras independently of semantic fields.
         (out/'unexpected').write_text('extra')
         try:e.verify(out)
         except ValueError:passed.append('unsealed_extra_file')
         else:raise ValueError('Accepted unsealed extra')
+        (out/'unexpected').unlink();(out/'nested').mkdir();(out/'nested/EVIDENCE_HASHES.json').write_text('{}')
+        try:e.verify(out)
+        except ValueError:passed.append('unsealed_nested_same_name_manifest')
+        else:raise ValueError('Accepted unsealed nested manifest')
+        if 'EVIDENCE_HASHES.json'in c.file_manifest(out)or 'nested/EVIDENCE_HASHES.json'not in c.file_manifest(out):raise ValueError('Root/nested manifest exclusion boundary wrong')
+        passed.append('root_manifest_excluded_nested_manifest_included')
+        for name in ['SOURCE_HASHES.json','BINDING.json','PREPARATION_RESULT.json']:
+            if not c.root_metadata_file(c.ROOT/name)or c.root_metadata_file(c.ROOT/'nested'/name):raise ValueError('Root/nested recipe metadata boundary wrong')
+        passed.append('root_recipe_metadata_excluded_nested_metadata_included')
         import shutil
         shutil.rmtree(out);fixture(out)
         wrapper=Path(tmp)/'downloaded';wrapper.mkdir();name='native-execution-20261019T000000000000Z';shutil.move(out,wrapper/name)

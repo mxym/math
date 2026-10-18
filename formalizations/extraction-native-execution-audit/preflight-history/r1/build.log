@@ -1,0 +1,1493 @@
+✔ [2694/2709] Built APPT.Core (1.5s)
+⚠ [2695/2714] Built APPT.Quantum.Basic (1.5s)
+warning: APPT/Quantum/Basic.lean:61:8: automatically included section variable(s) unused in theorem `APPT.Quantum.partialTranspose_trace`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2696/2715] Built Extraction.RainsBudget (2.3s)
+warning: Extraction/RainsBudget.lean:18:0: automatically included section variable(s) unused in theorem `Extraction.trace_congruence_diagonal`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/RainsBudget.lean:40:43: This simp argument is unused:
+  Unitary.coe_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Unitary.conjStarAlgAut_apply, Matrix.star_eq_conjTranspose, RCLike.ofReal_eq_complex_ofReal,
+    Function.comp_def] at hp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:57:31: This simp argument is unused:
+  Matrix.mul_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_mul, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul, Matrix.mul_one,
+    smul_add, smul_sub, smul_smul, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:58:48: This simp argument is unused:
+  smul_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_mul, Matrix.mul_add, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul,
+    Matrix.mul_one, smul_add, smul_smul, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/RainsBudget.lean:70:0: automatically included section variable(s) unused in theorem `Extraction.trace_partialTranspose_pairing`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2697/2715] Built Extraction.ProjectionBudget (1.7s)
+warning: Extraction/ProjectionBudget.lean:12:0: automatically included section variable(s) unused in theorem `Extraction.positive_trace_re`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/ProjectionBudget.lean:45:8: This simp argument is unused:
+  smul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.sub_mul, Matrix.mul_sub, Matrix.smul_mul, Matrix.mul_smul, Matrix.trace_sub,
+    Matrix.trace_smul, Complex.sub_re, Complex.smul_re, smul_eq_mul, hPP, Matrix.trace_mul_comm M P]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/ProjectionBudget.lean:54:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2698/2718] Built Extraction.Kraus (1.7s)
+warning: Extraction/Kraus.lean:16:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_posSemidef`:
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/Kraus.lean:22:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_trace`:
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/Kraus.lean:59:0: automatically included section variable(s) unused in theorem `Extraction.krausAmplification_apply`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/Kraus.lean:70:19: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [apply_ite, ite_mul, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:70:37: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [apply_ite, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/Kraus.lean:74:0: automatically included section variable(s) unused in theorem `Extraction.congruence_pure`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2699/2718] Built Extraction.BellPacking (4.9s)
+warning: Extraction/BellPacking.lean:22:53: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [eraseKraus, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.one_apply, Matrix.sum_apply,
+    apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2700/2718] Built Extraction.BellCoherent (4.3s)
+warning: Extraction/BellCoherent.lean:25:0: automatically included section variable(s) unused in theorem `Extraction.single_readout_congruence`:
+  [Fintype d]
+  [DecidableEq d]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype d] [DecidableEq d] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/BellCoherent.lean:32:43: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.mul_apply, Matrix.conjTranspose_apply, hB, Matrix.vecMulVec_apply, Matrix.smul_apply, apply_ite,
+    ite_mul, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/BellCoherent.lean:69:0: automatically included section variable(s) unused in theorem `Extraction.bellCoeff_normalized`:
+  [DecidableEq d]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq d] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/BellCoherent.lean:88:26: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [codeEmbedding, bellCode, bellVector, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.one_apply,
+    Fintype.sum_prod_type, apply_ite, ite_mul, eq_comm, ← mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2701/2722] Built Extraction.BellOrder (1.6s)
+warning: Extraction/BellOrder.lean:17:0: automatically included section variable(s) unused in theorem `Extraction.swapMatrix_hermitian`:
+  [Fintype d]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype d] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/BellOrder.lean:93:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2702/2725] Built Extraction.KrausRains (1.5s)
+warning: Extraction/KrausRains.lean:11:8: automatically included section variable(s) unused in theorem `Extraction.krausApply_add`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausRains.lean:15:8: automatically included section variable(s) unused in theorem `Extraction.krausApply_sub`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausRains.lean:19:8: automatically included section variable(s) unused in theorem `Extraction.krausApply_real_smul`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausRains.lean:23:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_hermitian`:
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausRains.lean:32:0: automatically included section variable(s) unused in theorem `Extraction.krausApply_trace_duality`:
+  [DecidableEq ι]
+  [DecidableEq ο]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] [DecidableEq ο] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausRains.lean:43:0: automatically included section variable(s) unused in theorem `Extraction.trace_mul_pure`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2703/2727] Built Extraction.UnitaryExtension (2.5s)
+⚠ [2704/2727] Built Extraction.KrausCompletion (1.7s)
+warning: Extraction/KrausCompletion.lean:14:0: automatically included section variable(s) unused in theorem `Extraction.residualKraus_complete`:
+  [Fintype α]
+  [DecidableEq ι]
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype α] [DecidableEq ι] [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausCompletion.lean:18:52: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [residualKraus, Matrix.sum_apply, Matrix.mul_apply, Matrix.conjTranspose_apply, apply_ite, ite_mul,
+    eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/KrausCompletion.lean:20:0: automatically included section variable(s) unused in theorem `Extraction.residualKraus_mul`:
+  [Fintype ι]
+  [Fintype ο]
+  [DecidableEq ι]
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype ο] [DecidableEq ι] [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausCompletion.lean:34:0: automatically included section variable(s) unused in theorem `Extraction.isometry_complement_hermitian`:
+  [Fintype ι]
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausCompletion.lean:61:0: automatically included section variable(s) unused in theorem `Extraction.completedKraus_inl_mul`:
+  [Fintype ο]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ο] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausCompletion.lean:66:0: automatically included section variable(s) unused in theorem `Extraction.completedKraus_inr_mul`:
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/KrausCompletion.lean:87:21: This simp argument is unused:
+  Matrix.mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [krausApply, hb, Fintype.sum_sum_type, completedKraus_inl_mul E hE, completedKraus_inr_mul E hE,
+    Matrix.zero_mul, Finset.sum_const_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2705/2728] Built Extraction.ProductCompletion (1.7s)
+warning: Extraction/ProductCompletion.lean:17:0: automatically included section variable(s) unused in theorem `Extraction.productKraus_complete`:
+  [Fintype a]
+  [Fintype b]
+  [DecidableEq ο]
+  [DecidableEq π]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] [Fintype b] [DecidableEq ο] [DecidableEq π] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/ProductCompletion.lean:34:0: automatically included section variable(s) unused in theorem `Extraction.kronecker_isometry`:
+  [Fintype α]
+  [Fintype β]
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype α] [Fintype β] [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/ProductCompletion.lean:64:37: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.sum_prod_type, Fintype.sum_sum_type, completedKraus_inl_mul E hE,
+    completedKraus_inl_mul F hF, completedKraus_inr_mul E hE, completedKraus_inr_mul F hF, Matrix.zero_kronecker,
+    Matrix.kronecker_zero, Matrix.zero_mul, Finset.sum_const_zero, add_zero, productKraus]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2706/2728] Built Extraction.SubspacePacking (1.8s)
+warning: Extraction/SubspacePacking.lean:14:0: automatically included section variable(s) unused in theorem `Extraction.coordinateIsometry_isometry`:
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/SubspacePacking.lean:19:35: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [coordinateIsometry, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.one_apply, apply_ite,
+    mul_ite, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/SubspacePacking.lean:19:44: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [coordinateIsometry, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.one_apply, apply_ite,
+    ite_mul, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/SubspacePacking.lean:32:0: automatically included section variable(s) unused in theorem `Extraction.isometry_trace_congruence`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/SubspacePacking.lean:36:0: automatically included section variable(s) unused in theorem `Extraction.isometry_mul`:
+  [Fintype κ]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype κ] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2708/2728] Built CircuitCompletion.Semantics (1.6s)
+⚠ [2709/2728] Built CircuitCompletion.LocalAction (1.5s)
+warning: CircuitCompletion/LocalAction.lean:33:47: `if_true` has been deprecated: Use `ite_true` instead
+⚠ [2710/2728] Built CircuitCompletion.ParityPhase (1.4s)
+warning: CircuitCompletion/ParityPhase.lean:15:39: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.conjTranspose_apply, h, Ne.symm h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/ParityPhase.lean:32:13: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [wireCoordinates, Matrix.diagonal_apply, Matrix.one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/ParityPhase.lean:32:52: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.kronecker_apply, wireCoordinates, Matrix.one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/ParityPhase.lean:32:74: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.kronecker_apply, wireCoordinates, Matrix.diagonal_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/ParityPhase.lean:38:12: This simp argument is unused:
+  hwi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hs, hwv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/ParityPhase.lean:38:16: This simp argument is unused:
+  hs
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hwi, hwv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2711/2728] Built CircuitCompletion.Givens (2.0s)
+warning: CircuitCompletion/Givens.lean:43:24: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mergeRotation, hA, hB]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2712/2728] Built CircuitCompletion.Reverse (1.5s)
+warning: CircuitCompletion/Reverse.lean:19:30: `Matrix.reindexAlgEquiv_apply` has been deprecated: Use `Matrix.coe_reindexAlgEquiv` instead
+
+Note: The updated constant has a different type:
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n), ⇑(reindexAlgEquiv R A e) = ⇑(reindex e e)
+instead of
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n) (M : Matrix m m A), (reindexAlgEquiv R A e) M = (reindex e e) M
+warning: CircuitCompletion/Reverse.lean:19:30: `Matrix.reindexAlgEquiv_apply` has been deprecated: Use `Matrix.coe_reindexAlgEquiv` instead
+
+Note: The updated constant has a different type:
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n), ⇑(reindexAlgEquiv R A e) = ⇑(reindex e e)
+instead of
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n) (M : Matrix m m A), (reindexAlgEquiv R A e) M = (reindex e e) M
+warning: CircuitCompletion/Reverse.lean:18:74: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.star_eq_conjTranspose, Matrix.conjTranspose_apply, singleWire, reindexUnitary,
+    Matrix.reindexAlgEquiv_apply, Matrix.reindex_apply, Matrix.one_apply, h, Ne.symm, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/Reverse.lean:20:31: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.star_eq_conjTranspose, Matrix.conjTranspose_apply, Matrix.kronecker_apply, singleWire,
+    reindexUnitary, Matrix.reindexAlgEquiv_apply, Matrix.reindex_apply, Matrix.one_apply, h, Ne.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/Reverse.lean:59:13: This simp argument is unused:
+  Unitary.coe_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.star_eq_conjTranspose] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2713/2728] Built CircuitCompletion.FourMerge (2.0s)
+warning: CircuitCompletion/FourMerge.lean:81:37: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [v, v₁, Matrix.vecHead, Matrix.vecTail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/FourMerge.lean:81:53: This simp argument is unused:
+  Matrix.vecHead
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [v, v₁, Pi.single_apply, Matrix.vecTail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/FourMerge.lean:81:68: This simp argument is unused:
+  Matrix.vecTail
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [v, v₁, Pi.single_apply, Matrix.vecHead]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/FourMerge.lean:85:38: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [v₁, v₂, Matrix.vecHead, Matrix.vecTail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/FourMerge.lean:90:35: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [v₂, Matrix.vecHead, Matrix.vecTail, Fin.sum_univ_succ, add_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2714/2728] Built CircuitCompletion.ParityWord (1.5s)
+warning: CircuitCompletion/ParityWord.lean:44:37: This simp argument is unused:
+  Bool.xor_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [cnotFunction, controlParity]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2715/2728] Built CircuitCompletion.Pauli (1.5s)
+warning: CircuitCompletion/Pauli.lean:55:50: Variable name `b` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CircuitCompletion/Pauli.lean:64:25: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+warning: CircuitCompletion/Pauli.lean:70:25: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+warning: CircuitCompletion/Pauli.lean:83:25: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+⚠ [2716/2728] Built CircuitCompletion.Hadamard (1.6s)
+warning: CircuitCompletion/Hadamard.lean:24:38: `Matrix.reindexAlgEquiv_apply` has been deprecated: Use `Matrix.coe_reindexAlgEquiv` instead
+
+Note: The updated constant has a different type:
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n), ⇑(reindexAlgEquiv R A e) = ⇑(reindex e e)
+instead of
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n) (M : Matrix m m A), (reindexAlgEquiv R A e) M = (reindex e e) M
+warning: CircuitCompletion/Hadamard.lean:24:38: `Matrix.reindexAlgEquiv_apply` has been deprecated: Use `Matrix.coe_reindexAlgEquiv` instead
+
+Note: The updated constant has a different type:
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n), ⇑(reindexAlgEquiv R A e) = ⇑(reindex e e)
+instead of
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n) (M : Matrix m m A), (reindexAlgEquiv R A e) M = (reindex e e) M
+warning: CircuitCompletion/Hadamard.lean:24:38: `Matrix.reindexAlgEquiv_apply` has been deprecated: Use `Matrix.coe_reindexAlgEquiv` instead
+
+Note: The updated constant has a different type:
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n), ⇑(reindexAlgEquiv R A e) = ⇑(reindex e e)
+instead of
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n) (M : Matrix m m A), (reindexAlgEquiv R A e) M = (reindex e e) M
+warning: CircuitCompletion/Hadamard.lean:24:38: `Matrix.reindexAlgEquiv_apply` has been deprecated: Use `Matrix.coe_reindexAlgEquiv` instead
+
+Note: The updated constant has a different type:
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n), ⇑(reindexAlgEquiv R A e) = ⇑(reindex e e)
+instead of
+  ∀ {m : Type u_1} {n : Type u_2} (R : Type u_9) (A : Type u_10) [inst : CommSemiring R] [inst_1 : Fintype n]
+    [inst_2 : Fintype m] [inst_3 : DecidableEq m] [inst_4 : DecidableEq n] [inst_5 : Semiring A] [inst_6 : Algebra R A]
+    (e : m ≃ n) (M : Matrix m m A), (reindexAlgEquiv R A e) M = (reindex e e) M
+⚠ [2717/2728] Built CircuitCompletion.SelectedPhase (1.7s)
+warning: CircuitCompletion/SelectedPhase.lean:29:15: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: CircuitCompletion/SelectedPhase.lean:33:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: CircuitCompletion/SelectedPhase.lean:29:15: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2718/2728] Built CircuitCompletion.AdjacentSwap (1.6s)
+warning: CircuitCompletion/AdjacentSwap.lean:52:76: `if_false` has been deprecated: Use `ite_false` instead
+warning: CircuitCompletion/AdjacentSwap.lean:77:33: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [update_eq_update_iff, h, Function.update_idem, complexPhase_zero, complexPhase_pi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2719/2728] Built CircuitCompletion.SwapSemantics (1.4s)
+warning: CircuitCompletion/SwapSemantics.lean:43:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: CircuitCompletion/SwapSemantics.lean:40:10: This simp argument is unused:
+  Equiv.swap_apply_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sameOutside, flipBit]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/SwapSemantics.lean:46:12: This simp argument is unused:
+  Equiv.swap_apply_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [flipBit_ne t x]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/SwapSemantics.lean:46:33: This simp argument is unused:
+  flipBit_ne t x
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Equiv.swap_apply_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2720/2728] Built CircuitCompletion.AdjacentRotation (1.8s)
+warning: CircuitCompletion/AdjacentRotation.lean:56:33: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [update_eq_update_iff, h, Function.update_idem, complexPhase_zero, complexPhase_trig, Real.cos_neg,
+    Real.sin_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/AdjacentRotation.lean:56:57: This simp argument is unused:
+  complexPhase_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [update_eq_update_iff, h, hb, Function.update_idem, complexPhase_trig, Real.cos_neg, Real.sin_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2721/2728] Built CircuitCompletion.GrayMove (1.5s)
+warning: CircuitCompletion/GrayMove.lean:44:27: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: CircuitCompletion/GrayMove.lean:46:27: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: CircuitCompletion/GrayMove.lean:58:27: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: CircuitCompletion/GrayMove.lean:66:27: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: CircuitCompletion/GrayMove.lean:78:36: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: CircuitCompletion/GrayMove.lean:80:36: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: CircuitCompletion/GrayMove.lean:90:26: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: CircuitCompletion/GrayMove.lean:92:26: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [2722/2728] Built CircuitCompletion.GraySwap (1.6s)
+warning: CircuitCompletion/GraySwap.lean:12:6: `if_false` has been deprecated: Use `ite_false` instead
+warning: CircuitCompletion/GraySwap.lean:14:39: This simp argument is unused:
+  Function.update_of_ne hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finset.mem_toList, hj, flipBit]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/GraySwap.lean:56:24: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+warning: CircuitCompletion/GraySwap.lean:86:24: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+⚠ [2723/2728] Built CircuitCompletion.TwoLevelRotation (1.6s)
+warning: CircuitCompletion/TwoLevelRotation.lean:33:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: CircuitCompletion/TwoLevelRotation.lean:33:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: CircuitCompletion/TwoLevelRotation.lean:39:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: CircuitCompletion/TwoLevelRotation.lean:39:43: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: CircuitCompletion/TwoLevelRotation.lean:39:54: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [2724/2729] Built CircuitCompletion.CompiledGivens (1.8s)
+warning: CircuitCompletion/CompiledGivens.lean:28:18: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, Ne.symm h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/CompiledGivens.lean:28:36: This simp argument is unused:
+  Ne.symm h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.single_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/CompiledGivens.lean:30:20: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, Ne.symm h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/CompiledGivens.lean:30:36: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.single_apply, Ne.symm h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/CompiledGivens.lean:31:12: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hw, hwy, Ne.symm hw, Ne.symm hwy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/CompiledGivens.lean:31:35: This simp argument is unused:
+  Ne.symm hw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.single_apply, hw, hwy, Ne.symm hwy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/CompiledGivens.lean:31:46: This simp argument is unused:
+  Ne.symm hwy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.single_apply, hw, hwy, Ne.symm hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/CompiledGivens.lean:74:29: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+warning: CircuitCompletion/CompiledGivens.lean:74:50: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [2725/2739] Built CircuitCompletion.SparseBlocks (1.9s)
+warning: CircuitCompletion/SparseBlocks.lean:56:72: This simp argument is unused:
+  coordinatePair_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pairPlane, Extraction.coordinateIsometry, coordinatePair_zero, Matrix.mul_apply, Fin.sum_univ_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/SparseBlocks.lean:59:52: This simp argument is unused:
+  coordinatePair_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pairPlane, Extraction.coordinateIsometry, coordinatePair_one, Matrix.mul_apply, Fin.sum_univ_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [2726/2739] Built CircuitCompletion.RawCompiler (1.7s)
+⚠ [2727/2739] Built Extraction.ProjectionFactor (1.7s)
+warning: Extraction/ProjectionFactor.lean:24:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Extraction/ProjectionFactor.lean:10:0: automatically included section variable(s) unused in theorem `Extraction.coordinateIsometry_projector`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/ProjectionFactor.lean:86:17: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hpq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2728/2739] Built Extraction.OverlapConverse (1.6s)
+warning: Extraction/OverlapConverse.lean:10:0: automatically included section variable(s) unused in theorem `Extraction.hermitian_trace_square_nonneg`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2730/2739] Built CircuitCompletion.SparseCompression (1.6s)
+warning: CircuitCompletion/SparseCompression.lean:45:15: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [v1, hp, q.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/SparseCompression.lean:49:15: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [v1, r.2, hrq, hq r (by simp [hr])]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2731/2739] Built Extraction.FinitePacking (1.4s)
+warning: Extraction/FinitePacking.lean:25:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Extraction/FinitePacking.lean:27:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Extraction/FinitePacking.lean:28:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [2732/2739] Built Extraction.OutputEmbedding (1.8s)
+warning: Extraction/OutputEmbedding.lean:10:0: automatically included section variable(s) unused in theorem `Extraction.postcomposeKraus_complete`:
+  [Fintype ι]
+  [DecidableEq π]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq π] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/OutputEmbedding.lean:16:0: automatically included section variable(s) unused in theorem `Extraction.postcomposeKraus_apply`:
+  [Fintype π]
+  [DecidableEq ι]
+  [DecidableEq ο]
+  [DecidableEq π]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype π] [DecidableEq ι] [DecidableEq ο] [DecidableEq π] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/OutputEmbedding.lean:27:0: automatically included section variable(s) unused in theorem `Extraction.coordinate_bell_pullback`:
+  [Fintype d]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype d] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/OutputEmbedding.lean:34:49: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [Matrix.mulVec, dotProduct, Matrix.conjTranspose_apply, Matrix.kroneckerMap_apply,
+    coordinateIsometry, bellVector, Fintype.sum_prod_type, apply_ite, ite_mul, f.injective.eq_iff, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/OutputEmbedding.lean:37:0: automatically included section variable(s) unused in theorem `Extraction.pure_projector_overlap`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Extraction/OutputEmbedding.lean:40:45: This simp argument is unused:
+  Matrix.trace_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.vecMulVec_mul_vecMulVec, Matrix.trace_vecMulVec]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Extraction/OutputEmbedding.lean:70:15: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dotProduct, bellVector, Fintype.sum_prod_type, apply_ite, ite_mul, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2733/2739] Built Extraction.FiniteFidelity (1.5s)
+warning: Extraction/FiniteFidelity.lean:27:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Extraction/FiniteFidelity.lean:28:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [2734/2739] Built SpectralProtocol.ProductPPT (1.5s)
+warning: SpectralProtocol/ProductPPT.lean:17:0: automatically included section variable(s) unused in theorem `SpectralProtocol.conjugateMatrix_complete`:
+  [Fintype ai]
+  [DecidableEq ao]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ai] [DecidableEq ao] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: SpectralProtocol/ProductPPT.lean:27:0: automatically included section variable(s) unused in theorem `SpectralProtocol.product_congruence_partialTranspose`:
+  [Fintype ao]
+  [Fintype bo]
+  [DecidableEq ai]
+  [DecidableEq bi]
+  [DecidableEq ao]
+  [DecidableEq bo]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ao] [Fintype bo] [DecidableEq ai] [DecidableEq bi] [DecidableEq ao] [DecidableEq bo] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: SpectralProtocol/ProductPPT.lean:37:20: This simp argument is unused:
+  Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [APPT.Quantum.partialTranspose, Matrix.mul_apply, Matrix.conjTranspose_apply,
+    Matrix.kroneckerMap_apply, Fintype.sum_prod_type, conjugateMatrix, star_mul, star_star, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2735/2739] Built SpectralProtocol.TransposeConvention (1.4s)
+warning: SpectralProtocol/TransposeConvention.lean:16:0: automatically included section variable(s) unused in theorem `SpectralProtocol.secondPartialTranspose_eq_transpose_first`:
+  [Fintype a]
+  [Fintype b]
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] [Fintype b] [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: SpectralProtocol/TransposeConvention.lean:20:0: automatically included section variable(s) unused in theorem `SpectralProtocol.firstPartialTranspose_transpose`:
+  [Fintype a]
+  [Fintype b]
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] [Fintype b] [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: SpectralProtocol/TransposeConvention.lean:24:0: automatically included section variable(s) unused in theorem `SpectralProtocol.secondPartialTranspose_transpose`:
+  [Fintype a]
+  [Fintype b]
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] [Fintype b] [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: SpectralProtocol/TransposeConvention.lean:37:0: automatically included section variable(s) unused in theorem `SpectralProtocol.PTConjugatePositive_iff_second`:
+  [Fintype d]
+  [DecidableEq a]
+  [DecidableEq b]
+  [DecidableEq d]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype d] [DecidableEq a] [DecidableEq b] [DecidableEq d] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2736/2739] Built SpectralProtocol.ProjectionState (1.7s)
+warning: SpectralProtocol/ProjectionState.lean:13:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: SpectralProtocol/ProjectionState.lean:14:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: SpectralProtocol/ProjectionState.lean:22:0: automatically included section variable(s) unused in theorem `SpectralProtocol.projection_posSemidef`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: SpectralProtocol/ProjectionState.lean:36:30: This simp argument is unused:
+  Complex.smul_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.smul_im, ne_of_gt hpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SpectralProtocol/ProjectionState.lean:36:47: This simp argument is unused:
+  Complex.smul_im
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.smul_re, ne_of_gt hpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SpectralProtocol/ProjectionState.lean:38:0: automatically included section variable(s) unused in theorem `SpectralProtocol.projectionDensity_supported`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: SpectralProtocol/ProjectionState.lean:48:8: This simp argument is unused:
+  Complex.smul_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ne_of_gt hpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2737/2739] Built SpectralProtocol.IntegerBell (1.6s)
+warning: SpectralProtocol/IntegerBell.lean:95:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [2738/3122] Built SpectralProtocol.IntegerBellReal (1.8s)
+⚠ [3328/3337] Built SymmetricSupport.FinitePartition (1.6s)
+warning: SymmetricSupport/FinitePartition.lean:31:0: automatically included section variable(s) unused in theorem `SymmetricSupport.average_columns`:
+  [Fintype β]
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype β] [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: SymmetricSupport/FinitePartition.lean:80:0: automatically included section variable(s) unused in theorem `SymmetricSupport.partitionProjector_hermitian`:
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: SymmetricSupport/FinitePartition.lean:100:0: automatically included section variable(s) unused in theorem `SymmetricSupport.partitionProjector_mulVec_constant`:
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3330/3337] Built SymmetricSupport.Occupation (1.7s)
+✔ [3332/3337] Built SymmetricSupport.PureSpan (2.2s)
+✔ [3333/3337] Built SymmetricSupport.Density (1.7s)
+✔ [3334/3337] Built SymmetricSupport.UnitSpan (1.6s)
+✔ [3335/3339] Built SymmetricSupport.ExactEffect (1.6s)
+⚠ [3336/3344] Built SpectralProtocol.PureBell (1.9s)
+warning: SpectralProtocol/PureBell.lean:120:0: automatically included section variable(s) unused in theorem `SpectralProtocol.preprocessedEffect_pairing`:
+  [Nonempty d]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty d] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: SpectralProtocol/PureBell.lean:186:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3342/3344] Built SymmetricSupport.PhaseAverage (1.6s)
+✔ [3343/3621] Built SymmetricSupport.FiberFactorial (1.7s)
+✔ [3617/3621] Built SymmetricSupport.ExponentialMoments (1.7s)
+✔ [3618/3623] Built SymmetricSupport.GaussianFrame (1.0s)
+✔ [3619/3623] Built SymmetricSupport.PureAverageBound (1.9s)
+✔ [3620/3623] Built Extraction (1.3s)
+⚠ [3622/3624] Built SpectralProtocol.PureGuarantee (1.8s)
+warning: SpectralProtocol/PureGuarantee.lean:77:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3623/3631] Built APPT.Quantum.Orbit (1.5s)
+⚠ [3624/3631] Built APPT.Quantum.Permutation (1.5s)
+warning: APPT/Quantum/Permutation.lean:14:31: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [permMatrix, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.one_apply, mul_ite, e.injective.eq_iff,
+    eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPT/Quantum/Permutation.lean:16:0: automatically included section variable(s) unused in theorem `APPT.Quantum.permMatrix_conjTranspose`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/Permutation.lean:47:8: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+⚠ [3625/3632] Built APPT.Quantum.Reindex (1.4s)
+warning: APPT/Quantum/Reindex.lean:8:0: automatically included section variable(s) unused in theorem `APPT.Quantum.reindex_mul`:
+  [DecidableEq ι]
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/Reindex.lean:15:8: automatically included section variable(s) unused in theorem `APPT.Quantum.reindex_one`:
+  [Fintype ι]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/Reindex.lean:20:8: automatically included section variable(s) unused in theorem `APPT.Quantum.reindex_conjTranspose`:
+  [Fintype ι]
+  [Fintype κ]
+  [DecidableEq ι]
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype κ] [DecidableEq ι] [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/Reindex.lean:23:8: automatically included section variable(s) unused in theorem `APPT.Quantum.reindex_diagonal`:
+  [Fintype ι]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3626/3638] Built APPT.Quantum.UnitaryExtension (1.5s)
+warning: APPT/Quantum/UnitaryExtension.lean:15:8: automatically included section variable(s) unused in theorem `APPT.Quantum.splitEquiv_inl`:
+  [Fintype ι]
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPT/Quantum/UnitaryExtension.lean:18:8: automatically included section variable(s) unused in theorem `APPT.Quantum.splitEquiv_inr`:
+  [Fintype ι]
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3627/3638] Built APPT.Quantum.ExtendedConjugate (1.5s)
+warning: APPT/Quantum/ExtendedConjugate.lean:7:0: automatically included section variable(s) unused in theorem `APPT.Quantum.split_diagonal`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3628/3638] Built APPT.Quantum.RealPSD (1.5s)
+warning: APPT/Quantum/RealPSD.lean:8:0: automatically included section variable(s) unused in theorem `APPT.Quantum.real_posSemidef_of_complex`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3629/3638] Built APPTReview.Basic (1.4s)
+warning: APPTReview/Basic.lean:17:8: automatically included section variable(s) unused in theorem `APPTReview.partialTransposeRight_eq_transpose`:
+  [Fintype a]
+  [Fintype b]
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] [Fintype b] [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3630/3638] Built APPTReview.Hadamard (1.8s)
+warning: APPTReview/Hadamard.lean:34:0: automatically included section variable(s) unused in theorem `APPTReview.hadamard_conjTranspose`:
+  [Fintype a]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/Hadamard.lean:49:8: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3631/3639] Built APPTReview.SOS (1.5s)
+⚠ [3632/3639] Built APPTReview.QuantumWitness (1.6s)
+warning: APPTReview/QuantumWitness.lean:24:6: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPTReview/QuantumWitness.lean:30:6: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [3633/3639] Built APPTReview.LogBounds (2.2s)
+⚠ [3635/3640] Built APPTReview.Star (1.6s)
+info: APPTReview/Star.lean:38:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: APPTReview/Star.lean:37:37: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dotProduct, Matrix.mulVec, Fin.sum_univ_succ, starMatrix, starVector, mul_add, Finset.sum_add_distrib,
+    ← Finset.sum_mul, pow_two]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/Star.lean:37:55: This simp argument is unused:
+  ← Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dotProduct, Matrix.mulVec, Fin.sum_univ_succ, starMatrix, starVector, mul_add, Finset.sum_add_distrib,
+    ← Finset.mul_sum, pow_two]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/Star.lean:103:28: This simp argument is unused:
+  Fin.succ_ne_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, witnessMatrix, ne_of_lt (Fin.succ_pos i), Fin.succ_pos, sub_eq_add_neg, add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3636/3640] Built APPTReview.EntropyHead (2.4s)
+✔ [3638/3640] Built APPTReview.SortedWitness (1.8s)
+✔ [3639/3691] Built APPTReview.PairSlots (1.7s)
+⚠ [3686/3699] Built APPTReview.GraphBounds (1.7s)
+warning: APPTReview/GraphBounds.lean:9:0: automatically included section variable(s) unused in theorem `APPTReview.nonnegative_matrix_quadratic_abs`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3687/3707] Built APPTReview.PairWitness (1.5s)
+✔ [3688/3707] Built APPTReview.SpectralBounds (1.9s)
+⚠ [3689/3709] Built APPTReview.PairGraph (1.6s)
+warning: APPTReview/PairGraph.lean:38:42: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gapMatrix, Matrix.one_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/PairGraph.lean:38:65: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gapMatrix, Matrix.diagonal_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/PairGraph.lean:38:88: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3690/3709] Built APPTReview.CornerSort (1.9s)
+✔ [3691/3709] Built APPTReview.TriangleRows (1.7s)
+✔ [3692/3709] Built APPTReview.SortedStar (1.7s)
+⚠ [3693/3709] Built APPTReview.RowArrangement (1.6s)
+warning: APPTReview/RowArrangement.lean:12:28: This simp argument is unused:
+  Nat.mod_mod
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [upperPairCode, Nat.add_mod, Nat.mul_mod, Nat.mod_self, mul_zero, Nat.zero_mod, zero_add,
+    Nat.mod_eq_of_lt hp, Nat.mod_eq_of_lt hq] at hmod
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [3694/3709] Built APPTReview.SortedEntropy (2.1s)
+info: APPTReview/SortedEntropy.lean:72:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+✔ [3695/3719] Built APPTReview.PaperEntropy (1.0s)
+⚠ [3696/3724] Built APPTReview.GraphEnergy (1.6s)
+warning: APPTReview/GraphEnergy.lean:29:22: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, Fin.succ_ne_zero, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/GraphEnergy.lean:27:17: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/GraphEnergy.lean:28:26: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3697/3724] Built APPTReview.BlockContraction (1.9s)
+warning: APPTReview/BlockContraction.lean:19:0: automatically included section variable(s) unused in theorem `APPTReview.localCongruence_posSemidef`:
+  [DecidableEq a]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/BlockContraction.lean:23:0: automatically included section variable(s) unused in theorem `APPTReview.localCongruence_apply`:
+  [DecidableEq a]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/BlockContraction.lean:27:54: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [localCongruence, localLift, Matrix.mul_apply, Matrix.conjTranspose_apply, Fintype.sum_prod_type,
+    Matrix.one_apply, mul_ite, ite_mul, Finset.sum_mul, Finset.mul_sum, complex_conj_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/BlockContraction.lean:29:38: This simp argument is unused:
+  Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [localCongruence, localLift, Matrix.mul_apply, Matrix.kronecker_apply, Matrix.conjTranspose_apply,
+    Fintype.sum_prod_type, Matrix.one_apply, mul_ite, ite_mul, Finset.sum_mul, complex_conj_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/BlockContraction.lean:43:51: This simp argument is unused:
+  complex_conj_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [localDiagonal, hi, hj, mul_ite, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3698/3728] Built APPTReview.SpectralGap (1.7s)
+✔ [3699/3728] Built APPTReview.BoundarySpectrum (1.8s)
+⚠ [3700/3728] Built APPTReview.PositiveMap (2.3s)
+warning: APPTReview/PositiveMap.lean:31:29: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: APPTReview/PositiveMap.lean:54:43: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.add_apply, Matrix.smul_apply, Matrix.sum_apply, localDiagonal_apply, pairPositive_apply,
+    Complex.real_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/PositiveMap.lean:62:41: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [APPT.Quantum.partialTranspose, Finset.sum_add_distrib, hij, ite_and, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/PositiveMap.lean:61:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/PositiveMap.lean:61:18: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/PositiveMap.lean:64:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/PositiveMap.lean:61:8: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [3701/3728] Built APPTReview.CenteredVariance (1.0s)
+✔ [3702/3738] Built APPTReview.BaselineGraph (2.0s)
+✔ [3703/3738] Built APPT.Quantum.RectangularContraction (1.6s)
+⚠ [3704/3738] Built APPTReview.ProjectionState (1.8s)
+warning: APPTReview/ProjectionState.lean:9:0: automatically included section variable(s) unused in theorem `APPTReview.hermitian_idempotent_posSemidef`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/ProjectionState.lean:51:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/ProjectionState.lean:51:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/ProjectionState.lean:51:10: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPTReview/ProjectionState.lean:90:0: automatically included section variable(s) unused in theorem `APPTReview.setProjection_hermitian`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/ProjectionState.lean:92:4: This simp argument is unused:
+  complex_conj_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [setProjection, Matrix.IsHermitian, funext_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: APPTReview/ProjectionState.lean:92:22: This simp argument is unused:
+  funext_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [setProjection, Matrix.IsHermitian, complex_conj_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3705/3738] Built APPTReview.ResidualGraph (2.6s)
+⚠ [3707/3738] Built APPTReview.SpectralBaseline (2.3s)
+warning: APPTReview/SpectralBaseline.lean:42:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+✔ [3708/3741] Built APPTReview.FinitePurity (1.8s)
+✔ [3709/3742] Built APPTReview.PurityNormalization (2.7s)
+⚠ [3710/3742] Built Spectrum.Finite (1.8s)
+warning: Spectrum/Finite.lean:88:0: automatically included section variable(s) unused in theorem `ExtractionSpectrum.diagonal_square_le_trace_square`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3711/3742] Built APPTReview.UniformPurityUpper (4.1s)
+warning: APPTReview/UniformPurityUpper.lean:46:57: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/UniformPurityUpper.lean:75:69: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/UniformPurityUpper.lean:84:59: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/UniformPurityUpper.lean:89:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/UniformPurityUpper.lean:46:57: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPTReview/UniformPurityUpper.lean:75:69: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPTReview/UniformPurityUpper.lean:84:59: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: APPTReview/UniformPurityUpper.lean:89:19: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [3712/3742] Built CircuitCompletion.Spectators (1.5s)
+warning: CircuitCompletion/Spectators.lean:47:15: This simp argument is unused:
+  Gate.lift
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [prefixBits_update, suffixBits_update, prefixBits]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/Spectators.lean:110:18: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3713/3742] Built Spectrum.Tensor (1.6s)
+warning: Spectrum/Tensor.lean:14:0: automatically included section variable(s) unused in theorem `ExtractionSpectrum.iidLaw_nonneg`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Spectrum/Tensor.lean:15:47: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Spectrum/Tensor.lean:17:0: automatically included section variable(s) unused in theorem `ExtractionSpectrum.iidLaw_sum`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Spectrum/Tensor.lean:60:0: automatically included section variable(s) unused in theorem `ExtractionSpectrum.tensorMatrix_mul`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Spectrum/Tensor.lean:70:0: automatically included section variable(s) unused in theorem `ExtractionSpectrum.tensorMatrix_conjTranspose`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Spectrum/Tensor.lean:83:47: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Spectrum/Tensor.lean:84:51: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Spectrum/Tensor.lean:75:0: automatically included section variable(s) unused in theorem `ExtractionSpectrum.tensorMatrix_one`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Spectrum/Tensor.lean:95:52: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Spectrum/Tensor.lean:96:51: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Spectrum/Tensor.lean:86:0: automatically included section variable(s) unused in theorem `ExtractionSpectrum.tensorMatrix_diagonal`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3714/3742] Built APPTReview.AsymptoticUpper (1.5s)
+warning: APPTReview/AsymptoticUpper.lean:20:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/AsymptoticUpper.lean:20:8: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [3715/3742] Built APPTReview.PlateauApproximation (3.7s)
+warning: APPTReview/PlateauApproximation.lean:66:33: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/PlateauApproximation.lean:66:33: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [3716/3742] Built APPTReview.IntervalMoment (1.9s)
+warning: APPTReview/IntervalMoment.lean:36:39: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: APPTReview/IntervalMoment.lean:62:27: Variable name `hCL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3717/3745] Built APPTReview.FixedLocalRatio (2.5s)
+⚠ [3718/3745] Built APPTReview.FixedLocalUpper (10s)
+warning: APPTReview/FixedLocalUpper.lean:92:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: APPTReview/FixedLocalUpper.lean:79:15: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/FixedLocalUpper.lean:84:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: APPTReview/FixedLocalUpper.lean:92:19: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [3719/3745] Built CircuitCompletion.OccupationBranch (1.6s)
+✔ [3720/3747] Built APPTReview.FixedLocalLimit (2.3s)
+⚠ [3721/3747] Built CircuitCompletion.OccupationRecurrence (1.6s)
+warning: CircuitCompletion/OccupationRecurrence.lean:26:15: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: CircuitCompletion/OccupationRecurrence.lean:30:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: CircuitCompletion/OccupationRecurrence.lean:19:40: This simp argument is unused:
+  Multiset.count_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Sym.cons, h, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CircuitCompletion/OccupationRecurrence.lean:19:62: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Sym.cons, Multiset.count_cons, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3722/3747] Built APPTReview.StateTopology (1.6s)
+warning: APPTReview/StateTopology.lean:11:0: automatically included section variable(s) unused in theorem `APPTReview.continuous_partialTranspose`:
+  [Fintype a]
+  [Fintype b]
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype a] [Fintype b] [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/StateTopology.lean:25:13: `Set.setOf_forall` has been deprecated: Use `Set.ofPred_forall` instead
+warning: APPTReview/StateTopology.lean:32:0: automatically included section variable(s) unused in theorem `APPTReview.continuous_quantum_trace`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/StateTopology.lean:37:0: automatically included section variable(s) unused in theorem `APPTReview.continuous_quantum_purity`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: APPTReview/StateTopology.lean:48:0: automatically included section variable(s) unused in theorem `APPTReview.purity_eq_entry_norm_sum`:
+  [DecidableEq a]
+  [DecidableEq b]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq a] [DecidableEq b] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3723/3747] Built SpectralProtocol.MassLower (1.8s)
+warning: SpectralProtocol/MassLower.lean:74:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3725/3747] Built CircuitCompletion.NormalizedBranch (1.6s)
+warning: CircuitCompletion/NormalizedBranch.lean:41:8: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+warning: CircuitCompletion/NormalizedBranch.lean:51:41: `if_true` has been deprecated: Use `ite_true` instead
+warning: CircuitCompletion/NormalizedBranch.lean:54:8: `dif_neg` has been deprecated: Use `dite_eq_right` instead

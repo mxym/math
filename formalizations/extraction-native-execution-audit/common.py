@@ -59,8 +59,10 @@ def package_roots():
             roots.append(p)
     if len(roots)!=len(set(roots)):raise ValueError('Duplicate package root')
     return roots
+def root_metadata_file(p):
+    return Path(p)in {ROOT/n for n in ['SOURCE_HASHES.json','BINDING.json','PREPARATION_RESULT.json']}
 def inventory():
-    roots=package_roots();s=scope();seen=set();external=set();todo=[ROOT/'NativeExecutionAudit.lean',ROOT/'NativeExecutionVerification/ReplaySupport.lean']
+    roots=package_roots();s=scope();seen=set();external=set();todo=[ROOT/'NativeExecutionAudit.lean',ROOT/'NativeExecutionVerification.lean',ROOT/'NativeExecutionVerification/ReplaySupport.lean']
     while todo:
         p=todo.pop()
         if p in seen:continue
@@ -77,7 +79,7 @@ def inventory():
     selected=set(seen)
     for p in ROOT.rglob('*'):
         rel=p.relative_to(ROOT)
-        if p.is_file()and not any(x in {'.lake','verification','__pycache__'}for x in rel.parts)and p.name not in {'SOURCE_HASHES.json','BINDING.json','PREPARATION_RESULT.json'}:selected.add(p)
+        if p.is_file()and not any(x in {'.lake','verification','__pycache__'}for x in rel.parts)and not root_metadata_file(p):selected.add(p)
     for q in roots:
         for n in ['lakefile.toml','lakefile.lean','lake-manifest.json','lean-toolchain']:
             if (q/n).is_file():selected.add(q/n)
@@ -118,8 +120,15 @@ def parse_axioms(text,names):
     if any(set(a)-ALLOW for _,a in rows):raise ValueError('Unexpected axiom')
     return dict(rows)
 def file_manifest(out):
-    result={}
-    for p in sorted(Path(out).rglob('*')):
+    out=Path(out);result={}
+    for p in sorted(out.rglob('*')):
         if p.is_symlink():raise ValueError('Symlinked artifact')
-        if p.is_file()and p.name!='EVIDENCE_HASHES.json':result[p.relative_to(out).as_posix()]=sha(p)
+        if p.is_file()and p!=out/'EVIDENCE_HASHES.json':result[p.relative_to(out).as_posix()]=sha(p)
     return result
+def expected_owned_outputs():
+    inputs=list(readj(ROOT/'IMPORT_CLOSURE_HASHES.json'))+[PREFIX+'/NativeExecutionAudit.lean',PREFIX+'/NativeExecutionVerification.lean',PREFIX+'/NativeExecutionVerification/ReplaySupport.lean']
+    packages=sorted(package_roots(),key=lambda p:len(p.parts),reverse=True);outputs=set()
+    for n in inputs:
+        source=REPO/n;pkg=next(p for p in packages if source.is_relative_to(p))
+        outputs.add((pkg/'.lake/build/lib/lean'/source.relative_to(pkg).with_suffix('.olean')).relative_to(REPO).as_posix())
+    return outputs

@@ -1,0 +1,13 @@
+Historical real tool output, transcribed from this agent's delivered tool results.
+These are the original r1 results, not results of the corrected r2 recipe.
+Original metadata commit: 0e25b96edcbfe5992f4f555f64da87336e94deba
+Original SOURCE_HASHES.json SHA256: 23e0d45f86979bd444b96b0770d2e496aebfae3cbbd8829b13c7b58091178de9
+Original BINDING.json SHA256: 7f6670680f5b2b412a435258f377a7706d37996ec03c97534ff99022135c498e
+
+Check-only tool chunk 68505b, exit code 0:
+{'status': 'NATIVE_EXECUTION_CHECK_ONLY_PASS', 'source_commit': '8b78ef1ea7c16af0bb98ae8fb6bb97ac3272ee78', 'inputs': 518, 'theorems': 33, 'models': 53, 'controls': 33, 'kernel_run': False}
+
+Selftest session 8110, final tool chunk 218495, exit code 0:
+{'status': 'NATIVE_EXECUTION_READER_SELFTEST_PASS', 'checks': ['positive_empty_axiom_set_and_object_executables', 'string_executables', 'missing_control_root', 'empty_dependency_line', 'extra_axiom', 'changed_memory_cap', 'post_drift', 'changed_model_body', 'missing_kinds', 'changed_invocation', 'duplicate_json_key', 'unsealed_extra_file', 'downloaded_latest_wrapper', 'unexpected_outer_artifact_file', 'unsafe_path_../outside', 'unsafe_path_/absolute', 'unsafe_path_a\\b', 'unsafe_path_a/../b', 'unsafe_path_a//b'], 'kernel_run': False}
+
+Original fresh run session 55193: toolchain PASS; build manually terminated before types or positive replay. The unmodified actual STAGES.json, PRE_AUDIT.json, build.log and interruption note remain in verification/native-execution-20261018T231549557004Z and are copied separately for provenance. Build exit -15, 212.419 seconds. There was no positive mathematical replay or strict-control run in r1.
