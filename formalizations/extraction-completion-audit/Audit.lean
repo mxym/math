@@ -114,6 +114,14 @@ run_cmd (CompletionVerification.replayAll [
   ``CircuitRecursion.stageCircuit_length,
   ``CircuitRecursion.compressionCircuit_length,
   ``CircuitRecursion.compressionCircuit_polynomial_bound,
+  ``CircuitRecursion.conjugacyTarget_entries,
+  ``CircuitRecursion.conjugacyTarget_scalar,
+  ``CircuitRecursion.intertwinerMass_nonneg,
+  ``CircuitRecursion.intertwinerMass_sum,
+  ``CircuitRecursion.intertwinerMass_large,
+  ``CircuitRecursion.rationalMaxIndex_error,
+  ``CircuitRecursion.conditionedChart_denominator,
+  ``CircuitRecursion.chartConjugator_action,
   ``CircuitRecursion.dyadicCircuitPrecision_error,
   ``CircuitRecursion.finiteLibrary_extraction_precision,
   ``CircuitRecursion.codeWires_available,
@@ -152,6 +160,33 @@ run_cmd (CompletionVerification.replayAll [
   ``CircuitRecursion.finiteLibrary_extraction,
   ``CircuitRecursion.extractionCircuit_real_bound,
   ``CircuitRecursion.extractionCircuit_isBigO,
+  ``CircuitRecursion.oracleConst_correct,
+  ``CircuitRecursion.oracleMeanPlus_correct,
+  ``CircuitRecursion.oracleMeanMinus_correct,
+  ``CircuitRecursion.halfCosOracle_correct,
+  ``CircuitRecursion.mergeAngle_bounds,
+  ``CircuitRecursion.mergeCosOracle_correct,
+  ``CircuitRecursion.mergeSinOracle_correct,
+  ``CircuitRecursion.halvedMergeCosOracle_correct,
+  ``CircuitRecursion.halfSinOracle_correct,
+  ``CircuitRecursion.halvedMergeSinOracle_correct,
+  ``CircuitRecursion.halfCosProgram_eval,
+  ``CircuitRecursion.halfCosProgram_queries,
+  ``CircuitRecursion.halfCosProgram_calls,
+  ``CircuitRecursion.halfAngleDemand_exact,
+  ``CircuitRecursion.active_halfAngleDemand_bound,
+  ``CircuitRecursion.mergeCosProgram_eval,
+  ``CircuitRecursion.mergeSinProgram_eval,
+  ``CircuitRecursion.mergeCosProgram_resources,
+  ``CircuitRecursion.mergeSinProgram_resources,
+  ``CircuitRecursion.halfAngleDemand_ge,
+  ``CircuitRecursion.mergeCosProgram_precision,
+  ``CircuitRecursion.mergeSinProgram_precision,
+  ``CircuitRecursion.mergePhaseProgram_correct,
+  ``CircuitRecursion.mergeCosProgram_range,
+  ``CircuitRecursion.mergeCosProgram_dyadic,
+  ``CircuitRecursion.mergeSinProgram_dyadic,
+  ``CircuitRecursion.active_mergePhaseProgram_resources,
   ``CircuitRecursion.bitPurePower_density,
   ``CircuitRecursion.bitPurePower_copywiseInput,
   ``CircuitRecursion.readoutCoordinates_physical,
@@ -162,6 +197,13 @@ run_cmd (CompletionVerification.replayAll [
   ``CircuitRecursion.pureOccupationCoefficients_square,
   ``CircuitRecursion.extractionOutput_coherent,
   ``CircuitRecursion.extractionOutput_purePower,
+  ``CircuitRecursion.quaternionMatrix_norm_square,
+  ``CircuitRecursion.su2_sub_quaternion,
+  ``CircuitRecursion.su2_distance_coordinates,
+  ``CircuitRecursion.square_distance_error,
+  ``CircuitRecursion.distanceScore_correct,
+  ``CircuitRecursion.fixedNetWord_correct,
+  ``CircuitRecursion.fixedNetWord_length,
   ``CircuitRecursion.qubitRepresentative_exists,
   ``CircuitRecursion.qubitRepresentative_spec,
   ``CircuitRecursion.gatePhase_normalized,
@@ -177,6 +219,16 @@ run_cmd (CompletionVerification.replayAll [
   ``CircuitRecursion.occupationMass_partial_ge_inverse,
   ``CircuitRecursion.rational_mergeAngle_trig,
   ``CircuitRecursion.occupation_partial_mergeAngle_trig,
+  ``CircuitRecursion.oracleAdd_correct,
+  ``CircuitRecursion.oracleNeg_correct,
+  ``CircuitRecursion.dyadic_scale,
+  ``CircuitRecursion.oracleMul_correct,
+  ``CircuitRecursion.oracleInv_correct,
+  ``CircuitRecursion.rationalSqrtApprox_correct,
+  ``CircuitRecursion.sqrt_input_error,
+  ``CircuitRecursion.oracleSqrt_correct,
+  ``CircuitRecursion.rationalSqrtApprox_dyadic,
+  ``CircuitRecursion.rationalSqrtApprox_range,
   ``CircuitRecursion.castBits_apply,
   ``CircuitRecursion.pairwiseCoordinates_alice,
   ``CircuitRecursion.pairwiseCoordinates_bob,
@@ -184,6 +236,11 @@ run_cmd (CompletionVerification.replayAll [
   ``CircuitRecursion.local_register_split,
   ``CircuitRecursion.pairwiseCoordinates_physical,
   ``CircuitRecursion.readoutCoordinates_split,
+  ``CircuitRecursion.boundedWords_mem,
+  ``CircuitRecursion.boundedWords_length,
+  ``CircuitRecursion.precomputedNet_exists,
+  ``CircuitRecursion.numericalBase_exists,
+  ``CircuitRecursion.dyadic_numerator_bound,
   ``CircuitRecursion.prefixCircuit_length,
   ``CircuitRecursion.extendBits_eq_pad,
   ``CircuitRecursion.prefixCircuit_eq_lift,
@@ -195,6 +252,17 @@ run_cmd (CompletionVerification.replayAll [
   ``CircuitRecursion.compressionCircuit_coherent,
   ``CircuitRecursion.bitPurePower_expansion,
   ``CircuitRecursion.compressionCircuit_purePower,
+  ``CircuitRecursion.quaternionCoordinates_bound,
+  ``CircuitRecursion.quaternionCoordinates_mul,
+  ``CircuitRecursion.quaternionSign_abs,
+  ``CircuitRecursion.unit_product_error,
+  ``CircuitRecursion.quaternionProduct_error,
+  ``CircuitRecursion.quaternionProduct_cast,
+  ``CircuitRecursion.quaternionOracleMul_correct,
+  ``CircuitRecursion.quaternionOracleOne_correct,
+  ``CircuitRecursion.quaternionWordOracle_correct,
+  ``CircuitRecursion.wordOracleQueries_count,
+  ``CircuitRecursion.wordOracleQueries_precision,
   ``CircuitRecursion.quaternionMatrix_star_mul,
   ``CircuitRecursion.quaternionMatrix_det,
   ``CircuitRecursion.normalizedQuaternion_val,
@@ -274,6 +342,8 @@ run_cmd (CompletionVerification.replayAll [
   ``OperationalCompletion.reservationSafeCutoff_expansion,
   ``OperationalCompletion.reservedProtocol_berryEsseen,
   ``OperationalCompletion.reserved_optimal_gaussian_limit,
+  ``OperationalCompletion.reserved_optimum_gaussian_error,
+  ``OperationalCompletion.triangular_reserved_optimum_gaussian_error,
   ``OperationalCompletion.bellProjector_one,
   ``OperationalCompletion.protocol_fidelity_one,
   ``OperationalCompletion.density_entropy_rank_bounds,
@@ -362,15 +432,40 @@ run_cmd (CompletionVerification.replayAll [
   ``ExtractionRains.protocol_fidelity,
   ``ExtractionRains.rainsEffect_exists_actual_protocol,
   ``ExtractionRains.rainsEffect_iff_actual_protocol_effect,
-  ``ExtractionSchur.rankBudget_class_minimax_finite,
-  ``ExtractionSchur.rankBudgetPacking_ratio_limit,
+  ``ExtractionSchur.errorRankBudgetMaximum_attained,
+  ``ExtractionSchur.errorRankBudgetMaximum_full_rank,
+  ``ExtractionSchur.errorRankBudgetMaximum_isGreatest,
+  ``ExtractionSchur.errorRankBudgetMaximum_log_limit,
+  ``ExtractionSchur.exactRankBudgetMaximum_attained,
+  ``ExtractionSchur.exactRankBudgetMaximum_bounds,
+  ``ExtractionSchur.exactRankBudgetMaximum_eventually_local,
+  ``ExtractionSchur.exactRankBudgetMaximum_full_rank,
+  ``ExtractionSchur.exactRankBudgetMaximum_log_correction_limit,
+  ``ExtractionSchur.exact_fixedOrbit_physical_budget,
+  ``ExtractionSchur.flatOrbitErrorMaximum_attained,
+  ``ExtractionSchur.flatOrbitErrorMaximum_bounds,
+  ``ExtractionSchur.flatOrbitErrorMaximum_full_rank,
+  ``ExtractionSchur.flatOrbitErrorMaximum_isGreatest,
+  ``ExtractionSchur.flatOrbitErrorMaximum_log_limit,
+  ``ExtractionSchur.flatOrbit_full_rank_minimax,
+  ``ExtractionSchur.flatOrbit_minimax_profile_bounds,
+  ``ExtractionSchur.flatOrbit_target_uniform_minimax,
+  ``ExtractionSchur.flatOrbit_target_uniform_relative_error,
+  ``ExtractionSchur.orbitExactMaximum_attained,
+  ``ExtractionSchur.orbitExactMaximum_bounds,
+  ``ExtractionSchur.orbitExactMaximum_eventually_local,
+  ``ExtractionSchur.orbitExactMaximum_full_rank,
+  ``ExtractionSchur.orbitExactMaximum_isGreatest,
+  ``ExtractionSchur.orbitExactMaximum_log_correction_limit,
   ``ExtractionSchur.rankBudgetEta_limit,
+  ``ExtractionSchur.rankBudgetPacking_ratio_limit,
+  ``ExtractionSchur.rankBudget_class_minimax_finite,
+  ``ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue,
+  ``ExtractionSchur.rankBudget_full_rank_minimax,
+  ``ExtractionSchur.rankBudget_physical_class_chain,
   ``ExtractionSchur.rankBudget_physical_relative_bound,
   ``ExtractionSchur.rankBudget_target_uniform_minimax,
   ``ExtractionSchur.rankBudget_target_uniform_relative_error,
-  ``ExtractionSchur.rankBudget_full_rank_minimax,
-  ``ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue,
-  ``ExtractionSchur.rankBudget_physical_class_chain,
   ``ExtractionAPPT.trace_cfc,
   ``ExtractionAPPT.quantumEntropy_eq_spectral,
   ``ExtractionAPPT.continuousOn_quantumEntropy,
@@ -416,6 +511,15 @@ run_cmd (CompletionVerification.replayAll [
   ``ExtractionAPPT.spikeState_scaled_capacity_limit,
   ``ExtractionAPPT.balanced_apptMaxCapacity_lower,
   ``ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds,
+  ``OperationalCompletion.heterogeneous_projection_protocol,
+  ``SpectralProtocol.oneShotSpectralEnvelope_actual_lower,
+  ``SpectralProtocol.oneShotSpectralEnvelope_actual_upper,
+  ``MinimaxProfile.tensorProjection_rank_le,
+  ``MinimaxProfile.tensorProjection_mass_ge,
+  ``ExtractionSchur.haarOrbitAverage_range,
+  ``ExtractionSchur.haarOrbitAverage_rank,
+  ``ExtractionSchur.haarOrbitAverage_trace_square,
+  ``ExtractionSchur.haarMinorMoment_product,
   ``ExtractionCP.amplification,
   ``ExtractionCP.CompletelyPositive,
   ``ExtractionCP.TracePreserving,
@@ -470,6 +574,53 @@ run_cmd (CompletionVerification.replayAll [
   ``CircuitRecursion.libraryGateCompiler,
   ``CircuitRecursion.libraryPrecision,
   ``CircuitRecursion.circuitPhase,
+  ``CircuitRecursion.conjugacyFrame,
+  ``CircuitRecursion.conjugacyTarget,
+  ``CircuitRecursion.intertwinerMass,
+  ``CircuitRecursion.rationalMaxIndex,
+  ``CircuitRecursion.chartConjugator,
+  ``CircuitRecursion.RationalOracle,
+  ``CircuitRecursion.Approximates,
+  ``CircuitRecursion.oracleAdd,
+  ``CircuitRecursion.oracleNeg,
+  ``CircuitRecursion.oracleMul,
+  ``CircuitRecursion.oracleInv,
+  ``CircuitRecursion.rationalSqrtApprox,
+  ``CircuitRecursion.oracleSqrt,
+  ``CircuitRecursion.oracleConst,
+  ``CircuitRecursion.oracleMeanPlus,
+  ``CircuitRecursion.oracleMeanMinus,
+  ``CircuitRecursion.halfCosOracle,
+  ``CircuitRecursion.mergeCosOracle,
+  ``CircuitRecursion.mergeSinOracle,
+  ``CircuitRecursion.halfSinOracle,
+  ``CircuitRecursion.ScalarProgram,
+  ``CircuitRecursion.ScalarProgram.eval,
+  ``CircuitRecursion.ScalarProgram.queries,
+  ``CircuitRecursion.ScalarProgram.sqrtCalls,
+  ``CircuitRecursion.ScalarProgram.rationalCalls,
+  ``CircuitRecursion.halfCosProgram,
+  ``CircuitRecursion.halfAngleDemand,
+  ``CircuitRecursion.mergeCosProgram,
+  ``CircuitRecursion.mergeSinProgram,
+  ``CircuitRecursion.ScalarProgram.maxRootPrecision,
+  ``CircuitRecursion.quaternionCoordinates,
+  ``CircuitRecursion.quaternionRight,
+  ``CircuitRecursion.quaternionSign,
+  ``CircuitRecursion.quaternionProduct,
+  ``CircuitRecursion.QuaternionOracle,
+  ``CircuitRecursion.QApproximates,
+  ``CircuitRecursion.quaternionOracleMul,
+  ``CircuitRecursion.quaternionOracleOne,
+  ``CircuitRecursion.quaternionWordOracle,
+  ``CircuitRecursion.wordOracleQueries,
+  ``CircuitRecursion.rationalSquaredDistance,
+  ``CircuitRecursion.distanceScore,
+  ``CircuitRecursion.fixedNetWord,
+  ``CircuitRecursion.boundedWords,
+  ``CircuitRecursion.DyadicQuaternionOracle,
+  ``CircuitRecursion.dyadicQuaternionOracle,
+  ``CircuitRecursion.DyadicQApproximates,
   ``OperationalCompletion.reservedTargets,
   ``OperationalCompletion.reservedFixedErrorTarget,
   ``OperationalCompletion.reservedTotalLoss,
@@ -522,6 +673,17 @@ run_cmd (CompletionVerification.replayAll [
   ``ExtractionSchur.rankBudgetWidth,
   ``ExtractionSchur.rankBudgetPacking,
   ``ExtractionSchur.rankBudgetEta,
+  ``ExtractionSchur.exactRankBudgetTargets,
+  ``ExtractionSchur.errorRankBudgetTargets,
+  ``ExtractionSchur.exactRankBudgetMaximum,
+  ``ExtractionSchur.errorRankBudgetMaximum,
+  ``ExtractionSchur.rankBudgetLogScale,
+  ``ExtractionSchur.densityOrbitInput,
+  ``ExtractionSchur.orbitExactTargets,
+  ``ExtractionSchur.orbitExactMaximum,
+  ``ExtractionSchur.flatOrbitPhysicalMinimax,
+  ``ExtractionSchur.flatOrbitErrorTargets,
+  ``ExtractionSchur.flatOrbitErrorMaximum,
   ``ExtractionAPPT.quantumEntropy,
   ``ExtractionAPPT.flatten,
   ``ExtractionAPPT.apptEntropyValues,
@@ -530,7 +692,9 @@ run_cmd (CompletionVerification.replayAll [
   ``ExtractionAPPT.apptCapacityValues,
   ``ExtractionAPPT.apptMaxCapacity,
   ``ExtractionAPPT.spikeState,
-  ``ExtractionAPPT.purityCapacityBudget
+  ``ExtractionAPPT.purityCapacityBudget,
+  ``MinimaxProfile.KrausPPTProtocol,
+  ``MinimaxProfile.tensorInput
 ] "verification/completion-kernel")
 
 run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionCP.completelyPositive_iff_choi_posSemidef "verification/completion-control-1"
@@ -564,33 +728,56 @@ run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.bellPairY
 run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.extractionCircuit_isBigO "verification/completion-control-29"
 run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.su2_synthesis_dyadic "verification/completion-control-30"
 run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.finiteLibrary_extraction "verification/completion-control-31"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedFixedErrorTarget_gaussian "verification/completion-control-32"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedProtocol_berryEsseen "verification/completion-control-33"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reserved_optimal_gaussian_limit "verification/completion-control-34"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.protocol_fidelity_one "verification/completion-control-35"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.faithfulCapacity_eq "verification/completion-control-36"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.exactCapacity_eq "verification/completion-control-37"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.finiteLOCC_capacities "verification/completion-control-38"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.measurable_physical_ensemble_bound "verification/completion-control-39"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedProtocol_gaussian_error "verification/completion-control-40"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.triangular_reserved_gaussian_shrinking_variance "verification/completion-control-41"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedTotalLoss_dimension_bound "verification/completion-control-42"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.leafKraus_complete "verification/completion-control-43"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.channel_pt_completelyPositive "verification/completion-control-44"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.productLocal_isFiniteLOCCProtocol "verification/completion-control-45"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.IsClosureLOCC.exists_actual_protocol "verification/completion-control-46"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Instrument.ofCP_outcomeMap "verification/completion-control-47"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.channel_aliceInstrument "verification/completion-control-48"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.channel_target_overlap "verification/completion-control-49"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.pt_channel_decomposition "verification/completion-control-50"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.rainsEffect_iff_actual_protocol_effect "verification/completion-control-51"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_class_minimax_finite "verification/completion-control-52"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_target_uniform_relative_error "verification/completion-control-53"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_full_rank_minimax "verification/completion-control-54"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.quantumEntropy_eq_spectral "verification/completion-control-55"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.exists_appt_entropy_eq_inf "verification/completion-control-56"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.apptMaxCapacity_eq "verification/completion-control-57"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.spikeState_absolutelyPPT "verification/completion-control-58"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.spikeState_entropy "verification/completion-control-59"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.spikeState_capacity_error_bounds "verification/completion-control-60"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds "verification/completion-control-61"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.conditionedChart_denominator "verification/completion-control-32"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.chartConjugator_action "verification/completion-control-33"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.oracleMul_correct "verification/completion-control-34"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.oracleInv_correct "verification/completion-control-35"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.oracleSqrt_correct "verification/completion-control-36"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.mergePhaseProgram_correct "verification/completion-control-37"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.active_mergePhaseProgram_resources "verification/completion-control-38"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.quaternionWordOracle_correct "verification/completion-control-39"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.numericalBase_exists "verification/completion-control-40"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedFixedErrorTarget_gaussian "verification/completion-control-41"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedProtocol_berryEsseen "verification/completion-control-42"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reserved_optimal_gaussian_limit "verification/completion-control-43"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reserved_optimum_gaussian_error "verification/completion-control-44"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.triangular_reserved_optimum_gaussian_error "verification/completion-control-45"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.protocol_fidelity_one "verification/completion-control-46"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.faithfulCapacity_eq "verification/completion-control-47"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.exactCapacity_eq "verification/completion-control-48"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.finiteLOCC_capacities "verification/completion-control-49"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.measurable_physical_ensemble_bound "verification/completion-control-50"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedProtocol_gaussian_error "verification/completion-control-51"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.triangular_reserved_gaussian_shrinking_variance "verification/completion-control-52"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedTotalLoss_dimension_bound "verification/completion-control-53"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.leafKraus_complete "verification/completion-control-54"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.channel_pt_completelyPositive "verification/completion-control-55"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.productLocal_isFiniteLOCCProtocol "verification/completion-control-56"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.IsClosureLOCC.exists_actual_protocol "verification/completion-control-57"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Instrument.ofCP_outcomeMap "verification/completion-control-58"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.channel_aliceInstrument "verification/completion-control-59"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.channel_target_overlap "verification/completion-control-60"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.pt_channel_decomposition "verification/completion-control-61"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.rainsEffect_iff_actual_protocol_effect "verification/completion-control-62"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_class_minimax_finite "verification/completion-control-63"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_target_uniform_relative_error "verification/completion-control-64"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_full_rank_minimax "verification/completion-control-65"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.exactRankBudgetMaximum_attained "verification/completion-control-66"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.errorRankBudgetMaximum_log_limit "verification/completion-control-67"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.exactRankBudgetMaximum_log_correction_limit "verification/completion-control-68"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.orbitExactMaximum_attained "verification/completion-control-69"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.orbitExactMaximum_log_correction_limit "verification/completion-control-70"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.flatOrbit_target_uniform_relative_error "verification/completion-control-71"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.flatOrbitErrorMaximum_full_rank "verification/completion-control-72"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.quantumEntropy_eq_spectral "verification/completion-control-73"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.exists_appt_entropy_eq_inf "verification/completion-control-74"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.apptMaxCapacity_eq "verification/completion-control-75"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.spikeState_absolutelyPPT "verification/completion-control-76"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.spikeState_entropy "verification/completion-control-77"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.spikeState_capacity_error_bounds "verification/completion-control-78"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds "verification/completion-control-79"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.heterogeneous_projection_protocol "verification/completion-control-80"
+run_cmd CompletionVerification.rejectCorruptTheorem ``SpectralProtocol.oneShotSpectralEnvelope_actual_upper "verification/completion-control-81"
+run_cmd CompletionVerification.rejectCorruptTheorem ``MinimaxProfile.tensorProjection_mass_ge "verification/completion-control-82"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.haarOrbitAverage_range "verification/completion-control-83"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.haarMinorMoment_product "verification/completion-control-84"

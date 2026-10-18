@@ -114,6 +114,14 @@ run_cmd (CompletionVerification.checkKinds [
   ``CircuitRecursion.stageCircuit_length,
   ``CircuitRecursion.compressionCircuit_length,
   ``CircuitRecursion.compressionCircuit_polynomial_bound,
+  ``CircuitRecursion.conjugacyTarget_entries,
+  ``CircuitRecursion.conjugacyTarget_scalar,
+  ``CircuitRecursion.intertwinerMass_nonneg,
+  ``CircuitRecursion.intertwinerMass_sum,
+  ``CircuitRecursion.intertwinerMass_large,
+  ``CircuitRecursion.rationalMaxIndex_error,
+  ``CircuitRecursion.conditionedChart_denominator,
+  ``CircuitRecursion.chartConjugator_action,
   ``CircuitRecursion.dyadicCircuitPrecision_error,
   ``CircuitRecursion.finiteLibrary_extraction_precision,
   ``CircuitRecursion.codeWires_available,
@@ -152,6 +160,33 @@ run_cmd (CompletionVerification.checkKinds [
   ``CircuitRecursion.finiteLibrary_extraction,
   ``CircuitRecursion.extractionCircuit_real_bound,
   ``CircuitRecursion.extractionCircuit_isBigO,
+  ``CircuitRecursion.oracleConst_correct,
+  ``CircuitRecursion.oracleMeanPlus_correct,
+  ``CircuitRecursion.oracleMeanMinus_correct,
+  ``CircuitRecursion.halfCosOracle_correct,
+  ``CircuitRecursion.mergeAngle_bounds,
+  ``CircuitRecursion.mergeCosOracle_correct,
+  ``CircuitRecursion.mergeSinOracle_correct,
+  ``CircuitRecursion.halvedMergeCosOracle_correct,
+  ``CircuitRecursion.halfSinOracle_correct,
+  ``CircuitRecursion.halvedMergeSinOracle_correct,
+  ``CircuitRecursion.halfCosProgram_eval,
+  ``CircuitRecursion.halfCosProgram_queries,
+  ``CircuitRecursion.halfCosProgram_calls,
+  ``CircuitRecursion.halfAngleDemand_exact,
+  ``CircuitRecursion.active_halfAngleDemand_bound,
+  ``CircuitRecursion.mergeCosProgram_eval,
+  ``CircuitRecursion.mergeSinProgram_eval,
+  ``CircuitRecursion.mergeCosProgram_resources,
+  ``CircuitRecursion.mergeSinProgram_resources,
+  ``CircuitRecursion.halfAngleDemand_ge,
+  ``CircuitRecursion.mergeCosProgram_precision,
+  ``CircuitRecursion.mergeSinProgram_precision,
+  ``CircuitRecursion.mergePhaseProgram_correct,
+  ``CircuitRecursion.mergeCosProgram_range,
+  ``CircuitRecursion.mergeCosProgram_dyadic,
+  ``CircuitRecursion.mergeSinProgram_dyadic,
+  ``CircuitRecursion.active_mergePhaseProgram_resources,
   ``CircuitRecursion.bitPurePower_density,
   ``CircuitRecursion.bitPurePower_copywiseInput,
   ``CircuitRecursion.readoutCoordinates_physical,
@@ -162,6 +197,13 @@ run_cmd (CompletionVerification.checkKinds [
   ``CircuitRecursion.pureOccupationCoefficients_square,
   ``CircuitRecursion.extractionOutput_coherent,
   ``CircuitRecursion.extractionOutput_purePower,
+  ``CircuitRecursion.quaternionMatrix_norm_square,
+  ``CircuitRecursion.su2_sub_quaternion,
+  ``CircuitRecursion.su2_distance_coordinates,
+  ``CircuitRecursion.square_distance_error,
+  ``CircuitRecursion.distanceScore_correct,
+  ``CircuitRecursion.fixedNetWord_correct,
+  ``CircuitRecursion.fixedNetWord_length,
   ``CircuitRecursion.qubitRepresentative_exists,
   ``CircuitRecursion.qubitRepresentative_spec,
   ``CircuitRecursion.gatePhase_normalized,
@@ -177,6 +219,16 @@ run_cmd (CompletionVerification.checkKinds [
   ``CircuitRecursion.occupationMass_partial_ge_inverse,
   ``CircuitRecursion.rational_mergeAngle_trig,
   ``CircuitRecursion.occupation_partial_mergeAngle_trig,
+  ``CircuitRecursion.oracleAdd_correct,
+  ``CircuitRecursion.oracleNeg_correct,
+  ``CircuitRecursion.dyadic_scale,
+  ``CircuitRecursion.oracleMul_correct,
+  ``CircuitRecursion.oracleInv_correct,
+  ``CircuitRecursion.rationalSqrtApprox_correct,
+  ``CircuitRecursion.sqrt_input_error,
+  ``CircuitRecursion.oracleSqrt_correct,
+  ``CircuitRecursion.rationalSqrtApprox_dyadic,
+  ``CircuitRecursion.rationalSqrtApprox_range,
   ``CircuitRecursion.castBits_apply,
   ``CircuitRecursion.pairwiseCoordinates_alice,
   ``CircuitRecursion.pairwiseCoordinates_bob,
@@ -184,6 +236,11 @@ run_cmd (CompletionVerification.checkKinds [
   ``CircuitRecursion.local_register_split,
   ``CircuitRecursion.pairwiseCoordinates_physical,
   ``CircuitRecursion.readoutCoordinates_split,
+  ``CircuitRecursion.boundedWords_mem,
+  ``CircuitRecursion.boundedWords_length,
+  ``CircuitRecursion.precomputedNet_exists,
+  ``CircuitRecursion.numericalBase_exists,
+  ``CircuitRecursion.dyadic_numerator_bound,
   ``CircuitRecursion.prefixCircuit_length,
   ``CircuitRecursion.extendBits_eq_pad,
   ``CircuitRecursion.prefixCircuit_eq_lift,
@@ -195,6 +252,17 @@ run_cmd (CompletionVerification.checkKinds [
   ``CircuitRecursion.compressionCircuit_coherent,
   ``CircuitRecursion.bitPurePower_expansion,
   ``CircuitRecursion.compressionCircuit_purePower,
+  ``CircuitRecursion.quaternionCoordinates_bound,
+  ``CircuitRecursion.quaternionCoordinates_mul,
+  ``CircuitRecursion.quaternionSign_abs,
+  ``CircuitRecursion.unit_product_error,
+  ``CircuitRecursion.quaternionProduct_error,
+  ``CircuitRecursion.quaternionProduct_cast,
+  ``CircuitRecursion.quaternionOracleMul_correct,
+  ``CircuitRecursion.quaternionOracleOne_correct,
+  ``CircuitRecursion.quaternionWordOracle_correct,
+  ``CircuitRecursion.wordOracleQueries_count,
+  ``CircuitRecursion.wordOracleQueries_precision,
   ``CircuitRecursion.quaternionMatrix_star_mul,
   ``CircuitRecursion.quaternionMatrix_det,
   ``CircuitRecursion.normalizedQuaternion_val,
@@ -274,6 +342,8 @@ run_cmd (CompletionVerification.checkKinds [
   ``OperationalCompletion.reservationSafeCutoff_expansion,
   ``OperationalCompletion.reservedProtocol_berryEsseen,
   ``OperationalCompletion.reserved_optimal_gaussian_limit,
+  ``OperationalCompletion.reserved_optimum_gaussian_error,
+  ``OperationalCompletion.triangular_reserved_optimum_gaussian_error,
   ``OperationalCompletion.bellProjector_one,
   ``OperationalCompletion.protocol_fidelity_one,
   ``OperationalCompletion.density_entropy_rank_bounds,
@@ -362,15 +432,40 @@ run_cmd (CompletionVerification.checkKinds [
   ``ExtractionRains.protocol_fidelity,
   ``ExtractionRains.rainsEffect_exists_actual_protocol,
   ``ExtractionRains.rainsEffect_iff_actual_protocol_effect,
-  ``ExtractionSchur.rankBudget_class_minimax_finite,
-  ``ExtractionSchur.rankBudgetPacking_ratio_limit,
+  ``ExtractionSchur.errorRankBudgetMaximum_attained,
+  ``ExtractionSchur.errorRankBudgetMaximum_full_rank,
+  ``ExtractionSchur.errorRankBudgetMaximum_isGreatest,
+  ``ExtractionSchur.errorRankBudgetMaximum_log_limit,
+  ``ExtractionSchur.exactRankBudgetMaximum_attained,
+  ``ExtractionSchur.exactRankBudgetMaximum_bounds,
+  ``ExtractionSchur.exactRankBudgetMaximum_eventually_local,
+  ``ExtractionSchur.exactRankBudgetMaximum_full_rank,
+  ``ExtractionSchur.exactRankBudgetMaximum_log_correction_limit,
+  ``ExtractionSchur.exact_fixedOrbit_physical_budget,
+  ``ExtractionSchur.flatOrbitErrorMaximum_attained,
+  ``ExtractionSchur.flatOrbitErrorMaximum_bounds,
+  ``ExtractionSchur.flatOrbitErrorMaximum_full_rank,
+  ``ExtractionSchur.flatOrbitErrorMaximum_isGreatest,
+  ``ExtractionSchur.flatOrbitErrorMaximum_log_limit,
+  ``ExtractionSchur.flatOrbit_full_rank_minimax,
+  ``ExtractionSchur.flatOrbit_minimax_profile_bounds,
+  ``ExtractionSchur.flatOrbit_target_uniform_minimax,
+  ``ExtractionSchur.flatOrbit_target_uniform_relative_error,
+  ``ExtractionSchur.orbitExactMaximum_attained,
+  ``ExtractionSchur.orbitExactMaximum_bounds,
+  ``ExtractionSchur.orbitExactMaximum_eventually_local,
+  ``ExtractionSchur.orbitExactMaximum_full_rank,
+  ``ExtractionSchur.orbitExactMaximum_isGreatest,
+  ``ExtractionSchur.orbitExactMaximum_log_correction_limit,
   ``ExtractionSchur.rankBudgetEta_limit,
+  ``ExtractionSchur.rankBudgetPacking_ratio_limit,
+  ``ExtractionSchur.rankBudget_class_minimax_finite,
+  ``ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue,
+  ``ExtractionSchur.rankBudget_full_rank_minimax,
+  ``ExtractionSchur.rankBudget_physical_class_chain,
   ``ExtractionSchur.rankBudget_physical_relative_bound,
   ``ExtractionSchur.rankBudget_target_uniform_minimax,
   ``ExtractionSchur.rankBudget_target_uniform_relative_error,
-  ``ExtractionSchur.rankBudget_full_rank_minimax,
-  ``ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue,
-  ``ExtractionSchur.rankBudget_physical_class_chain,
   ``ExtractionAPPT.trace_cfc,
   ``ExtractionAPPT.quantumEntropy_eq_spectral,
   ``ExtractionAPPT.continuousOn_quantumEntropy,
@@ -415,7 +510,16 @@ run_cmd (CompletionVerification.checkKinds [
   ``ExtractionAPPT.balanced_apptMaxCapacity_upper_remainder,
   ``ExtractionAPPT.spikeState_scaled_capacity_limit,
   ``ExtractionAPPT.balanced_apptMaxCapacity_lower,
-  ``ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds
+  ``ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds,
+  ``OperationalCompletion.heterogeneous_projection_protocol,
+  ``SpectralProtocol.oneShotSpectralEnvelope_actual_lower,
+  ``SpectralProtocol.oneShotSpectralEnvelope_actual_upper,
+  ``MinimaxProfile.tensorProjection_rank_le,
+  ``MinimaxProfile.tensorProjection_mass_ge,
+  ``ExtractionSchur.haarOrbitAverage_range,
+  ``ExtractionSchur.haarOrbitAverage_rank,
+  ``ExtractionSchur.haarOrbitAverage_trace_square,
+  ``ExtractionSchur.haarMinorMoment_product
 ] [
   ``ExtractionCP.amplification,
   ``ExtractionCP.CompletelyPositive,
@@ -471,6 +575,53 @@ run_cmd (CompletionVerification.checkKinds [
   ``CircuitRecursion.libraryGateCompiler,
   ``CircuitRecursion.libraryPrecision,
   ``CircuitRecursion.circuitPhase,
+  ``CircuitRecursion.conjugacyFrame,
+  ``CircuitRecursion.conjugacyTarget,
+  ``CircuitRecursion.intertwinerMass,
+  ``CircuitRecursion.rationalMaxIndex,
+  ``CircuitRecursion.chartConjugator,
+  ``CircuitRecursion.RationalOracle,
+  ``CircuitRecursion.Approximates,
+  ``CircuitRecursion.oracleAdd,
+  ``CircuitRecursion.oracleNeg,
+  ``CircuitRecursion.oracleMul,
+  ``CircuitRecursion.oracleInv,
+  ``CircuitRecursion.rationalSqrtApprox,
+  ``CircuitRecursion.oracleSqrt,
+  ``CircuitRecursion.oracleConst,
+  ``CircuitRecursion.oracleMeanPlus,
+  ``CircuitRecursion.oracleMeanMinus,
+  ``CircuitRecursion.halfCosOracle,
+  ``CircuitRecursion.mergeCosOracle,
+  ``CircuitRecursion.mergeSinOracle,
+  ``CircuitRecursion.halfSinOracle,
+  ``CircuitRecursion.ScalarProgram,
+  ``CircuitRecursion.ScalarProgram.eval,
+  ``CircuitRecursion.ScalarProgram.queries,
+  ``CircuitRecursion.ScalarProgram.sqrtCalls,
+  ``CircuitRecursion.ScalarProgram.rationalCalls,
+  ``CircuitRecursion.halfCosProgram,
+  ``CircuitRecursion.halfAngleDemand,
+  ``CircuitRecursion.mergeCosProgram,
+  ``CircuitRecursion.mergeSinProgram,
+  ``CircuitRecursion.ScalarProgram.maxRootPrecision,
+  ``CircuitRecursion.quaternionCoordinates,
+  ``CircuitRecursion.quaternionRight,
+  ``CircuitRecursion.quaternionSign,
+  ``CircuitRecursion.quaternionProduct,
+  ``CircuitRecursion.QuaternionOracle,
+  ``CircuitRecursion.QApproximates,
+  ``CircuitRecursion.quaternionOracleMul,
+  ``CircuitRecursion.quaternionOracleOne,
+  ``CircuitRecursion.quaternionWordOracle,
+  ``CircuitRecursion.wordOracleQueries,
+  ``CircuitRecursion.rationalSquaredDistance,
+  ``CircuitRecursion.distanceScore,
+  ``CircuitRecursion.fixedNetWord,
+  ``CircuitRecursion.boundedWords,
+  ``CircuitRecursion.DyadicQuaternionOracle,
+  ``CircuitRecursion.dyadicQuaternionOracle,
+  ``CircuitRecursion.DyadicQApproximates,
   ``OperationalCompletion.reservedTargets,
   ``OperationalCompletion.reservedFixedErrorTarget,
   ``OperationalCompletion.reservedTotalLoss,
@@ -523,6 +674,17 @@ run_cmd (CompletionVerification.checkKinds [
   ``ExtractionSchur.rankBudgetWidth,
   ``ExtractionSchur.rankBudgetPacking,
   ``ExtractionSchur.rankBudgetEta,
+  ``ExtractionSchur.exactRankBudgetTargets,
+  ``ExtractionSchur.errorRankBudgetTargets,
+  ``ExtractionSchur.exactRankBudgetMaximum,
+  ``ExtractionSchur.errorRankBudgetMaximum,
+  ``ExtractionSchur.rankBudgetLogScale,
+  ``ExtractionSchur.densityOrbitInput,
+  ``ExtractionSchur.orbitExactTargets,
+  ``ExtractionSchur.orbitExactMaximum,
+  ``ExtractionSchur.flatOrbitPhysicalMinimax,
+  ``ExtractionSchur.flatOrbitErrorTargets,
+  ``ExtractionSchur.flatOrbitErrorMaximum,
   ``ExtractionAPPT.quantumEntropy,
   ``ExtractionAPPT.flatten,
   ``ExtractionAPPT.apptEntropyValues,
@@ -531,7 +693,9 @@ run_cmd (CompletionVerification.checkKinds [
   ``ExtractionAPPT.apptCapacityValues,
   ``ExtractionAPPT.apptMaxCapacity,
   ``ExtractionAPPT.spikeState,
-  ``ExtractionAPPT.purityCapacityBudget
+  ``ExtractionAPPT.purityCapacityBudget,
+  ``MinimaxProfile.KrausPPTProtocol,
+  ``MinimaxProfile.tensorInput
 ])
 
 #check ExtractionCP.completelyPositive_iff_choi_posSemidef
@@ -758,6 +922,22 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms CircuitRecursion.compressionCircuit_length
 #check CircuitRecursion.compressionCircuit_polynomial_bound
 #print axioms CircuitRecursion.compressionCircuit_polynomial_bound
+#check CircuitRecursion.conjugacyTarget_entries
+#print axioms CircuitRecursion.conjugacyTarget_entries
+#check CircuitRecursion.conjugacyTarget_scalar
+#print axioms CircuitRecursion.conjugacyTarget_scalar
+#check CircuitRecursion.intertwinerMass_nonneg
+#print axioms CircuitRecursion.intertwinerMass_nonneg
+#check CircuitRecursion.intertwinerMass_sum
+#print axioms CircuitRecursion.intertwinerMass_sum
+#check CircuitRecursion.intertwinerMass_large
+#print axioms CircuitRecursion.intertwinerMass_large
+#check CircuitRecursion.rationalMaxIndex_error
+#print axioms CircuitRecursion.rationalMaxIndex_error
+#check CircuitRecursion.conditionedChart_denominator
+#print axioms CircuitRecursion.conditionedChart_denominator
+#check CircuitRecursion.chartConjugator_action
+#print axioms CircuitRecursion.chartConjugator_action
 #check CircuitRecursion.dyadicCircuitPrecision_error
 #print axioms CircuitRecursion.dyadicCircuitPrecision_error
 #check CircuitRecursion.finiteLibrary_extraction_precision
@@ -834,6 +1014,60 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms CircuitRecursion.extractionCircuit_real_bound
 #check CircuitRecursion.extractionCircuit_isBigO
 #print axioms CircuitRecursion.extractionCircuit_isBigO
+#check CircuitRecursion.oracleConst_correct
+#print axioms CircuitRecursion.oracleConst_correct
+#check CircuitRecursion.oracleMeanPlus_correct
+#print axioms CircuitRecursion.oracleMeanPlus_correct
+#check CircuitRecursion.oracleMeanMinus_correct
+#print axioms CircuitRecursion.oracleMeanMinus_correct
+#check CircuitRecursion.halfCosOracle_correct
+#print axioms CircuitRecursion.halfCosOracle_correct
+#check CircuitRecursion.mergeAngle_bounds
+#print axioms CircuitRecursion.mergeAngle_bounds
+#check CircuitRecursion.mergeCosOracle_correct
+#print axioms CircuitRecursion.mergeCosOracle_correct
+#check CircuitRecursion.mergeSinOracle_correct
+#print axioms CircuitRecursion.mergeSinOracle_correct
+#check CircuitRecursion.halvedMergeCosOracle_correct
+#print axioms CircuitRecursion.halvedMergeCosOracle_correct
+#check CircuitRecursion.halfSinOracle_correct
+#print axioms CircuitRecursion.halfSinOracle_correct
+#check CircuitRecursion.halvedMergeSinOracle_correct
+#print axioms CircuitRecursion.halvedMergeSinOracle_correct
+#check CircuitRecursion.halfCosProgram_eval
+#print axioms CircuitRecursion.halfCosProgram_eval
+#check CircuitRecursion.halfCosProgram_queries
+#print axioms CircuitRecursion.halfCosProgram_queries
+#check CircuitRecursion.halfCosProgram_calls
+#print axioms CircuitRecursion.halfCosProgram_calls
+#check CircuitRecursion.halfAngleDemand_exact
+#print axioms CircuitRecursion.halfAngleDemand_exact
+#check CircuitRecursion.active_halfAngleDemand_bound
+#print axioms CircuitRecursion.active_halfAngleDemand_bound
+#check CircuitRecursion.mergeCosProgram_eval
+#print axioms CircuitRecursion.mergeCosProgram_eval
+#check CircuitRecursion.mergeSinProgram_eval
+#print axioms CircuitRecursion.mergeSinProgram_eval
+#check CircuitRecursion.mergeCosProgram_resources
+#print axioms CircuitRecursion.mergeCosProgram_resources
+#check CircuitRecursion.mergeSinProgram_resources
+#print axioms CircuitRecursion.mergeSinProgram_resources
+#check CircuitRecursion.halfAngleDemand_ge
+#print axioms CircuitRecursion.halfAngleDemand_ge
+#check CircuitRecursion.mergeCosProgram_precision
+#print axioms CircuitRecursion.mergeCosProgram_precision
+#check CircuitRecursion.mergeSinProgram_precision
+#print axioms CircuitRecursion.mergeSinProgram_precision
+#check CircuitRecursion.mergePhaseProgram_correct
+#print axioms CircuitRecursion.mergePhaseProgram_correct
+#check CircuitRecursion.mergeCosProgram_range
+#print axioms CircuitRecursion.mergeCosProgram_range
+#check CircuitRecursion.mergeCosProgram_dyadic
+#print axioms CircuitRecursion.mergeCosProgram_dyadic
+#check CircuitRecursion.mergeSinProgram_dyadic
+#print axioms CircuitRecursion.mergeSinProgram_dyadic
+#check CircuitRecursion.active_mergePhaseProgram_resources
+#print axioms CircuitRecursion.active_mergePhaseProgram_resources
 #check CircuitRecursion.bitPurePower_density
 #print axioms CircuitRecursion.bitPurePower_density
 #check CircuitRecursion.bitPurePower_copywiseInput
@@ -854,6 +1088,20 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms CircuitRecursion.extractionOutput_coherent
 #check CircuitRecursion.extractionOutput_purePower
 #print axioms CircuitRecursion.extractionOutput_purePower
+#check CircuitRecursion.quaternionMatrix_norm_square
+#print axioms CircuitRecursion.quaternionMatrix_norm_square
+#check CircuitRecursion.su2_sub_quaternion
+#print axioms CircuitRecursion.su2_sub_quaternion
+#check CircuitRecursion.su2_distance_coordinates
+#print axioms CircuitRecursion.su2_distance_coordinates
+#check CircuitRecursion.square_distance_error
+#print axioms CircuitRecursion.square_distance_error
+#check CircuitRecursion.distanceScore_correct
+#print axioms CircuitRecursion.distanceScore_correct
+#check CircuitRecursion.fixedNetWord_correct
+#print axioms CircuitRecursion.fixedNetWord_correct
+#check CircuitRecursion.fixedNetWord_length
+#print axioms CircuitRecursion.fixedNetWord_length
 #check CircuitRecursion.qubitRepresentative_exists
 #print axioms CircuitRecursion.qubitRepresentative_exists
 #check CircuitRecursion.qubitRepresentative_spec
@@ -884,6 +1132,26 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms CircuitRecursion.rational_mergeAngle_trig
 #check CircuitRecursion.occupation_partial_mergeAngle_trig
 #print axioms CircuitRecursion.occupation_partial_mergeAngle_trig
+#check CircuitRecursion.oracleAdd_correct
+#print axioms CircuitRecursion.oracleAdd_correct
+#check CircuitRecursion.oracleNeg_correct
+#print axioms CircuitRecursion.oracleNeg_correct
+#check CircuitRecursion.dyadic_scale
+#print axioms CircuitRecursion.dyadic_scale
+#check CircuitRecursion.oracleMul_correct
+#print axioms CircuitRecursion.oracleMul_correct
+#check CircuitRecursion.oracleInv_correct
+#print axioms CircuitRecursion.oracleInv_correct
+#check CircuitRecursion.rationalSqrtApprox_correct
+#print axioms CircuitRecursion.rationalSqrtApprox_correct
+#check CircuitRecursion.sqrt_input_error
+#print axioms CircuitRecursion.sqrt_input_error
+#check CircuitRecursion.oracleSqrt_correct
+#print axioms CircuitRecursion.oracleSqrt_correct
+#check CircuitRecursion.rationalSqrtApprox_dyadic
+#print axioms CircuitRecursion.rationalSqrtApprox_dyadic
+#check CircuitRecursion.rationalSqrtApprox_range
+#print axioms CircuitRecursion.rationalSqrtApprox_range
 #check CircuitRecursion.castBits_apply
 #print axioms CircuitRecursion.castBits_apply
 #check CircuitRecursion.pairwiseCoordinates_alice
@@ -898,6 +1166,16 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms CircuitRecursion.pairwiseCoordinates_physical
 #check CircuitRecursion.readoutCoordinates_split
 #print axioms CircuitRecursion.readoutCoordinates_split
+#check CircuitRecursion.boundedWords_mem
+#print axioms CircuitRecursion.boundedWords_mem
+#check CircuitRecursion.boundedWords_length
+#print axioms CircuitRecursion.boundedWords_length
+#check CircuitRecursion.precomputedNet_exists
+#print axioms CircuitRecursion.precomputedNet_exists
+#check CircuitRecursion.numericalBase_exists
+#print axioms CircuitRecursion.numericalBase_exists
+#check CircuitRecursion.dyadic_numerator_bound
+#print axioms CircuitRecursion.dyadic_numerator_bound
 #check CircuitRecursion.prefixCircuit_length
 #print axioms CircuitRecursion.prefixCircuit_length
 #check CircuitRecursion.extendBits_eq_pad
@@ -920,6 +1198,28 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms CircuitRecursion.bitPurePower_expansion
 #check CircuitRecursion.compressionCircuit_purePower
 #print axioms CircuitRecursion.compressionCircuit_purePower
+#check CircuitRecursion.quaternionCoordinates_bound
+#print axioms CircuitRecursion.quaternionCoordinates_bound
+#check CircuitRecursion.quaternionCoordinates_mul
+#print axioms CircuitRecursion.quaternionCoordinates_mul
+#check CircuitRecursion.quaternionSign_abs
+#print axioms CircuitRecursion.quaternionSign_abs
+#check CircuitRecursion.unit_product_error
+#print axioms CircuitRecursion.unit_product_error
+#check CircuitRecursion.quaternionProduct_error
+#print axioms CircuitRecursion.quaternionProduct_error
+#check CircuitRecursion.quaternionProduct_cast
+#print axioms CircuitRecursion.quaternionProduct_cast
+#check CircuitRecursion.quaternionOracleMul_correct
+#print axioms CircuitRecursion.quaternionOracleMul_correct
+#check CircuitRecursion.quaternionOracleOne_correct
+#print axioms CircuitRecursion.quaternionOracleOne_correct
+#check CircuitRecursion.quaternionWordOracle_correct
+#print axioms CircuitRecursion.quaternionWordOracle_correct
+#check CircuitRecursion.wordOracleQueries_count
+#print axioms CircuitRecursion.wordOracleQueries_count
+#check CircuitRecursion.wordOracleQueries_precision
+#print axioms CircuitRecursion.wordOracleQueries_precision
 #check CircuitRecursion.quaternionMatrix_star_mul
 #print axioms CircuitRecursion.quaternionMatrix_star_mul
 #check CircuitRecursion.quaternionMatrix_det
@@ -1078,6 +1378,10 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms OperationalCompletion.reservedProtocol_berryEsseen
 #check OperationalCompletion.reserved_optimal_gaussian_limit
 #print axioms OperationalCompletion.reserved_optimal_gaussian_limit
+#check OperationalCompletion.reserved_optimum_gaussian_error
+#print axioms OperationalCompletion.reserved_optimum_gaussian_error
+#check OperationalCompletion.triangular_reserved_optimum_gaussian_error
+#print axioms OperationalCompletion.triangular_reserved_optimum_gaussian_error
 #check OperationalCompletion.bellProjector_one
 #print axioms OperationalCompletion.bellProjector_one
 #check OperationalCompletion.protocol_fidelity_one
@@ -1254,24 +1558,74 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms ExtractionRains.rainsEffect_exists_actual_protocol
 #check ExtractionRains.rainsEffect_iff_actual_protocol_effect
 #print axioms ExtractionRains.rainsEffect_iff_actual_protocol_effect
-#check ExtractionSchur.rankBudget_class_minimax_finite
-#print axioms ExtractionSchur.rankBudget_class_minimax_finite
-#check ExtractionSchur.rankBudgetPacking_ratio_limit
-#print axioms ExtractionSchur.rankBudgetPacking_ratio_limit
+#check ExtractionSchur.errorRankBudgetMaximum_attained
+#print axioms ExtractionSchur.errorRankBudgetMaximum_attained
+#check ExtractionSchur.errorRankBudgetMaximum_full_rank
+#print axioms ExtractionSchur.errorRankBudgetMaximum_full_rank
+#check ExtractionSchur.errorRankBudgetMaximum_isGreatest
+#print axioms ExtractionSchur.errorRankBudgetMaximum_isGreatest
+#check ExtractionSchur.errorRankBudgetMaximum_log_limit
+#print axioms ExtractionSchur.errorRankBudgetMaximum_log_limit
+#check ExtractionSchur.exactRankBudgetMaximum_attained
+#print axioms ExtractionSchur.exactRankBudgetMaximum_attained
+#check ExtractionSchur.exactRankBudgetMaximum_bounds
+#print axioms ExtractionSchur.exactRankBudgetMaximum_bounds
+#check ExtractionSchur.exactRankBudgetMaximum_eventually_local
+#print axioms ExtractionSchur.exactRankBudgetMaximum_eventually_local
+#check ExtractionSchur.exactRankBudgetMaximum_full_rank
+#print axioms ExtractionSchur.exactRankBudgetMaximum_full_rank
+#check ExtractionSchur.exactRankBudgetMaximum_log_correction_limit
+#print axioms ExtractionSchur.exactRankBudgetMaximum_log_correction_limit
+#check ExtractionSchur.exact_fixedOrbit_physical_budget
+#print axioms ExtractionSchur.exact_fixedOrbit_physical_budget
+#check ExtractionSchur.flatOrbitErrorMaximum_attained
+#print axioms ExtractionSchur.flatOrbitErrorMaximum_attained
+#check ExtractionSchur.flatOrbitErrorMaximum_bounds
+#print axioms ExtractionSchur.flatOrbitErrorMaximum_bounds
+#check ExtractionSchur.flatOrbitErrorMaximum_full_rank
+#print axioms ExtractionSchur.flatOrbitErrorMaximum_full_rank
+#check ExtractionSchur.flatOrbitErrorMaximum_isGreatest
+#print axioms ExtractionSchur.flatOrbitErrorMaximum_isGreatest
+#check ExtractionSchur.flatOrbitErrorMaximum_log_limit
+#print axioms ExtractionSchur.flatOrbitErrorMaximum_log_limit
+#check ExtractionSchur.flatOrbit_full_rank_minimax
+#print axioms ExtractionSchur.flatOrbit_full_rank_minimax
+#check ExtractionSchur.flatOrbit_minimax_profile_bounds
+#print axioms ExtractionSchur.flatOrbit_minimax_profile_bounds
+#check ExtractionSchur.flatOrbit_target_uniform_minimax
+#print axioms ExtractionSchur.flatOrbit_target_uniform_minimax
+#check ExtractionSchur.flatOrbit_target_uniform_relative_error
+#print axioms ExtractionSchur.flatOrbit_target_uniform_relative_error
+#check ExtractionSchur.orbitExactMaximum_attained
+#print axioms ExtractionSchur.orbitExactMaximum_attained
+#check ExtractionSchur.orbitExactMaximum_bounds
+#print axioms ExtractionSchur.orbitExactMaximum_bounds
+#check ExtractionSchur.orbitExactMaximum_eventually_local
+#print axioms ExtractionSchur.orbitExactMaximum_eventually_local
+#check ExtractionSchur.orbitExactMaximum_full_rank
+#print axioms ExtractionSchur.orbitExactMaximum_full_rank
+#check ExtractionSchur.orbitExactMaximum_isGreatest
+#print axioms ExtractionSchur.orbitExactMaximum_isGreatest
+#check ExtractionSchur.orbitExactMaximum_log_correction_limit
+#print axioms ExtractionSchur.orbitExactMaximum_log_correction_limit
 #check ExtractionSchur.rankBudgetEta_limit
 #print axioms ExtractionSchur.rankBudgetEta_limit
+#check ExtractionSchur.rankBudgetPacking_ratio_limit
+#print axioms ExtractionSchur.rankBudgetPacking_ratio_limit
+#check ExtractionSchur.rankBudget_class_minimax_finite
+#print axioms ExtractionSchur.rankBudget_class_minimax_finite
+#check ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue
+#print axioms ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue
+#check ExtractionSchur.rankBudget_full_rank_minimax
+#print axioms ExtractionSchur.rankBudget_full_rank_minimax
+#check ExtractionSchur.rankBudget_physical_class_chain
+#print axioms ExtractionSchur.rankBudget_physical_class_chain
 #check ExtractionSchur.rankBudget_physical_relative_bound
 #print axioms ExtractionSchur.rankBudget_physical_relative_bound
 #check ExtractionSchur.rankBudget_target_uniform_minimax
 #print axioms ExtractionSchur.rankBudget_target_uniform_minimax
 #check ExtractionSchur.rankBudget_target_uniform_relative_error
 #print axioms ExtractionSchur.rankBudget_target_uniform_relative_error
-#check ExtractionSchur.rankBudget_full_rank_minimax
-#print axioms ExtractionSchur.rankBudget_full_rank_minimax
-#check ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue
-#print axioms ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue
-#check ExtractionSchur.rankBudget_physical_class_chain
-#print axioms ExtractionSchur.rankBudget_physical_class_chain
 #check ExtractionAPPT.trace_cfc
 #print axioms ExtractionAPPT.trace_cfc
 #check ExtractionAPPT.quantumEntropy_eq_spectral
@@ -1362,6 +1716,24 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms ExtractionAPPT.balanced_apptMaxCapacity_lower
 #check ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds
 #print axioms ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds
+#check OperationalCompletion.heterogeneous_projection_protocol
+#print axioms OperationalCompletion.heterogeneous_projection_protocol
+#check SpectralProtocol.oneShotSpectralEnvelope_actual_lower
+#print axioms SpectralProtocol.oneShotSpectralEnvelope_actual_lower
+#check SpectralProtocol.oneShotSpectralEnvelope_actual_upper
+#print axioms SpectralProtocol.oneShotSpectralEnvelope_actual_upper
+#check MinimaxProfile.tensorProjection_rank_le
+#print axioms MinimaxProfile.tensorProjection_rank_le
+#check MinimaxProfile.tensorProjection_mass_ge
+#print axioms MinimaxProfile.tensorProjection_mass_ge
+#check ExtractionSchur.haarOrbitAverage_range
+#print axioms ExtractionSchur.haarOrbitAverage_range
+#check ExtractionSchur.haarOrbitAverage_rank
+#print axioms ExtractionSchur.haarOrbitAverage_rank
+#check ExtractionSchur.haarOrbitAverage_trace_square
+#print axioms ExtractionSchur.haarOrbitAverage_trace_square
+#check ExtractionSchur.haarMinorMoment_product
+#print axioms ExtractionSchur.haarMinorMoment_product
 #check ExtractionCP.amplification
 #print axioms ExtractionCP.amplification
 #check ExtractionCP.CompletelyPositive
@@ -1470,6 +1842,100 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms CircuitRecursion.libraryPrecision
 #check CircuitRecursion.circuitPhase
 #print axioms CircuitRecursion.circuitPhase
+#check CircuitRecursion.conjugacyFrame
+#print axioms CircuitRecursion.conjugacyFrame
+#check CircuitRecursion.conjugacyTarget
+#print axioms CircuitRecursion.conjugacyTarget
+#check CircuitRecursion.intertwinerMass
+#print axioms CircuitRecursion.intertwinerMass
+#check CircuitRecursion.rationalMaxIndex
+#print axioms CircuitRecursion.rationalMaxIndex
+#check CircuitRecursion.chartConjugator
+#print axioms CircuitRecursion.chartConjugator
+#check CircuitRecursion.RationalOracle
+#print axioms CircuitRecursion.RationalOracle
+#check CircuitRecursion.Approximates
+#print axioms CircuitRecursion.Approximates
+#check CircuitRecursion.oracleAdd
+#print axioms CircuitRecursion.oracleAdd
+#check CircuitRecursion.oracleNeg
+#print axioms CircuitRecursion.oracleNeg
+#check CircuitRecursion.oracleMul
+#print axioms CircuitRecursion.oracleMul
+#check CircuitRecursion.oracleInv
+#print axioms CircuitRecursion.oracleInv
+#check CircuitRecursion.rationalSqrtApprox
+#print axioms CircuitRecursion.rationalSqrtApprox
+#check CircuitRecursion.oracleSqrt
+#print axioms CircuitRecursion.oracleSqrt
+#check CircuitRecursion.oracleConst
+#print axioms CircuitRecursion.oracleConst
+#check CircuitRecursion.oracleMeanPlus
+#print axioms CircuitRecursion.oracleMeanPlus
+#check CircuitRecursion.oracleMeanMinus
+#print axioms CircuitRecursion.oracleMeanMinus
+#check CircuitRecursion.halfCosOracle
+#print axioms CircuitRecursion.halfCosOracle
+#check CircuitRecursion.mergeCosOracle
+#print axioms CircuitRecursion.mergeCosOracle
+#check CircuitRecursion.mergeSinOracle
+#print axioms CircuitRecursion.mergeSinOracle
+#check CircuitRecursion.halfSinOracle
+#print axioms CircuitRecursion.halfSinOracle
+#check CircuitRecursion.ScalarProgram
+#print axioms CircuitRecursion.ScalarProgram
+#check CircuitRecursion.ScalarProgram.eval
+#print axioms CircuitRecursion.ScalarProgram.eval
+#check CircuitRecursion.ScalarProgram.queries
+#print axioms CircuitRecursion.ScalarProgram.queries
+#check CircuitRecursion.ScalarProgram.sqrtCalls
+#print axioms CircuitRecursion.ScalarProgram.sqrtCalls
+#check CircuitRecursion.ScalarProgram.rationalCalls
+#print axioms CircuitRecursion.ScalarProgram.rationalCalls
+#check CircuitRecursion.halfCosProgram
+#print axioms CircuitRecursion.halfCosProgram
+#check CircuitRecursion.halfAngleDemand
+#print axioms CircuitRecursion.halfAngleDemand
+#check CircuitRecursion.mergeCosProgram
+#print axioms CircuitRecursion.mergeCosProgram
+#check CircuitRecursion.mergeSinProgram
+#print axioms CircuitRecursion.mergeSinProgram
+#check CircuitRecursion.ScalarProgram.maxRootPrecision
+#print axioms CircuitRecursion.ScalarProgram.maxRootPrecision
+#check CircuitRecursion.quaternionCoordinates
+#print axioms CircuitRecursion.quaternionCoordinates
+#check CircuitRecursion.quaternionRight
+#print axioms CircuitRecursion.quaternionRight
+#check CircuitRecursion.quaternionSign
+#print axioms CircuitRecursion.quaternionSign
+#check CircuitRecursion.quaternionProduct
+#print axioms CircuitRecursion.quaternionProduct
+#check CircuitRecursion.QuaternionOracle
+#print axioms CircuitRecursion.QuaternionOracle
+#check CircuitRecursion.QApproximates
+#print axioms CircuitRecursion.QApproximates
+#check CircuitRecursion.quaternionOracleMul
+#print axioms CircuitRecursion.quaternionOracleMul
+#check CircuitRecursion.quaternionOracleOne
+#print axioms CircuitRecursion.quaternionOracleOne
+#check CircuitRecursion.quaternionWordOracle
+#print axioms CircuitRecursion.quaternionWordOracle
+#check CircuitRecursion.wordOracleQueries
+#print axioms CircuitRecursion.wordOracleQueries
+#check CircuitRecursion.rationalSquaredDistance
+#print axioms CircuitRecursion.rationalSquaredDistance
+#check CircuitRecursion.distanceScore
+#print axioms CircuitRecursion.distanceScore
+#check CircuitRecursion.fixedNetWord
+#print axioms CircuitRecursion.fixedNetWord
+#check CircuitRecursion.boundedWords
+#print axioms CircuitRecursion.boundedWords
+#check CircuitRecursion.DyadicQuaternionOracle
+#print axioms CircuitRecursion.DyadicQuaternionOracle
+#check CircuitRecursion.dyadicQuaternionOracle
+#print axioms CircuitRecursion.dyadicQuaternionOracle
+#check CircuitRecursion.DyadicQApproximates
+#print axioms CircuitRecursion.DyadicQApproximates
 #check OperationalCompletion.reservedTargets
 #print axioms OperationalCompletion.reservedTargets
 #check OperationalCompletion.reservedFixedErrorTarget
@@ -1574,6 +2040,28 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms ExtractionSchur.rankBudgetPacking
 #check ExtractionSchur.rankBudgetEta
 #print axioms ExtractionSchur.rankBudgetEta
+#check ExtractionSchur.exactRankBudgetTargets
+#print axioms ExtractionSchur.exactRankBudgetTargets
+#check ExtractionSchur.errorRankBudgetTargets
+#print axioms ExtractionSchur.errorRankBudgetTargets
+#check ExtractionSchur.exactRankBudgetMaximum
+#print axioms ExtractionSchur.exactRankBudgetMaximum
+#check ExtractionSchur.errorRankBudgetMaximum
+#print axioms ExtractionSchur.errorRankBudgetMaximum
+#check ExtractionSchur.rankBudgetLogScale
+#print axioms ExtractionSchur.rankBudgetLogScale
+#check ExtractionSchur.densityOrbitInput
+#print axioms ExtractionSchur.densityOrbitInput
+#check ExtractionSchur.orbitExactTargets
+#print axioms ExtractionSchur.orbitExactTargets
+#check ExtractionSchur.orbitExactMaximum
+#print axioms ExtractionSchur.orbitExactMaximum
+#check ExtractionSchur.flatOrbitPhysicalMinimax
+#print axioms ExtractionSchur.flatOrbitPhysicalMinimax
+#check ExtractionSchur.flatOrbitErrorTargets
+#print axioms ExtractionSchur.flatOrbitErrorTargets
+#check ExtractionSchur.flatOrbitErrorMaximum
+#print axioms ExtractionSchur.flatOrbitErrorMaximum
 #check ExtractionAPPT.quantumEntropy
 #print axioms ExtractionAPPT.quantumEntropy
 #check ExtractionAPPT.flatten
@@ -1592,3 +2080,7 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms ExtractionAPPT.spikeState
 #check ExtractionAPPT.purityCapacityBudget
 #print axioms ExtractionAPPT.purityCapacityBudget
+#check MinimaxProfile.KrausPPTProtocol
+#print axioms MinimaxProfile.KrausPPTProtocol
+#check MinimaxProfile.tensorInput
+#print axioms MinimaxProfile.tensorInput
