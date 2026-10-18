@@ -17,3 +17,11 @@ M(t+s,s,k)=product_{i=0}^{s-1} C(i+k,k)/C(t+i+k,k).
 The construction covers zero rank, degree zero, zero projected first columns, and full rank. No Jacobi law, minor-moment certificate, rectangular Schur dimension, Young decomposition or concentration conclusion is assumed. This is an exact principal-minor moment theorem and is not yet the general-rank actual Haar purity asymptotic or the full general-rank support-dimension theorem.
 
 Remaining obligations: derive the polynomial moment constant; establish the actual determinant/trace overlap inequalities; justify the binomial transform asymptotic with a proved low-tail bound; prove the matching general-rank support upper bound by multiple-pattern straightening/automaton counting or another complete route; connect to target-uniform physical minimax.
+
+## Moment constant and actual trace comparison
+
+MinorMomentAsymptotic.lean proves that k^(s*t) M(t+s,s,k).re tends exactly to weylCrossDenominator s t. The factorial product and the manuscript's cross-gap product are internally identified.
+
+DeterminantTrace.lean constructs the actual compressed projected Gram matrix and proves its PSD contraction properties. It identifies its trace with the actual projection overlap and its determinant with the principal-minor norm square. principalMinor_projectionOverlap_bounds proves Z <= (projectionOverlap/s)^s and projectionOverlap <= s-1+Z for every positive s<=D and actual unitary. This is a pointwise actual-matrix comparison, not a claimed completed purity asymptotic.
+
+The remaining scalar transfer can be proved either by a binomial-transform low-tail argument or by deterministic near-one integer-power comparison plus an exponential tail. The latter is currently being developed. General-rank support rank and physical minimax remain open.

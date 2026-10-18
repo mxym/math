@@ -1,6 +1,10 @@
-import SchurCompletion.HaarMinorMoments
+import SchurCompletion.MinorMomentAsymptotic
+import SchurCompletion.DeterminantTrace
 #print axioms ExtractionSchur.unitary_column_projection_power_moment
 #print axioms ExtractionSchur.unitaryHaar_right_double_average
 #print axioms ExtractionSchur.coisometry_fixFirst_minor_moment
 #print axioms ExtractionSchur.haarMinorMoment_succ
 #print axioms ExtractionSchur.haarMinorMoment_product
+
+#print axioms ExtractionSchur.haarMinorMoment_scaled_limit
+#print axioms ExtractionSchur.principalMinor_projectionOverlap_bounds

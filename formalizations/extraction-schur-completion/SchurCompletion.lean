@@ -44,3 +44,5 @@ import SchurCompletion.CodimensionOneRank
 import SchurCompletion.ColumnProjectionMoments
 import SchurCompletion.HaarSubgroupAverage
 import SchurCompletion.HaarMinorMoments
+import SchurCompletion.DeterminantTrace
+import SchurCompletion.MinorMomentAsymptotic
