@@ -1,0 +1,220 @@
+{
+  "status": "AUTHOR_STORED_SWAP_ROOT_KIND_TYPE_AXIOM_CHECK_PASS_OWNED_ONLY_PENDING_AGGREGATE",
+  "source_head": "526e28bac75a96bec45100ae93a884042695a0cb",
+  "theorem_count": 15,
+  "model_count": 12,
+  "log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261018T203650346122Z-owned-check-EffectiveEncoding.StoredSwapCheck.log",
+  "log_sha256": "7dded623fd953bda9e4655f5137e8bc069e67c217016054c07a8116917d9e3b0",
+  "inputs": {
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ActualRawCostCheck.lean": "4a5f48153d3641f570a1d9ec24bbca21e819cf5e3c7636ec12859c5766012506",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ActualRawRootCharge.lean": "dab159eb045d04ba9c1c734070b391b7a1bd25991bd8f570b04025ba3936e7eb",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean": "1f184dba584c6349e3142ab9a87ca2a4272369364ef59745cec919e1d36045f0",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Check.lean": "abeb944ff4bf1d6eb9f8f642790e99226d9122fd954a0f5d9e06b3e08fe57a0f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean": "b48e277618ba89602a6473c6eef51d9a9d8651fafc1aa6c647a7addf4a03d145",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CostedRawCheck.lean": "63f00acfe5d777e3b2a0e8a01cc33f01b5a915016348e76747eb388c05b8f822",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CostedRawCompiler.lean": "0e826b4dcce5cb1b60915c922fb7d2a88eb14875cfd5f0812df2a90fddeb94dc",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedDescriptorFields.lean": "a7e3802edfc7ed922769c6f9ef7f4365300c8faf797bc5b9cc9c29cd0609d262",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedEnumeration.lean": "e63dee2e23e73c6d988723ec460012a33832d75bb3389ac2f74b0416741c2c8e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedEnumerationCheck.lean": "3bd13d1d54bfffc9a2a6545c3680215006e21d8dc833b2c4fa3bbc4c5dd897b2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedFieldsCheck.lean": "407d3dea363cd03290c763bbdea7db7e6882fa84df9822fb0af32ed7d6c66989",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DescriptorBounds.lean": "365ac42f2eaa5adb6cbeb0dfd6c261d39de1584fc17a583baccb44dbef6fa598",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DescriptorSerialization.lean": "ae09674bcfdcf5e0699490bab1af1b41a37e50cd8e3c42a3fbfa82bdb0c7ed17",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean": "9848a546e6a0e78a5bfde1980c3ff65b1dd82376d08fd6e3bb8470668db9fd64",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean": "0f2aa117988d43c8b7c509837aa7c7a20b3e0ccb7824058c2f722d1854f14f3a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean": "71f110f423531277842001e25a4972908b3596aacbe6f1957dea1f001a3a8941",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean": "079e5421531edf6c2a7c0657ee7fee6343be0e703d8257643e88ce41be398601",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean": "f8739bf08d31e3bcbf5e19fdac0ec3569f7951c5afcf5ba7bf6c6895ae40409c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LogarithmicPrecision.lean": "acd6d4b9d6bbb3d9c163452fe58e4c85164f934b9c26181397b2eda8acee93cd",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean": "1c4f5d1e103dec09afd5a7ddde32c34d626ae61d18e4c5adf06c00315cc412f8",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean": "0cebf45fe3fa9c27c24f9110a150d610dcefc75150b0ac591bba021036fdc58c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean": "945e8e8933815ccb437054c5586a5b34c0ef6a44a63dba161896111d6d8384b3",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderCheck.lean": "e362eecb8c7d9a002ae20a7acd2d65827544f37826998b9611ceb3f2ea15c5e4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderExpressions.lean": "cf9263ddd0f39ebfdfbd5eb72238ab11ba95da273213e1a90e38bd2fa323bac0",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderIntermediateHeights.lean": "04d3419565d9903eebec5e09758c876a56a0d5984b9ec50d2262bcfd6b724052",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderPrecision.lean": "7682ec4292197cbebe92a4ce2d3de4cb4c8502199e37b8797b7aee5a3d577ade",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTerminal.lean": "46dd837718fbc93ed13db7ed1a7e66d1222dc1db75eeeef6b994f8973bd911a9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTrace.lean": "b0e9aed7868c26a1bfd60d92bd10199d8915133508c046f0e59c105ac5645039",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTraceCheck.lean": "60dde81b190c01b4ec568ec006244624cd9ebbe6cd2f191065daf2ad239d4a8a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTraceCore.lean": "dddef8324221ee9f2a31319127e60508d2557d687256747b38417b97516d0cdd",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean": "bd40ba4433b41c65ab4badb813753d22c9abbb3a3af30268502ddddc4dc97b3c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean": "ed720004584e66ac8344d37e6f9499630fa604daec4b3c9fb0c9ed5154c892ef",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCheck.lean": "bfe4a6d54e64cc2520b555b2ed22260d7da0ccf69dc60f68f4ea087d2984744e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCompiler.lean": "d6de0df95dc7a4cd08549e419d16724f124fdd751103276b64399b63f54040cb",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean": "3ac83d5b71c77f291e0a38769b9854a08e97a1cd72150accc2abe4b4abfa3a83",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean": "d464dda9f998404f9a3286fdce7f843545f7669cf3bb52d4af443708fccd9f58",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean": "fe7c52779c261148b16a877c51fffd6363a882f9c12e0d6e54dc81b0717dd464",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/SharedRawCheck.lean": "9333e6eeece7bb5c7a4a5eb211556896f9471e8aa64990de780a8a7b281a9aed",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/SharedRawCompiler.lean": "4eb8dd07528fd4c132a80d7b842446735590f8c1db44c559e6012ff3fafd25e8",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/StoredSwapAlignment.lean": "18fbea9f96a04f5de84ae9f2dcc1535ed21524b7c6decdb119c5c4972d74f94b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/StoredSwapCheck.lean": "e95085f6a193f8dff088ee2b5c8d51f7f84422a1f5646e9ce1c1e5380c07c2f4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/StoredSwapExtraction.lean": "4902609fac0bdfa19e0465201e4ddd708cdb516c609d9bf858707a322394d615",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding.lean": "0462dc842889f25c0efe48437f656903a339ed45ed46b3ebe2b929db51b6cad5",
+    "formalizations/extraction-effective-encoding/lakefile.toml": "e9e79c2a09320464590fe16365c9d8edd2791f50536e3aeb7780d9c72d7a53e9",
+    "formalizations/extraction-effective-encoding/lake-manifest.json": "f93161a21dd465f60d192f0bfb0ee8b13a5239f7993998498b0707a3d18cbd9d",
+    "formalizations/extraction-effective-encoding/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "formalizations/extraction-effective-encoding/STORED_SWAP_ROOTS.txt": "64826b08e8e886651f0eb4656e00c0e023f40719f4ffe4a84c88a66d89c485dd",
+    "formalizations/extraction-effective-encoding/STORED_SWAP_MODELS.txt": "52cfa98ab47c22b6ece459c6db526d784fab5af5f4d3506356b07fd4813becaa",
+    "formalizations/extraction-effective-encoding/STORED_SWAP_SOURCE_INVENTORY.json": "08c0965e705a254d4c8209887ff7d3d75feaffeb1ef1ebfdb0bed1b1547adfe4",
+    "formalizations/extraction-effective-encoding/reproduce_stored_swap.py": "23ec73e935ddd5e62410e0eadef23c7ec1df2789c9f0af489d7f5db6670e0687"
+  },
+  "axioms": {
+    "EffectiveEncoding.applyStoredSwaps_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.applyStoredSwaps_count": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedAlignmentRun_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedAlignmentRun_count": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedAlignmentRun_empty_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedAlignmentRun_empty_count_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedOccupationStepCode_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedStageCode_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedCompressionCode_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedExtractionCode_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedSharedRawExtractionCode_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedSharedRawExtractionCode_fidelity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.stageStoredSwapApplications_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.stageStoredSwapApplications_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionStoredSwapApplications_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.applyStoredSwaps": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedSwapPermutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedAlignmentRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedOccupationStepCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedStageCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedCompressionCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedExtractionCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedSharedRawExtractionCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.stageStoredSwapApplications": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.extractionStoredSwapApplications": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.StoredSwaps": [],
+    "EffectiveEncoding.StoredAlignmentRun": []
+  },
+  "roots": [
+    "EffectiveEncoding.applyStoredSwaps_value",
+    "EffectiveEncoding.applyStoredSwaps_count",
+    "EffectiveEncoding.storedAlignmentRun_word",
+    "EffectiveEncoding.storedAlignmentRun_count",
+    "EffectiveEncoding.storedAlignmentRun_empty_word",
+    "EffectiveEncoding.storedAlignmentRun_empty_count_bound",
+    "EffectiveEncoding.storedOccupationStepCode_eq",
+    "EffectiveEncoding.storedStageCode_eq",
+    "EffectiveEncoding.storedCompressionCode_eq",
+    "EffectiveEncoding.storedExtractionCode_eq",
+    "EffectiveEncoding.storedSharedRawExtractionCode_eq",
+    "EffectiveEncoding.storedSharedRawExtractionCode_fidelity",
+    "EffectiveEncoding.stageStoredSwapApplications_exact",
+    "EffectiveEncoding.stageStoredSwapApplications_bound",
+    "EffectiveEncoding.extractionStoredSwapApplications_bound"
+  ],
+  "models": [
+    "EffectiveEncoding.StoredSwaps",
+    "EffectiveEncoding.applyStoredSwaps",
+    "EffectiveEncoding.storedSwapPermutation",
+    "EffectiveEncoding.StoredAlignmentRun",
+    "EffectiveEncoding.storedAlignmentRun",
+    "EffectiveEncoding.storedOccupationStepCode",
+    "EffectiveEncoding.storedStageCode",
+    "EffectiveEncoding.storedCompressionCode",
+    "EffectiveEncoding.storedExtractionCode",
+    "EffectiveEncoding.storedSharedRawExtractionCode",
+    "EffectiveEncoding.stageStoredSwapApplications",
+    "EffectiveEncoding.extractionStoredSwapApplications"
+  ]
+}
