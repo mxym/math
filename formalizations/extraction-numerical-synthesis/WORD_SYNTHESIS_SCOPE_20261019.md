@@ -1,0 +1,13 @@
+# Actual Boolean-word synthesis decisions and polynomial numerical action bound
+
+wordTracedPairWord is the actual finite synthesis recursion using the complete Word AST evaluator and the concrete canonical word-fraction selectors/comparators. Base scores are evaluated once into a stored vector and passed to the word minimum. Corrections store their score and threshold evaluations once, execute their actual Boolean cross comparison once, and evaluate only the selected recursive branches. Executed local decision traces and whole AST result records are retained in lists.
+
+Unconditional proofs establish that the entire ArithmeticWordResult equals the mature tracedPairWord result, preserving word, recorded expressions and comparison count. The retained evaluation records equal map wordRun over those recorded expressions exactly. This theorem identifies already stored records; the algorithm does not replay the expressions to build that equality.
+
+From the actual result integerBitBudget B, the internally proved total numerical Boolean/list/record charge is at most 2*wordNodeBooleanBudget(B)*result.operations, where wordNodeBooleanBudget(B)=20000(2B+4)^2. It includes every AST numerical node and the base/correction decision comparisons. No final-correctness or runtime certificate is supplied. The decision bound is derived recursively from the actual stored scores, and the evaluation bound uses the proved record-list invariant.
+
+The explicit algebraic composition theorem turns raw height budget C(p+1)^a and operation budget O(p+1)^b into charge at most 40000(2C+4)^2 O(p+1)^(2a+b). For explicit flat input PacketBitEnvelopes and operation-20 packet expressions, the existing internally proved p128/p64 bounds give degree 320. A raw IntegerPacket input version derives operation-20 and bit envelopes internally from the providers' represented output heights. These hypotheses describe the supplied data, not provider running time. The actual cached p137 variant can use a=137,b=64 and gives degree 338 after its actual provider height coefficient is connected.
+
+The cost model covers underlying numerical Boolean/list/record actions. Literal adapter Nat.bits execution, provider and cache building, AST/word/list construction, general allocation/index implementation, precision/fuel/index/counter arithmetic and annotation evaluation remain separate. Dyadic correctness and output bit width are not runtime contracts. No complete compiler machine-time theorem is asserted.
+
+Only guarded narrow author checks are claimed for this scope; no standard aggregate or independent-kernel replay is claimed. Every earlier file is byte-identical. The separately frozen raw-resource audit does not import these additions.
