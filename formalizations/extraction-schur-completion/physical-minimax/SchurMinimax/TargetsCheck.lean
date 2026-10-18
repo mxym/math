@@ -1,0 +1,4 @@
+import SchurMinimax.Targets
+#print axioms ExtractionSchur.exact_fixedOrbit_physical_budget
+#print axioms ExtractionSchur.exactRankBudgetMaximum_attained
+#print axioms ExtractionSchur.exactRankBudgetMaximum_bounds
