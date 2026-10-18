@@ -66,6 +66,20 @@ run_cmd (CompletionVerification.checkKinds [
   ``ExtractionSchur.flatHaarAverage_general_purity_isEquivalent,
   ``ExtractionSchur.flatHaarAverage_purity_scaled_limit,
   ``ExtractionSchur.rankBudget_general_sharp_lower,
+  ``ExtractionSchur.cyclic_tensor_mean_lower,
+  ``ExtractionSchur.haarOrbitAverage_contraction_lower,
+  ``ExtractionSchur.flatHaarAverage_compressed_lower,
+  ``ExtractionSchur.flatHaarAverage_positive_eigenvalue_lower,
+  ``ExtractionSchur.flatHaarAverage_rank_mul_minor_le_one,
+  ``ExtractionSchur.haarMinorMoment_ceil_scaled_limit,
+  ``ExtractionSchur.rankBudget_general_rank_upper,
+  ``ExtractionSchur.rankBudget_general_rank_scaled_limit,
+  ``ExtractionSchur.rankBudget_general_rank_isEquivalent,
+  ``ExtractionSchur.rankBudget_general_rank_times_purity_limit,
+  ``ExtractionSchur.rankBudget_rank_scaled_limit,
+  ``ExtractionSchur.rankBudget_rank_times_purity_limit,
+  ``ExtractionSchur.rankBudget_general_coordinate_restriction_injective,
+  ``ExtractionSchur.rankBudget_general_rank_le_descendingAvoiderCount,
   ``CircuitRecursion.su2Commutator_unitary,
   ``CircuitRecursion.unitaryCommutator_conjugate,
   ``CircuitRecursion.axisCommutator_scalar,
@@ -347,7 +361,61 @@ run_cmd (CompletionVerification.checkKinds [
   ``ExtractionRains.protocol_targetEffect,
   ``ExtractionRains.protocol_fidelity,
   ``ExtractionRains.rainsEffect_exists_actual_protocol,
-  ``ExtractionRains.rainsEffect_iff_actual_protocol_effect
+  ``ExtractionRains.rainsEffect_iff_actual_protocol_effect,
+  ``ExtractionSchur.rankBudget_class_minimax_finite,
+  ``ExtractionSchur.rankBudgetPacking_ratio_limit,
+  ``ExtractionSchur.rankBudgetEta_limit,
+  ``ExtractionSchur.rankBudget_physical_relative_bound,
+  ``ExtractionSchur.rankBudget_target_uniform_minimax,
+  ``ExtractionSchur.rankBudget_target_uniform_relative_error,
+  ``ExtractionSchur.rankBudget_full_rank_minimax,
+  ``ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue,
+  ``ExtractionSchur.rankBudget_physical_class_chain,
+  ``ExtractionAPPT.trace_cfc,
+  ``ExtractionAPPT.quantumEntropy_eq_spectral,
+  ``ExtractionAPPT.continuousOn_quantumEntropy,
+  ``ExtractionAPPT.cfc_submatrix,
+  ``ExtractionAPPT.quantumEntropy_submatrix,
+  ``ExtractionAPPT.flatten_density,
+  ``ExtractionAPPT.flatten_entropy,
+  ``ExtractionAPPT.flatten_spectral_entropy,
+  ``ExtractionAPPT.continuousOn_appt_entropy,
+  ``ExtractionAPPT.exists_appt_entropy_isLeast,
+  ``ExtractionAPPT.exists_appt_entropy_eq_inf,
+  ``ExtractionAPPT.physicalCapacity_eq,
+  ``ExtractionAPPT.physicalCapacity_eq_cPPT,
+  ``ExtractionAPPT.exists_appt_capacity_isGreatest,
+  ``ExtractionAPPT.exists_appt_capacity_eq_sup,
+  ``ExtractionAPPT.apptMaxCapacity_eq,
+  ``ExtractionAPPT.exists_appt_purity_maximizer,
+  ``ExtractionAPPT.entropy_ge_neg_log_collision,
+  ``ExtractionAPPT.density_entropy_purity_bound,
+  ``ExtractionAPPT.physicalCapacity_le_purity,
+  ``ExtractionAPPT.apptMaxCapacity_le_puritySup,
+  ``ExtractionAPPT.physicalCapacity_eq_closureLOCC,
+  ``ExtractionAPPT.schmidt_product_le_half,
+  ``ExtractionAPPT.schmidtSigned_lower,
+  ``ExtractionAPPT.pure_partialTranspose_lower,
+  ``ExtractionAPPT.spikeState_density,
+  ``ExtractionAPPT.spikeState_absolutelyPPT,
+  ``ExtractionAPPT.spikeState_mem_appt,
+  ``ExtractionAPPT.projection_spectrum_zero_one,
+  ``ExtractionAPPT.cfc_affine_projection,
+  ``ExtractionAPPT.quantumEntropy_affine_rankOne,
+  ``ExtractionAPPT.spikeState_entropy,
+  ``ExtractionAPPT.spikeState_capacity,
+  ``ExtractionAPPT.spike_capacity_le_apptMax,
+  ``ExtractionAPPT.spike_rate_error_bounds,
+  ``ExtractionAPPT.spikeState_capacity_error_bounds,
+  ``ExtractionAPPT.spike_capacity_coefficient_limit,
+  ``ExtractionAPPT.normalized_log_budget_limit,
+  ``ExtractionAPPT.balanced_purity_excess_limit,
+  ``ExtractionAPPT.balanced_purity_capacity_budget_limit,
+  ``ExtractionAPPT.balanced_apptMaxCapacity_upper,
+  ``ExtractionAPPT.balanced_apptMaxCapacity_upper_remainder,
+  ``ExtractionAPPT.spikeState_scaled_capacity_limit,
+  ``ExtractionAPPT.balanced_apptMaxCapacity_lower,
+  ``ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds
 ] [
   ``ExtractionCP.amplification,
   ``ExtractionCP.CompletelyPositive,
@@ -381,6 +449,12 @@ run_cmd (CompletionVerification.checkKinds [
   ``ExtractionSchur.projectedGram,
   ``ExtractionSchur.projectionOverlap,
   ``ExtractionSchur.haarOverlapMoment,
+  ``ExtractionSchur.compressionLinear,
+  ``ExtractionSchur.haarTwirlLinear,
+  ``ExtractionSchur.cyclicTensorMean,
+  ``ExtractionSchur.HasDescendingSubsequence,
+  ``ExtractionSchur.DescendingAvoider,
+  ``ExtractionSchur.descendingAvoiderCount,
   ``CircuitRecursion.compressionCircuit,
   ``CircuitRecursion.bitPurePower,
   ``CircuitRecursion.bellPairYield,
@@ -436,7 +510,28 @@ run_cmd (CompletionVerification.checkKinds [
   ``ExtractionRains.plusEffect,
   ``ExtractionRains.minusEffect,
   ``ExtractionRains.pptChannel,
-  ``ExtractionRains.protocol
+  ``ExtractionRains.protocol,
+  ``ExtractionSchur.RankBudgetInput,
+  ``ExtractionSchur.rankBudgetClassMinimax,
+  ``ExtractionSchur.rankBudgetProjection,
+  ``ExtractionSchur.physicalHaarAverage,
+  ``ExtractionSchur.rankBudgetOrbitInput,
+  ``ExtractionSchur.RankProtocolClass,
+  ``ExtractionSchur.RankProtocolClass.Allows,
+  ``ExtractionSchur.rankBudgetPhysicalMinimax,
+  ``ExtractionSchur.rankBudgetCollisionWidth,
+  ``ExtractionSchur.rankBudgetWidth,
+  ``ExtractionSchur.rankBudgetPacking,
+  ``ExtractionSchur.rankBudgetEta,
+  ``ExtractionAPPT.quantumEntropy,
+  ``ExtractionAPPT.flatten,
+  ``ExtractionAPPT.apptEntropyValues,
+  ``ExtractionAPPT.apptMinEntropy,
+  ``ExtractionAPPT.physicalCapacity,
+  ``ExtractionAPPT.apptCapacityValues,
+  ``ExtractionAPPT.apptMaxCapacity,
+  ``ExtractionAPPT.spikeState,
+  ``ExtractionAPPT.purityCapacityBudget
 ])
 
 #check ExtractionCP.completelyPositive_iff_choi_posSemidef
@@ -567,6 +662,34 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms ExtractionSchur.flatHaarAverage_purity_scaled_limit
 #check ExtractionSchur.rankBudget_general_sharp_lower
 #print axioms ExtractionSchur.rankBudget_general_sharp_lower
+#check ExtractionSchur.cyclic_tensor_mean_lower
+#print axioms ExtractionSchur.cyclic_tensor_mean_lower
+#check ExtractionSchur.haarOrbitAverage_contraction_lower
+#print axioms ExtractionSchur.haarOrbitAverage_contraction_lower
+#check ExtractionSchur.flatHaarAverage_compressed_lower
+#print axioms ExtractionSchur.flatHaarAverage_compressed_lower
+#check ExtractionSchur.flatHaarAverage_positive_eigenvalue_lower
+#print axioms ExtractionSchur.flatHaarAverage_positive_eigenvalue_lower
+#check ExtractionSchur.flatHaarAverage_rank_mul_minor_le_one
+#print axioms ExtractionSchur.flatHaarAverage_rank_mul_minor_le_one
+#check ExtractionSchur.haarMinorMoment_ceil_scaled_limit
+#print axioms ExtractionSchur.haarMinorMoment_ceil_scaled_limit
+#check ExtractionSchur.rankBudget_general_rank_upper
+#print axioms ExtractionSchur.rankBudget_general_rank_upper
+#check ExtractionSchur.rankBudget_general_rank_scaled_limit
+#print axioms ExtractionSchur.rankBudget_general_rank_scaled_limit
+#check ExtractionSchur.rankBudget_general_rank_isEquivalent
+#print axioms ExtractionSchur.rankBudget_general_rank_isEquivalent
+#check ExtractionSchur.rankBudget_general_rank_times_purity_limit
+#print axioms ExtractionSchur.rankBudget_general_rank_times_purity_limit
+#check ExtractionSchur.rankBudget_rank_scaled_limit
+#print axioms ExtractionSchur.rankBudget_rank_scaled_limit
+#check ExtractionSchur.rankBudget_rank_times_purity_limit
+#print axioms ExtractionSchur.rankBudget_rank_times_purity_limit
+#check ExtractionSchur.rankBudget_general_coordinate_restriction_injective
+#print axioms ExtractionSchur.rankBudget_general_coordinate_restriction_injective
+#check ExtractionSchur.rankBudget_general_rank_le_descendingAvoiderCount
+#print axioms ExtractionSchur.rankBudget_general_rank_le_descendingAvoiderCount
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
 #check CircuitRecursion.unitaryCommutator_conjugate
@@ -1131,6 +1254,114 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms ExtractionRains.rainsEffect_exists_actual_protocol
 #check ExtractionRains.rainsEffect_iff_actual_protocol_effect
 #print axioms ExtractionRains.rainsEffect_iff_actual_protocol_effect
+#check ExtractionSchur.rankBudget_class_minimax_finite
+#print axioms ExtractionSchur.rankBudget_class_minimax_finite
+#check ExtractionSchur.rankBudgetPacking_ratio_limit
+#print axioms ExtractionSchur.rankBudgetPacking_ratio_limit
+#check ExtractionSchur.rankBudgetEta_limit
+#print axioms ExtractionSchur.rankBudgetEta_limit
+#check ExtractionSchur.rankBudget_physical_relative_bound
+#print axioms ExtractionSchur.rankBudget_physical_relative_bound
+#check ExtractionSchur.rankBudget_target_uniform_minimax
+#print axioms ExtractionSchur.rankBudget_target_uniform_minimax
+#check ExtractionSchur.rankBudget_target_uniform_relative_error
+#print axioms ExtractionSchur.rankBudget_target_uniform_relative_error
+#check ExtractionSchur.rankBudget_full_rank_minimax
+#print axioms ExtractionSchur.rankBudget_full_rank_minimax
+#check ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue
+#print axioms ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue
+#check ExtractionSchur.rankBudget_physical_class_chain
+#print axioms ExtractionSchur.rankBudget_physical_class_chain
+#check ExtractionAPPT.trace_cfc
+#print axioms ExtractionAPPT.trace_cfc
+#check ExtractionAPPT.quantumEntropy_eq_spectral
+#print axioms ExtractionAPPT.quantumEntropy_eq_spectral
+#check ExtractionAPPT.continuousOn_quantumEntropy
+#print axioms ExtractionAPPT.continuousOn_quantumEntropy
+#check ExtractionAPPT.cfc_submatrix
+#print axioms ExtractionAPPT.cfc_submatrix
+#check ExtractionAPPT.quantumEntropy_submatrix
+#print axioms ExtractionAPPT.quantumEntropy_submatrix
+#check ExtractionAPPT.flatten_density
+#print axioms ExtractionAPPT.flatten_density
+#check ExtractionAPPT.flatten_entropy
+#print axioms ExtractionAPPT.flatten_entropy
+#check ExtractionAPPT.flatten_spectral_entropy
+#print axioms ExtractionAPPT.flatten_spectral_entropy
+#check ExtractionAPPT.continuousOn_appt_entropy
+#print axioms ExtractionAPPT.continuousOn_appt_entropy
+#check ExtractionAPPT.exists_appt_entropy_isLeast
+#print axioms ExtractionAPPT.exists_appt_entropy_isLeast
+#check ExtractionAPPT.exists_appt_entropy_eq_inf
+#print axioms ExtractionAPPT.exists_appt_entropy_eq_inf
+#check ExtractionAPPT.physicalCapacity_eq
+#print axioms ExtractionAPPT.physicalCapacity_eq
+#check ExtractionAPPT.physicalCapacity_eq_cPPT
+#print axioms ExtractionAPPT.physicalCapacity_eq_cPPT
+#check ExtractionAPPT.exists_appt_capacity_isGreatest
+#print axioms ExtractionAPPT.exists_appt_capacity_isGreatest
+#check ExtractionAPPT.exists_appt_capacity_eq_sup
+#print axioms ExtractionAPPT.exists_appt_capacity_eq_sup
+#check ExtractionAPPT.apptMaxCapacity_eq
+#print axioms ExtractionAPPT.apptMaxCapacity_eq
+#check ExtractionAPPT.exists_appt_purity_maximizer
+#print axioms ExtractionAPPT.exists_appt_purity_maximizer
+#check ExtractionAPPT.entropy_ge_neg_log_collision
+#print axioms ExtractionAPPT.entropy_ge_neg_log_collision
+#check ExtractionAPPT.density_entropy_purity_bound
+#print axioms ExtractionAPPT.density_entropy_purity_bound
+#check ExtractionAPPT.physicalCapacity_le_purity
+#print axioms ExtractionAPPT.physicalCapacity_le_purity
+#check ExtractionAPPT.apptMaxCapacity_le_puritySup
+#print axioms ExtractionAPPT.apptMaxCapacity_le_puritySup
+#check ExtractionAPPT.physicalCapacity_eq_closureLOCC
+#print axioms ExtractionAPPT.physicalCapacity_eq_closureLOCC
+#check ExtractionAPPT.schmidt_product_le_half
+#print axioms ExtractionAPPT.schmidt_product_le_half
+#check ExtractionAPPT.schmidtSigned_lower
+#print axioms ExtractionAPPT.schmidtSigned_lower
+#check ExtractionAPPT.pure_partialTranspose_lower
+#print axioms ExtractionAPPT.pure_partialTranspose_lower
+#check ExtractionAPPT.spikeState_density
+#print axioms ExtractionAPPT.spikeState_density
+#check ExtractionAPPT.spikeState_absolutelyPPT
+#print axioms ExtractionAPPT.spikeState_absolutelyPPT
+#check ExtractionAPPT.spikeState_mem_appt
+#print axioms ExtractionAPPT.spikeState_mem_appt
+#check ExtractionAPPT.projection_spectrum_zero_one
+#print axioms ExtractionAPPT.projection_spectrum_zero_one
+#check ExtractionAPPT.cfc_affine_projection
+#print axioms ExtractionAPPT.cfc_affine_projection
+#check ExtractionAPPT.quantumEntropy_affine_rankOne
+#print axioms ExtractionAPPT.quantumEntropy_affine_rankOne
+#check ExtractionAPPT.spikeState_entropy
+#print axioms ExtractionAPPT.spikeState_entropy
+#check ExtractionAPPT.spikeState_capacity
+#print axioms ExtractionAPPT.spikeState_capacity
+#check ExtractionAPPT.spike_capacity_le_apptMax
+#print axioms ExtractionAPPT.spike_capacity_le_apptMax
+#check ExtractionAPPT.spike_rate_error_bounds
+#print axioms ExtractionAPPT.spike_rate_error_bounds
+#check ExtractionAPPT.spikeState_capacity_error_bounds
+#print axioms ExtractionAPPT.spikeState_capacity_error_bounds
+#check ExtractionAPPT.spike_capacity_coefficient_limit
+#print axioms ExtractionAPPT.spike_capacity_coefficient_limit
+#check ExtractionAPPT.normalized_log_budget_limit
+#print axioms ExtractionAPPT.normalized_log_budget_limit
+#check ExtractionAPPT.balanced_purity_excess_limit
+#print axioms ExtractionAPPT.balanced_purity_excess_limit
+#check ExtractionAPPT.balanced_purity_capacity_budget_limit
+#print axioms ExtractionAPPT.balanced_purity_capacity_budget_limit
+#check ExtractionAPPT.balanced_apptMaxCapacity_upper
+#print axioms ExtractionAPPT.balanced_apptMaxCapacity_upper
+#check ExtractionAPPT.balanced_apptMaxCapacity_upper_remainder
+#print axioms ExtractionAPPT.balanced_apptMaxCapacity_upper_remainder
+#check ExtractionAPPT.spikeState_scaled_capacity_limit
+#print axioms ExtractionAPPT.spikeState_scaled_capacity_limit
+#check ExtractionAPPT.balanced_apptMaxCapacity_lower
+#print axioms ExtractionAPPT.balanced_apptMaxCapacity_lower
+#check ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds
+#print axioms ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds
 #check ExtractionCP.amplification
 #print axioms ExtractionCP.amplification
 #check ExtractionCP.CompletelyPositive
@@ -1195,6 +1426,18 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms ExtractionSchur.projectionOverlap
 #check ExtractionSchur.haarOverlapMoment
 #print axioms ExtractionSchur.haarOverlapMoment
+#check ExtractionSchur.compressionLinear
+#print axioms ExtractionSchur.compressionLinear
+#check ExtractionSchur.haarTwirlLinear
+#print axioms ExtractionSchur.haarTwirlLinear
+#check ExtractionSchur.cyclicTensorMean
+#print axioms ExtractionSchur.cyclicTensorMean
+#check ExtractionSchur.HasDescendingSubsequence
+#print axioms ExtractionSchur.HasDescendingSubsequence
+#check ExtractionSchur.DescendingAvoider
+#print axioms ExtractionSchur.DescendingAvoider
+#check ExtractionSchur.descendingAvoiderCount
+#print axioms ExtractionSchur.descendingAvoiderCount
 #check CircuitRecursion.compressionCircuit
 #print axioms CircuitRecursion.compressionCircuit
 #check CircuitRecursion.bitPurePower
@@ -1307,3 +1550,45 @@ run_cmd (CompletionVerification.checkKinds [
 #print axioms ExtractionRains.pptChannel
 #check ExtractionRains.protocol
 #print axioms ExtractionRains.protocol
+#check ExtractionSchur.RankBudgetInput
+#print axioms ExtractionSchur.RankBudgetInput
+#check ExtractionSchur.rankBudgetClassMinimax
+#print axioms ExtractionSchur.rankBudgetClassMinimax
+#check ExtractionSchur.rankBudgetProjection
+#print axioms ExtractionSchur.rankBudgetProjection
+#check ExtractionSchur.physicalHaarAverage
+#print axioms ExtractionSchur.physicalHaarAverage
+#check ExtractionSchur.rankBudgetOrbitInput
+#print axioms ExtractionSchur.rankBudgetOrbitInput
+#check ExtractionSchur.RankProtocolClass
+#print axioms ExtractionSchur.RankProtocolClass
+#check ExtractionSchur.RankProtocolClass.Allows
+#print axioms ExtractionSchur.RankProtocolClass.Allows
+#check ExtractionSchur.rankBudgetPhysicalMinimax
+#print axioms ExtractionSchur.rankBudgetPhysicalMinimax
+#check ExtractionSchur.rankBudgetCollisionWidth
+#print axioms ExtractionSchur.rankBudgetCollisionWidth
+#check ExtractionSchur.rankBudgetWidth
+#print axioms ExtractionSchur.rankBudgetWidth
+#check ExtractionSchur.rankBudgetPacking
+#print axioms ExtractionSchur.rankBudgetPacking
+#check ExtractionSchur.rankBudgetEta
+#print axioms ExtractionSchur.rankBudgetEta
+#check ExtractionAPPT.quantumEntropy
+#print axioms ExtractionAPPT.quantumEntropy
+#check ExtractionAPPT.flatten
+#print axioms ExtractionAPPT.flatten
+#check ExtractionAPPT.apptEntropyValues
+#print axioms ExtractionAPPT.apptEntropyValues
+#check ExtractionAPPT.apptMinEntropy
+#print axioms ExtractionAPPT.apptMinEntropy
+#check ExtractionAPPT.physicalCapacity
+#print axioms ExtractionAPPT.physicalCapacity
+#check ExtractionAPPT.apptCapacityValues
+#print axioms ExtractionAPPT.apptCapacityValues
+#check ExtractionAPPT.apptMaxCapacity
+#print axioms ExtractionAPPT.apptMaxCapacity
+#check ExtractionAPPT.spikeState
+#print axioms ExtractionAPPT.spikeState
+#check ExtractionAPPT.purityCapacityBudget
+#print axioms ExtractionAPPT.purityCapacityBudget

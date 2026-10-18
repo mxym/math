@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "state": "PRELIMINARY",
-  "source_head": "309e2f8526cf002bf26d4af9bfa37310749a71ad",
+  "source_head": "fbb8d73caee20971384a13dde2eb718cf87621f0",
   "groups": [
     {
       "id": "actual-cp-ppt",
@@ -123,7 +123,7 @@
       ]
     },
     {
-      "id": "schur-actual-purity-rank-lower-snapshot",
+      "id": "schur-actual-haar-purity-and-sharp-support",
       "theorem_roots": [
         "ExtractionSchur.cycleOperator_jucys_factorization",
         "ExtractionSchur.jucysOperators_commute",
@@ -140,18 +140,42 @@
         "ExtractionSchur.flatHaarAverage_general_purity_scaled_limit",
         "ExtractionSchur.flatHaarAverage_general_purity_isEquivalent",
         "ExtractionSchur.flatHaarAverage_purity_scaled_limit",
-        "ExtractionSchur.rankBudget_general_sharp_lower"
+        "ExtractionSchur.rankBudget_general_sharp_lower",
+        "ExtractionSchur.cyclic_tensor_mean_lower",
+        "ExtractionSchur.haarOrbitAverage_contraction_lower",
+        "ExtractionSchur.flatHaarAverage_compressed_lower",
+        "ExtractionSchur.flatHaarAverage_positive_eigenvalue_lower",
+        "ExtractionSchur.flatHaarAverage_rank_mul_minor_le_one",
+        "ExtractionSchur.haarMinorMoment_ceil_scaled_limit",
+        "ExtractionSchur.rankBudget_general_rank_upper",
+        "ExtractionSchur.rankBudget_general_rank_scaled_limit",
+        "ExtractionSchur.rankBudget_general_rank_isEquivalent",
+        "ExtractionSchur.rankBudget_general_rank_times_purity_limit",
+        "ExtractionSchur.rankBudget_rank_scaled_limit",
+        "ExtractionSchur.rankBudget_rank_times_purity_limit",
+        "ExtractionSchur.rankBudget_general_coordinate_restriction_injective",
+        "ExtractionSchur.rankBudget_general_rank_le_descendingAvoiderCount"
       ],
       "definition_roots": [
         "ExtractionSchur.projectedGram",
         "ExtractionSchur.projectionOverlap",
-        "ExtractionSchur.haarOverlapMoment"
+        "ExtractionSchur.haarOverlapMoment",
+        "ExtractionSchur.compressionLinear",
+        "ExtractionSchur.haarTwirlLinear",
+        "ExtractionSchur.cyclicTensorMean",
+        "ExtractionSchur.HasDescendingSubsequence",
+        "ExtractionSchur.DescendingAvoider",
+        "ExtractionSchur.descendingAvoiderCount"
       ],
       "controls": [
         "ExtractionSchur.flatHaarAverage_jucys_product_eigenvalue",
         "ExtractionSchur.flatHaarAverage_codimension_one_purity_scaled_limit",
         "ExtractionSchur.flatHaarAverage_general_purity_scaled_limit",
-        "ExtractionSchur.rankBudget_general_sharp_lower"
+        "ExtractionSchur.rankBudget_general_sharp_lower",
+        "ExtractionSchur.haarOrbitAverage_contraction_lower",
+        "ExtractionSchur.flatHaarAverage_positive_eigenvalue_lower",
+        "ExtractionSchur.rankBudget_general_rank_scaled_limit",
+        "ExtractionSchur.rankBudget_general_rank_times_purity_limit"
       ]
     },
     {
@@ -582,22 +606,139 @@
         "ExtractionRains.pt_channel_decomposition",
         "ExtractionRains.rainsEffect_iff_actual_protocol_effect"
       ]
+    },
+    {
+      "id": "actual-general-rank-physical-minimax",
+      "theorem_roots": [
+        "ExtractionSchur.rankBudget_class_minimax_finite",
+        "ExtractionSchur.rankBudgetPacking_ratio_limit",
+        "ExtractionSchur.rankBudgetEta_limit",
+        "ExtractionSchur.rankBudget_physical_relative_bound",
+        "ExtractionSchur.rankBudget_target_uniform_minimax",
+        "ExtractionSchur.rankBudget_target_uniform_relative_error",
+        "ExtractionSchur.rankBudget_full_rank_minimax",
+        "ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue",
+        "ExtractionSchur.rankBudget_physical_class_chain"
+      ],
+      "definition_roots": [
+        "ExtractionSchur.RankBudgetInput",
+        "ExtractionSchur.rankBudgetClassMinimax",
+        "ExtractionSchur.rankBudgetProjection",
+        "ExtractionSchur.physicalHaarAverage",
+        "ExtractionSchur.rankBudgetOrbitInput",
+        "ExtractionSchur.RankProtocolClass",
+        "ExtractionSchur.RankProtocolClass.Allows",
+        "ExtractionSchur.rankBudgetPhysicalMinimax",
+        "ExtractionSchur.rankBudgetCollisionWidth",
+        "ExtractionSchur.rankBudgetWidth",
+        "ExtractionSchur.rankBudgetPacking",
+        "ExtractionSchur.rankBudgetEta"
+      ],
+      "controls": [
+        "ExtractionSchur.rankBudget_class_minimax_finite",
+        "ExtractionSchur.rankBudget_target_uniform_relative_error",
+        "ExtractionSchur.rankBudget_full_rank_minimax"
+      ]
+    },
+    {
+      "id": "actual-appt-entropy-capacity-spike-and-asymptotics",
+      "theorem_roots": [
+        "ExtractionAPPT.trace_cfc",
+        "ExtractionAPPT.quantumEntropy_eq_spectral",
+        "ExtractionAPPT.continuousOn_quantumEntropy",
+        "ExtractionAPPT.cfc_submatrix",
+        "ExtractionAPPT.quantumEntropy_submatrix",
+        "ExtractionAPPT.flatten_density",
+        "ExtractionAPPT.flatten_entropy",
+        "ExtractionAPPT.flatten_spectral_entropy",
+        "ExtractionAPPT.continuousOn_appt_entropy",
+        "ExtractionAPPT.exists_appt_entropy_isLeast",
+        "ExtractionAPPT.exists_appt_entropy_eq_inf",
+        "ExtractionAPPT.physicalCapacity_eq",
+        "ExtractionAPPT.physicalCapacity_eq_cPPT",
+        "ExtractionAPPT.exists_appt_capacity_isGreatest",
+        "ExtractionAPPT.exists_appt_capacity_eq_sup",
+        "ExtractionAPPT.apptMaxCapacity_eq",
+        "ExtractionAPPT.exists_appt_purity_maximizer",
+        "ExtractionAPPT.entropy_ge_neg_log_collision",
+        "ExtractionAPPT.density_entropy_purity_bound",
+        "ExtractionAPPT.physicalCapacity_le_purity",
+        "ExtractionAPPT.apptMaxCapacity_le_puritySup",
+        "ExtractionAPPT.physicalCapacity_eq_closureLOCC",
+        "ExtractionAPPT.schmidt_product_le_half",
+        "ExtractionAPPT.schmidtSigned_lower",
+        "ExtractionAPPT.pure_partialTranspose_lower",
+        "ExtractionAPPT.spikeState_density",
+        "ExtractionAPPT.spikeState_absolutelyPPT",
+        "ExtractionAPPT.spikeState_mem_appt",
+        "ExtractionAPPT.projection_spectrum_zero_one",
+        "ExtractionAPPT.cfc_affine_projection",
+        "ExtractionAPPT.quantumEntropy_affine_rankOne",
+        "ExtractionAPPT.spikeState_entropy",
+        "ExtractionAPPT.spikeState_capacity",
+        "ExtractionAPPT.spike_capacity_le_apptMax",
+        "ExtractionAPPT.spike_rate_error_bounds",
+        "ExtractionAPPT.spikeState_capacity_error_bounds",
+        "ExtractionAPPT.spike_capacity_coefficient_limit",
+        "ExtractionAPPT.normalized_log_budget_limit",
+        "ExtractionAPPT.balanced_purity_excess_limit",
+        "ExtractionAPPT.balanced_purity_capacity_budget_limit",
+        "ExtractionAPPT.balanced_apptMaxCapacity_upper",
+        "ExtractionAPPT.balanced_apptMaxCapacity_upper_remainder",
+        "ExtractionAPPT.spikeState_scaled_capacity_limit",
+        "ExtractionAPPT.balanced_apptMaxCapacity_lower",
+        "ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds"
+      ],
+      "definition_roots": [
+        "ExtractionAPPT.quantumEntropy",
+        "ExtractionAPPT.flatten",
+        "ExtractionAPPT.apptEntropyValues",
+        "ExtractionAPPT.apptMinEntropy",
+        "ExtractionAPPT.physicalCapacity",
+        "ExtractionAPPT.apptCapacityValues",
+        "ExtractionAPPT.apptMaxCapacity",
+        "ExtractionAPPT.spikeState",
+        "ExtractionAPPT.purityCapacityBudget"
+      ],
+      "controls": [
+        "ExtractionAPPT.quantumEntropy_eq_spectral",
+        "ExtractionAPPT.exists_appt_entropy_eq_inf",
+        "ExtractionAPPT.apptMaxCapacity_eq",
+        "ExtractionAPPT.spikeState_absolutelyPPT",
+        "ExtractionAPPT.spikeState_entropy",
+        "ExtractionAPPT.spikeState_capacity_error_bounds",
+        "ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds"
+      ]
     }
   ],
   "pending_required": [
-    "Final mathematical source notification and independent review of subsequent general-rank support/minimax commits",
-    "Independent review and inclusion of final APPT application source after normal integration",
-    "Review next manuscript version and exact theorem/source correspondence"
+    "Root notification and independent review of final natural exact/fixed-error target maxima, logarithmic corrections and fixed-spectrum orbit source",
+    "Root notification and independent review of final circuit effective-numerical source, with classical bit-complexity boundary retained unless actually discharged",
+    "Review complete next eight-TeX manuscript and exact theorem/source correspondence; current revision is a draft"
   ],
   "scope_note": "Independent internal AI review and separate new completion scope at an explicitly identified snapshot. PRELIMINARY: no full-manuscript or final kernel PASS. Root/definition/closure counts are audit inputs, never discovery counts. Current mathematical existence/gate-count results do not certify classical Turing bit complexity. Subsequent mathematical commits require explicit review and scope update.",
   "unresolved_manuscript_interfaces": [
-    "Frozen eight-TeX manuscript has a Schur finite-block family/loss; this snapshot proves an intrinsic reserved family and retains its actual integer sector budget. Rewrite next version or prove identification.",
-    "Frozen manuscript transposes the second party; actual Lean interfaces transpose the first party. Align next version or supply convention equivalence.",
-    "General-rank sharp support upper bound/physical minimax and application successor sources are not included in this snapshot.",
-    "Classical effective synthesis and bit complexity are unproved; exact finite-library words/gate counts and matrix-error bounds are existence results."
+    "Frozen eight-TeX manuscript uses Schur finite overhead and second-party Gamma; only new intrinsic universal-protocol.tex has been rewritten at this SHA. Other copied sections are not final.",
+    "Current complete two moments and actual four-class uniform minimax do not automatically certify later natural target maxima/log corrections/known-spectrum operational corollaries.",
+    "Classical effective synthesis and bit complexity remain unproved at this SHA; subsequent uncommitted circuit work is outside this scope."
   ],
   "historical_review_head": "aa1cd0c497a4a9963013ec6dde76a5ed296e2c61",
   "verification_pending": [
     "Final source freeze, fresh new-package build, every-root kind/type/axiom checks, full trust-zero replay and all same-type controls"
-  ]
+  ],
+  "snapshot_reviews": [
+    "REVIEW_20261019.md",
+    "REVIEW_FBB8_20261019.md"
+  ],
+  "manuscript_inputs": [
+    "preprints/universal-entanglement-extraction-revision-2026-10/paper.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/introduction.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/spectral-principles.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/universal-protocol.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/asymptotic-laws.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/unknown-support.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/applications-verification.tex",
+    "preprints/universal-entanglement-extraction-revision-2026-10/references.tex"
+  ],
+  "manuscript_state": "DRAFT_ONLY_UNIVERSAL_PROTOCOL_REWRITTEN_AT_THIS_SHA"
 }

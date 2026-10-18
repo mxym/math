@@ -66,6 +66,20 @@ run_cmd (CompletionVerification.replayAll [
   ``ExtractionSchur.flatHaarAverage_general_purity_isEquivalent,
   ``ExtractionSchur.flatHaarAverage_purity_scaled_limit,
   ``ExtractionSchur.rankBudget_general_sharp_lower,
+  ``ExtractionSchur.cyclic_tensor_mean_lower,
+  ``ExtractionSchur.haarOrbitAverage_contraction_lower,
+  ``ExtractionSchur.flatHaarAverage_compressed_lower,
+  ``ExtractionSchur.flatHaarAverage_positive_eigenvalue_lower,
+  ``ExtractionSchur.flatHaarAverage_rank_mul_minor_le_one,
+  ``ExtractionSchur.haarMinorMoment_ceil_scaled_limit,
+  ``ExtractionSchur.rankBudget_general_rank_upper,
+  ``ExtractionSchur.rankBudget_general_rank_scaled_limit,
+  ``ExtractionSchur.rankBudget_general_rank_isEquivalent,
+  ``ExtractionSchur.rankBudget_general_rank_times_purity_limit,
+  ``ExtractionSchur.rankBudget_rank_scaled_limit,
+  ``ExtractionSchur.rankBudget_rank_times_purity_limit,
+  ``ExtractionSchur.rankBudget_general_coordinate_restriction_injective,
+  ``ExtractionSchur.rankBudget_general_rank_le_descendingAvoiderCount,
   ``CircuitRecursion.su2Commutator_unitary,
   ``CircuitRecursion.unitaryCommutator_conjugate,
   ``CircuitRecursion.axisCommutator_scalar,
@@ -348,6 +362,60 @@ run_cmd (CompletionVerification.replayAll [
   ``ExtractionRains.protocol_fidelity,
   ``ExtractionRains.rainsEffect_exists_actual_protocol,
   ``ExtractionRains.rainsEffect_iff_actual_protocol_effect,
+  ``ExtractionSchur.rankBudget_class_minimax_finite,
+  ``ExtractionSchur.rankBudgetPacking_ratio_limit,
+  ``ExtractionSchur.rankBudgetEta_limit,
+  ``ExtractionSchur.rankBudget_physical_relative_bound,
+  ``ExtractionSchur.rankBudget_target_uniform_minimax,
+  ``ExtractionSchur.rankBudget_target_uniform_relative_error,
+  ``ExtractionSchur.rankBudget_full_rank_minimax,
+  ``ExtractionSchur.rankBudget_completelyPPT_eq_minimaxValue,
+  ``ExtractionSchur.rankBudget_physical_class_chain,
+  ``ExtractionAPPT.trace_cfc,
+  ``ExtractionAPPT.quantumEntropy_eq_spectral,
+  ``ExtractionAPPT.continuousOn_quantumEntropy,
+  ``ExtractionAPPT.cfc_submatrix,
+  ``ExtractionAPPT.quantumEntropy_submatrix,
+  ``ExtractionAPPT.flatten_density,
+  ``ExtractionAPPT.flatten_entropy,
+  ``ExtractionAPPT.flatten_spectral_entropy,
+  ``ExtractionAPPT.continuousOn_appt_entropy,
+  ``ExtractionAPPT.exists_appt_entropy_isLeast,
+  ``ExtractionAPPT.exists_appt_entropy_eq_inf,
+  ``ExtractionAPPT.physicalCapacity_eq,
+  ``ExtractionAPPT.physicalCapacity_eq_cPPT,
+  ``ExtractionAPPT.exists_appt_capacity_isGreatest,
+  ``ExtractionAPPT.exists_appt_capacity_eq_sup,
+  ``ExtractionAPPT.apptMaxCapacity_eq,
+  ``ExtractionAPPT.exists_appt_purity_maximizer,
+  ``ExtractionAPPT.entropy_ge_neg_log_collision,
+  ``ExtractionAPPT.density_entropy_purity_bound,
+  ``ExtractionAPPT.physicalCapacity_le_purity,
+  ``ExtractionAPPT.apptMaxCapacity_le_puritySup,
+  ``ExtractionAPPT.physicalCapacity_eq_closureLOCC,
+  ``ExtractionAPPT.schmidt_product_le_half,
+  ``ExtractionAPPT.schmidtSigned_lower,
+  ``ExtractionAPPT.pure_partialTranspose_lower,
+  ``ExtractionAPPT.spikeState_density,
+  ``ExtractionAPPT.spikeState_absolutelyPPT,
+  ``ExtractionAPPT.spikeState_mem_appt,
+  ``ExtractionAPPT.projection_spectrum_zero_one,
+  ``ExtractionAPPT.cfc_affine_projection,
+  ``ExtractionAPPT.quantumEntropy_affine_rankOne,
+  ``ExtractionAPPT.spikeState_entropy,
+  ``ExtractionAPPT.spikeState_capacity,
+  ``ExtractionAPPT.spike_capacity_le_apptMax,
+  ``ExtractionAPPT.spike_rate_error_bounds,
+  ``ExtractionAPPT.spikeState_capacity_error_bounds,
+  ``ExtractionAPPT.spike_capacity_coefficient_limit,
+  ``ExtractionAPPT.normalized_log_budget_limit,
+  ``ExtractionAPPT.balanced_purity_excess_limit,
+  ``ExtractionAPPT.balanced_purity_capacity_budget_limit,
+  ``ExtractionAPPT.balanced_apptMaxCapacity_upper,
+  ``ExtractionAPPT.balanced_apptMaxCapacity_upper_remainder,
+  ``ExtractionAPPT.spikeState_scaled_capacity_limit,
+  ``ExtractionAPPT.balanced_apptMaxCapacity_lower,
+  ``ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds,
   ``ExtractionCP.amplification,
   ``ExtractionCP.CompletelyPositive,
   ``ExtractionCP.TracePreserving,
@@ -380,6 +448,12 @@ run_cmd (CompletionVerification.replayAll [
   ``ExtractionSchur.projectedGram,
   ``ExtractionSchur.projectionOverlap,
   ``ExtractionSchur.haarOverlapMoment,
+  ``ExtractionSchur.compressionLinear,
+  ``ExtractionSchur.haarTwirlLinear,
+  ``ExtractionSchur.cyclicTensorMean,
+  ``ExtractionSchur.HasDescendingSubsequence,
+  ``ExtractionSchur.DescendingAvoider,
+  ``ExtractionSchur.descendingAvoiderCount,
   ``CircuitRecursion.compressionCircuit,
   ``CircuitRecursion.bitPurePower,
   ``CircuitRecursion.bellPairYield,
@@ -435,7 +509,28 @@ run_cmd (CompletionVerification.replayAll [
   ``ExtractionRains.plusEffect,
   ``ExtractionRains.minusEffect,
   ``ExtractionRains.pptChannel,
-  ``ExtractionRains.protocol
+  ``ExtractionRains.protocol,
+  ``ExtractionSchur.RankBudgetInput,
+  ``ExtractionSchur.rankBudgetClassMinimax,
+  ``ExtractionSchur.rankBudgetProjection,
+  ``ExtractionSchur.physicalHaarAverage,
+  ``ExtractionSchur.rankBudgetOrbitInput,
+  ``ExtractionSchur.RankProtocolClass,
+  ``ExtractionSchur.RankProtocolClass.Allows,
+  ``ExtractionSchur.rankBudgetPhysicalMinimax,
+  ``ExtractionSchur.rankBudgetCollisionWidth,
+  ``ExtractionSchur.rankBudgetWidth,
+  ``ExtractionSchur.rankBudgetPacking,
+  ``ExtractionSchur.rankBudgetEta,
+  ``ExtractionAPPT.quantumEntropy,
+  ``ExtractionAPPT.flatten,
+  ``ExtractionAPPT.apptEntropyValues,
+  ``ExtractionAPPT.apptMinEntropy,
+  ``ExtractionAPPT.physicalCapacity,
+  ``ExtractionAPPT.apptCapacityValues,
+  ``ExtractionAPPT.apptMaxCapacity,
+  ``ExtractionAPPT.spikeState,
+  ``ExtractionAPPT.purityCapacityBudget
 ] "verification/completion-kernel")
 
 run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionCP.completelyPositive_iff_choi_posSemidef "verification/completion-control-1"
@@ -457,31 +552,45 @@ run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.flatHaarAv
 run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.flatHaarAverage_codimension_one_purity_scaled_limit "verification/completion-control-17"
 run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.flatHaarAverage_general_purity_scaled_limit "verification/completion-control-18"
 run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_general_sharp_lower "verification/completion-control-19"
-run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.compressionCircuit_purePower "verification/completion-control-20"
-run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.compressionCircuit_polynomial_bound "verification/completion-control-21"
-run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.extractionOutput_purePower "verification/completion-control-22"
-run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.readoutCoordinates_physical "verification/completion-control-23"
-run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.bellPairYield_cPPT_maximal "verification/completion-control-24"
-run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.extractionCircuit_isBigO "verification/completion-control-25"
-run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.su2_synthesis_dyadic "verification/completion-control-26"
-run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.finiteLibrary_extraction "verification/completion-control-27"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedFixedErrorTarget_gaussian "verification/completion-control-28"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedProtocol_berryEsseen "verification/completion-control-29"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reserved_optimal_gaussian_limit "verification/completion-control-30"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.protocol_fidelity_one "verification/completion-control-31"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.faithfulCapacity_eq "verification/completion-control-32"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.exactCapacity_eq "verification/completion-control-33"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.finiteLOCC_capacities "verification/completion-control-34"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.measurable_physical_ensemble_bound "verification/completion-control-35"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedProtocol_gaussian_error "verification/completion-control-36"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.triangular_reserved_gaussian_shrinking_variance "verification/completion-control-37"
-run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedTotalLoss_dimension_bound "verification/completion-control-38"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.leafKraus_complete "verification/completion-control-39"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.channel_pt_completelyPositive "verification/completion-control-40"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.productLocal_isFiniteLOCCProtocol "verification/completion-control-41"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.IsClosureLOCC.exists_actual_protocol "verification/completion-control-42"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Instrument.ofCP_outcomeMap "verification/completion-control-43"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.channel_aliceInstrument "verification/completion-control-44"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.channel_target_overlap "verification/completion-control-45"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.pt_channel_decomposition "verification/completion-control-46"
-run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.rainsEffect_iff_actual_protocol_effect "verification/completion-control-47"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.haarOrbitAverage_contraction_lower "verification/completion-control-20"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.flatHaarAverage_positive_eigenvalue_lower "verification/completion-control-21"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_general_rank_scaled_limit "verification/completion-control-22"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_general_rank_times_purity_limit "verification/completion-control-23"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.compressionCircuit_purePower "verification/completion-control-24"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.compressionCircuit_polynomial_bound "verification/completion-control-25"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.extractionOutput_purePower "verification/completion-control-26"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.readoutCoordinates_physical "verification/completion-control-27"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.bellPairYield_cPPT_maximal "verification/completion-control-28"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.extractionCircuit_isBigO "verification/completion-control-29"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.su2_synthesis_dyadic "verification/completion-control-30"
+run_cmd CompletionVerification.rejectCorruptTheorem ``CircuitRecursion.finiteLibrary_extraction "verification/completion-control-31"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedFixedErrorTarget_gaussian "verification/completion-control-32"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedProtocol_berryEsseen "verification/completion-control-33"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reserved_optimal_gaussian_limit "verification/completion-control-34"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.protocol_fidelity_one "verification/completion-control-35"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.faithfulCapacity_eq "verification/completion-control-36"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.exactCapacity_eq "verification/completion-control-37"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.finiteLOCC_capacities "verification/completion-control-38"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.measurable_physical_ensemble_bound "verification/completion-control-39"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedProtocol_gaussian_error "verification/completion-control-40"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.triangular_reserved_gaussian_shrinking_variance "verification/completion-control-41"
+run_cmd CompletionVerification.rejectCorruptTheorem ``OperationalCompletion.reservedTotalLoss_dimension_bound "verification/completion-control-42"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.leafKraus_complete "verification/completion-control-43"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.channel_pt_completelyPositive "verification/completion-control-44"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.productLocal_isFiniteLOCCProtocol "verification/completion-control-45"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.IsClosureLOCC.exists_actual_protocol "verification/completion-control-46"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Instrument.ofCP_outcomeMap "verification/completion-control-47"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionLOCC.Tree.channel_aliceInstrument "verification/completion-control-48"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.channel_target_overlap "verification/completion-control-49"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.pt_channel_decomposition "verification/completion-control-50"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionRains.rainsEffect_iff_actual_protocol_effect "verification/completion-control-51"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_class_minimax_finite "verification/completion-control-52"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_target_uniform_relative_error "verification/completion-control-53"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionSchur.rankBudget_full_rank_minimax "verification/completion-control-54"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.quantumEntropy_eq_spectral "verification/completion-control-55"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.exists_appt_entropy_eq_inf "verification/completion-control-56"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.apptMaxCapacity_eq "verification/completion-control-57"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.spikeState_absolutelyPPT "verification/completion-control-58"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.spikeState_entropy "verification/completion-control-59"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.spikeState_capacity_error_bounds "verification/completion-control-60"
+run_cmd CompletionVerification.rejectCorruptTheorem ``ExtractionAPPT.balanced_apptMaxCapacity_first_order_bounds "verification/completion-control-61"
