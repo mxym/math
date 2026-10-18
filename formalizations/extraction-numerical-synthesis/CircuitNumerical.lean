@@ -8,8 +8,10 @@ import CircuitNumerical.ConditionedOracleSelection
 import CircuitNumerical.ExpressionCosts
 import CircuitNumerical.ExpressionExecution
 import CircuitNumerical.ExpressionResources
+import CircuitNumerical.FactorBitBudgets
 import CircuitNumerical.FactorDependencies
 import CircuitNumerical.FactorExpressions
+import CircuitNumerical.FactorInputBounds
 import CircuitNumerical.IntegerExpressionBudgets
 import CircuitNumerical.IntegerExpressionExecution
 import CircuitNumerical.IntegerPacketArithmetic
