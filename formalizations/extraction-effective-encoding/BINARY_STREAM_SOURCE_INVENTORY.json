@@ -1,0 +1,393 @@
+{
+  "status": "GENERATED_AUTHOR_BINARY_STREAM_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 23,
+  "model_count": 22,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.vectorBool_getD",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.endpointBitsProgram_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.BinaryFieldResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 31
+    },
+    {
+      "name": "EffectiveEncoding.binaryFieldProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 36
+    },
+    {
+      "name": "EffectiveEncoding.binaryFieldProgram_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 42
+    },
+    {
+      "name": "EffectiveEncoding.binaryFieldProgram_value",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.BinaryFieldResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 53
+    },
+    {
+      "name": "EffectiveEncoding.binaryFieldProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 57
+    },
+    {
+      "name": "EffectiveEncoding.takeBoolField",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 69
+    },
+    {
+      "name": "EffectiveEncoding.takeBoolField_append",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 77
+    },
+    {
+      "name": "EffectiveEncoding.takeBoolField_binaryField",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "line": 84
+    },
+    {
+      "name": "EffectiveEncoding.labelFieldWidth",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitCodec.lean",
+      "line": 8
+    },
+    {
+      "name": "EffectiveEncoding.BinaryLabelResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitCodec.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.binaryLabelProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitCodec.lean",
+      "line": 18
+    },
+    {
+      "name": "EffectiveEncoding.readBinaryLabel",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitCodec.lean",
+      "line": 32
+    },
+    {
+      "name": "EffectiveEncoding.readBinaryLabel_roundtrip",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitCodec.lean",
+      "line": 51
+    },
+    {
+      "name": "EffectiveEncoding.binaryLabelProgram_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitCodec.lean",
+      "line": 75
+    },
+    {
+      "name": "EffectiveEncoding.BinaryLabelResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitCodec.lean",
+      "line": 82
+    },
+    {
+      "name": "EffectiveEncoding.binaryLabelProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitCodec.lean",
+      "line": 86
+    },
+    {
+      "name": "EffectiveEncoding.BinaryStreamTrace",
+      "kind": "inductive",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.BinaryStreamResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 10
+    },
+    {
+      "name": "EffectiveEncoding.binaryLabelStream",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 16
+    },
+    {
+      "name": "EffectiveEncoding.readBinaryLabelStreamFuel",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 25
+    },
+    {
+      "name": "EffectiveEncoding.readBinaryLabelStreamFuel_roundtrip",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 36
+    },
+    {
+      "name": "EffectiveEncoding.binaryLabelStream_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 53
+    },
+    {
+      "name": "EffectiveEncoding.readBinaryLabelStream",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 63
+    },
+    {
+      "name": "EffectiveEncoding.readBinaryLabelStream_roundtrip",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 67
+    },
+    {
+      "name": "EffectiveEncoding.deserializeLabelStream",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 74
+    },
+    {
+      "name": "EffectiveEncoding.deserializeLabelStream_roundtrip",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 78
+    },
+    {
+      "name": "EffectiveEncoding.BinaryStreamTrace.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 85
+    },
+    {
+      "name": "EffectiveEncoding.binaryLabelStream_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "line": 91
+    },
+    {
+      "name": "EffectiveEncoding.compileAssembledWord_outputLength",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 7
+    },
+    {
+      "name": "EffectiveEncoding.outputLabelBudget",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 26
+    },
+    {
+      "name": "EffectiveEncoding.fullyMaterializedInputRun_outputLength",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.SerializedInputResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 51
+    },
+    {
+      "name": "EffectiveEncoding.serializedInputRun",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 57
+    },
+    {
+      "name": "EffectiveEncoding.SerializedInputResult.decoded",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 65
+    },
+    {
+      "name": "EffectiveEncoding.serializedInputRun_roundtrip",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 69
+    },
+    {
+      "name": "EffectiveEncoding.serializedInputRun_suffix_roundtrip",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 76
+    },
+    {
+      "name": "EffectiveEncoding.serializedInputRun_bitLength",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 84
+    },
+    {
+      "name": "EffectiveEncoding.serializedInputRun_streamActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 95
+    },
+    {
+      "name": "EffectiveEncoding.SerializedInputResult.accountedPrimitiveActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 104
+    },
+    {
+      "name": "EffectiveEncoding.serializedPrimitiveBudget",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 109
+    },
+    {
+      "name": "EffectiveEncoding.serializedInputRun_accountedPrimitiveActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 118
+    },
+    {
+      "name": "EffectiveEncoding.serializedInputRun_fidelity",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "line": 130
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean",
+      "sha256": "c8eb5bf78b2b9458068c02cd1d2045e3ddb3c2c0e44f6a4bf25cca8d4e98a789",
+      "declarations": [
+        "EffectiveEncoding.vectorBool_getD",
+        "EffectiveEncoding.endpointBitsProgram_value",
+        "EffectiveEncoding.BinaryFieldResult",
+        "EffectiveEncoding.binaryFieldProgram",
+        "EffectiveEncoding.binaryFieldProgram_length",
+        "EffectiveEncoding.binaryFieldProgram_value",
+        "EffectiveEncoding.BinaryFieldResult.actions",
+        "EffectiveEncoding.binaryFieldProgram_actions",
+        "EffectiveEncoding.takeBoolField",
+        "EffectiveEncoding.takeBoolField_append",
+        "EffectiveEncoding.takeBoolField_binaryField"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitCodec.lean",
+      "sha256": "bda3062590f807a52858de62bbd0dc91aed11593c944314d68e41fe1186e27e1",
+      "declarations": [
+        "EffectiveEncoding.labelFieldWidth",
+        "EffectiveEncoding.BinaryLabelResult",
+        "EffectiveEncoding.binaryLabelProgram",
+        "EffectiveEncoding.readBinaryLabel",
+        "EffectiveEncoding.readBinaryLabel_roundtrip",
+        "EffectiveEncoding.binaryLabelProgram_length",
+        "EffectiveEncoding.BinaryLabelResult.actions",
+        "EffectiveEncoding.binaryLabelProgram_actions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean",
+      "sha256": "9b7ae57f080eb841e2049e3526984531d2d387de268b5ede8b573fe9463764b2",
+      "declarations": [
+        "EffectiveEncoding.BinaryStreamTrace",
+        "EffectiveEncoding.BinaryStreamResult",
+        "EffectiveEncoding.binaryLabelStream",
+        "EffectiveEncoding.readBinaryLabelStreamFuel",
+        "EffectiveEncoding.readBinaryLabelStreamFuel_roundtrip",
+        "EffectiveEncoding.binaryLabelStream_length",
+        "EffectiveEncoding.readBinaryLabelStream",
+        "EffectiveEncoding.readBinaryLabelStream_roundtrip",
+        "EffectiveEncoding.deserializeLabelStream",
+        "EffectiveEncoding.deserializeLabelStream_roundtrip",
+        "EffectiveEncoding.BinaryStreamTrace.actions",
+        "EffectiveEncoding.binaryLabelStream_actions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean",
+      "sha256": "4871e940503e6f9ee7854f30515705b5f508d459f2ba1bed8de01214967f37a1",
+      "declarations": [
+        "EffectiveEncoding.compileAssembledWord_outputLength",
+        "EffectiveEncoding.outputLabelBudget",
+        "EffectiveEncoding.fullyMaterializedInputRun_outputLength",
+        "EffectiveEncoding.SerializedInputResult",
+        "EffectiveEncoding.serializedInputRun",
+        "EffectiveEncoding.SerializedInputResult.decoded",
+        "EffectiveEncoding.serializedInputRun_roundtrip",
+        "EffectiveEncoding.serializedInputRun_suffix_roundtrip",
+        "EffectiveEncoding.serializedInputRun_bitLength",
+        "EffectiveEncoding.serializedInputRun_streamActions",
+        "EffectiveEncoding.SerializedInputResult.accountedPrimitiveActions",
+        "EffectiveEncoding.serializedPrimitiveBudget",
+        "EffectiveEncoding.serializedInputRun_accountedPrimitiveActions",
+        "EffectiveEncoding.serializedInputRun_fidelity"
+      ]
+    }
+  ]
+}
