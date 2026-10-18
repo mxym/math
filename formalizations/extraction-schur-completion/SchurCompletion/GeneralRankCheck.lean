@@ -1,0 +1,11 @@
+import SchurCompletion.GeneralRank
+#print axioms ExtractionSchur.haarOrbitAverage_contraction_lower
+#print axioms ExtractionSchur.flatHaarAverage_compressed_lower
+#print axioms ExtractionSchur.flatHaarAverage_positive_eigenvalue_lower
+#print axioms ExtractionSchur.flatHaarAverage_rank_mul_minor_le_one
+#print axioms ExtractionSchur.rankBudget_general_rank_upper
+#print axioms ExtractionSchur.rankBudget_general_rank_scaled_limit
+#print axioms ExtractionSchur.rankBudget_general_rank_isEquivalent
+#print axioms ExtractionSchur.rankBudget_general_rank_times_purity_limit
+#print axioms ExtractionSchur.rankBudget_rank_scaled_limit
+#print axioms ExtractionSchur.rankBudget_rank_times_purity_limit
