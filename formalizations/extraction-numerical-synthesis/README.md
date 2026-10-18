@@ -4,7 +4,7 @@ Status: **BUILD_ONLY**; fresh serialized aggregate passed. Lean 4.34.1; Mathlib
 `d13f23b723b8a846827a245b89c10fc7d3f11612`.
 
 This independent package extends the frozen b288 `extraction-circuit-recursion`
-package. It contains only the 21 later numerical/cost modules and their 178
+package. It contains only the 26 later numerical/cost modules and their 214
 new theorem roots. Import paths are `CircuitNumerical.*`; declaration names
 retain namespace `CircuitRecursion`. The entire old package has been restored
 to its b288 bytes. `PORT_PROVENANCE.json` records the pre-port mature commit,
@@ -61,15 +61,25 @@ exponent at most `(B+2)*l`. For the actual synthesized word the proved exponent
 bound is `(D_budget+3)*(32*L*(p+1)^5)`, polynomial of degree 14 in p; its binary
 lengths are at most this exponent plus 2. This closes word-product operand
 sizes for an explicit integer representation. Factor-normalization operand
-sizes, primitive/provider Turing costs and structural allocation/index costs
-remain open. The original extraction-family
+sizes are now supported by a full integer backend: `IntegerScalars.lean`
+implements add/multiply/inverse and shift/integer-division/integer-square-root
+evaluation, with numerator/denominator exponent recurrences. Tuple packets
+use explicit common denominators. `IntegerExpressionExecution.lean` executes
+every scalar and packet expression in this representation and proves that its
+value equals the original expression, including conditioned factor branches.
+`IntegerExpressionBudgets.lean` computes an explicit exponent budget from each
+finite expression and internally proves that it bounds the output numerator
+and denominator. This is a compositional size theorem; a final polynomial
+bound for the entire factor/word expression family remains to be derived.
+Primitive/provider Turing costs and structural allocation/index costs remain
+open. The original extraction-family
 description/encoding binding is a separate sibling extension.
 
 The pre-port 58-module/416-root source passed authorized own-module feedback
 checks, including all root type/axiom prints. Reports under
 `verification/pre-port-history` describe that historical source and paths.
-The renamed modules and all 178 current root prints have passed their own
-feedback checks and the subsequent standard serialized aggregate, with 3880
+The renamed modules and all 214 current root prints have passed their own
+feedback checks and the subsequent standard serialized aggregate, with 3886
 jobs. The aggregate log is
-`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T183749803706Z-extraction-numerical-synthesis.log`.
+`D:/math/tmp/extraction-resume-20261018/build-logs/20261018T185021508819Z-extraction-numerical-synthesis.log`.
 No independent replay or forged-proof control is claimed for this new scope.
