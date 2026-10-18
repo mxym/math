@@ -1,0 +1,41 @@
+{
+  "status": "EXECUTION_V2_BINDING_PREFLIGHT_PASS_NOT_HOSTED_CI",
+  "execution_manifest_sha256": "b3ff2c6d50d6397884144e6692e9f196ceaf937a8b7cd0cb6d513eb0fa31b787",
+  "execution_inputs": 8,
+  "original_recipe_inputs": 31,
+  "original_bound_inputs": 340,
+  "mathematical_scope": [
+    459,
+    276,
+    65
+  ],
+  "actual_v2_workflow_not_installed_in_review_tree": true,
+  "tests": [
+    {
+      "test": "exact_actual_workflow_bytes",
+      "status": "PASS"
+    },
+    {
+      "test": "changed_actual_workflow",
+      "status": "REJECTED"
+    },
+    {
+      "test": "symlink_actual_workflow",
+      "status": "REJECTED"
+    },
+    {
+      "test": "missing_actual_workflow",
+      "status": "REJECTED"
+    },
+    {
+      "test": "spoofed_hosted_context_on_local_WSL",
+      "status": "REJECTED",
+      "exit_code": 1
+    },
+    {
+      "test": "Python_AST_and_workflow_YAML",
+      "status": "PASS"
+    }
+  ],
+  "source_inputs_unchanged": true
+}
