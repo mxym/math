@@ -13,12 +13,15 @@ import argparse, datetime, fcntl, hashlib, json, os, re, shutil, signal, subproc
 ROOT=Path(__file__).resolve().parent
 REPO=ROOT.parent.parent
 PIN='d13f23b723b8a846827a245b89c10fc7d3f11612'
+OLD_BASELINE='aa1cd0c497a4a9963013ec6dde76a5ed296e2c61'
 ALLOW={'propext','Classical.choice','Quot.sound'}
 NEW=['extraction-operational-completion','extraction-deviation-completion',
      'extraction-cp-interface','extraction-schur-completion',
      'extraction-circuit-completion','extraction-circuit-recursion',
      'extraction-completion-audit']
-OLD=['extraction-connections','extraction-spectral-protocol',
+OLD=['extraction-matrix-projector','extraction-universal-orbit',
+     'extraction-minimax-profile','appt-qutrit-purity',
+     'extraction-connections','extraction-spectral-protocol',
      'spectral-extraction-core','appt-high-dimensional-review',
      'extraction-information-spectrum','appt-subunit-renyi',
      'extraction-symmetric-support','spectral-extraction-local-cap']
@@ -102,9 +105,27 @@ def inventory():
 
 
 def old_inventory():
-    # Every tracked old audit source/config/evidence remains bound byte-for-byte.
-    names=run('git','ls-files',*[str(Path('formalizations')/p) for p in OLD]).splitlines()
-    return {n:sha(REPO/n) for n in names}
+    # Compare to the first independent review commit, before generating a new
+    # hash binding. A later accidental change cannot become the new baseline.
+    paths=[str(Path('formalizations')/p) for p in OLD]
+    entries=subprocess.check_output(['git','ls-tree','-r','-z',OLD_BASELINE,'--',*paths],cwd=REPO)
+    expected={}
+    for item in entries.split(b'\0'):
+        if not item:continue
+        meta,name=item.split(b'\t',1)
+        mode,kind,oid=meta.decode().split()
+        if kind!='blob':raise RuntimeError('Non-file old audit entry')
+        expected[name.decode()]=(mode,oid)
+    names=run('git','ls-files','--',*paths).splitlines()
+    if set(names)!=set(expected):raise RuntimeError('Old audit tracked file inventory changed')
+    hashes={}
+    for n in sorted(names):
+        p=REPO/n;mode,oid=expected[n]
+        data=os.readlink(p).encode() if mode=='120000' else p.read_bytes()
+        current=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+        if current!=oid:raise RuntimeError('Old audit changed from initial review baseline '+n)
+        hashes[n]=hashlib.sha256(data).hexdigest()
+    return hashes
 
 
 def check_execution_inputs():
