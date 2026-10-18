@@ -1,0 +1,63 @@
+[
+  {
+    "stage": "toolchain",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 0.466,
+    "log": "toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "peak_child_rss_kib_cumulative": 824824
+  },
+  {
+    "stage": "build-audit",
+    "command": [
+      "lake",
+      "build",
+      "RawResourceAudit",
+      "RawResourceVerification"
+    ],
+    "exit_code": 0,
+    "seconds": 4.125,
+    "log": "build-audit.log",
+    "sha256": "fb39c1a91ad01dbdc715f0d6e9b8ea37e23b48caa91dfe059c09e2abcf1f1eda",
+    "peak_child_rss_kib_cumulative": 920928
+  },
+  {
+    "stage": "root-types-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M10000",
+      "Check.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 4.333,
+    "log": "root-types-axioms.log",
+    "sha256": "7f90e31afc64a84b2e34c431e892d59057a948faeb498917f4a85a89afc527ab",
+    "peak_child_rss_kib_cumulative": 4252460
+  },
+  {
+    "stage": "finite-syntax-bytecode",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M7000",
+      "--run",
+      "ExecutableCheck.lean"
+    ],
+    "exit_code": 0,
+    "seconds": 2.372,
+    "log": "finite-syntax-bytecode.log",
+    "sha256": "50df06c0ec34d119dbf2a81366ba873c8891ef3221f71388b16153b317ea482f",
+    "peak_child_rss_kib_cumulative": 4252460
+  }
+]
