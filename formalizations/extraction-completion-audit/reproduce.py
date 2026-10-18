@@ -15,10 +15,15 @@ REPO=ROOT.parent.parent
 PIN='d13f23b723b8a846827a245b89c10fc7d3f11612'
 OLD_BASELINE='aa1cd0c497a4a9963013ec6dde76a5ed296e2c61'
 ALLOW={'propext','Classical.choice','Quot.sound'}
+TEX_NAMES=['paper.tex','introduction.tex','spectral-principles.tex','universal-protocol.tex',
+  'asymptotic-laws.tex','unknown-support.tex','applications-verification.tex','references.tex']
+FROZEN_TEX='preprints/universal-entanglement-extraction-2026-10'
+DRAFT_TEX='preprints/universal-entanglement-extraction-revision-2026-10'
 NEW=['extraction-operational-completion','extraction-deviation-completion',
      'extraction-cp-interface','extraction-schur-completion',
      'extraction-circuit-completion','extraction-circuit-recursion',
      'extraction-locc-interface','extraction-rains-realization',
+     'extraction-schur-completion/physical-minimax','extraction-appt-applications',
      'extraction-completion-audit']
 OLD=['extraction-matrix-projector','extraction-universal-orbit',
      'extraction-minimax-profile','appt-qutrit-purity',
@@ -89,12 +94,37 @@ def package_roots():
     return result
 
 
+
+def frozen_manuscript_inventory():
+    # Separate new-scope preservation safeguard; never enlarges an old Lean
+    # audit or reuses its kernel result for manuscript coverage.
+    result={}
+    for name in TEX_NAMES:
+        rel=FROZEN_TEX+'/'+name
+        original=subprocess.check_output(['git','show',OLD_BASELINE+':'+rel],cwd=REPO)
+        if (REPO/rel).read_bytes()!=original:raise RuntimeError('Frozen manuscript changed '+rel)
+        result[rel]=hashlib.sha256(original).hexdigest()
+    return result
+
+
+def validate_source_head(s,inputs):
+    for name in inputs:
+        if name.startswith(ROOT.relative_to(REPO).as_posix()+'/'):continue
+        original=subprocess.check_output(['git','show',s['source_head']+':'+name],cwd=REPO)
+        if original!=(REPO/name).read_bytes():raise RuntimeError('Source differs from frozen mathematical/manuscript head '+name)
+
+
 def inventory():
     pkgs=package_roots()
+    manuscript=readj(ROOT/'SCOPE.json').get('manuscript_inputs')
+    if manuscript!=[DRAFT_TEX+'/'+name for name in TEX_NAMES]:raise RuntimeError('Wrong/missing manuscript source inventory')
+    frozen=frozen_manuscript_inventory()
     owned={p for p in ROOT.rglob('*') if p.is_file() and
            not any(c in {'.lake','verification','__pycache__'} for c in p.relative_to(ROOT).parts)
            and p.name not in {'SOURCE_HASHES.json','FROZEN_OLD_INPUTS.json'}}
     todo=[ROOT/'CompletionAudit.lean'];selected=set(owned);seen=set()
+    selected.update(REPO/name for name in manuscript)
+    selected.update(REPO/name for name in frozen)
     while todo:
         p=todo.pop()
         if p in seen:continue
@@ -169,10 +199,7 @@ def check_binding():
     if s['state']!='READY' or s['pending_required']:raise RuntimeError('Scope is preliminary; final endpoints are still pending')
     if inventory()!=readj(ROOT/'SOURCE_HASHES.json'):raise RuntimeError('Bound source/config changed')
     if old_inventory()!=readj(ROOT/'FROZEN_OLD_INPUTS.json'):raise RuntimeError('Older audit input/evidence changed')
-    for n in inventory():
-        if n.startswith(ROOT.relative_to(REPO).as_posix()+'/'):continue
-        expected=subprocess.check_output(['git','show',s['source_head']+':'+n],cwd=REPO)
-        if expected!=(REPO/n).read_bytes():raise RuntimeError('Source differs from frozen mathematical head '+n)
+    validate_source_head(s,inventory())
     check_pins()
     return s,roots,defs,controls
 
@@ -200,14 +227,16 @@ def main():
     if args.preflight:
         check_pins()
         old=old_inventory()
-        print(json.dumps(dict(status='PREFLIGHT_ONLY',source_head=s['source_head'],source_inputs=len(inventory()),protected_old_inputs=len(old),verification_performed=False)))
+        print(json.dumps(dict(status='PREFLIGHT_ONLY',source_head=s['source_head'],source_inputs=len(inventory()),protected_old_inputs=len(old),protected_frozen_tex=len(frozen_manuscript_inventory()),draft_tex_inputs=len(s['manuscript_inputs']),verification_performed=False)))
         return
     if args.freeze_source:
         if s['state']!='READY' or s['pending_required']:raise RuntimeError('Refusing preliminary freeze')
         if (ROOT/'SOURCE_HASHES.json').exists():raise RuntimeError('Binding already exists; start a new audit revision')
         check_pins()
-        dump(ROOT/'FROZEN_OLD_INPUTS.json',old_inventory())
-        dump(ROOT/'SOURCE_HASHES.json',inventory())
+        old=old_inventory();inputs=inventory()
+        validate_source_head(s,inputs)
+        dump(ROOT/'FROZEN_OLD_INPUTS.json',old)
+        dump(ROOT/'SOURCE_HASHES.json',inputs)
         check_binding()
         print('SOURCE_BINDING_CREATED_NOT_VERIFICATION');return
     s,roots,defs,controls=check_binding()
@@ -244,7 +273,9 @@ def main():
           ('cp','@extractionCPInterface/CPInterface'),
           ('locc','@extractionLOCCInterface/LOCCInterface'),('rains','@extractionRainsRealization/RainsRealization'),
           ('schur','@extractionSchurCompletion/SchurCompletion'),
-          ('circuits','@extractionCircuitRecursion/CircuitRecursion')]:
+          ('circuits','@extractionCircuitRecursion/CircuitRecursion'),
+          ('schur-minimax','@extractionSchurMinimax/SchurMinimax'),
+          ('appt-applications','@extractionAPPTApplications/APPTApplications')]:
             stage('build-'+label,['lake','build',target],2400)
         stage('build-audit',['lake','build','CompletionAudit','CompletionVerification'],1800)
         types=stage('root-types-axioms',['lake','env','lean','-j1','-M10000','Check.lean'],600)
@@ -263,7 +294,9 @@ def main():
           same_type_forged_proof_controls=len(controls),kernel_trust=0,
           kernel_declarations=int(re.search(r'EMPTY_KERNEL_REPLAY_PASS (\d+) declarations',audit).group(1)),
           axioms=sorted(axs),fresh_owned_build=args.fresh,fresh_packages=NEW if args.fresh else [],
-          source_manifest_sha256=sha(ROOT/'SOURCE_HASHES.json'),stages=records)
+          source_manifest_sha256=sha(ROOT/'SOURCE_HASHES.json'),
+          manuscript_source_head=s['source_head'],manuscript_inputs=s['manuscript_inputs'],
+          protected_frozen_tex=len(frozen_manuscript_inventory()),stages=records)
         dump(out/'SUMMARY.json',summary)
         dump(ROOT/'verification/LATEST.json',dict(directory=out.name,summary_sha256=sha(out/'SUMMARY.json')))
         print('COMPLETION_INDEPENDENT_REPRODUCTION_PASS '+str(out),flush=True)

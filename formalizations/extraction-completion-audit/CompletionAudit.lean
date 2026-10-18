@@ -5,3 +5,5 @@ import SchurCompletion
 import CircuitRecursion
 import LOCCInterface
 import RainsRealization
+import SchurMinimax
+import APPTApplications

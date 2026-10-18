@@ -1,16 +1,16 @@
 # Independent completion endpoint audit (preliminary)
 
 The current mathematical snapshot is
-`309e2f8526cf002bf26d4af9bfa37310749a71ad`. `REVIEW_20261019.md` records an
+`fbb8d73caee20971384a13dde2eb718cf87621f0`. `REVIEW_FBB8_20261019.md` records the latest
 independent review of its mature additions against the frozen eight-TeX paper.
 The historical aa1 `REVIEW.md`, `HANDOFF.md` and `MANUSCRIPT_INTERFACES.json`
 remain intact. This is internal AI review, not external peer review or a
 priority certificate. Subsequent author commits are not certified by it.
 
-`SCOPE.json` is the authoritative draft classification: 346 theorem roots,
-88 concrete model definitions and 47 same-type proof controls. These are audit
+`SCOPE.json` is the authoritative draft classification: 414 theorem roots,
+115 concrete model definitions and 61 same-type proof controls. These are audit
 INPUT COUNTS, never discovery counts. The scope remains PRELIMINARY while
-final sharp rank/minimax, APPT source and revised-manuscript correspondence
+final target-maximum/orbit, circuit numerical source and revised-manuscript correspondence
 are pending. No complete manuscript or final empty-kernel PASS is claimed.
 
 The old 39/91/235/444, 83/11 and 608 scopes and all their source, root lists,
@@ -26,15 +26,16 @@ baseline `aa1cd0c497a4a9963013ec6dde76a5ed296e2c61`.
   exact execution-input hashes, actual clean pinned dependencies, historical
   Multinomial cache hashes and all protected old inputs. It does not freeze
   source or verify Lean declarations.
-- `python3 snapshot_precheck.py --replay` ordinarily builds this independent
+- The historical `snapshot_precheck.py` retains its literal 29-root scope.
+  `python3 snapshot_precheck_fbb8.py --replay` ordinarily builds this independent
   tree, checks the kind/type/axioms of every draft declaration, and positively
-  replays ONLY the 16 theorem roots and 13 model definitions literally listed
+  replays ONLY the 12 theorem roots and 15 model definitions literally listed
   in that script in an empty trust-zero kernel. It requires four separate
   same-type forged controls to be rejected. The full theorem proofs and all
   definitions in their dependency closure are included. Every control first
   positively replays its type dependencies. Evidence, exact local inputs and
   literal scope are saved only under
-  `D:/math/tmp/extraction-resume-20261018/review-20261019/snapshot-precheck-*`.
+  `D:/math/tmp/extraction-resume-20261018/review-20261019/fbb8-snapshot-precheck-*`.
   Its status is LIMITED_SNAPSHOT_PRECHECK_ONLY, never a final scope PASS.
   Every axiom report must be present and whitelisted; every negative control
   must identify a kernel declaration-type mismatch at the exact forged root.
@@ -60,7 +61,7 @@ actual mount/backing-file verification.
    executable hashes. SOURCE_HASHES and FROZEN_OLD_INPUTS are final bindings,
    distinct from the temporary snapshot-precheck evidence.
 3. Run `python3 reproduce.py --fresh` with logs on D. It only removes verified
-   ordinary owned `.lake/build` outputs in the nine NEW packages of this
+   ordinary owned `.lake/build` outputs in the eleven NEW packages of this
    independent tree. It rejects symlinks and resolved paths outside this tree.
    Shared Mathlib and thin-base source, earlier build outputs, frozen inputs,
    Gaussian work and all old evidence are preserved.
@@ -85,9 +86,29 @@ The same actual reserved family carries balanced pure sharp profile and mixed
 laws. Strict reliability/eventual-exact inequalities, positive/eventually
 positive variance, strict Gaussian local gap and integer sector caps remain.
 The current methods are intrinsic compression/reservation; the frozen Schur
-finite loss is not identified with them. General actual Haar purity and sharp
-rank lower are included; subsequent rank-upper/minimax and APPT sources remain
-pending. Actual Bell/discard, optimal integer yield, full continuous gate count
+finite loss is not identified with them. Actual general Haar double moments,
+sharp support rank, four-class uniform
+physical minimax and APPT application/example bounds are now included. Later
+natural target maxima/log corrections/orbit endpoints remain pending. Actual
+Bell/discard, optimal integer yield, full continuous gate count
 and finite-library existence/error are included. Classical effective Turing
 synthesis and bit complexity remain open as specified in EFFECTIVE_MODEL.md;
 finite word existence and gate-count exponent 5 do not prove a bit algorithm.
+
+
+Current fbb8 limited evidence is separate from the prior 309e2 run:
+`D:/math/tmp/extraction-resume-20261018/review-20261019/fbb8-snapshot-precheck-20261018T164931148854Z/`.
+It checks 414 theorem and 115 model declarations; limited replay is exactly
+12 theorem roots and 15 model definitions with four controls. The original
+`snapshot_precheck.py` and all earlier evidence remain unchanged.
+
+Final source inventory now explicitly includes all eight new revision TeX
+files. Every original eight-TeX byte is also checked against the immutable aa1
+baseline and included as a preservation input. A draft manuscript remains a
+draft even when its bytes are bound; this supplies no missing theorem proof.
+The source-head check runs before final binding files are written. No final
+binding is created while PRELIMINARY.
+
+The fbb8 precheck also preserves its exact 26 auxiliary audit source inputs
+under AUDIT_SOURCE_SNAPSHOT; every byte matches its recorded SHA256. Future
+fbb8 prechecks save those inputs automatically before building.
