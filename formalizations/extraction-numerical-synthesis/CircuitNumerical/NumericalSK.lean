@@ -1,4 +1,4 @@
-import CircuitRecursion.NumericalCorrection
+import CircuitNumerical.NumericalCorrection
 
 open scoped Matrix.Norms.L2Operator
 namespace CircuitRecursion

@@ -1,4 +1,4 @@
-import CircuitRecursion.ConditionedOracleSelection
+import CircuitNumerical.ConditionedOracleSelection
 
 open scoped Matrix.Norms.L2Operator
 open Matrix

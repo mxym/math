@@ -1,4 +1,4 @@
-import CircuitRecursion.NormalizedIntertwinerOracle
+import CircuitNumerical.NormalizedIntertwinerOracle
 
 open scoped Matrix.Norms.L2Operator
 open Matrix

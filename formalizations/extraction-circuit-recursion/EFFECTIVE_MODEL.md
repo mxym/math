@@ -130,8 +130,11 @@ calls, 2*n rational arithmetic nodes, bounded dyadic output numerators, and
 maximum requested precision polynomial in the actual active dimension and p.
 They avoid using an exact-real `arg` operation as a computational primitive.
 
-The angle routines have not yet been attached to every instruction of an
-explicit rank/unrank extraction compiler. Counting rational arithmetic nodes and integer-square-root calls
+The full numerical SK recursion has not yet been implemented with composed
+entry oracles, stopping thresholds, fixed-net score evaluation and stable
+factor-oracle propagation. The angle routines have also not yet been
+attached to every instruction of an explicit rank/unrank extraction
+compiler. Counting rational arithmetic nodes and integer-square-root calls
 does not bound their Turing bit cost without bit-size and machine-algorithm
 analysis. These remain separate obligations.
 
@@ -148,22 +151,7 @@ with a proved numerator-size bound. Efficient execution of an input
 provider is an explicit additional input-model condition, not a consequence
 of inverse closure or density.
 
-The full numerical SK word algorithm is now implemented in
-`NumericalCorrection.lean` and `NumericalSK.lean`. The preceding conditioned
-factor modules implement the four-chart normalization and its entry
-oracles; rational overlapping threshold branches avoid unstable exact zero
-tests. Two actual corrections retain the proved squared-error recurrence,
-with a stopping exponent linear in the requested final precision. The
-final theorem `numericalSU2Synthesis_dyadic` certifies the actual output of
-`numericalPairWord`, with gate count `C*(p+1)^5` and true error `2^-p`.
-The online definition contains no exact-real target or classical choice.
-The library-dependent offline table is still fixed as described above.
-
-This theorem is relative to entry oracles. Correct packet values and
-numerator-size bounds do not prove that their providers execute in
-polynomial time. Total composed query/precision bounds, intermediate bit
-sizes, provider costs and the Turing costs of integer arithmetic remain to
-be proved. A generic U(2) phase evaluator and explicit computable occupation
-encoding/whole-instruction description binding are additional obligations
-for the complete original extraction algorithm. No final compilation or
-polynomial running-time certificate is supplied as a premise.
+The remaining numerical SK step must construct the conditioned factor
+oracles from these interfaces and propagate the stopping/error/precision
+schedule through the recursive word algorithm. The base-stage result does
+not supply that remaining algorithm or its polynomial cost as a premise.

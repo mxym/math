@@ -1,4 +1,4 @@
-import CircuitRecursion.NumericalSK
+import CircuitRecursion.PrecomputedNet
 
 #check CircuitRecursion.su2Commutator_unitary
 #print axioms CircuitRecursion.su2Commutator_unitary
@@ -14,28 +14,6 @@ import CircuitRecursion.NumericalSK
 #print axioms CircuitRecursion.su2_balanced_commutator
 #check CircuitRecursion.su2_near_identity_commutator
 #print axioms CircuitRecursion.su2_near_identity_commutator
-#check CircuitRecursion.balancedParameterFacts
-#print axioms CircuitRecursion.balancedParameterFacts
-#check CircuitRecursion.balancedCircle
-#print axioms CircuitRecursion.balancedCircle
-#check CircuitRecursion.balancedReference_scalar
-#print axioms CircuitRecursion.balancedReference_scalar
-#check CircuitRecursion.referenceX_distance
-#print axioms CircuitRecursion.referenceX_distance
-#check CircuitRecursion.referenceY_distance
-#print axioms CircuitRecursion.referenceY_distance
-#check CircuitRecursion.coordinateOracle_correct
-#print axioms CircuitRecursion.coordinateOracle_correct
-#check CircuitRecursion.balancedSOracle_correct
-#print axioms CircuitRecursion.balancedSOracle_correct
-#check CircuitRecursion.balancedCOracle_correct
-#print axioms CircuitRecursion.balancedCOracle_correct
-#check CircuitRecursion.referenceXOracle_correct
-#print axioms CircuitRecursion.referenceXOracle_correct
-#check CircuitRecursion.referenceYOracle_correct
-#print axioms CircuitRecursion.referenceYOracle_correct
-#check CircuitRecursion.balancedReferenceOracle_correct
-#print axioms CircuitRecursion.balancedReferenceOracle_correct
 #check CircuitRecursion.zeroBits_append
 #print axioms CircuitRecursion.zeroBits_append
 #check CircuitRecursion.bellPairsWord_action
@@ -106,28 +84,6 @@ import CircuitRecursion.NumericalSK
 #print axioms CircuitRecursion.conditionedChart_denominator
 #check CircuitRecursion.chartConjugator_action
 #print axioms CircuitRecursion.chartConjugator_action
-#check CircuitRecursion.quaternionConjugateOracle_correct
-#print axioms CircuitRecursion.quaternionConjugateOracle_correct
-#check CircuitRecursion.conditionedFactors_correct
-#print axioms CircuitRecursion.conditionedFactors_correct
-#check CircuitRecursion.quaternionCoordinates_inverse
-#print axioms CircuitRecursion.quaternionCoordinates_inverse
-#check CircuitRecursion.quaternionOracleInverse_correct
-#print axioms CircuitRecursion.quaternionOracleInverse_correct
-#check CircuitRecursion.frameOracle_correct
-#print axioms CircuitRecursion.frameOracle_correct
-#check CircuitRecursion.chartTargetOracle_correct
-#print axioms CircuitRecursion.chartTargetOracle_correct
-#check CircuitRecursion.intertwinerMass_distance
-#print axioms CircuitRecursion.intertwinerMass_distance
-#check CircuitRecursion.chartMassScore_correct
-#print axioms CircuitRecursion.chartMassScore_correct
-#check CircuitRecursion.dyadic_square_precision
-#print axioms CircuitRecursion.dyadic_square_precision
-#check CircuitRecursion.chooseChart_denominator
-#print axioms CircuitRecursion.chooseChart_denominator
-#check CircuitRecursion.residualSmall_correct
-#print axioms CircuitRecursion.residualSmall_correct
 #check CircuitRecursion.dyadicCircuitPrecision_error
 #print axioms CircuitRecursion.dyadicCircuitPrecision_error
 #check CircuitRecursion.finiteLibrary_extraction_precision
@@ -292,14 +248,6 @@ import CircuitRecursion.NumericalSK
 #print axioms CircuitRecursion.fixedNetWord_correct
 #check CircuitRecursion.fixedNetWord_length
 #print axioms CircuitRecursion.fixedNetWord_length
-#check CircuitRecursion.normalizedQuaternionSU2_unitary
-#print axioms CircuitRecursion.normalizedQuaternionSU2_unitary
-#check CircuitRecursion.normalizedIntertwiner_coordinates
-#print axioms CircuitRecursion.normalizedIntertwiner_coordinates
-#check CircuitRecursion.coordinateSubOracle_correct
-#print axioms CircuitRecursion.coordinateSubOracle_correct
-#check CircuitRecursion.normalizedIntertwinerOracle_correct
-#print axioms CircuitRecursion.normalizedIntertwinerOracle_correct
 #check CircuitRecursion.qubitRepresentative_exists
 #print axioms CircuitRecursion.qubitRepresentative_exists
 #check CircuitRecursion.qubitRepresentative_spec
@@ -316,26 +264,6 @@ import CircuitRecursion.NumericalSK
 #print axioms CircuitRecursion.normalized_word_error
 #check CircuitRecursion.normalized_word_uniform_error
 #print axioms CircuitRecursion.normalized_word_uniform_error
-#check CircuitRecursion.numericalCorrection_length
-#print axioms CircuitRecursion.numericalCorrection_length
-#check CircuitRecursion.numericalCorrection_error
-#print axioms CircuitRecursion.numericalCorrection_error
-#check CircuitRecursion.numerical_stop_budget
-#print axioms CircuitRecursion.numerical_stop_budget
-#check CircuitRecursion.numericalDoubleCorrection_error
-#print axioms CircuitRecursion.numericalDoubleCorrection_error
-#check CircuitRecursion.numericalThreshold_error
-#print axioms CircuitRecursion.numericalThreshold_error
-#check CircuitRecursion.numericalThreshold_depth_bound
-#print axioms CircuitRecursion.numericalThreshold_depth_bound
-#check CircuitRecursion.numericalPairWord_error
-#print axioms CircuitRecursion.numericalPairWord_error
-#check CircuitRecursion.numericalPairWord_length
-#print axioms CircuitRecursion.numericalPairWord_length
-#check CircuitRecursion.numericalSU2Synthesis
-#print axioms CircuitRecursion.numericalSU2Synthesis
-#check CircuitRecursion.numericalSU2Synthesis_dyadic
-#print axioms CircuitRecursion.numericalSU2Synthesis_dyadic
 #check CircuitRecursion.occupationMass_pos_iff
 #print axioms CircuitRecursion.occupationMass_pos_iff
 #check CircuitRecursion.occupationMass_ge_inverse

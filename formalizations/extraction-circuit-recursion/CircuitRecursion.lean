@@ -37,9 +37,3 @@ import CircuitRecursion.HalfAngleEvaluation
 import CircuitRecursion.QuaternionOracles
 import CircuitRecursion.NetOracle
 import CircuitRecursion.PrecomputedNet
-import CircuitRecursion.ConditionedOracleSelection
-import CircuitRecursion.BalancedReference
-import CircuitRecursion.NormalizedIntertwinerOracle
-import CircuitRecursion.ConditionedFactors
-import CircuitRecursion.NumericalCorrection
-import CircuitRecursion.NumericalSK
