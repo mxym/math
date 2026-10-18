@@ -1,0 +1,75 @@
+CONCRETE_ASSEMBLED_ENDPOINT_DECLARATION_KINDS_CHECK_PASS
+ConcreteNativeExtraction.assembledRun_word (net : ConcreteNativeExtraction.OfflineNet) (k p : ℕ) :
+  (ConcreteNativeExtraction.assembledRun net k p).compilation.word =
+    EffectiveEncoding.numericalExtractionCode
+      (fun i => CircuitRecursion.nativePacketDataOracle (RationalGateBinary.nativeEntry i))
+      RationalGateInterface.inverseLabel net.table net.lengthBound k p
+'ConcreteNativeExtraction.assembledRun_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+ConcreteNativeExtraction.assembledRun_erase (net : ConcreteNativeExtraction.OfflineNet) (k p : ℕ) :
+  (ConcreteNativeExtraction.assembledRun net k p).erase.erase = ConcreteNativeExtraction.inputRun net k p
+'ConcreteNativeExtraction.assembledRun_erase' depends on axioms: [propext, Classical.choice, Quot.sound]
+ConcreteNativeExtraction.assembledRun_word_eq_inputRun (net : ConcreteNativeExtraction.OfflineNet) (k p : ℕ) :
+  (ConcreteNativeExtraction.assembledRun net k p).compilation.word =
+    (ConcreteNativeExtraction.inputRun net k p).compilation.word
+'ConcreteNativeExtraction.assembledRun_word_eq_inputRun' depends on axioms: [propext, Classical.choice, Quot.sound]
+ConcreteNativeExtraction.assembledRun_uses_finite_library (net : ConcreteNativeExtraction.OfflineNet) (k p : ℕ)
+  (g : CircuitCompletion.Gate (CircuitCompletion.originalWireCount k)) :
+  g ∈
+      EffectiveEncoding.labelCircuit RationalGateInterface.rationalGate
+        (ConcreteNativeExtraction.assembledRun net k p).compilation.word →
+    CircuitRecursion.usesFiniteLibrary RationalGateInterface.rationalGate g
+'ConcreteNativeExtraction.assembledRun_uses_finite_library' depends on axioms: [propext, Classical.choice, Quot.sound]
+ConcreteNativeExtraction.assembledRun_length (net : ConcreteNativeExtraction.OfflineNet) (k p : ℕ) :
+  (ConcreteNativeExtraction.assembledRun net k p).compilation.word.length ≤
+    EffectiveEncoding.actualGatePolynomial k *
+      (32 * (net.lengthBound + 1) * (EffectiveEncoding.logarithmicPrecision k p + 1) ^ 5)
+'ConcreteNativeExtraction.assembledRun_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+ConcreteNativeExtraction.assembledRun_fidelity (net : ConcreteNativeExtraction.OfflineNet) (k p : ℕ) (z : Fin 4 → ℂ)
+  (hz : SymmetricSupport.IsUnitVector z) :
+  1 - (1 / 2) ^ p ≤
+    (Extraction.bellProjector *
+          CircuitRecursion.approximateExtractionOutput k
+            (CircuitCompletion.denote
+              (EffectiveEncoding.labelCircuit RationalGateInterface.rationalGate
+                (ConcreteNativeExtraction.assembledRun net k p).compilation.word))
+            (CircuitCompletion.pureMatrix (CircuitRecursion.bitPurePower k z))).trace.re
+'ConcreteNativeExtraction.assembledRun_fidelity' depends on axioms: [propext, Classical.choice, Quot.sound]
+ConcreteNativeExtraction.assembledRun_accounted_actions (net : ConcreteNativeExtraction.OfflineNet) (k p : ℕ) :
+  (ConcreteNativeExtraction.assembledRun net k p).accountedPrimitiveActions ≤
+    ConcreteNativeExtraction.assembledPrimitiveBound net k p
+'ConcreteNativeExtraction.assembledRun_accounted_actions' depends on axioms: [propext, Classical.choice, Quot.sound]
+ConcreteNativeExtraction.assembledRun_inverse_calls (net : ConcreteNativeExtraction.OfflineNet) (k p : ℕ) :
+  (ConcreteNativeExtraction.assembledRun net k p).compilation.inverseCalls ≤
+    EffectiveEncoding.actualGatePolynomial k *
+      (8192 * (net.lengthBound + 2 * (net.lastIndex + 1) + 2) * (EffectiveEncoding.logarithmicPrecision k p + 1) ^ 13)
+'ConcreteNativeExtraction.assembledRun_inverse_calls' depends on axioms: [propext, Classical.choice, Quot.sound]
+ConcreteNativeExtraction.concrete_assembled_compiler_exists :
+  ∃ net,
+    (∀ (k p : ℕ) (z : Fin 4 → ℂ),
+        SymmetricSupport.IsUnitVector z →
+          1 - (1 / 2) ^ p ≤
+            (Extraction.bellProjector *
+                  CircuitRecursion.approximateExtractionOutput k
+                    (CircuitCompletion.denote
+                      (EffectiveEncoding.labelCircuit RationalGateInterface.rationalGate
+                        (ConcreteNativeExtraction.assembledRun net k p).compilation.word))
+                    (CircuitCompletion.pureMatrix (CircuitRecursion.bitPurePower k z))).trace.re) ∧
+      (∀ (k p : ℕ),
+          (ConcreteNativeExtraction.assembledRun net k p).accountedPrimitiveActions ≤
+            ConcreteNativeExtraction.assembledPrimitiveBound net k p) ∧
+        (∀ (k p : ℕ),
+            (ConcreteNativeExtraction.assembledRun net k p).compilation.word.length ≤
+              EffectiveEncoding.actualGatePolynomial k *
+                (32 * (net.lengthBound + 1) * (EffectiveEncoding.logarithmicPrecision k p + 1) ^ 5)) ∧
+          ∀ (k p : ℕ),
+            ∀
+              g ∈
+                EffectiveEncoding.labelCircuit RationalGateInterface.rationalGate
+                  (ConcreteNativeExtraction.assembledRun net k p).compilation.word,
+              CircuitRecursion.usesFiniteLibrary RationalGateInterface.rationalGate g
+'ConcreteNativeExtraction.concrete_assembled_compiler_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+ConcreteNativeExtraction.assembledRun (net : ConcreteNativeExtraction.OfflineNet) (k p : ℕ) :
+  EffectiveEncoding.FullyAssembledInputResult 4 (CircuitCompletion.originalWireCount k) net.lengthBound
+'ConcreteNativeExtraction.assembledRun' depends on axioms: [propext, Classical.choice, Quot.sound]
+ConcreteNativeExtraction.assembledPrimitiveBound (net : ConcreteNativeExtraction.OfflineNet) (k p : ℕ) : ℕ
+'ConcreteNativeExtraction.assembledPrimitiveBound' depends on axioms: [propext]

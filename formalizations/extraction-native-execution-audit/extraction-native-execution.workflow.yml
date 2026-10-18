@@ -1,0 +1,59 @@
+name: Native execution independent fresh trust-zero Lean audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "formalizations/**"
+      - "!formalizations/**/verification/**"
+      - ".github/workflows/extraction-native-execution.yml"
+permissions:
+  contents: read
+jobs:
+  native-execution-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      LEAN_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Configure exclusive storage
+        working-directory: formalizations/extraction-native-execution-audit
+        run: python3 ci_driver.py environment
+      - name: Install exact toolchain and pinned dependency cache
+        working-directory: formalizations/extraction-native-execution-audit
+        run: python3 ci_driver.py bootstrap
+      - name: Fresh all owned imports, trust zero and every same-type control
+        working-directory: formalizations/extraction-native-execution-audit
+        run: python3 ci_driver.py run
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: extraction-native-execution-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ env.NATIVE_EXECUTION_EVIDENCE }}/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
+  verify-downloaded-artifact:
+    needs: native-execution-audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: extraction-native-execution-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/downloaded-extraction-native-execution
+      - name: Strict portable downloaded-artifact verification
+        working-directory: formalizations/extraction-native-execution-audit
+        env:
+          ARTIFACT_DIRECTORY: ${{ runner.temp }}/downloaded-extraction-native-execution
+        run: python3 evidence.py "$ARTIFACT_DIRECTORY" --expected-commit "$GITHUB_SHA" --run-id "$GITHUB_RUN_ID" --run-attempt "$GITHUB_RUN_ATTEMPT"
