@@ -1,0 +1,19 @@
+STATUS: FIELD_SERIALIZATION_STANDARD_MODULE_BUILD_PASS
+New standalone DescriptorSerialization module; prior mature sources unchanged.
+Standard worker_build target EffectiveEncoding.DescriptorSerialization passed:
+/mnt/d/math/tmp/extraction-resume-20261018/build-logs/
+20261018T195125280628Z-extraction-effective-encoding.log
+Source SHA256: ae09674bcfdcf5e0699490bab1af1b41a37e50cd8e3c42a3fbfa82bdb0c7ed17
+
+The explicit tagged List Nat format serializes AngleCode, SingleCode, GateCode
+and whole programs. The parsers check finite wire indices and CNOT inequality.
+Parsing serialized gates/words with an arbitrary suffix returns the exact
+same instruction data and untouched suffix. Actual extractionCode needs only
+fixed fuel2, proved from its already internal inverseDepth<=1 bound.
+The actual program field count is <=16*N+1, N=extractionCode k length.
+
+This is a concrete field serialization, not a claimed byte or bitstream codec.
+Binary-field weights and an instrumented structural step model are planned as
+separate new source. No whole descriptor generator runtime or Turing bit-time
+is proved here. Added root inventory/kind/axiom audit remains pending this
+structural scope's mature terminal; source itself passed the standard target.

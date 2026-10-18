@@ -1,0 +1,44 @@
+OWNED MODULE CHECK ONLY; STANDARD AGGREGATE PENDING; NOT INDEPENDENT REPLAY
+
+Two new unused mathematical modules StoredSwapAlignment/StoredSwapExtraction;
+15 theorem/12 model roots. Authorized narrow module checks plus all explicit
+root kind/type/axiom checks PASS (standard allowlist only). Exact evidence:
+verification/stored-swap-root-check-20261018T203655212296Z/REPORT.json;
+log 20261018T203650346122Z-owned-check-EffectiveEncoding.StoredSwapCheck.log.
+Reproduce narrow: python3 reproduce_stored_swap.py --owned.
+Standard after audit lock release: same script --standard.
+
+This is an executable generation replacement, not only a proposed ghost fee.
+applyStoredSwaps traverses the stored endpoint-pair list oldest-first, applying
+each transposition once. storedAlignmentRun computes the source endpoint once,
+let-binds the target endpoint once, emits its actual Gray-compiled swap code,
+and stores that endpoint pair for later applications. Runtime does not invoke
+the composed-permutation specification storedSwapPermutation. There is no
+active-space or original-space exponential permutation table.
+
+storedAlignmentRun_word proves the ENTIRE GateCode list equals alignmentCode
+for the represented permutation, including literal angles/wires/order.
+The replacement is wired into actual occupationStep/stage/compression/
+extraction descriptor generators. storedExtractionCode_eq proves literal list
+equality to extractionCode. storedSharedRawExtractionCode materializes this
+new descriptor list once and uses its stored length to choose q; it then runs
+the shared raw integer numerical compiler. Its full finite-label list equals
+sharedRawExtractionCode, and original-register all-input Bell fidelity is
+proved unchanged. No mere matrix-equivalence substitution is being used.
+
+An exact underlying-value swap-application annotation is proved:
+2*charge = 2*J*initialStackLength + J*(J-1).
+Starting with empty stack, charge<=J^2. In the actual stage J=occupationRank(k+1),
+2*stageCharge=J*(J-1), stageCharge<=(k+2)^6. Across all compression stages,
+extractionStoredSwapApplications<=k*(k+2)^6. The endpoints are stored Bits
+function VALUES; equality/coordinate evaluation costs are not assumed O(1)
+and their materialization is not claimed to be a fully tabulated bit array.
+
+This counts stored-swap applications ONLY. Endpoint generation/rank, Bits
+equality/queries, Gray/mask compilation, allBranchCode, shifts/concatenations,
+list traversal primitives, Nat arithmetic and annotation maintenance remain
+outside this counter. The new executable word algorithm therefore has no
+complete generation or Turing-time bound here. Source-code correctness and
+this partial event count do not bound the counter program's own evaluation.
+All earlier sealed mathematical sources/configuration/inventories/evidence
+and the currently frozen independent raw-resource import closure are unchanged.

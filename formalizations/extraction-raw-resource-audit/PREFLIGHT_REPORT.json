@@ -1,0 +1,83 @@
+{
+  "status": "PRELIMINARY_SOURCE_KIND_TYPE_AXIOM_BYTECODE_AND_SYNTHETIC_READER_CHECKS_PASS_NOT_KERNEL_REPLAY",
+  "mathematical_source_head": "04044ad0e1dc94634a8005f5f6abebe4518a012b",
+  "theorems": 364,
+  "models": 186,
+  "strict_control_candidates": 135,
+  "new_mathematical_modules": 47,
+  "actual_local_import_sources": 277,
+  "build_targets": [
+    "RawResourceAudit",
+    "RawResourceVerification"
+  ],
+  "ordinary_preflight_directory": "raw-resource-20261018T210544533052Z",
+  "actual_type_axiom_log_sha256": "7f90e31afc64a84b2e34c431e892d59057a948faeb498917f4a85a89afc527ab",
+  "actual_bounded_bytecode_log_sha256": "50df06c0ec34d119dbf2a81366ba873c8891ef3221f71388b16153b317ea482f",
+  "axiom_allowlist": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "declarations_without_axioms": 46,
+  "preflight_was_fresh": false,
+  "preflight_was_trust0": false,
+  "negative_kernel_controls_executed": false,
+  "synthetic_reader_checks": {
+    "status": "SYNTHETIC_READER_SELFTEST_PASS_NOT_LEAN_VERIFICATION",
+    "positive_axiom_encodings": 3,
+    "malformed_axiom_encodings": 13,
+    "checks": [
+      "malformed-axioms-0",
+      "malformed-axioms-1",
+      "malformed-axioms-2",
+      "malformed-axioms-3",
+      "malformed-axioms-4",
+      "malformed-axioms-5",
+      "malformed-axioms-6",
+      "malformed-axioms-7",
+      "malformed-axioms-8",
+      "malformed-axioms-9",
+      "malformed-axioms-10",
+      "malformed-axioms-11",
+      "malformed-axioms-12",
+      "complete-synthetic-reader-positive",
+      "wrong-scope-count",
+      "trust-one",
+      "not-fresh",
+      "wrong-guard",
+      "extra-lean-flag",
+      "unknown-control-axiom",
+      "missing-forgery-prerequisite",
+      "post-source-drift",
+      "same-type-rejection-omitted",
+      "partial-audit-invocation",
+      "exact-workflow-positive",
+      "changed-actual-workflow",
+      "missing-actual-workflow",
+      "symlink-actual-workflow",
+      "complete-synthetic-downloaded-artifact-positive",
+      "artifact-wrong-run",
+      "artifact-wrong-actual-command",
+      "artifact-changed-reader",
+      "artifact-prepost-drift",
+      "artifact-noncanonical-empty-axioms",
+      "artifact-bootstrap-identity",
+      "spoofed-hosted-context-on-WSL"
+    ],
+    "mathematical_or_kernel_verification_performed": false
+  },
+  "source_review": "REVIEW.md",
+  "runtime_model": "MODEL_LIMITS.md",
+  "future_full_command": [
+    "python3",
+    "reproduce.py",
+    "--fresh"
+  ],
+  "future_reader_command": [
+    "python3",
+    "verify_local.py",
+    "verification/raw-resource-TIMESTAMP"
+  ],
+  "new_template": "extraction-raw-resource.workflow.yml",
+  "actual_workflow_to_be_installed_by_parent": ".github/workflows/extraction-raw-resource.yml"
+}
