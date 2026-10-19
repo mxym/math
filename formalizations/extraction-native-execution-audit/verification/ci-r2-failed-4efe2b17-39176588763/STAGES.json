@@ -1,0 +1,46 @@
+[
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "log": "toolchain.log",
+    "peak_children_rss_kib": 853216,
+    "seconds": 0.615,
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "stage": "toolchain"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "NativeExecutionAudit",
+      "NativeExecutionVerification"
+    ],
+    "exit_code": 0,
+    "log": "build.log",
+    "peak_children_rss_kib": 4009804,
+    "seconds": 1438.81,
+    "sha256": "34497683196ef081e3a9f385aed8ef6a0b7ea52d423584caa72703cb8acebee9",
+    "stage": "build"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "-M4000",
+      "@EVIDENCE@/CheckInvocation.lean"
+    ],
+    "exit_code": 134,
+    "log": "types.log",
+    "peak_children_rss_kib": 4203892,
+    "seconds": 15.853,
+    "sha256": "48bc2200174632932b9ea98fd0a0c30e6dc353ce535531045f1c7efc7b79940a",
+    "stage": "types"
+  }
+]
