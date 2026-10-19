@@ -1,0 +1,51 @@
+[
+  {
+    "command": [
+      "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "-j1",
+      "-M4000",
+      "-o",
+      "build/Diagnostic.olean",
+      "-c",
+      "build/Diagnostic.c",
+      "Diagnostic.lean"
+    ],
+    "cwd": "/mnt/lean-research-d/tmp/native-loader-memory-diagnostic-20261019-attempt2",
+    "exit_code": 0,
+    "log": "compile-lean.log",
+    "peak_child_rss_kib_cumulative": 583668,
+    "seconds": 0.265,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage": "compile-lean"
+  },
+  {
+    "command": [
+      "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/leanc",
+      "-O2",
+      "-o",
+      "build/diagnostic",
+      "build/Diagnostic.c"
+    ],
+    "cwd": "/mnt/lean-research-d/tmp/native-loader-memory-diagnostic-20261019-attempt2",
+    "exit_code": 0,
+    "log": "compile-native.log",
+    "peak_child_rss_kib_cumulative": 870956,
+    "seconds": 22.822,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage": "compile-native"
+  },
+  {
+    "command": [
+      "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/mnt/lean-research-d/tmp/native-loader-memory-diagnostic-20261019-attempt2/build/diagnostic"
+    ],
+    "cwd": "/mnt/lean-research-d/worktrees/extraction-native-execution-audit-20261019/formalizations/extraction-native-execution-audit",
+    "exit_code": 0,
+    "log": "data-only-run.log",
+    "peak_child_rss_kib_cumulative": 3377988,
+    "seconds": 2.12,
+    "sha256": "29956b73598ab1787355dc06137382a0a1084defb1ea9e2f0f0ca4cd91b0088f",
+    "stage": "data-only-run"
+  }
+]

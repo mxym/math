@@ -1,0 +1,70 @@
+{
+  "commands": [
+    [
+      "compile-lean",
+      [
+        "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+        "-j1",
+        "-M4000",
+        "-o",
+        "build/Diagnostic.olean",
+        "-c",
+        "build/Diagnostic.c",
+        "Diagnostic.lean"
+      ]
+    ],
+    [
+      "compile-native",
+      [
+        "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/leanc",
+        "-O2",
+        "-o",
+        "build/diagnostic",
+        "build/Diagnostic.c"
+      ]
+    ],
+    [
+      "data-only-run",
+      [
+        "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+        "env",
+        "/mnt/lean-research-d/tmp/native-loader-memory-diagnostic-20261019-attempt2/build/diagnostic"
+      ]
+    ]
+  ],
+  "diagnostic_source_sha256": "8cffe39e93ef866a5ebc6c9e55d64ac3aee7eab9d47b79d330f011e6399c1049",
+  "import_load_extensions": false,
+  "import_module": "NativeExecutionAudit",
+  "lean_frontend_memory_arg": "-M4000",
+  "native_c_compile_rlimit_as_bytes": 4194304000,
+  "native_memory_bytes": 4194304000,
+  "native_run_cap_mechanism": "Lean.Internal.setMaxMemory(4000*1024*1024) before data-only import; no higher limit",
+  "no_kernel_replay": true,
+  "r2_failure_seal": "0b612254b13274ef4d2c89175ef3be0fc99e4130",
+  "r2_metadata": "954497290f84773484e765efd2f478643c67de9f",
+  "runner_sha256": "fbbd8129285ebb069c1765e69b5b4c5b6364dd702208b07a096a2222610359c7",
+  "schema": 1,
+  "source_commit": "8b78ef1ea7c16af0bb98ae8fb6bb97ac3272ee78",
+  "tools": {
+    "clang": {
+      "path": "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/clang",
+      "sha256": "9fcd5fc4baeea9c449bcc9ca4b9db7714465107669498b0056a853f22f5f4def"
+    },
+    "lake": {
+      "path": "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "sha256": "6f53827dab18010d6c690d14c8401cacabc1db958edb3552a877ed4cf1dd995d"
+    },
+    "ld.lld": {
+      "path": "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/ld.lld",
+      "sha256": "d32d5121d96810b624306e48faacc75e41f7302ad0e4865be63c3bbf8f4cd810"
+    },
+    "lean": {
+      "path": "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550"
+    },
+    "leanc": {
+      "path": "/mnt/lean-research-d/toolchains/elan-home/toolchains/leanprover--lean4---v4.34.1/bin/leanc",
+      "sha256": "68a45f8329e2d79133cdcc7b1fa494e37844282d7b5f8908ce1deda7cfdf161a"
+    }
+  }
+}
