@@ -1,0 +1,322 @@
+{
+  "status": "STANDARD_AGGREGATE_BUILD_ONLY_PASS",
+  "utc": "2026-10-19T00:06:53.819458+00:00",
+  "source_head": "e2e3e93ceed7e8820b13d9d1f660ebc44f7f946b",
+  "target": "CircuitNumerical.PacketQueryCheck",
+  "modules": 6,
+  "theorem_roots": 67,
+  "model_declarations": 37,
+  "build_exit_code": 0,
+  "jobs": 4018,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261019T000527956163Z-extraction-numerical-synthesis.log",
+  "check_log_sha256": "4c2a69581118bbcc8aabee2cc0854d35478cdcdcbcb3306da156303c8d6ada28",
+  "source_sha256": {
+    "CircuitNumerical/TM2ExtraStack.lean": "727962bc7deb3acbd2b1d771b3f979f01718dc099f9c0625d0cd7abee615f55d",
+    "CircuitNumerical/PacketQuerySetup.lean": "c80874c043cddd29e33f63aa7d595e99d69eedd37ee9519ab58952f1e6328fe3",
+    "CircuitNumerical/PacketQuerySetupRuns.lean": "8f48075e8bb6ee64b44838f928bd4631e29fbc0c568b7d59721b4f1446b10d95",
+    "CircuitNumerical/PacketQueryRuns.lean": "b9fedf3417530bbc20e49ca59931e8a6e73ddab4d40d66751b334a367646875a",
+    "CircuitNumerical/PacketQuerySemantics.lean": "fd3893d6e734bf4ec282f6f3320ccf6edfa7582109b5a7da445b59091fef9434",
+    "CircuitNumerical/PacketQueryTwice.lean": "376213a80fdbbda3a7e7bee9062b635963a094cb4fa0a4cd5fd9523ed93ceba2",
+    "CircuitNumerical/PacketQueryCheck.lean": "1d8534340974682819bc11b9e7c7a384ea51f8b4bed98c977f7d39de8884eab1",
+    "PACKET_QUERY_ROOTS.txt": "ddc561ef668dbf93e47ee7c328fee2f6a9c3dacd84d0ace5bb1157730af21478",
+    "PACKET_QUERY_MODELS.txt": "b332e488a8a703ca4ce31f71cfa0ab851322473af89b5487320343162f95e658",
+    "PACKET_QUERY_SCOPE_20261019.md": "25c8f86692a184973baf07d28eee476e5e1866f5aa3604dec7558d33f20062db"
+  },
+  "root_axioms": {
+    "CircuitRecursion.TM2ExtraStack.extendStacks_read": [],
+    "CircuitRecursion.TM2ExtraStack.extendStacks_update": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2ExtraStack.compile_stepAux": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2ExtraStack.compiled_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2ExtraStack.compiledRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.TM2ExtraStack.compile_statementDepth": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketQueryMachine.update_index": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.update_scratch": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.update_cache": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.update_queries": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.clear_index_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.clear_index_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.clear_scratch_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.clear_scratch_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.clear_cache_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.clear_cache_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.load_bit": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.load_boundary": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.load_eof": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.restore_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.restore_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.clear_index_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.clear_scratch_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.clear_cache_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.clear_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.load_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.restore_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.install_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.setup_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.setupRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.lift_masterConfiguration": [
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.readerCall_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.readerCall_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.query_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.queryTime_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.nextQueryRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.terminal_label": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketQueryMachine.terminal_halts": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.query_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.nextQueryRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.terminal_master": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketQueryMachine.terminal_queries": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketQueryMachine.terminal_scratch": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketQueryMachine.terminal_cache_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.terminal_encoded_getElem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.terminal_getElem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.terminal_typed_hit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.record_terminal_volume": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.terminal_working_volume": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.reentry_stacks": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryMachine.reuseRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.firstReturn_reentry": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.finish_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.terminal_halts": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.twoQuery_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.terminal_master": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.terminal_queries": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.firstReturn_encoded_getElem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.terminal_encoded_getElem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.terminal_cache_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.twoQueryRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketQueryTwiceMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "worker_build.py; ensure_d_storage.configure_env; shared global build flock",
+  "aggregate_build": true,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 380,
+  "old_b288_prefix_diff": "empty",
+  "endpoints": [
+    "generic extra physical stack syntax embedding with exact actual transition/time preservation",
+    "three real working-stack cleanup loops plus actual query stream bit/separator consume and two-pass installer, exact S+2w+5 transitions",
+    "whole nextQueryRun from arbitrary old working contents with internally derived S+2w+(2w+3)N+4T+10 official time",
+    "exact terminal master/query tail/selected frame/cache suffix and internally derived previous-data volume/reuse cost",
+    "one finite two-query caller: literal first return goto second cleanup, no host restart; both reads/time and exact results at real prefix/final"
+  ],
+  "limitations": [
+    "initial encoded query-stream construction from actual compiler requests and cache serialization",
+    "full typed field parser and normalization machine lowering",
+    "arithmetic-consumer result delivery/integration, unbounded request loop and remaining scalar/control primitives",
+    "allocation, annotation computation and single-tape simulation",
+    "full compiler machine bit-time",
+    "ordinary aggregate only; no independent fresh/trust-zero replay"
+  ]
+}

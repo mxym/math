@@ -1,0 +1,173 @@
+import CircuitNumerical.PacketQueryTwice
+
+#check CircuitRecursion.TM2ExtraStack.extendStacks_read
+#print axioms CircuitRecursion.TM2ExtraStack.extendStacks_read
+#check CircuitRecursion.TM2ExtraStack.extendStacks_update
+#print axioms CircuitRecursion.TM2ExtraStack.extendStacks_update
+#check CircuitRecursion.TM2ExtraStack.compile_stepAux
+#print axioms CircuitRecursion.TM2ExtraStack.compile_stepAux
+#check CircuitRecursion.TM2ExtraStack.compiled_step
+#print axioms CircuitRecursion.TM2ExtraStack.compiled_step
+#check CircuitRecursion.TM2ExtraStack.compiledRun_steps
+#print axioms CircuitRecursion.TM2ExtraStack.compiledRun_steps
+#check CircuitRecursion.TM2ExtraStack.compile_statementDepth
+#print axioms CircuitRecursion.TM2ExtraStack.compile_statementDepth
+#check CircuitRecursion.PacketQueryMachine.update_index
+#print axioms CircuitRecursion.PacketQueryMachine.update_index
+#check CircuitRecursion.PacketQueryMachine.update_scratch
+#print axioms CircuitRecursion.PacketQueryMachine.update_scratch
+#check CircuitRecursion.PacketQueryMachine.update_cache
+#print axioms CircuitRecursion.PacketQueryMachine.update_cache
+#check CircuitRecursion.PacketQueryMachine.update_queries
+#print axioms CircuitRecursion.PacketQueryMachine.update_queries
+#check CircuitRecursion.PacketQueryMachine.clear_index_nil
+#print axioms CircuitRecursion.PacketQueryMachine.clear_index_nil
+#check CircuitRecursion.PacketQueryMachine.clear_index_cons
+#print axioms CircuitRecursion.PacketQueryMachine.clear_index_cons
+#check CircuitRecursion.PacketQueryMachine.clear_scratch_nil
+#print axioms CircuitRecursion.PacketQueryMachine.clear_scratch_nil
+#check CircuitRecursion.PacketQueryMachine.clear_scratch_cons
+#print axioms CircuitRecursion.PacketQueryMachine.clear_scratch_cons
+#check CircuitRecursion.PacketQueryMachine.clear_cache_nil
+#print axioms CircuitRecursion.PacketQueryMachine.clear_cache_nil
+#check CircuitRecursion.PacketQueryMachine.clear_cache_cons
+#print axioms CircuitRecursion.PacketQueryMachine.clear_cache_cons
+#check CircuitRecursion.PacketQueryMachine.load_bit
+#print axioms CircuitRecursion.PacketQueryMachine.load_bit
+#check CircuitRecursion.PacketQueryMachine.load_boundary
+#print axioms CircuitRecursion.PacketQueryMachine.load_boundary
+#check CircuitRecursion.PacketQueryMachine.load_eof
+#print axioms CircuitRecursion.PacketQueryMachine.load_eof
+#check CircuitRecursion.PacketQueryMachine.restore_nil
+#print axioms CircuitRecursion.PacketQueryMachine.restore_nil
+#check CircuitRecursion.PacketQueryMachine.restore_cons
+#print axioms CircuitRecursion.PacketQueryMachine.restore_cons
+#check CircuitRecursion.PacketQueryMachine.clear_index_iterate
+#print axioms CircuitRecursion.PacketQueryMachine.clear_index_iterate
+#check CircuitRecursion.PacketQueryMachine.clear_scratch_iterate
+#print axioms CircuitRecursion.PacketQueryMachine.clear_scratch_iterate
+#check CircuitRecursion.PacketQueryMachine.clear_cache_iterate
+#print axioms CircuitRecursion.PacketQueryMachine.clear_cache_iterate
+#check CircuitRecursion.PacketQueryMachine.clear_iterate
+#print axioms CircuitRecursion.PacketQueryMachine.clear_iterate
+#check CircuitRecursion.PacketQueryMachine.load_iterate
+#print axioms CircuitRecursion.PacketQueryMachine.load_iterate
+#check CircuitRecursion.PacketQueryMachine.restore_iterate
+#print axioms CircuitRecursion.PacketQueryMachine.restore_iterate
+#check CircuitRecursion.PacketQueryMachine.install_iterate
+#print axioms CircuitRecursion.PacketQueryMachine.install_iterate
+#check CircuitRecursion.PacketQueryMachine.setup_iterate
+#print axioms CircuitRecursion.PacketQueryMachine.setup_iterate
+#check CircuitRecursion.PacketQueryMachine.setupRun_steps
+#print axioms CircuitRecursion.PacketQueryMachine.setupRun_steps
+#check CircuitRecursion.PacketQueryMachine.lift_masterConfiguration
+#print axioms CircuitRecursion.PacketQueryMachine.lift_masterConfiguration
+#check CircuitRecursion.PacketQueryMachine.readerCall_steps
+#print axioms CircuitRecursion.PacketQueryMachine.readerCall_steps
+#check CircuitRecursion.PacketQueryMachine.readerCall_iterate
+#print axioms CircuitRecursion.PacketQueryMachine.readerCall_iterate
+#check CircuitRecursion.PacketQueryMachine.query_iterate
+#print axioms CircuitRecursion.PacketQueryMachine.query_iterate
+#check CircuitRecursion.PacketQueryMachine.queryTime_bound
+#print axioms CircuitRecursion.PacketQueryMachine.queryTime_bound
+#check CircuitRecursion.PacketQueryMachine.nextQueryRun_steps
+#print axioms CircuitRecursion.PacketQueryMachine.nextQueryRun_steps
+#check CircuitRecursion.PacketQueryMachine.terminal_label
+#print axioms CircuitRecursion.PacketQueryMachine.terminal_label
+#check CircuitRecursion.PacketQueryMachine.terminal_halts
+#print axioms CircuitRecursion.PacketQueryMachine.terminal_halts
+#check CircuitRecursion.PacketQueryMachine.query_mem_eval
+#print axioms CircuitRecursion.PacketQueryMachine.query_mem_eval
+#check CircuitRecursion.PacketQueryMachine.nextQueryRun_steps_height
+#print axioms CircuitRecursion.PacketQueryMachine.nextQueryRun_steps_height
+#check CircuitRecursion.PacketQueryMachine.program_supports
+#print axioms CircuitRecursion.PacketQueryMachine.program_supports
+#check CircuitRecursion.PacketQueryMachine.running_control_card
+#print axioms CircuitRecursion.PacketQueryMachine.running_control_card
+#check CircuitRecursion.PacketQueryMachine.statement_depth
+#print axioms CircuitRecursion.PacketQueryMachine.statement_depth
+#check CircuitRecursion.PacketQueryMachine.terminal_master
+#print axioms CircuitRecursion.PacketQueryMachine.terminal_master
+#check CircuitRecursion.PacketQueryMachine.terminal_queries
+#print axioms CircuitRecursion.PacketQueryMachine.terminal_queries
+#check CircuitRecursion.PacketQueryMachine.terminal_scratch
+#print axioms CircuitRecursion.PacketQueryMachine.terminal_scratch
+#check CircuitRecursion.PacketQueryMachine.terminal_cache_tail
+#print axioms CircuitRecursion.PacketQueryMachine.terminal_cache_tail
+#check CircuitRecursion.PacketQueryMachine.terminal_encoded_getElem
+#print axioms CircuitRecursion.PacketQueryMachine.terminal_encoded_getElem
+#check CircuitRecursion.PacketQueryMachine.terminal_getElem
+#print axioms CircuitRecursion.PacketQueryMachine.terminal_getElem
+#check CircuitRecursion.PacketQueryMachine.terminal_typed_hit
+#print axioms CircuitRecursion.PacketQueryMachine.terminal_typed_hit
+#check CircuitRecursion.PacketQueryMachine.record_terminal_volume
+#print axioms CircuitRecursion.PacketQueryMachine.record_terminal_volume
+#check CircuitRecursion.PacketQueryMachine.terminal_working_volume
+#print axioms CircuitRecursion.PacketQueryMachine.terminal_working_volume
+#check CircuitRecursion.PacketQueryMachine.reentry_stacks
+#print axioms CircuitRecursion.PacketQueryMachine.reentry_stacks
+#check CircuitRecursion.PacketQueryMachine.reuseRun_steps_height
+#print axioms CircuitRecursion.PacketQueryMachine.reuseRun_steps_height
+#check CircuitRecursion.PacketQueryTwiceMachine.firstReturn_reentry
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.firstReturn_reentry
+#check CircuitRecursion.PacketQueryTwiceMachine.finish_step
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.finish_step
+#check CircuitRecursion.PacketQueryTwiceMachine.terminal_halts
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.terminal_halts
+#check CircuitRecursion.PacketQueryTwiceMachine.twoQuery_mem_eval
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.twoQuery_mem_eval
+#check CircuitRecursion.PacketQueryTwiceMachine.terminal_master
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.terminal_master
+#check CircuitRecursion.PacketQueryTwiceMachine.terminal_queries
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.terminal_queries
+#check CircuitRecursion.PacketQueryTwiceMachine.firstReturn_encoded_getElem
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.firstReturn_encoded_getElem
+#check CircuitRecursion.PacketQueryTwiceMachine.terminal_encoded_getElem
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.terminal_encoded_getElem
+#check CircuitRecursion.PacketQueryTwiceMachine.terminal_cache_tail
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.terminal_cache_tail
+#check CircuitRecursion.PacketQueryTwiceMachine.twoQueryRun_steps_height
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.twoQueryRun_steps_height
+#check CircuitRecursion.PacketQueryTwiceMachine.program_supports
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.program_supports
+#check CircuitRecursion.PacketQueryTwiceMachine.running_control_card
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.running_control_card
+#check CircuitRecursion.PacketQueryTwiceMachine.statement_depth
+#print axioms CircuitRecursion.PacketQueryTwiceMachine.statement_depth
+#check CircuitRecursion.TM2ExtraStack.extendStacks
+#check CircuitRecursion.TM2ExtraStack.liftConfiguration
+#check CircuitRecursion.TM2ExtraStack.compile
+#check CircuitRecursion.TM2ExtraStack.compiledRun
+#check CircuitRecursion.PacketQueryMachine.Stack
+#check CircuitRecursion.PacketQueryMachine.Configuration
+#check CircuitRecursion.PacketQueryMachine.stackData
+#check CircuitRecursion.PacketQueryMachine.configuration
+#check CircuitRecursion.PacketQueryMachine.SetupLabel
+#check CircuitRecursion.PacketQueryMachine.Label
+#check CircuitRecursion.PacketQueryMachine.isBit
+#check CircuitRecursion.PacketQueryMachine.isBoundary
+#check CircuitRecursion.PacketQueryMachine.program
+#check CircuitRecursion.PacketQueryMachine.advance
+#check CircuitRecursion.PacketQueryMachine.queryCode
+#check CircuitRecursion.PacketQueryMachine.setupRun
+#check CircuitRecursion.PacketQueryMachine.eofRun
+#check CircuitRecursion.PacketQueryMachine.terminal
+#check CircuitRecursion.PacketQueryMachine.readerCall
+#check CircuitRecursion.PacketQueryMachine.queryTime
+#check CircuitRecursion.PacketQueryMachine.nextQueryRun
+#check CircuitRecursion.PacketQueryMachine.parsedResult
+#check CircuitRecursion.PacketQueryMachine.reentry
+#check CircuitRecursion.PacketQueryMachine.reuseRun
+#check CircuitRecursion.PacketQueryMachine.queryCall
+#check CircuitRecursion.PacketQueryTwiceMachine.Stack
+#check CircuitRecursion.PacketQueryTwiceMachine.Label
+#check CircuitRecursion.PacketQueryTwiceMachine.Configuration
+#check CircuitRecursion.PacketQueryTwiceMachine.embed
+#check CircuitRecursion.PacketQueryTwiceMachine.ret
+#check CircuitRecursion.PacketQueryTwiceMachine.program
+#check CircuitRecursion.PacketQueryTwiceMachine.advance
+#check CircuitRecursion.PacketQueryTwiceMachine.firstReturn
+#check CircuitRecursion.PacketQueryTwiceMachine.terminal
+#check CircuitRecursion.PacketQueryTwiceMachine.firstCall
+#check CircuitRecursion.PacketQueryTwiceMachine.secondCall
+#check CircuitRecursion.PacketQueryTwiceMachine.twoQueryRun
