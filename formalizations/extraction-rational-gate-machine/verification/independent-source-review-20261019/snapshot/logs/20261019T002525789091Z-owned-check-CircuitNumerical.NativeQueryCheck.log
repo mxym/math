@@ -1,0 +1,640 @@
+CircuitRecursion.NativeQueryMachine.readerStacks_read
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) (k : CircuitRecursion.PacketQueryMachine.Stack) :
+  CircuitRecursion.NativeQueryMachine.readerStacks S words (Sum.inl k) = S k
+'CircuitRecursion.NativeQueryMachine.readerStacks_read' does not depend on any axioms
+CircuitRecursion.NativeQueryMachine.readerStacks_update
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) (k : CircuitRecursion.PacketQueryMachine.Stack)
+  (xs : List CircuitRecursion.PacketFraming.Symbol) :
+  CircuitRecursion.NativeQueryMachine.readerStacks (Function.update S k xs) words =
+    Function.update (CircuitRecursion.NativeQueryMachine.readerStacks S words) (Sum.inl k) xs
+'CircuitRecursion.NativeQueryMachine.readerStacks_update' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.compileReader_stepAux
+  (q :
+    Turing.TM2.Stmt (fun x => CircuitRecursion.PacketFraming.Symbol) CircuitRecursion.PacketQueryMachine.Label
+      (Option CircuitRecursion.PacketFraming.Symbol))
+  (v : Option CircuitRecursion.PacketFraming.Symbol)
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  Turing.TM2.stepAux (CircuitRecursion.NativeQueryMachine.compileReader q)
+      (CircuitRecursion.PacketFieldMachine.emptyFlags, v, false)
+      (CircuitRecursion.NativeQueryMachine.readerStacks S words) =
+    CircuitRecursion.NativeQueryMachine.readerConfiguration (Turing.TM2.stepAux q v S) words
+'CircuitRecursion.NativeQueryMachine.compileReader_stepAux' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.reader_step
+  (c : CircuitRecursion.PacketQueryMachine.Configuration CircuitRecursion.PacketQueryMachine.Label)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  Turing.TM2.step CircuitRecursion.NativeQueryMachine.readerProgram
+      (CircuitRecursion.NativeQueryMachine.readerConfiguration c words) =
+    Option.map (fun d => CircuitRecursion.NativeQueryMachine.readerConfiguration d words)
+      (Turing.TM2.step CircuitRecursion.PacketQueryMachine.program c)
+'CircuitRecursion.NativeQueryMachine.reader_step' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.readerRun_steps (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (v : Option CircuitRecursion.PacketFraming.Symbol)
+  (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  (CircuitRecursion.NativeQueryMachine.readerRun ps i v oldIndex oldScratch oldCache rest words).steps =
+    CircuitRecursion.PacketQueryMachine.queryTime ps i oldIndex oldScratch oldCache
+'CircuitRecursion.NativeQueryMachine.readerRun_steps' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.compileReader_statementDepth
+  (q :
+    Turing.TM2.Stmt (fun x => CircuitRecursion.PacketFraming.Symbol) CircuitRecursion.PacketQueryMachine.Label
+      (Option CircuitRecursion.PacketFraming.Symbol)) :
+  CircuitRecursion.ListAssemblyMachine.statementDepth (CircuitRecursion.NativeQueryMachine.compileReader q) =
+    CircuitRecursion.ListAssemblyMachine.statementDepth q
+'CircuitRecursion.NativeQueryMachine.compileReader_statementDepth' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.parserStacks_input
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol) :
+  CircuitRecursion.NativeQueryMachine.parserStacks S old (Sum.inl CircuitRecursion.NativeQueryMachine.inputStack) =
+    S CircuitRecursion.PacketFieldMachine.Stack.input
+'CircuitRecursion.NativeQueryMachine.parserStacks_input' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.parserStacks_scratch
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol) :
+  CircuitRecursion.NativeQueryMachine.parserStacks S old
+      (Sum.inr CircuitRecursion.NativeQueryMachine.WordStack.scratch) =
+    S CircuitRecursion.PacketFieldMachine.Stack.scratch
+'CircuitRecursion.NativeQueryMachine.parserStacks_scratch' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.parserStacks_numerator
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (q : CircuitRecursion.PacketFieldMachine.Coordinate) :
+  CircuitRecursion.NativeQueryMachine.parserStacks S old
+      (Sum.inr (CircuitRecursion.NativeQueryMachine.WordStack.numerator q)) =
+    S (CircuitRecursion.PacketFieldMachine.Stack.numerator q)
+'CircuitRecursion.NativeQueryMachine.parserStacks_numerator' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.parserStacks_denominator
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol) :
+  CircuitRecursion.NativeQueryMachine.parserStacks S old
+      (Sum.inr CircuitRecursion.NativeQueryMachine.WordStack.denominator) =
+    S CircuitRecursion.PacketFieldMachine.Stack.denominator
+'CircuitRecursion.NativeQueryMachine.parserStacks_denominator' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.parserStacks_update_input
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (xs : List CircuitRecursion.PacketFraming.Symbol) :
+  CircuitRecursion.NativeQueryMachine.parserStacks
+      (Function.update S CircuitRecursion.PacketFieldMachine.Stack.input xs) old =
+    Function.update (CircuitRecursion.NativeQueryMachine.parserStacks S old)
+      (Sum.inl CircuitRecursion.NativeQueryMachine.inputStack) xs
+'CircuitRecursion.NativeQueryMachine.parserStacks_update_input' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.parserStacks_update_scratch
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol) (xs : List Bool) :
+  CircuitRecursion.NativeQueryMachine.parserStacks
+      (Function.update S CircuitRecursion.PacketFieldMachine.Stack.scratch xs) old =
+    Function.update (CircuitRecursion.NativeQueryMachine.parserStacks S old)
+      (Sum.inr CircuitRecursion.NativeQueryMachine.WordStack.scratch) xs
+'CircuitRecursion.NativeQueryMachine.parserStacks_update_scratch' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.parserStacks_update_numerator
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (q : CircuitRecursion.PacketFieldMachine.Coordinate) (xs : List Bool) :
+  CircuitRecursion.NativeQueryMachine.parserStacks
+      (Function.update S (CircuitRecursion.PacketFieldMachine.Stack.numerator q) xs) old =
+    Function.update (CircuitRecursion.NativeQueryMachine.parserStacks S old)
+      (Sum.inr (CircuitRecursion.NativeQueryMachine.WordStack.numerator q)) xs
+'CircuitRecursion.NativeQueryMachine.parserStacks_update_numerator' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.parserStacks_update_denominator
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol) (xs : List Bool) :
+  CircuitRecursion.NativeQueryMachine.parserStacks
+      (Function.update S CircuitRecursion.PacketFieldMachine.Stack.denominator xs) old =
+    Function.update (CircuitRecursion.NativeQueryMachine.parserStacks S old)
+      (Sum.inr CircuitRecursion.NativeQueryMachine.WordStack.denominator) xs
+'CircuitRecursion.NativeQueryMachine.parserStacks_update_denominator' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.compileParser_stepAux.{u_1} {Λ : Type u_1}
+  (embed : CircuitRecursion.PacketFieldMachine.Label → Λ)
+  (q :
+    Turing.TM2.Stmt CircuitRecursion.PacketFieldMachine.Alphabet CircuitRecursion.PacketFieldMachine.Label
+      CircuitRecursion.NativeQueryMachine.Memory)
+  (v : CircuitRecursion.NativeQueryMachine.Memory)
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol) :
+  Turing.TM2.stepAux (CircuitRecursion.NativeQueryMachine.compileParser embed q) v
+      (CircuitRecursion.NativeQueryMachine.parserStacks S old) =
+    CircuitRecursion.NativeQueryMachine.parserConfiguration embed (Turing.TM2.stepAux q v S) old
+'CircuitRecursion.NativeQueryMachine.compileParser_stepAux' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.parser_step.{u_1} {Λ : Type u_1}
+  (embed : CircuitRecursion.PacketFieldMachine.Label → Λ)
+  (N : Λ → Turing.TM2.Stmt CircuitRecursion.NativeQueryMachine.Alphabet Λ CircuitRecursion.NativeQueryMachine.Memory)
+  (hcode :
+    ∀ (q : CircuitRecursion.PacketFieldMachine.Label),
+      N (embed q) =
+        CircuitRecursion.NativeQueryMachine.compileParser embed (CircuitRecursion.PacketFieldMachine.program q))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (c : CircuitRecursion.PacketFieldMachine.Configuration) :
+  Turing.TM2.step N (CircuitRecursion.NativeQueryMachine.parserConfiguration embed c old) =
+    Option.map (fun d => CircuitRecursion.NativeQueryMachine.parserConfiguration embed d old)
+      (Turing.TM2.step CircuitRecursion.PacketFieldMachine.program c)
+'CircuitRecursion.NativeQueryMachine.parser_step' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.compileParser_statementDepth.{u_1} {Λ : Type u_1}
+  (embed : CircuitRecursion.PacketFieldMachine.Label → Λ)
+  (q :
+    Turing.TM2.Stmt CircuitRecursion.PacketFieldMachine.Alphabet CircuitRecursion.PacketFieldMachine.Label
+      CircuitRecursion.NativeQueryMachine.Memory) :
+  CircuitRecursion.ListAssemblyMachine.statementDepth (CircuitRecursion.NativeQueryMachine.compileParser embed q) =
+    CircuitRecursion.ListAssemblyMachine.statementDepth q
+'CircuitRecursion.NativeQueryMachine.compileParser_statementDepth' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.readerStacks_word_update
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool)
+  (w : CircuitRecursion.NativeQueryMachine.WordStack) (xs : List Bool) :
+  CircuitRecursion.NativeQueryMachine.readerStacks S (Function.update words w xs) =
+    Function.update (CircuitRecursion.NativeQueryMachine.readerStacks S words) (Sum.inr w) xs
+'CircuitRecursion.NativeQueryMachine.readerStacks_word_update' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.words_update_self
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool)
+  (w : CircuitRecursion.NativeQueryMachine.WordStack) : Function.update words w (words w) = words
+'CircuitRecursion.NativeQueryMachine.words_update_self' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.words_update_twice
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool)
+  (w : CircuitRecursion.NativeQueryMachine.WordStack) (xs ys : List Bool) :
+  Function.update (Function.update words w xs) w ys = Function.update words w ys
+'CircuitRecursion.NativeQueryMachine.words_update_twice' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.clearFinishMemory_withCell (w : CircuitRecursion.NativeQueryMachine.WordStack)
+  (m : CircuitRecursion.NativeQueryMachine.Memory) (x : Option CircuitRecursion.PacketFraming.Symbol) :
+  CircuitRecursion.NativeQueryMachine.clearFinishMemory w (CircuitRecursion.PacketFieldMachine.withCell m x) =
+    CircuitRecursion.NativeQueryMachine.clearFinishMemory w m
+'CircuitRecursion.NativeQueryMachine.clearFinishMemory_withCell' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.clear_word_nil (w : CircuitRecursion.NativeQueryMachine.WordStack)
+  (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  Turing.TM2.step CircuitRecursion.NativeQueryMachine.program
+      (CircuitRecursion.NativeQueryMachine.configuration (some (Sum.inl w)) m S (Function.update words w [])) =
+    some
+      (CircuitRecursion.NativeQueryMachine.configuration (some (CircuitRecursion.NativeQueryMachine.clearNext w))
+        (CircuitRecursion.NativeQueryMachine.clearFinishMemory w m) S (Function.update words w []))
+'CircuitRecursion.NativeQueryMachine.clear_word_nil' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.clear_word_cons (w : CircuitRecursion.NativeQueryMachine.WordStack)
+  (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) (b : Bool) (bs : List Bool) :
+  Turing.TM2.step CircuitRecursion.NativeQueryMachine.program
+      (CircuitRecursion.NativeQueryMachine.configuration (some (Sum.inl w)) m S (Function.update words w (b :: bs))) =
+    some
+      (CircuitRecursion.NativeQueryMachine.configuration (some (Sum.inl w))
+        (CircuitRecursion.PacketFieldMachine.withCell m (some (CircuitRecursion.PacketFraming.Symbol.bit b))) S
+        (Function.update words w bs))
+'CircuitRecursion.NativeQueryMachine.clear_word_cons' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.clearWord_iterate_override (w : CircuitRecursion.NativeQueryMachine.WordStack)
+  (xs : List Bool) (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  CircuitRecursion.NativeQueryMachine.advance^[xs.length + 1]
+      (some (CircuitRecursion.NativeQueryMachine.configuration (some (Sum.inl w)) m S (Function.update words w xs))) =
+    some
+      (CircuitRecursion.NativeQueryMachine.configuration (some (CircuitRecursion.NativeQueryMachine.clearNext w))
+        (CircuitRecursion.NativeQueryMachine.clearFinishMemory w m) S (Function.update words w []))
+'CircuitRecursion.NativeQueryMachine.clearWord_iterate_override' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.clearWord_iterate (w : CircuitRecursion.NativeQueryMachine.WordStack)
+  (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  CircuitRecursion.NativeQueryMachine.advance^[(words w).length + 1]
+      (some (CircuitRecursion.NativeQueryMachine.configuration (some (Sum.inl w)) m S words)) =
+    some
+      (CircuitRecursion.NativeQueryMachine.configuration (some (CircuitRecursion.NativeQueryMachine.clearNext w))
+        (CircuitRecursion.NativeQueryMachine.clearFinishMemory w m) S (Function.update words w []))
+'CircuitRecursion.NativeQueryMachine.clearWord_iterate' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.clearAll_iterate (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  CircuitRecursion.NativeQueryMachine.advance^[CircuitRecursion.NativeQueryMachine.wordVolume words + 6]
+      (some
+        (CircuitRecursion.NativeQueryMachine.configuration
+          (some (Sum.inl CircuitRecursion.NativeQueryMachine.WordStack.scratch)) m S words)) =
+    some
+      (CircuitRecursion.NativeQueryMachine.configuration
+        (some
+          (CircuitRecursion.NativeQueryMachine.readerEmbed
+            (Sum.inl CircuitRecursion.PacketQueryMachine.SetupLabel.clearIndex)))
+        CircuitRecursion.NativeQueryMachine.resetMemory S CircuitRecursion.NativeQueryMachine.emptyWords)
+'CircuitRecursion.NativeQueryMachine.clearAll_iterate' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.clearRun_steps (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  (CircuitRecursion.NativeQueryMachine.clearRun m S words).steps =
+    CircuitRecursion.NativeQueryMachine.wordVolume words + 6
+'CircuitRecursion.NativeQueryMachine.clearRun_steps' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.clear_to_reader (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol) :
+  CircuitRecursion.NativeQueryMachine.configuration
+      (some
+        (CircuitRecursion.NativeQueryMachine.readerEmbed
+          (Sum.inl CircuitRecursion.PacketQueryMachine.SetupLabel.clearIndex)))
+      CircuitRecursion.NativeQueryMachine.resetMemory
+      (CircuitRecursion.NativeQueryMachine.sourceInitial ps i oldIndex oldScratch oldCache rest).stk
+      CircuitRecursion.NativeQueryMachine.emptyWords =
+    CircuitRecursion.TM2Subroutine.liftConfiguration CircuitRecursion.NativeQueryMachine.readerEmbed
+      CircuitRecursion.NativeQueryMachine.readerReturn
+      (CircuitRecursion.NativeQueryMachine.readerConfiguration
+        (CircuitRecursion.NativeQueryMachine.sourceInitial ps i oldIndex oldScratch oldCache rest)
+        CircuitRecursion.NativeQueryMachine.emptyWords)
+'CircuitRecursion.NativeQueryMachine.clear_to_reader' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.record_terminal_memory (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) : (CircuitRecursion.PacketRecordMachine.terminal ps i).var = none
+'CircuitRecursion.NativeQueryMachine.record_terminal_memory' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.query_terminal_memory (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol) :
+  (CircuitRecursion.PacketQueryMachine.terminal ps i rest).var = none
+'CircuitRecursion.NativeQueryMachine.query_terminal_memory' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.reader_to_parser (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) (hp : ps[i.value]? = some p) :
+  CircuitRecursion.TM2Subroutine.liftConfiguration CircuitRecursion.NativeQueryMachine.readerEmbed
+      CircuitRecursion.NativeQueryMachine.readerReturn
+      (CircuitRecursion.NativeQueryMachine.readerConfiguration (CircuitRecursion.PacketQueryMachine.terminal ps i rest)
+        CircuitRecursion.NativeQueryMachine.emptyWords) =
+    CircuitRecursion.NativeQueryMachine.parserConfiguration CircuitRecursion.NativeQueryMachine.parserEmbed
+      (CircuitRecursion.PacketFieldMachine.configuration
+        (some (CircuitRecursion.PacketFieldMachine.Label.sign CircuitRecursion.PacketFieldMachine.Coordinate.n0))
+        CircuitRecursion.PacketFieldMachine.emptyFlags none false (CircuitRecursion.PacketFraming.encodePacket p ++ [])
+        [] CircuitRecursion.PacketFieldMachine.emptyFields [])
+      (CircuitRecursion.PacketQueryMachine.terminal ps i rest).stk
+'CircuitRecursion.NativeQueryMachine.reader_to_parser' depends on axioms: [propext, Classical.choice, Quot.sound]
+CircuitRecursion.NativeQueryMachine.nativeQueryRun_steps (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) (p : CircuitRecursion.WordIntegerPacket)
+  (hp : ps[i.value]? = some p) :
+  (CircuitRecursion.NativeQueryMachine.nativeQueryRun ps i m oldIndex oldScratch oldCache rest words p hp).steps =
+    CircuitRecursion.PacketFieldMachine.parseTime (CircuitRecursion.PacketFraming.rawPacket p) +
+      (CircuitRecursion.PacketQueryMachine.queryTime ps i oldIndex oldScratch oldCache +
+        (CircuitRecursion.NativeQueryMachine.wordVolume words + 6))
+'CircuitRecursion.NativeQueryMachine.nativeQueryRun_steps' depends on axioms: [propext, Classical.choice, Quot.sound]
+CircuitRecursion.NativeQueryMachine.addressed_mem.{u_1} {α : Type u_1} (xs : List α) (n : ℕ) (p : α)
+  (hp : xs[n]? = some p) : p ∈ xs
+'CircuitRecursion.NativeQueryMachine.addressed_mem' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.nativeQueryRun_steps_height (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) (p : CircuitRecursion.WordIntegerPacket)
+  (hp : ps[i.value]? = some p) (B : ℕ) (h : ∀ p ∈ ps, CircuitRecursion.IntegerPacketHeight p.decode B) :
+  (CircuitRecursion.NativeQueryMachine.nativeQueryRun ps i m oldIndex oldScratch oldCache rest words p hp).steps ≤
+    CircuitRecursion.NativeQueryMachine.wordVolume words + oldIndex.length + oldScratch.length + oldCache.length +
+            2 * i.bits.length +
+          (2 * i.bits.length + 20 * B + 59) * ps.length +
+        10 * B +
+      40
+'CircuitRecursion.NativeQueryMachine.nativeQueryRun_steps_height' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+CircuitRecursion.NativeQueryMachine.parserStacks_other
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (k : CircuitRecursion.PacketQueryMachine.Stack) (hk : k ≠ CircuitRecursion.NativeQueryMachine.inputStack) :
+  CircuitRecursion.NativeQueryMachine.parserStacks S old (Sum.inl k) = old k
+'CircuitRecursion.NativeQueryMachine.parserStacks_other' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.resultRaw_terminal (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  CircuitRecursion.NativeQueryMachine.resultRaw (CircuitRecursion.NativeQueryMachine.terminal ps i rest p) =
+    CircuitRecursion.PacketFraming.rawPacket p
+'CircuitRecursion.NativeQueryMachine.resultRaw_terminal' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.typed_result (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  (CircuitRecursion.NativeQueryMachine.resultRaw (CircuitRecursion.NativeQueryMachine.terminal ps i rest p)).toWord ⋯ =
+    p
+'CircuitRecursion.NativeQueryMachine.typed_result' depends on axioms: [propext, Classical.choice, Quot.sound]
+CircuitRecursion.NativeQueryMachine.terminal_master (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  (CircuitRecursion.NativeQueryMachine.terminal ps i rest p).stk (Sum.inl (Sum.inl (Sum.inr ()))) =
+    CircuitRecursion.PacketFraming.encodeCache ps
+'CircuitRecursion.NativeQueryMachine.terminal_master' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.terminal_queries (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  (CircuitRecursion.NativeQueryMachine.terminal ps i rest p).stk (Sum.inl (Sum.inr ())) = rest
+'CircuitRecursion.NativeQueryMachine.terminal_queries' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.terminal_cache_tail (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  (CircuitRecursion.NativeQueryMachine.terminal ps i rest p).stk
+      (Sum.inl (Sum.inl (Sum.inl CircuitRecursion.ListAssemblyMachine.Stack.work))) =
+    CircuitRecursion.PacketFraming.encodeCache (List.drop (i.value + 1) ps)
+'CircuitRecursion.NativeQueryMachine.terminal_cache_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+CircuitRecursion.NativeQueryMachine.terminal_symbol_scratch (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  (CircuitRecursion.NativeQueryMachine.terminal ps i rest p).stk
+      (Sum.inl (Sum.inl (Sum.inl CircuitRecursion.ListAssemblyMachine.Stack.right))) =
+    []
+'CircuitRecursion.NativeQueryMachine.terminal_symbol_scratch' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.terminal_symbol_payload_consumed (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  (CircuitRecursion.NativeQueryMachine.terminal ps i rest p).stk
+      (Sum.inl CircuitRecursion.NativeQueryMachine.inputStack) =
+    []
+'CircuitRecursion.NativeQueryMachine.terminal_symbol_payload_consumed' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.terminal_native_scratch (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  (CircuitRecursion.NativeQueryMachine.terminal ps i rest p).stk
+      (Sum.inr CircuitRecursion.NativeQueryMachine.WordStack.scratch) =
+    []
+'CircuitRecursion.NativeQueryMachine.terminal_native_scratch' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.terminal_accepted (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) : (CircuitRecursion.NativeQueryMachine.terminal ps i rest p).var.2.2 = true
+'CircuitRecursion.NativeQueryMachine.terminal_accepted' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.terminal_halts (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  Turing.TM2.step CircuitRecursion.NativeQueryMachine.program
+      (CircuitRecursion.NativeQueryMachine.terminal ps i rest p) =
+    none
+'CircuitRecursion.NativeQueryMachine.terminal_halts' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.nativeQuery_mem_eval (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) (p : CircuitRecursion.WordIntegerPacket)
+  (hp : ps[i.value]? = some p) :
+  CircuitRecursion.NativeQueryMachine.terminal ps i rest p ∈
+    StateTransition.eval (Turing.TM2.step CircuitRecursion.NativeQueryMachine.program)
+      (CircuitRecursion.NativeQueryMachine.initial ps i m oldIndex oldScratch oldCache rest words)
+'CircuitRecursion.NativeQueryMachine.nativeQuery_mem_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+CircuitRecursion.NativeQueryMachine.terminal_wordVolume (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  CircuitRecursion.NativeQueryMachine.wordVolume
+      (CircuitRecursion.NativeQueryMachine.nativeWords (CircuitRecursion.NativeQueryMachine.terminal ps i rest p)) =
+    (CircuitRecursion.PacketFraming.rawPacket p).n0.bits.length +
+            (CircuitRecursion.PacketFraming.rawPacket p).n1.bits.length +
+          (CircuitRecursion.PacketFraming.rawPacket p).n2.bits.length +
+        (CircuitRecursion.PacketFraming.rawPacket p).n3.bits.length +
+      p.denominator.length
+'CircuitRecursion.NativeQueryMachine.terminal_wordVolume' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.terminal_wordVolume_height (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) (B : ℕ) (h : CircuitRecursion.IntegerPacketHeight p.decode B) :
+  CircuitRecursion.NativeQueryMachine.wordVolume
+      (CircuitRecursion.NativeQueryMachine.nativeWords (CircuitRecursion.NativeQueryMachine.terminal ps i rest p)) ≤
+    5 * B + 5
+'CircuitRecursion.NativeQueryMachine.terminal_wordVolume_height' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+CircuitRecursion.NativeQueryMachine.program_supports :
+  Turing.TM2.Supports CircuitRecursion.NativeQueryMachine.program Finset.univ
+'CircuitRecursion.NativeQueryMachine.program_supports' depends on axioms: [propext, Classical.choice, Quot.sound]
+CircuitRecursion.NativeQueryMachine.stack_card : Fintype.card CircuitRecursion.NativeQueryMachine.Stack = 11
+'CircuitRecursion.NativeQueryMachine.stack_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+CircuitRecursion.NativeQueryMachine.running_control_card :
+  Fintype.card (CircuitRecursion.NativeQueryMachine.Label × CircuitRecursion.NativeQueryMachine.Memory) = 5760
+'CircuitRecursion.NativeQueryMachine.running_control_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+CircuitRecursion.NativeQueryMachine.statement_depth (q : CircuitRecursion.NativeQueryMachine.Label) :
+  CircuitRecursion.ListAssemblyMachine.statementDepth (CircuitRecursion.NativeQueryMachine.program q) ≤ 7
+'CircuitRecursion.NativeQueryMachine.statement_depth' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.encodeCache_drop_length (ps : List CircuitRecursion.WordIntegerPacket) (n : ℕ) :
+  (CircuitRecursion.PacketFraming.encodeCache (List.drop n ps)).length ≤
+    (CircuitRecursion.PacketFraming.encodeCache ps).length
+'CircuitRecursion.NativeQueryMachine.encodeCache_drop_length' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.terminal_symbolVolume (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  CircuitRecursion.NativeQueryMachine.symbolVolume (CircuitRecursion.NativeQueryMachine.terminal ps i rest p) ≤
+    (CircuitRecursion.PacketFraming.encodeCache ps).length
+'CircuitRecursion.NativeQueryMachine.terminal_symbolVolume' depends on axioms: [propext, Classical.choice, Quot.sound]
+CircuitRecursion.NativeQueryMachine.reentry_memory (ps : List CircuitRecursion.WordIntegerPacket)
+  (previous next : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (previousPacket : CircuitRecursion.WordIntegerPacket) :
+  (CircuitRecursion.NativeQueryMachine.reentry ps previous next rest previousPacket).var =
+    (CircuitRecursion.NativeQueryMachine.terminal ps previous
+        (CircuitRecursion.PacketQueryMachine.queryCode next.bits ++ rest) previousPacket).var
+'CircuitRecursion.NativeQueryMachine.reentry_memory' depends on axioms: [propext]
+CircuitRecursion.NativeQueryMachine.reentry_stacks (ps : List CircuitRecursion.WordIntegerPacket)
+  (previous next : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (previousPacket : CircuitRecursion.WordIntegerPacket) :
+  (CircuitRecursion.NativeQueryMachine.reentry ps previous next rest previousPacket).stk =
+    (CircuitRecursion.NativeQueryMachine.terminal ps previous
+        (CircuitRecursion.PacketQueryMachine.queryCode next.bits ++ rest) previousPacket).stk
+'CircuitRecursion.NativeQueryMachine.reentry_stacks' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.returned_reentry.{u_1} {Δ : Type u_1}
+  (embed : CircuitRecursion.NativeQueryMachine.Label → Δ) (ret : CircuitRecursion.NativeQueryMachine.Memory → Δ)
+  (ps : List CircuitRecursion.WordIntegerPacket) (previous next : CircuitRecursion.BinaryIndex)
+  (rest : List CircuitRecursion.PacketFraming.Symbol) (previousPacket : CircuitRecursion.WordIntegerPacket)
+  (hret :
+    ret
+        (CircuitRecursion.NativeQueryMachine.terminal ps previous
+            (CircuitRecursion.PacketQueryMachine.queryCode next.bits ++ rest) previousPacket).var =
+      embed (Sum.inl CircuitRecursion.NativeQueryMachine.WordStack.scratch)) :
+  CircuitRecursion.TM2Subroutine.liftConfiguration embed ret
+      (CircuitRecursion.NativeQueryMachine.terminal ps previous
+        (CircuitRecursion.PacketQueryMachine.queryCode next.bits ++ rest) previousPacket) =
+    CircuitRecursion.TM2Subroutine.liftConfiguration embed ret
+      (CircuitRecursion.NativeQueryMachine.reentry ps previous next rest previousPacket)
+'CircuitRecursion.NativeQueryMachine.returned_reentry' depends on axioms: [propext, Quot.sound]
+CircuitRecursion.NativeQueryMachine.alphabet_card_bound (k : CircuitRecursion.NativeQueryMachine.Stack) :
+  Fintype.card (CircuitRecursion.NativeQueryMachine.Alphabet k) ≤ 4
+'CircuitRecursion.NativeQueryMachine.alphabet_card_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+CircuitRecursion.NativeQueryMachine.WordStack : Type
+CircuitRecursion.NativeQueryMachine.Stack : Type
+CircuitRecursion.NativeQueryMachine.Alphabet : CircuitRecursion.NativeQueryMachine.Stack → Type
+CircuitRecursion.NativeQueryMachine.Memory : Type
+CircuitRecursion.NativeQueryMachine.readerStacks
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) (k : CircuitRecursion.NativeQueryMachine.Stack) :
+  List (CircuitRecursion.NativeQueryMachine.Alphabet k)
+CircuitRecursion.NativeQueryMachine.readerConfiguration
+  (c : CircuitRecursion.PacketQueryMachine.Configuration CircuitRecursion.PacketQueryMachine.Label)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  Turing.TM2.Cfg CircuitRecursion.NativeQueryMachine.Alphabet CircuitRecursion.PacketQueryMachine.Label
+    CircuitRecursion.NativeQueryMachine.Memory
+CircuitRecursion.NativeQueryMachine.compileReader :
+  Turing.TM2.Stmt (fun x => CircuitRecursion.PacketFraming.Symbol) CircuitRecursion.PacketQueryMachine.Label
+      (Option CircuitRecursion.PacketFraming.Symbol) →
+    Turing.TM2.Stmt CircuitRecursion.NativeQueryMachine.Alphabet CircuitRecursion.PacketQueryMachine.Label
+      CircuitRecursion.NativeQueryMachine.Memory
+CircuitRecursion.NativeQueryMachine.readerProgram (q : CircuitRecursion.PacketQueryMachine.Label) :
+  Turing.TM2.Stmt CircuitRecursion.NativeQueryMachine.Alphabet CircuitRecursion.PacketQueryMachine.Label
+    CircuitRecursion.NativeQueryMachine.Memory
+CircuitRecursion.NativeQueryMachine.readerRun (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (v : Option CircuitRecursion.PacketFraming.Symbol)
+  (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  StateTransition.EvalsToInTime (Turing.TM2.step CircuitRecursion.NativeQueryMachine.readerProgram)
+    (CircuitRecursion.NativeQueryMachine.readerConfiguration
+      (CircuitRecursion.PacketQueryMachine.configuration
+        (some (Sum.inl CircuitRecursion.PacketQueryMachine.SetupLabel.clearIndex)) v oldIndex oldScratch oldCache
+        (CircuitRecursion.PacketFraming.encodeCache ps) (CircuitRecursion.PacketQueryMachine.queryCode i.bits ++ rest))
+      words)
+    (some
+      (CircuitRecursion.NativeQueryMachine.readerConfiguration (CircuitRecursion.PacketQueryMachine.terminal ps i rest)
+        words))
+    (oldIndex.length + oldScratch.length + oldCache.length + 2 * i.bits.length + (2 * i.bits.length + 3) * ps.length +
+        4 * (CircuitRecursion.PacketFraming.encodeCache ps).length +
+      10)
+CircuitRecursion.NativeQueryMachine.inputStack : CircuitRecursion.PacketQueryMachine.Stack
+CircuitRecursion.NativeQueryMachine.parserStacks
+  (S : (k : CircuitRecursion.PacketFieldMachine.Stack) → List (CircuitRecursion.PacketFieldMachine.Alphabet k))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (k : CircuitRecursion.NativeQueryMachine.Stack) : List (CircuitRecursion.NativeQueryMachine.Alphabet k)
+CircuitRecursion.NativeQueryMachine.parserConfiguration.{u_1} {Λ : Type u_1}
+  (embed : CircuitRecursion.PacketFieldMachine.Label → Λ) (c : CircuitRecursion.PacketFieldMachine.Configuration)
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol) :
+  Turing.TM2.Cfg CircuitRecursion.NativeQueryMachine.Alphabet Λ CircuitRecursion.NativeQueryMachine.Memory
+CircuitRecursion.NativeQueryMachine.compileParser.{u_1} {Λ : Type u_1}
+  (embed : CircuitRecursion.PacketFieldMachine.Label → Λ) :
+  Turing.TM2.Stmt CircuitRecursion.PacketFieldMachine.Alphabet CircuitRecursion.PacketFieldMachine.Label
+      CircuitRecursion.NativeQueryMachine.Memory →
+    Turing.TM2.Stmt CircuitRecursion.NativeQueryMachine.Alphabet Λ CircuitRecursion.NativeQueryMachine.Memory
+CircuitRecursion.NativeQueryMachine.parserRun.{u_1} {Λ : Type u_1}
+  (embed : CircuitRecursion.PacketFieldMachine.Label → Λ)
+  (N : Λ → Turing.TM2.Stmt CircuitRecursion.NativeQueryMachine.Alphabet Λ CircuitRecursion.NativeQueryMachine.Memory)
+  (hcode :
+    ∀ (q : CircuitRecursion.PacketFieldMachine.Label),
+      N (embed q) =
+        CircuitRecursion.NativeQueryMachine.compileParser embed (CircuitRecursion.PacketFieldMachine.program q))
+  (old : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) (rest : List CircuitRecursion.PacketFraming.Symbol) :
+  StateTransition.EvalsToInTime (Turing.TM2.step N)
+    (CircuitRecursion.NativeQueryMachine.parserConfiguration embed
+      (CircuitRecursion.PacketFieldMachine.configuration
+        (some (CircuitRecursion.PacketFieldMachine.Label.sign CircuitRecursion.PacketFieldMachine.Coordinate.n0))
+        CircuitRecursion.PacketFieldMachine.emptyFlags none false
+        (CircuitRecursion.PacketFraming.encodePacket p ++ rest) [] CircuitRecursion.PacketFieldMachine.emptyFields [])
+      old)
+    (some
+      (CircuitRecursion.NativeQueryMachine.parserConfiguration embed
+        (CircuitRecursion.PacketFieldMachine.terminal (CircuitRecursion.PacketFraming.rawPacket p) rest) old))
+    (CircuitRecursion.PacketFieldMachine.parseTime (CircuitRecursion.PacketFraming.rawPacket p))
+CircuitRecursion.NativeQueryMachine.Label : Type
+CircuitRecursion.NativeQueryMachine.Configuration : Type
+CircuitRecursion.NativeQueryMachine.readerEmbed (q : CircuitRecursion.PacketQueryMachine.Label) :
+  CircuitRecursion.NativeQueryMachine.Label
+CircuitRecursion.NativeQueryMachine.parserEmbed (q : CircuitRecursion.PacketFieldMachine.Label) :
+  CircuitRecursion.NativeQueryMachine.Label
+CircuitRecursion.NativeQueryMachine.readerReturn :
+  CircuitRecursion.NativeQueryMachine.Memory → CircuitRecursion.NativeQueryMachine.Label
+CircuitRecursion.NativeQueryMachine.resetMemory : CircuitRecursion.NativeQueryMachine.Memory
+CircuitRecursion.NativeQueryMachine.clearNext :
+  CircuitRecursion.NativeQueryMachine.WordStack → CircuitRecursion.NativeQueryMachine.Label
+CircuitRecursion.NativeQueryMachine.clearFinishMemory (w : CircuitRecursion.NativeQueryMachine.WordStack)
+  (m : CircuitRecursion.NativeQueryMachine.Memory) : CircuitRecursion.NativeQueryMachine.Memory
+CircuitRecursion.NativeQueryMachine.program :
+  CircuitRecursion.NativeQueryMachine.Label →
+    Turing.TM2.Stmt CircuitRecursion.NativeQueryMachine.Alphabet CircuitRecursion.NativeQueryMachine.Label
+      CircuitRecursion.NativeQueryMachine.Memory
+CircuitRecursion.NativeQueryMachine.configuration (l : Option CircuitRecursion.NativeQueryMachine.Label)
+  (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  CircuitRecursion.NativeQueryMachine.Configuration
+CircuitRecursion.NativeQueryMachine.advance :
+  Option CircuitRecursion.NativeQueryMachine.Configuration → Option CircuitRecursion.NativeQueryMachine.Configuration
+CircuitRecursion.NativeQueryMachine.emptyWords : CircuitRecursion.NativeQueryMachine.WordStack → List Bool
+CircuitRecursion.NativeQueryMachine.wordVolume (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) : ℕ
+CircuitRecursion.NativeQueryMachine.clearRun (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (S : CircuitRecursion.PacketQueryMachine.Stack → List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  StateTransition.EvalsToInTime (Turing.TM2.step CircuitRecursion.NativeQueryMachine.program)
+    (CircuitRecursion.NativeQueryMachine.configuration
+      (some (Sum.inl CircuitRecursion.NativeQueryMachine.WordStack.scratch)) m S words)
+    (some
+      (CircuitRecursion.NativeQueryMachine.configuration
+        (some
+          (CircuitRecursion.NativeQueryMachine.readerEmbed
+            (Sum.inl CircuitRecursion.PacketQueryMachine.SetupLabel.clearIndex)))
+        CircuitRecursion.NativeQueryMachine.resetMemory S CircuitRecursion.NativeQueryMachine.emptyWords))
+    (CircuitRecursion.NativeQueryMachine.wordVolume words + 6)
+CircuitRecursion.NativeQueryMachine.sourceInitial (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol) :
+  CircuitRecursion.PacketQueryMachine.Configuration CircuitRecursion.PacketQueryMachine.Label
+CircuitRecursion.NativeQueryMachine.initial (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) :
+  CircuitRecursion.NativeQueryMachine.Configuration
+CircuitRecursion.NativeQueryMachine.readerCall (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol) :
+  StateTransition.EvalsToInTime (Turing.TM2.step CircuitRecursion.NativeQueryMachine.program)
+    (CircuitRecursion.TM2Subroutine.liftConfiguration CircuitRecursion.NativeQueryMachine.readerEmbed
+      CircuitRecursion.NativeQueryMachine.readerReturn
+      (CircuitRecursion.NativeQueryMachine.readerConfiguration
+        (CircuitRecursion.NativeQueryMachine.sourceInitial ps i oldIndex oldScratch oldCache rest)
+        CircuitRecursion.NativeQueryMachine.emptyWords))
+    (some
+      (CircuitRecursion.TM2Subroutine.liftConfiguration CircuitRecursion.NativeQueryMachine.readerEmbed
+        CircuitRecursion.NativeQueryMachine.readerReturn
+        (CircuitRecursion.NativeQueryMachine.readerConfiguration
+          (CircuitRecursion.PacketQueryMachine.terminal ps i rest) CircuitRecursion.NativeQueryMachine.emptyWords)))
+    (oldIndex.length + oldScratch.length + oldCache.length + 2 * i.bits.length + (2 * i.bits.length + 3) * ps.length +
+        4 * (CircuitRecursion.PacketFraming.encodeCache ps).length +
+      10)
+CircuitRecursion.NativeQueryMachine.terminal (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) : CircuitRecursion.NativeQueryMachine.Configuration
+CircuitRecursion.NativeQueryMachine.selectedParserCall (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (p : CircuitRecursion.WordIntegerPacket) :
+  StateTransition.EvalsToInTime (Turing.TM2.step CircuitRecursion.NativeQueryMachine.program)
+    (CircuitRecursion.NativeQueryMachine.parserConfiguration CircuitRecursion.NativeQueryMachine.parserEmbed
+      (CircuitRecursion.PacketFieldMachine.configuration
+        (some (CircuitRecursion.PacketFieldMachine.Label.sign CircuitRecursion.PacketFieldMachine.Coordinate.n0))
+        CircuitRecursion.PacketFieldMachine.emptyFlags none false (CircuitRecursion.PacketFraming.encodePacket p ++ [])
+        [] CircuitRecursion.PacketFieldMachine.emptyFields [])
+      (CircuitRecursion.PacketQueryMachine.terminal ps i rest).stk)
+    (some (CircuitRecursion.NativeQueryMachine.terminal ps i rest p))
+    (CircuitRecursion.PacketFieldMachine.parseTime (CircuitRecursion.PacketFraming.rawPacket p))
+CircuitRecursion.NativeQueryMachine.nativeQueryRun (ps : List CircuitRecursion.WordIntegerPacket)
+  (i : CircuitRecursion.BinaryIndex) (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) (p : CircuitRecursion.WordIntegerPacket)
+  (hp : ps[i.value]? = some p) :
+  StateTransition.EvalsToInTime (Turing.TM2.step CircuitRecursion.NativeQueryMachine.program)
+    (CircuitRecursion.NativeQueryMachine.initial ps i m oldIndex oldScratch oldCache rest words)
+    (some (CircuitRecursion.NativeQueryMachine.terminal ps i rest p))
+    (CircuitRecursion.NativeQueryMachine.wordVolume words + oldIndex.length + oldScratch.length + oldCache.length +
+              2 * i.bits.length +
+            (2 * i.bits.length + 3) * ps.length +
+          4 * (CircuitRecursion.PacketFraming.encodeCache ps).length +
+        CircuitRecursion.PacketFieldMachine.parseTime (CircuitRecursion.PacketFraming.rawPacket p) +
+      16)
+CircuitRecursion.NativeQueryMachine.resultRaw (c : CircuitRecursion.NativeQueryMachine.Configuration) :
+  CircuitRecursion.PacketFraming.RawPacket
+CircuitRecursion.NativeQueryMachine.nativeWords (c : CircuitRecursion.NativeQueryMachine.Configuration) :
+  CircuitRecursion.NativeQueryMachine.WordStack → List Bool
+CircuitRecursion.NativeQueryMachine.nativeQueryCall.{u_1} {Δ : Type u_1}
+  (ret : CircuitRecursion.NativeQueryMachine.Memory → Δ)
+  (outer :
+    Δ →
+      Turing.TM2.Stmt CircuitRecursion.NativeQueryMachine.Alphabet (CircuitRecursion.NativeQueryMachine.Label ⊕ Δ)
+        CircuitRecursion.NativeQueryMachine.Memory)
+  (ps : List CircuitRecursion.WordIntegerPacket) (i : CircuitRecursion.BinaryIndex)
+  (m : CircuitRecursion.NativeQueryMachine.Memory)
+  (oldIndex oldScratch oldCache rest : List CircuitRecursion.PacketFraming.Symbol)
+  (words : CircuitRecursion.NativeQueryMachine.WordStack → List Bool) (p : CircuitRecursion.WordIntegerPacket)
+  (hp : ps[i.value]? = some p) :
+  StateTransition.EvalsToInTime
+    (Turing.TM2.step (CircuitRecursion.TM2Subroutine.splice CircuitRecursion.NativeQueryMachine.program ret outer))
+    (CircuitRecursion.TM2Subroutine.liftConfiguration Sum.inl (fun m => Sum.inr (ret m))
+      (CircuitRecursion.NativeQueryMachine.initial ps i m oldIndex oldScratch oldCache rest words))
+    (some
+      (CircuitRecursion.TM2Subroutine.liftConfiguration Sum.inl (fun m => Sum.inr (ret m))
+        (CircuitRecursion.NativeQueryMachine.terminal ps i rest p)))
+    (CircuitRecursion.NativeQueryMachine.wordVolume words + oldIndex.length + oldScratch.length + oldCache.length +
+              2 * i.bits.length +
+            (2 * i.bits.length + 3) * ps.length +
+          4 * (CircuitRecursion.PacketFraming.encodeCache ps).length +
+        CircuitRecursion.PacketFieldMachine.parseTime (CircuitRecursion.PacketFraming.rawPacket p) +
+      16)
+CircuitRecursion.NativeQueryMachine.symbolVolume (c : CircuitRecursion.NativeQueryMachine.Configuration) : ℕ
+CircuitRecursion.NativeQueryMachine.reentry (ps : List CircuitRecursion.WordIntegerPacket)
+  (previous next : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (previousPacket : CircuitRecursion.WordIntegerPacket) : CircuitRecursion.NativeQueryMachine.Configuration
+CircuitRecursion.NativeQueryMachine.reuseRun (ps : List CircuitRecursion.WordIntegerPacket)
+  (previous next : CircuitRecursion.BinaryIndex) (rest : List CircuitRecursion.PacketFraming.Symbol)
+  (previousPacket nextPacket : CircuitRecursion.WordIntegerPacket) (hp : ps[next.value]? = some nextPacket) (B : ℕ)
+  (h : ∀ p ∈ ps, CircuitRecursion.IntegerPacketHeight p.decode B)
+  (hprevious : ps[previous.value]? = some previousPacket) :
+  StateTransition.EvalsToInTime (Turing.TM2.step CircuitRecursion.NativeQueryMachine.program)
+    (CircuitRecursion.NativeQueryMachine.reentry ps previous next rest previousPacket)
+    (some (CircuitRecursion.NativeQueryMachine.terminal ps next rest nextPacket))
+    (2 * next.bits.length + (2 * next.bits.length + 25 * B + 73) * ps.length + 15 * B + 45)

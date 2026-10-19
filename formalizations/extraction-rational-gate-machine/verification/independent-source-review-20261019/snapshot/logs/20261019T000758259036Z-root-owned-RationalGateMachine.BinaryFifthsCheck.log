@@ -1,0 +1,207 @@
+RationalGateMachine.StateLift.stepAux.{u_1, u_2, u_3, u_4, u_5} {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2}
+  {Λ : Type u_3} {σ : Type u_4} {ρ : Type u_5} (r : ρ) (q : Turing.TM2.Stmt Γ Λ σ) (v : σ) (S : (k : K) → List (Γ k)) :
+  Turing.TM2.stepAux (RationalGateMachine.StateLift.compile q) (r, v) S =
+    RationalGateMachine.StateLift.configuration r (Turing.TM2.stepAux q v S)
+'RationalGateMachine.StateLift.stepAux' does not depend on any axioms
+RationalGateMachine.StateLift.step.{u_1, u_2, u_3, u_4, u_5} {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2}
+  {Λ : Type u_3} {σ : Type u_4} {ρ : Type u_5} (r : ρ) (M : Λ → Turing.TM2.Stmt Γ Λ σ) (c : Turing.TM2.Cfg Γ Λ σ) :
+  Turing.TM2.step (fun l => RationalGateMachine.StateLift.compile (M l))
+      (RationalGateMachine.StateLift.configuration r c) =
+    Option.map (RationalGateMachine.StateLift.configuration r) (Turing.TM2.step M c)
+'RationalGateMachine.StateLift.step' depends on axioms: [propext]
+RationalGateMachine.StateLift.iterate.{u_1, u_2, u_3, u_4, u_5} {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2}
+  {Λ : Type u_3} {σ : Type u_4} {ρ : Type u_5} (r : ρ) (M : Λ → Turing.TM2.Stmt Γ Λ σ) (n : ℕ)
+  (x : Option (Turing.TM2.Cfg Γ Λ σ)) :
+  (fun y => y.bind (Turing.TM2.step fun l => RationalGateMachine.StateLift.compile (M l)))^[n]
+      (Option.map (RationalGateMachine.StateLift.configuration r) x) =
+    Option.map (RationalGateMachine.StateLift.configuration r) ((fun y => y.bind (Turing.TM2.step M))^[n] x)
+'RationalGateMachine.StateLift.iterate' depends on axioms: [propext]
+RationalGateMachine.StateLift.run_steps.{u_1, u_2, u_3, u_4, u_5} {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2}
+  {Λ : Type u_3} {σ : Type u_4} {ρ : Type u_5} (r : ρ) (M : Λ → Turing.TM2.Stmt Γ Λ σ) {c d : Turing.TM2.Cfg Γ Λ σ}
+  {t : ℕ} (h : StateTransition.EvalsToInTime (Turing.TM2.step M) c (some d) t) :
+  (RationalGateMachine.StateLift.run r M h).steps = h.steps
+'RationalGateMachine.StateLift.run_steps' depends on axioms: [propext]
+RationalGateMachine.StateLift.statement_depth.{u_1, u_2, u_3, u_4, u_5} {K : Type u_1} {Γ : K → Type u_2} {Λ : Type u_3}
+  {σ : Type u_4} {ρ : Type u_5} (q : Turing.TM2.Stmt Γ Λ σ) :
+  CircuitRecursion.ListAssemblyMachine.statementDepth (RationalGateMachine.StateLift.compile q) =
+    CircuitRecursion.ListAssemblyMachine.statementDepth q
+'RationalGateMachine.StateLift.statement_depth' depends on axioms: [propext]
+RationalGateMachine.BinaryFifths.clockCall_steps (initial : RationalGateProvider.Remainder)
+  (i : CircuitRecursion.BinaryIndex) :
+  (RationalGateMachine.BinaryFifths.clockCall initial i).steps = RationalGateMachine.BinaryClock.clockTime i.value i
+'RationalGateMachine.BinaryFifths.clockCall_steps' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.BinaryFifths.clockCall_iterate (initial : RationalGateProvider.Remainder)
+  (i : CircuitRecursion.BinaryIndex) :
+  RationalGateMachine.BinaryFifths.advance^[RationalGateMachine.BinaryClock.clockTime i.value i]
+      (some
+        (RationalGateMachine.BinaryFifths.configuration
+          (some (Sum.inl (Sum.inr RationalGateMachine.BinaryClock.OuterLabel.loop))) initial none i.bits [] [])) =
+    some
+      (RationalGateMachine.BinaryFifths.configuration (some (Sum.inr RationalGateMachine.BinaryFifths.OuterLabel.init))
+        initial none [] [] (List.replicate i.value false))
+'RationalGateMachine.BinaryFifths.clockCall_iterate' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.BinaryFifths.step_init (initial : RationalGateProvider.Remainder) (clock : List Bool) :
+  Turing.TM2.step RationalGateMachine.BinaryFifths.program
+      (RationalGateMachine.BinaryFifths.configuration (some (Sum.inr RationalGateMachine.BinaryFifths.OuterLabel.init))
+        initial none [] [] clock) =
+    some
+      (RationalGateMachine.BinaryFifths.configuration (some (Sum.inr RationalGateMachine.BinaryFifths.OuterLabel.loop))
+        initial none [] [true] clock)
+'RationalGateMachine.BinaryFifths.step_init' depends on axioms: [propext, Quot.sound]
+RationalGateMachine.BinaryFifths.step_empty (initial : RationalGateProvider.Remainder)
+  (numerator denominator : List Bool) :
+  Turing.TM2.step RationalGateMachine.BinaryFifths.program
+      (RationalGateMachine.BinaryFifths.configuration (some (Sum.inr RationalGateMachine.BinaryFifths.OuterLabel.loop))
+        initial none numerator denominator []) =
+    some (RationalGateMachine.BinaryFifths.configuration none initial none numerator denominator [])
+'RationalGateMachine.BinaryFifths.step_empty' depends on axioms: [propext, Quot.sound]
+RationalGateMachine.BinaryFifths.step_cons (initial : RationalGateProvider.Remainder) (b : Bool)
+  (clock numerator denominator : List Bool) :
+  Turing.TM2.step RationalGateMachine.BinaryFifths.program
+      (RationalGateMachine.BinaryFifths.configuration (some (Sum.inr RationalGateMachine.BinaryFifths.OuterLabel.loop))
+        initial none numerator denominator (b :: clock)) =
+    some
+      (RationalGateMachine.BinaryFifths.configuration (some (Sum.inr RationalGateMachine.BinaryFifths.OuterLabel.loop))
+        (RationalGateProvider.transition initial).2 none ((RationalGateProvider.transition initial).1 :: numerator)
+        (false :: denominator) clock)
+'RationalGateMachine.BinaryFifths.step_cons' depends on axioms: [propext, Quot.sound]
+RationalGateMachine.BinaryFifths.generation_steps (clock : List Bool) (s : RationalGateProvider.Output)
+  (denominator : List Bool) :
+  RationalGateMachine.BinaryFifths.advance^[clock.length + 1]
+      (some
+        (RationalGateMachine.BinaryFifths.configuration
+          (some (Sum.inr RationalGateMachine.BinaryFifths.OuterLabel.loop)) s.remainder none s.bits denominator
+          clock)) =
+    some
+      (RationalGateMachine.BinaryFifths.configuration none (RationalGateMachine.advance s clock).remainder none
+        (RationalGateMachine.advance s clock).bits (List.replicate clock.length false ++ denominator) [])
+'RationalGateMachine.BinaryFifths.generation_steps' depends on axioms: [propext, Quot.sound]
+RationalGateMachine.BinaryFifths.unary_generation_steps (initial : RationalGateProvider.Remainder) (q : ℕ) :
+  RationalGateMachine.BinaryFifths.advance^[q + 1]
+      (some
+        (RationalGateMachine.BinaryFifths.configuration
+          (some (Sum.inr RationalGateMachine.BinaryFifths.OuterLabel.loop)) initial none [] [true]
+          (List.replicate q false))) =
+    some (RationalGateMachine.BinaryFifths.terminal initial q)
+'RationalGateMachine.BinaryFifths.unary_generation_steps' depends on axioms: [propext, Quot.sound]
+RationalGateMachine.BinaryFifths.binary_generation_steps (initial : RationalGateProvider.Remainder)
+  (i : CircuitRecursion.BinaryIndex) :
+  RationalGateMachine.BinaryFifths.advance^[RationalGateMachine.BinaryClock.clockTime i.value i + i.value + 2]
+      (some
+        (RationalGateMachine.BinaryFifths.configuration
+          (some (Sum.inl (Sum.inr RationalGateMachine.BinaryClock.OuterLabel.loop))) initial none i.bits [] [])) =
+    some (RationalGateMachine.BinaryFifths.terminal initial i.value)
+'RationalGateMachine.BinaryFifths.binary_generation_steps' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.BinaryFifths.binaryFifthsRun_steps (initial : RationalGateProvider.Remainder)
+  (i : CircuitRecursion.BinaryIndex) :
+  (RationalGateMachine.BinaryFifths.binaryFifthsRun initial i).steps =
+    RationalGateMachine.BinaryClock.clockTime i.value i + i.value + 2
+'RationalGateMachine.BinaryFifths.binaryFifthsRun_steps' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.BinaryFifths.binaryFifthsRun_steps_logarithmic (initial : RationalGateProvider.Remainder)
+  (i : CircuitRecursion.BinaryIndex) :
+  (RationalGateMachine.BinaryFifths.binaryFifthsRun initial i).steps ≤ (2 * Nat.clog 2 (i.value + 1) + 7) * i.value + 3
+'RationalGateMachine.BinaryFifths.binaryFifthsRun_steps_logarithmic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+RationalGateMachine.BinaryFifths.terminal_halts (initial : RationalGateProvider.Remainder) (q : ℕ) :
+  Turing.TM2.step RationalGateMachine.BinaryFifths.program (RationalGateMachine.BinaryFifths.terminal initial q) = none
+'RationalGateMachine.BinaryFifths.terminal_halts' does not depend on any axioms
+RationalGateMachine.BinaryFifths.binaryFifths_mem_eval (initial : RationalGateProvider.Remainder)
+  (i : CircuitRecursion.BinaryIndex) :
+  RationalGateMachine.BinaryFifths.terminal initial i.value ∈
+    StateTransition.eval (Turing.TM2.step RationalGateMachine.BinaryFifths.program)
+      (RationalGateMachine.BinaryFifths.configuration
+        (some (Sum.inl (Sum.inr RationalGateMachine.BinaryClock.OuterLabel.loop))) initial none i.bits [] [])
+'RationalGateMachine.BinaryFifths.binaryFifths_mem_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.BinaryFifths.terminal_numerator (initial : RationalGateProvider.Remainder) (q : ℕ) :
+  (RationalGateMachine.BinaryFifths.terminal initial q).stk CircuitRecursion.ListAssemblyMachine.Stack.left =
+    (RationalGateProvider.run initial q).bits
+'RationalGateMachine.BinaryFifths.terminal_numerator' does not depend on any axioms
+RationalGateMachine.BinaryFifths.terminal_denominator (initial : RationalGateProvider.Remainder) (q : ℕ) :
+  (RationalGateMachine.BinaryFifths.terminal initial q).stk CircuitRecursion.ListAssemblyMachine.Stack.right =
+    RationalGateProvider.denominatorBits q
+'RationalGateMachine.BinaryFifths.terminal_denominator' does not depend on any axioms
+RationalGateMachine.BinaryFifths.terminal_clock_empty (initial : RationalGateProvider.Remainder) (q : ℕ) :
+  (RationalGateMachine.BinaryFifths.terminal initial q).stk CircuitRecursion.ListAssemblyMachine.Stack.work = []
+'RationalGateMachine.BinaryFifths.terminal_clock_empty' does not depend on any axioms
+RationalGateMachine.BinaryFifths.terminal_dyadic_error (initial : RationalGateProvider.Remainder) (q : ℕ) :
+  0 ≤
+      ↑initial.value / 5 -
+        ↑(RationalGateProvider.bitValue
+              ((RationalGateMachine.BinaryFifths.terminal initial q).stk
+                CircuitRecursion.ListAssemblyMachine.Stack.left)) /
+          2 ^ q ∧
+    ↑initial.value / 5 -
+        ↑(RationalGateProvider.bitValue
+              ((RationalGateMachine.BinaryFifths.terminal initial q).stk
+                CircuitRecursion.ListAssemblyMachine.Stack.left)) /
+          2 ^ q <
+      1 / 2 ^ q
+'RationalGateMachine.BinaryFifths.terminal_dyadic_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.BinaryFifths.program_supports :
+  Turing.TM2.Supports RationalGateMachine.BinaryFifths.program Finset.univ
+'RationalGateMachine.BinaryFifths.program_supports' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.BinaryFifths.finite_running_control_card :
+  Fintype.card (RationalGateMachine.BinaryFifths.Label × RationalGateMachine.BinaryFifths.Variable) = 120
+'RationalGateMachine.BinaryFifths.finite_running_control_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+RationalGateMachine.BinaryFifths.label_card : Fintype.card RationalGateMachine.BinaryFifths.Label = 8
+'RationalGateMachine.BinaryFifths.label_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.BinaryFifths.stack_card : Fintype.card CircuitRecursion.ListAssemblyMachine.Stack = 3
+'RationalGateMachine.BinaryFifths.stack_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.BinaryFifths.statement_depth (q : RationalGateMachine.BinaryFifths.Label) :
+  CircuitRecursion.ListAssemblyMachine.statementDepth (RationalGateMachine.BinaryFifths.program q) ≤ 7
+'RationalGateMachine.BinaryFifths.statement_depth' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.StateLift.compile.{u_1, u_2, u_3, u_4, u_5} {K : Type u_1} {Γ : K → Type u_2} {Λ : Type u_3}
+  {σ : Type u_4} {ρ : Type u_5} : Turing.TM2.Stmt Γ Λ σ → Turing.TM2.Stmt Γ Λ (ρ × σ)
+'RationalGateMachine.StateLift.compile' does not depend on any axioms
+RationalGateMachine.StateLift.configuration.{u_1, u_2, u_3, u_4, u_5} {K : Type u_1} {Γ : K → Type u_2} {Λ : Type u_3}
+  {σ : Type u_4} {ρ : Type u_5} (r : ρ) (c : Turing.TM2.Cfg Γ Λ σ) : Turing.TM2.Cfg Γ Λ (ρ × σ)
+'RationalGateMachine.StateLift.configuration' does not depend on any axioms
+RationalGateMachine.StateLift.run.{u_1, u_2, u_3, u_4, u_5} {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2}
+  {Λ : Type u_3} {σ : Type u_4} {ρ : Type u_5} (r : ρ) (M : Λ → Turing.TM2.Stmt Γ Λ σ) {c d : Turing.TM2.Cfg Γ Λ σ}
+  {t : ℕ} (h : StateTransition.EvalsToInTime (Turing.TM2.step M) c (some d) t) :
+  StateTransition.EvalsToInTime (Turing.TM2.step fun l => RationalGateMachine.StateLift.compile (M l))
+    (RationalGateMachine.StateLift.configuration r c) (some (RationalGateMachine.StateLift.configuration r d)) t
+'RationalGateMachine.StateLift.run' depends on axioms: [propext]
+RationalGateMachine.BinaryFifths.configuration (l : Option RationalGateMachine.BinaryFifths.Label)
+  (r : RationalGateProvider.Remainder) (v : Option Bool) (left right work : List Bool) :
+  RationalGateMachine.BinaryFifths.Configuration
+'RationalGateMachine.BinaryFifths.configuration' does not depend on any axioms
+RationalGateMachine.BinaryFifths.clockProgram :
+  RationalGateMachine.BinaryClock.Label →
+    Turing.TM2.Stmt (fun x => Bool) RationalGateMachine.BinaryClock.Label RationalGateMachine.BinaryFifths.Variable
+'RationalGateMachine.BinaryFifths.clockProgram' does not depend on any axioms
+RationalGateMachine.BinaryFifths.outer :
+  RationalGateMachine.BinaryFifths.OuterLabel →
+    Turing.TM2.Stmt (fun x => Bool) RationalGateMachine.BinaryFifths.Label RationalGateMachine.BinaryFifths.Variable
+'RationalGateMachine.BinaryFifths.outer' does not depend on any axioms
+RationalGateMachine.BinaryFifths.program :
+  RationalGateMachine.BinaryFifths.Label →
+    Turing.TM2.Stmt (fun x => Bool) RationalGateMachine.BinaryFifths.Label RationalGateMachine.BinaryFifths.Variable
+'RationalGateMachine.BinaryFifths.program' does not depend on any axioms
+RationalGateMachine.BinaryFifths.advance :
+  Option RationalGateMachine.BinaryFifths.Configuration → Option RationalGateMachine.BinaryFifths.Configuration
+'RationalGateMachine.BinaryFifths.advance' does not depend on any axioms
+RationalGateMachine.BinaryFifths.terminal (initial : RationalGateProvider.Remainder) (q : ℕ) :
+  RationalGateMachine.BinaryFifths.Configuration
+'RationalGateMachine.BinaryFifths.terminal' does not depend on any axioms
+RationalGateMachine.BinaryFifths.clockCall (initial : RationalGateProvider.Remainder)
+  (i : CircuitRecursion.BinaryIndex) :
+  StateTransition.EvalsToInTime (Turing.TM2.step RationalGateMachine.BinaryFifths.program)
+    (RationalGateMachine.BinaryFifths.configuration
+      (some (Sum.inl (Sum.inr RationalGateMachine.BinaryClock.OuterLabel.loop))) initial none i.bits [] [])
+    (some
+      (RationalGateMachine.BinaryFifths.configuration (some (Sum.inr RationalGateMachine.BinaryFifths.OuterLabel.init))
+        initial none [] [] (List.replicate i.value false)))
+    ((2 * i.bits.length + 4) * i.value + 1)
+'RationalGateMachine.BinaryFifths.clockCall' depends on axioms: [propext, Classical.choice, Quot.sound]
+RationalGateMachine.BinaryFifths.binaryFifthsRun (initial : RationalGateProvider.Remainder)
+  (i : CircuitRecursion.BinaryIndex) :
+  StateTransition.EvalsToInTime (Turing.TM2.step RationalGateMachine.BinaryFifths.program)
+    (RationalGateMachine.BinaryFifths.configuration
+      (some (Sum.inl (Sum.inr RationalGateMachine.BinaryClock.OuterLabel.loop))) initial none i.bits [] [])
+    (some (RationalGateMachine.BinaryFifths.terminal initial i.value)) ((2 * i.bits.length + 5) * i.value + 3)
+'RationalGateMachine.BinaryFifths.binaryFifthsRun' depends on axioms: [propext, Classical.choice, Quot.sound]
+FINITE_TM2_BINARY_FIFTHS_165_ACTUAL_RUNS_PASS

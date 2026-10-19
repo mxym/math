@@ -1,0 +1,52 @@
+{
+  "status": "INDEPENDENT_SOURCE_AND_EXISTING_LOG_REVIEW_NO_SUBSTANTIVE_DEFECT_FOUND_NOT_NEW_KERNEL",
+  "targets": {
+    "binary_fifths": "72f9b28bd31887b320d08b5b10c78b7299d45168",
+    "native_query": "f8361330f09e3201cc45337efacf6957f937ad29"
+  },
+  "fully_read_source_files": 36,
+  "git_snapshot_blobs": 335,
+  "snapshot_is_full_reviewed_import_closure": false,
+  "actual_author_logs_sha_checked": 6,
+  "fifths_author_evidence": {
+    "theorems": 26,
+    "models": 11,
+    "environment_kind_checks": true,
+    "actual_type_observations": 37,
+    "actual_axiom_observations": 37,
+    "aggregate_jobs": 4002,
+    "actual_machine_fixtures": 165,
+    "model_CoreExpr_export": false,
+    "independent_kernel": false
+  },
+  "query_author_evidence": {
+    "theorems": 58,
+    "models": 40,
+    "environment_kind_checks": false,
+    "actual_type_observations": 98,
+    "actual_axiom_observations": 58,
+    "aggregate_jobs": 4028,
+    "new_query_machine_fixture_loop": false,
+    "model_CoreExpr_export": false,
+    "independent_kernel": false
+  },
+  "substantive_defects_found": [],
+  "boundary_findings": [
+    "Canonical binary and typed packet invariants are input conditions; final runtime/correctness budgets are not caller premises.",
+    "accepted=true is a syntactic completion flag and does not imply canonicality or a positive denominator for arbitrary malformed data.",
+    "Generic StateLift rho and CPS caller Delta are not automatically finite; actual closed program instantiations have separate finite counts.",
+    "Terminal observer equalities require the actual operational run/eval theorem to imply executed output.",
+    "Generic CPS call results end at the caller return and do not bound arbitrary caller continuation.",
+    "Binary-input fifths time is O(q log q) in numeric precision, not polynomial in binary input width alone.",
+    "These two fixed components are not a complete serialized provider/compiler machine or single-tape time theorem."
+  ],
+  "fifths_machine": {"stacks": 3, "labels": 8, "memory_values": 15, "running_control_values": 120, "statement_depth_bound": 7, "upper_time": "(2w+5)q+3", "logarithmic_upper_time": "(2clog(2,q+1)+7)q+3"},
+  "query_machine": {"stacks": 11, "maximum_alphabet_cardinality": 4, "labels": 36, "memory_values": 160, "running_control_values": 5760, "statement_depth_bound": 7, "raw_upper_time": "V+S+2w+(2w+3)N+4T+parseTime(packet)+16", "height_upper_time": "V+S+2w+(2w+20B+59)N+10B+40", "reusable_height_upper_time": "2w+(2w+25B+73)N+15B+45"},
+  "lean_invocations": 0,
+  "kernel_invocations": 0,
+  "author_cache_reads": 0,
+  "new_kernel_verification": false,
+  "old_audit_scope_expanded": false,
+  "mathematical_source_modified": false,
+  "later_successors_reviewed": false
+}
