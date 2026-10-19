@@ -1,0 +1,118 @@
+import CircuitNumerical.PacketMasterSemantics
+
+#check CircuitRecursion.PacketMasterMachine.update_scratch
+#print axioms CircuitRecursion.PacketMasterMachine.update_scratch
+#check CircuitRecursion.PacketMasterMachine.update_cache
+#print axioms CircuitRecursion.PacketMasterMachine.update_cache
+#check CircuitRecursion.PacketMasterMachine.update_master
+#print axioms CircuitRecursion.PacketMasterMachine.update_master
+#check CircuitRecursion.PacketMasterMachine.clone_move_nil
+#print axioms CircuitRecursion.PacketMasterMachine.clone_move_nil
+#check CircuitRecursion.PacketMasterMachine.clone_move_cons
+#print axioms CircuitRecursion.PacketMasterMachine.clone_move_cons
+#check CircuitRecursion.PacketMasterMachine.clone_restore_nil
+#print axioms CircuitRecursion.PacketMasterMachine.clone_restore_nil
+#check CircuitRecursion.PacketMasterMachine.clone_restore_cons
+#print axioms CircuitRecursion.PacketMasterMachine.clone_restore_cons
+#check CircuitRecursion.PacketMasterMachine.clone_move_iterate
+#print axioms CircuitRecursion.PacketMasterMachine.clone_move_iterate
+#check CircuitRecursion.PacketMasterMachine.clone_restore_iterate
+#print axioms CircuitRecursion.PacketMasterMachine.clone_restore_iterate
+#check CircuitRecursion.PacketMasterMachine.clone_iterate
+#print axioms CircuitRecursion.PacketMasterMachine.clone_iterate
+#check CircuitRecursion.PacketMasterMachine.cloneRun_steps
+#print axioms CircuitRecursion.PacketMasterMachine.cloneRun_steps
+#check CircuitRecursion.PacketMasterMachine.clone_halt
+#print axioms CircuitRecursion.PacketMasterMachine.clone_halt
+#check CircuitRecursion.PacketMasterMachine.clone_mem_eval
+#print axioms CircuitRecursion.PacketMasterMachine.clone_mem_eval
+#check CircuitRecursion.PacketMasterMachine.clone_supports
+#print axioms CircuitRecursion.PacketMasterMachine.clone_supports
+#check CircuitRecursion.PacketMasterMachine.clone_running_control_card
+#print axioms CircuitRecursion.PacketMasterMachine.clone_running_control_card
+#check CircuitRecursion.PacketMasterMachine.clone_statement_depth
+#print axioms CircuitRecursion.PacketMasterMachine.clone_statement_depth
+#check CircuitRecursion.PacketMasterMachine.extendStacks_read
+#print axioms CircuitRecursion.PacketMasterMachine.extendStacks_read
+#check CircuitRecursion.PacketMasterMachine.extendStacks_update
+#print axioms CircuitRecursion.PacketMasterMachine.extendStacks_update
+#check CircuitRecursion.PacketMasterMachine.compile_stepAux
+#print axioms CircuitRecursion.PacketMasterMachine.compile_stepAux
+#check CircuitRecursion.PacketMasterMachine.compiled_step
+#print axioms CircuitRecursion.PacketMasterMachine.compiled_step
+#check CircuitRecursion.PacketMasterMachine.compiledRun_steps
+#print axioms CircuitRecursion.PacketMasterMachine.compiledRun_steps
+#check CircuitRecursion.PacketMasterMachine.lift_recordConfiguration
+#print axioms CircuitRecursion.PacketMasterMachine.lift_recordConfiguration
+#check CircuitRecursion.PacketMasterMachine.lift_master
+#print axioms CircuitRecursion.PacketMasterMachine.lift_master
+#check CircuitRecursion.PacketMasterMachine.lift_working
+#print axioms CircuitRecursion.PacketMasterMachine.lift_working
+#check CircuitRecursion.PacketMasterMachine.compile_statementDepth
+#print axioms CircuitRecursion.PacketMasterMachine.compile_statementDepth
+#check CircuitRecursion.PacketMasterMachine.cloneCall_steps
+#print axioms CircuitRecursion.PacketMasterMachine.cloneCall_steps
+#check CircuitRecursion.PacketMasterMachine.readerCall_steps
+#print axioms CircuitRecursion.PacketMasterMachine.readerCall_steps
+#check CircuitRecursion.PacketMasterMachine.cloneCall_iterate
+#print axioms CircuitRecursion.PacketMasterMachine.cloneCall_iterate
+#check CircuitRecursion.PacketMasterMachine.readerCall_iterate
+#print axioms CircuitRecursion.PacketMasterMachine.readerCall_iterate
+#check CircuitRecursion.PacketMasterMachine.read_iterate
+#print axioms CircuitRecursion.PacketMasterMachine.read_iterate
+#check CircuitRecursion.PacketMasterMachine.readRun_steps
+#print axioms CircuitRecursion.PacketMasterMachine.readRun_steps
+#check CircuitRecursion.PacketMasterMachine.terminal_label
+#print axioms CircuitRecursion.PacketMasterMachine.terminal_label
+#check CircuitRecursion.PacketMasterMachine.terminal_halts
+#print axioms CircuitRecursion.PacketMasterMachine.terminal_halts
+#check CircuitRecursion.PacketMasterMachine.read_mem_eval
+#print axioms CircuitRecursion.PacketMasterMachine.read_mem_eval
+#check CircuitRecursion.PacketMasterMachine.program_supports
+#print axioms CircuitRecursion.PacketMasterMachine.program_supports
+#check CircuitRecursion.PacketMasterMachine.running_control_card
+#print axioms CircuitRecursion.PacketMasterMachine.running_control_card
+#check CircuitRecursion.PacketMasterMachine.statement_depth
+#print axioms CircuitRecursion.PacketMasterMachine.statement_depth
+#check CircuitRecursion.PacketMasterMachine.readRun_steps_height
+#print axioms CircuitRecursion.PacketMasterMachine.readRun_steps_height
+#check CircuitRecursion.PacketMasterMachine.reader_prefix_master
+#print axioms CircuitRecursion.PacketMasterMachine.reader_prefix_master
+#check CircuitRecursion.PacketMasterMachine.terminal_master
+#print axioms CircuitRecursion.PacketMasterMachine.terminal_master
+#check CircuitRecursion.PacketMasterMachine.terminal_master_unchanged
+#print axioms CircuitRecursion.PacketMasterMachine.terminal_master_unchanged
+#check CircuitRecursion.PacketMasterMachine.source_terminal_scratch
+#print axioms CircuitRecursion.PacketMasterMachine.source_terminal_scratch
+#check CircuitRecursion.PacketMasterMachine.terminal_scratch
+#print axioms CircuitRecursion.PacketMasterMachine.terminal_scratch
+#check CircuitRecursion.PacketMasterMachine.terminal_cache_tail
+#print axioms CircuitRecursion.PacketMasterMachine.terminal_cache_tail
+#check CircuitRecursion.PacketMasterMachine.terminal_encoded_getElem
+#print axioms CircuitRecursion.PacketMasterMachine.terminal_encoded_getElem
+#check CircuitRecursion.PacketMasterMachine.terminal_getElem
+#print axioms CircuitRecursion.PacketMasterMachine.terminal_getElem
+#check CircuitRecursion.PacketMasterMachine.terminal_typed_hit
+#print axioms CircuitRecursion.PacketMasterMachine.terminal_typed_hit
+#check CircuitRecursion.PacketMasterMachine.terminal_frame_contract
+#print axioms CircuitRecursion.PacketMasterMachine.terminal_frame_contract
+#check CircuitRecursion.PacketMasterMachine.Stack
+#check CircuitRecursion.PacketMasterMachine.stackData
+#check CircuitRecursion.PacketMasterMachine.Configuration
+#check CircuitRecursion.PacketMasterMachine.configuration
+#check CircuitRecursion.PacketMasterMachine.CloneLabel
+#check CircuitRecursion.PacketMasterMachine.cloneProgram
+#check CircuitRecursion.PacketMasterMachine.cloneAdvance
+#check CircuitRecursion.PacketMasterMachine.cloneRun
+#check CircuitRecursion.PacketMasterMachine.extendStacks
+#check CircuitRecursion.PacketMasterMachine.liftConfiguration
+#check CircuitRecursion.PacketMasterMachine.compile
+#check CircuitRecursion.PacketMasterMachine.compiledRun
+#check CircuitRecursion.PacketMasterMachine.Label
+#check CircuitRecursion.PacketMasterMachine.program
+#check CircuitRecursion.PacketMasterMachine.advance
+#check CircuitRecursion.PacketMasterMachine.terminal
+#check CircuitRecursion.PacketMasterMachine.cloneCall
+#check CircuitRecursion.PacketMasterMachine.readerCall
+#check CircuitRecursion.PacketMasterMachine.readRun
+#check CircuitRecursion.PacketMasterMachine.parsedResult

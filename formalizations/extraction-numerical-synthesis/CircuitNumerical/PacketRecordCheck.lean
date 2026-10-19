@@ -1,0 +1,149 @@
+import CircuitNumerical.PacketRecordSemantics
+
+#check CircuitRecursion.PacketCounterLift.lower_lift_memory
+#print axioms CircuitRecursion.PacketCounterLift.lower_lift_memory
+#check CircuitRecursion.PacketCounterLift.liftStacks_active
+#print axioms CircuitRecursion.PacketCounterLift.liftStacks_active
+#check CircuitRecursion.PacketCounterLift.liftStacks_update
+#print axioms CircuitRecursion.PacketCounterLift.liftStacks_update
+#check CircuitRecursion.PacketCounterLift.lower_head_map
+#print axioms CircuitRecursion.PacketCounterLift.lower_head_map
+#check CircuitRecursion.PacketCounterLift.tail_map
+#print axioms CircuitRecursion.PacketCounterLift.tail_map
+#check CircuitRecursion.PacketCounterLift.compile_stepAux
+#print axioms CircuitRecursion.PacketCounterLift.compile_stepAux
+#check CircuitRecursion.PacketCounterLift.compile_statementDepth
+#print axioms CircuitRecursion.PacketCounterLift.compile_statementDepth
+#check CircuitRecursion.TM2ConfigurationMap.iterate_map
+#print axioms CircuitRecursion.TM2ConfigurationMap.iterate_map
+#check CircuitRecursion.TM2ConfigurationMap.mapRun_steps
+#print axioms CircuitRecursion.TM2ConfigurationMap.mapRun_steps
+#check CircuitRecursion.PacketCounterLift.source_workFree
+#print axioms CircuitRecursion.PacketCounterLift.source_workFree
+#check CircuitRecursion.PacketCounterLift.program_step
+#print axioms CircuitRecursion.PacketCounterLift.program_step
+#check CircuitRecursion.PacketCounterLift.lift_source_configuration
+#print axioms CircuitRecursion.PacketCounterLift.lift_source_configuration
+#check CircuitRecursion.PacketCounterLift.counterRun_steps
+#print axioms CircuitRecursion.PacketCounterLift.counterRun_steps
+#check CircuitRecursion.PacketCounterLift.counter_mem_eval
+#print axioms CircuitRecursion.PacketCounterLift.counter_mem_eval
+#check CircuitRecursion.PacketCounterLift.program_supports
+#print axioms CircuitRecursion.PacketCounterLift.program_supports
+#check CircuitRecursion.PacketCounterLift.running_control_card
+#print axioms CircuitRecursion.PacketCounterLift.running_control_card
+#check CircuitRecursion.PacketCounterLift.statement_depth
+#print axioms CircuitRecursion.PacketCounterLift.statement_depth
+#check CircuitRecursion.PacketStackPermutation.liftStacks_read
+#print axioms CircuitRecursion.PacketStackPermutation.liftStacks_read
+#check CircuitRecursion.PacketStackPermutation.liftStacks_update
+#print axioms CircuitRecursion.PacketStackPermutation.liftStacks_update
+#check CircuitRecursion.PacketStackPermutation.compile_stepAux
+#print axioms CircuitRecursion.PacketStackPermutation.compile_stepAux
+#check CircuitRecursion.PacketStackPermutation.program_step
+#print axioms CircuitRecursion.PacketStackPermutation.program_step
+#check CircuitRecursion.PacketStackPermutation.mapRun_steps
+#print axioms CircuitRecursion.PacketStackPermutation.mapRun_steps
+#check CircuitRecursion.PacketStackPermutation.skip_roles
+#print axioms CircuitRecursion.PacketStackPermutation.skip_roles
+#check CircuitRecursion.PacketStackPermutation.copy_roles
+#print axioms CircuitRecursion.PacketStackPermutation.copy_roles
+#check CircuitRecursion.PacketStackPermutation.compile_statementDepth
+#print axioms CircuitRecursion.PacketStackPermutation.compile_statementDepth
+#check CircuitRecursion.PacketRecordMachine.skipRecordRun_steps
+#print axioms CircuitRecursion.PacketRecordMachine.skipRecordRun_steps
+#check CircuitRecursion.PacketRecordMachine.copyRecordRun_steps
+#print axioms CircuitRecursion.PacketRecordMachine.copyRecordRun_steps
+#check CircuitRecursion.PacketRecordMachine.skip_statement_depth
+#print axioms CircuitRecursion.PacketRecordMachine.skip_statement_depth
+#check CircuitRecursion.PacketRecordMachine.copy_statement_depth
+#print axioms CircuitRecursion.PacketRecordMachine.copy_statement_depth
+#check CircuitRecursion.PacketRecordMachine.check_empty
+#print axioms CircuitRecursion.PacketRecordMachine.check_empty
+#check CircuitRecursion.PacketRecordMachine.check_zero
+#print axioms CircuitRecursion.PacketRecordMachine.check_zero
+#check CircuitRecursion.PacketRecordMachine.check_positive
+#print axioms CircuitRecursion.PacketRecordMachine.check_positive
+#check CircuitRecursion.PacketRecordMachine.done_step
+#print axioms CircuitRecursion.PacketRecordMachine.done_step
+#check CircuitRecursion.PacketRecordMachine.counter_iterate
+#print axioms CircuitRecursion.PacketRecordMachine.counter_iterate
+#check CircuitRecursion.PacketRecordMachine.skip_iterate
+#print axioms CircuitRecursion.PacketRecordMachine.skip_iterate
+#check CircuitRecursion.PacketRecordMachine.copy_iterate
+#print axioms CircuitRecursion.PacketRecordMachine.copy_iterate
+#check CircuitRecursion.PacketRecordMachine.encodePacket_nonempty
+#print axioms CircuitRecursion.PacketRecordMachine.encodePacket_nonempty
+#check CircuitRecursion.PacketRecordMachine.frame_append_nonempty
+#print axioms CircuitRecursion.PacketRecordMachine.frame_append_nonempty
+#check CircuitRecursion.PacketRecordMachine.read_iterate
+#print axioms CircuitRecursion.PacketRecordMachine.read_iterate
+#check CircuitRecursion.PacketRecordMachine.readTime_bound
+#print axioms CircuitRecursion.PacketRecordMachine.readTime_bound
+#check CircuitRecursion.PacketRecordMachine.readRun_steps
+#print axioms CircuitRecursion.PacketRecordMachine.readRun_steps
+#check CircuitRecursion.PacketRecordMachine.terminal_label
+#print axioms CircuitRecursion.PacketRecordMachine.terminal_label
+#check CircuitRecursion.PacketRecordMachine.terminal_halts
+#print axioms CircuitRecursion.PacketRecordMachine.terminal_halts
+#check CircuitRecursion.PacketRecordMachine.read_mem_eval
+#print axioms CircuitRecursion.PacketRecordMachine.read_mem_eval
+#check CircuitRecursion.PacketRecordMachine.program_supports
+#print axioms CircuitRecursion.PacketRecordMachine.program_supports
+#check CircuitRecursion.PacketRecordMachine.running_control_card
+#print axioms CircuitRecursion.PacketRecordMachine.running_control_card
+#check CircuitRecursion.PacketRecordMachine.statement_depth
+#print axioms CircuitRecursion.PacketRecordMachine.statement_depth
+#check CircuitRecursion.PacketRecordMachine.readRun_steps_height
+#print axioms CircuitRecursion.PacketRecordMachine.readRun_steps_height
+#check CircuitRecursion.PacketRecordMachine.readField_bits_eof
+#print axioms CircuitRecursion.PacketRecordMachine.readField_bits_eof
+#check CircuitRecursion.PacketRecordMachine.readSigned_bits_eof
+#print axioms CircuitRecursion.PacketRecordMachine.readSigned_bits_eof
+#check CircuitRecursion.PacketRecordMachine.decodeRaw_bits_eof
+#print axioms CircuitRecursion.PacketRecordMachine.decodeRaw_bits_eof
+#check CircuitRecursion.PacketRecordMachine.terminal_source_value
+#print axioms CircuitRecursion.PacketRecordMachine.terminal_source_value
+#check CircuitRecursion.PacketRecordMachine.terminal_getElem
+#print axioms CircuitRecursion.PacketRecordMachine.terminal_getElem
+#check CircuitRecursion.PacketRecordMachine.terminal_encoded_hit
+#print axioms CircuitRecursion.PacketRecordMachine.terminal_encoded_hit
+#check CircuitRecursion.PacketRecordMachine.terminal_encoded_getElem
+#print axioms CircuitRecursion.PacketRecordMachine.terminal_encoded_getElem
+#check CircuitRecursion.PacketRecordMachine.terminal_cache_tail
+#print axioms CircuitRecursion.PacketRecordMachine.terminal_cache_tail
+#check CircuitRecursion.PacketRecordMachine.terminal_typed_hit
+#print axioms CircuitRecursion.PacketRecordMachine.terminal_typed_hit
+#check CircuitRecursion.PacketCounterLift.liftMemory
+#check CircuitRecursion.PacketCounterLift.lowerMemory
+#check CircuitRecursion.PacketCounterLift.liftStacks
+#check CircuitRecursion.PacketCounterLift.liftConfiguration
+#check CircuitRecursion.PacketCounterLift.WorkFree
+#check CircuitRecursion.PacketCounterLift.compile
+#check CircuitRecursion.TM2ConfigurationMap.mapRun
+#check CircuitRecursion.PacketCounterLift.Configuration
+#check CircuitRecursion.PacketCounterLift.program
+#check CircuitRecursion.PacketCounterLift.configuration
+#check CircuitRecursion.PacketCounterLift.counterRun
+#check CircuitRecursion.PacketStackPermutation.liftStacks
+#check CircuitRecursion.PacketStackPermutation.liftConfiguration
+#check CircuitRecursion.PacketStackPermutation.compile
+#check CircuitRecursion.PacketStackPermutation.mapRun
+#check CircuitRecursion.PacketStackPermutation.frameRoles
+#check CircuitRecursion.PacketStackPermutation.configuration
+#check CircuitRecursion.PacketRecordMachine.Configuration
+#check CircuitRecursion.PacketRecordMachine.configuration
+#check CircuitRecursion.PacketRecordMachine.skipProgram
+#check CircuitRecursion.PacketRecordMachine.copyProgram
+#check CircuitRecursion.PacketRecordMachine.skipRecordRun
+#check CircuitRecursion.PacketRecordMachine.copyRecordRun
+#check CircuitRecursion.PacketRecordMachine.Label
+#check CircuitRecursion.PacketRecordMachine.program
+#check CircuitRecursion.PacketRecordMachine.advance
+#check CircuitRecursion.PacketRecordMachine.counterCall
+#check CircuitRecursion.PacketRecordMachine.skipCall
+#check CircuitRecursion.PacketRecordMachine.copyCall
+#check CircuitRecursion.PacketRecordMachine.terminal
+#check CircuitRecursion.PacketRecordMachine.readTime
+#check CircuitRecursion.PacketRecordMachine.readRun
+#check CircuitRecursion.PacketRecordMachine.parsedResult
