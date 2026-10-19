@@ -1,0 +1,182 @@
+name CircuitRecursion.assembledInputPairWord
+levels []
+type Lean.Expr.forallE
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `n
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.forallE
+      `P
+      (Lean.Expr.const `Nat [])
+      (Lean.Expr.forallE
+        `cache
+        (Lean.Expr.app
+          (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.NativeCacheEnvironment []) (Lean.Expr.bvar 2))
+          (Lean.Expr.bvar 0))
+        (Lean.Expr.forallE
+          `entry
+          (Lean.Expr.forallE
+            (Lean.Name.mkNum `a._@._internal._hyg 0)
+            (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))
+            (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputPacketExpressionOracle []) (Lean.Expr.bvar 4))
+            (Lean.BinderInfo.default))
+          (Lean.Expr.forallE
+            `inverseLabel
+            (Lean.Expr.forallE
+              (Lean.Name.mkNum `a._@._internal._hyg 0)
+              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4))
+              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))
+              (Lean.BinderInfo.default))
+            (Lean.Expr.forallE
+              `table
+              (Lean.Expr.forallE
+                (Lean.Name.mkNum `a._@._internal._hyg 0)
+                (Lean.Expr.app
+                  (Lean.Expr.const `Fin [])
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.const `Nat []))
+                            (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `instAddNat [])))
+                      (Lean.Expr.bvar 4))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                        (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 1))))))
+                (Lean.Expr.app
+                  (Lean.Expr.const `List [Lean.Level.zero])
+                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 6)))
+                (Lean.BinderInfo.default))
+              (Lean.Expr.forallE
+                (Lean.Name.mkNum `a._@._internal._hyg 0)
+                (Lean.Expr.const `Nat [])
+                (Lean.Expr.forallE
+                  (Lean.Name.mkNum `a._@._internal._hyg 0)
+                  (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputPacketExpressionOracle []) (Lean.Expr.bvar 7))
+                  (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 8))
+                  (Lean.BinderInfo.default))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.implicit))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)
+value Lean.Expr.lam
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.lam
+    `n
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.lam
+      `P
+      (Lean.Expr.const `Nat [])
+      (Lean.Expr.lam
+        `cache
+        (Lean.Expr.app
+          (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.NativeCacheEnvironment []) (Lean.Expr.bvar 2))
+          (Lean.Expr.bvar 0))
+        (Lean.Expr.lam
+          `entry
+          (Lean.Expr.forallE
+            (Lean.Name.mkNum `a._@._internal._hyg 0)
+            (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))
+            (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputPacketExpressionOracle []) (Lean.Expr.bvar 4))
+            (Lean.BinderInfo.default))
+          (Lean.Expr.lam
+            `inverseLabel
+            (Lean.Expr.forallE
+              (Lean.Name.mkNum `a._@._internal._hyg 0)
+              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4))
+              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))
+              (Lean.BinderInfo.default))
+            (Lean.Expr.lam
+              `table
+              (Lean.Expr.forallE
+                (Lean.Name.mkNum `a._@._internal._hyg 0)
+                (Lean.Expr.app
+                  (Lean.Expr.const `Fin [])
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.const `Nat []))
+                            (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `instAddNat [])))
+                      (Lean.Expr.bvar 4))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                        (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 1))))))
+                (Lean.Expr.app
+                  (Lean.Expr.const `List [Lean.Level.zero])
+                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 6)))
+                (Lean.BinderInfo.default))
+              (Lean.Expr.lam
+                (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.InputListAssembly 2363131366) "_hygCtx") "_hyg") 47)
+                (Lean.Expr.const `Nat [])
+                (Lean.Expr.lam
+                  (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.InputListAssembly 2363131366) "_hygCtx") "_hyg") 48)
+                  (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputPacketExpressionOracle []) (Lean.Expr.bvar 7))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `Nat.brecOn [Lean.Level.succ (Lean.Level.zero)])
+                          (Lean.Expr.lam
+                            (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.InputListAssembly 2363131366) "_hygCtx") "_hyg") 47)
+                            (Lean.Expr.const `Nat [])
+                            (Lean.Expr.forallE
+                              (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.InputListAssembly 2363131366) "_hygCtx") "_hyg") 48)
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitRecursion.InputPacketExpressionOracle [])
+                                (Lean.Expr.bvar 9))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult [])
+                                (Lean.Expr.bvar 10))
+                              (Lean.BinderInfo.default))
+                            (Lean.BinderInfo.default)))
+                        (Lean.Expr.bvar 1))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.assembledInputPairWord._f [])
+                                    (Lean.Expr.bvar 8))
+                                  (Lean.Expr.bvar 7))
+                                (Lean.Expr.bvar 6))
+                              (Lean.Expr.bvar 5))
+                            (Lean.Expr.bvar 4))
+                          (Lean.Expr.bvar 3))
+                        (Lean.Expr.bvar 2)))
+                    (Lean.Expr.bvar 0))
+                  (Lean.BinderInfo.default))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.implicit))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)

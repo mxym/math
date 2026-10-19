@@ -1,0 +1,29 @@
+name CircuitRecursion.listReverseMapIntoProgram
+levels [`u_1, `u_2]
+type Lean.Expr.forallE
+  `α
+  (Lean.Expr.sort (Lean.Level.succ (Lean.Level.param `u_1)))
+  (Lean.Expr.forallE
+    `β
+    (Lean.Expr.sort (Lean.Level.succ (Lean.Level.param `u_2)))
+    (Lean.Expr.forallE
+      `f
+      (Lean.Expr.forallE
+        (Lean.Name.mkNum `a._@._internal._hyg 0)
+        (Lean.Expr.bvar 1)
+        (Lean.Expr.bvar 1)
+        (Lean.BinderInfo.default))
+      (Lean.Expr.forallE
+        (Lean.Name.mkNum `a._@._internal._hyg 0)
+        (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 2))
+        (Lean.Expr.forallE
+          (Lean.Name.mkNum `a._@._internal._hyg 0)
+          (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_2]) (Lean.Expr.bvar 2))
+          (Lean.Expr.app
+            (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.param `u_2])
+            (Lean.Expr.bvar 3))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)

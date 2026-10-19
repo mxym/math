@@ -1,0 +1,48 @@
+name EffectiveEncoding.NativeBinaryRankResult.encodingActions
+levels []
+type Lean.Expr.forallE
+  `k
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `r
+    (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.NativeBinaryRankResult []) (Lean.Expr.bvar 0))
+    (Lean.Expr.const `Nat [])
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)
+value Lean.Expr.lam
+  `k
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.lam
+    `r
+    (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.NativeBinaryRankResult []) (Lean.Expr.bvar 0))
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                (Lean.Expr.const `Nat []))
+              (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `Nat []))
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `instAddNat [])))
+        (Lean.Expr.app
+          (Lean.Expr.const `EffectiveEncoding.UnaryWordTrace.incrementTrimActions [])
+          (Lean.Expr.app
+            (Lean.Expr.const `EffectiveEncoding.UnaryWordEncodingResult.trace [])
+            (Lean.Expr.app
+              (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.NativeBinaryRankResult.encoding []) (Lean.Expr.bvar 1))
+              (Lean.Expr.bvar 0)))))
+      (Lean.Expr.app
+        (Lean.Expr.const `EffectiveEncoding.EndpointBitTrace.listActions [])
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.const `EffectiveEncoding.EndpointBitsResult.trace [])
+            (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.codeWires []) (Lean.Expr.bvar 1)))
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.NativeBinaryRankResult.output []) (Lean.Expr.bvar 1))
+            (Lean.Expr.bvar 0)))))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)

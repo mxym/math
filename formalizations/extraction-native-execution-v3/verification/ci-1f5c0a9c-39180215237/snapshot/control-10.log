@@ -1,0 +1,10 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 29741 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ConcreteNativeExtraction.offlineNet_exists':
+(kernel) declaration type mismatch, 'ConcreteNativeExtraction.offlineNet_exists' has type
+  True
+but it is expected to have type
+  @Nonempty ConcreteNativeExtraction.OfflineNet
+CORRUPTED_PROOF_REJECTED ConcreteNativeExtraction.offlineNet_exists
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED ConcreteNativeExtraction.offlineNet_exists

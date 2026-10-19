@@ -1,0 +1,24 @@
+name CircuitRecursion.binaryTrimProgram
+levels []
+type Lean.Expr.forallE
+  (Lean.Name.mkNum `a._@._internal._hyg 0)
+  (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.zero]) (Lean.Expr.const `Bool []))
+  (Lean.Expr.const `CircuitRecursion.BinaryWordTrimResult [])
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.CanonicalBinaryWords 2305148618) "_hygCtx") "_hyg") 6)
+  (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.zero]) (Lean.Expr.const `Bool []))
+  (Lean.Expr.app
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.const `List.brecOn [Lean.Level.succ (Lean.Level.zero), Lean.Level.zero])
+          (Lean.Expr.const `Bool []))
+        (Lean.Expr.lam
+          (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.CanonicalBinaryWords 2305148618) "_hygCtx") "_hyg") 6)
+          (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.zero]) (Lean.Expr.const `Bool []))
+          (Lean.Expr.const `CircuitRecursion.BinaryWordTrimResult [])
+          (Lean.BinderInfo.default)))
+      (Lean.Expr.bvar 0))
+    (Lean.Expr.const `CircuitRecursion.binaryTrimProgram._f []))
+  (Lean.BinderInfo.default)

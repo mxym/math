@@ -1,0 +1,16 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 18545 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.scannedNativeDescriptorRun_scanActions':
+(kernel) declaration type mismatch, 'EffectiveEncoding.scannedNativeDescriptorRun_scanActions' has type
+  True
+but it is expected to have type
+  (k : Nat) →
+    @LE.le Nat instLENat
+      (EffectiveEncoding.ScannedGeneratedRun.scanActions (CircuitCompletion.originalWireCount k)
+        (EffectiveEncoding.scannedNativeDescriptorRun k))
+      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1800 k)
+        (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 3) 8))
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.scannedNativeDescriptorRun_scanActions
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.scannedNativeDescriptorRun_scanActions

@@ -1,0 +1,33 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 6699 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.assembledInputCachedRun_actions_degree13':
+(kernel) declaration type mismatch, 'CircuitRecursion.assembledInputCachedRun_actions_degree13' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.NativePacketDataOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L p : Nat) →
+            ((j : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) →
+                @LE.le Nat instLENat (@List.length (Fin m) (@table j)) L) →
+              (f : CircuitRecursion.NativePacketDataOracle) →
+                @LE.le Nat instLENat
+                  (CircuitRecursion.InputListAssemblyTrace.actions
+                    (CircuitRecursion.AssembledInputWordResult.trace m
+                      (CircuitRecursion.AssembledInputCachedWordResult.program m
+                        (CircuitRecursion.numericalDemand L
+                          (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1)))
+                        (CircuitRecursion.assembledInputCachedRun m n entry inverseLabel table L p f))))
+                  (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 8192
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)))
+                        2))
+                    (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1) 13))
+CORRUPTED_PROOF_REJECTED CircuitRecursion.assembledInputCachedRun_actions_degree13
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.assembledInputCachedRun_actions_degree13

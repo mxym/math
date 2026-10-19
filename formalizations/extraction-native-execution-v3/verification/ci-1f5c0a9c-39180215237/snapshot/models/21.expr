@@ -1,0 +1,609 @@
+name CircuitRecursion.assembleCorrectedInput
+levels []
+type Lean.Expr.forallE
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `inverseLabel
+    (Lean.Expr.forallE
+      (Lean.Name.mkNum `a._@._internal._hyg 0)
+      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 0))
+      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 1))
+      (Lean.BinderInfo.default))
+    (Lean.Expr.forallE
+      `u
+      (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 1))
+      (Lean.Expr.forallE
+        `a
+        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 2))
+        (Lean.Expr.forallE
+          `b
+          (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 3))
+          (Lean.Expr.forallE
+            `score
+            (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarExpression []) (Lean.Expr.bvar 4))
+            (Lean.Expr.forallE
+              `threshold
+              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarExpression []) (Lean.Expr.bvar 5))
+              (Lean.Expr.forallE
+                `scoreRun
+                (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation []) (Lean.Expr.bvar 6))
+                (Lean.Expr.forallE
+                  `thresholdRun
+                  (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation []) (Lean.Expr.bvar 7))
+                  (Lean.Expr.forallE
+                    `comparison
+                    (Lean.Expr.const `CircuitRecursion.WordScalarComparisonResult [])
+                    (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 9))
+                    (Lean.BinderInfo.default))
+                  (Lean.BinderInfo.default))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)
+value Lean.Expr.lam
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.lam
+    `inverseLabel
+    (Lean.Expr.forallE
+      (Lean.Name.mkNum `a._@._internal._hyg 0)
+      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 0))
+      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 1))
+      (Lean.BinderInfo.default))
+    (Lean.Expr.lam
+      `u
+      (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 1))
+      (Lean.Expr.lam
+        `a
+        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 2))
+        (Lean.Expr.lam
+          `b
+          (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 3))
+          (Lean.Expr.lam
+            `score
+            (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarExpression []) (Lean.Expr.bvar 4))
+            (Lean.Expr.lam
+              `threshold
+              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarExpression []) (Lean.Expr.bvar 5))
+              (Lean.Expr.lam
+                `scoreRun
+                (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation []) (Lean.Expr.bvar 6))
+                (Lean.Expr.lam
+                  `thresholdRun
+                  (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation []) (Lean.Expr.bvar 7))
+                  (Lean.Expr.lam
+                    `comparison
+                    (Lean.Expr.const `CircuitRecursion.WordScalarComparisonResult [])
+                    (Lean.Expr.letE
+                      `ib
+                      (Lean.Expr.app
+                        (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.zero])
+                        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 9)))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `CircuitRecursion.instructionInverseProgram [])
+                            (Lean.Expr.bvar 9))
+                          (Lean.Expr.bvar 8))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.word [])
+                            (Lean.Expr.bvar 9))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                              (Lean.Expr.bvar 9))
+                            (Lean.Expr.bvar 5))))
+                      (Lean.Expr.letE
+                        `ia
+                        (Lean.Expr.app
+                          (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.zero])
+                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 10)))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitRecursion.instructionInverseProgram [])
+                              (Lean.Expr.bvar 10))
+                            (Lean.Expr.bvar 9))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.word [])
+                              (Lean.Expr.bvar 10))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                (Lean.Expr.bvar 10))
+                              (Lean.Expr.bvar 7))))
+                        (Lean.Expr.letE
+                          `w0
+                          (Lean.Expr.app
+                            (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.zero])
+                            (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 11)))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.listAppendFourProgram [Lean.Level.zero])
+                                    (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 11)))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.word [])
+                                      (Lean.Expr.bvar 11))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                        (Lean.Expr.bvar 11))
+                                      (Lean.Expr.bvar 9))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.ListAssemblyResult.value [Lean.Level.zero])
+                                    (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 11)))
+                                  (Lean.Expr.bvar 1)))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitRecursion.ListAssemblyResult.value [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 11)))
+                                (Lean.Expr.bvar 0)))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.word [])
+                                (Lean.Expr.bvar 11))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                  (Lean.Expr.bvar 11))
+                                (Lean.Expr.bvar 7))))
+                          (Lean.Expr.letE
+                            `w1
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 12)))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitRecursion.listAppendProgram [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 12)))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.ListAssemblyResult.value [Lean.Level.zero])
+                                    (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 12)))
+                                  (Lean.Expr.bvar 0)))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.word [])
+                                  (Lean.Expr.bvar 12))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                    (Lean.Expr.bvar 12))
+                                  (Lean.Expr.bvar 9))))
+                            (Lean.Expr.letE
+                              `es
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitRecursion.InputScalarExpression [])
+                                  (Lean.Expr.bvar 13)))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitRecursion.listAppendFourProgram [Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.InputScalarExpression [])
+                                          (Lean.Expr.bvar 13)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.expressions [])
+                                          (Lean.Expr.bvar 13))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                            (Lean.Expr.bvar 13))
+                                          (Lean.Expr.bvar 11))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `List.cons [Lean.Level.zero])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.InputScalarExpression [])
+                                            (Lean.Expr.bvar 13)))
+                                        (Lean.Expr.bvar 8))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `List.cons [Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.InputScalarExpression [])
+                                              (Lean.Expr.bvar 13)))
+                                          (Lean.Expr.bvar 7))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `List.nil [Lean.Level.zero])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.InputScalarExpression [])
+                                            (Lean.Expr.bvar 13))))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.expressions [])
+                                      (Lean.Expr.bvar 13))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                        (Lean.Expr.bvar 13))
+                                      (Lean.Expr.bvar 10))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.expressions [])
+                                    (Lean.Expr.bvar 13))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                      (Lean.Expr.bvar 13))
+                                    (Lean.Expr.bvar 9))))
+                              (Lean.Expr.letE
+                                `ev
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation [])
+                                    (Lean.Expr.bvar 14)))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.listAppendFourProgram [Lean.Level.zero])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation [])
+                                            (Lean.Expr.bvar 14)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.evaluations [])
+                                            (Lean.Expr.bvar 14))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                              (Lean.Expr.bvar 14))
+                                            (Lean.Expr.bvar 12))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `List.cons [Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation [])
+                                              (Lean.Expr.bvar 14)))
+                                          (Lean.Expr.bvar 7))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `List.cons [Lean.Level.zero])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation [])
+                                                (Lean.Expr.bvar 14)))
+                                            (Lean.Expr.bvar 6))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `List.nil [Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation [])
+                                              (Lean.Expr.bvar 14))))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.evaluations [])
+                                        (Lean.Expr.bvar 14))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                          (Lean.Expr.bvar 14))
+                                        (Lean.Expr.bvar 11))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.evaluations [])
+                                      (Lean.Expr.bvar 14))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                        (Lean.Expr.bvar 14))
+                                      (Lean.Expr.bvar 10))))
+                                (Lean.Expr.letE
+                                  `ds
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.zero])
+                                    (Lean.Expr.const `CircuitRecursion.WordDecisionTrace []))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.listAppendFourProgram [Lean.Level.zero])
+                                            (Lean.Expr.const `CircuitRecursion.WordDecisionTrace []))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.decisions [])
+                                              (Lean.Expr.bvar 15))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                                (Lean.Expr.bvar 15))
+                                              (Lean.Expr.bvar 13))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `List.cons [Lean.Level.zero])
+                                              (Lean.Expr.const `CircuitRecursion.WordDecisionTrace []))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.WordDecisionTrace.comparison [])
+                                              (Lean.Expr.bvar 6)))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `List.nil [Lean.Level.zero])
+                                            (Lean.Expr.const `CircuitRecursion.WordDecisionTrace []))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.decisions [])
+                                          (Lean.Expr.bvar 15))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                            (Lean.Expr.bvar 15))
+                                          (Lean.Expr.bvar 12))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.decisions [])
+                                        (Lean.Expr.bvar 15))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.program [])
+                                          (Lean.Expr.bvar 15))
+                                        (Lean.Expr.bvar 11))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult.mk [])
+                                        (Lean.Expr.bvar 16))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.mk [])
+                                                  (Lean.Expr.bvar 16))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const
+                                                      `CircuitRecursion.ListAssemblyResult.value
+                                                      [Lean.Level.zero])
+                                                    (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 16)))
+                                                  (Lean.Expr.bvar 3)))
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const
+                                                    `CircuitRecursion.ListAssemblyResult.value
+                                                    [Lean.Level.zero])
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `CircuitRecursion.InputScalarExpression [])
+                                                    (Lean.Expr.bvar 16)))
+                                                (Lean.Expr.bvar 2)))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const
+                                                          `HAdd.hAdd
+                                                          [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                        (Lean.Expr.const `Nat []))
+                                                      (Lean.Expr.const `Nat []))
+                                                    (Lean.Expr.const `Nat []))
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const `instHAdd [Lean.Level.zero])
+                                                      (Lean.Expr.const `Nat []))
+                                                    (Lean.Expr.const `instAddNat [])))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const
+                                                              `HAdd.hAdd
+                                                              [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                            (Lean.Expr.const `Nat []))
+                                                          (Lean.Expr.const `Nat []))
+                                                        (Lean.Expr.const `Nat []))
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `instHAdd [Lean.Level.zero])
+                                                          (Lean.Expr.const `Nat []))
+                                                        (Lean.Expr.const `instAddNat [])))
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const
+                                                                  `HAdd.hAdd
+                                                                  [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                                (Lean.Expr.const `Nat []))
+                                                              (Lean.Expr.const `Nat []))
+                                                            (Lean.Expr.const `Nat []))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `instHAdd [Lean.Level.zero])
+                                                              (Lean.Expr.const `Nat []))
+                                                            (Lean.Expr.const `instAddNat [])))
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const
+                                                              `CircuitRecursion.InputArithmeticWordResult.comparisons
+                                                              [])
+                                                            (Lean.Expr.bvar 16))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const
+                                                                `CircuitRecursion.AssembledInputWordResult.program
+                                                                [])
+                                                              (Lean.Expr.bvar 16))
+                                                            (Lean.Expr.bvar 14))))
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const
+                                                            `CircuitRecursion.InputArithmeticWordResult.comparisons
+                                                            [])
+                                                          (Lean.Expr.bvar 16))
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const
+                                                              `CircuitRecursion.AssembledInputWordResult.program
+                                                              [])
+                                                            (Lean.Expr.bvar 16))
+                                                          (Lean.Expr.bvar 13)))))
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const
+                                                        `CircuitRecursion.InputArithmeticWordResult.comparisons
+                                                        [])
+                                                      (Lean.Expr.bvar 16))
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const
+                                                          `CircuitRecursion.AssembledInputWordResult.program
+                                                          [])
+                                                        (Lean.Expr.bvar 16))
+                                                      (Lean.Expr.bvar 12)))))
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                    (Lean.Expr.const `Nat []))
+                                                  (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `instOfNatNat [])
+                                                  (Lean.Expr.lit (Lean.Literal.natVal 1))))))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const
+                                                `CircuitRecursion.ListAssemblyResult.value
+                                                [Lean.Level.zero])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation [])
+                                                (Lean.Expr.bvar 16)))
+                                            (Lean.Expr.bvar 1)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const
+                                              `CircuitRecursion.ListAssemblyResult.value
+                                              [Lean.Level.zero])
+                                            (Lean.Expr.const `CircuitRecursion.WordDecisionTrace []))
+                                          (Lean.Expr.bvar 0))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const
+                                                          `CircuitRecursion.InputListAssemblyTrace.corrected
+                                                          [])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const
+                                                              `CircuitRecursion.AssembledInputWordResult.trace
+                                                              [])
+                                                            (Lean.Expr.bvar 16))
+                                                          (Lean.Expr.bvar 14)))
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const
+                                                            `CircuitRecursion.AssembledInputWordResult.trace
+                                                            [])
+                                                          (Lean.Expr.bvar 16))
+                                                        (Lean.Expr.bvar 13)))
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const
+                                                          `CircuitRecursion.AssembledInputWordResult.trace
+                                                          [])
+                                                        (Lean.Expr.bvar 16))
+                                                      (Lean.Expr.bvar 12)))
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const
+                                                        `CircuitRecursion.ListAssemblyResult.trace
+                                                        [Lean.Level.zero])
+                                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 16)))
+                                                    (Lean.Expr.bvar 6)))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const
+                                                      `CircuitRecursion.ListAssemblyResult.trace
+                                                      [Lean.Level.zero])
+                                                    (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 16)))
+                                                  (Lean.Expr.bvar 5)))
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const
+                                                    `CircuitRecursion.ListAssemblyResult.trace
+                                                    [Lean.Level.zero])
+                                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 16)))
+                                                (Lean.Expr.bvar 4)))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const
+                                                  `CircuitRecursion.ListAssemblyResult.trace
+                                                  [Lean.Level.zero])
+                                                (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 16)))
+                                              (Lean.Expr.bvar 3)))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const
+                                                `CircuitRecursion.ListAssemblyResult.trace
+                                                [Lean.Level.zero])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitRecursion.InputScalarExpression [])
+                                                (Lean.Expr.bvar 16)))
+                                            (Lean.Expr.bvar 2)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const
+                                              `CircuitRecursion.ListAssemblyResult.trace
+                                              [Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation [])
+                                              (Lean.Expr.bvar 16)))
+                                          (Lean.Expr.bvar 1)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.ListAssemblyResult.trace [Lean.Level.zero])
+                                          (Lean.Expr.const `CircuitRecursion.WordDecisionTrace []))
+                                        (Lean.Expr.bvar 0))))
+                                  true)
+                                true)
+                              true)
+                            true)
+                          true)
+                        true)
+                      true)
+                    (Lean.BinderInfo.default))
+                  (Lean.BinderInfo.default))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)

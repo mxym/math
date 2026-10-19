@@ -1,0 +1,1484 @@
+name ConcreteNativeExtraction.OfflineNet
+levels []
+type Lean.Expr.sort (Lean.Level.succ (Lean.Level.zero))
+inductive [`ConcreteNativeExtraction.OfflineNet]
+constructors [`ConcreteNativeExtraction.OfflineNet.mk]
+constructor name ConcreteNativeExtraction.OfflineNet.mk
+levels []
+type Lean.Expr.forallE
+  `lengthBound
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `lastIndex
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.forallE
+      `table
+      (Lean.Expr.forallE
+        (Lean.Name.mkNum `a._@._internal._hyg 0)
+        (Lean.Expr.app
+          (Lean.Expr.const `Fin [])
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                      (Lean.Expr.const `Nat []))
+                    (Lean.Expr.const `Nat []))
+                  (Lean.Expr.const `Nat []))
+                (Lean.Expr.app
+                  (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                  (Lean.Expr.const `instAddNat [])))
+              (Lean.Expr.bvar 0))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                (Lean.Expr.lit (Lean.Literal.natVal 1)))
+              (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 1))))))
+        (Lean.Expr.app
+          (Lean.Expr.const `List [Lean.Level.zero])
+          (Lean.Expr.app
+            (Lean.Expr.const `Fin [])
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                (Lean.Expr.lit (Lean.Literal.natVal 4)))
+              (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4))))))
+        (Lean.BinderInfo.default))
+      (Lean.Expr.forallE
+        `lengths
+        (Lean.Expr.forallE
+          `j
+          (Lean.Expr.app
+            (Lean.Expr.const `Fin [])
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                        (Lean.Expr.const `Nat []))
+                      (Lean.Expr.const `Nat []))
+                    (Lean.Expr.const `Nat []))
+                  (Lean.Expr.app
+                    (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                    (Lean.Expr.const `instAddNat [])))
+                (Lean.Expr.bvar 1))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                  (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 1))))))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                (Lean.Expr.const `instLENat []))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.const `List.length [Lean.Level.zero])
+                  (Lean.Expr.app
+                    (Lean.Expr.const `Fin [])
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                        (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4))))))
+                (Lean.Expr.app (Lean.Expr.bvar 1) (Lean.Expr.bvar 0))))
+            (Lean.Expr.bvar 3))
+          (Lean.BinderInfo.default))
+        (Lean.Expr.forallE
+          `covers
+          (Lean.Expr.forallE
+            `U
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.const `Subtype [Lean.Level.succ (Lean.Level.zero)])
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                      (Lean.Expr.app
+                        (Lean.Expr.const `Fin [])
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                          (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                    (Lean.Expr.app
+                      (Lean.Expr.const `Fin [])
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                        (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                  (Lean.Expr.const `Complex [])))
+              (Lean.Expr.lam
+                `x
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                      (Lean.Expr.app
+                        (Lean.Expr.const `Fin [])
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                          (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                    (Lean.Expr.app
+                      (Lean.Expr.const `Fin [])
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                        (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                  (Lean.Expr.const `Complex []))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Fin [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                        (Lean.Expr.const `Nat []))
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instOfNatNat [])
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Fin [])
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                      (Lean.Expr.const `Nat []))
+                                    (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instOfNatNat [])
+                                    (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                            (Lean.Expr.const `Complex [])))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Submonoid [Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Fin [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                          (Lean.Expr.const `Nat []))
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `instOfNatNat [])
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Fin [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                        (Lean.Expr.const `Nat []))
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instOfNatNat [])
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                              (Lean.Expr.const `Complex [])))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `MulZeroOneClass.toMulOneClass [Lean.Level.zero])
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Fin [])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                            (Lean.Expr.const `Nat []))
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `instOfNatNat [])
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Fin [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                          (Lean.Expr.const `Nat []))
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `instOfNatNat [])
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                (Lean.Expr.const `Complex [])))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `instMulZeroOneClassOfSemiring [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Fin [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                              (Lean.Expr.const `Nat []))
+                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `instOfNatNat [])
+                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Fin [])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                            (Lean.Expr.const `Nat []))
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `instOfNatNat [])
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                  (Lean.Expr.const `Complex [])))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Matrix.semiring [Lean.Level.zero, Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                (Lean.Expr.const `Nat []))
+                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `instOfNatNat [])
+                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                      (Lean.Expr.const `Complex []))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CommSemiring.toSemiring [Lean.Level.zero])
+                                        (Lean.Expr.const `Complex []))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CommRing.toCommSemiring [Lean.Level.zero])
+                                          (Lean.Expr.const `Complex []))
+                                        (Lean.Expr.const `Complex.commRing []))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Fin.fintype [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                          (Lean.Expr.const `Nat []))
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `instOfNatNat [])
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `instDecidableEqFin [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                        (Lean.Expr.const `Nat []))
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instOfNatNat [])
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2))))))))))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `SetLike.instMembership [Lean.Level.zero, Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Submonoid [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Fin [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                              (Lean.Expr.const `Nat []))
+                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `instOfNatNat [])
+                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Fin [])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                            (Lean.Expr.const `Nat []))
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `instOfNatNat [])
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                  (Lean.Expr.const `Complex [])))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `MulZeroOneClass.toMulOneClass [Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                (Lean.Expr.const `Nat []))
+                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `instOfNatNat [])
+                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Fin [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                              (Lean.Expr.const `Nat []))
+                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `instOfNatNat [])
+                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                    (Lean.Expr.const `Complex [])))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instMulZeroOneClassOfSemiring [Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `Fin [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                  (Lean.Expr.const `Nat []))
+                                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `instOfNatNat [])
+                                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                (Lean.Expr.const `Nat []))
+                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `instOfNatNat [])
+                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                      (Lean.Expr.const `Complex [])))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `Matrix.semiring [Lean.Level.zero, Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `Fin [])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                    (Lean.Expr.const `Nat []))
+                                                  (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `instOfNatNat [])
+                                                  (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                          (Lean.Expr.const `Complex []))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CommSemiring.toSemiring [Lean.Level.zero])
+                                            (Lean.Expr.const `Complex []))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CommRing.toCommSemiring [Lean.Level.zero])
+                                              (Lean.Expr.const `Complex []))
+                                            (Lean.Expr.const `Complex.commRing []))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Fin.fintype [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                              (Lean.Expr.const `Nat []))
+                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `instOfNatNat [])
+                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instDecidableEqFin [])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                            (Lean.Expr.const `Nat []))
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `instOfNatNat [])
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2))))))))))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Fin [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                        (Lean.Expr.const `Nat []))
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instOfNatNat [])
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Fin [])
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                      (Lean.Expr.const `Nat []))
+                                    (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instOfNatNat [])
+                                    (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                            (Lean.Expr.const `Complex [])))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Submonoid.instSetLike [Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Fin [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                          (Lean.Expr.const `Nat []))
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `instOfNatNat [])
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Fin [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                        (Lean.Expr.const `Nat []))
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instOfNatNat [])
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                              (Lean.Expr.const `Complex [])))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `MulZeroOneClass.toMulOneClass [Lean.Level.zero])
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Fin [])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                            (Lean.Expr.const `Nat []))
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `instOfNatNat [])
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Fin [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                          (Lean.Expr.const `Nat []))
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `instOfNatNat [])
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                (Lean.Expr.const `Complex [])))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `instMulZeroOneClassOfSemiring [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Fin [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                              (Lean.Expr.const `Nat []))
+                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `instOfNatNat [])
+                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Fin [])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                            (Lean.Expr.const `Nat []))
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `instOfNatNat [])
+                                          (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                  (Lean.Expr.const `Complex [])))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Matrix.semiring [Lean.Level.zero, Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                (Lean.Expr.const `Nat []))
+                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `instOfNatNat [])
+                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                      (Lean.Expr.const `Complex []))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CommSemiring.toSemiring [Lean.Level.zero])
+                                        (Lean.Expr.const `Complex []))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CommRing.toCommSemiring [Lean.Level.zero])
+                                          (Lean.Expr.const `Complex []))
+                                        (Lean.Expr.const `Complex.commRing []))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Fin.fintype [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                          (Lean.Expr.const `Nat []))
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `instOfNatNat [])
+                                        (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `instDecidableEqFin [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                        (Lean.Expr.const `Nat []))
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instOfNatNat [])
+                                      (Lean.Expr.lit (Lean.Literal.natVal 2)))))))))))
+                    (Lean.Expr.const `CircuitRecursion.SU2 []))
+                  (Lean.Expr.bvar 0))
+                (Lean.BinderInfo.default)))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.const `Exists [Lean.Level.succ (Lean.Level.zero)])
+                (Lean.Expr.app
+                  (Lean.Expr.const `Fin [])
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.const `Nat []))
+                            (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `instAddNat [])))
+                      (Lean.Expr.bvar 3))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                        (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 1)))))))
+              (Lean.Expr.lam
+                `j
+                (Lean.Expr.app
+                  (Lean.Expr.const `Fin [])
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.const `Nat []))
+                            (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `instAddNat [])))
+                      (Lean.Expr.bvar 3))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                        (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 1))))))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Real []))
+                      (Lean.Expr.const `Real.instLE []))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitRecursion.unitaryDistance [Lean.Level.zero])
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Fin [])
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                      (Lean.Expr.const `Nat []))
+                                    (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instOfNatNat [])
+                                    (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Fin.fintype [])
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `instOfNatNat [])
+                                  (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                          (Lean.Expr.app
+                            (Lean.Expr.const `instDecidableEqFin [])
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `instOfNatNat [])
+                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.su2AsUnitary []) (Lean.Expr.bvar 1)))
+                      (Lean.Expr.app
+                        (Lean.Expr.const `CircuitRecursion.su2AsUnitary [])
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitRecursion.instructionWordValue [Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Subtype [Lean.Level.succ (Lean.Level.zero)])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const
+                                              `Matrix
+                                              [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `Fin [])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                    (Lean.Expr.const `Nat []))
+                                                  (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `instOfNatNat [])
+                                                  (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `Fin [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                  (Lean.Expr.const `Nat []))
+                                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `instOfNatNat [])
+                                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                        (Lean.Expr.const `Complex [])))
+                                    (Lean.Expr.lam
+                                      `x
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const
+                                              `Matrix
+                                              [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `Fin [])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                    (Lean.Expr.const `Nat []))
+                                                  (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `instOfNatNat [])
+                                                  (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `Fin [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                  (Lean.Expr.const `Nat []))
+                                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `instOfNatNat [])
+                                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                        (Lean.Expr.const `Complex []))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const
+                                                        `Matrix
+                                                        [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const `Fin [])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                              (Lean.Expr.const `Nat []))
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `instOfNatNat [])
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const `Fin [])
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                            (Lean.Expr.const `Nat []))
+                                                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `instOfNatNat [])
+                                                          (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                  (Lean.Expr.const `Complex [])))
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `Submonoid [Lean.Level.zero])
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const
+                                                          `Matrix
+                                                          [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `Fin [])
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                (Lean.Expr.const `Nat []))
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `instOfNatNat [])
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const `Fin [])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                              (Lean.Expr.const `Nat []))
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `instOfNatNat [])
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                    (Lean.Expr.const `Complex [])))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `MulZeroOneClass.toMulOneClass [Lean.Level.zero])
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const
+                                                            `Matrix
+                                                            [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `Fin [])
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                  (Lean.Expr.const `Nat []))
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `instOfNatNat [])
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `Fin [])
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                (Lean.Expr.const `Nat []))
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `instOfNatNat [])
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                      (Lean.Expr.const `Complex [])))
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const `instMulZeroOneClassOfSemiring [Lean.Level.zero])
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const
+                                                              `Matrix
+                                                              [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `Fin [])
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                    (Lean.Expr.const `Nat []))
+                                                                  (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `instOfNatNat [])
+                                                                  (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `Fin [])
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                  (Lean.Expr.const `Nat []))
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `instOfNatNat [])
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                        (Lean.Expr.const `Complex [])))
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const
+                                                                `Matrix.semiring
+                                                                [Lean.Level.zero, Lean.Level.zero])
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `Fin [])
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.app
+                                                                      (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                      (Lean.Expr.const `Nat []))
+                                                                    (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const `instOfNatNat [])
+                                                                    (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                            (Lean.Expr.const `Complex []))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const
+                                                                `CommSemiring.toSemiring
+                                                                [Lean.Level.zero])
+                                                              (Lean.Expr.const `Complex []))
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const
+                                                                  `CommRing.toCommSemiring
+                                                                  [Lean.Level.zero])
+                                                                (Lean.Expr.const `Complex []))
+                                                              (Lean.Expr.const `Complex.commRing []))))
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `Fin.fintype [])
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                (Lean.Expr.const `Nat []))
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `instOfNatNat [])
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const `instDecidableEqFin [])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                              (Lean.Expr.const `Nat []))
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `instOfNatNat [])
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))))))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const
+                                                    `SetLike.instMembership
+                                                    [Lean.Level.zero, Lean.Level.zero])
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const `Submonoid [Lean.Level.zero])
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const
+                                                              `Matrix
+                                                              [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `Fin [])
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                    (Lean.Expr.const `Nat []))
+                                                                  (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `instOfNatNat [])
+                                                                  (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `Fin [])
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                  (Lean.Expr.const `Nat []))
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `instOfNatNat [])
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                        (Lean.Expr.const `Complex [])))
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const
+                                                          `MulZeroOneClass.toMulOneClass
+                                                          [Lean.Level.zero])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const
+                                                                `Matrix
+                                                                [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `Fin [])
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.app
+                                                                      (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                      (Lean.Expr.const `Nat []))
+                                                                    (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const `instOfNatNat [])
+                                                                    (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `Fin [])
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                    (Lean.Expr.const `Nat []))
+                                                                  (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `instOfNatNat [])
+                                                                  (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                          (Lean.Expr.const `Complex [])))
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const
+                                                            `instMulZeroOneClassOfSemiring
+                                                            [Lean.Level.zero])
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const
+                                                                  `Matrix
+                                                                  [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `Fin [])
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.app
+                                                                      (Lean.Expr.app
+                                                                        (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                        (Lean.Expr.const `Nat []))
+                                                                      (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                    (Lean.Expr.app
+                                                                      (Lean.Expr.const `instOfNatNat [])
+                                                                      (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `Fin [])
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.app
+                                                                      (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                      (Lean.Expr.const `Nat []))
+                                                                    (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const `instOfNatNat [])
+                                                                    (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                            (Lean.Expr.const `Complex [])))
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const
+                                                                    `Matrix.semiring
+                                                                    [Lean.Level.zero, Lean.Level.zero])
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const `Fin [])
+                                                                    (Lean.Expr.app
+                                                                      (Lean.Expr.app
+                                                                        (Lean.Expr.app
+                                                                          (Lean.Expr.const
+                                                                            `OfNat.ofNat
+                                                                            [Lean.Level.zero])
+                                                                          (Lean.Expr.const `Nat []))
+                                                                        (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                      (Lean.Expr.app
+                                                                        (Lean.Expr.const `instOfNatNat [])
+                                                                        (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                                (Lean.Expr.const `Complex []))
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const
+                                                                    `CommSemiring.toSemiring
+                                                                    [Lean.Level.zero])
+                                                                  (Lean.Expr.const `Complex []))
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const
+                                                                      `CommRing.toCommSemiring
+                                                                      [Lean.Level.zero])
+                                                                    (Lean.Expr.const `Complex []))
+                                                                  (Lean.Expr.const `Complex.commRing []))))
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `Fin.fintype [])
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                    (Lean.Expr.const `Nat []))
+                                                                  (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `instOfNatNat [])
+                                                                  (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `instDecidableEqFin [])
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                  (Lean.Expr.const `Nat []))
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `instOfNatNat [])
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))))))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const
+                                                        `Matrix
+                                                        [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const `Fin [])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                              (Lean.Expr.const `Nat []))
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `instOfNatNat [])
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const `Fin [])
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                            (Lean.Expr.const `Nat []))
+                                                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `instOfNatNat [])
+                                                          (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                  (Lean.Expr.const `Complex [])))
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `Submonoid.instSetLike [Lean.Level.zero])
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const
+                                                          `Matrix
+                                                          [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `Fin [])
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                (Lean.Expr.const `Nat []))
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `instOfNatNat [])
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const `Fin [])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                              (Lean.Expr.const `Nat []))
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `instOfNatNat [])
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                    (Lean.Expr.const `Complex [])))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `MulZeroOneClass.toMulOneClass [Lean.Level.zero])
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const
+                                                            `Matrix
+                                                            [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `Fin [])
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                  (Lean.Expr.const `Nat []))
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `instOfNatNat [])
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `Fin [])
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                (Lean.Expr.const `Nat []))
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `instOfNatNat [])
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                      (Lean.Expr.const `Complex [])))
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const `instMulZeroOneClassOfSemiring [Lean.Level.zero])
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const
+                                                              `Matrix
+                                                              [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `Fin [])
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                    (Lean.Expr.const `Nat []))
+                                                                  (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `instOfNatNat [])
+                                                                  (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `Fin [])
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                  (Lean.Expr.const `Nat []))
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `instOfNatNat [])
+                                                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                        (Lean.Expr.const `Complex [])))
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const
+                                                                `Matrix.semiring
+                                                                [Lean.Level.zero, Lean.Level.zero])
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `Fin [])
+                                                                (Lean.Expr.app
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.app
+                                                                      (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                      (Lean.Expr.const `Nat []))
+                                                                    (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                                  (Lean.Expr.app
+                                                                    (Lean.Expr.const `instOfNatNat [])
+                                                                    (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                            (Lean.Expr.const `Complex []))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const
+                                                                `CommSemiring.toSemiring
+                                                                [Lean.Level.zero])
+                                                              (Lean.Expr.const `Complex []))
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const
+                                                                  `CommRing.toCommSemiring
+                                                                  [Lean.Level.zero])
+                                                                (Lean.Expr.const `Complex []))
+                                                              (Lean.Expr.const `Complex.commRing []))))
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `Fin.fintype [])
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.app
+                                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                                (Lean.Expr.const `Nat []))
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `instOfNatNat [])
+                                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const `instDecidableEqFin [])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                              (Lean.Expr.const `Nat []))
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `instOfNatNat [])
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))))))))))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const
+                                                        `Matrix.specialUnitaryGroup
+                                                        [Lean.Level.zero, Lean.Level.zero])
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const `Fin [])
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.app
+                                                              (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                              (Lean.Expr.const `Nat []))
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `instOfNatNat [])
+                                                            (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.const `instDecidableEqFin [])
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.app
+                                                            (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                            (Lean.Expr.const `Nat []))
+                                                          (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `instOfNatNat [])
+                                                          (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `Fin.fintype [])
+                                                    (Lean.Expr.app
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.app
+                                                          (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                          (Lean.Expr.const `Nat []))
+                                                        (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                      (Lean.Expr.app
+                                                        (Lean.Expr.const `instOfNatNat [])
+                                                        (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                                (Lean.Expr.const `Complex []))
+                                              (Lean.Expr.const `Complex.commRing []))
+                                            (Lean.Expr.const `Complex.instStarRing [])))
+                                        (Lean.Expr.bvar 0))
+                                      (Lean.BinderInfo.default))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const
+                                              `Matrix.instGroupSubtypeMemSubmonoidSpecialUnitaryGroup
+                                              [Lean.Level.zero, Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `Fin [])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                    (Lean.Expr.const `Nat []))
+                                                  (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `instOfNatNat [])
+                                                  (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `instDecidableEqFin [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                  (Lean.Expr.const `Nat []))
+                                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `instOfNatNat [])
+                                                (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin.fintype [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                (Lean.Expr.const `Nat []))
+                                              (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `instOfNatNat [])
+                                              (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+                                      (Lean.Expr.const `Complex []))
+                                    (Lean.Expr.const `Complex.commRing []))
+                                  (Lean.Expr.const `Complex.instStarRing [])))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `instOfNatNat [])
+                                  (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                            (Lean.Expr.const `RationalGateInterface.rationalGate []))
+                          (Lean.Expr.app (Lean.Expr.bvar 3) (Lean.Expr.bvar 0))))))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `HDiv.hDiv [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.const `Real []))
+                            (Lean.Expr.const `Real []))
+                          (Lean.Expr.const `Real []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `instHDiv [Lean.Level.zero]) (Lean.Expr.const `Real []))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `DivInvMonoid.toDiv [Lean.Level.zero])
+                              (Lean.Expr.const `Real []))
+                            (Lean.Expr.const `Real.instDivInvMonoid []))))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Real []))
+                          (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `One.toOfNat1 [Lean.Level.zero]) (Lean.Expr.const `Real []))
+                          (Lean.Expr.const `Real.instOne []))))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Real []))
+                        (Lean.Expr.lit (Lean.Literal.natVal 576)))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `instOfNatAtLeastTwo [Lean.Level.zero])
+                              (Lean.Expr.const `Real []))
+                            (Lean.Expr.lit (Lean.Literal.natVal 576)))
+                          (Lean.Expr.const `Real.instNatCast []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Nat.instAtLeastTwoHAddOfNat [])
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.lit (Lean.Literal.natVal 575)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `instOfNatNat [])
+                                (Lean.Expr.lit (Lean.Literal.natVal 575)))))
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Nat.instNeZeroSucc [])
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.lit (Lean.Literal.natVal 574)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `instOfNatNat [])
+                                (Lean.Expr.lit (Lean.Literal.natVal 574))))))))))
+                (Lean.BinderInfo.default)))
+            (Lean.BinderInfo.default))
+          (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet [])
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)

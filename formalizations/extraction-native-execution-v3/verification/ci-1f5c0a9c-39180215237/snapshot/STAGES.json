@@ -1,0 +1,906 @@
+[
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "build",
+      "ConcreteNativeExtraction.AssembledProgram"
+    ],
+    "command": [
+      "lake",
+      "build",
+      "ConcreteNativeExtraction.AssembledProgram"
+    ],
+    "exit_code": 0,
+    "log": "fresh-mathematics.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 1452.282,
+    "sha256": "a1e327aaf5f6dea20365157d10ccd9cfe58650b8fb241a0139369a4c15b78e65",
+    "stage": "fresh-mathematics"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "-j1",
+      "-M4000",
+      "-o",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/Driver.olean",
+      "-c",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/Driver.c",
+      "Driver.lean"
+    ],
+    "command": [
+      "lean",
+      "-j1",
+      "-M4000",
+      "-o",
+      "@EVIDENCE@/native/Driver.olean",
+      "-c",
+      "@EVIDENCE@/native/Driver.c",
+      "Driver.lean"
+    ],
+    "exit_code": 0,
+    "log": "compile-driver.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 0.766,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage": "compile-driver"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/leanc",
+      "-O2",
+      "-o",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/Driver.c"
+    ],
+    "command": [
+      "leanc",
+      "-O2",
+      "-o",
+      "@EVIDENCE@/native/audit-driver",
+      "@EVIDENCE@/native/Driver.c"
+    ],
+    "exit_code": 0,
+    "log": "link-driver.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 1.421,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage": "link-driver"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "types",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "types",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "types.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 31.994,
+    "sha256": "9f3d1821e8b275ea436b638c90ae6d3942533a02049f3d47b5c5bd62aa536aa0",
+    "stage": "types"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "positive",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "positive",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "positive.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 76.607,
+    "sha256": "c84474ae14d4bf7820ea8316e4ab268f3c06d2402d1fe642ca2c268bf5ca9458",
+    "stage": "positive"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "1",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "1",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-1.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 47.839,
+    "sha256": "43ec10407ddbfa7c24eaef19ba037c1590128d279a49a1e770669cdc7020f2ef",
+    "stage": "control-1"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "2",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "2",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-2.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 46.773,
+    "sha256": "6913b6170935d01c3768ca429004167a078a2251a9ae5577dff3c5fd855edd4e",
+    "stage": "control-2"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "3",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "3",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-3.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 47.338,
+    "sha256": "8cd8f07f059de623c7e9e1eb86bc7e8bc39fa9a8bfb79073ebe7b7d726a831b0",
+    "stage": "control-3"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "4",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "4",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-4.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 47.383,
+    "sha256": "372d389410893b8e9b81530807f9e829cd82ca5aa01da3765f94bff040803948",
+    "stage": "control-4"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "5",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "5",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-5.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 46.678,
+    "sha256": "510d056261dc2e81a65064de854d04974e60babc2a8d8d6e5dd383e34516f700",
+    "stage": "control-5"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "6",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "6",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-6.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 46.574,
+    "sha256": "b21f9d9b4e2915d62227adc05b89370cf01d20291aadc535927a1cab912a5bd8",
+    "stage": "control-6"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "7",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "7",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-7.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 46.674,
+    "sha256": "597159f195ab3e01ec3e4afed721829341d38420bfc2256f583a5b0d610cfd80",
+    "stage": "control-7"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "8",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "8",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-8.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 46.273,
+    "sha256": "4342814c45dded904ba5a068b064f37a6d0be8b4938a7b94538cc82aa71bab3f",
+    "stage": "control-8"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "9",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "9",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-9.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 47.379,
+    "sha256": "78285ef1809fc72fc246ccde956e2ad47bd3b3f347829c95eb2ddef86d45ef27",
+    "stage": "control-9"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "10",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "10",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-10.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 45.239,
+    "sha256": "43e8804c01bbdfd59e8f8290a925456b4161bee740553cd1e3f0299d8f23efe8",
+    "stage": "control-10"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "11",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "11",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-11.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 3.824,
+    "sha256": "daa3b6a20846db95673aea39b30d74387536d22c099cdad331efbc6d2025d6e2",
+    "stage": "control-11"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "12",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "12",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-12.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 4.429,
+    "sha256": "80a5810500f000009ec8bb6b24259a83b0d7d7481b93e09592f915adbf859ae3",
+    "stage": "control-12"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "13",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "13",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-13.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 19.718,
+    "sha256": "1a2b80cb96fc7787e0751e734343a1d6656b23b08c1b8c59c34d906f973dfac5",
+    "stage": "control-13"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "14",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "14",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-14.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 4.074,
+    "sha256": "cb9c51b0d70dff08112cff63f78e493221e7917dd1b2fe4916e34191d258656c",
+    "stage": "control-14"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "15",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "15",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-15.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 20.071,
+    "sha256": "2fb900777d055ba30ee774b82f8f7bc4bcdc2b35eb896996a13fb3b33e62c5ed",
+    "stage": "control-15"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "16",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "16",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-16.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 20.827,
+    "sha256": "ead3c11590580af4cd8f5deb2381953e0d272f7a83824c61790df047abca0472",
+    "stage": "control-16"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "17",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "17",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-17.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 7.335,
+    "sha256": "8bb4797e722830599a569e6132f42c303b64d6a03230c05a0fe200ce9520da48",
+    "stage": "control-17"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "18",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "18",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-18.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 7.285,
+    "sha256": "4e81d1264434cc0c931a11274fd80cf50061fc184b66e3ef6497f7a3400a1164",
+    "stage": "control-18"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "19",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "19",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-19.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 7.285,
+    "sha256": "f495b2f8a9b6fae618cbbc06250372f222459c57d88815752995ec4f367e6647",
+    "stage": "control-19"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "20",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "20",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-20.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 7.082,
+    "sha256": "d316de67d5b56c0917d4b2d8958cc8d4b2cd4f2257f257e760d102b609745cdf",
+    "stage": "control-20"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "21",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "21",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-21.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 6.83,
+    "sha256": "0c552368fb62c36b9ce15c4129e9fd7db44ae09e515ebfce2899a6db15e725cb",
+    "stage": "control-21"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "22",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "22",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-22.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 6.831,
+    "sha256": "e7eb5c59c1e987f4b4de2be894c9bc143839d5834bd63c16b448d24121bdb3d6",
+    "stage": "control-22"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "23",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "23",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-23.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 21.166,
+    "sha256": "25f2e375e7cfd0a8575d4f3aa901a2886d023f043f28241283b8448645b1a408",
+    "stage": "control-23"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "24",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "24",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-24.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 20.912,
+    "sha256": "3e7b3b424dc47899c94563e7e22fa2d3e04035f4d49812d6de377dbd35a67e8c",
+    "stage": "control-24"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "25",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "25",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-25.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 22.067,
+    "sha256": "2c3fb64ad6116b627aecab08b00872aa422dee6df235079bb07748ba7ba91b42",
+    "stage": "control-25"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "26",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "26",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-26.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 22.12,
+    "sha256": "7bba4938e1715c4cc1a7a7b82177cb40dbd256c135d0f1aecbdf57eb3fec14ac",
+    "stage": "control-26"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "27",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "27",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-27.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 6.83,
+    "sha256": "c69cb2a6ede38056a547134332606c6ac083bbb1a57da82103a64986d8fbfa86",
+    "stage": "control-27"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "28",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "28",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-28.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 6.884,
+    "sha256": "449d6c65ed9224ef182e8fef9c144ebd35d99ecbcd39be6ee69ea08d06d18278",
+    "stage": "control-28"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "29",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "29",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-29.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 22.821,
+    "sha256": "f35e5f50a1fcff7815ca30c5eac917078bb5f5bf71ff46f922fb5d56161e9be2",
+    "stage": "control-29"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "30",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "30",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-30.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 22.871,
+    "sha256": "c57d9ceb500376d5084704cc411d1294ab8af0780afe7017b40eedf93c50784c",
+    "stage": "control-30"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "31",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "31",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-31.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 46.234,
+    "sha256": "825ad4a2cf207d86e5c2bfbab8f233a6816485d3c1c761eda2ae521d0a89e6f2",
+    "stage": "control-31"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "32",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "32",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-32.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 6.831,
+    "sha256": "e7062ca69c5168c87baac62e008b68e439414216d21854eb4ba0caa7f288d358",
+    "stage": "control-32"
+  },
+  {
+    "actual_command": [
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "env",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z/native/audit-driver",
+      "control",
+      "33",
+      "/home/runner/work/_temp/extraction-native-execution-v3-39180215237-1/evidence/native-execution-v3-20261019T003103351383Z"
+    ],
+    "command": [
+      "lake",
+      "env",
+      "@EVIDENCE@/native/audit-driver",
+      "control",
+      "33",
+      "@EVIDENCE@"
+    ],
+    "exit_code": 0,
+    "log": "control-33.log",
+    "peak_child_rss_kib_cumulative": 4020476,
+    "seconds": 6.832,
+    "sha256": "81ce1ceb3f66cf4142298611324a2bde764f9d465e82b11519454ae338a7f75a",
+    "stage": "control-33"
+  }
+]

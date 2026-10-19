@@ -1,0 +1,22 @@
+name CircuitRecursion.InputListAssemblyTrace.inverseCalls
+levels []
+type Lean.Expr.forallE
+  (Lean.Name.mkNum `a._@._internal._hyg 0)
+  (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace [])
+  (Lean.Expr.const `Nat [])
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.InputListAssembly 3887162838) "_hygCtx") "_hyg") 7)
+  (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace [])
+  (Lean.Expr.app
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace.brecOn [Lean.Level.succ (Lean.Level.zero)])
+        (Lean.Expr.lam
+          (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.InputListAssembly 3887162838) "_hygCtx") "_hyg") 7)
+          (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace [])
+          (Lean.Expr.const `Nat [])
+          (Lean.BinderInfo.default)))
+      (Lean.Expr.bvar 0))
+    (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace.inverseCalls._f []))
+  (Lean.BinderInfo.default)

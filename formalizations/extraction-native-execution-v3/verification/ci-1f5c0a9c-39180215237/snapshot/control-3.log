@@ -1,0 +1,24 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 31826 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ConcreteNativeExtraction.assembledRun_word_eq_inputRun':
+(kernel) declaration type mismatch, 'ConcreteNativeExtraction.assembledRun_word_eq_inputRun' has type
+  True
+but it is expected to have type
+  (net : ConcreteNativeExtraction.OfflineNet) →
+    (k p : Nat) →
+      @Eq (@List (EffectiveEncoding.LabelGate 4 (CircuitCompletion.originalWireCount k)))
+        (EffectiveEncoding.AssembledCompiledLabelRun.word 4 (CircuitCompletion.originalWireCount k)
+          (ConcreteNativeExtraction.OfflineNet.lengthBound net)
+          (EffectiveEncoding.FullyAssembledInputResult.precision 4 (CircuitCompletion.originalWireCount k)
+            (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.assembledRun net k p))
+          (EffectiveEncoding.FullyAssembledInputResult.compilation 4 (CircuitCompletion.originalWireCount k)
+            (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.assembledRun net k p)))
+        (EffectiveEncoding.InputCompiledLabelRun.word 4 (CircuitCompletion.originalWireCount k)
+          (ConcreteNativeExtraction.OfflineNet.lengthBound net)
+          (EffectiveEncoding.FullyInputNativeResult.precision 4 (CircuitCompletion.originalWireCount k)
+            (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.inputRun net k p))
+          (EffectiveEncoding.FullyInputNativeResult.compilation 4 (CircuitCompletion.originalWireCount k)
+            (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.inputRun net k p)))
+CORRUPTED_PROOF_REJECTED ConcreteNativeExtraction.assembledRun_word_eq_inputRun
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED ConcreteNativeExtraction.assembledRun_word_eq_inputRun

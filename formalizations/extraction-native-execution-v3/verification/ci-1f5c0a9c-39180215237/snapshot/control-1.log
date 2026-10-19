@@ -1,0 +1,22 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 32035 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ConcreteNativeExtraction.assembledRun_word':
+(kernel) declaration type mismatch, 'ConcreteNativeExtraction.assembledRun_word' has type
+  True
+but it is expected to have type
+  (net : ConcreteNativeExtraction.OfflineNet) →
+    (k p : Nat) →
+      @Eq (@List (EffectiveEncoding.LabelGate 4 (CircuitCompletion.originalWireCount k)))
+        (EffectiveEncoding.AssembledCompiledLabelRun.word 4 (CircuitCompletion.originalWireCount k)
+          (ConcreteNativeExtraction.OfflineNet.lengthBound net)
+          (EffectiveEncoding.FullyAssembledInputResult.precision 4 (CircuitCompletion.originalWireCount k)
+            (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.assembledRun net k p))
+          (EffectiveEncoding.FullyAssembledInputResult.compilation 4 (CircuitCompletion.originalWireCount k)
+            (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.assembledRun net k p)))
+        (EffectiveEncoding.numericalExtractionCode 4 (ConcreteNativeExtraction.OfflineNet.lastIndex net)
+          (fun i => CircuitRecursion.nativePacketDataOracle (RationalGateBinary.nativeEntry i))
+          RationalGateInterface.inverseLabel (ConcreteNativeExtraction.OfflineNet.table net)
+          (ConcreteNativeExtraction.OfflineNet.lengthBound net) k p)
+CORRUPTED_PROOF_REJECTED ConcreteNativeExtraction.assembledRun_word
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED ConcreteNativeExtraction.assembledRun_word

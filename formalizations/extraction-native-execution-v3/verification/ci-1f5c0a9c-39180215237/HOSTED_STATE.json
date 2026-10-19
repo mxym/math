@@ -1,0 +1,119 @@
+{
+  "run_id": 39180215237,
+  "head_sha": "1f5c0a9cdf7b0d3fac12e86afd0fbb72a723c7bc",
+  "run_attempt": 1,
+  "producer": "success",
+  "download_verifier": "success",
+  "producer_job_id": 117831173601,
+  "download_verifier_job_id": 117843126239,
+  "artifact_id": 12157052503,
+  "zip_bytes": 39341290,
+  "zip_sha256": "44ff3a50c28c4387a9d4286143c1506eb7e225405482b5778f77181be1be474e",
+  "jobs": [
+    {
+      "id": 117831173601,
+      "name": "native-execution-audit",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 39180215237,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Configure exclusive storage",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Install exact toolchain and pinned dependency cache",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Fresh all owned imports, trust zero and every same-type control",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        }
+      ]
+    },
+    {
+      "id": 117843126239,
+      "name": "verify-downloaded-artifact",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 39180215237,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Strict portable downloaded-artifact verification",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        }
+      ]
+    }
+  ],
+  "observed_utc": "2026-10-19 01:12:47 UTC"
+}

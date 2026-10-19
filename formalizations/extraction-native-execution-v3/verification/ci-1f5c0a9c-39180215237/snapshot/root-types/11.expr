@@ -1,0 +1,129 @@
+name ConcreteNativeExtraction.queried_gate_height
+levels []
+type Lean.Expr.forallE
+  `L
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `q
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.forallE
+      `i
+      (Lean.Expr.app
+        (Lean.Expr.const `Fin [])
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+            (Lean.Expr.lit (Lean.Literal.natVal 4)))
+          (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+      (Lean.Expr.forallE
+        `r
+        (Lean.Expr.const `Nat [])
+        (Lean.Expr.forallE
+          `hr
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                (Lean.Expr.const `instLENat []))
+              (Lean.Expr.bvar 0))
+            (Lean.Expr.app
+              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.numericalDemand []) (Lean.Expr.bvar 3))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.const `Nat.clog [])
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                      (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                    (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 2)))))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                            (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.const `Nat []))
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                        (Lean.Expr.const `instAddNat [])))
+                    (Lean.Expr.bvar 2))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                      (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                    (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 1))))))))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.const `CircuitRecursion.IntegerPacketHeight [])
+              (Lean.Expr.app
+                (Lean.Expr.const `CircuitRecursion.WordIntegerPacket.decode [])
+                (Lean.Expr.app
+                  (Lean.Expr.app (Lean.Expr.const `RationalGateBinary.nativeEntry []) (Lean.Expr.bvar 2))
+                  (Lean.Expr.bvar 1))))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `HMul.hMul [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                        (Lean.Expr.const `Nat []))
+                      (Lean.Expr.const `Nat []))
+                    (Lean.Expr.const `Nat []))
+                  (Lean.Expr.app
+                    (Lean.Expr.app (Lean.Expr.const `instHMul [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                    (Lean.Expr.const `instMulNat [])))
+                (Lean.Expr.app (Lean.Expr.const `ConcreteNativeExtraction.gateHeightCoefficient []) (Lean.Expr.bvar 4)))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `HPow.hPow [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.const `Nat []))
+                      (Lean.Expr.const `Nat []))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `instHPow [Lean.Level.zero, Lean.Level.zero])
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.const `Nat []))
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `NPow.toPow [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `Monoid.toNPow [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `Nat.instMonoid [])))))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.const `Nat []))
+                            (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `instAddNat [])))
+                      (Lean.Expr.bvar 3))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                        (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 1))))))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                    (Lean.Expr.lit (Lean.Literal.natVal 9)))
+                  (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 9)))))))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)

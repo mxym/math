@@ -1,0 +1,74 @@
+name EffectiveEncoding.NativeTripleComparison.actions
+levels []
+type Lean.Expr.forallE
+  `r
+  (Lean.Expr.const `EffectiveEncoding.NativeTripleComparison [])
+  (Lean.Expr.const `Nat [])
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  `r
+  (Lean.Expr.const `EffectiveEncoding.NativeTripleComparison [])
+  (Lean.Expr.app
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+              (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `Nat []))
+          (Lean.Expr.const `Nat []))
+        (Lean.Expr.app
+          (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+          (Lean.Expr.const `instAddNat [])))
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                  (Lean.Expr.const `Nat []))
+                (Lean.Expr.const `Nat []))
+              (Lean.Expr.const `Nat []))
+            (Lean.Expr.app
+              (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+              (Lean.Expr.const `instAddNat [])))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                      (Lean.Expr.const `Nat []))
+                    (Lean.Expr.const `Nat []))
+                  (Lean.Expr.const `Nat []))
+                (Lean.Expr.app
+                  (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                  (Lean.Expr.const `instAddNat [])))
+              (Lean.Expr.app
+                (Lean.Expr.const `CircuitRecursion.BinaryWordComparisonTrace.actions [])
+                (Lean.Expr.app
+                  (Lean.Expr.const `CircuitRecursion.BinaryWordComparisonResult.trace [])
+                  (Lean.Expr.app
+                    (Lean.Expr.const `EffectiveEncoding.NativeTripleComparison.first [])
+                    (Lean.Expr.bvar 0)))))
+            (Lean.Expr.app
+              (Lean.Expr.const `CircuitRecursion.BinaryWordComparisonTrace.actions [])
+              (Lean.Expr.app
+                (Lean.Expr.const `CircuitRecursion.BinaryWordComparisonResult.trace [])
+                (Lean.Expr.app
+                  (Lean.Expr.const `EffectiveEncoding.NativeTripleComparison.second [])
+                  (Lean.Expr.bvar 0))))))
+        (Lean.Expr.app
+          (Lean.Expr.const `CircuitRecursion.BinaryWordComparisonTrace.actions [])
+          (Lean.Expr.app
+            (Lean.Expr.const `CircuitRecursion.BinaryWordComparisonResult.trace [])
+            (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.NativeTripleComparison.third []) (Lean.Expr.bvar 0))))))
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+        (Lean.Expr.lit (Lean.Literal.natVal 6)))
+      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 6)))))
+  (Lean.BinderInfo.default)

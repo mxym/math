@@ -1,0 +1,88 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 6899 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.assembledInputCachedRun_onlineActions_degree338':
+(kernel) declaration type mismatch, 'CircuitRecursion.assembledInputCachedRun_onlineActions_degree338' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.NativePacketDataOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L p A : Nat) →
+            ((j : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) →
+                @LE.le Nat instLENat (@List.length (Fin m) (@table j)) L) →
+              (f : CircuitRecursion.NativePacketDataOracle) →
+                ((i : Fin m) →
+                    (r : Nat) →
+                      @LE.le Nat instLENat r
+                          (CircuitRecursion.numericalDemand L
+                            (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1))) →
+                        CircuitRecursion.IntegerPacketHeight (CircuitRecursion.WordIntegerPacket.decode (@entry i r))
+                          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) A
+                            (@HPow.hPow Nat Nat Nat
+                              (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1) 9))) →
+                  ((r : Nat) →
+                      @LE.le Nat instLENat r
+                          (CircuitRecursion.numericalDemand L
+                            (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1))) →
+                        CircuitRecursion.IntegerPacketHeight (CircuitRecursion.WordIntegerPacket.decode (@f r))
+                          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) A
+                            (@HPow.hPow Nat Nat Nat
+                              (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1) 9))) →
+                    have C :=
+                      @HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1000000000002
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1))
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                              (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 8 A) 10))
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L 1))
+                        CircuitRecursion.traceRGrowth;
+                    have O :=
+                      @HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1020
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1))
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2 L) 1))
+                        CircuitRecursion.offsetGrowth;
+                    @LE.le Nat instLENat
+                      (CircuitRecursion.AssembledInputWordResult.onlineActions m
+                        (CircuitRecursion.AssembledInputCachedWordResult.program m
+                          (CircuitRecursion.numericalDemand L
+                            (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1)))
+                          (CircuitRecursion.assembledInputCachedRun m n entry inverseLabel table L p f)))
+                      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                              (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 40000
+                                (@HPow.hPow Nat Nat Nat
+                                  (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 40 C) 4)
+                                  2))
+                              (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 20 O))
+                            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                              (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 80
+                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) m
+                                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 51200000
+                                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L 1)))
+                                  5))
+                              O))
+                          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 8192
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                                (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2
+                                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)))
+                              2)))
+                        (@HPow.hPow Nat Nat Nat
+                          (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1) 338))
+CORRUPTED_PROOF_REJECTED CircuitRecursion.assembledInputCachedRun_onlineActions_degree338
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.assembledInputCachedRun_onlineActions_degree338

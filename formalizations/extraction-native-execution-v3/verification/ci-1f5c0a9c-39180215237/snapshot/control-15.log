@@ -1,0 +1,62 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 17662 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'RationalGateInterface.rationalGate_inverse':
+(kernel) declaration type mismatch, 'RationalGateInterface.rationalGate_inverse' has type
+  True
+but it is expected to have type
+  (i : Fin 4) →
+    @Eq
+      (@Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+        @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+          (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+            (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+              (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Matrix.semiring (Fin 2) Complex
+                  (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing)) (Fin.fintype 2)
+                  (instDecidableEqFin 2)))))
+          (@SetLike.instMembership
+            (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Matrix.semiring (Fin 2) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (Fin.fintype 2) (instDecidableEqFin 2)))))
+            (@Matrix (Fin 2) (Fin 2) Complex)
+            (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Matrix.semiring (Fin 2) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (Fin.fintype 2) (instDecidableEqFin 2))))))
+          CircuitRecursion.SU2 x)
+      (RationalGateInterface.rationalGate (RationalGateInterface.inverseLabel i))
+      (@Inv.inv
+        (@Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+          @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+            (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Matrix.semiring (Fin 2) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (Fin.fintype 2) (instDecidableEqFin 2)))))
+            (@SetLike.instMembership
+              (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2)))))
+              (@Matrix (Fin 2) (Fin 2) Complex)
+              (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2))))))
+            CircuitRecursion.SU2 x)
+        (@Matrix.instInvSubtypeMemSubmonoidSpecialUnitaryGroup (Fin 2) (instDecidableEqFin 2) (Fin.fintype 2) Complex
+          Complex.commRing Complex.instStarRing)
+        (RationalGateInterface.rationalGate i))
+CORRUPTED_PROOF_REJECTED RationalGateInterface.rationalGate_inverse
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED RationalGateInterface.rationalGate_inverse

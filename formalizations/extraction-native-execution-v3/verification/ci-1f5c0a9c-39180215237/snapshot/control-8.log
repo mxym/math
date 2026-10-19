@@ -1,0 +1,29 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 31793 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ConcreteNativeExtraction.assembledRun_inverse_calls':
+(kernel) declaration type mismatch, 'ConcreteNativeExtraction.assembledRun_inverse_calls' has type
+  True
+but it is expected to have type
+  (net : ConcreteNativeExtraction.OfflineNet) →
+    (k p : Nat) →
+      @LE.le Nat instLENat
+        (EffectiveEncoding.AssembledCompiledLabelRun.inverseCalls 4 (CircuitCompletion.originalWireCount k)
+          (ConcreteNativeExtraction.OfflineNet.lengthBound net)
+          (EffectiveEncoding.FullyAssembledInputResult.precision 4 (CircuitCompletion.originalWireCount k)
+            (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.assembledRun net k p))
+          (EffectiveEncoding.FullyAssembledInputResult.compilation 4 (CircuitCompletion.originalWireCount k)
+            (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.assembledRun net k p)))
+        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (EffectiveEncoding.actualGatePolynomial k)
+          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 8192
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (ConcreteNativeExtraction.OfflineNet.lengthBound net)
+                  (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                      (ConcreteNativeExtraction.OfflineNet.lastIndex net) 1)))
+                2))
+            (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (EffectiveEncoding.logarithmicPrecision k p) 1) 13)))
+CORRUPTED_PROOF_REJECTED ConcreteNativeExtraction.assembledRun_inverse_calls
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED ConcreteNativeExtraction.assembledRun_inverse_calls

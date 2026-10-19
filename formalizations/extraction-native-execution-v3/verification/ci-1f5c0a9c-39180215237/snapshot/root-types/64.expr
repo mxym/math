@@ -1,0 +1,17 @@
+name CircuitRecursion.nativeListLookup
+levels [`u_1]
+type Lean.Expr.forallE
+  `α
+  (Lean.Expr.sort (Lean.Level.succ (Lean.Level.param `u_1)))
+  (Lean.Expr.forallE
+    (Lean.Name.mkNum `a._@._internal._hyg 0)
+    (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 0))
+    (Lean.Expr.forallE
+      (Lean.Name.mkNum `a._@._internal._hyg 0)
+      (Lean.Expr.const `Nat [])
+      (Lean.Expr.app
+        (Lean.Expr.const `CircuitRecursion.NativeListLookupResult [Lean.Level.param `u_1])
+        (Lean.Expr.bvar 2))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)

@@ -1,0 +1,21 @@
+name EffectiveEncoding.scannedRankWordProgram
+levels []
+type Lean.Expr.forallE
+  `k
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `t
+    (Lean.Expr.const `EffectiveEncoding.Triple [])
+    (Lean.Expr.forallE
+      `h
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `instLENat []))
+          (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.total []) (Lean.Expr.bvar 0)))
+        (Lean.Expr.bvar 1))
+      (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.ScannedRankWord []) (Lean.Expr.bvar 2))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)

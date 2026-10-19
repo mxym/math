@@ -1,0 +1,97 @@
+name EffectiveEncoding.nativeBooleanRankProgram_booleanActions_polynomial
+levels []
+type Lean.Expr.forallE
+  `k
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `t
+    (Lean.Expr.const `EffectiveEncoding.Triple [])
+    (Lean.Expr.forallE
+      `h
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `instLENat []))
+          (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.total []) (Lean.Expr.bvar 0)))
+        (Lean.Expr.bvar 1))
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `instLENat []))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.const `EffectiveEncoding.NativeBooleanRankResult.booleanActions [])
+              (Lean.Expr.bvar 2))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.nativeBooleanRankProgram []) (Lean.Expr.bvar 2))
+                (Lean.Expr.bvar 1))
+              (Lean.Expr.bvar 0))))
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `HMul.hMul [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                    (Lean.Expr.const `Nat []))
+                  (Lean.Expr.const `Nat []))
+                (Lean.Expr.const `Nat []))
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `instHMul [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                (Lean.Expr.const `instMulNat [])))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                (Lean.Expr.lit (Lean.Literal.natVal 300)))
+              (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 300)))))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `HPow.hPow [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                      (Lean.Expr.const `Nat []))
+                    (Lean.Expr.const `Nat []))
+                  (Lean.Expr.const `Nat []))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `instHPow [Lean.Level.zero, Lean.Level.zero])
+                      (Lean.Expr.const `Nat []))
+                    (Lean.Expr.const `Nat []))
+                  (Lean.Expr.app
+                    (Lean.Expr.app (Lean.Expr.const `NPow.toPow [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                    (Lean.Expr.app
+                      (Lean.Expr.app (Lean.Expr.const `Monoid.toNPow [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                      (Lean.Expr.const `Nat.instMonoid [])))))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.const `Nat []))
+                      (Lean.Expr.const `Nat []))
+                    (Lean.Expr.app
+                      (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                      (Lean.Expr.const `instAddNat [])))
+                  (Lean.Expr.bvar 2))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                    (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                  (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 2))))))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                (Lean.Expr.lit (Lean.Literal.natVal 5)))
+              (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 5)))))))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)
