@@ -1,0 +1,23 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 6781 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.retainedAssembledTargetRun_cached':
+(kernel) declaration type mismatch, 'EffectiveEncoding.retainedAssembledTargetRun_cached' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.NativePacketDataOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L q : Nat) →
+            (u : EffectiveEncoding.SingleCode) →
+              @Eq
+                (CircuitRecursion.AssembledInputCachedWordResult m
+                  (CircuitRecursion.numericalDemand L
+                    (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) q 1))))
+                (EffectiveEncoding.RetainedAssembledTargetResult.cached m L q
+                  (EffectiveEncoding.retainedAssembledTargetRun m n entry inverseLabel table L q u))
+                (CircuitRecursion.assembledInputCachedRun m n entry inverseLabel table L q
+                  (EffectiveEncoding.NativeSingleInput.packetDataOracle (EffectiveEncoding.prepareNativeSingleInput u)))
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.retainedAssembledTargetRun_cached
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.retainedAssembledTargetRun_cached

@@ -1,0 +1,102 @@
+name EffectiveEncoding.compileAssembledWord
+levels []
+type Lean.Expr.forallE
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `wires
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.forallE
+      `L
+      (Lean.Expr.const `Nat [])
+      (Lean.Expr.forallE
+        `q
+        (Lean.Expr.const `Nat [])
+        (Lean.Expr.forallE
+          `synth
+          (Lean.Expr.forallE
+            (Lean.Name.mkNum `a._@._internal._hyg 0)
+            (Lean.Expr.const `EffectiveEncoding.SingleCode [])
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.RetainedAssembledTargetResult []) (Lean.Expr.bvar 4))
+                (Lean.Expr.bvar 2))
+              (Lean.Expr.bvar 1))
+            (Lean.BinderInfo.default))
+          (Lean.Expr.forallE
+            (Lean.Name.mkNum `a._@._internal._hyg 0)
+            (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.WordCode []) (Lean.Expr.bvar 3))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.AssembledCompiledLabelRun []) (Lean.Expr.bvar 5))
+                  (Lean.Expr.bvar 4))
+                (Lean.Expr.bvar 3))
+              (Lean.Expr.bvar 2))
+            (Lean.BinderInfo.default))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.implicit))
+      (Lean.BinderInfo.implicit))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)
+value Lean.Expr.lam
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.lam
+    `wires
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.lam
+      `L
+      (Lean.Expr.const `Nat [])
+      (Lean.Expr.lam
+        `q
+        (Lean.Expr.const `Nat [])
+        (Lean.Expr.lam
+          `synth
+          (Lean.Expr.forallE
+            (Lean.Name.mkNum `a._@._internal._hyg 0)
+            (Lean.Expr.const `EffectiveEncoding.SingleCode [])
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.RetainedAssembledTargetResult []) (Lean.Expr.bvar 4))
+                (Lean.Expr.bvar 2))
+              (Lean.Expr.bvar 1))
+            (Lean.BinderInfo.default))
+          (Lean.Expr.lam
+            (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».EffectiveEncoding.AssembledLabelCompilation 3104202305) "_hygCtx") "_hyg") 28)
+            (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.WordCode []) (Lean.Expr.bvar 3))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `List.brecOn [Lean.Level.succ (Lean.Level.zero), Lean.Level.zero])
+                    (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.GateCode []) (Lean.Expr.bvar 4)))
+                  (Lean.Expr.lam
+                    (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».EffectiveEncoding.AssembledLabelCompilation 3104202305) "_hygCtx") "_hyg") 28)
+                    (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.WordCode []) (Lean.Expr.bvar 4))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `EffectiveEncoding.AssembledCompiledLabelRun [])
+                            (Lean.Expr.bvar 6))
+                          (Lean.Expr.bvar 5))
+                        (Lean.Expr.bvar 4))
+                      (Lean.Expr.bvar 3))
+                    (Lean.BinderInfo.default)))
+                (Lean.Expr.bvar 0))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.compileAssembledWord._f []) (Lean.Expr.bvar 5))
+                      (Lean.Expr.bvar 4))
+                    (Lean.Expr.bvar 3))
+                  (Lean.Expr.bvar 2))
+                (Lean.Expr.bvar 1)))
+            (Lean.BinderInfo.default))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.implicit))
+      (Lean.BinderInfo.implicit))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)

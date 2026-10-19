@@ -1,0 +1,28 @@
+name CircuitRecursion.ListAssemblyTrace
+levels []
+type Lean.Expr.sort (Lean.Level.succ (Lean.Level.zero))
+inductive [`CircuitRecursion.ListAssemblyTrace]
+constructors [`CircuitRecursion.ListAssemblyTrace.done,
+ `CircuitRecursion.ListAssemblyTrace.copy,
+ `CircuitRecursion.ListAssemblyTrace.sequence]
+constructor name CircuitRecursion.ListAssemblyTrace.done
+levels []
+type Lean.Expr.const `CircuitRecursion.ListAssemblyTrace []
+constructor name CircuitRecursion.ListAssemblyTrace.copy
+levels []
+type Lean.Expr.forallE
+  (Lean.Name.mkNum `a._@._internal._hyg 0)
+  (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+  (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+  (Lean.BinderInfo.default)
+constructor name CircuitRecursion.ListAssemblyTrace.sequence
+levels []
+type Lean.Expr.forallE
+  (Lean.Name.mkNum `a._@._internal._hyg 0)
+  (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+  (Lean.Expr.forallE
+    (Lean.Name.mkNum `a._@._internal._hyg 0)
+    (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+    (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)

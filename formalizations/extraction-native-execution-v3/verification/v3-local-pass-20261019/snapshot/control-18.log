@@ -1,0 +1,42 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 6675 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.inputCachedRun_readActions_degree73':
+(kernel) declaration type mismatch, 'CircuitRecursion.inputCachedRun_readActions_degree73' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.NativePacketDataOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L p : Nat) →
+            ((j : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) →
+                @LE.le Nat instLENat (@List.length (Fin m) (@table j)) L) →
+              (f : CircuitRecursion.NativePacketDataOracle) →
+                have O :=
+                  @HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1020
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1))
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2 L) 1))
+                    CircuitRecursion.offsetGrowth;
+                @LE.le Nat instLENat
+                  (CircuitRecursion.InputArithmeticWordResult.readActions m
+                    (CircuitRecursion.InputCachedWordResult.program m
+                      (CircuitRecursion.numericalDemand L
+                        (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1)))
+                      (CircuitRecursion.inputCachedRun m n entry inverseLabel table L p f)))
+                  (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 80
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) m
+                            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 51200000
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L 1)))
+                          5))
+                      O)
+                    (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) p 1) 73))
+CORRUPTED_PROOF_REJECTED CircuitRecursion.inputCachedRun_readActions_degree73
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.inputCachedRun_readActions_degree73

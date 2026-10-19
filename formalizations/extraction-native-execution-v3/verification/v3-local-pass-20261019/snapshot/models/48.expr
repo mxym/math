@@ -1,0 +1,100 @@
+name EffectiveEncoding.FullyAssembledInputResult.accountedPrimitiveActions
+levels []
+type Lean.Expr.forallE
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `wires
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.forallE
+      `L
+      (Lean.Expr.const `Nat [])
+      (Lean.Expr.forallE
+        `r
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult []) (Lean.Expr.bvar 2))
+            (Lean.Expr.bvar 1))
+          (Lean.Expr.bvar 0))
+        (Lean.Expr.const `Nat [])
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.implicit))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)
+value Lean.Expr.lam
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.lam
+    `wires
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.lam
+      `L
+      (Lean.Expr.const `Nat [])
+      (Lean.Expr.lam
+        `r
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult []) (Lean.Expr.bvar 2))
+            (Lean.Expr.bvar 1))
+          (Lean.Expr.bvar 0))
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                    (Lean.Expr.const `Nat []))
+                  (Lean.Expr.const `Nat []))
+                (Lean.Expr.const `Nat []))
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                (Lean.Expr.const `instAddNat [])))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `EffectiveEncoding.FullyScannedInputResult.accountedPrimitiveActions [])
+                    (Lean.Expr.bvar 3))
+                  (Lean.Expr.bvar 2))
+                (Lean.Expr.bvar 1))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult.erase [])
+                      (Lean.Expr.bvar 3))
+                    (Lean.Expr.bvar 2))
+                  (Lean.Expr.bvar 1))
+                (Lean.Expr.bvar 0))))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `EffectiveEncoding.AssembledCompiledLabelRun.assemblyActions [])
+                    (Lean.Expr.bvar 3))
+                  (Lean.Expr.bvar 2))
+                (Lean.Expr.bvar 1))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult.precision [])
+                      (Lean.Expr.bvar 3))
+                    (Lean.Expr.bvar 2))
+                  (Lean.Expr.bvar 1))
+                (Lean.Expr.bvar 0)))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult.compilation [])
+                    (Lean.Expr.bvar 3))
+                  (Lean.Expr.bvar 2))
+                (Lean.Expr.bvar 1))
+              (Lean.Expr.bvar 0))))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.implicit))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)

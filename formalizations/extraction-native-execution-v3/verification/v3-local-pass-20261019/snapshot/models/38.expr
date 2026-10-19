@@ -1,0 +1,91 @@
+name EffectiveEncoding.scannedRankWordProgram
+levels []
+type Lean.Expr.forallE
+  `k
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `t
+    (Lean.Expr.const `EffectiveEncoding.Triple [])
+    (Lean.Expr.forallE
+      `h
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `instLENat []))
+          (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.total []) (Lean.Expr.bvar 0)))
+        (Lean.Expr.bvar 1))
+      (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.ScannedRankWord []) (Lean.Expr.bvar 2))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  `k
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.lam
+    `t
+    (Lean.Expr.const `EffectiveEncoding.Triple [])
+    (Lean.Expr.lam
+      `h
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `instLENat []))
+          (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.total []) (Lean.Expr.bvar 0)))
+        (Lean.Expr.bvar 1))
+      (Lean.Expr.letE
+        `scan
+        (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.NativeBooleanRankResult []) (Lean.Expr.bvar 2))
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.nativeBooleanRankProgram []) (Lean.Expr.bvar 2))
+            (Lean.Expr.bvar 1))
+          (Lean.Expr.bvar 0))
+        (Lean.Expr.letE
+          `encoded
+          (Lean.Expr.const `EffectiveEncoding.UnaryWordEncodingResult [])
+          (Lean.Expr.app
+            (Lean.Expr.const `EffectiveEncoding.unaryWordEncoding [])
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.const `Fin.val [])
+                (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.occupationRank []) (Lean.Expr.bvar 3)))
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.ConstructiveRankRun.index []) (Lean.Expr.bvar 3))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `EffectiveEncoding.NativeBooleanRankResult.ranked [])
+                    (Lean.Expr.bvar 3))
+                  (Lean.Expr.bvar 0)))))
+          (Lean.Expr.letE
+            `output
+            (Lean.Expr.app
+              (Lean.Expr.const `EffectiveEncoding.EndpointBitsResult [])
+              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.codeWires []) (Lean.Expr.bvar 4)))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.const `EffectiveEncoding.endpointBitsProgram [])
+                (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.codeWires []) (Lean.Expr.bvar 4)))
+              (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.UnaryWordEncodingResult.bits []) (Lean.Expr.bvar 0)))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.ScannedRankWord.mk []) (Lean.Expr.bvar 5))
+                (Lean.Expr.bvar 2))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.NativeBinaryRankResult.mk []) (Lean.Expr.bvar 5))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `EffectiveEncoding.NativeBooleanRankResult.ranked [])
+                        (Lean.Expr.bvar 5))
+                      (Lean.Expr.bvar 2)))
+                  (Lean.Expr.bvar 1))
+                (Lean.Expr.bvar 0)))
+            true)
+          true)
+        true)
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)

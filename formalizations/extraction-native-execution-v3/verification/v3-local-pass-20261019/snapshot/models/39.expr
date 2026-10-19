@@ -1,0 +1,149 @@
+name EffectiveEncoding.scannedNativeDescriptorRun
+levels []
+type Lean.Expr.forallE
+  `k
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.app
+    (Lean.Expr.const `EffectiveEncoding.ScannedGeneratedRun [])
+    (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 0)))
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  `k
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.letE
+    `compression
+    (Lean.Expr.app
+      (Lean.Expr.const `EffectiveEncoding.ScannedGeneratedRun [])
+      (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 0)))
+    (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.scannedNativeCompressionRun []) (Lean.Expr.bvar 0))
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.const `EffectiveEncoding.ScannedGeneratedRun.mk [])
+          (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.const `EffectiveEncoding.BinaryGeneratedRun.mk [])
+              (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.const `EffectiveEncoding.RankedBranchRun.mk [])
+                  (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `HAppend.hAppend [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `EffectiveEncoding.WordCode [])
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                (Lean.Expr.bvar 1))))
+                          (Lean.Expr.app
+                            (Lean.Expr.const `EffectiveEncoding.WordCode [])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                              (Lean.Expr.bvar 1))))
+                        (Lean.Expr.app
+                          (Lean.Expr.const `EffectiveEncoding.WordCode [])
+                          (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1))))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `instHAppendOfAppend [Lean.Level.zero])
+                          (Lean.Expr.app
+                            (Lean.Expr.const `EffectiveEncoding.WordCode [])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                              (Lean.Expr.bvar 1))))
+                        (Lean.Expr.app
+                          (Lean.Expr.const `List.instAppend [Lean.Level.zero])
+                          (Lean.Expr.app
+                            (Lean.Expr.const `EffectiveEncoding.GateCode [])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                              (Lean.Expr.bvar 1))))))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `EffectiveEncoding.RankedBranchRun.word [])
+                        (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `EffectiveEncoding.BinaryGeneratedRun.result [])
+                          (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `EffectiveEncoding.ScannedGeneratedRun.result [])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                              (Lean.Expr.bvar 1)))
+                          (Lean.Expr.bvar 0)))))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `EffectiveEncoding.castCode [])
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.const `Nat []))
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instHAdd [Lean.Level.zero])
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.const `instAddNat [])))
+                              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.codeWires []) (Lean.Expr.bvar 1)))
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.bellPairYield []) (Lean.Expr.bvar 1)))))
+                        (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+                      (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.register_split []) (Lean.Expr.bvar 1)))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `EffectiveEncoding.shiftCode [])
+                          (Lean.Expr.app
+                            (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                            (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.bellPairYield []) (Lean.Expr.bvar 1))))
+                        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.codeWires []) (Lean.Expr.bvar 1)))
+                      (Lean.Expr.app
+                        (Lean.Expr.const `EffectiveEncoding.bellPairsCode [])
+                        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.bellPairYield []) (Lean.Expr.bvar 1)))))))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.const `EffectiveEncoding.RankedBranchRun.work [])
+                  (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `EffectiveEncoding.BinaryGeneratedRun.result [])
+                    (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `EffectiveEncoding.ScannedGeneratedRun.result [])
+                      (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+                    (Lean.Expr.bvar 0))))))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.const `EffectiveEncoding.BinaryGeneratedRun.programs [])
+              (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.const `EffectiveEncoding.ScannedGeneratedRun.result [])
+                (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+              (Lean.Expr.bvar 0)))))
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.const `EffectiveEncoding.ScannedGeneratedRun.scans [])
+          (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+        (Lean.Expr.bvar 0)))
+    true)
+  (Lean.BinderInfo.default)

@@ -1,0 +1,34 @@
+name EffectiveEncoding.nativeTripleScanProgram
+levels []
+type Lean.Expr.forallE
+  `x
+  (Lean.Expr.const `EffectiveEncoding.NativeTripleWords [])
+  (Lean.Expr.forallE
+    (Lean.Name.mkNum `a._@._internal._hyg 0)
+    (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.zero]) (Lean.Expr.const `EffectiveEncoding.NativeTripleWords []))
+    (Lean.Expr.const `EffectiveEncoding.NativeTripleScanResult [])
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  `x
+  (Lean.Expr.const `EffectiveEncoding.NativeTripleWords [])
+  (Lean.Expr.lam
+    (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».EffectiveEncoding.NativeTripleScan 3411642258) "_hygCtx") "_hyg") 7)
+    (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.zero]) (Lean.Expr.const `EffectiveEncoding.NativeTripleWords []))
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.const `List.brecOn [Lean.Level.succ (Lean.Level.zero), Lean.Level.zero])
+            (Lean.Expr.const `EffectiveEncoding.NativeTripleWords []))
+          (Lean.Expr.lam
+            (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».EffectiveEncoding.NativeTripleScan 3411642258) "_hygCtx") "_hyg") 7)
+            (Lean.Expr.app
+              (Lean.Expr.const `List [Lean.Level.zero])
+              (Lean.Expr.const `EffectiveEncoding.NativeTripleWords []))
+            (Lean.Expr.const `EffectiveEncoding.NativeTripleScanResult [])
+            (Lean.BinderInfo.default)))
+        (Lean.Expr.bvar 0))
+      (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.nativeTripleScanProgram._f []) (Lean.Expr.bvar 1)))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)

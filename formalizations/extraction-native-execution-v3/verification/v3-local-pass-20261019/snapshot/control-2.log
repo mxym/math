@@ -1,0 +1,19 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 31838 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ConcreteNativeExtraction.assembledRun_erase':
+(kernel) declaration type mismatch, 'ConcreteNativeExtraction.assembledRun_erase' has type
+  True
+but it is expected to have type
+  (net : ConcreteNativeExtraction.OfflineNet) →
+    (k p : Nat) →
+      @Eq
+        (EffectiveEncoding.FullyInputNativeResult 4 (CircuitCompletion.originalWireCount k)
+          (ConcreteNativeExtraction.OfflineNet.lengthBound net))
+        (EffectiveEncoding.FullyScannedInputResult.erase 4 (CircuitCompletion.originalWireCount k)
+          (ConcreteNativeExtraction.OfflineNet.lengthBound net)
+          (EffectiveEncoding.FullyAssembledInputResult.erase 4 (CircuitCompletion.originalWireCount k)
+            (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.assembledRun net k p)))
+        (ConcreteNativeExtraction.inputRun net k p)
+CORRUPTED_PROOF_REJECTED ConcreteNativeExtraction.assembledRun_erase
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED ConcreteNativeExtraction.assembledRun_erase

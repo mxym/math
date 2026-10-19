@@ -1,0 +1,20 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 6671 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'CircuitRecursion.assembledInputPairWord_program':
+(kernel) declaration type mismatch, 'CircuitRecursion.assembledInputPairWord_program' has type
+  True
+but it is expected to have type
+  {m n P : Nat} →
+    (cache : CircuitRecursion.NativeCacheEnvironment m P) →
+      (entry : Fin m → CircuitRecursion.InputPacketExpressionOracle m) →
+        (inverseLabel : Fin m → Fin m) →
+          (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+            (k : Nat) →
+              (f : CircuitRecursion.InputPacketExpressionOracle m) →
+                @Eq (CircuitRecursion.InputArithmeticWordResult m)
+                  (CircuitRecursion.AssembledInputWordResult.program m
+                    (CircuitRecursion.assembledInputPairWord m n P cache entry inverseLabel table k f))
+                  (CircuitRecursion.inputTracedPairWord m n P cache entry inverseLabel table k f)
+CORRUPTED_PROOF_REJECTED CircuitRecursion.assembledInputPairWord_program
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED CircuitRecursion.assembledInputPairWord_program

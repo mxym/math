@@ -1,0 +1,1175 @@
+name ConcreteNativeExtraction.concrete_assembled_compiler_exists
+levels []
+type Lean.Expr.app
+  (Lean.Expr.app
+    (Lean.Expr.const `Exists [Lean.Level.succ (Lean.Level.zero)])
+    (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet []))
+  (Lean.Expr.lam
+    `net
+    (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet [])
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.const `And [])
+        (Lean.Expr.forallE
+          `k
+          (Lean.Expr.const `Nat [])
+          (Lean.Expr.forallE
+            `p
+            (Lean.Expr.const `Nat [])
+            (Lean.Expr.forallE
+              `z
+              (Lean.Expr.forallE
+                (Lean.Name.mkNum `a._@._internal._hyg 0)
+                (Lean.Expr.app
+                  (Lean.Expr.const `Fin [])
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                      (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                    (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                (Lean.Expr.const `Complex [])
+                (Lean.BinderInfo.default))
+              (Lean.Expr.forallE
+                (Lean.Name.mkNum `a._@._internal._hyg 0)
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `SymmetricSupport.IsUnitVector [])
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                        (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                  (Lean.Expr.bvar 0))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Real []))
+                      (Lean.Expr.const `Real.instLE []))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `HSub.hSub [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                (Lean.Expr.const `Real []))
+                              (Lean.Expr.const `Real []))
+                            (Lean.Expr.const `Real []))
+                          (Lean.Expr.app
+                            (Lean.Expr.app (Lean.Expr.const `instHSub [Lean.Level.zero]) (Lean.Expr.const `Real []))
+                            (Lean.Expr.const `Real.instSub [])))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Real []))
+                            (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                          (Lean.Expr.app
+                            (Lean.Expr.app (Lean.Expr.const `One.toOfNat1 [Lean.Level.zero]) (Lean.Expr.const `Real []))
+                            (Lean.Expr.const `Real.instOne []))))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `HPow.hPow [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.const `Real []))
+                                (Lean.Expr.const `Nat []))
+                              (Lean.Expr.const `Real []))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `instHPow [Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.const `Real []))
+                                (Lean.Expr.const `Nat []))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `NPow.toPow [Lean.Level.zero])
+                                  (Lean.Expr.const `Real []))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Monoid.toNPow [Lean.Level.zero])
+                                    (Lean.Expr.const `Real []))
+                                  (Lean.Expr.const `Real.instMonoid [])))))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `HDiv.hDiv [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.const `Real []))
+                                    (Lean.Expr.const `Real []))
+                                  (Lean.Expr.const `Real []))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instHDiv [Lean.Level.zero])
+                                    (Lean.Expr.const `Real []))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `DivInvMonoid.toDiv [Lean.Level.zero])
+                                      (Lean.Expr.const `Real []))
+                                    (Lean.Expr.const `Real.instDivInvMonoid []))))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                    (Lean.Expr.const `Real []))
+                                  (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `One.toOfNat1 [Lean.Level.zero])
+                                    (Lean.Expr.const `Real []))
+                                  (Lean.Expr.const `Real.instOne []))))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                  (Lean.Expr.const `Real []))
+                                (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instOfNatAtLeastTwo [Lean.Level.zero])
+                                      (Lean.Expr.const `Real []))
+                                    (Lean.Expr.lit (Lean.Literal.natVal 2)))
+                                  (Lean.Expr.const `Real.instNatCast []))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Nat.instAtLeastTwoHAddOfNat [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                          (Lean.Expr.const `Nat []))
+                                        (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `instOfNatNat [])
+                                        (Lean.Expr.lit (Lean.Literal.natVal 1)))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Nat.instNeZeroSucc [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                          (Lean.Expr.const `Nat []))
+                                        (Lean.Expr.lit (Lean.Literal.natVal 0)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `instOfNatNat [])
+                                        (Lean.Expr.lit (Lean.Literal.natVal 0))))))))))
+                        (Lean.Expr.bvar 2))))
+                  (Lean.Expr.app
+                    (Lean.Expr.const `Complex.re [])
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Matrix.trace [Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Prod [Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitCompletion.Bits [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                      (Lean.Expr.bvar 3))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitCompletion.Bits [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                    (Lean.Expr.bvar 3)))))
+                            (Lean.Expr.const `Complex []))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `instFintypeProd [Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitCompletion.Bits [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                      (Lean.Expr.bvar 3))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitCompletion.Bits [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                    (Lean.Expr.bvar 3))))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Pi.instFintype [Lean.Level.zero, Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3))))
+                                      (Lean.Expr.lam
+                                        (Lean.Name.mkNum `a._@._internal._hyg 0)
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3)))
+                                        (Lean.Expr.const `Bool [])
+                                        (Lean.BinderInfo.default)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instDecidableEqFin [])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                        (Lean.Expr.bvar 3))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Fin.fintype [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                      (Lean.Expr.bvar 3))))
+                                (Lean.Expr.lam
+                                  `a
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Fin [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                      (Lean.Expr.bvar 3)))
+                                  (Lean.Expr.const `Bool.fintype [])
+                                  (Lean.BinderInfo.default))))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Pi.instFintype [Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Fin [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                          (Lean.Expr.bvar 3))))
+                                    (Lean.Expr.lam
+                                      (Lean.Name.mkNum `a._@._internal._hyg 0)
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Fin [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                          (Lean.Expr.bvar 3)))
+                                      (Lean.Expr.const `Bool [])
+                                      (Lean.BinderInfo.default)))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instDecidableEqFin [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                      (Lean.Expr.bvar 3))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Fin.fintype [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                    (Lean.Expr.bvar 3))))
+                              (Lean.Expr.lam
+                                `a
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Fin [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                    (Lean.Expr.bvar 3)))
+                                (Lean.Expr.const `Bool.fintype [])
+                                (Lean.BinderInfo.default)))))
+                        (Lean.Expr.const `Complex.instAddCommMonoid []))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `HMul.hMul [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `Prod [Lean.Level.zero, Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitCompletion.Bits [])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                (Lean.Expr.bvar 3))))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitCompletion.Bits [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                              (Lean.Expr.bvar 3)))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Prod [Lean.Level.zero, Lean.Level.zero])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitCompletion.Bits [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                              (Lean.Expr.bvar 3))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitCompletion.Bits [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3)))))
+                                    (Lean.Expr.const `Complex [])))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Prod [Lean.Level.zero, Lean.Level.zero])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitCompletion.Bits [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                              (Lean.Expr.bvar 3))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitCompletion.Bits [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3)))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Prod [Lean.Level.zero, Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitCompletion.Bits [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitCompletion.Bits [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                          (Lean.Expr.bvar 3)))))
+                                  (Lean.Expr.const `Complex [])))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Matrix [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Prod [Lean.Level.zero, Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitCompletion.Bits [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitCompletion.Bits [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                          (Lean.Expr.bvar 3)))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Prod [Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitCompletion.Bits [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                          (Lean.Expr.bvar 3))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitCompletion.Bits [])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                        (Lean.Expr.bvar 3)))))
+                                (Lean.Expr.const `Complex [])))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const
+                                            `Matrix.instHMulOfFintypeOfMulOfAddCommMonoid
+                                            [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `Prod [Lean.Level.zero, Lean.Level.zero])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitCompletion.Bits [])
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                  (Lean.Expr.bvar 3))))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitCompletion.Bits [])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                (Lean.Expr.bvar 3)))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `Prod [Lean.Level.zero, Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitCompletion.Bits [])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                (Lean.Expr.bvar 3))))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitCompletion.Bits [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                              (Lean.Expr.bvar 3)))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Prod [Lean.Level.zero, Lean.Level.zero])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitCompletion.Bits [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                              (Lean.Expr.bvar 3))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitCompletion.Bits [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3)))))
+                                    (Lean.Expr.const `Complex []))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `instFintypeProd [Lean.Level.zero, Lean.Level.zero])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitCompletion.Bits [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                              (Lean.Expr.bvar 3))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitCompletion.Bits [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `Pi.instFintype [Lean.Level.zero, Lean.Level.zero])
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `Fin [])
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                    (Lean.Expr.bvar 3))))
+                                              (Lean.Expr.lam
+                                                (Lean.Name.mkNum `a._@._internal._hyg 0)
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `Fin [])
+                                                  (Lean.Expr.app
+                                                    (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                    (Lean.Expr.bvar 3)))
+                                                (Lean.Expr.const `Bool [])
+                                                (Lean.BinderInfo.default)))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `instDecidableEqFin [])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                (Lean.Expr.bvar 3))))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `Fin.fintype [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                              (Lean.Expr.bvar 3))))
+                                        (Lean.Expr.lam
+                                          `a
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `Fin [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                              (Lean.Expr.bvar 3)))
+                                          (Lean.Expr.const `Bool.fintype [])
+                                          (Lean.BinderInfo.default))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `Pi.instFintype [Lean.Level.zero, Lean.Level.zero])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `Fin [])
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                  (Lean.Expr.bvar 3))))
+                                            (Lean.Expr.lam
+                                              (Lean.Name.mkNum `a._@._internal._hyg 0)
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `Fin [])
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                  (Lean.Expr.bvar 3)))
+                                              (Lean.Expr.const `Bool [])
+                                              (Lean.BinderInfo.default)))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `instDecidableEqFin [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                              (Lean.Expr.bvar 3))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin.fintype [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3))))
+                                      (Lean.Expr.lam
+                                        `a
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3)))
+                                        (Lean.Expr.const `Bool.fintype [])
+                                        (Lean.BinderInfo.default)))))
+                                (Lean.Expr.const `Complex.instMul []))
+                              (Lean.Expr.const `Complex.instAddCommMonoid [])))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Extraction.bellProjector [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitCompletion.Bits [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                    (Lean.Expr.bvar 3))))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Pi.instFintype [Lean.Level.zero, Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3))))
+                                      (Lean.Expr.lam
+                                        (Lean.Name.mkNum `a._@._internal._hyg 0)
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Fin [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                            (Lean.Expr.bvar 3)))
+                                        (Lean.Expr.const `Bool [])
+                                        (Lean.BinderInfo.default)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instDecidableEqFin [])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                        (Lean.Expr.bvar 3))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Fin.fintype [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                      (Lean.Expr.bvar 3))))
+                                (Lean.Expr.lam
+                                  `a
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Fin [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                      (Lean.Expr.bvar 3)))
+                                  (Lean.Expr.const `Bool.fintype [])
+                                  (Lean.BinderInfo.default))))
+                            (Lean.Expr.lam
+                              `a
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitCompletion.Bits [])
+                                (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.bellPairYield []) (Lean.Expr.bvar 3)))
+                              (Lean.Expr.lam
+                                `b
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitCompletion.Bits [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                    (Lean.Expr.bvar 4)))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const
+                                              `Fintype.decidablePiFintype
+                                              [Lean.Level.zero, Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `Fin [])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                (Lean.Expr.bvar 5))))
+                                          (Lean.Expr.lam
+                                            `a
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `Fin [])
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                                (Lean.Expr.bvar 5)))
+                                            (Lean.Expr.const `Bool [])
+                                            (Lean.BinderInfo.default)))
+                                        (Lean.Expr.lam
+                                          `a
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `Fin [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                              (Lean.Expr.bvar 5)))
+                                          (Lean.Expr.const `instDecidableEqBool [])
+                                          (Lean.BinderInfo.default)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Fin.fintype [])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitRecursion.bellPairYield [])
+                                          (Lean.Expr.bvar 5))))
+                                    (Lean.Expr.bvar 1))
+                                  (Lean.Expr.bvar 0))
+                                (Lean.BinderInfo.default))
+                              (Lean.BinderInfo.default))))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitRecursion.approximateExtractionOutput [])
+                              (Lean.Expr.bvar 3))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitCompletion.denote [])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                  (Lean.Expr.bvar 3)))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `EffectiveEncoding.labelCircuit [])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                            (Lean.Expr.const `Nat []))
+                                          (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `instOfNatNat [])
+                                          (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                      (Lean.Expr.bvar 3)))
+                                  (Lean.Expr.const `RationalGateInterface.rationalGate []))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `EffectiveEncoding.AssembledCompiledLabelRun.word [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                (Lean.Expr.const `Nat []))
+                                              (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `instOfNatNat [])
+                                              (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                          (Lean.Expr.bvar 3)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                                        (Lean.Expr.bvar 4)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult.precision [])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.app
+                                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                  (Lean.Expr.const `Nat []))
+                                                (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `instOfNatNat [])
+                                                (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                            (Lean.Expr.bvar 3)))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                                          (Lean.Expr.bvar 4)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `ConcreteNativeExtraction.assembledRun [])
+                                            (Lean.Expr.bvar 4))
+                                          (Lean.Expr.bvar 3))
+                                        (Lean.Expr.bvar 2))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult.compilation [])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.app
+                                              (Lean.Expr.app
+                                                (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                                (Lean.Expr.const `Nat []))
+                                              (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `instOfNatNat [])
+                                              (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                          (Lean.Expr.bvar 3)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                                        (Lean.Expr.bvar 4)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `ConcreteNativeExtraction.assembledRun [])
+                                          (Lean.Expr.bvar 4))
+                                        (Lean.Expr.bvar 3))
+                                      (Lean.Expr.bvar 2)))))))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitCompletion.pureMatrix [Lean.Level.zero])
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitCompletion.Bits [])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                  (Lean.Expr.bvar 3))))
+                            (Lean.Expr.app
+                              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.bitPurePower []) (Lean.Expr.bvar 3))
+                              (Lean.Expr.bvar 1))))))))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default))
+          (Lean.BinderInfo.default)))
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.const `And [])
+          (Lean.Expr.forallE
+            `k
+            (Lean.Expr.const `Nat [])
+            (Lean.Expr.forallE
+              `p
+              (Lean.Expr.const `Nat [])
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                    (Lean.Expr.const `instLENat []))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult.accountedPrimitiveActions [])
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                              (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                            (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                        (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+                      (Lean.Expr.app
+                        (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                        (Lean.Expr.bvar 2)))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `ConcreteNativeExtraction.assembledRun []) (Lean.Expr.bvar 2))
+                        (Lean.Expr.bvar 1))
+                      (Lean.Expr.bvar 0))))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `ConcreteNativeExtraction.assembledPrimitiveBound [])
+                      (Lean.Expr.bvar 2))
+                    (Lean.Expr.bvar 1))
+                  (Lean.Expr.bvar 0)))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default)))
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.const `And [])
+            (Lean.Expr.forallE
+              `k
+              (Lean.Expr.const `Nat [])
+              (Lean.Expr.forallE
+                `p
+                (Lean.Expr.const `Nat [])
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                      (Lean.Expr.const `instLENat []))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `List.length [Lean.Level.zero])
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `EffectiveEncoding.LabelGate [])
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `instOfNatNat [])
+                                (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                          (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1))))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `EffectiveEncoding.AssembledCompiledLabelRun.word [])
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                      (Lean.Expr.const `Nat []))
+                                    (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instOfNatNat [])
+                                    (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                (Lean.Expr.bvar 1)))
+                            (Lean.Expr.app
+                              (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                              (Lean.Expr.bvar 2)))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult.precision [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                        (Lean.Expr.const `Nat []))
+                                      (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instOfNatNat [])
+                                      (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                  (Lean.Expr.bvar 1)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                                (Lean.Expr.bvar 2)))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `ConcreteNativeExtraction.assembledRun [])
+                                  (Lean.Expr.bvar 2))
+                                (Lean.Expr.bvar 1))
+                              (Lean.Expr.bvar 0))))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult.compilation [])
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                      (Lean.Expr.const `Nat []))
+                                    (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instOfNatNat [])
+                                    (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                (Lean.Expr.bvar 1)))
+                            (Lean.Expr.app
+                              (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                              (Lean.Expr.bvar 2)))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `ConcreteNativeExtraction.assembledRun [])
+                                (Lean.Expr.bvar 2))
+                              (Lean.Expr.bvar 1))
+                            (Lean.Expr.bvar 0))))))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `HMul.hMul [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.const `Nat []))
+                            (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `instHMul [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `instMulNat [])))
+                      (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.actualGatePolynomial []) (Lean.Expr.bvar 1)))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `HMul.hMul [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                (Lean.Expr.const `Nat []))
+                              (Lean.Expr.const `Nat []))
+                            (Lean.Expr.const `Nat []))
+                          (Lean.Expr.app
+                            (Lean.Expr.app (Lean.Expr.const `instHMul [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                            (Lean.Expr.const `instMulNat [])))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `HMul.hMul [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.const `Nat []))
+                              (Lean.Expr.app
+                                (Lean.Expr.app (Lean.Expr.const `instHMul [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                                (Lean.Expr.const `instMulNat [])))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.lit (Lean.Literal.natVal 32)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `instOfNatNat [])
+                                (Lean.Expr.lit (Lean.Literal.natVal 32)))))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.const `Nat []))
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instHAdd [Lean.Level.zero])
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.const `instAddNat [])))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                                (Lean.Expr.bvar 2)))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `instOfNatNat [])
+                                (Lean.Expr.lit (Lean.Literal.natVal 1)))))))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `HPow.hPow [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.const `Nat []))
+                              (Lean.Expr.const `Nat []))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `instHPow [Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.const `Nat []))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `NPow.toPow [Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Monoid.toNPow [Lean.Level.zero])
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.const `Nat.instMonoid [])))))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.const `Nat []))
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `instHAdd [Lean.Level.zero])
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.const `instAddNat [])))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `EffectiveEncoding.logarithmicPrecision [])
+                                  (Lean.Expr.bvar 1))
+                                (Lean.Expr.bvar 0)))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.lit (Lean.Literal.natVal 1)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `instOfNatNat [])
+                                (Lean.Expr.lit (Lean.Literal.natVal 1))))))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                            (Lean.Expr.lit (Lean.Literal.natVal 5)))
+                          (Lean.Expr.app
+                            (Lean.Expr.const `instOfNatNat [])
+                            (Lean.Expr.lit (Lean.Literal.natVal 5))))))))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default)))
+          (Lean.Expr.forallE
+            `k
+            (Lean.Expr.const `Nat [])
+            (Lean.Expr.forallE
+              `p
+              (Lean.Expr.const `Nat [])
+              (Lean.Expr.forallE
+                `g
+                (Lean.Expr.app
+                  (Lean.Expr.const `CircuitCompletion.Gate [])
+                  (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 1)))
+                (Lean.Expr.forallE
+                  (Lean.Name.mkNum `a._@._internal._hyg 0)
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitCompletion.Gate [])
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                (Lean.Expr.bvar 2))))
+                          (Lean.Expr.app
+                            (Lean.Expr.const `CircuitCompletion.Circuit [])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                              (Lean.Expr.bvar 2))))
+                        (Lean.Expr.app
+                          (Lean.Expr.const `List.instMembership [Lean.Level.zero])
+                          (Lean.Expr.app
+                            (Lean.Expr.const `CircuitCompletion.Gate [])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                              (Lean.Expr.bvar 2)))))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `EffectiveEncoding.labelCircuit [])
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                    (Lean.Expr.const `Nat []))
+                                  (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `instOfNatNat [])
+                                  (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                              (Lean.Expr.bvar 2)))
+                          (Lean.Expr.const `RationalGateInterface.rationalGate []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `EffectiveEncoding.AssembledCompiledLabelRun.word [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                        (Lean.Expr.const `Nat []))
+                                      (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instOfNatNat [])
+                                      (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                  (Lean.Expr.bvar 2)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                                (Lean.Expr.bvar 3)))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult.precision [])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                          (Lean.Expr.const `Nat []))
+                                        (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `instOfNatNat [])
+                                        (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                    (Lean.Expr.bvar 2)))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                                  (Lean.Expr.bvar 3)))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `ConcreteNativeExtraction.assembledRun [])
+                                    (Lean.Expr.bvar 3))
+                                  (Lean.Expr.bvar 2))
+                                (Lean.Expr.bvar 1))))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult.compilation [])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                        (Lean.Expr.const `Nat []))
+                                      (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `instOfNatNat [])
+                                      (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `CircuitCompletion.originalWireCount [])
+                                  (Lean.Expr.bvar 2)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `ConcreteNativeExtraction.OfflineNet.lengthBound [])
+                                (Lean.Expr.bvar 3)))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `ConcreteNativeExtraction.assembledRun [])
+                                  (Lean.Expr.bvar 3))
+                                (Lean.Expr.bvar 2))
+                              (Lean.Expr.bvar 1))))))
+                    (Lean.Expr.bvar 0))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `CircuitRecursion.usesFiniteLibrary [])
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                              (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                            (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                        (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.originalWireCount []) (Lean.Expr.bvar 3)))
+                      (Lean.Expr.const `RationalGateInterface.rationalGate []))
+                    (Lean.Expr.bvar 1))
+                  (Lean.BinderInfo.default))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default)))))
+    (Lean.BinderInfo.default))

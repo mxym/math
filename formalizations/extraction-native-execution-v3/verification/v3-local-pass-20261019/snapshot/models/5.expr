@@ -1,0 +1,36 @@
+name RationalGateBinary.nativeEntryProgram
+levels []
+type Lean.Expr.forallE
+  `i
+  (Lean.Expr.app
+    (Lean.Expr.const `Fin [])
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+        (Lean.Expr.lit (Lean.Literal.natVal 4)))
+      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+  (Lean.Expr.forallE
+    `precision
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.const `CircuitRecursion.BinaryPacketInputResult [])
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  `i
+  (Lean.Expr.app
+    (Lean.Expr.const `Fin [])
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+        (Lean.Expr.lit (Lean.Literal.natVal 4)))
+      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+  (Lean.Expr.lam
+    `precision
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.app
+      (Lean.Expr.const `CircuitRecursion.binaryPacketInputProgram [])
+      (Lean.Expr.app
+        (Lean.Expr.app (Lean.Expr.const `RationalGateBinary.binaryEntry []) (Lean.Expr.bvar 1))
+        (Lean.Expr.bvar 0)))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)

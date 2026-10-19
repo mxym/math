@@ -1,0 +1,37 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 6756 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.retainedInputTargetRun_cache':
+(kernel) declaration type mismatch, 'EffectiveEncoding.retainedInputTargetRun_cache' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.NativePacketDataOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L q : Nat) →
+            (u : EffectiveEncoding.SingleCode) →
+              @Eq
+                (@List.Vector CircuitRecursion.WordIntegerPacket
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                    (CircuitRecursion.numericalDemand L
+                      (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) q 1)))
+                    1))
+                (CircuitRecursion.NativeCacheEnvironment.target m
+                  (CircuitRecursion.numericalDemand L
+                    (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) q 1)))
+                  (CircuitRecursion.InputCachedWordResult.cache m
+                    (CircuitRecursion.numericalDemand L
+                      (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) q 1)))
+                    (EffectiveEncoding.RetainedInputTargetResult.cached m L q
+                      (EffectiveEncoding.retainedInputTargetRun m n entry inverseLabel table L q u))))
+                (@List.Vector.map CircuitRecursion.PacketWordEvaluation CircuitRecursion.WordIntegerPacket
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                    (CircuitRecursion.numericalDemand L
+                      (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) q 1)))
+                    1)
+                  CircuitRecursion.PacketWordEvaluation.value
+                  (EffectiveEncoding.RetainedInputTargetResult.providerPrograms m L q
+                    (EffectiveEncoding.retainedInputTargetRun m n entry inverseLabel table L q u)))
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.retainedInputTargetRun_cache
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.retainedInputTargetRun_cache

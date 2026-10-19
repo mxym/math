@@ -1,0 +1,19 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 2132 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ConcreteNativeExtraction.queried_gate_height':
+(kernel) declaration type mismatch, 'ConcreteNativeExtraction.queried_gate_height' has type
+  True
+but it is expected to have type
+  (L q : Nat) →
+    (i : Fin 4) →
+      (r : Nat) →
+        @LE.le Nat instLENat r
+            (CircuitRecursion.numericalDemand L (Nat.clog 2 (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) q 1))) →
+          CircuitRecursion.IntegerPacketHeight
+            (CircuitRecursion.WordIntegerPacket.decode (RationalGateBinary.nativeEntry i r))
+            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (ConcreteNativeExtraction.gateHeightCoefficient L)
+              (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) q 1) 9))
+CORRUPTED_PROOF_REJECTED ConcreteNativeExtraction.queried_gate_height
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED ConcreteNativeExtraction.queried_gate_height

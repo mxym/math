@@ -1,0 +1,82 @@
+name CircuitRecursion.listReverseMapIntoProgram
+levels [`u_1, `u_2]
+type Lean.Expr.forallE
+  `α
+  (Lean.Expr.sort (Lean.Level.succ (Lean.Level.param `u_1)))
+  (Lean.Expr.forallE
+    `β
+    (Lean.Expr.sort (Lean.Level.succ (Lean.Level.param `u_2)))
+    (Lean.Expr.forallE
+      `f
+      (Lean.Expr.forallE
+        (Lean.Name.mkNum `a._@._internal._hyg 0)
+        (Lean.Expr.bvar 1)
+        (Lean.Expr.bvar 1)
+        (Lean.BinderInfo.default))
+      (Lean.Expr.forallE
+        (Lean.Name.mkNum `a._@._internal._hyg 0)
+        (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 2))
+        (Lean.Expr.forallE
+          (Lean.Name.mkNum `a._@._internal._hyg 0)
+          (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_2]) (Lean.Expr.bvar 2))
+          (Lean.Expr.app
+            (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.param `u_2])
+            (Lean.Expr.bvar 3))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)
+value Lean.Expr.lam
+  `α
+  (Lean.Expr.sort (Lean.Level.succ (Lean.Level.param `u_1)))
+  (Lean.Expr.lam
+    `β
+    (Lean.Expr.sort (Lean.Level.succ (Lean.Level.param `u_2)))
+    (Lean.Expr.lam
+      `f
+      (Lean.Expr.forallE
+        (Lean.Name.mkNum `a._@._internal._hyg 0)
+        (Lean.Expr.bvar 1)
+        (Lean.Expr.bvar 1)
+        (Lean.BinderInfo.default))
+      (Lean.Expr.lam
+        (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.ListAssemblyPrograms 1416666780) "_hygCtx") "_hyg") 15)
+        (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 2))
+        (Lean.Expr.lam
+          (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.ListAssemblyPrograms 1416666780) "_hygCtx") "_hyg") 16)
+          (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_2]) (Lean.Expr.bvar 2))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `List.brecOn [Lean.Level.succ (Lean.Level.param `u_2), Lean.Level.param `u_1])
+                    (Lean.Expr.bvar 4))
+                  (Lean.Expr.lam
+                    (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.ListAssemblyPrograms 1416666780) "_hygCtx") "_hyg") 15)
+                    (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 4))
+                    (Lean.Expr.forallE
+                      (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.ListAssemblyPrograms 1416666780) "_hygCtx") "_hyg") 16)
+                      (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_2]) (Lean.Expr.bvar 4))
+                      (Lean.Expr.app
+                        (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.param `u_2])
+                        (Lean.Expr.bvar 5))
+                      (Lean.BinderInfo.default))
+                    (Lean.BinderInfo.default)))
+                (Lean.Expr.bvar 1))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const
+                      `CircuitRecursion.listReverseMapIntoProgram._f
+                      [Lean.Level.param `u_1, Lean.Level.param `u_2])
+                    (Lean.Expr.bvar 4))
+                  (Lean.Expr.bvar 3))
+                (Lean.Expr.bvar 2)))
+            (Lean.Expr.bvar 0))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)

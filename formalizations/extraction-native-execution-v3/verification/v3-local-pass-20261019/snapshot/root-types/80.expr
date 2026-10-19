@@ -1,0 +1,27 @@
+name EffectiveEncoding.FullyAssembledInputResult.erase
+levels []
+type Lean.Expr.forallE
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `wires
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.forallE
+      `L
+      (Lean.Expr.const `Nat [])
+      (Lean.Expr.forallE
+        `r
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.FullyAssembledInputResult []) (Lean.Expr.bvar 2))
+            (Lean.Expr.bvar 1))
+          (Lean.Expr.bvar 0))
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.FullyScannedInputResult []) (Lean.Expr.bvar 3))
+            (Lean.Expr.bvar 2))
+          (Lean.Expr.bvar 1))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.implicit))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)

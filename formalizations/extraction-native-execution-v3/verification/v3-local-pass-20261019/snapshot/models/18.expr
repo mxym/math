@@ -1,0 +1,72 @@
+name CircuitRecursion.InputListAssemblyTrace
+levels []
+type Lean.Expr.sort (Lean.Level.succ (Lean.Level.zero))
+inductive [`CircuitRecursion.InputListAssemblyTrace]
+constructors [`CircuitRecursion.InputListAssemblyTrace.base,
+ `CircuitRecursion.InputListAssemblyTrace.stopped,
+ `CircuitRecursion.InputListAssemblyTrace.corrected]
+constructor name CircuitRecursion.InputListAssemblyTrace.base
+levels []
+type Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace []
+constructor name CircuitRecursion.InputListAssemblyTrace.stopped
+levels []
+type Lean.Expr.forallE
+  (Lean.Name.mkNum `a._@._internal._hyg 0)
+  (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace [])
+  (Lean.Expr.forallE
+    (Lean.Name.mkNum `a._@._internal._hyg 0)
+    (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+    (Lean.Expr.forallE
+      (Lean.Name.mkNum `a._@._internal._hyg 0)
+      (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+      (Lean.Expr.forallE
+        (Lean.Name.mkNum `a._@._internal._hyg 0)
+        (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+        (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace [])
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)
+constructor name CircuitRecursion.InputListAssemblyTrace.corrected
+levels []
+type Lean.Expr.forallE
+  (Lean.Name.mkNum `a._@._internal._hyg 0)
+  (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace [])
+  (Lean.Expr.forallE
+    (Lean.Name.mkNum `a._@._internal._hyg 0)
+    (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace [])
+    (Lean.Expr.forallE
+      (Lean.Name.mkNum `a._@._internal._hyg 0)
+      (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace [])
+      (Lean.Expr.forallE
+        (Lean.Name.mkNum `a._@._internal._hyg 0)
+        (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+        (Lean.Expr.forallE
+          (Lean.Name.mkNum `a._@._internal._hyg 0)
+          (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+          (Lean.Expr.forallE
+            (Lean.Name.mkNum `a._@._internal._hyg 0)
+            (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+            (Lean.Expr.forallE
+              (Lean.Name.mkNum `a._@._internal._hyg 0)
+              (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+              (Lean.Expr.forallE
+                (Lean.Name.mkNum `a._@._internal._hyg 0)
+                (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+                (Lean.Expr.forallE
+                  (Lean.Name.mkNum `a._@._internal._hyg 0)
+                  (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+                  (Lean.Expr.forallE
+                    (Lean.Name.mkNum `a._@._internal._hyg 0)
+                    (Lean.Expr.const `CircuitRecursion.ListAssemblyTrace [])
+                    (Lean.Expr.const `CircuitRecursion.InputListAssemblyTrace [])
+                    (Lean.BinderInfo.default))
+                  (Lean.BinderInfo.default))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)

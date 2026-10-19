@@ -1,0 +1,191 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 17724 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'RationalGateUniversality.rationalGate_dense':
+(kernel) declaration type mismatch, 'RationalGateUniversality.rationalGate_dense' has type
+  True
+but it is expected to have type
+  @Dense
+    (@Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+      @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+        (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+          (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+            (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+              (@Matrix.semiring (Fin 2) Complex
+                (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing)) (Fin.fintype 2)
+                (instDecidableEqFin 2)))))
+        (@SetLike.instMembership
+          (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+            (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+              (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Matrix.semiring (Fin 2) Complex
+                  (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing)) (Fin.fintype 2)
+                  (instDecidableEqFin 2)))))
+          (@Matrix (Fin 2) (Fin 2) Complex)
+          (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+            (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+              (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Matrix.semiring (Fin 2) Complex
+                  (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing)) (Fin.fintype 2)
+                  (instDecidableEqFin 2))))))
+        CircuitRecursion.SU2 x)
+    (@instTopologicalSpaceSubtype (@Matrix (Fin 2) (Fin 2) Complex)
+      (fun x =>
+        @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+          (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+            (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+              (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Matrix.semiring (Fin 2) Complex
+                  (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing)) (Fin.fintype 2)
+                  (instDecidableEqFin 2)))))
+          (@SetLike.instMembership
+            (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Matrix.semiring (Fin 2) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (Fin.fintype 2) (instDecidableEqFin 2)))))
+            (@Matrix (Fin 2) (Fin 2) Complex)
+            (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Matrix.semiring (Fin 2) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (Fin.fintype 2) (instDecidableEqFin 2))))))
+          CircuitRecursion.SU2 x)
+      (@instTopologicalSpaceMatrix (Fin 2) (Fin 2) Complex
+        (@UniformSpace.toTopologicalSpace Complex
+          (@PseudoMetricSpace.toUniformSpace Complex
+            (@SeminormedRing.toPseudoMetricSpace Complex
+              (@SeminormedCommRing.toSeminormedRing Complex
+                (@NormedCommRing.toSeminormedCommRing Complex
+                  (@CommCStarAlgebra.toNormedCommRing Complex instCommCStarAlgebraComplex))))))))
+    (@SetLike.coe
+      (@Subgroup
+        (@Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+          @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+            (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Matrix.semiring (Fin 2) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (Fin.fintype 2) (instDecidableEqFin 2)))))
+            (@SetLike.instMembership
+              (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2)))))
+              (@Matrix (Fin 2) (Fin 2) Complex)
+              (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2))))))
+            CircuitRecursion.SU2 x)
+        (@Matrix.instGroupSubtypeMemSubmonoidSpecialUnitaryGroup (Fin 2) (instDecidableEqFin 2) (Fin.fintype 2) Complex
+          Complex.commRing Complex.instStarRing))
+      (@Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+        @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+          (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+            (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+              (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Matrix.semiring (Fin 2) Complex
+                  (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing)) (Fin.fintype 2)
+                  (instDecidableEqFin 2)))))
+          (@SetLike.instMembership
+            (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Matrix.semiring (Fin 2) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (Fin.fintype 2) (instDecidableEqFin 2)))))
+            (@Matrix (Fin 2) (Fin 2) Complex)
+            (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Matrix.semiring (Fin 2) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (Fin.fintype 2) (instDecidableEqFin 2))))))
+          CircuitRecursion.SU2 x)
+      (@Subgroup.instSetLike
+        (@Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+          @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+            (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Matrix.semiring (Fin 2) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (Fin.fintype 2) (instDecidableEqFin 2)))))
+            (@SetLike.instMembership
+              (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2)))))
+              (@Matrix (Fin 2) (Fin 2) Complex)
+              (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2))))))
+            CircuitRecursion.SU2 x)
+        (@Matrix.instGroupSubtypeMemSubmonoidSpecialUnitaryGroup (Fin 2) (instDecidableEqFin 2) (Fin.fintype 2) Complex
+          Complex.commRing Complex.instStarRing))
+      (@Subgroup.closure
+        (@Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+          @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+            (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+              (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@Matrix.semiring (Fin 2) Complex
+                    (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                    (Fin.fintype 2) (instDecidableEqFin 2)))))
+            (@SetLike.instMembership
+              (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2)))))
+              (@Matrix (Fin 2) (Fin 2) Complex)
+              (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2))))))
+            CircuitRecursion.SU2 x)
+        (@Matrix.instGroupSubtypeMemSubmonoidSpecialUnitaryGroup (Fin 2) (instDecidableEqFin 2) (Fin.fintype 2) Complex
+          Complex.commRing Complex.instStarRing)
+        (@Set.range
+          (@Subtype (@Matrix (Fin 2) (Fin 2) Complex) fun x =>
+            @Membership.mem (@Matrix (Fin 2) (Fin 2) Complex)
+              (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@Matrix.semiring (Fin 2) Complex
+                      (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                      (Fin.fintype 2) (instDecidableEqFin 2)))))
+              (@SetLike.instMembership
+                (@Submonoid (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2)))))
+                (@Matrix (Fin 2) (Fin 2) Complex)
+                (@Submonoid.instSetLike (@Matrix (Fin 2) (Fin 2) Complex)
+                  (@MulZeroOneClass.toMulOneClass (@Matrix (Fin 2) (Fin 2) Complex)
+                    (@instMulZeroOneClassOfSemiring (@Matrix (Fin 2) (Fin 2) Complex)
+                      (@Matrix.semiring (Fin 2) Complex
+                        (@CommSemiring.toSemiring Complex (@CommRing.toCommSemiring Complex Complex.commRing))
+                        (Fin.fintype 2) (instDecidableEqFin 2))))))
+              CircuitRecursion.SU2 x)
+          (Fin 4) RationalGateInterface.rationalGate)))
+CORRUPTED_PROOF_REJECTED RationalGateUniversality.rationalGate_dense
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED RationalGateUniversality.rationalGate_dense

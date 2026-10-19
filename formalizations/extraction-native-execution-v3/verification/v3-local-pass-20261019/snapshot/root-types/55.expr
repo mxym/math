@@ -1,0 +1,49 @@
+name CircuitRecursion.assembledInputCorrection
+levels []
+type Lean.Expr.forallE
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `P
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.forallE
+      `cache
+      (Lean.Expr.app
+        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.NativeCacheEnvironment []) (Lean.Expr.bvar 1))
+        (Lean.Expr.bvar 0))
+      (Lean.Expr.forallE
+        `entry
+        (Lean.Expr.forallE
+          (Lean.Name.mkNum `a._@._internal._hyg 0)
+          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 2))
+          (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputPacketExpressionOracle []) (Lean.Expr.bvar 3))
+          (Lean.BinderInfo.default))
+        (Lean.Expr.forallE
+          `inverseLabel
+          (Lean.Expr.forallE
+            (Lean.Name.mkNum `a._@._internal._hyg 0)
+            (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))
+            (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4))
+            (Lean.BinderInfo.default))
+          (Lean.Expr.forallE
+            `approx
+            (Lean.Expr.forallE
+              (Lean.Name.mkNum `a._@._internal._hyg 0)
+              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputPacketExpressionOracle []) (Lean.Expr.bvar 4))
+              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 5))
+              (Lean.BinderInfo.default))
+            (Lean.Expr.forallE
+              `t
+              (Lean.Expr.const `Nat [])
+              (Lean.Expr.forallE
+                `f
+                (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputPacketExpressionOracle []) (Lean.Expr.bvar 6))
+                (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 7))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)

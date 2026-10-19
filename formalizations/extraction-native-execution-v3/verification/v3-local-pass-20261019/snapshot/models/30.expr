@@ -1,0 +1,132 @@
+name CircuitRecursion.nativeCacheInputRead
+levels []
+type Lean.Expr.forallE
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `P
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.forallE
+      `cache
+      (Lean.Expr.app
+        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.NativeCacheEnvironment []) (Lean.Expr.bvar 1))
+        (Lean.Expr.bvar 0))
+      (Lean.Expr.forallE
+        (Lean.Name.mkNum `a._@._internal._hyg 0)
+        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.NativeCacheLabel []) (Lean.Expr.bvar 2))
+        (Lean.Expr.forallE
+          (Lean.Name.mkNum `a._@._internal._hyg 0)
+          (Lean.Expr.const `Nat [])
+          (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.NativeCacheInputRead []) (Lean.Expr.bvar 4))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)
+value Lean.Expr.lam
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.lam
+    `P
+    (Lean.Expr.const `Nat [])
+    (Lean.Expr.lam
+      `cache
+      (Lean.Expr.app
+        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.NativeCacheEnvironment []) (Lean.Expr.bvar 1))
+        (Lean.Expr.bvar 0))
+      (Lean.Expr.lam
+        (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.InputCacheExpressions 1356984482) "_hygCtx") "_hyg") 20)
+        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.NativeCacheLabel []) (Lean.Expr.bvar 2))
+        (Lean.Expr.lam
+          (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.InputCacheExpressions 1356984482) "_hygCtx") "_hyg") 21)
+          (Lean.Expr.const `Nat [])
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const
+                        `CircuitRecursion.nativeCacheInputRead.match_1
+                        [Lean.Level.succ (Lean.Level.zero)])
+                      (Lean.Expr.bvar 4))
+                    (Lean.Expr.lam
+                      (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.InputCacheExpressions 1356984482) "_hygCtx") 20) "CircuitNumerical") "InputCacheExpressions") 1356984482) "_hygCtx") "_hyg") 40)
+                      (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.NativeCacheLabel []) (Lean.Expr.bvar 4))
+                      (Lean.Expr.lam
+                        (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.InputCacheExpressions 1356984482) "_hygCtx") 21) "CircuitNumerical") "InputCacheExpressions") 1356984482) "_hygCtx") "_hyg") 43)
+                        (Lean.Expr.const `Nat [])
+                        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.NativeCacheInputRead []) (Lean.Expr.bvar 6))
+                        (Lean.BinderInfo.default))
+                      (Lean.BinderInfo.default)))
+                  (Lean.Expr.bvar 1))
+                (Lean.Expr.bvar 0))
+              (Lean.Expr.lam
+                `q
+                (Lean.Expr.const `Nat [])
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `CircuitRecursion.NativeCacheInputRead.target [])
+                      (Lean.Expr.bvar 5))
+                    (Lean.Expr.bvar 0))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `CircuitRecursion.nativeLinearReadPacketCache [])
+                        (Lean.Expr.bvar 4))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `CircuitRecursion.NativeCacheEnvironment.target [])
+                            (Lean.Expr.bvar 5))
+                          (Lean.Expr.bvar 4))
+                        (Lean.Expr.bvar 3)))
+                    (Lean.Expr.bvar 0)))
+                (Lean.BinderInfo.default)))
+            (Lean.Expr.lam
+              `i
+              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4))
+              (Lean.Expr.lam
+                `q
+                (Lean.Expr.const `Nat [])
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `CircuitRecursion.NativeCacheInputRead.gate [])
+                        (Lean.Expr.bvar 6))
+                      (Lean.Expr.bvar 1))
+                    (Lean.Expr.bvar 0))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitRecursion.nativeLinearReadGatePacket [])
+                              (Lean.Expr.bvar 6))
+                            (Lean.Expr.bvar 5))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `CircuitRecursion.NativeCacheEnvironment.gates [])
+                                (Lean.Expr.bvar 6))
+                              (Lean.Expr.bvar 5))
+                            (Lean.Expr.bvar 4)))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `CircuitRecursion.NativeCacheEnvironment.target [])
+                              (Lean.Expr.bvar 6))
+                            (Lean.Expr.bvar 5))
+                          (Lean.Expr.bvar 4)))
+                      (Lean.Expr.bvar 1))
+                    (Lean.Expr.bvar 0)))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default)))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.implicit))
+  (Lean.BinderInfo.implicit)

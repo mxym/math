@@ -1,0 +1,53 @@
+name CircuitRecursion.signedBinaryNormalizeProgram
+levels []
+type Lean.Expr.forallE
+  `a
+  (Lean.Expr.const `CircuitRecursion.SignedBinaryWord [])
+  (Lean.Expr.const `CircuitRecursion.SignedBinaryNormalizationResult [])
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  `a
+  (Lean.Expr.const `CircuitRecursion.SignedBinaryWord [])
+  (Lean.Expr.letE
+    `trimmed
+    (Lean.Expr.const `CircuitRecursion.BinaryWordTrimResult [])
+    (Lean.Expr.app
+      (Lean.Expr.const `CircuitRecursion.binaryTrimProgram [])
+      (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.SignedBinaryWord.bits []) (Lean.Expr.bvar 0)))
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.const `CircuitRecursion.SignedBinaryNormalizationResult.mk [])
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.const `CircuitRecursion.SignedBinaryWord.mk [])
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const
+                      `CircuitRecursion.signedBinaryNormalizeProgram.match_1
+                      [Lean.Level.succ (Lean.Level.zero)])
+                    (Lean.Expr.lam
+                      (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.SignedBinaryWords 1601597413) "_hygCtx") "_hyg") 16)
+                      (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.zero]) (Lean.Expr.const `Bool []))
+                      (Lean.Expr.const `Bool [])
+                      (Lean.BinderInfo.default)))
+                  (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.BinaryWordTrimResult.bits []) (Lean.Expr.bvar 0)))
+                (Lean.Expr.lam
+                  `_
+                  (Lean.Expr.const `Unit [])
+                  (Lean.Expr.const `Bool.false [])
+                  (Lean.BinderInfo.default)))
+              (Lean.Expr.lam
+                (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `head.«_@».CircuitNumerical.SignedBinaryWords 1601597413) "_hygCtx") "_hyg") 32)
+                (Lean.Expr.const `Bool [])
+                (Lean.Expr.lam
+                  (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `tail.«_@».CircuitNumerical.SignedBinaryWords 1601597413) "_hygCtx") "_hyg") 33)
+                  (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.zero]) (Lean.Expr.const `Bool []))
+                  (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.SignedBinaryWord.negative []) (Lean.Expr.bvar 3))
+                  (Lean.BinderInfo.default))
+                (Lean.BinderInfo.default))))
+          (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.BinaryWordTrimResult.bits []) (Lean.Expr.bvar 0))))
+      (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.BinaryWordTrimResult.trace []) (Lean.Expr.bvar 0)))
+    true)
+  (Lean.BinderInfo.default)

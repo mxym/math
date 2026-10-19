@@ -1,0 +1,81 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 19646 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.fullyAssembledInputRun_accountedPrimitiveActions':
+(kernel) declaration type mismatch, 'EffectiveEncoding.fullyAssembledInputRun_accountedPrimitiveActions' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.NativePacketDataOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L k p gateB : Nat) →
+            ((j : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)) →
+                @LE.le Nat instLENat (@List.length (Fin m) (@table j)) L) →
+              ((i : Fin m) →
+                  (r : Nat) →
+                    @LE.le Nat instLENat r
+                        (CircuitRecursion.numericalDemand L
+                          (Nat.clog 2
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                              (EffectiveEncoding.extractionPrecision k p) 1))) →
+                      CircuitRecursion.IntegerPacketHeight (CircuitRecursion.WordIntegerPacket.decode (@entry i r))
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) gateB
+                          (@HPow.hPow Nat Nat Nat
+                            (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                              (EffectiveEncoding.extractionPrecision k p) 1)
+                            9))) →
+                @LE.le Nat instLENat
+                  (EffectiveEncoding.FullyAssembledInputResult.accountedPrimitiveActions m
+                    (CircuitCompletion.originalWireCount k) L
+                    (EffectiveEncoding.fullyAssembledInputRun m n entry inverseLabel table L k p))
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 1800 k)
+                        (@HPow.hPow Nat Nat Nat
+                          (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 3) 8))
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 306 k)
+                          (@HPow.hPow Nat Nat Nat
+                            (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 4) 9))
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (EffectiveEncoding.actualGatePolynomial k)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 200
+                                  (@HPow.hPow Nat Nat Nat
+                                    (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                                      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 4 k) 2)
+                                    2))
+                                (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                                  (EffectiveEncoding.nativeProviderCachePolynomialConstant L)
+                                  (@HPow.hPow Nat Nat Nat
+                                    (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 3) 15)))
+                              (EffectiveEncoding.actualInputOnlineCoefficient m n L k gateB)))
+                          (@HPow.hPow Nat Nat Nat
+                            (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                              (EffectiveEncoding.logarithmicPrecision k p) 1)
+                            338))))
+                    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (EffectiveEncoding.actualGatePolynomial k)
+                      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+                        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 8192
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                              (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 2
+                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1)))
+                            2))
+                        (@HPow.hPow Nat Nat Nat
+                          (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                            (EffectiveEncoding.logarithmicPrecision k p) 1)
+                          13))))
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.fullyAssembledInputRun_accountedPrimitiveActions
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.fullyAssembledInputRun_accountedPrimitiveActions

@@ -1,0 +1,47 @@
+name CircuitRecursion.assembleCorrectedInput
+levels []
+type Lean.Expr.forallE
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `inverseLabel
+    (Lean.Expr.forallE
+      (Lean.Name.mkNum `a._@._internal._hyg 0)
+      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 0))
+      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 1))
+      (Lean.BinderInfo.default))
+    (Lean.Expr.forallE
+      `u
+      (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 1))
+      (Lean.Expr.forallE
+        `a
+        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 2))
+        (Lean.Expr.forallE
+          `b
+          (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 3))
+          (Lean.Expr.forallE
+            `score
+            (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarExpression []) (Lean.Expr.bvar 4))
+            (Lean.Expr.forallE
+              `threshold
+              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarExpression []) (Lean.Expr.bvar 5))
+              (Lean.Expr.forallE
+                `scoreRun
+                (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation []) (Lean.Expr.bvar 6))
+                (Lean.Expr.forallE
+                  `thresholdRun
+                  (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation []) (Lean.Expr.bvar 7))
+                  (Lean.Expr.forallE
+                    `comparison
+                    (Lean.Expr.const `CircuitRecursion.WordScalarComparisonResult [])
+                    (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.AssembledInputWordResult []) (Lean.Expr.bvar 9))
+                    (Lean.BinderInfo.default))
+                  (Lean.BinderInfo.default))
+                (Lean.BinderInfo.default))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default))
+          (Lean.BinderInfo.default))
+        (Lean.BinderInfo.default))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)

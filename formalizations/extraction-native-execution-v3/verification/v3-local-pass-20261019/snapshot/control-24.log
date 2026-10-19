@@ -1,0 +1,18 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 17691 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.nativeBooleanRankProgram_booleanActions_polynomial':
+(kernel) declaration type mismatch, 'EffectiveEncoding.nativeBooleanRankProgram_booleanActions_polynomial' has type
+  True
+but it is expected to have type
+  (k : Nat) →
+    (t : EffectiveEncoding.Triple) →
+      (h : @LE.le Nat instLENat (EffectiveEncoding.total t) k) →
+        @LE.le Nat instLENat
+          (EffectiveEncoding.NativeBooleanRankResult.booleanActions k
+            (EffectiveEncoding.nativeBooleanRankProgram k t h))
+          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 300
+            (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) k 2) 5))
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.nativeBooleanRankProgram_booleanActions_polynomial
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.nativeBooleanRankProgram_booleanActions_polynomial
