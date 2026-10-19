@@ -1,0 +1,56 @@
+ACTUAL BOOL-LIST ZIPPER MOVE INTERFACE
+
+Source execution:
+ retainedPackedZipperMoveProgram plans x y decision hd
+  -> zipperPreparedMoveProgram on decision.wires/left.bits/right.bits,
+     initially empty reversed prefix and seen=false
+  -> simultaneous constructor matches read current target/current Boolean heads
+  -> equal heads: preserve current bit on prefix and recurse
+  -> first unequal pair: mark pivot seen, preserve that original current bit
+  -> later unequal pair: reconstruct the current full state once using
+     zipperPackedAssemblyProgram; emit preparedAdjacentSwapCode at that wire;
+     put the target bit on the prefix and recurse
+  -> completion: reconstruct the final packed state once
+
+Every actual branch is retained in ZipperMoveTrace. Every actual state assembly
+is retained in program.assemblies. No unused updated whole vector is rebuilt
+for its counter: the real state update is a Boolean cons onto the zipper prefix.
+The proof may define a logical updated vector to establish Function.update
+semantics; that expression is in an erased proof and is not part of runtime.
+
+The existing packed scan input is not replayed. The hd equality and length/
+wire-cursor arguments are erased proofs. Wire labels carry Fin data; no wire
+index comparison, Nat indexed input get, List.set or Function.update controls
+the actual zipper loop. The first-unequal-pair rule is formally proved to emit
+exactly the old preparedMoveCode(otherWires(differingWire x y)) word.
+SkipFirstMoveSpecification is explicitly proof-side only, not the executable
+zipper loop. The all-n emitted-word theorem uses the exact coordinate-update
+lemma and cursor invariant, not a supplied semantic callback certificate.
+
+Included local model:
+- actual Bool/list/record branch actions, stored in the executed loop trace
+- actual reverse/cons reconstruction of the already reversed prefix, using
+  listReverseMapIntoProgram; untouched suffix lists are shared
+- terminal reconstruction as well as every needed adjacent-state reconstruction
+At most one reconstruction occurs per visited move coordinate and one final
+reconstruction. The actual program actions are bounded internally by
+ (4*n+6)*(wireList.length+1), hence (4*n+6)*(n+1) for its actual packed input.
+
+Not included:
+- preparedAdjacentSwapCode's selected-phase/parity, indexed reads within that
+  lower call, or its general AST/list construction and gate-payload costs
+- production/bit cost of Fin wire labels, List.finRange, prior endpoint/scan
+  generation and input projection costs (the new interface reads their stored
+  results rather than claiming them as newly paid)
+- generic host recursion, dependent-wrapper allocation/sharing/GC and counter/
+  fee arithmetic beyond the explicit local trace model; complete machine control
+- any provider/oracle/offline-net cost, serialization/decoder cost or complete
+  compiler running-time claim
+
+There is no new full-terminal cost theorem in this scope. Integrating the
+actual zipper into a new swap/rotation/entry/generation/serialization runtime
+would require a future same-record wrapper, and was not started after the
+user requested verification, pushing and a progress summary. Existing complete
+terminal at 6efd/231 is immutable and continues to use its original forward
+preparedMoveCode; no equality of words is used to attribute the zipper's fee
+to that other execution.

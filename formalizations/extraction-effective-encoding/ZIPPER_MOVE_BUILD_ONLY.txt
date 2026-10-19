@@ -1,0 +1,50 @@
+AUTHOR STANDARD BUILD / KIND / TYPE / AXIOM CHECK PASS
+
+Five explicitly inventoried new mathematical modules:
+ ZipperPackedUpdate, SkipFirstMoveSpecification, ZipperMoveProgram,
+ ZipperMoveCorrectness, PackedZipperMove.
+All 16 theorem declarations and 13 model declarations are checked by the new
+ZipperMoveCheck. All declared kinds/types and all exact parsed axiom sets pass;
+only propext, Classical.choice, Quot.sound occur.
+
+One meaningful normal worker_build.py standard aggregate:
+ BUILD 0; 4135 jobs.
+Log:
+ /mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261019T004206040929Z-extraction-effective-encoding.log
+Report:
+ verification/zipper-move-root-check-20261019T004257927393Z/REPORT.json
+The driver initially missed the theorem name finRange_values_range' because
+its inherited axiom-name regex rejected apostrophes. Lean build/kind/type/axiom
+printing had already passed. Only this new script's parser was corrected and
+the same completed standard log was reprocessed with --existing-standard-log.
+No mathematical source changed and no duplicate build was run for that fix.
+The report explicitly records this existing-log postprocessing.
+
+Actual tiny zipper-loop output (also present in the standard build log):
+ (2,[true,true,true],15,[9,13],37)
+The first difference is kept as pivot, the later difference is moved. Only two
+actual whole-state assemblies run: before the emitted adjacent word and at
+completion. Their retained action values are 9 and 13. This is not a large-word
+evaluation and is not substituted for the all-n Lean word-correctness theorem.
+
+Mature API:
+ retainedPackedZipperMoveProgram plans x y decision hd
+ where hd : decision=packedGrayScanProgram x y.
+Its actual program reads that same retained decision's wire/left/right lists;
+it does not rerun the scan or input projections. Under x/y distinction, its
+word equals the old preparedMoveCode with exactly otherWires differingWire.
+Its own specified loop/assembly action sum is internally <=(4*n+6)*(n+1).
+No supplied final-cost certificate or provider/height assumption is used.
+
+Scope boundary: this new interface is NOT yet substituted into the sealed
+scannedGraySerializedRun complete terminal at 6efd/231. No new zipper cost is
+added to that older terminal's cost record. Their existing full decoded-stream
+fidelity/partial cost statements remain unchanged. The actual new interface's
+semantics, precise prerequisites and excluded costs are described separately
+in ZIPPER_MOVE_RUNTIME_BOUNDARY.txt.
+
+This is author standard evidence, not independent fresh/kernel verification.
+All prior sources/config/umbrella/ROOTS/inventories/reports remain unchanged;
+ZIPPER_MOVE_PRESERVATION.json explicitly rehashes the prior 13 mathematical
+files against their sealed combined inventory. Work is being sealed clean and
+stopped as requested; no subsequent path or full-terminal replacement is begun.
