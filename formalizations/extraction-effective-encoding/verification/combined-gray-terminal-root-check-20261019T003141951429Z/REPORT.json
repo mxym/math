@@ -1,0 +1,1081 @@
+{
+  "status": "AUTHOR_COMBINED_GRAY_TERMINAL_STANDARD_ROOT_CHECK_PASS_NOT_INDEPENDENT_REPLAY",
+  "source_head": "231a4e223367074637300c30e50cf2461edbb765",
+  "theorem_count": 96,
+  "model_count": 77,
+  "log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261019T003105397233Z-extraction-effective-encoding.log",
+  "log_sha256": "1ce7eb9ee5a1081bae99e4670055bdbefaf194b83f9bec8a6be9ac21c9caa14a",
+  "inputs": {
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AcceptedOccupationLetters.lean": "2b60e71d879804e4d56c3f4044b3e73a36a80c3b981250d1ad12274bd2adab65",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankCheck.lean": "563a766eb3a101f635d5c3df2d5bd3b4e296558bdcd0e35bf408af80ce1642d1",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankExtraction.lean": "746f2478f0d227866d9e2c364a8636e8947bb720bcfeb391411f079c44b1f092",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AccumulatedRankGeneration.lean": "cf55291148c567a6109dac07a6d04e9d22e2638aad83c13b9a09ded888694711",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ActualBooleanCheck.lean": "b5a905563ae6081277b8910132f3dd4d0afac4535d81fb975c2c2c629aeaf16a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ActualNativeBudgetCheck.lean": "62d4dd1afcb226c65ded0aeb7584f12396dbb5d3138a13f00a96d69557615639",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ActualNativeNumericalBudget.lean": "9fcd56ab13b42440267d3fda06232f9b793733488224169e3083b75c704497d9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ActualRawCostCheck.lean": "4a5f48153d3641f570a1d9ec24bbca21e819cf5e3c7636ec12859c5766012506",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ActualRawRootCharge.lean": "dab159eb045d04ba9c1c734070b391b7a1bd25991bd8f570b04025ba3936e7eb",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AngleEvaluation.lean": "1f184dba584c6349e3142ab9a87ca2a4272369364ef59745cec919e1d36045f0",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AssembledInputCheck.lean": "c4fa70af918b12cb49d437380ed3cdbb885017082f01ed70d356fd88ea1f6425",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AssembledInputEvaluation.lean": "e81b6cdb6f9bbfee055e0dd63309c68a3c2c5e82800c28a7c87a6a1a72383ad3",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/AssembledLabelCompilation.lean": "255bd772ba6ba6081672e3882da6421d791209482ac70db0ee9ba75336dd6b93",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateEvaluation.lean": "c5b79e498a6fb9dba0d26ed5e757e4934f4f24d651e4767fccebe7c70a1c4fb6",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidateProducts.lean": "31d9c4a7aef3fff1d38cb7272a3505b57c5c0a36d7b731d5e59a6cce5eea1178",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCandidatesCheck.lean": "ca7b499866db5482fadd694a60da7679d4cca44888f491ccac2b20b5c7762ff6",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryCountRange.lean": "c943187012763a8276787dc001944950123a7a1209b49ebc1df0c0193ed7d5c3",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryDescriptorGeneration.lean": "807e723943175f0fbf0bdfea223e0d28048ae5fcfdf0c312de7104a98186d5a7",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGeneratedRank.lean": "4e2f553bf00c0e5aefc840b25812061e4ca342ab2e9f45fc0b07ae10bd016623",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGenerationCheck.lean": "8c4b9928028e61b52641edc061744661ac6162535ccb466fc226b1bb130e76b5",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryGenerationEvaluation.lean": "7f2ff9906f16dc3ce42deea165cee35055615a9f868e8c07c6b38052d08090ce",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskCheck.lean": "078019cd07c2d02c520562e0bfea5a4bcb53782daf71753122f31dedc78eecb2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskEvaluation.lean": "cc43eb6d5067f0b8ceeee6159f79784317067ad0eba06af6dd08f5a126eada08",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryMaskPlanProgram.lean": "919d3db3767a9982b4b1424350ba9be1e475f3169ebbe5708cba230348fd9e94",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryNativeExtraction.lean": "9498cf4326db9229b8817ebdc9713ebfbec894ff47033473539a8a2be3f58d3e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankAlignmentPrograms.lean": "30a85817ed4d7ea797ea9f40b8a22c23a899a1956750ea102b72f2b49194c3b1",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankBranchPrograms.lean": "225ba77b46c50a300090e0bf2347bedcd741d9b433893e79c56f7a49b8cfddd4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankEndpointCheck.lean": "0ec9bc544bbc6ba246d7e46bde7fc2771991799fba540f463a081254c77f237a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankEndpointEvaluation.lean": "acc6725ca2fe75fbe1c8b1441d3446a4bbc25dd2e537796f5e8ebf3c16045f1f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryRankGenerationRecords.lean": "789bfa0c871af5745fab04887bb515d45e061199ddb343633ae0f46d7ff74e80",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryStreamCheck.lean": "42b500c272d9cc328d88eb850d455e4dfdc06c8a74fb887af5685e781024c257",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryStreamEvaluation.lean": "6ed0e15572b82557cd324292ab5bece78b38cd4bc53c850bdbb7bd4945ded084",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplePredicate.lean": "ded7ec5f92cac8a84acfe99618f0346767f7e3d820272051b0bbfcddb9d13251",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BinaryTriplesEnumeration.lean": "1413509d24b5e48d75ef393d12f7d12cef7dd0391b6baaa50cf32dfacb9d9b28",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanDescriptorBudgets.lean": "242b753be97761e412ec3463d367831fd9e6e1a127b64d93c07ae4ad759a2e25",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanGrayScan.lean": "9ac7c4032f62add293d3978bedd00263b8c7aa25f1cf496b33bf7cfb55627275",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanLabelCompilation.lean": "68a69560692726fcb12f76ac396aef599a33383fa17b73ae016e3a12c340fd98",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean": "8ac22295a1f4fa25237f1503d295d39054cf9f88dd5e177177b00837c54d35be",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean": "7320f2a92e5dfdb33695598b2fe3a15ebeb2880bfbf0e727de5bbe62496f6df3",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean": "7b7539cbe567f5b2c70a7cd94d554372999e7d4b2cae51f77daaf028826adbac",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPlanCheck.lean": "d8d09766a3e8226af50e729e6853d956c941c35cc57700d01f5b938cb0a0b1bc",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPlanEvaluation.lean": "8900208e9286096686f68383ffc106819d7e90f755a2e223bdc6945d8b357ce6",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanRankDescriptor.lean": "9340e4ebf61d644b62857a81a48abe440e81c80dcfb05c6febefda86975fc831",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanRankEndpoints.lean": "2a92fb4664e29ffd80562a4a8b049f1da8f95bf6fe43c210e101f6c55a9c9896",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanRankGenerationPrograms.lean": "89ffe4ac85e43a2bf5f3c84048ba950a5720f455f052462455b34464e5b32b93",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanRawDescriptor.lean": "0c40faa61b4ac621a2e32c665d4c2f8ccf184d872cb3bcac89dbf83e8d1236ac",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorCheck.lean": "68b9d4d116387db7e7a7790477ff17cd8e31f980d73c08024e832a8af02134b1",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateDescriptorGeneration.lean": "af6d47546348f0548a1e69fe48b652eb2eef1b14c15df7474852da67b240e829",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateMaskAggregateCheck.lean": "f79ebb07f498cf4435266f59340466dce35a583e7d88b817832c73371fecbf6f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateNativeTable.lean": "06c70e14f773e68b6d71e044598f5bbfc7d032d0017b32693e49ff2ae6d56a3d",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateRankEndpoints.lean": "9107c1ff79235bd6103ebe2ee2bc8e68d1472cf505dffe68546630b76dce7112",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedCosts.lean": "1072ea9e89a2baa6e5a9d5117e9894804cc9bd82cbcf68bb20e4eeaeea8ae6ae",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedPolynomial.lean": "cb10708a6d381c615f3d96ef2a9ba698099acefe7a85ec86ba31e59ceecc4c2e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateSerializedRun.lean": "ad14c71e4517c7f7156071cb65a17d21edec5277012053c86b1b83f56f24e38a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateTerminalCheck.lean": "1ea457bc8384ab1d67ae868ab4a0cd4d859e7be209a0098134978514ec778723",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateTerminalEvaluation.lean": "806a43984b8fc2f761e3b63f9f30ffd48fe5d0eb07acb8b26f95ba9ea3f46a0f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CandidateWordPrograms.lean": "3c3e1a9bcea73a26d5cf52ecf0efd151720edb8738a28c4bf13c9a5946eae6fe",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CarriedOccupationRank.lean": "e02bb863a7c84a37ec9863d47a27bd8527ccb0553618cb6e10216f8fb27f0709",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CarriedRankCheck.lean": "6ff900c291208f1674191703aeab06a47a132bee5a1f93a6d975860751cf76b4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CarriedRankEndpoints.lean": "7098f6d94384e24bfcfdc05595dc7da6f107708a4ddb8dbc45385aab82e643d2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CarriedRankExtraction.lean": "da5251103a000f25c0caccdac90129ca2d439f79ff81054ceaec0375a6caa39e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CarriedRankGeneration.lean": "0a02656cf0fd609959bdae59c4119164de44c005997944d379b2d7a45db5b144",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ChargedProviderCheck.lean": "c2a6179fa50a08ebe2324d6b33244444276227a11e59825dbed09f811bec1873",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ChargedProviderCompiler.lean": "2dc3b0ae1d9eedda7c8e646546639b3a76e2c8efc8b88c30e8a3f09523f4f947",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Check.lean": "abeb944ff4bf1d6eb9f8f642790e99226d9122fd954a0f5d9e06b3e08fe57a0f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CombinedGrayTerminalCheck.lean": "37023dbc55cc041dfa83f14cb381571a234cfc47c1b3527379046ecb9d68eedf",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Compression.lean": "b48e277618ba89602a6473c6eef51d9a9d8651fafc1aa6c647a7addf4a03d145",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ConstructiveRankCheck.lean": "5afe9f3f8330aa8e6819bb58f7fa80cb186913bf29997bfb5011e8f2a0eadf4e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ConstructiveRankExtraction.lean": "ddd23c85b9c41bec1b381f40a098d4ec5ab3781f546b974d0b53f2d8fe493c6c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ConstructiveTriples.lean": "9db6ce48a079ceb431c94c5cd80af8f95177ad866bba5b4fa174e3f9bd17035d",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CostedRawCheck.lean": "63f00acfe5d777e3b2a0e8a01cc33f01b5a915016348e76747eb388c05b8f822",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CostedRawCompiler.lean": "0e826b4dcce5cb1b60915c922fb7d2a88eb14875cfd5f0812df2a90fddeb94dc",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedDescriptorFields.lean": "a7e3802edfc7ed922769c6f9ef7f4365300c8faf797bc5b9cc9c29cd0609d262",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedEnumeration.lean": "e63dee2e23e73c6d988723ec460012a33832d75bb3389ac2f74b0416741c2c8e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedEnumerationCheck.lean": "3bd13d1d54bfffc9a2a6545c3680215006e21d8dc833b2c4fa3bbc4c5dd897b2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/CountedFieldsCheck.lean": "407d3dea363cd03290c763bbdea7db7e6882fa84df9822fb0af32ed7d6c66989",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DescriptorBounds.lean": "365ac42f2eaa5adb6cbeb0dfd6c261d39de1584fc17a583baccb44dbef6fa598",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DescriptorSerialization.lean": "ae09674bcfdcf5e0699490bab1af1b41a37e50cd8e3c42a3fbfa82bdb0c7ed17",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DirectPackedCheck.lean": "7392c9da768f5a13fbceec3450c8b951d4a51ef77df66aa9cc827c8b79f7c2b6",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/DirectPackedExtraction.lean": "b54954c4826b2b26c352d792498bf6b1a13f98ae20499cc7780d578d3e333cda",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Elementary.lean": "9848a546e6a0e78a5bfde1980c3ff65b1dd82376d08fd6e3bb8470668db9fd64",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/EncodedRankEndpoints.lean": "d0abcdd5b152edb83a4f428132f2b1daa565840f380d5fcd6fa7f8c1a8e77a36",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Enumeration.lean": "0f2aa117988d43c8b7c509837aa7c7a20b3e0ccb7824058c2f722d1854f14f3a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Extraction.lean": "71f110f423531277842001e25a4972908b3596aacbe6f1957dea1f001a3a8941",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitCodec.lean": "bda3062590f807a52858de62bbd0dc91aed11593c944314d68e41fe1186e27e1",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabelBitStream.lean": "9b7ae57f080eb841e2049e3526984531d2d387de268b5ede8b573fe9463764b2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FiniteLabels.lean": "079e5421531edf6c2a7c0657ee7fee6343be0e703d8257643e88ce41be398601",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthBinaryFields.lean": "c8eb5bf78b2b9458068c02cd1d2045e3ddb3c2c0e44f6a4bf25cca8d4e98a789",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FixedWidthEndpointBits.lean": "9dc6169254efbfe43392b35a1b9b8b617dceaa2ea27b21ac752ae78e3f183118",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyAssembledInputExtraction.lean": "26fd8e376fe1a4ebf9a6b57a79d214eb34fbea0458c6bd51b0404ec1eb14d0f5",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyInputNativeExtraction.lean": "07d634e2530b4c678f79f5126fbcde0baa0168c363f2d47de70d607791d91714",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyMaterializedInputExtraction.lean": "95ec21aa8b82de518ebaeccbbdd79cb1d5579794bdb4a8ddec58e69e103e026d",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyNativeExtraction.lean": "610267ad4e7d4002eb91ffa0181d06e9b6db697eccd6bb57b056a153fc375379",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyRetainedNativeExtraction.lean": "be6874a9e31b96c01405c550d30263e31010dc61ef8f9908fc500df9db9e2f9e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/FullyScannedInputExtraction.lean": "b9c75dae81294f32c125d5e74460035418de1976512910b0757f47d092a52d35",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/GenerationBooleanAggregate.lean": "907956ee5ce6ce4c044d73ee4057f1ccfb318b3443fbf6ab011c5308b52cbbe5",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/GrayCompiler.lean": "f8739bf08d31e3bcbf5e19fdac0ec3569f7951c5afcf5ba7bf6c6895ae40409c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/InputLabelCompilation.lean": "be185a80d35f746eb510eca3b1ee4f5c4f362432fc9c9c71e27c22121c2a0789",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/InputNativeCheck.lean": "2219f32e74def2389f4fdda5dfd8b71f5e9e821834ca0561566aeaa79648f9e2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/InputNativeEvaluation.lean": "bc17df2b360a7c81077db363a94338efa19adc8bd5a6cd94e69f582cdf4e93e2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LetterSelectedGeneration.lean": "ea1647a0d4ccf2805137bb58c2dd2ad9d8b9b52641bca1131830a8b2ddb286ea",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LetterSelectedSerializedRun.lean": "ab318ab54501e387c693c54aa30fee729df70c5a7c0f9bb4adc9b4e12d025972",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ListOccupationBranch.lean": "b0bf33999a6a7fa3820345b09c2737e88d101a6491903f1a87f9d067128ff790",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean": "ef27f03d357e9821693b6da0979eef7525cadd1441a224c3a8ecefd513222aed",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LiteralOccupationCheck.lean": "368506ede1bf5ab2f06508a31011b8140ec295a2ced140ae69d3c6053eec30f3",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LiteralOccupationExtraction.lean": "f619d94c951efe240a8bc386a4dcd1661b6e14bb661b113ff0aea06d0440865d",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LiteralOccupations.lean": "59150ebf671a005b2fde55843ec4e4b5752c3c4782aa1c67cbb27b394f56df95",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/LogarithmicPrecision.lean": "acd6d4b9d6bbb3d9c163452fe58e4c85164f934b9c26181397b2eda8acee93cd",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedCandidateGeneration.lean": "090fa4cfd5c3bb32f066bc93f554821a74e99acfbead88b627e9e22ffecd8c32",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/MaskedSerializedRun.lean": "e3aa49ec4a66c5139cbb34a1d23b5cbf596e4bbf9492955352b8ccc93a1d5f2b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/MaterializedInputCheck.lean": "63ccc97a0dd7e285d99b5a5596eaa075c48402525841a7ba5d1a1d1180ffa9aa",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/MaterializedInputEvaluation.lean": "357bdee26ff3169915eeedfa05ea9f4f88e7ea7dc080b31feda5586fdf10d7f8",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/MaterializedLabels.lean": "098d3120a7d85b0511eca42766cee51f334242f3870a516818a1a832335a16fa",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeBinaryRankEndpoints.lean": "0e30d2afcfbe2960fc4e05e4e8026dc3c1e1dde73b6f332c025981b864bea2d9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeBooleanExtraction.lean": "ab3ef995f137bc1dbb64cff266c7d49fd73f5a510bd3394a4cbbd6c2d212079b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeBooleanRankCheck.lean": "32baa1ef1fabacd248b445178f242aec117e06b1707b18d13d8c92b31e02e9f2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeBooleanRankEvaluation.lean": "ae3f422d93d8a272b80834ffa9bdc25e3ef6b726c3fa5a89574a76f861f49810",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeBooleanRankProgram.lean": "1c8ba3f23a583b2529c1e71a4f7e19cfb7a0fde155d36ed0980bb75510c616de",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeInputCheck.lean": "9beb646545b876bfc577c76f5c71aae623b71205fca67a92b2dc68b9a4346eb1",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeInputEvaluation.lean": "98fc265e983287974ae6c1f8086d6b2831779883588f07a22d2d8d3a3a9165ff",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeLabelCompilation.lean": "ecc0800e840b1b73b6cbed3b6488e3fb690d3717245c804baa009e2e7acb3c16",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeMergeInputs.lean": "8abbb65cd23278a79408b5d2b80f15d41d7bb30630fa4632a089ecdef0ebeb9a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeOccupationSelection.lean": "7b69bc68be3094e5d3326f7b80610422a3eff1bfde346c1afdc5c121fa82b205",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderBooleanBudgets.lean": "ea4073cbd30de51b19d28123cc37315de280d1224763b1fe74e9c6d751401d13",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeProviderRefinement.lean": "3036033d0d075edc13a78c23bcff2be4d9e155e66eeb603b0752916c10cf01d0",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankCheck.lean": "e1b8a0f1a4dffbf7cb1d16f35efe9064f50e75bb9898b88b672812575900348b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankEndpoints.lean": "06776b93b498a5810c16f248f2dc4857be4e7686004da4ca8adba13ab68dcfc5",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankExtraction.lean": "30ed38fd62f8666235cb5607252aabec754018f473c31dc7d38a2538b58cd4fb",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeRankGeneration.lean": "8c376fd6bf1446c7df7a4fbec379a3579e57e874ab514682e23d008642dd9d4b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeSelectionEvaluation.lean": "f2730bf59f240963616acde4be14b8b3fd02d955c99052301a9700a13fd3642b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeTargetAngles.lean": "008da4a4ce647c38c21d02099215ca41377e1590065a01510e3a2b15684bc786",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeTargetCached.lean": "73c6e285d45ba7681d72597d293888e0f7fdd05435587f3dc8b69d22dfc88d51",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeTargetCheck.lean": "d1bf82d6ad94b19da0db9046a136c5963e83144c94996aabe308718ef5f80f1e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeTargetEvaluation.lean": "ced8e9fbae74ad12054862dcab1fd7d9735aaf4fc32df4bb850e81e82d40d89d",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeTargetPackets.lean": "bc3dc5c90d400fb128d6617ee67fdf36aae3d70f1ac2030cdc31af8395172fb9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeTripleScan.lean": "49acff72e7c9d9c2e81a67ec87c7fe5a8da5d562a87065e72d99f6e16156a8fd",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NativeTripleWords.lean": "020b4fdc1522d6c8089078a3f2c9218090922244e818cb2ddaff9b0b21eb702f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Normalized.lean": "1c4f5d1e103dec09afd5a7ddde32c34d626ae61d18e4c5adf06c00315cc412f8",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/NumericalTerminal.lean": "0cebf45fe3fa9c27c24f9110a150d610dcefc75150b0ac591bba021036fdc58c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Occupation.lean": "945e8e8933815ccb437054c5586a5b34c0ef6a44a63dba161896111d6d8384b3",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/OccupationLettersCheck.lean": "4677ea74816c950242abb7f07c4f353aad12434289260be579bda02ed18f4d37",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/OccupationLettersEvaluation.lean": "4acf88206fce59c77823e5da6ae27db78668719b1d3da9ea60312bd813814783",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointCheck.lean": "40c1707f7af03ce56f0b8ca8be3a03388dceddd6c8140a286a9e7190e468ca3f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedEndpointExtraction.lean": "6435ea22845e98c5c280d99766ddae455ab1add1f3c73228f649c2dd603da0d9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedGrayDecision.lean": "de450729ea14c0fcd6449fa7cce5cfef20402545ded8652e70f90c09637f89bf",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedIndexedBranch.lean": "ee9a84a54e6387299aa883eb6cf26ef58e766558814826c57560fcc35b590958",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PackedSwapAlignment.lean": "46ec6b2d37312df98f921091980c91cce4702d5c5576f042fcf415426d1af2d1",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PlannedCandidateGeneration.lean": "bcc0cbc72963854396594f766731c31f752b8fbe2f86aa3d900ba6dec60abcd7",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PlannedSerializedRun.lean": "3bc4497b8099c815ea8ee78c3a3f74b7c5c30a804334d8afbfe719f40082b6f4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PlannedTerminalCheck.lean": "7da6f19c74dec54a522105704e02bfb57a7dd6abe2ddf89f6ff86a66be5f7a81",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedGrayCompiler.lean": "8c47afe9af4eff7809f1d4493c0899bf6df57ad66c04e0f06157f0ab093abbcc",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeCheck.lean": "155155abaf533b6042cd77d1aecfb58cc090f8e6faf946cfd6a109882ca10dfc",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeExtraction.lean": "004115682873fc5d3a22430f82ea3fce59376ab93e513a991eebab47103bd222",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeGeneration.lean": "4c3b0d20478d3bf9fee66643c984f3fba59d5dfa8b5ba3ee339ca02c79745671",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedNativeInputs.lean": "7d44ee6199de29382b93bdaa22665fef144c4456f2b022e1f47d7fa2ddfe1fa4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliContext.lean": "38b8c00f1c42bd23971d3881915bd1359f3bdb5ee36e37760b893191a7e288b2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedPauliEvaluation.lean": "5ae8d9c7e84e471a477f688eef294773c5b12a3baf43ecc77ff3505ba19a0ccf",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PreparedRankedPrograms.lean": "a72c79eabc423a648c2926ecbe06f8a22c277f4b79f1829a42ab2a59099350ac",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderCheck.lean": "e362eecb8c7d9a002ae20a7acd2d65827544f37826998b9611ceb3f2ea15c5e4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderExpressions.lean": "cf9263ddd0f39ebfdfbd5eb72238ab11ba95da273213e1a90e38bd2fa323bac0",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderIntermediateHeights.lean": "04d3419565d9903eebec5e09758c876a56a0d5984b9ec50d2262bcfd6b724052",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderPrecision.lean": "7682ec4292197cbebe92a4ce2d3de4cb4c8502199e37b8797b7aee5a3d577ade",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTerminal.lean": "46dd837718fbc93ed13db7ed1a7e66d1222dc1db75eeeef6b994f8973bd911a9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTrace.lean": "b0e9aed7868c26a1bfd60d92bd10199d8915133508c046f0e59c105ac5645039",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTraceCheck.lean": "60dde81b190c01b4ec568ec006244624cd9ebbe6cd2f191065daf2ad239d4a8a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ProviderTraceCore.lean": "dddef8324221ee9f2a31319127e60508d2557d687256747b38417b97516d0cdd",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerBudgets.lean": "bd40ba4433b41c65ab4badb813753d22c9abbb3a3af30268502ddddc4dc97b3c",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCache.lean": "ed720004584e66ac8344d37e6f9499630fa604daec4b3c9fb0c9ed5154c892ef",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCheck.lean": "bfe4a6d54e64cc2520b555b2ed22260d7da0ccf69dc60f68f4ea087d2984744e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerCompiler.lean": "d6de0df95dc7a4cd08549e419d16724f124fdd751103276b64399b63f54040cb",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/PureIntegerProvider.lean": "3ac83d5b71c77f291e0a38769b9854a08e97a1cd72150accc2abe4b4abfa3a83",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RankByTriples.lean": "4659a72c558aae8038d8538cf22c8abf33dbe1ffec726a88b50c821d41e5dbfa",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedAlignmentWork.lean": "c4e042e77c8bbb9bd55ec350df9a0df6d7465b07795453b1eace4b5556b765f6",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RankedBranchWork.lean": "b4aa4cc5d8161fe16e04be97cbe1a199122e8e89dc910bdb09fa681f03c79fc9",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawCompiler.lean": "d464dda9f998404f9a3286fdce7f843545f7669cf3bb52d4af443708fccd9f58",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawProviderBudgets.lean": "fcc1d6c4af4d924b910e632f9db3ba3d69dec8c0fcaeb18b0e663f7352869a79",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawProviderCacheBounds.lean": "d7fb41adab33db65b9b405c6ebfbbb316bca1723cb062f1518b15784df5a844d",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RawProviderExpressions.lean": "283eaf7993709fdb5ae40f6127e7f65a26c7c1b36b3c93ca25030b842fb32c02",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/Representatives.lean": "fe7c52779c261148b16a877c51fffd6363a882f9c12e0d6e54dc81b0717dd464",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RequestedPackedAlignment.lean": "1c6d95780414bc54f4d35bff2718ee830ffab6d8ace915e698cbbfe5f6d0e444",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedAssembledTarget.lean": "8ceab1529e6a768b26503764b276d768061f06731b5a721c484949958fb966fe",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedInputTarget.lean": "5ec21548a3f47fe2dafb9de28358120a24a0c4dc1aa09b687794966ef58972c6",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProvider.lean": "1df9a40da409f9864b2fe3514c85f7b17cbe162705acc1f8f034afb85d5d8011",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProviderCheck.lean": "5223a5f3152f5ee7b0de8f7bca13aa0d24365cb4721b58a20e6f7250a93f8668",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedNativeProviderEvaluation.lean": "c823841984f0e18e4a4e6532741b4ff93b18b59edfa1d1ebc5b155e6b931edde",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedOccupationFilter.lean": "21dfc6813938cf9ecbc1e11cc3af7d3d69110fccee85e9b81133fab45e4a3e91",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/RetainedProviderLabels.lean": "fb4ed66c25eee4c4fd0f66416c95469c8ffdae1bff2513857ce7965b7aec998d",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ScannedEntryCompilation.lean": "b78a62b5b611696a8e5b65361d5e3f574605c0c947668c57e262f95d14ae92f6",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ScannedGrayCheck.lean": "2c4933d10bf67e170119a914f8e0af10ab92bc37a845e46bb0c630a45cef075a",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ScannedGrayEvaluation.lean": "a0e812336a6f644c55a5d87f865d3b51a00d09c720fb33ae978b9f6f5f16e397",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ScannedGrayGeneration.lean": "48138158730c596001a9dbaa77c6de135cd9603031b6eaee6f18355bd749b918",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ScannedGraySerializedRun.lean": "60794173848ff5624aa616f839c20b91d3a1f90cb3f9ff11dcf3fedf721c8dd8",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ScannedInputCheck.lean": "8eaf3a3638256873d54c65f6be56b260ebfcae6fa0dbca16c97bc9e8c0786935",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ScannedInputEvaluation.lean": "dcc6b467c513c4afd0f8fa141e54df50d4707aae0869323196e26ee7d8396400",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ScannedOccupationCompilation.lean": "fe0b28a928ae96eec1cf1bb78f2c6edf5332586985f5ad04f848d085ad2b9232",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/ScannedPreparedGray.lean": "059d40b82d61b9c959b6744bc1c213877ed68768c258ee939834ecddded2e9c2",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedCoefficientBounds.lean": "2fdb871f4d400e956c05c9f0aca2b4d58e2c65e680d6e5272ee631cb077bd615",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedInputExtraction.lean": "4871e940503e6f9ee7854f30515705b5f508d459f2ba1bed8de01214967f37a1",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedPolynomialBudget.lean": "cf0be64d3712999d744b4d932b917dd1667e8580d9b7fb9db60d197a560c327e",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/SerializedPolynomialCheck.lean": "8107a32a92121517beb2d0a5ba58f9d35c14a071df952b5c96058323db0170bc",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/SharedRawCheck.lean": "9333e6eeece7bb5c7a4a5eb211556896f9471e8aa64990de780a8a7b281a9aed",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/SharedRawCompiler.lean": "4eb8dd07528fd4c132a80d7b842446735590f8c1db44c559e6012ff3fafd25e8",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/StoredOccupationLetters.lean": "ba3a1f1c04e9a9c4fb40b5c69f02acd5094ed019ae187ec3bf8a5d74ade16607",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/StoredSwapAlignment.lean": "18fbea9f96a04f5de84ae9f2dcc1535ed21524b7c6decdb119c5c4972d74f94b",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/StoredSwapCheck.lean": "e95085f6a193f8dff088ee2b5c8d51f7f84422a1f5646e9ce1c1e5380c07c2f4",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/StoredSwapExtraction.lean": "4902609fac0bdfa19e0465201e4ddd708cdb516c609d9bf858707a322394d615",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/TripleRankCheck.lean": "95acac0735ea400be0d44f7c009ac8635d9dd1913276f7a6a87b4a0b6c39cd7f",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/TripleRankExtraction.lean": "e3a4f45cfb5d830150c915eae713826d44af75b5b59049b26370cec12d9fe025",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding/UnaryWordEncoding.lean": "393e985e8a8c3890711dfb227a94663b84cc97c0bdcae05f470e5e5d19d1c570",
+    "formalizations/extraction-effective-encoding/EffectiveEncoding.lean": "0462dc842889f25c0efe48437f656903a339ed45ed46b3ebe2b929db51b6cad5",
+    "formalizations/extraction-effective-encoding/lakefile.toml": "e9e79c2a09320464590fe16365c9d8edd2791f50536e3aeb7780d9c72d7a53e9",
+    "formalizations/extraction-effective-encoding/lake-manifest.json": "f93161a21dd465f60d192f0bfb0ee8b13a5239f7993998498b0707a3d18cbd9d",
+    "formalizations/extraction-effective-encoding/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "formalizations/extraction-effective-encoding/COMBINED_GRAY_TERMINAL_ROOTS.txt": "fbc9030bca755a284c6aaf3cb02aa43c8ec7bae56875f4a73fad501ae84bf599",
+    "formalizations/extraction-effective-encoding/COMBINED_GRAY_TERMINAL_MODELS.txt": "b0da24d2b4ab95beaa48d4b26cb908d3acb4fdf6a50fbafa8aa772b8df79e7ec",
+    "formalizations/extraction-effective-encoding/COMBINED_GRAY_TERMINAL_SOURCE_INVENTORY.json": "30ea62b4e4d67254518127cb3d6ad7b4c88f06a35bf16f6a16185113430ebfdc",
+    "formalizations/extraction-effective-encoding/reproduce_combined_gray_terminal.py": "012de0fd2d90d04d721461a449f17ce2d644aa0f381be94cc7f7b97decd6aabe"
+  },
+  "axioms": {
+    "EffectiveEncoding.retainedCandidateFilterProgram_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.retainedCandidateFilterProgram_inputs": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.retainedCandidateFilterProgram_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.retainedTriplesProgram_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.retainedTriplesProgram_inputs": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.retainedTriplesProgram_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.wordPresenceProgram_correct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedOccupationLettersProgram_remaining": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedOccupationLettersProgram_filter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedOccupationLettersProgram_sorted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedOccupationLettersProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.retainedTriplesProgram_valid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.savedTriplePrepared_candidate_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedOccupationLettersProgram_sorted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedOccupationTableProgram_items": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedOccupationTableProgram_native": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedOccupationTableProgram_sorted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedOccupationLettersProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedOccupationTableProgram_letterActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedOccupationTableProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.attachedSort_values": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.listIndexedCandidateRun_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.typedOccupationLetters_values": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.typedOccupationLetters_sorted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.typedOccupationLetters_head": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedLettersBranchRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.typedOccupationLetters_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedLettersPivotEndpoint_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedLettersBranchTableRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedLettersAlignmentRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedOccupationRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedOccupationRun_letterActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedStageRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedCompressionRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedCompressionRun_letterActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedDescriptorRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedDescriptorRun_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedDescriptorRun_letterActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedSerializedRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedSerializedRun_suffix_roundtrip": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedSerializedRun_decoded_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedSerializedRun_letterActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedGeneration_uniform": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedSerializedRun_accountedPrimitiveActions_polynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedSerializedRun_fidelity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.booleanGrayScanProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.booleanGrayScanProgram_first": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.booleanGrayScanProgram_first_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.booleanGrayScanProgram_others": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.booleanGrayScanProgram_none": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.packedGrayScanProgram_first": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.packedGrayScanProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.packedGrayDifferences_sorted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.packedGrayScanProgram_none": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.packedGrayScanProgram_first_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.finRange_erase_otherWires": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.packedGrayScanProgram_others_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedPreparedSwapProgram_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedPreparedRotationProgram_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedPreparedRotationProgram_equal_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedPreparedSwapProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedPreparedRotationProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedPreparedSwapProgram_forward_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedPreparedRotationProgram_forward_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedPreparedSwapProgram_actions_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedPreparedRotationProgram_actions_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedEntryCompileProgram_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedEntryCompileProgram_grayCount": [
+      "propext"
+    ],
+    "EffectiveEncoding.grayListIndexedCandidateRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.grayListIndexedCandidateRun_grayCount": [
+      "propext",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedEntryCompileProgram_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.grayListIndexedCandidateRun_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.grayStoredLettersBranchRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.typedOccupationLetters_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.grayStoredLettersBranchRun_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.grayStoredLettersBranchTableRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.grayStoredLettersBranchTableRun_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.grayStoredLettersAlignmentRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.grayStoredLettersAlignmentRun_actions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayOccupationRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayOccupationRun_grayActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayStageRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayCompressionRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayCompressionRun_grayActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayDescriptorRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayDescriptorRun_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayDescriptorRun_grayActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGraySerializedRun_common": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGraySerializedRun_suffix_roundtrip": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGraySerializedRun_decoded_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGraySerializedRun_grayActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayGeneration_uniform": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGraySerializedRun_accountedPrimitiveActions_polynomial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGraySerializedRun_fidelity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.retainedCandidateFilterProgram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.retainedTriplesProgram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedOccupationLettersProgram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedNativeOccupation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedOccupationLettersProgram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedOccupationLettersWithBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.acceptedOccupationTableProgram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.AcceptedOccupationTableResult.letterActions": [
+      "propext"
+    ],
+    "EffectiveEncoding.AcceptedOccupationTableResult.actions": [
+      "propext"
+    ],
+    "EffectiveEncoding.listIndexedCandidateRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.typedOccupationLetters": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedLettersBranchRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedLettersPivotEndpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedLettersBranchTableRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.storedLettersAlignmentRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedOccupationRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.LetterSelectedCandidateResult.letterActions": [
+      "propext"
+    ],
+    "EffectiveEncoding.letterSelectedStageRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedCompressionRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedDescriptorRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedSerializedRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.LetterSelectedSerializedResult.letterActions": [
+      "propext"
+    ],
+    "EffectiveEncoding.LetterSelectedSerializedResult.accountedPrimitiveActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.letterSelectedSerializedPolynomialConstant": [
+      "propext"
+    ],
+    "EffectiveEncoding.ScannedEntryCompileResult.actions": [
+      "propext"
+    ],
+    "EffectiveEncoding.ScannedCandidateWordRun.actions": [
+      "propext"
+    ],
+    "EffectiveEncoding.grayStoredLettersBranchRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.grayStoredLettersBranchTableRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.grayStoredLettersAlignmentRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayOccupationRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.ScannedGrayCandidateResult.grayActions": [
+      "propext"
+    ],
+    "EffectiveEncoding.scannedGrayStageRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayCompressionRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGrayDescriptorRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGraySerializedRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.ScannedGraySerializedResult.grayActions": [
+      "propext"
+    ],
+    "EffectiveEncoding.ScannedGraySerializedResult.accountedPrimitiveActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EffectiveEncoding.scannedGraySerializedPolynomialConstant": [
+      "propext"
+    ],
+    "EffectiveEncoding.wordPresenceProgram_actions": [],
+    "EffectiveEncoding.packedListProjectionProgram_bits": [],
+    "EffectiveEncoding.RetainedCandidateFilterResult": [],
+    "EffectiveEncoding.RetainedTriplesResult": [],
+    "EffectiveEncoding.WordPresenceTrace": [],
+    "EffectiveEncoding.WordPresenceResult": [],
+    "EffectiveEncoding.wordPresenceProgram": [],
+    "EffectiveEncoding.WordPresenceTrace.actions": [],
+    "EffectiveEncoding.StoredOccupationLettersResult": [],
+    "EffectiveEncoding.StoredOccupationLettersResult.items": [],
+    "EffectiveEncoding.StoredOccupationLettersResult.actions": [],
+    "EffectiveEncoding.AcceptedOccupationLettersResult": [],
+    "EffectiveEncoding.AcceptedOccupationTableResult": [],
+    "EffectiveEncoding.AcceptedOccupationTableRecord": [],
+    "EffectiveEncoding.LetterSelectedCandidateResult": [],
+    "EffectiveEncoding.LetterSelectedSerializedResult": [],
+    "EffectiveEncoding.LetterSelectedSerializedResult.decoded": [],
+    "EffectiveEncoding.GrayScanTrace": [],
+    "EffectiveEncoding.BooleanGrayScanResult": [],
+    "EffectiveEncoding.booleanGrayScanProgram": [],
+    "EffectiveEncoding.GrayScanTrace.actions": [],
+    "EffectiveEncoding.PackedListProjectionTrace": [],
+    "EffectiveEncoding.PackedListProjectionResult": [],
+    "EffectiveEncoding.packedListProjectionProgram": [],
+    "EffectiveEncoding.PackedListProjectionTrace.actions": [],
+    "EffectiveEncoding.PackedGrayScanResult": [],
+    "EffectiveEncoding.packedGrayScanProgram": [],
+    "EffectiveEncoding.PackedGrayScanResult.actions": [],
+    "EffectiveEncoding.ScannedGrayCompileResult": [],
+    "EffectiveEncoding.scannedPreparedSwapProgram": [],
+    "EffectiveEncoding.scannedPreparedRotationProgram": [],
+    "EffectiveEncoding.ScannedGrayCompileResult.actions": [],
+    "EffectiveEncoding.ScannedEntryCompileResult": [],
+    "EffectiveEncoding.scannedEntryCompileProgram": [],
+    "EffectiveEncoding.ScannedCandidateWordRun": [],
+    "EffectiveEncoding.grayListIndexedCandidateRun": [],
+    "EffectiveEncoding.ScannedGrayRecord": [],
+    "EffectiveEncoding.ScannedGrayCandidateResult": [],
+    "EffectiveEncoding.ScannedGrayCandidateResult.word": [],
+    "EffectiveEncoding.ScannedGraySerializedResult": [],
+    "EffectiveEncoding.ScannedGraySerializedResult.decoded": []
+  },
+  "roots": [
+    "EffectiveEncoding.retainedCandidateFilterProgram_common",
+    "EffectiveEncoding.retainedCandidateFilterProgram_inputs",
+    "EffectiveEncoding.retainedCandidateFilterProgram_mem",
+    "EffectiveEncoding.retainedTriplesProgram_common",
+    "EffectiveEncoding.retainedTriplesProgram_inputs",
+    "EffectiveEncoding.retainedTriplesProgram_mem",
+    "EffectiveEncoding.wordPresenceProgram_actions",
+    "EffectiveEncoding.wordPresenceProgram_correct",
+    "EffectiveEncoding.storedOccupationLettersProgram_remaining",
+    "EffectiveEncoding.storedOccupationLettersProgram_filter",
+    "EffectiveEncoding.storedOccupationLettersProgram_sorted",
+    "EffectiveEncoding.storedOccupationLettersProgram_actions",
+    "EffectiveEncoding.retainedTriplesProgram_valid",
+    "EffectiveEncoding.savedTriplePrepared_candidate_value",
+    "EffectiveEncoding.acceptedOccupationLettersProgram_sorted",
+    "EffectiveEncoding.acceptedOccupationTableProgram_items",
+    "EffectiveEncoding.acceptedOccupationTableProgram_native",
+    "EffectiveEncoding.acceptedOccupationTableProgram_sorted",
+    "EffectiveEncoding.acceptedOccupationLettersProgram_actions",
+    "EffectiveEncoding.acceptedOccupationTableProgram_letterActions",
+    "EffectiveEncoding.acceptedOccupationTableProgram_actions",
+    "EffectiveEncoding.attachedSort_values",
+    "EffectiveEncoding.listIndexedCandidateRun_eq",
+    "EffectiveEncoding.typedOccupationLetters_values",
+    "EffectiveEncoding.typedOccupationLetters_sorted",
+    "EffectiveEncoding.typedOccupationLetters_head",
+    "EffectiveEncoding.storedLettersBranchRun_common",
+    "EffectiveEncoding.typedOccupationLetters_nonempty",
+    "EffectiveEncoding.storedLettersPivotEndpoint_common",
+    "EffectiveEncoding.storedLettersBranchTableRun_common",
+    "EffectiveEncoding.storedLettersAlignmentRun_common",
+    "EffectiveEncoding.letterSelectedOccupationRun_common",
+    "EffectiveEncoding.letterSelectedOccupationRun_letterActions",
+    "EffectiveEncoding.letterSelectedStageRun_common",
+    "EffectiveEncoding.letterSelectedCompressionRun_common",
+    "EffectiveEncoding.letterSelectedCompressionRun_letterActions",
+    "EffectiveEncoding.letterSelectedDescriptorRun_common",
+    "EffectiveEncoding.letterSelectedDescriptorRun_word",
+    "EffectiveEncoding.letterSelectedDescriptorRun_letterActions",
+    "EffectiveEncoding.letterSelectedSerializedRun_common",
+    "EffectiveEncoding.letterSelectedSerializedRun_suffix_roundtrip",
+    "EffectiveEncoding.letterSelectedSerializedRun_decoded_word",
+    "EffectiveEncoding.letterSelectedSerializedRun_letterActions",
+    "EffectiveEncoding.letterSelectedGeneration_uniform",
+    "EffectiveEncoding.letterSelectedSerializedRun_accountedPrimitiveActions_polynomial",
+    "EffectiveEncoding.letterSelectedSerializedRun_fidelity",
+    "EffectiveEncoding.booleanGrayScanProgram_actions",
+    "EffectiveEncoding.booleanGrayScanProgram_first",
+    "EffectiveEncoding.booleanGrayScanProgram_first_mem",
+    "EffectiveEncoding.booleanGrayScanProgram_others",
+    "EffectiveEncoding.booleanGrayScanProgram_none",
+    "EffectiveEncoding.packedListProjectionProgram_bits",
+    "EffectiveEncoding.packedGrayScanProgram_first",
+    "EffectiveEncoding.packedGrayScanProgram_actions",
+    "EffectiveEncoding.packedGrayDifferences_sorted",
+    "EffectiveEncoding.packedGrayScanProgram_none",
+    "EffectiveEncoding.packedGrayScanProgram_first_eq",
+    "EffectiveEncoding.finRange_erase_otherWires",
+    "EffectiveEncoding.packedGrayScanProgram_others_eq",
+    "EffectiveEncoding.scannedPreparedSwapProgram_word",
+    "EffectiveEncoding.scannedPreparedRotationProgram_word",
+    "EffectiveEncoding.scannedPreparedRotationProgram_equal_word",
+    "EffectiveEncoding.scannedPreparedSwapProgram_actions",
+    "EffectiveEncoding.scannedPreparedRotationProgram_actions",
+    "EffectiveEncoding.scannedPreparedSwapProgram_forward_length",
+    "EffectiveEncoding.scannedPreparedRotationProgram_forward_length",
+    "EffectiveEncoding.scannedPreparedSwapProgram_actions_word",
+    "EffectiveEncoding.scannedPreparedRotationProgram_actions_word",
+    "EffectiveEncoding.scannedEntryCompileProgram_word",
+    "EffectiveEncoding.scannedEntryCompileProgram_grayCount",
+    "EffectiveEncoding.grayListIndexedCandidateRun_common",
+    "EffectiveEncoding.grayListIndexedCandidateRun_grayCount",
+    "EffectiveEncoding.scannedEntryCompileProgram_actions",
+    "EffectiveEncoding.grayListIndexedCandidateRun_actions",
+    "EffectiveEncoding.grayStoredLettersBranchRun_common",
+    "EffectiveEncoding.typedOccupationLetters_length",
+    "EffectiveEncoding.grayStoredLettersBranchRun_actions",
+    "EffectiveEncoding.grayStoredLettersBranchTableRun_common",
+    "EffectiveEncoding.grayStoredLettersBranchTableRun_actions",
+    "EffectiveEncoding.grayStoredLettersAlignmentRun_common",
+    "EffectiveEncoding.grayStoredLettersAlignmentRun_actions",
+    "EffectiveEncoding.scannedGrayOccupationRun_common",
+    "EffectiveEncoding.scannedGrayOccupationRun_grayActions",
+    "EffectiveEncoding.scannedGrayStageRun_common",
+    "EffectiveEncoding.scannedGrayCompressionRun_common",
+    "EffectiveEncoding.scannedGrayCompressionRun_grayActions",
+    "EffectiveEncoding.scannedGrayDescriptorRun_common",
+    "EffectiveEncoding.scannedGrayDescriptorRun_word",
+    "EffectiveEncoding.scannedGrayDescriptorRun_grayActions",
+    "EffectiveEncoding.scannedGraySerializedRun_common",
+    "EffectiveEncoding.scannedGraySerializedRun_suffix_roundtrip",
+    "EffectiveEncoding.scannedGraySerializedRun_decoded_word",
+    "EffectiveEncoding.scannedGraySerializedRun_grayActions",
+    "EffectiveEncoding.scannedGrayGeneration_uniform",
+    "EffectiveEncoding.scannedGraySerializedRun_accountedPrimitiveActions_polynomial",
+    "EffectiveEncoding.scannedGraySerializedRun_fidelity"
+  ],
+  "models": [
+    "EffectiveEncoding.RetainedCandidateFilterResult",
+    "EffectiveEncoding.retainedCandidateFilterProgram",
+    "EffectiveEncoding.RetainedTriplesResult",
+    "EffectiveEncoding.retainedTriplesProgram",
+    "EffectiveEncoding.WordPresenceTrace",
+    "EffectiveEncoding.WordPresenceResult",
+    "EffectiveEncoding.wordPresenceProgram",
+    "EffectiveEncoding.WordPresenceTrace.actions",
+    "EffectiveEncoding.StoredOccupationLettersResult",
+    "EffectiveEncoding.storedOccupationLettersProgram",
+    "EffectiveEncoding.StoredOccupationLettersResult.items",
+    "EffectiveEncoding.StoredOccupationLettersResult.actions",
+    "EffectiveEncoding.acceptedNativeOccupation",
+    "EffectiveEncoding.AcceptedOccupationLettersResult",
+    "EffectiveEncoding.acceptedOccupationLettersProgram",
+    "EffectiveEncoding.acceptedOccupationLettersWithBound",
+    "EffectiveEncoding.AcceptedOccupationTableResult",
+    "EffectiveEncoding.acceptedOccupationTableProgram",
+    "EffectiveEncoding.AcceptedOccupationTableResult.letterActions",
+    "EffectiveEncoding.AcceptedOccupationTableResult.actions",
+    "EffectiveEncoding.listIndexedCandidateRun",
+    "EffectiveEncoding.typedOccupationLetters",
+    "EffectiveEncoding.storedLettersBranchRun",
+    "EffectiveEncoding.storedLettersPivotEndpoint",
+    "EffectiveEncoding.storedLettersBranchTableRun",
+    "EffectiveEncoding.storedLettersAlignmentRun",
+    "EffectiveEncoding.AcceptedOccupationTableRecord",
+    "EffectiveEncoding.LetterSelectedCandidateResult",
+    "EffectiveEncoding.letterSelectedOccupationRun",
+    "EffectiveEncoding.LetterSelectedCandidateResult.letterActions",
+    "EffectiveEncoding.letterSelectedStageRun",
+    "EffectiveEncoding.letterSelectedCompressionRun",
+    "EffectiveEncoding.letterSelectedDescriptorRun",
+    "EffectiveEncoding.LetterSelectedSerializedResult",
+    "EffectiveEncoding.letterSelectedSerializedRun",
+    "EffectiveEncoding.LetterSelectedSerializedResult.decoded",
+    "EffectiveEncoding.LetterSelectedSerializedResult.letterActions",
+    "EffectiveEncoding.LetterSelectedSerializedResult.accountedPrimitiveActions",
+    "EffectiveEncoding.letterSelectedSerializedPolynomialConstant",
+    "EffectiveEncoding.GrayScanTrace",
+    "EffectiveEncoding.BooleanGrayScanResult",
+    "EffectiveEncoding.booleanGrayScanProgram",
+    "EffectiveEncoding.GrayScanTrace.actions",
+    "EffectiveEncoding.PackedListProjectionTrace",
+    "EffectiveEncoding.PackedListProjectionResult",
+    "EffectiveEncoding.packedListProjectionProgram",
+    "EffectiveEncoding.PackedListProjectionTrace.actions",
+    "EffectiveEncoding.PackedGrayScanResult",
+    "EffectiveEncoding.packedGrayScanProgram",
+    "EffectiveEncoding.PackedGrayScanResult.actions",
+    "EffectiveEncoding.ScannedGrayCompileResult",
+    "EffectiveEncoding.scannedPreparedSwapProgram",
+    "EffectiveEncoding.scannedPreparedRotationProgram",
+    "EffectiveEncoding.ScannedGrayCompileResult.actions",
+    "EffectiveEncoding.ScannedEntryCompileResult",
+    "EffectiveEncoding.scannedEntryCompileProgram",
+    "EffectiveEncoding.ScannedCandidateWordRun",
+    "EffectiveEncoding.grayListIndexedCandidateRun",
+    "EffectiveEncoding.ScannedEntryCompileResult.actions",
+    "EffectiveEncoding.ScannedCandidateWordRun.actions",
+    "EffectiveEncoding.grayStoredLettersBranchRun",
+    "EffectiveEncoding.grayStoredLettersBranchTableRun",
+    "EffectiveEncoding.grayStoredLettersAlignmentRun",
+    "EffectiveEncoding.ScannedGrayRecord",
+    "EffectiveEncoding.ScannedGrayCandidateResult",
+    "EffectiveEncoding.ScannedGrayCandidateResult.word",
+    "EffectiveEncoding.scannedGrayOccupationRun",
+    "EffectiveEncoding.ScannedGrayCandidateResult.grayActions",
+    "EffectiveEncoding.scannedGrayStageRun",
+    "EffectiveEncoding.scannedGrayCompressionRun",
+    "EffectiveEncoding.scannedGrayDescriptorRun",
+    "EffectiveEncoding.ScannedGraySerializedResult",
+    "EffectiveEncoding.scannedGraySerializedRun",
+    "EffectiveEncoding.ScannedGraySerializedResult.decoded",
+    "EffectiveEncoding.ScannedGraySerializedResult.grayActions",
+    "EffectiveEncoding.ScannedGraySerializedResult.accountedPrimitiveActions",
+    "EffectiveEncoding.scannedGraySerializedPolynomialConstant"
+  ]
+}

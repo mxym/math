@@ -1,0 +1,69 @@
+ACTUAL SELECTOR REPLACEMENT AND SAME-RECORD TERMINAL
+
+Runtime path:
+ letterSelectedSerializedRun
+  -> letterSelectedDescriptorRun/compression/stage/occupation
+   -> booleanMaskContextProgram once per stage, retained context/planTable
+   -> acceptedOccupationTableProgram once per stage
+    -> retainedTriplesProgram: one stored range, two products, one filter
+     -> retainedCandidateFilterProgram calls each predicate once and shares
+        that actual test between the full test stream and accepted pair list
+    -> acceptedOccupationLettersWithBound for each accepted pair
+     -> storedOccupationLettersProgram reads the stored bound, three stored
+        count words and that actual accepted test.totalSum.bits
+     -> binarySubtractProgram once; binaryTrimProgram once
+     -> four wordPresenceProgram list-constructor tests; one ordered selector
+   -> storedLettersBranchTableRun uses the resulting same letter list
+    -> typedOccupationLetters attaches erased membership proofs
+    -> listIndexedCandidateRun uses actual head/tail, stores endpoint/mass once
+   -> storedLettersAlignmentRun reads the same letter records and obtains the
+      source endpoint from their actual head, using existing stored swaps
+  -> materializeWord of this same generated word
+   -> retainedAssembledTargetRun, retaining actual target/provider/numeric/
+      read/assembly records
+  -> binaryLabelStream of the actual resulting label word
+
+The old finite-set occupied-letter filter, minimum, erase and sort are not
+executed by this new generation path. They occur only on specification/proof
+sides of exact record equalities. Semantic Sym values and membership/sortedness
+proofs in subtype types are erased from runtime data. The value data for native
+occupations is the carried triple plus erased validity, not a semantic multiset.
+No new unary encoding or Nat.bits conversion is used to select the letters.
+No upstream total additions are replayed; the already executed predicate record
+supplies totalSum. The source contains an independent convenience function
+acceptedOccupationLettersProgram for theorem presentation; the actual table
+and terminal call acceptedOccupationLettersWithBound with their stored bound
+and do not call that independent convenience function per item.
+
+RetainedTriplesResult.common equals the entire old BinaryTriplesResult,
+including all rejected-candidate tests. The accepted table's ordered native
+projection is exactly candidateNativeTableProgram.items. Branch, alignment and
+complete generation preserve full public word/rank/enum/mask/context records.
+The new terminal preserves the full public compilation/stream record, not only
+a matrix or word equality. New selector traces stay separately retained.
+
+Partial specified action bounds:
+- per selector: subtraction/trim/presence/selection <=26*(B+1)+29 when bound and
+  stored total widths <=B; actual queried table supplies B=k+3 internally
+- actual table letter-only sum <=(k+1)^3*(26*(k+4)+29)
+- table old-enumeration plus new letter sum <=255*(k+4)^4
+- all extraction stages' extra letter sum <=55*k*(k+5)^4
+Old enum charges already appear in common; they are NOT added a second time.
+Additional accepted-pair spine/storage bookkeeping is not silently charged by
+this arithmetic/selector projection.
+
+Still unmodeled or only partially modeled:
+- host Nat recursion/control/fuel/successor, arithmetic/comparisons and indices;
+  nativeMass/erasedTriple updates, widths/powers/clog/precision/length and rank
+  index accounting are not all implemented as charged bit-machine operations
+- remaining Gray/differing-wire/other-wire search and coordinate update, wire
+  adapters/Fin indices, prefix/shift/cast/Bell and general AST/list construction
+- generic attach/map/filter wrapper/record allocation and the extra accepted
+  pair spine, annotation/counter arithmetic, stack/control and Lean host runtime
+- actual decoding time (suffix roundtrip is semantic, output fee is emission)
+- fixed-library provider time, inverse-label provider and offline net generation;
+  finite queried output-height/semantic contracts do not imply provider time
+
+Thus all-k exact decoded-stream fidelity and a uniform polynomial for specified
+actual same-record partial operations hold. Full compiler Turing/bit time is
+not established by these modules.

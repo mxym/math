@@ -1,0 +1,545 @@
+import EffectiveEncoding.ScannedGraySerializedRun
+import EffectiveEncoding.ScannedGrayEvaluation
+import EffectiveEncoding.OccupationLettersEvaluation
+
+open Lean Elab Command
+namespace EffectiveEncodingCombinedGrayTerminalVerification
+
+def checkKinds (theorems models : List Name) : CommandElabM Unit := do
+  let env ← getEnv
+  for n in theorems do
+    let some ci := env.find? n | throwError "Missing theorem {n}"
+    unless ci.isTheorem do throwError "Expected theorem declaration {n}"
+  for n in models do
+    let some ci := env.find? n | throwError "Missing model {n}"
+    match ci with
+    | .defnInfo _ => pure ()
+    | .inductInfo _ => pure ()
+    | _ => throwError "Expected definition or inductive {n}"
+  logInfo m!"OWNED_KIND_CHECK_PASS {theorems.length} theorems; {models.length} models"
+
+end EffectiveEncodingCombinedGrayTerminalVerification
+
+run_cmd (EffectiveEncodingCombinedGrayTerminalVerification.checkKinds [
+  ``EffectiveEncoding.retainedCandidateFilterProgram_common,
+  ``EffectiveEncoding.retainedCandidateFilterProgram_inputs,
+  ``EffectiveEncoding.retainedCandidateFilterProgram_mem,
+  ``EffectiveEncoding.retainedTriplesProgram_common,
+  ``EffectiveEncoding.retainedTriplesProgram_inputs,
+  ``EffectiveEncoding.retainedTriplesProgram_mem,
+  ``EffectiveEncoding.wordPresenceProgram_actions,
+  ``EffectiveEncoding.wordPresenceProgram_correct,
+  ``EffectiveEncoding.storedOccupationLettersProgram_remaining,
+  ``EffectiveEncoding.storedOccupationLettersProgram_filter,
+  ``EffectiveEncoding.storedOccupationLettersProgram_sorted,
+  ``EffectiveEncoding.storedOccupationLettersProgram_actions,
+  ``EffectiveEncoding.retainedTriplesProgram_valid,
+  ``EffectiveEncoding.savedTriplePrepared_candidate_value,
+  ``EffectiveEncoding.acceptedOccupationLettersProgram_sorted,
+  ``EffectiveEncoding.acceptedOccupationTableProgram_items,
+  ``EffectiveEncoding.acceptedOccupationTableProgram_native,
+  ``EffectiveEncoding.acceptedOccupationTableProgram_sorted,
+  ``EffectiveEncoding.acceptedOccupationLettersProgram_actions,
+  ``EffectiveEncoding.acceptedOccupationTableProgram_letterActions,
+  ``EffectiveEncoding.acceptedOccupationTableProgram_actions,
+  ``EffectiveEncoding.attachedSort_values,
+  ``EffectiveEncoding.listIndexedCandidateRun_eq,
+  ``EffectiveEncoding.typedOccupationLetters_values,
+  ``EffectiveEncoding.typedOccupationLetters_sorted,
+  ``EffectiveEncoding.typedOccupationLetters_head,
+  ``EffectiveEncoding.storedLettersBranchRun_common,
+  ``EffectiveEncoding.typedOccupationLetters_nonempty,
+  ``EffectiveEncoding.storedLettersPivotEndpoint_common,
+  ``EffectiveEncoding.storedLettersBranchTableRun_common,
+  ``EffectiveEncoding.storedLettersAlignmentRun_common,
+  ``EffectiveEncoding.letterSelectedOccupationRun_common,
+  ``EffectiveEncoding.letterSelectedOccupationRun_letterActions,
+  ``EffectiveEncoding.letterSelectedStageRun_common,
+  ``EffectiveEncoding.letterSelectedCompressionRun_common,
+  ``EffectiveEncoding.letterSelectedCompressionRun_letterActions,
+  ``EffectiveEncoding.letterSelectedDescriptorRun_common,
+  ``EffectiveEncoding.letterSelectedDescriptorRun_word,
+  ``EffectiveEncoding.letterSelectedDescriptorRun_letterActions,
+  ``EffectiveEncoding.letterSelectedSerializedRun_common,
+  ``EffectiveEncoding.letterSelectedSerializedRun_suffix_roundtrip,
+  ``EffectiveEncoding.letterSelectedSerializedRun_decoded_word,
+  ``EffectiveEncoding.letterSelectedSerializedRun_letterActions,
+  ``EffectiveEncoding.letterSelectedGeneration_uniform,
+  ``EffectiveEncoding.letterSelectedSerializedRun_accountedPrimitiveActions_polynomial,
+  ``EffectiveEncoding.letterSelectedSerializedRun_fidelity,
+  ``EffectiveEncoding.booleanGrayScanProgram_actions,
+  ``EffectiveEncoding.booleanGrayScanProgram_first,
+  ``EffectiveEncoding.booleanGrayScanProgram_first_mem,
+  ``EffectiveEncoding.booleanGrayScanProgram_others,
+  ``EffectiveEncoding.booleanGrayScanProgram_none,
+  ``EffectiveEncoding.packedListProjectionProgram_bits,
+  ``EffectiveEncoding.packedGrayScanProgram_first,
+  ``EffectiveEncoding.packedGrayScanProgram_actions,
+  ``EffectiveEncoding.packedGrayDifferences_sorted,
+  ``EffectiveEncoding.packedGrayScanProgram_none,
+  ``EffectiveEncoding.packedGrayScanProgram_first_eq,
+  ``EffectiveEncoding.finRange_erase_otherWires,
+  ``EffectiveEncoding.packedGrayScanProgram_others_eq,
+  ``EffectiveEncoding.scannedPreparedSwapProgram_word,
+  ``EffectiveEncoding.scannedPreparedRotationProgram_word,
+  ``EffectiveEncoding.scannedPreparedRotationProgram_equal_word,
+  ``EffectiveEncoding.scannedPreparedSwapProgram_actions,
+  ``EffectiveEncoding.scannedPreparedRotationProgram_actions,
+  ``EffectiveEncoding.scannedPreparedSwapProgram_forward_length,
+  ``EffectiveEncoding.scannedPreparedRotationProgram_forward_length,
+  ``EffectiveEncoding.scannedPreparedSwapProgram_actions_word,
+  ``EffectiveEncoding.scannedPreparedRotationProgram_actions_word,
+  ``EffectiveEncoding.scannedEntryCompileProgram_word,
+  ``EffectiveEncoding.scannedEntryCompileProgram_grayCount,
+  ``EffectiveEncoding.grayListIndexedCandidateRun_common,
+  ``EffectiveEncoding.grayListIndexedCandidateRun_grayCount,
+  ``EffectiveEncoding.scannedEntryCompileProgram_actions,
+  ``EffectiveEncoding.grayListIndexedCandidateRun_actions,
+  ``EffectiveEncoding.grayStoredLettersBranchRun_common,
+  ``EffectiveEncoding.typedOccupationLetters_length,
+  ``EffectiveEncoding.grayStoredLettersBranchRun_actions,
+  ``EffectiveEncoding.grayStoredLettersBranchTableRun_common,
+  ``EffectiveEncoding.grayStoredLettersBranchTableRun_actions,
+  ``EffectiveEncoding.grayStoredLettersAlignmentRun_common,
+  ``EffectiveEncoding.grayStoredLettersAlignmentRun_actions,
+  ``EffectiveEncoding.scannedGrayOccupationRun_common,
+  ``EffectiveEncoding.scannedGrayOccupationRun_grayActions,
+  ``EffectiveEncoding.scannedGrayStageRun_common,
+  ``EffectiveEncoding.scannedGrayCompressionRun_common,
+  ``EffectiveEncoding.scannedGrayCompressionRun_grayActions,
+  ``EffectiveEncoding.scannedGrayDescriptorRun_common,
+  ``EffectiveEncoding.scannedGrayDescriptorRun_word,
+  ``EffectiveEncoding.scannedGrayDescriptorRun_grayActions,
+  ``EffectiveEncoding.scannedGraySerializedRun_common,
+  ``EffectiveEncoding.scannedGraySerializedRun_suffix_roundtrip,
+  ``EffectiveEncoding.scannedGraySerializedRun_decoded_word,
+  ``EffectiveEncoding.scannedGraySerializedRun_grayActions,
+  ``EffectiveEncoding.scannedGrayGeneration_uniform,
+  ``EffectiveEncoding.scannedGraySerializedRun_accountedPrimitiveActions_polynomial,
+  ``EffectiveEncoding.scannedGraySerializedRun_fidelity
+] [
+  ``EffectiveEncoding.RetainedCandidateFilterResult,
+  ``EffectiveEncoding.retainedCandidateFilterProgram,
+  ``EffectiveEncoding.RetainedTriplesResult,
+  ``EffectiveEncoding.retainedTriplesProgram,
+  ``EffectiveEncoding.WordPresenceTrace,
+  ``EffectiveEncoding.WordPresenceResult,
+  ``EffectiveEncoding.wordPresenceProgram,
+  ``EffectiveEncoding.WordPresenceTrace.actions,
+  ``EffectiveEncoding.StoredOccupationLettersResult,
+  ``EffectiveEncoding.storedOccupationLettersProgram,
+  ``EffectiveEncoding.StoredOccupationLettersResult.items,
+  ``EffectiveEncoding.StoredOccupationLettersResult.actions,
+  ``EffectiveEncoding.acceptedNativeOccupation,
+  ``EffectiveEncoding.AcceptedOccupationLettersResult,
+  ``EffectiveEncoding.acceptedOccupationLettersProgram,
+  ``EffectiveEncoding.acceptedOccupationLettersWithBound,
+  ``EffectiveEncoding.AcceptedOccupationTableResult,
+  ``EffectiveEncoding.acceptedOccupationTableProgram,
+  ``EffectiveEncoding.AcceptedOccupationTableResult.letterActions,
+  ``EffectiveEncoding.AcceptedOccupationTableResult.actions,
+  ``EffectiveEncoding.listIndexedCandidateRun,
+  ``EffectiveEncoding.typedOccupationLetters,
+  ``EffectiveEncoding.storedLettersBranchRun,
+  ``EffectiveEncoding.storedLettersPivotEndpoint,
+  ``EffectiveEncoding.storedLettersBranchTableRun,
+  ``EffectiveEncoding.storedLettersAlignmentRun,
+  ``EffectiveEncoding.AcceptedOccupationTableRecord,
+  ``EffectiveEncoding.LetterSelectedCandidateResult,
+  ``EffectiveEncoding.letterSelectedOccupationRun,
+  ``EffectiveEncoding.LetterSelectedCandidateResult.letterActions,
+  ``EffectiveEncoding.letterSelectedStageRun,
+  ``EffectiveEncoding.letterSelectedCompressionRun,
+  ``EffectiveEncoding.letterSelectedDescriptorRun,
+  ``EffectiveEncoding.LetterSelectedSerializedResult,
+  ``EffectiveEncoding.letterSelectedSerializedRun,
+  ``EffectiveEncoding.LetterSelectedSerializedResult.decoded,
+  ``EffectiveEncoding.LetterSelectedSerializedResult.letterActions,
+  ``EffectiveEncoding.LetterSelectedSerializedResult.accountedPrimitiveActions,
+  ``EffectiveEncoding.letterSelectedSerializedPolynomialConstant,
+  ``EffectiveEncoding.GrayScanTrace,
+  ``EffectiveEncoding.BooleanGrayScanResult,
+  ``EffectiveEncoding.booleanGrayScanProgram,
+  ``EffectiveEncoding.GrayScanTrace.actions,
+  ``EffectiveEncoding.PackedListProjectionTrace,
+  ``EffectiveEncoding.PackedListProjectionResult,
+  ``EffectiveEncoding.packedListProjectionProgram,
+  ``EffectiveEncoding.PackedListProjectionTrace.actions,
+  ``EffectiveEncoding.PackedGrayScanResult,
+  ``EffectiveEncoding.packedGrayScanProgram,
+  ``EffectiveEncoding.PackedGrayScanResult.actions,
+  ``EffectiveEncoding.ScannedGrayCompileResult,
+  ``EffectiveEncoding.scannedPreparedSwapProgram,
+  ``EffectiveEncoding.scannedPreparedRotationProgram,
+  ``EffectiveEncoding.ScannedGrayCompileResult.actions,
+  ``EffectiveEncoding.ScannedEntryCompileResult,
+  ``EffectiveEncoding.scannedEntryCompileProgram,
+  ``EffectiveEncoding.ScannedCandidateWordRun,
+  ``EffectiveEncoding.grayListIndexedCandidateRun,
+  ``EffectiveEncoding.ScannedEntryCompileResult.actions,
+  ``EffectiveEncoding.ScannedCandidateWordRun.actions,
+  ``EffectiveEncoding.grayStoredLettersBranchRun,
+  ``EffectiveEncoding.grayStoredLettersBranchTableRun,
+  ``EffectiveEncoding.grayStoredLettersAlignmentRun,
+  ``EffectiveEncoding.ScannedGrayRecord,
+  ``EffectiveEncoding.ScannedGrayCandidateResult,
+  ``EffectiveEncoding.ScannedGrayCandidateResult.word,
+  ``EffectiveEncoding.scannedGrayOccupationRun,
+  ``EffectiveEncoding.ScannedGrayCandidateResult.grayActions,
+  ``EffectiveEncoding.scannedGrayStageRun,
+  ``EffectiveEncoding.scannedGrayCompressionRun,
+  ``EffectiveEncoding.scannedGrayDescriptorRun,
+  ``EffectiveEncoding.ScannedGraySerializedResult,
+  ``EffectiveEncoding.scannedGraySerializedRun,
+  ``EffectiveEncoding.ScannedGraySerializedResult.decoded,
+  ``EffectiveEncoding.ScannedGraySerializedResult.grayActions,
+  ``EffectiveEncoding.ScannedGraySerializedResult.accountedPrimitiveActions,
+  ``EffectiveEncoding.scannedGraySerializedPolynomialConstant
+])
+
+#check EffectiveEncoding.retainedCandidateFilterProgram_common
+#print axioms EffectiveEncoding.retainedCandidateFilterProgram_common
+#check EffectiveEncoding.retainedCandidateFilterProgram_inputs
+#print axioms EffectiveEncoding.retainedCandidateFilterProgram_inputs
+#check EffectiveEncoding.retainedCandidateFilterProgram_mem
+#print axioms EffectiveEncoding.retainedCandidateFilterProgram_mem
+#check EffectiveEncoding.retainedTriplesProgram_common
+#print axioms EffectiveEncoding.retainedTriplesProgram_common
+#check EffectiveEncoding.retainedTriplesProgram_inputs
+#print axioms EffectiveEncoding.retainedTriplesProgram_inputs
+#check EffectiveEncoding.retainedTriplesProgram_mem
+#print axioms EffectiveEncoding.retainedTriplesProgram_mem
+#check EffectiveEncoding.wordPresenceProgram_actions
+#print axioms EffectiveEncoding.wordPresenceProgram_actions
+#check EffectiveEncoding.wordPresenceProgram_correct
+#print axioms EffectiveEncoding.wordPresenceProgram_correct
+#check EffectiveEncoding.storedOccupationLettersProgram_remaining
+#print axioms EffectiveEncoding.storedOccupationLettersProgram_remaining
+#check EffectiveEncoding.storedOccupationLettersProgram_filter
+#print axioms EffectiveEncoding.storedOccupationLettersProgram_filter
+#check EffectiveEncoding.storedOccupationLettersProgram_sorted
+#print axioms EffectiveEncoding.storedOccupationLettersProgram_sorted
+#check EffectiveEncoding.storedOccupationLettersProgram_actions
+#print axioms EffectiveEncoding.storedOccupationLettersProgram_actions
+#check EffectiveEncoding.retainedTriplesProgram_valid
+#print axioms EffectiveEncoding.retainedTriplesProgram_valid
+#check EffectiveEncoding.savedTriplePrepared_candidate_value
+#print axioms EffectiveEncoding.savedTriplePrepared_candidate_value
+#check EffectiveEncoding.acceptedOccupationLettersProgram_sorted
+#print axioms EffectiveEncoding.acceptedOccupationLettersProgram_sorted
+#check EffectiveEncoding.acceptedOccupationTableProgram_items
+#print axioms EffectiveEncoding.acceptedOccupationTableProgram_items
+#check EffectiveEncoding.acceptedOccupationTableProgram_native
+#print axioms EffectiveEncoding.acceptedOccupationTableProgram_native
+#check EffectiveEncoding.acceptedOccupationTableProgram_sorted
+#print axioms EffectiveEncoding.acceptedOccupationTableProgram_sorted
+#check EffectiveEncoding.acceptedOccupationLettersProgram_actions
+#print axioms EffectiveEncoding.acceptedOccupationLettersProgram_actions
+#check EffectiveEncoding.acceptedOccupationTableProgram_letterActions
+#print axioms EffectiveEncoding.acceptedOccupationTableProgram_letterActions
+#check EffectiveEncoding.acceptedOccupationTableProgram_actions
+#print axioms EffectiveEncoding.acceptedOccupationTableProgram_actions
+#check EffectiveEncoding.attachedSort_values
+#print axioms EffectiveEncoding.attachedSort_values
+#check EffectiveEncoding.listIndexedCandidateRun_eq
+#print axioms EffectiveEncoding.listIndexedCandidateRun_eq
+#check EffectiveEncoding.typedOccupationLetters_values
+#print axioms EffectiveEncoding.typedOccupationLetters_values
+#check EffectiveEncoding.typedOccupationLetters_sorted
+#print axioms EffectiveEncoding.typedOccupationLetters_sorted
+#check EffectiveEncoding.typedOccupationLetters_head
+#print axioms EffectiveEncoding.typedOccupationLetters_head
+#check EffectiveEncoding.storedLettersBranchRun_common
+#print axioms EffectiveEncoding.storedLettersBranchRun_common
+#check EffectiveEncoding.typedOccupationLetters_nonempty
+#print axioms EffectiveEncoding.typedOccupationLetters_nonempty
+#check EffectiveEncoding.storedLettersPivotEndpoint_common
+#print axioms EffectiveEncoding.storedLettersPivotEndpoint_common
+#check EffectiveEncoding.storedLettersBranchTableRun_common
+#print axioms EffectiveEncoding.storedLettersBranchTableRun_common
+#check EffectiveEncoding.storedLettersAlignmentRun_common
+#print axioms EffectiveEncoding.storedLettersAlignmentRun_common
+#check EffectiveEncoding.letterSelectedOccupationRun_common
+#print axioms EffectiveEncoding.letterSelectedOccupationRun_common
+#check EffectiveEncoding.letterSelectedOccupationRun_letterActions
+#print axioms EffectiveEncoding.letterSelectedOccupationRun_letterActions
+#check EffectiveEncoding.letterSelectedStageRun_common
+#print axioms EffectiveEncoding.letterSelectedStageRun_common
+#check EffectiveEncoding.letterSelectedCompressionRun_common
+#print axioms EffectiveEncoding.letterSelectedCompressionRun_common
+#check EffectiveEncoding.letterSelectedCompressionRun_letterActions
+#print axioms EffectiveEncoding.letterSelectedCompressionRun_letterActions
+#check EffectiveEncoding.letterSelectedDescriptorRun_common
+#print axioms EffectiveEncoding.letterSelectedDescriptorRun_common
+#check EffectiveEncoding.letterSelectedDescriptorRun_word
+#print axioms EffectiveEncoding.letterSelectedDescriptorRun_word
+#check EffectiveEncoding.letterSelectedDescriptorRun_letterActions
+#print axioms EffectiveEncoding.letterSelectedDescriptorRun_letterActions
+#check EffectiveEncoding.letterSelectedSerializedRun_common
+#print axioms EffectiveEncoding.letterSelectedSerializedRun_common
+#check EffectiveEncoding.letterSelectedSerializedRun_suffix_roundtrip
+#print axioms EffectiveEncoding.letterSelectedSerializedRun_suffix_roundtrip
+#check EffectiveEncoding.letterSelectedSerializedRun_decoded_word
+#print axioms EffectiveEncoding.letterSelectedSerializedRun_decoded_word
+#check EffectiveEncoding.letterSelectedSerializedRun_letterActions
+#print axioms EffectiveEncoding.letterSelectedSerializedRun_letterActions
+#check EffectiveEncoding.letterSelectedGeneration_uniform
+#print axioms EffectiveEncoding.letterSelectedGeneration_uniform
+#check EffectiveEncoding.letterSelectedSerializedRun_accountedPrimitiveActions_polynomial
+#print axioms EffectiveEncoding.letterSelectedSerializedRun_accountedPrimitiveActions_polynomial
+#check EffectiveEncoding.letterSelectedSerializedRun_fidelity
+#print axioms EffectiveEncoding.letterSelectedSerializedRun_fidelity
+#check EffectiveEncoding.booleanGrayScanProgram_actions
+#print axioms EffectiveEncoding.booleanGrayScanProgram_actions
+#check EffectiveEncoding.booleanGrayScanProgram_first
+#print axioms EffectiveEncoding.booleanGrayScanProgram_first
+#check EffectiveEncoding.booleanGrayScanProgram_first_mem
+#print axioms EffectiveEncoding.booleanGrayScanProgram_first_mem
+#check EffectiveEncoding.booleanGrayScanProgram_others
+#print axioms EffectiveEncoding.booleanGrayScanProgram_others
+#check EffectiveEncoding.booleanGrayScanProgram_none
+#print axioms EffectiveEncoding.booleanGrayScanProgram_none
+#check EffectiveEncoding.packedListProjectionProgram_bits
+#print axioms EffectiveEncoding.packedListProjectionProgram_bits
+#check EffectiveEncoding.packedGrayScanProgram_first
+#print axioms EffectiveEncoding.packedGrayScanProgram_first
+#check EffectiveEncoding.packedGrayScanProgram_actions
+#print axioms EffectiveEncoding.packedGrayScanProgram_actions
+#check EffectiveEncoding.packedGrayDifferences_sorted
+#print axioms EffectiveEncoding.packedGrayDifferences_sorted
+#check EffectiveEncoding.packedGrayScanProgram_none
+#print axioms EffectiveEncoding.packedGrayScanProgram_none
+#check EffectiveEncoding.packedGrayScanProgram_first_eq
+#print axioms EffectiveEncoding.packedGrayScanProgram_first_eq
+#check EffectiveEncoding.finRange_erase_otherWires
+#print axioms EffectiveEncoding.finRange_erase_otherWires
+#check EffectiveEncoding.packedGrayScanProgram_others_eq
+#print axioms EffectiveEncoding.packedGrayScanProgram_others_eq
+#check EffectiveEncoding.scannedPreparedSwapProgram_word
+#print axioms EffectiveEncoding.scannedPreparedSwapProgram_word
+#check EffectiveEncoding.scannedPreparedRotationProgram_word
+#print axioms EffectiveEncoding.scannedPreparedRotationProgram_word
+#check EffectiveEncoding.scannedPreparedRotationProgram_equal_word
+#print axioms EffectiveEncoding.scannedPreparedRotationProgram_equal_word
+#check EffectiveEncoding.scannedPreparedSwapProgram_actions
+#print axioms EffectiveEncoding.scannedPreparedSwapProgram_actions
+#check EffectiveEncoding.scannedPreparedRotationProgram_actions
+#print axioms EffectiveEncoding.scannedPreparedRotationProgram_actions
+#check EffectiveEncoding.scannedPreparedSwapProgram_forward_length
+#print axioms EffectiveEncoding.scannedPreparedSwapProgram_forward_length
+#check EffectiveEncoding.scannedPreparedRotationProgram_forward_length
+#print axioms EffectiveEncoding.scannedPreparedRotationProgram_forward_length
+#check EffectiveEncoding.scannedPreparedSwapProgram_actions_word
+#print axioms EffectiveEncoding.scannedPreparedSwapProgram_actions_word
+#check EffectiveEncoding.scannedPreparedRotationProgram_actions_word
+#print axioms EffectiveEncoding.scannedPreparedRotationProgram_actions_word
+#check EffectiveEncoding.scannedEntryCompileProgram_word
+#print axioms EffectiveEncoding.scannedEntryCompileProgram_word
+#check EffectiveEncoding.scannedEntryCompileProgram_grayCount
+#print axioms EffectiveEncoding.scannedEntryCompileProgram_grayCount
+#check EffectiveEncoding.grayListIndexedCandidateRun_common
+#print axioms EffectiveEncoding.grayListIndexedCandidateRun_common
+#check EffectiveEncoding.grayListIndexedCandidateRun_grayCount
+#print axioms EffectiveEncoding.grayListIndexedCandidateRun_grayCount
+#check EffectiveEncoding.scannedEntryCompileProgram_actions
+#print axioms EffectiveEncoding.scannedEntryCompileProgram_actions
+#check EffectiveEncoding.grayListIndexedCandidateRun_actions
+#print axioms EffectiveEncoding.grayListIndexedCandidateRun_actions
+#check EffectiveEncoding.grayStoredLettersBranchRun_common
+#print axioms EffectiveEncoding.grayStoredLettersBranchRun_common
+#check EffectiveEncoding.typedOccupationLetters_length
+#print axioms EffectiveEncoding.typedOccupationLetters_length
+#check EffectiveEncoding.grayStoredLettersBranchRun_actions
+#print axioms EffectiveEncoding.grayStoredLettersBranchRun_actions
+#check EffectiveEncoding.grayStoredLettersBranchTableRun_common
+#print axioms EffectiveEncoding.grayStoredLettersBranchTableRun_common
+#check EffectiveEncoding.grayStoredLettersBranchTableRun_actions
+#print axioms EffectiveEncoding.grayStoredLettersBranchTableRun_actions
+#check EffectiveEncoding.grayStoredLettersAlignmentRun_common
+#print axioms EffectiveEncoding.grayStoredLettersAlignmentRun_common
+#check EffectiveEncoding.grayStoredLettersAlignmentRun_actions
+#print axioms EffectiveEncoding.grayStoredLettersAlignmentRun_actions
+#check EffectiveEncoding.scannedGrayOccupationRun_common
+#print axioms EffectiveEncoding.scannedGrayOccupationRun_common
+#check EffectiveEncoding.scannedGrayOccupationRun_grayActions
+#print axioms EffectiveEncoding.scannedGrayOccupationRun_grayActions
+#check EffectiveEncoding.scannedGrayStageRun_common
+#print axioms EffectiveEncoding.scannedGrayStageRun_common
+#check EffectiveEncoding.scannedGrayCompressionRun_common
+#print axioms EffectiveEncoding.scannedGrayCompressionRun_common
+#check EffectiveEncoding.scannedGrayCompressionRun_grayActions
+#print axioms EffectiveEncoding.scannedGrayCompressionRun_grayActions
+#check EffectiveEncoding.scannedGrayDescriptorRun_common
+#print axioms EffectiveEncoding.scannedGrayDescriptorRun_common
+#check EffectiveEncoding.scannedGrayDescriptorRun_word
+#print axioms EffectiveEncoding.scannedGrayDescriptorRun_word
+#check EffectiveEncoding.scannedGrayDescriptorRun_grayActions
+#print axioms EffectiveEncoding.scannedGrayDescriptorRun_grayActions
+#check EffectiveEncoding.scannedGraySerializedRun_common
+#print axioms EffectiveEncoding.scannedGraySerializedRun_common
+#check EffectiveEncoding.scannedGraySerializedRun_suffix_roundtrip
+#print axioms EffectiveEncoding.scannedGraySerializedRun_suffix_roundtrip
+#check EffectiveEncoding.scannedGraySerializedRun_decoded_word
+#print axioms EffectiveEncoding.scannedGraySerializedRun_decoded_word
+#check EffectiveEncoding.scannedGraySerializedRun_grayActions
+#print axioms EffectiveEncoding.scannedGraySerializedRun_grayActions
+#check EffectiveEncoding.scannedGrayGeneration_uniform
+#print axioms EffectiveEncoding.scannedGrayGeneration_uniform
+#check EffectiveEncoding.scannedGraySerializedRun_accountedPrimitiveActions_polynomial
+#print axioms EffectiveEncoding.scannedGraySerializedRun_accountedPrimitiveActions_polynomial
+#check EffectiveEncoding.scannedGraySerializedRun_fidelity
+#print axioms EffectiveEncoding.scannedGraySerializedRun_fidelity
+#check EffectiveEncoding.RetainedCandidateFilterResult
+#print axioms EffectiveEncoding.RetainedCandidateFilterResult
+#check EffectiveEncoding.retainedCandidateFilterProgram
+#print axioms EffectiveEncoding.retainedCandidateFilterProgram
+#check EffectiveEncoding.RetainedTriplesResult
+#print axioms EffectiveEncoding.RetainedTriplesResult
+#check EffectiveEncoding.retainedTriplesProgram
+#print axioms EffectiveEncoding.retainedTriplesProgram
+#check EffectiveEncoding.WordPresenceTrace
+#print axioms EffectiveEncoding.WordPresenceTrace
+#check EffectiveEncoding.WordPresenceResult
+#print axioms EffectiveEncoding.WordPresenceResult
+#check EffectiveEncoding.wordPresenceProgram
+#print axioms EffectiveEncoding.wordPresenceProgram
+#check EffectiveEncoding.WordPresenceTrace.actions
+#print axioms EffectiveEncoding.WordPresenceTrace.actions
+#check EffectiveEncoding.StoredOccupationLettersResult
+#print axioms EffectiveEncoding.StoredOccupationLettersResult
+#check EffectiveEncoding.storedOccupationLettersProgram
+#print axioms EffectiveEncoding.storedOccupationLettersProgram
+#check EffectiveEncoding.StoredOccupationLettersResult.items
+#print axioms EffectiveEncoding.StoredOccupationLettersResult.items
+#check EffectiveEncoding.StoredOccupationLettersResult.actions
+#print axioms EffectiveEncoding.StoredOccupationLettersResult.actions
+#check EffectiveEncoding.acceptedNativeOccupation
+#print axioms EffectiveEncoding.acceptedNativeOccupation
+#check EffectiveEncoding.AcceptedOccupationLettersResult
+#print axioms EffectiveEncoding.AcceptedOccupationLettersResult
+#check EffectiveEncoding.acceptedOccupationLettersProgram
+#print axioms EffectiveEncoding.acceptedOccupationLettersProgram
+#check EffectiveEncoding.acceptedOccupationLettersWithBound
+#print axioms EffectiveEncoding.acceptedOccupationLettersWithBound
+#check EffectiveEncoding.AcceptedOccupationTableResult
+#print axioms EffectiveEncoding.AcceptedOccupationTableResult
+#check EffectiveEncoding.acceptedOccupationTableProgram
+#print axioms EffectiveEncoding.acceptedOccupationTableProgram
+#check EffectiveEncoding.AcceptedOccupationTableResult.letterActions
+#print axioms EffectiveEncoding.AcceptedOccupationTableResult.letterActions
+#check EffectiveEncoding.AcceptedOccupationTableResult.actions
+#print axioms EffectiveEncoding.AcceptedOccupationTableResult.actions
+#check EffectiveEncoding.listIndexedCandidateRun
+#print axioms EffectiveEncoding.listIndexedCandidateRun
+#check EffectiveEncoding.typedOccupationLetters
+#print axioms EffectiveEncoding.typedOccupationLetters
+#check EffectiveEncoding.storedLettersBranchRun
+#print axioms EffectiveEncoding.storedLettersBranchRun
+#check EffectiveEncoding.storedLettersPivotEndpoint
+#print axioms EffectiveEncoding.storedLettersPivotEndpoint
+#check EffectiveEncoding.storedLettersBranchTableRun
+#print axioms EffectiveEncoding.storedLettersBranchTableRun
+#check EffectiveEncoding.storedLettersAlignmentRun
+#print axioms EffectiveEncoding.storedLettersAlignmentRun
+#check EffectiveEncoding.AcceptedOccupationTableRecord
+#print axioms EffectiveEncoding.AcceptedOccupationTableRecord
+#check EffectiveEncoding.LetterSelectedCandidateResult
+#print axioms EffectiveEncoding.LetterSelectedCandidateResult
+#check EffectiveEncoding.letterSelectedOccupationRun
+#print axioms EffectiveEncoding.letterSelectedOccupationRun
+#check EffectiveEncoding.LetterSelectedCandidateResult.letterActions
+#print axioms EffectiveEncoding.LetterSelectedCandidateResult.letterActions
+#check EffectiveEncoding.letterSelectedStageRun
+#print axioms EffectiveEncoding.letterSelectedStageRun
+#check EffectiveEncoding.letterSelectedCompressionRun
+#print axioms EffectiveEncoding.letterSelectedCompressionRun
+#check EffectiveEncoding.letterSelectedDescriptorRun
+#print axioms EffectiveEncoding.letterSelectedDescriptorRun
+#check EffectiveEncoding.LetterSelectedSerializedResult
+#print axioms EffectiveEncoding.LetterSelectedSerializedResult
+#check EffectiveEncoding.letterSelectedSerializedRun
+#print axioms EffectiveEncoding.letterSelectedSerializedRun
+#check EffectiveEncoding.LetterSelectedSerializedResult.decoded
+#print axioms EffectiveEncoding.LetterSelectedSerializedResult.decoded
+#check EffectiveEncoding.LetterSelectedSerializedResult.letterActions
+#print axioms EffectiveEncoding.LetterSelectedSerializedResult.letterActions
+#check EffectiveEncoding.LetterSelectedSerializedResult.accountedPrimitiveActions
+#print axioms EffectiveEncoding.LetterSelectedSerializedResult.accountedPrimitiveActions
+#check EffectiveEncoding.letterSelectedSerializedPolynomialConstant
+#print axioms EffectiveEncoding.letterSelectedSerializedPolynomialConstant
+#check EffectiveEncoding.GrayScanTrace
+#print axioms EffectiveEncoding.GrayScanTrace
+#check EffectiveEncoding.BooleanGrayScanResult
+#print axioms EffectiveEncoding.BooleanGrayScanResult
+#check EffectiveEncoding.booleanGrayScanProgram
+#print axioms EffectiveEncoding.booleanGrayScanProgram
+#check EffectiveEncoding.GrayScanTrace.actions
+#print axioms EffectiveEncoding.GrayScanTrace.actions
+#check EffectiveEncoding.PackedListProjectionTrace
+#print axioms EffectiveEncoding.PackedListProjectionTrace
+#check EffectiveEncoding.PackedListProjectionResult
+#print axioms EffectiveEncoding.PackedListProjectionResult
+#check EffectiveEncoding.packedListProjectionProgram
+#print axioms EffectiveEncoding.packedListProjectionProgram
+#check EffectiveEncoding.PackedListProjectionTrace.actions
+#print axioms EffectiveEncoding.PackedListProjectionTrace.actions
+#check EffectiveEncoding.PackedGrayScanResult
+#print axioms EffectiveEncoding.PackedGrayScanResult
+#check EffectiveEncoding.packedGrayScanProgram
+#print axioms EffectiveEncoding.packedGrayScanProgram
+#check EffectiveEncoding.PackedGrayScanResult.actions
+#print axioms EffectiveEncoding.PackedGrayScanResult.actions
+#check EffectiveEncoding.ScannedGrayCompileResult
+#print axioms EffectiveEncoding.ScannedGrayCompileResult
+#check EffectiveEncoding.scannedPreparedSwapProgram
+#print axioms EffectiveEncoding.scannedPreparedSwapProgram
+#check EffectiveEncoding.scannedPreparedRotationProgram
+#print axioms EffectiveEncoding.scannedPreparedRotationProgram
+#check EffectiveEncoding.ScannedGrayCompileResult.actions
+#print axioms EffectiveEncoding.ScannedGrayCompileResult.actions
+#check EffectiveEncoding.ScannedEntryCompileResult
+#print axioms EffectiveEncoding.ScannedEntryCompileResult
+#check EffectiveEncoding.scannedEntryCompileProgram
+#print axioms EffectiveEncoding.scannedEntryCompileProgram
+#check EffectiveEncoding.ScannedCandidateWordRun
+#print axioms EffectiveEncoding.ScannedCandidateWordRun
+#check EffectiveEncoding.grayListIndexedCandidateRun
+#print axioms EffectiveEncoding.grayListIndexedCandidateRun
+#check EffectiveEncoding.ScannedEntryCompileResult.actions
+#print axioms EffectiveEncoding.ScannedEntryCompileResult.actions
+#check EffectiveEncoding.ScannedCandidateWordRun.actions
+#print axioms EffectiveEncoding.ScannedCandidateWordRun.actions
+#check EffectiveEncoding.grayStoredLettersBranchRun
+#print axioms EffectiveEncoding.grayStoredLettersBranchRun
+#check EffectiveEncoding.grayStoredLettersBranchTableRun
+#print axioms EffectiveEncoding.grayStoredLettersBranchTableRun
+#check EffectiveEncoding.grayStoredLettersAlignmentRun
+#print axioms EffectiveEncoding.grayStoredLettersAlignmentRun
+#check EffectiveEncoding.ScannedGrayRecord
+#print axioms EffectiveEncoding.ScannedGrayRecord
+#check EffectiveEncoding.ScannedGrayCandidateResult
+#print axioms EffectiveEncoding.ScannedGrayCandidateResult
+#check EffectiveEncoding.ScannedGrayCandidateResult.word
+#print axioms EffectiveEncoding.ScannedGrayCandidateResult.word
+#check EffectiveEncoding.scannedGrayOccupationRun
+#print axioms EffectiveEncoding.scannedGrayOccupationRun
+#check EffectiveEncoding.ScannedGrayCandidateResult.grayActions
+#print axioms EffectiveEncoding.ScannedGrayCandidateResult.grayActions
+#check EffectiveEncoding.scannedGrayStageRun
+#print axioms EffectiveEncoding.scannedGrayStageRun
+#check EffectiveEncoding.scannedGrayCompressionRun
+#print axioms EffectiveEncoding.scannedGrayCompressionRun
+#check EffectiveEncoding.scannedGrayDescriptorRun
+#print axioms EffectiveEncoding.scannedGrayDescriptorRun
+#check EffectiveEncoding.ScannedGraySerializedResult
+#print axioms EffectiveEncoding.ScannedGraySerializedResult
+#check EffectiveEncoding.scannedGraySerializedRun
+#print axioms EffectiveEncoding.scannedGraySerializedRun
+#check EffectiveEncoding.ScannedGraySerializedResult.decoded
+#print axioms EffectiveEncoding.ScannedGraySerializedResult.decoded
+#check EffectiveEncoding.ScannedGraySerializedResult.grayActions
+#print axioms EffectiveEncoding.ScannedGraySerializedResult.grayActions
+#check EffectiveEncoding.ScannedGraySerializedResult.accountedPrimitiveActions
+#print axioms EffectiveEncoding.ScannedGraySerializedResult.accountedPrimitiveActions
+#check EffectiveEncoding.scannedGraySerializedPolynomialConstant
+#print axioms EffectiveEncoding.scannedGraySerializedPolynomialConstant
