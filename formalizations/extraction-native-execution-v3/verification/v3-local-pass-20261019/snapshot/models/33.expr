@@ -1,0 +1,151 @@
+name EffectiveEncoding.nativeBooleanRankProgram
+levels []
+type Lean.Expr.forallE
+  `k
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `t
+    (Lean.Expr.const `EffectiveEncoding.Triple [])
+    (Lean.Expr.forallE
+      `h
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `instLENat []))
+          (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.total []) (Lean.Expr.bvar 0)))
+        (Lean.Expr.bvar 1))
+      (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.NativeBooleanRankResult []) (Lean.Expr.bvar 2))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  `k
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.lam
+    `t
+    (Lean.Expr.const `EffectiveEncoding.Triple [])
+    (Lean.Expr.lam
+      `h
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `LE.le [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `instLENat []))
+          (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.total []) (Lean.Expr.bvar 0)))
+        (Lean.Expr.bvar 1))
+      (Lean.Expr.letE
+        `candidates
+        (Lean.Expr.app
+          (Lean.Expr.const `EffectiveEncoding.FilterBuild [Lean.Level.zero])
+          (Lean.Expr.const `EffectiveEncoding.Triple []))
+        (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.triplesBuild []) (Lean.Expr.bvar 2))
+        (Lean.Expr.letE
+          `prepared
+          (Lean.Expr.app
+            (Lean.Expr.const `List [Lean.Level.zero])
+            (Lean.Expr.const `EffectiveEncoding.NativeTripleWords []))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.const `List.map [Lean.Level.zero, Lean.Level.zero])
+                  (Lean.Expr.const `EffectiveEncoding.Triple []))
+                (Lean.Expr.const `EffectiveEncoding.NativeTripleWords []))
+              (Lean.Expr.const `EffectiveEncoding.nativeTripleWordProgram []))
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.const `EffectiveEncoding.FilterBuild.items [Lean.Level.zero])
+                (Lean.Expr.const `EffectiveEncoding.Triple []))
+              (Lean.Expr.bvar 0)))
+          (Lean.Expr.letE
+            `input
+            (Lean.Expr.const `EffectiveEncoding.NativeTripleWords [])
+            (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.nativeTripleWordProgram []) (Lean.Expr.bvar 3))
+            (Lean.Expr.letE
+              `scan
+              (Lean.Expr.const `EffectiveEncoding.NativeTripleScanResult [])
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.nativeTripleScanProgram []) (Lean.Expr.bvar 0))
+                (Lean.Expr.bvar 1))
+              (Lean.Expr.letE
+                `ranked
+                (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.ConstructiveRankRun []) (Lean.Expr.bvar 6))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `EffectiveEncoding.ConstructiveRankRun.mk [])
+                          (Lean.Expr.bvar 6))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Fin.mk [])
+                              (Lean.Expr.app (Lean.Expr.const `CircuitCompletion.occupationRank []) (Lean.Expr.bvar 6)))
+                            (Lean.Expr.app
+                              (Lean.Expr.const `EffectiveEncoding.NativeTripleScanResult.index [])
+                              (Lean.Expr.bvar 0)))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `EffectiveEncoding.nativeBooleanRankProgram._proof_1 [])
+                                (Lean.Expr.bvar 6))
+                              (Lean.Expr.bvar 5))
+                            (Lean.Expr.bvar 4))))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `EffectiveEncoding.FilterBuild.steps [Lean.Level.zero])
+                          (Lean.Expr.const `EffectiveEncoding.Triple []))
+                        (Lean.Expr.bvar 3)))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `EffectiveEncoding.FilterBuild.queries [Lean.Level.zero])
+                        (Lean.Expr.const `EffectiveEncoding.Triple []))
+                      (Lean.Expr.bvar 3)))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `HMul.hMul [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.const `Nat []))
+                            (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `Nat []))
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `instHMul [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.const `instMulNat [])))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.lit (Lean.Literal.natVal 3)))
+                        (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 3)))))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `List.length [Lean.Level.zero])
+                        (Lean.Expr.const `EffectiveEncoding.NativeTripleComparison []))
+                      (Lean.Expr.app
+                        (Lean.Expr.const `EffectiveEncoding.NativeTripleScanResult.tests [])
+                        (Lean.Expr.bvar 0)))))
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `EffectiveEncoding.NativeBooleanRankResult.mk [])
+                            (Lean.Expr.bvar 7))
+                          (Lean.Expr.bvar 4))
+                        (Lean.Expr.bvar 3))
+                      (Lean.Expr.bvar 2))
+                    (Lean.Expr.bvar 1))
+                  (Lean.Expr.bvar 0))
+                true)
+              false)
+            false)
+          false)
+        false)
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.default)

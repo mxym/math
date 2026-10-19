@@ -1,0 +1,48 @@
+name CircuitRecursion.InputArithmeticWordResult.readActions
+levels []
+type Lean.Expr.forallE
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `r
+    (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult []) (Lean.Expr.bvar 0))
+    (Lean.Expr.const `Nat [])
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)
+value Lean.Expr.lam
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.lam
+    `r
+    (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult []) (Lean.Expr.bvar 0))
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app (Lean.Expr.const `List.sum [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+          (Lean.Expr.const `instAddNat []))
+        (Lean.Expr.app
+          (Lean.Expr.app (Lean.Expr.const `MulZeroClass.toZero [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+          (Lean.Expr.const `Nat.instMulZeroClass [])))
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.const `List.map [Lean.Level.zero, Lean.Level.zero])
+              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation []) (Lean.Expr.bvar 1)))
+            (Lean.Expr.const `Nat []))
+          (Lean.Expr.lam
+            `e
+            (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation []) (Lean.Expr.bvar 1))
+            (Lean.Expr.app
+              (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.nativeCacheReadActions []) (Lean.Expr.bvar 2))
+              (Lean.Expr.app
+                (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.InputScalarEvaluation.reads []) (Lean.Expr.bvar 2))
+                (Lean.Expr.bvar 0)))
+            (Lean.BinderInfo.default)))
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.const `CircuitRecursion.InputArithmeticWordResult.evaluations [])
+            (Lean.Expr.bvar 1))
+          (Lean.Expr.bvar 0))))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)

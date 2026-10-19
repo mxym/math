@@ -1,0 +1,19 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 6795 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.retainedAssembledTargetRun_erase':
+(kernel) declaration type mismatch, 'EffectiveEncoding.retainedAssembledTargetRun_erase' has type
+  True
+but it is expected to have type
+  {m n : Nat} →
+    (entry : Fin m → CircuitRecursion.NativePacketDataOracle) →
+      (inverseLabel : Fin m → Fin m) →
+        (table : Fin (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n 1) → @List (Fin m)) →
+          (L q : Nat) →
+            (u : EffectiveEncoding.SingleCode) →
+              @Eq (EffectiveEncoding.RetainedInputTargetResult m L q)
+                (EffectiveEncoding.RetainedAssembledTargetResult.erase m L q
+                  (EffectiveEncoding.retainedAssembledTargetRun m n entry inverseLabel table L q u))
+                (EffectiveEncoding.retainedInputTargetRun m n entry inverseLabel table L q u)
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.retainedAssembledTargetRun_erase
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.retainedAssembledTargetRun_erase

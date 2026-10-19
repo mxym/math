@@ -1,0 +1,108 @@
+name CircuitRecursion.BinaryPacketInputResult.actions
+levels []
+type Lean.Expr.forallE
+  `result
+  (Lean.Expr.const `CircuitRecursion.BinaryPacketInputResult [])
+  (Lean.Expr.const `Nat [])
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  `result
+  (Lean.Expr.const `CircuitRecursion.BinaryPacketInputResult [])
+  (Lean.Expr.app
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+              (Lean.Expr.const `Nat []))
+            (Lean.Expr.const `Nat []))
+          (Lean.Expr.const `Nat []))
+        (Lean.Expr.app
+          (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+          (Lean.Expr.const `instAddNat [])))
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.const `HAdd.hAdd [Lean.Level.zero, Lean.Level.zero, Lean.Level.zero])
+                  (Lean.Expr.const `Nat []))
+                (Lean.Expr.const `Nat []))
+              (Lean.Expr.const `Nat []))
+            (Lean.Expr.app
+              (Lean.Expr.app (Lean.Expr.const `instHAdd [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+              (Lean.Expr.const `instAddNat [])))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.const `Finset.sum [Lean.Level.zero, Lean.Level.zero])
+                    (Lean.Expr.app
+                      (Lean.Expr.const `Fin [])
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                        (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4))))))
+                  (Lean.Expr.const `Nat []))
+                (Lean.Expr.const `Nat.instAddCommMonoid []))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.const `Finset.univ [Lean.Level.zero])
+                  (Lean.Expr.app
+                    (Lean.Expr.const `Fin [])
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                        (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4))))))
+                (Lean.Expr.app
+                  (Lean.Expr.const `Fin.fintype [])
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                      (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                    (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))))
+            (Lean.Expr.lam
+              `i
+              (Lean.Expr.app
+                (Lean.Expr.const `Fin [])
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                    (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                  (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+              (Lean.Expr.app
+                (Lean.Expr.const `CircuitRecursion.SignedBinaryNormalizationResult.actions [])
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `List.Vector.get [Lean.Level.zero])
+                        (Lean.Expr.const `CircuitRecursion.SignedBinaryNormalizationResult []))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+                          (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                        (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                    (Lean.Expr.app
+                      (Lean.Expr.const `CircuitRecursion.BinaryPacketInputResult.numerators [])
+                      (Lean.Expr.bvar 1)))
+                  (Lean.Expr.bvar 0)))
+              (Lean.BinderInfo.default))))
+        (Lean.Expr.app
+          (Lean.Expr.const `CircuitRecursion.BinaryWordTrimTrace.actions [])
+          (Lean.Expr.app
+            (Lean.Expr.const `CircuitRecursion.BinaryWordTrimResult.trace [])
+            (Lean.Expr.app
+              (Lean.Expr.const `CircuitRecursion.BinaryPacketInputResult.denominator [])
+              (Lean.Expr.bvar 0))))))
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+        (Lean.Expr.lit (Lean.Literal.natVal 16)))
+      (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 16)))))
+  (Lean.BinderInfo.default)

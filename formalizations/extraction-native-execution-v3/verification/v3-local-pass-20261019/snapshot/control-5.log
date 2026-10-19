@@ -1,0 +1,26 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 31774 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ConcreteNativeExtraction.assembledRun_length':
+(kernel) declaration type mismatch, 'ConcreteNativeExtraction.assembledRun_length' has type
+  True
+but it is expected to have type
+  (net : ConcreteNativeExtraction.OfflineNet) →
+    (k p : Nat) →
+      @LE.le Nat instLENat
+        (@List.length (EffectiveEncoding.LabelGate 4 (CircuitCompletion.originalWireCount k))
+          (EffectiveEncoding.AssembledCompiledLabelRun.word 4 (CircuitCompletion.originalWireCount k)
+            (ConcreteNativeExtraction.OfflineNet.lengthBound net)
+            (EffectiveEncoding.FullyAssembledInputResult.precision 4 (CircuitCompletion.originalWireCount k)
+              (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.assembledRun net k p))
+            (EffectiveEncoding.FullyAssembledInputResult.compilation 4 (CircuitCompletion.originalWireCount k)
+              (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.assembledRun net k p))))
+        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (EffectiveEncoding.actualGatePolynomial k)
+          (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat)
+            (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 32
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (ConcreteNativeExtraction.OfflineNet.lengthBound net)
+                1))
+            (@HPow.hPow Nat Nat Nat (@instHPow Nat Nat (@NPow.toPow Nat (@Monoid.toNPow Nat Nat.instMonoid)))
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (EffectiveEncoding.logarithmicPrecision k p) 1) 5)))
+CORRUPTED_PROOF_REJECTED ConcreteNativeExtraction.assembledRun_length
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED ConcreteNativeExtraction.assembledRun_length

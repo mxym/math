@@ -1,0 +1,23 @@
+name CircuitRecursion.instructionInverseProgram
+levels []
+type Lean.Expr.forallE
+  `m
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.forallE
+    `inverseLabel
+    (Lean.Expr.forallE
+      (Lean.Name.mkNum `a._@._internal._hyg 0)
+      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 0))
+      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 1))
+      (Lean.BinderInfo.default))
+    (Lean.Expr.forallE
+      `word
+      (Lean.Expr.app
+        (Lean.Expr.const `List [Lean.Level.zero])
+        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 1)))
+      (Lean.Expr.app
+        (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.zero])
+        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 2)))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)

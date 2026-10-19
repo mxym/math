@@ -1,0 +1,15 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 2568 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'RationalGateBinary.nativeEntryProgram_normalization_actions':
+(kernel) declaration type mismatch, 'RationalGateBinary.nativeEntryProgram_normalization_actions' has type
+  True
+but it is expected to have type
+  (i : Fin 4) →
+    (precision : Nat) →
+      @LE.le Nat instLENat
+        (CircuitRecursion.BinaryPacketInputResult.actions (RationalGateBinary.nativeEntryProgram i precision))
+        (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) 64
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) precision 2))
+CORRUPTED_PROOF_REJECTED RationalGateBinary.nativeEntryProgram_normalization_actions
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED RationalGateBinary.nativeEntryProgram_normalization_actions

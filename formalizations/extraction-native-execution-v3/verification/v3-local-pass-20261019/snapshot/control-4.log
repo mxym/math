@@ -1,0 +1,26 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 31861 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'ConcreteNativeExtraction.assembledRun_uses_finite_library':
+(kernel) declaration type mismatch, 'ConcreteNativeExtraction.assembledRun_uses_finite_library' has type
+  True
+but it is expected to have type
+  (net : ConcreteNativeExtraction.OfflineNet) →
+    (k p : Nat) →
+      (g : CircuitCompletion.Gate (CircuitCompletion.originalWireCount k)) →
+        @Membership.mem (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k))
+            (CircuitCompletion.Circuit (CircuitCompletion.originalWireCount k))
+            (@List.instMembership (CircuitCompletion.Gate (CircuitCompletion.originalWireCount k)))
+            (EffectiveEncoding.labelCircuit 4 (CircuitCompletion.originalWireCount k) RationalGateInterface.rationalGate
+              (EffectiveEncoding.AssembledCompiledLabelRun.word 4 (CircuitCompletion.originalWireCount k)
+                (ConcreteNativeExtraction.OfflineNet.lengthBound net)
+                (EffectiveEncoding.FullyAssembledInputResult.precision 4 (CircuitCompletion.originalWireCount k)
+                  (ConcreteNativeExtraction.OfflineNet.lengthBound net) (ConcreteNativeExtraction.assembledRun net k p))
+                (EffectiveEncoding.FullyAssembledInputResult.compilation 4 (CircuitCompletion.originalWireCount k)
+                  (ConcreteNativeExtraction.OfflineNet.lengthBound net)
+                  (ConcreteNativeExtraction.assembledRun net k p))))
+            g →
+          CircuitRecursion.usesFiniteLibrary 4 (CircuitCompletion.originalWireCount k)
+            RationalGateInterface.rationalGate g
+CORRUPTED_PROOF_REJECTED ConcreteNativeExtraction.assembledRun_uses_finite_library
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED ConcreteNativeExtraction.assembledRun_uses_finite_library

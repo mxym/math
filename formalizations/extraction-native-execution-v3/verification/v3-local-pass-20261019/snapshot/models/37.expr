@@ -1,0 +1,28 @@
+name EffectiveEncoding.NativeTripleScanResult.comparisonActions
+levels []
+type Lean.Expr.forallE
+  `r
+  (Lean.Expr.const `EffectiveEncoding.NativeTripleScanResult [])
+  (Lean.Expr.const `Nat [])
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  `r
+  (Lean.Expr.const `EffectiveEncoding.NativeTripleScanResult [])
+  (Lean.Expr.app
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app (Lean.Expr.const `List.sum [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+        (Lean.Expr.const `instAddNat []))
+      (Lean.Expr.app
+        (Lean.Expr.app (Lean.Expr.const `MulZeroClass.toZero [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+        (Lean.Expr.const `Nat.instMulZeroClass [])))
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.const `List.map [Lean.Level.zero, Lean.Level.zero])
+            (Lean.Expr.const `EffectiveEncoding.NativeTripleComparison []))
+          (Lean.Expr.const `Nat []))
+        (Lean.Expr.const `EffectiveEncoding.NativeTripleComparison.actions []))
+      (Lean.Expr.app (Lean.Expr.const `EffectiveEncoding.NativeTripleScanResult.tests []) (Lean.Expr.bvar 0))))
+  (Lean.BinderInfo.default)

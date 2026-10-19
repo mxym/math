@@ -1,0 +1,15 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 17648 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'EffectiveEncoding.nativeBooleanRankProgram_ranked':
+(kernel) declaration type mismatch, 'EffectiveEncoding.nativeBooleanRankProgram_ranked' has type
+  True
+but it is expected to have type
+  (k : Nat) →
+    (t : EffectiveEncoding.Triple) →
+      (h : @LE.le Nat instLENat (EffectiveEncoding.total t) k) →
+        @Eq (EffectiveEncoding.ConstructiveRankRun k)
+          (EffectiveEncoding.NativeBooleanRankResult.ranked k (EffectiveEncoding.nativeBooleanRankProgram k t h))
+          (EffectiveEncoding.carriedTripleRankProgram k t h)
+CORRUPTED_PROOF_REJECTED EffectiveEncoding.nativeBooleanRankProgram_ranked
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED EffectiveEncoding.nativeBooleanRankProgram_ranked

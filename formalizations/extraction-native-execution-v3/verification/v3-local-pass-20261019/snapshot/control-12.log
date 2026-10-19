@@ -1,0 +1,14 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 3387 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'RationalGateBinary.nativeEntry_decode':
+(kernel) declaration type mismatch, 'RationalGateBinary.nativeEntry_decode' has type
+  True
+but it is expected to have type
+  (i : Fin 4) →
+    (precision : Nat) →
+      @Eq CircuitRecursion.IntegerPacket
+        (CircuitRecursion.WordIntegerPacket.decode (RationalGateBinary.nativeEntry i precision))
+        (CircuitRecursion.dyadicIntegerPacket (RationalGateInterface.dyadicEntry i) precision)
+CORRUPTED_PROOF_REJECTED RationalGateBinary.nativeEntry_decode
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED RationalGateBinary.nativeEntry_decode

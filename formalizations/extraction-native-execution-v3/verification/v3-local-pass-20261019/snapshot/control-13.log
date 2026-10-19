@@ -1,0 +1,12 @@
+NATIVE_MAX_MEMORY_BYTES 4194304000
+DATA_ONLY_IMPORT_COMPLETE_NOT_KERNEL_REPLAY
+TYPE_CLOSURE_REPLAY_PASS 17782 declarations; trust level zero
+EXPECTED_KERNEL_REJECTION: while replaying declaration 'RationalGateBinary.nativeEntry_correct':
+(kernel) declaration type mismatch, 'RationalGateBinary.nativeEntry_correct' has type
+  True
+but it is expected to have type
+  (i : Fin 4) →
+    CircuitRecursion.QApproximates (CircuitRecursion.nativePacketDataOracle (RationalGateBinary.nativeEntry i))
+      (RationalGateInterface.rationalGate i)
+CORRUPTED_PROOF_REJECTED RationalGateBinary.nativeEntry_correct
+CORRUPTED_PROOF_TYPE_MISMATCH_REJECTED RationalGateBinary.nativeEntry_correct

@@ -1,0 +1,50 @@
+name CircuitRecursion.listAppendProgram
+levels [`u_1]
+type Lean.Expr.forallE
+  `α
+  (Lean.Expr.sort (Lean.Level.succ (Lean.Level.param `u_1)))
+  (Lean.Expr.forallE
+    (Lean.Name.mkNum `a._@._internal._hyg 0)
+    (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 0))
+    (Lean.Expr.forallE
+      (Lean.Name.mkNum `a._@._internal._hyg 0)
+      (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 1))
+      (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.param `u_1]) (Lean.Expr.bvar 2))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)
+value Lean.Expr.lam
+  `α
+  (Lean.Expr.sort (Lean.Level.succ (Lean.Level.param `u_1)))
+  (Lean.Expr.lam
+    (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.ListAssemblyPrograms 3991677042) "_hygCtx") "_hyg") 11)
+    (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 0))
+    (Lean.Expr.lam
+      (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.ListAssemblyPrograms 3991677042) "_hygCtx") "_hyg") 12)
+      (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 1))
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.const `List.brecOn [Lean.Level.succ (Lean.Level.param `u_1), Lean.Level.param `u_1])
+                (Lean.Expr.bvar 2))
+              (Lean.Expr.lam
+                (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.ListAssemblyPrograms 3991677042) "_hygCtx") "_hyg") 11)
+                (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 2))
+                (Lean.Expr.forallE
+                  (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `x.«_@».CircuitNumerical.ListAssemblyPrograms 3991677042) "_hygCtx") "_hyg") 12)
+                  (Lean.Expr.app (Lean.Expr.const `List [Lean.Level.param `u_1]) (Lean.Expr.bvar 3))
+                  (Lean.Expr.app
+                    (Lean.Expr.const `CircuitRecursion.ListAssemblyResult [Lean.Level.param `u_1])
+                    (Lean.Expr.bvar 4))
+                  (Lean.BinderInfo.default))
+                (Lean.BinderInfo.default)))
+            (Lean.Expr.bvar 1))
+          (Lean.Expr.app
+            (Lean.Expr.const `CircuitRecursion.listAppendProgram._f [Lean.Level.param `u_1])
+            (Lean.Expr.bvar 2)))
+        (Lean.Expr.bvar 0))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)

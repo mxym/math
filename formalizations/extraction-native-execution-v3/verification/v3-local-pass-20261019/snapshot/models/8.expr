@@ -1,0 +1,96 @@
+name CircuitRecursion.binaryPacketInputProgram
+levels []
+type Lean.Expr.forallE
+  `a
+  (Lean.Expr.const `CircuitRecursion.BinaryPacketInput [])
+  (Lean.Expr.const `CircuitRecursion.BinaryPacketInputResult [])
+  (Lean.BinderInfo.default)
+value Lean.Expr.lam
+  `a
+  (Lean.Expr.const `CircuitRecursion.BinaryPacketInput [])
+  (Lean.Expr.letE
+    `numerators
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.const `List.Vector [Lean.Level.zero])
+        (Lean.Expr.const `CircuitRecursion.SignedBinaryNormalizationResult []))
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+          (Lean.Expr.lit (Lean.Literal.natVal 4)))
+        (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+    (Lean.Expr.app
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.const `List.Vector.ofFn [Lean.Level.zero])
+          (Lean.Expr.const `CircuitRecursion.SignedBinaryNormalizationResult []))
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+            (Lean.Expr.lit (Lean.Literal.natVal 4)))
+          (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+      (Lean.Expr.lam
+        `i
+        (Lean.Expr.app
+          (Lean.Expr.const `Fin [])
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero]) (Lean.Expr.const `Nat []))
+              (Lean.Expr.lit (Lean.Literal.natVal 4)))
+            (Lean.Expr.app (Lean.Expr.const `instOfNatNat []) (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+        (Lean.Expr.app
+          (Lean.Expr.const `CircuitRecursion.signedBinaryNormalizeProgram [])
+          (Lean.Expr.app
+            (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.BinaryPacketInput.scalarWord []) (Lean.Expr.bvar 1))
+            (Lean.Expr.bvar 0)))
+        (Lean.BinderInfo.default)))
+    (Lean.Expr.letE
+      `denominator
+      (Lean.Expr.const `CircuitRecursion.BinaryWordTrimResult [])
+      (Lean.Expr.app
+        (Lean.Expr.const `CircuitRecursion.binaryTrimProgram [])
+        (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.BinaryPacketInput.denominator []) (Lean.Expr.bvar 1)))
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.const `CircuitRecursion.BinaryPacketInputResult.mk [])
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `CircuitRecursion.WordIntegerPacket.mk [])
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `List.Vector.map [Lean.Level.zero, Lean.Level.zero])
+                                (Lean.Expr.const `CircuitRecursion.SignedBinaryNormalizationResult []))
+                              (Lean.Expr.const `CircuitRecursion.SignedBinaryWord []))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `OfNat.ofNat [Lean.Level.zero])
+                                  (Lean.Expr.const `Nat []))
+                                (Lean.Expr.lit (Lean.Literal.natVal 4)))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `instOfNatNat [])
+                                (Lean.Expr.lit (Lean.Literal.natVal 4)))))
+                          (Lean.Expr.const `CircuitRecursion.SignedBinaryNormalizationResult.word []))
+                        (Lean.Expr.bvar 1)))
+                    (Lean.Expr.app (Lean.Expr.const `CircuitRecursion.BinaryWordTrimResult.bits []) (Lean.Expr.bvar 0)))
+                  (Lean.Expr.app
+                    (Lean.Expr.const `CircuitRecursion.binaryPacketInputProgram._proof_1 [])
+                    (Lean.Expr.bvar 2)))
+                (Lean.Expr.app
+                  (Lean.Expr.const `CircuitRecursion.binaryPacketInputProgram._proof_2 [])
+                  (Lean.Expr.bvar 2)))
+              (Lean.Expr.app
+                (Lean.Expr.const `CircuitRecursion.binaryPacketInputProgram._proof_3 [])
+                (Lean.Expr.bvar 2))))
+          (Lean.Expr.bvar 1))
+        (Lean.Expr.bvar 0))
+      false)
+    false)
+  (Lean.BinderInfo.default)
