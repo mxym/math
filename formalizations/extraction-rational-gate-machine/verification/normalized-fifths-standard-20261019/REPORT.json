@@ -1,0 +1,252 @@
+{
+  "utc": "2026-10-19T00:42:33.749243+00:00",
+  "status": "AUTHOR_STANDARD_KINDS_TYPES_AXIOMS_AND549_ACTUAL_TM2_RUNS_PASS_NOT_INDEPENDENT_REPLAY",
+  "parent_head": "ceeb6c78495d3d14006a1997c76a62e4178f8709",
+  "package": "extraction-rational-gate-machine",
+  "theorem_count": 41,
+  "build_jobs": 4005,
+  "source_snapshot": {
+    "formalizations/extraction-rational-gate-machine/.gitignore": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374",
+    "formalizations/extraction-rational-gate-machine/BINARY_FIFTHS_EXECUTION.md": "a5aa3b9c457570e5c78284a18b6c98a65a88453b884044e7da23b2b2254e32aa",
+    "formalizations/extraction-rational-gate-machine/BINARY_FIFTHS_MODELS.txt": "589ef4342a386c3c8486638a386ea30d9a9f562059a4367e709a50ce3b5e050d",
+    "formalizations/extraction-rational-gate-machine/BINARY_FIFTHS_ROOTS.txt": "aee2d5473c158db9edc3f6f8e2739733f5693f085259384cbe85cf12eb979672",
+    "formalizations/extraction-rational-gate-machine/BINARY_FIFTHS_SOURCE_BINDING.json": "cf04196d00adf7cce180e0616362b6da8ef7ec88fae8c1014f33697b5820ccd5",
+    "formalizations/extraction-rational-gate-machine/CLOCK_EXECUTION.md": "1c54dea3ca3c5be81c58147f70a8643e578de669df62b939ae22c39bb514321c",
+    "formalizations/extraction-rational-gate-machine/CLOCK_MODELS.txt": "5fa2f5042e4a7936ccd6559985cb9ee57174fd35d62d7193f7ee59727fe20866",
+    "formalizations/extraction-rational-gate-machine/CLOCK_ROOTS.txt": "1eda33836fc736ba5e8b804751db90b5866fa61782ed3f2409ffeb0f87d1710c",
+    "formalizations/extraction-rational-gate-machine/CLOCK_SOURCE_BINDING.json": "e44af59ae33539151d876207a5d8890f88e5799469909a8ecc74ea0f28ff0031",
+    "formalizations/extraction-rational-gate-machine/MACHINE_SOURCE_BINDING.json": "67d883899464212451dec5ff74648af6a767430c16ce31c43ef970d82b1cfae8",
+    "formalizations/extraction-rational-gate-machine/MODELS.txt": "b3a56723cfd07e4c675a11c04f07e0262603f0036e0cc57226e9867676c54b5d",
+    "formalizations/extraction-rational-gate-machine/NORMALIZED_FIFTHS_EXECUTION.md": "1035d2b5e5611ee55411b5cb5b45e42fc01f16b95bdc8a2cdd23b023ebcb6be9",
+    "formalizations/extraction-rational-gate-machine/NORMALIZED_FIFTHS_MODELS.txt": "4614cba262e901cc8384b041afc1fb7abdf36e771d68173af7ec12cc51b65a19",
+    "formalizations/extraction-rational-gate-machine/NORMALIZED_FIFTHS_ROOTS.txt": "fa312238192ebacdb99e556d046432ec43f63310c00d5a5ad42abe4767d6a3fb",
+    "formalizations/extraction-rational-gate-machine/NORMALIZED_FIFTHS_SOURCE_BINDING.json": "8b2d8014308c6793d369bbd9e052bd32ec041dfdd6d06cf56264b79d44c6d8e5",
+    "formalizations/extraction-rational-gate-machine/README.md": "1efe26f92fb44f6df5d888ef57822896aa0d33194e5e2c66ac845fc192fba6f8",
+    "formalizations/extraction-rational-gate-machine/ROOTS.txt": "f9ac1e00adbf9dd0171bda71ca173c3aaa6d2769ad56c527400390e0eb721943",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/BinaryClock.lean": "68eca034d0fe4bee336605ecc7ec0ea7da16338fdc94229c24f0ee70944fd024",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/BinaryFifths.lean": "c9d55293d23d32ccabe5941a51bc80042fd11772d3d2ee5f070ee1f2f2d2657c",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/BinaryFifthsCheck.lean": "028ecabd8ab5bc547a85d33119ab3cc0cd4aad0e7c8c25bddeff961a3d15c1a4",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/BinaryTrim.lean": "d0a8b9e57d6b5c700e34ddfbde1429ae0cb12135ee2117faec961c77f5233708",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/Check.lean": "ad8c7b164169620fe1f65bfdf132151e182e4926b8bd2c837d9e4b0191139233",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/ClockCheck.lean": "379adb0200683acff4e73c37eeeb3cb549e1a839eb45adc5ff84e90d62205835",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/Fifths.lean": "da77d0a625bbafce69ce6e5799a673c400454d6f7a0d6c41afc3b6707bd82b4d",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/LabelLift.lean": "d94b451ea5649709e777aee8f6dd9f7fb108cceb53450cc8027862ee81f02771",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/NormalizedCheck.lean": "4880d3e1cc7109137e35666b870a439c70bd41a7586543ce28281cabdfb971d9",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/NormalizedFifths.lean": "a3250ba55609fb033f1c4d7cde660eecb691d5bc6c3caeb629c7e961ebda3e7c",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine/StateLift.lean": "61d474aab456288ff39635e74ec484afca6d385728e081fbc9aa6cc25dfbc234",
+    "formalizations/extraction-rational-gate-machine/RationalGateMachine.lean": "70f6c9c58ed1ebba94ddedc98fabd73a26a1ede8da3e18a9935e719754508951",
+    "formalizations/extraction-rational-gate-machine/lake-manifest.json": "915b9047726a76e402ae9107c8ec6a4ca529df8df519f8e72fd365eee722869e",
+    "formalizations/extraction-rational-gate-machine/lakefile.toml": "a9291c2e5e11758d09e5ee9bc82e9aae87243f4e4981337909c12ea91bd508f7",
+    "formalizations/extraction-rational-gate-machine/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "axioms": {
+    "RationalGateMachine.BinaryTrim.stripZeros_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.stripZeros_append": [],
+    "RationalGateMachine.BinaryTrim.canonicalBits_cons": [
+      "propext"
+    ],
+    "RationalGateMachine.BinaryTrim.canonicalBits_eq_trim": [
+      "propext"
+    ],
+    "RationalGateMachine.BinaryTrim.drain_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.drain_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.strip_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.strip_false": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.strip_true": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.restore_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.restore_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.drain_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.restore_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.stripTime_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.strip_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.trimRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.terminal_halts": [],
+    "RationalGateMachine.BinaryTrim.trim_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.output_canonical": [
+      "propext"
+    ],
+    "RationalGateMachine.BinaryTrim.output_value": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.output_denominator": [],
+    "RationalGateMachine.BinaryTrim.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.finite_running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.LabelLift.stepAux": [],
+    "RationalGateMachine.LabelLift.step": [
+      "propext"
+    ],
+    "RationalGateMachine.LabelLift.iterate": [
+      "propext"
+    ],
+    "RationalGateMachine.LabelLift.statement_depth": [
+      "propext"
+    ],
+    "RationalGateMachine.NormalizedFifths.normalizedRun_steps": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.NormalizedFifths.normalizedRun_steps_logarithmic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.NormalizedFifths.terminal_halts": [],
+    "RationalGateMachine.NormalizedFifths.normalized_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.NormalizedFifths.terminal_numerator_canonical": [
+      "propext"
+    ],
+    "RationalGateMachine.NormalizedFifths.terminal_numerator_value": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.NormalizedFifths.terminal_denominator": [],
+    "RationalGateMachine.NormalizedFifths.terminal_scratch_empty": [],
+    "RationalGateMachine.NormalizedFifths.wordValue_eq_providerValue": [
+      "propext"
+    ],
+    "RationalGateMachine.NormalizedFifths.terminal_dyadic_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.NormalizedFifths.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.NormalizedFifths.finite_running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.NormalizedFifths.statement_depth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.BinaryTrim.stripZeros": [],
+    "RationalGateMachine.BinaryTrim.canonicalBits": [],
+    "RationalGateMachine.BinaryTrim.configuration": [],
+    "RationalGateMachine.BinaryTrim.program": [],
+    "RationalGateMachine.BinaryTrim.advance": [],
+    "RationalGateMachine.BinaryTrim.stripTime": [],
+    "RationalGateMachine.BinaryTrim.trimRun": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.LabelLift.compile": [],
+    "RationalGateMachine.LabelLift.configuration": [],
+    "RationalGateMachine.LabelLift.run": [
+      "propext"
+    ],
+    "RationalGateMachine.NormalizedFifths.configuration": [],
+    "RationalGateMachine.NormalizedFifths.program": [],
+    "RationalGateMachine.NormalizedFifths.start": [],
+    "RationalGateMachine.NormalizedFifths.terminal": [],
+    "RationalGateMachine.NormalizedFifths.fifthsCall": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.NormalizedFifths.trimCall": [
+      "propext",
+      "Quot.sound"
+    ],
+    "RationalGateMachine.NormalizedFifths.normalizedRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "model_roots": [
+    "RationalGateMachine.BinaryTrim.stripZeros",
+    "RationalGateMachine.BinaryTrim.canonicalBits",
+    "RationalGateMachine.BinaryTrim.configuration",
+    "RationalGateMachine.BinaryTrim.program",
+    "RationalGateMachine.BinaryTrim.advance",
+    "RationalGateMachine.BinaryTrim.stripTime",
+    "RationalGateMachine.BinaryTrim.trimRun",
+    "RationalGateMachine.LabelLift.compile",
+    "RationalGateMachine.LabelLift.configuration",
+    "RationalGateMachine.LabelLift.run",
+    "RationalGateMachine.NormalizedFifths.configuration",
+    "RationalGateMachine.NormalizedFifths.program",
+    "RationalGateMachine.NormalizedFifths.start",
+    "RationalGateMachine.NormalizedFifths.terminal",
+    "RationalGateMachine.NormalizedFifths.fifthsCall",
+    "RationalGateMachine.NormalizedFifths.trimCall",
+    "RationalGateMachine.NormalizedFifths.normalizedRun"
+  ],
+  "logs": {
+    "20261019T003725584503Z-root-owned-RationalGateMachine.BinaryTrim.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "20261019T003801173626Z-root-owned-RationalGateMachine.LabelLift.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "20261019T003925897562Z-root-owned-RationalGateMachine.NormalizedFifths.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "20261019T004036225076Z-root-owned-RationalGateMachine.NormalizedCheck.log": "0f74fe171495a18dd8ee72af8c3de4435876faafb7b91724d8175406ea0fca70",
+    "20261019T004045781300Z-extraction-rational-gate-machine.log": "3041183fae189b844562a6977cde316a0fb28f800429182112515adc520deff6"
+  },
+  "proved": "One actual official finite TM2 binary precision->clock->fifths numerator/denominator->canonical numerator machine,165finitecontrols11labels3Boolstacks/depth7; actual steps <=(2width+7)q+6 and <=(2clog(2,q+1)+9)q+6; original strict dyadic error, exact canonical bitlist and denominator preserved; standalone trim <=2w+3;384trim+165normalized actual runs",
+  "excluded": "Initial precision construction; sign/zero selection and four-coordinate/nativeEntry composition; full provider/compiler machine time; single-tape simulation; independent fresh/kernel/controls; outside frozen native8b78 audit",
+  "D_storage_and_global_lock": true,
+  "independent_empty_kernel_or_controls": false
+}
