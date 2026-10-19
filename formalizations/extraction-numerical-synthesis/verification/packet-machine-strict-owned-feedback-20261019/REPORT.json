@@ -1,0 +1,733 @@
+{
+  "utc": "2026-10-19T00:43:53.214558+00:00",
+  "baseline": "f8361330f09e3201cc45337efacf6957f937ad29",
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 403,
+  "old_b288_prefix_diff": "empty",
+  "historical_f836_and_v3_unchanged": true,
+  "status": "STRICT_OWNED_FEEDBACK_ONLY",
+  "scope": "new explicit env-kind and actual-machine-execution successor wrapper",
+  "math_modules": 11,
+  "fixture_module": 1,
+  "theorem_roots": 114,
+  "model_declarations": 106,
+  "kind_counts": {
+    "theorem": 114,
+    "definition": 104,
+    "inductive": 2
+  },
+  "decl_kinds": {
+    "CircuitRecursion.NativeQueryMachine.WordStack": "inductive",
+    "CircuitRecursion.NativeQueryMachine.Stack": "definition",
+    "CircuitRecursion.NativeQueryMachine.Alphabet": "definition",
+    "CircuitRecursion.NativeQueryMachine.Memory": "definition",
+    "CircuitRecursion.NativeQueryMachine.readerStacks": "definition",
+    "CircuitRecursion.NativeQueryMachine.readerConfiguration": "definition",
+    "CircuitRecursion.NativeQueryMachine.compileReader": "definition",
+    "CircuitRecursion.NativeQueryMachine.readerProgram": "definition",
+    "CircuitRecursion.NativeQueryMachine.readerStacks_read": "theorem",
+    "CircuitRecursion.NativeQueryMachine.readerStacks_update": "theorem",
+    "CircuitRecursion.NativeQueryMachine.compileReader_stepAux": "theorem",
+    "CircuitRecursion.NativeQueryMachine.reader_step": "theorem",
+    "CircuitRecursion.NativeQueryMachine.readerRun": "definition",
+    "CircuitRecursion.NativeQueryMachine.readerRun_steps": "theorem",
+    "CircuitRecursion.NativeQueryMachine.compileReader_statementDepth": "theorem",
+    "CircuitRecursion.NativeQueryMachine.inputStack": "definition",
+    "CircuitRecursion.NativeQueryMachine.parserStacks": "definition",
+    "CircuitRecursion.NativeQueryMachine.parserConfiguration": "definition",
+    "CircuitRecursion.NativeQueryMachine.compileParser": "definition",
+    "CircuitRecursion.NativeQueryMachine.parserStacks_input": "theorem",
+    "CircuitRecursion.NativeQueryMachine.parserStacks_scratch": "theorem",
+    "CircuitRecursion.NativeQueryMachine.parserStacks_numerator": "theorem",
+    "CircuitRecursion.NativeQueryMachine.parserStacks_denominator": "theorem",
+    "CircuitRecursion.NativeQueryMachine.parserStacks_update_input": "theorem",
+    "CircuitRecursion.NativeQueryMachine.parserStacks_update_scratch": "theorem",
+    "CircuitRecursion.NativeQueryMachine.parserStacks_update_numerator": "theorem",
+    "CircuitRecursion.NativeQueryMachine.parserStacks_update_denominator": "theorem",
+    "CircuitRecursion.NativeQueryMachine.compileParser_stepAux": "theorem",
+    "CircuitRecursion.NativeQueryMachine.parser_step": "theorem",
+    "CircuitRecursion.NativeQueryMachine.parserRun": "definition",
+    "CircuitRecursion.NativeQueryMachine.compileParser_statementDepth": "theorem",
+    "CircuitRecursion.NativeQueryMachine.Label": "definition",
+    "CircuitRecursion.NativeQueryMachine.Configuration": "definition",
+    "CircuitRecursion.NativeQueryMachine.readerEmbed": "definition",
+    "CircuitRecursion.NativeQueryMachine.parserEmbed": "definition",
+    "CircuitRecursion.NativeQueryMachine.readerReturn": "definition",
+    "CircuitRecursion.NativeQueryMachine.resetMemory": "definition",
+    "CircuitRecursion.NativeQueryMachine.clearNext": "definition",
+    "CircuitRecursion.NativeQueryMachine.clearFinishMemory": "definition",
+    "CircuitRecursion.NativeQueryMachine.program": "definition",
+    "CircuitRecursion.NativeQueryMachine.configuration": "definition",
+    "CircuitRecursion.NativeQueryMachine.advance": "definition",
+    "CircuitRecursion.NativeQueryMachine.emptyWords": "definition",
+    "CircuitRecursion.NativeQueryMachine.wordVolume": "definition",
+    "CircuitRecursion.NativeQueryMachine.readerStacks_word_update": "theorem",
+    "CircuitRecursion.NativeQueryMachine.words_update_self": "theorem",
+    "CircuitRecursion.NativeQueryMachine.words_update_twice": "theorem",
+    "CircuitRecursion.NativeQueryMachine.clearFinishMemory_withCell": "theorem",
+    "CircuitRecursion.NativeQueryMachine.clear_word_nil": "theorem",
+    "CircuitRecursion.NativeQueryMachine.clear_word_cons": "theorem",
+    "CircuitRecursion.NativeQueryMachine.clearWord_iterate_override": "theorem",
+    "CircuitRecursion.NativeQueryMachine.clearWord_iterate": "theorem",
+    "CircuitRecursion.NativeQueryMachine.clearAll_iterate": "theorem",
+    "CircuitRecursion.NativeQueryMachine.clearRun": "definition",
+    "CircuitRecursion.NativeQueryMachine.clearRun_steps": "theorem",
+    "CircuitRecursion.NativeQueryMachine.sourceInitial": "definition",
+    "CircuitRecursion.NativeQueryMachine.initial": "definition",
+    "CircuitRecursion.NativeQueryMachine.readerCall": "definition",
+    "CircuitRecursion.NativeQueryMachine.clear_to_reader": "theorem",
+    "CircuitRecursion.NativeQueryMachine.record_terminal_memory": "theorem",
+    "CircuitRecursion.NativeQueryMachine.query_terminal_memory": "theorem",
+    "CircuitRecursion.NativeQueryMachine.reader_to_parser": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal": "definition",
+    "CircuitRecursion.NativeQueryMachine.selectedParserCall": "definition",
+    "CircuitRecursion.NativeQueryMachine.nativeQueryRun": "definition",
+    "CircuitRecursion.NativeQueryMachine.nativeQueryRun_steps": "theorem",
+    "CircuitRecursion.NativeQueryMachine.addressed_mem": "theorem",
+    "CircuitRecursion.NativeQueryMachine.nativeQueryRun_steps_height": "theorem",
+    "CircuitRecursion.NativeQueryMachine.parserStacks_other": "theorem",
+    "CircuitRecursion.NativeQueryMachine.resultRaw": "definition",
+    "CircuitRecursion.NativeQueryMachine.nativeWords": "definition",
+    "CircuitRecursion.NativeQueryMachine.resultRaw_terminal": "theorem",
+    "CircuitRecursion.NativeQueryMachine.typed_result": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_master": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_queries": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_cache_tail": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_symbol_scratch": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_symbol_payload_consumed": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_native_scratch": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_accepted": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_halts": "theorem",
+    "CircuitRecursion.NativeQueryMachine.nativeQuery_mem_eval": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_wordVolume": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_wordVolume_height": "theorem",
+    "CircuitRecursion.NativeQueryMachine.nativeQueryCall": "definition",
+    "CircuitRecursion.NativeQueryMachine.program_supports": "theorem",
+    "CircuitRecursion.NativeQueryMachine.stack_card": "theorem",
+    "CircuitRecursion.NativeQueryMachine.running_control_card": "theorem",
+    "CircuitRecursion.NativeQueryMachine.statement_depth": "theorem",
+    "CircuitRecursion.NativeQueryMachine.symbolVolume": "definition",
+    "CircuitRecursion.NativeQueryMachine.encodeCache_drop_length": "theorem",
+    "CircuitRecursion.NativeQueryMachine.terminal_symbolVolume": "theorem",
+    "CircuitRecursion.NativeQueryMachine.reentry": "definition",
+    "CircuitRecursion.NativeQueryMachine.reentry_memory": "theorem",
+    "CircuitRecursion.NativeQueryMachine.reentry_stacks": "theorem",
+    "CircuitRecursion.NativeQueryMachine.returned_reentry": "theorem",
+    "CircuitRecursion.NativeQueryMachine.reuseRun": "definition",
+    "CircuitRecursion.NativeQueryMachine.alphabet_card_bound": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.Stack": "definition",
+    "CircuitRecursion.PacketSerializerMachine.Alphabet": "definition",
+    "CircuitRecursion.PacketSerializerMachine.Coordinate": "definition",
+    "CircuitRecursion.PacketSerializerMachine.Memory": "definition",
+    "CircuitRecursion.PacketSerializerMachine.Flags": "definition",
+    "CircuitRecursion.PacketSerializerMachine.Label": "inductive",
+    "CircuitRecursion.PacketSerializerMachine.Configuration": "definition",
+    "CircuitRecursion.PacketSerializerMachine.configuration": "definition",
+    "CircuitRecursion.PacketSerializerMachine.signBit": "definition",
+    "CircuitRecursion.PacketSerializerMachine.next": "definition",
+    "CircuitRecursion.PacketSerializerMachine.finish": "definition",
+    "CircuitRecursion.PacketSerializerMachine.program": "definition",
+    "CircuitRecursion.PacketSerializerMachine.advance": "definition",
+    "CircuitRecursion.PacketSerializerMachine.clear_nil": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.clear_cons": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.start_step": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.denRead_nil": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.denRead_cons": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.denWrite_nil": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.denWrite_cons": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.beginNum_step": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.readNum_nil": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.readNum_cons": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.writeNum_nil": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.writeNum_cons": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.finishNum_step": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.clear_iterate": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.denRead_iterate": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.denWrite_iterate": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.readNum_iterate_override": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.writeNum_iterate": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.denominator_iterate": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.readWriteNum_iterate": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.numerator_iterate_override": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.numerator_iterate": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.freshTime": "definition",
+    "CircuitRecursion.PacketSerializerMachine.serializeTime": "definition",
+    "CircuitRecursion.PacketSerializerMachine.terminal": "definition",
+    "CircuitRecursion.PacketSerializerMachine.fresh_iterate": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.serialize_iterate": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.serializeRun": "definition",
+    "CircuitRecursion.PacketSerializerMachine.serializeRun_steps": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.serializeTime_encoded_length": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.serializePacketRun": "definition",
+    "CircuitRecursion.PacketSerializerMachine.serializePacketRun_steps_height": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.terminal_encoded": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.terminal_empty_fields": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.terminal_empty_denominator": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.terminal_empty_scratch": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.serialized_decode": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.terminal_halts": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.serialize_mem_eval": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.serializeCall": "definition",
+    "CircuitRecursion.PacketSerializerMachine.program_supports": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.running_control_card": "theorem",
+    "CircuitRecursion.PacketSerializerMachine.statement_depth": "theorem",
+    "CircuitRecursion.PacketCodecMachine.Alphabet": "definition",
+    "CircuitRecursion.PacketCodecMachine.Memory": "definition",
+    "CircuitRecursion.PacketCodecMachine.Label": "definition",
+    "CircuitRecursion.PacketCodecMachine.Configuration": "definition",
+    "CircuitRecursion.PacketCodecMachine.parserEmbed": "definition",
+    "CircuitRecursion.PacketCodecMachine.parserReturn": "definition",
+    "CircuitRecursion.PacketCodecMachine.serializerEmbed": "definition",
+    "CircuitRecursion.PacketCodecMachine.serializerReturn": "definition",
+    "CircuitRecursion.PacketCodecMachine.program": "definition",
+    "CircuitRecursion.PacketCodecMachine.advance": "definition",
+    "CircuitRecursion.PacketCodecMachine.initial": "definition",
+    "CircuitRecursion.PacketCodecMachine.intermediate": "definition",
+    "CircuitRecursion.PacketCodecMachine.terminal": "definition",
+    "CircuitRecursion.PacketCodecMachine.codecTime": "definition",
+    "CircuitRecursion.PacketCodecMachine.parserCall": "definition",
+    "CircuitRecursion.PacketCodecMachine.parser_to_serializer": "theorem",
+    "CircuitRecursion.PacketCodecMachine.serializerCall": "definition",
+    "CircuitRecursion.PacketCodecMachine.finish_step": "theorem",
+    "CircuitRecursion.PacketCodecMachine.codecRun": "definition",
+    "CircuitRecursion.PacketCodecMachine.codecRun_steps": "theorem",
+    "CircuitRecursion.PacketCodecMachine.codecTime_encoded_length": "theorem",
+    "CircuitRecursion.PacketCodecMachine.codecRun_steps_height": "theorem",
+    "CircuitRecursion.PacketCodecMachine.observedNative": "definition",
+    "CircuitRecursion.PacketCodecMachine.intermediate_native_exact": "theorem",
+    "CircuitRecursion.PacketCodecMachine.terminal_encoded_exact": "theorem",
+    "CircuitRecursion.PacketCodecMachine.terminal_numerators_empty": "theorem",
+    "CircuitRecursion.PacketCodecMachine.terminal_denominator_empty": "theorem",
+    "CircuitRecursion.PacketCodecMachine.terminal_scratch_empty": "theorem",
+    "CircuitRecursion.PacketCodecMachine.terminal_halts": "theorem",
+    "CircuitRecursion.PacketCodecMachine.codec_mem_eval": "theorem",
+    "CircuitRecursion.PacketCodecMachine.program_supports": "theorem",
+    "CircuitRecursion.PacketCodecMachine.running_control_card": "theorem",
+    "CircuitRecursion.PacketCodecMachine.statement_depth": "theorem",
+    "CircuitRecursion.PacketMachineFixtures.raw0": "definition",
+    "CircuitRecursion.PacketMachineFixtures.raw1": "definition",
+    "CircuitRecursion.PacketMachineFixtures.valid0": "theorem",
+    "CircuitRecursion.PacketMachineFixtures.valid1": "theorem",
+    "CircuitRecursion.PacketMachineFixtures.packet0": "definition",
+    "CircuitRecursion.PacketMachineFixtures.packet1": "definition",
+    "CircuitRecursion.PacketMachineFixtures.index0": "definition",
+    "CircuitRecursion.PacketMachineFixtures.index1": "definition",
+    "CircuitRecursion.PacketMachineFixtures.oldIndex": "definition",
+    "CircuitRecursion.PacketMachineFixtures.oldScratch": "definition",
+    "CircuitRecursion.PacketMachineFixtures.oldCache": "definition",
+    "CircuitRecursion.PacketMachineFixtures.queryTail": "definition",
+    "CircuitRecursion.PacketMachineFixtures.oldMemory": "definition",
+    "CircuitRecursion.PacketMachineFixtures.oldWords": "definition",
+    "CircuitRecursion.PacketMachineFixtures.packetFlags": "definition",
+    "CircuitRecursion.PacketMachineFixtures.packetWords": "definition",
+    "CircuitRecursion.PacketMachineFixtures.expectedNative": "definition",
+    "CircuitRecursion.PacketMachineFixtures.nativeStacks": "definition",
+    "CircuitRecursion.PacketMachineFixtures.nativeStacks_complete": "theorem",
+    "CircuitRecursion.PacketMachineFixtures.sameNative": "definition",
+    "CircuitRecursion.PacketMachineFixtures.execute": "definition",
+    "CircuitRecursion.PacketMachineFixtures.assertNative": "definition",
+    "CircuitRecursion.PacketMachineFixtures.DriverLabel": "definition",
+    "CircuitRecursion.PacketMachineFixtures.DriverConfiguration": "definition",
+    "CircuitRecursion.PacketMachineFixtures.driverEmbed": "definition",
+    "CircuitRecursion.PacketMachineFixtures.driverReturn": "definition",
+    "CircuitRecursion.PacketMachineFixtures.driverProgram": "definition",
+    "CircuitRecursion.PacketMachineFixtures.assertTwoNative": "definition",
+    "CircuitRecursion.PacketMachineFixtures.fieldStacks": "definition",
+    "CircuitRecursion.PacketMachineFixtures.fieldStacks_complete": "theorem",
+    "CircuitRecursion.PacketMachineFixtures.sameFields": "definition",
+    "CircuitRecursion.PacketMachineFixtures.assertSerializer": "definition",
+    "CircuitRecursion.PacketMachineFixtures.assertCodec": "definition"
+  },
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261019T004257586476Z-owned-check-CircuitNumerical.PacketMachineStrictCheck.log",
+  "check_log_sha256": "9fb876b4f52738e4d0f866ed7ba48f713ef2fc7da4f73d37956cd4cf772fb9c3",
+  "source_sha256": {
+    "CircuitNumerical/PacketSerializer.lean": "46389314e69c445bd0f4ca8f4916b84ddda73ee5830fd3299c22a10d90f2809f",
+    "CircuitNumerical/PacketSerializerRuns.lean": "e9b8212ba509ffd1739981bd2ecaf49d555879fbc42333f7275855f7456d019b",
+    "CircuitNumerical/PacketSerializerRoundtrip.lean": "19dfba5fbce75f0f629572e3cd154a65c691b85d1f70d07248d3e87bc51867d4",
+    "CircuitNumerical/PacketCodecMachine.lean": "bca18faa1745442849ebf7c46a18206e089d1fbd0c59fea648b0f9f4dcac823a",
+    "CircuitNumerical/PacketSerializerCheck.lean": "af5ff21e27503b58d32eec8b29b329da006ce15a1695a6f3befc2bb2b794679d",
+    "PACKET_SERIALIZER_ROOTS.txt": "8634f1092927039a815581f707cc2b33a3c9c1b45c94371c3c497ed2b6b8b2ff",
+    "PACKET_SERIALIZER_MODELS.txt": "d23663238e685205109c21527a1a2b0e3961a2589539b0549d192499a08b5760",
+    "PACKET_SERIALIZER_SCOPE_20261019.md": "a4b87e37dbb1b1b48210d7797d4f69df84369bf079a57b8de954e44b899b5564",
+    "CircuitNumerical/NativeQueryReaderEmbedding.lean": "3025e2adc0c32f7896c24ddfe9ce6786f174b91480948eee4b7b18a6bac2cfa5",
+    "CircuitNumerical/NativeQueryParserEmbedding.lean": "650e0b9c7ce7444846b4d43edebbdc06d3f3822db02afcce8de121a9213091a1",
+    "CircuitNumerical/NativeQueryController.lean": "5294a2a7accfbe8d446dd46f21173488b844c4717e318455c104f113f6ce5899",
+    "CircuitNumerical/NativeQueryClearRuns.lean": "ff17b9eb9511fb578b87d66734299dd73eec57774df0e3ac2b4f50a066ff359e",
+    "CircuitNumerical/NativeQueryRuns.lean": "fbc916be98f3deb8d026b2445598a06516a65c685d00434d816e5b21a0b4b212",
+    "CircuitNumerical/NativeQuerySemantics.lean": "a1bb7772e876e83587056806835b47834be13cf6b8523c639d9517656a643595",
+    "CircuitNumerical/NativeQueryReuse.lean": "bd4bf82d733769b71a5c7a73c1c867ccf167dabf3928f7879ed07658d4380ff8",
+    "CircuitNumerical/NativeQueryCheck.lean": "4fe039d530259af3a3fc0c59fd75296a02cae2b61ae6aca83900deea2894ef51",
+    "CircuitNumerical/PacketMachineFixtures.lean": "282e6c647bc67c380d57dbc8c102cbf773d96cdac4b0abb7a3ec6ac59de83181",
+    "CircuitNumerical/PacketMachineStrictCheck.lean": "97d14abd40b4027939ec25b3b935499b6a3905742d8b53681b1d3f695a5832b3",
+    "PACKET_MACHINE_STRICT_ROOTS.txt": "594e3ed09381e0c9729abf29f56a8ed58e404b529c0a59b2445dd0ed6369eb2b",
+    "PACKET_MACHINE_STRICT_MODELS.txt": "4a306208921bce893e6b0d5f5407c80a62ad835500d1284bbf9da284024bf870",
+    "PACKET_MACHINE_STRICT_KINDS.json": "34de8c6b35cf2c811b9b1c2e1988c3c6eb08ade471122fd9b55cad5a460608ef",
+    "PACKET_MACHINE_STRICT_SCOPE_20261019.md": "c352f844907aa75793cdd6970daebeb664307beed77a1abcd0952ab8c186957f"
+  },
+  "root_axioms": {
+    "CircuitRecursion.NativeQueryMachine.readerStacks_read": [],
+    "CircuitRecursion.NativeQueryMachine.readerStacks_update": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.compileReader_stepAux": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.reader_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.readerRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.compileReader_statementDepth": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.parserStacks_input": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.parserStacks_scratch": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.parserStacks_numerator": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.parserStacks_denominator": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.parserStacks_update_input": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.parserStacks_update_scratch": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.parserStacks_update_numerator": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.parserStacks_update_denominator": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.compileParser_stepAux": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.parser_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.compileParser_statementDepth": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.readerStacks_word_update": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.words_update_self": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.words_update_twice": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.clearFinishMemory_withCell": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.clear_word_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.clear_word_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.clearWord_iterate_override": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.clearWord_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.clearAll_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.clearRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.clear_to_reader": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.record_terminal_memory": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.query_terminal_memory": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.reader_to_parser": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.nativeQueryRun_steps": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.addressed_mem": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.nativeQueryRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.parserStacks_other": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.resultRaw_terminal": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.typed_result": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_master": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_queries": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_cache_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_symbol_scratch": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_symbol_payload_consumed": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_native_scratch": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_accepted": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_halts": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.nativeQuery_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_wordVolume": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_wordVolume_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.stack_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.encodeCache_drop_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.terminal_symbolVolume": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.reentry_memory": [
+      "propext"
+    ],
+    "CircuitRecursion.NativeQueryMachine.reentry_stacks": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.returned_reentry": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.NativeQueryMachine.alphabet_card_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.clear_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.clear_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.start_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denRead_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denRead_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denWrite_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denWrite_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.beginNum_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.readNum_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.readNum_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.writeNum_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.writeNum_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.finishNum_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.clear_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denRead_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denWrite_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.readNum_iterate_override": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.writeNum_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denominator_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.readWriteNum_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.numerator_iterate_override": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.numerator_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.fresh_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serialize_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serializeRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serializeTime_encoded_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serializePacketRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.terminal_encoded": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.terminal_empty_fields": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.terminal_empty_denominator": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.terminal_empty_scratch": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serialized_decode": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.terminal_halts": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serialize_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.parser_to_serializer": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.finish_step": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.codecRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.codecTime_encoded_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.codecRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.intermediate_native_exact": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.terminal_encoded_exact": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.terminal_numerators_empty": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.terminal_denominator_empty": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.terminal_scratch_empty": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.terminal_halts": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.codec_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketMachineFixtures.valid0": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketMachineFixtures.valid1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketMachineFixtures.nativeStacks_complete": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketMachineFixtures.fieldStacks_complete": [
+      "propext"
+    ]
+  },
+  "actual_fixture_results": {
+    "native_one_index0_old_data": 119,
+    "native_two_index0_old_data": 151,
+    "native_two_index1_old_data": 178,
+    "native_actual_two_queries_0_then_1": 328,
+    "native_actual_two_queries_1_then_0": 314,
+    "serializer": 33,
+    "codec": 63
+  },
+  "actual_fixture_count": 7,
+  "two_query_first_prefix_and_all_11_stacks": true,
+  "wrapper_reexecutes_fixtures": true,
+  "fixture_runner_fuel_is_verification_only": true,
+  "not_retroactively_attributed_to_f836": true,
+  "remaining": [
+    "initial native provider and request/cache generation/control",
+    "malformed stream parser completeness and arbitrary-input normalization",
+    "whole arithmetic consumer/AST/provider machine lowering, packaging/allocation and bounded single-tape simulation",
+    "full compiler machine bit-time"
+  ]
+}
