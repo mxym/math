@@ -1,0 +1,246 @@
+{
+  "utc": "2026-10-19T00:43:53.214558+00:00",
+  "baseline": "f8361330f09e3201cc45337efacf6957f937ad29",
+  "lean_version": "4.34.1",
+  "mathlib_pin": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "guard": "ensure_d_storage.configure_env; shared author-feedback lock; -j1 -M4000; MemAvailable >=7GiB",
+  "aggregate_build": false,
+  "shared_dependency_build": false,
+  "independent_kernel_replay": false,
+  "frozen_baseline_files_byte_identical": 403,
+  "old_b288_prefix_diff": "empty",
+  "historical_f836_and_v3_unchanged": true,
+  "status": "OWNED_MODULE_CHAIN_FEEDBACK_ONLY",
+  "scope": "four actual native Bool packet serializer/same-stack codec modules",
+  "modules": 4,
+  "root_count": 52,
+  "model_declarations": 37,
+  "check_log": "/mnt/d/math/tmp/extraction-resume-20261018/build-logs/20261019T003722956460Z-owned-check-CircuitNumerical.PacketSerializerCheck.log",
+  "check_log_sha256": "527aec0f35cf893604a7c04034605c46f0aa60debc37b4380a2485897b021f8b",
+  "root_axioms": {
+    "CircuitRecursion.PacketSerializerMachine.clear_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.clear_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.start_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denRead_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denRead_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denWrite_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denWrite_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.beginNum_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.readNum_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.readNum_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.writeNum_nil": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.writeNum_cons": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.finishNum_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.clear_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denRead_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denWrite_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.readNum_iterate_override": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.writeNum_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.denominator_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.readWriteNum_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.numerator_iterate_override": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.numerator_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.fresh_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serialize_iterate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serializeRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serializeTime_encoded_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serializePacketRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.terminal_encoded": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.terminal_empty_fields": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.terminal_empty_denominator": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.terminal_empty_scratch": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serialized_decode": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.terminal_halts": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.serialize_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketSerializerMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.parser_to_serializer": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.finish_step": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.codecRun_steps": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.codecTime_encoded_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.codecRun_steps_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.intermediate_native_exact": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.terminal_encoded_exact": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.terminal_numerators_empty": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.terminal_denominator_empty": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.terminal_scratch_empty": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.terminal_halts": [
+      "propext"
+    ],
+    "CircuitRecursion.PacketCodecMachine.codec_mem_eval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.program_supports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.running_control_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CircuitRecursion.PacketCodecMachine.statement_depth": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "source_sha256": {
+    "CircuitNumerical/PacketSerializer.lean": "46389314e69c445bd0f4ca8f4916b84ddda73ee5830fd3299c22a10d90f2809f",
+    "CircuitNumerical/PacketSerializerRuns.lean": "e9b8212ba509ffd1739981bd2ecaf49d555879fbc42333f7275855f7456d019b",
+    "CircuitNumerical/PacketSerializerRoundtrip.lean": "19dfba5fbce75f0f629572e3cd154a65c691b85d1f70d07248d3e87bc51867d4",
+    "CircuitNumerical/PacketCodecMachine.lean": "bca18faa1745442849ebf7c46a18206e089d1fbd0c59fea648b0f9f4dcac823a",
+    "CircuitNumerical/PacketSerializerCheck.lean": "af5ff21e27503b58d32eec8b29b329da006ce15a1695a6f3befc2bb2b794679d",
+    "PACKET_SERIALIZER_ROOTS.txt": "8634f1092927039a815581f707cc2b33a3c9c1b45c94371c3c497ed2b6b8b2ff",
+    "PACKET_SERIALIZER_MODELS.txt": "d23663238e685205109c21527a1a2b0e3961a2589539b0549d192499a08b5760",
+    "PACKET_SERIALIZER_SCOPE_20261019.md": "a4b87e37dbb1b1b48210d7797d4f69df84369bf079a57b8de954e44b899b5564"
+  },
+  "endpoints": [
+    "real prior-scratch cleanup and native Bool field consumption into exact framed Symbol prefix and preserved suffix",
+    "serializer exact oldScratchLength+2*frameLength+2 official time, packet height bound oldScratchLength+10B+30",
+    "same physical stack parser/serializer finite codec, exact steps+1=4*frameLength and intermediate native fields/final format/eval"
+  ],
+  "remaining": [
+    "initial native provider and request/cache generation/control",
+    "malformed stream parser completeness and arbitrary-input normalization",
+    "whole arithmetic consumer/AST/provider machine lowering, packaging/allocation and bounded single-tape simulation",
+    "full compiler machine bit-time"
+  ]
+}
