@@ -1,0 +1,104 @@
+import CircuitNumerical.PacketFieldRoundtrip
+
+#check CircuitRecursion.PacketFieldMachine.update_input
+#print axioms CircuitRecursion.PacketFieldMachine.update_input
+#check CircuitRecursion.PacketFieldMachine.update_scratch
+#print axioms CircuitRecursion.PacketFieldMachine.update_scratch
+#check CircuitRecursion.PacketFieldMachine.update_numerator
+#print axioms CircuitRecursion.PacketFieldMachine.update_numerator
+#check CircuitRecursion.PacketFieldMachine.update_denominator
+#print axioms CircuitRecursion.PacketFieldMachine.update_denominator
+#check CircuitRecursion.PacketFieldMachine.fields_update_twice
+#print axioms CircuitRecursion.PacketFieldMachine.fields_update_twice
+#check CircuitRecursion.PacketFieldMachine.sign_bit
+#print axioms CircuitRecursion.PacketFieldMachine.sign_bit
+#check CircuitRecursion.PacketFieldMachine.scan_bit
+#print axioms CircuitRecursion.PacketFieldMachine.scan_bit
+#check CircuitRecursion.PacketFieldMachine.scan_boundary
+#print axioms CircuitRecursion.PacketFieldMachine.scan_boundary
+#check CircuitRecursion.PacketFieldMachine.restore_nil
+#print axioms CircuitRecursion.PacketFieldMachine.restore_nil
+#check CircuitRecursion.PacketFieldMachine.restore_cons
+#print axioms CircuitRecursion.PacketFieldMachine.restore_cons
+#check CircuitRecursion.PacketFieldMachine.den_bit
+#print axioms CircuitRecursion.PacketFieldMachine.den_bit
+#check CircuitRecursion.PacketFieldMachine.den_end
+#print axioms CircuitRecursion.PacketFieldMachine.den_end
+#check CircuitRecursion.PacketFieldMachine.den_restore_nil
+#print axioms CircuitRecursion.PacketFieldMachine.den_restore_nil
+#check CircuitRecursion.PacketFieldMachine.den_restore_cons
+#print axioms CircuitRecursion.PacketFieldMachine.den_restore_cons
+#check CircuitRecursion.PacketFieldMachine.fields_update_self
+#print axioms CircuitRecursion.PacketFieldMachine.fields_update_self
+#check CircuitRecursion.PacketFieldMachine.scan_iterate
+#print axioms CircuitRecursion.PacketFieldMachine.scan_iterate
+#check CircuitRecursion.PacketFieldMachine.restore_iterate
+#print axioms CircuitRecursion.PacketFieldMachine.restore_iterate
+#check CircuitRecursion.PacketFieldMachine.den_scan_iterate
+#print axioms CircuitRecursion.PacketFieldMachine.den_scan_iterate
+#check CircuitRecursion.PacketFieldMachine.den_restore_iterate
+#print axioms CircuitRecursion.PacketFieldMachine.den_restore_iterate
+#check CircuitRecursion.PacketFieldMachine.signedField_iterate
+#print axioms CircuitRecursion.PacketFieldMachine.signedField_iterate
+#check CircuitRecursion.PacketFieldMachine.denominator_iterate
+#print axioms CircuitRecursion.PacketFieldMachine.denominator_iterate
+#check CircuitRecursion.PacketFieldMachine.parse_iterate
+#print axioms CircuitRecursion.PacketFieldMachine.parse_iterate
+#check CircuitRecursion.PacketFieldMachine.parseRun_steps
+#print axioms CircuitRecursion.PacketFieldMachine.parseRun_steps
+#check CircuitRecursion.PacketFieldMachine.parseTime_encoded_length
+#print axioms CircuitRecursion.PacketFieldMachine.parseTime_encoded_length
+#check CircuitRecursion.PacketFieldMachine.parsePacketRun_steps_height
+#print axioms CircuitRecursion.PacketFieldMachine.parsePacketRun_steps_height
+#check CircuitRecursion.PacketFieldMachine.resultRaw_terminal
+#print axioms CircuitRecursion.PacketFieldMachine.resultRaw_terminal
+#check CircuitRecursion.PacketFieldMachine.terminal_input
+#print axioms CircuitRecursion.PacketFieldMachine.terminal_input
+#check CircuitRecursion.PacketFieldMachine.terminal_scratch
+#print axioms CircuitRecursion.PacketFieldMachine.terminal_scratch
+#check CircuitRecursion.PacketFieldMachine.terminal_accepted
+#print axioms CircuitRecursion.PacketFieldMachine.terminal_accepted
+#check CircuitRecursion.PacketFieldMachine.terminal_halts
+#print axioms CircuitRecursion.PacketFieldMachine.terminal_halts
+#check CircuitRecursion.PacketFieldMachine.parse_mem_eval
+#print axioms CircuitRecursion.PacketFieldMachine.parse_mem_eval
+#check CircuitRecursion.PacketFieldMachine.typed_result
+#print axioms CircuitRecursion.PacketFieldMachine.typed_result
+#check CircuitRecursion.PacketFieldMachine.program_supports
+#print axioms CircuitRecursion.PacketFieldMachine.program_supports
+#check CircuitRecursion.PacketFieldMachine.stack_card
+#print axioms CircuitRecursion.PacketFieldMachine.stack_card
+#check CircuitRecursion.PacketFieldMachine.memory_card
+#print axioms CircuitRecursion.PacketFieldMachine.memory_card
+#check CircuitRecursion.PacketFieldMachine.running_control_card
+#print axioms CircuitRecursion.PacketFieldMachine.running_control_card
+#check CircuitRecursion.PacketFieldMachine.statement_depth
+#print axioms CircuitRecursion.PacketFieldMachine.statement_depth
+#check CircuitRecursion.PacketFieldMachine.Coordinate
+#check CircuitRecursion.PacketFieldMachine.Stack
+#check CircuitRecursion.PacketFieldMachine.Alphabet
+#check CircuitRecursion.PacketFieldMachine.Flags
+#check CircuitRecursion.PacketFieldMachine.Memory
+#check CircuitRecursion.PacketFieldMachine.setSign
+#check CircuitRecursion.PacketFieldMachine.getBit
+#check CircuitRecursion.PacketFieldMachine.withCell
+#check CircuitRecursion.PacketFieldMachine.withSign
+#check CircuitRecursion.PacketFieldMachine.isBit
+#check CircuitRecursion.PacketFieldMachine.isBoundary
+#check CircuitRecursion.PacketFieldMachine.isEnd
+#check CircuitRecursion.PacketFieldMachine.stackData
+#check CircuitRecursion.PacketFieldMachine.Label
+#check CircuitRecursion.PacketFieldMachine.Configuration
+#check CircuitRecursion.PacketFieldMachine.configuration
+#check CircuitRecursion.PacketFieldMachine.next
+#check CircuitRecursion.PacketFieldMachine.program
+#check CircuitRecursion.PacketFieldMachine.advance
+#check CircuitRecursion.PacketFieldMachine.emptyFields
+#check CircuitRecursion.PacketFieldMachine.emptyFlags
+#check CircuitRecursion.PacketFieldMachine.outputFields
+#check CircuitRecursion.PacketFieldMachine.outputFlags
+#check CircuitRecursion.PacketFieldMachine.terminal
+#check CircuitRecursion.PacketFieldMachine.parseTime
+#check CircuitRecursion.PacketFieldMachine.parseRun
+#check CircuitRecursion.PacketFieldMachine.parsePacketRun
+#check CircuitRecursion.PacketFieldMachine.resultRaw
