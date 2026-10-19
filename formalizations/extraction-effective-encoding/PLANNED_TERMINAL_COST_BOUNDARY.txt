@@ -1,0 +1,43 @@
+ACTUAL EXECUTION AND REMAINING COST BOUNDARY
+
+The integrated new value path uses explicit Bool/list Pauli-coordinate selection,
+head/tail pivot choice, CNOT cons construction and stored reverse/inverse plan
+construction. Its executable Pauli-plan path does not use Finset.sort, min',
+erase or membership. Finset reasoning remains in proof-only refinement lemmas.
+The actual stage stores one BooleanMaskContextResult and its real planTable;
+its plans feed both branch and alignment. All common records are exactly
+preserved, not reconstructed from word equality. The terminal uses this stage
+in the same provider/numeric/read/assembly/outer/output execution.
+
+Included partial models retain their original specifications: binary occupation
+candidate enumeration, counted rank/equality callbacks, binary mask range and
+fixed copies, new Bool-coordinate/list plan actions, target preparation/provider
+Bool actions, numeric Bool scalar actions, actual online cache reads, inner
+assembly, outer materialization and actual Bool-stream emission. Their charges
+are added only on records retained by this same new execution.
+
+Remaining source/control and machine costs are NOT asserted bounded here:
+- Occupation occupied-letter selection still uses the native four-letter
+  Finset filter/minimum and the branch's Finset erase/sort list. This is separate
+  from the Pauli-plan path replaced above.
+- Host Nat recursion, arithmetic, comparison and range/fuel control are not a
+  machine-bit implementation merely because some binary data operations are.
+  In particular power/clog/precision/width/length/rank-index calculations and
+  indexing adapters retain their stated source-level boundary.
+- Gray differing-wire search, other-wire/index selection, coordinate updates,
+  prefix/shift/cast and the remaining AST/list generation/control operations
+  are not all charged by the retained local counters. Prepared mask/cache
+  reuse removes specific repeated computations, not all host overhead.
+- Counter/fee arithmetic, record allocation and retained-trace bookkeeping,
+  Lean evaluation strategy/compilation, stack/control and general host runtime
+  do not follow from this partial primitive sum.
+- The decoder is a concrete exact suffix decoder, but its execution fee is not
+  counted by output-emission charges. Output length is not a time proof.
+- Fixed-library provider computation, offline finite-net construction and the
+  inverse-label provider require their own effective cost specification.
+  Packet queried-height and semantic approximation contracts alone do not
+  imply a polynomial-time provider.
+
+Thus this result is an actual executable terminal with same-record semantic
+refinement, exact bitstream decoding and a polynomial for specified partial
+operations. It is not a bound for the complete compiler on a Turing machine.
