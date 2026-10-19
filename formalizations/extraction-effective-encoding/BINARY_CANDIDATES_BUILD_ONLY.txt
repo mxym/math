@@ -1,0 +1,42 @@
+OWNED_MODULE_AND_KIND_TYPE_AXIOM_CHECK_ONLY_PENDING_AGGREGATE
+
+Five new mathematical modules, 40 theorem declarations and 28 model declarations:
+BinaryCountRange, BinaryTriplePredicate, BinaryCandidateProducts,
+BinaryTriplesEnumeration and BinaryGeneratedRank. All were checked in dependency
+order by the authorized lean_owned_check.py, then BinaryCandidatesCheck checked
+all inventory kinds/types/axioms. Only propext/Classical.choice/Quot.sound allowed.
+Author root report: verification/binary-candidates-root-check-20261018T233042560778Z/REPORT.json.
+BinaryCandidateEvaluation also passed one tiny actual run:
+  k=1, t=(1,0,0): rank=3, stored range=[0,1], tests=8,
+  accepted=[(0,0,0),(0,0,1),(0,1,0),(1,0,0)], output=[true,true], actions=871.
+The standard worker had not acquired the global flock (verified /proc/locks
+arrow waiter and no build child); only that own queued worker was terminated
+while the independent audit held the lock. No standard/independent claim is made.
+
+Actual source path:
+- Inclusive range stores each count's real Boolean increment/trim result once;
+  real append calls retain their copy traces and reuse saved words.
+- Two real ordered tuple/list products retain row and copy records.
+- Every candidate performs two binaryAddProgram calls and one
+  binaryWordCompareProgram call. Its returned finite ordering tag selects
+  filter acceptance. All actual predicate records, including rejections, persist.
+- Exact accepted carried-count list = triples k in original order. Exact prepared
+  NativeTripleWords list = triplesBuild k.items.map nativeTripleWordProgram,
+  including each encoder record. These old functions occur in proofs, not the
+  runtime candidate generator.
+- binaryGeneratedRankProgram uses this actual new table, executes the real
+  Boolean rank scan and encodes/pads its selected index. Its index equals the
+  old rank and its entire output/padding record equals nativeBinaryRankProgram.
+
+Internally proved partial models:
+binaryTriplesProgram(k).actions <= 200*(k+4)^4.
+binaryGeneratedRankProgram(k,t,h).actions <= 551*(k+4)^6.
+No supplied final budget/cost certificate is a premise. All component fees come
+from actual retained range/product/predicate/scan/rank-encoding/padding records.
+
+Boundary: this component is not yet substituted into the full descriptor or
+serializedInputRun. Existing 041f/2605 source and all frozen scopes are unchanged.
+Nat-fuel/control, carried count successor, Nat rank-index increments, width/clog
+computation, prepared-record maps, generic filter/wrapper allocation, annotation
+arithmetic, Gray/descriptor construction and a full host-machine implementation
+remain outside these specified partial primitive models. No full runtime claim.

@@ -1,0 +1,588 @@
+import EffectiveEncoding.MaskedSerializedRun
+
+open Lean Elab Command
+namespace EffectiveEncodingCandidateMaskAggregateVerification
+
+def checkKinds (theorems models : List Name) : CommandElabM Unit := do
+  let env ← getEnv
+  for n in theorems do
+    let some ci := env.find? n | throwError "Missing theorem {n}"
+    unless ci.isTheorem do throwError "Expected theorem declaration {n}"
+  for n in models do
+    let some ci := env.find? n | throwError "Missing model {n}"
+    match ci with
+    | .defnInfo _ => pure ()
+    | .inductInfo _ => pure ()
+    | _ => throwError "Expected definition or inductive {n}"
+  logInfo m!"OWNED_KIND_CHECK_PASS {theorems.length} theorems; {models.length} models"
+
+end EffectiveEncodingCandidateMaskAggregateVerification
+
+run_cmd (EffectiveEncodingCandidateMaskAggregateVerification.checkKinds [
+  ``EffectiveEncoding.savedCountSuccessor_exact,
+  ``EffectiveEncoding.binaryCountRangeProgram_current,
+  ``EffectiveEncoding.binaryCountRangeProgram_items,
+  ``EffectiveEncoding.binaryCountRangeProgram_length,
+  ``EffectiveEncoding.binaryCountRangeProgram_counts,
+  ``EffectiveEncoding.binaryCountRangeProgram_incrementCount,
+  ``EffectiveEncoding.binaryCountRangeProgram_incrementTrimActions,
+  ``EffectiveEncoding.binaryCountRangeProgram_copyActions,
+  ``EffectiveEncoding.binaryCountRangeProgram_actions,
+  ``EffectiveEncoding.nativeOrderIsAtMost_correct,
+  ``EffectiveEncoding.binaryTripleBoundProgram_accepted,
+  ``EffectiveEncoding.binaryTripleBoundProgram_actions,
+  ``EffectiveEncoding.binaryCandidateFilterProgram_items,
+  ``EffectiveEncoding.binaryCandidateFilterProgram_tests,
+  ``EffectiveEncoding.binaryCandidateFilterProgram_predicateActions,
+  ``EffectiveEncoding.candidateProductRowProgram_items,
+  ``EffectiveEncoding.candidateProductRowProgram_actions,
+  ``EffectiveEncoding.candidateProductProgram_items,
+  ``EffectiveEncoding.candidateProductProgram_actions,
+  ``EffectiveEncoding.candidateProduct_map,
+  ``EffectiveEncoding.specSavedTriple_counts,
+  ``EffectiveEncoding.specSavedTriple_prepared,
+  ``EffectiveEncoding.binaryTriplesProgram_candidates,
+  ``EffectiveEncoding.binaryTriplesProgram_candidateLength,
+  ``EffectiveEncoding.binaryTriplesProgram_filtered,
+  ``EffectiveEncoding.binaryTriplesProgram_counts,
+  ``EffectiveEncoding.binaryTriplesProgram_prepared,
+  ``EffectiveEncoding.binaryTriplesProgram_tests,
+  ``EffectiveEncoding.binaryTriplesProgram_testCount,
+  ``EffectiveEncoding.binaryTriplesProgram_candidateWidth,
+  ``EffectiveEncoding.binaryTriplesProgram_predicateActions,
+  ``EffectiveEncoding.binaryTriplesProgram_actions,
+  ``EffectiveEncoding.binaryTriplesProgram_actions_polynomial,
+  ``EffectiveEncoding.binaryGeneratedRankProgram_scan,
+  ``EffectiveEncoding.binaryGeneratedRankProgram_input,
+  ``EffectiveEncoding.binaryGeneratedRankProgram_index,
+  ``EffectiveEncoding.binaryGeneratedRankProgram_encoding,
+  ``EffectiveEncoding.binaryGeneratedRankProgram_output,
+  ``EffectiveEncoding.binaryGeneratedRankProgram_actions,
+  ``EffectiveEncoding.binaryGeneratedRankProgram_actions_polynomial,
+  ``EffectiveEncoding.candidateNativeBranchEndpoint_point,
+  ``EffectiveEncoding.candidateNativeNextEndpoint_point,
+  ``EffectiveEncoding.candidateNativePivotEndpoint_point,
+  ``EffectiveEncoding.candidateRankRecordsActions_append,
+  ``EffectiveEncoding.candidateNativeBranchEndpoint_actions,
+  ``EffectiveEncoding.candidateNativeNextEndpoint_actions,
+  ``EffectiveEncoding.candidateNativePivotEndpoint_actions,
+  ``EffectiveEncoding.candidateNativeTableProgram_counts,
+  ``EffectiveEncoding.candidateNativeTableProgram_items,
+  ``EffectiveEncoding.candidateNativeTableProgram_length,
+  ``EffectiveEncoding.candidateEndpointMassActions,
+  ``EffectiveEncoding.candidateIndexedRun_word,
+  ``EffectiveEncoding.candidateIndexedRun_actions,
+  ``EffectiveEncoding.candidateNativeBranchRun_word,
+  ``EffectiveEncoding.candidateNativeBranchRun_actions,
+  ``EffectiveEncoding.candidateAlignmentRun_word,
+  ``EffectiveEncoding.candidateAlignmentRun_actions,
+  ``EffectiveEncoding.candidateBranchTableRun_word,
+  ``EffectiveEncoding.candidateBranchTableRun_actions,
+  ``EffectiveEncoding.candidateOccupationRun_word,
+  ``EffectiveEncoding.candidateOccupationRun_actions,
+  ``EffectiveEncoding.candidateStageRun_word,
+  ``EffectiveEncoding.candidateCompressionRun_word,
+  ``EffectiveEncoding.candidateCompressionRun_actions,
+  ``EffectiveEncoding.candidateDescriptorRun_word,
+  ``EffectiveEncoding.candidateDescriptorRun_extractionCode,
+  ``EffectiveEncoding.candidateDescriptorRun_actions,
+  ``EffectiveEncoding.candidateSerializedRun_generation,
+  ``EffectiveEncoding.candidateSerializedRun_precision,
+  ``EffectiveEncoding.candidateSerializedRun_suffix_roundtrip,
+  ``EffectiveEncoding.candidateSerializedRun_roundtrip,
+  ``EffectiveEncoding.candidateSerializedRun_word,
+  ``EffectiveEncoding.candidateSerializedRun_decoded_word,
+  ``EffectiveEncoding.candidateSerializedRun_fidelity,
+  ``EffectiveEncoding.RetainedAssembledTargetResult.primitiveActions_eq,
+  ``EffectiveEncoding.retainedAssembledTargetRun_primitiveActions,
+  ``EffectiveEncoding.candidateSerializedRun_targetActions,
+  ``EffectiveEncoding.candidateSerializedRun_outputLength,
+  ``EffectiveEncoding.candidateSerializedRun_outerActions,
+  ``EffectiveEncoding.candidateSerializedRun_streamLength,
+  ``EffectiveEncoding.candidateSerializedRun_streamActions,
+  ``EffectiveEncoding.candidateSerializedRun_accountedPrimitiveActions,
+  ``EffectiveEncoding.candidateBudget_add_algebra,
+  ``EffectiveEncoding.candidateSerializedPrimitiveBudget_enlarge,
+  ``EffectiveEncoding.candidateGeneration_uniform,
+  ``EffectiveEncoding.candidateSerializedPrimitiveBudget_polynomial,
+  ``EffectiveEncoding.candidateSerializedRun_accountedPrimitiveActions_polynomial,
+  ``EffectiveEncoding.endpointBitsProgram_unary_exact,
+  ``EffectiveEncoding.naturalRange_map_ofFn,
+  ``EffectiveEncoding.binaryMaskPlanProgram_outputs,
+  ``EffectiveEncoding.binaryMaskPlanProgram_plans,
+  ``EffectiveEncoding.binaryMaskPlanProgram_length,
+  ``EffectiveEncoding.endpointBitsMap_actions,
+  ``EffectiveEncoding.binaryMaskPlanProgram_copyActions,
+  ``EffectiveEncoding.binaryMaskPlanProgram_actions,
+  ``EffectiveEncoding.binaryMaskPlanProgram_active_actions,
+  ``EffectiveEncoding.maskedCandidateOccupationRun_generation,
+  ``EffectiveEncoding.maskedCandidateOccupationRun_maskActions,
+  ``EffectiveEncoding.maskedCandidateStageRun_generation,
+  ``EffectiveEncoding.maskedCandidateCompressionRun_generation,
+  ``EffectiveEncoding.maskedCandidateCompressionRun_maskActions,
+  ``EffectiveEncoding.maskedCandidateDescriptorRun_generation,
+  ``EffectiveEncoding.maskedCandidateDescriptorRun_word,
+  ``EffectiveEncoding.maskedCandidateDescriptorRun_maskActions,
+  ``EffectiveEncoding.maskedCandidateDescriptorRun_accountedActions,
+  ``EffectiveEncoding.maskedCandidateDescriptorRun_accountedActions_polynomial,
+  ``EffectiveEncoding.maskedSerializedRun_execution,
+  ``EffectiveEncoding.maskedSerializedRun_suffix_roundtrip,
+  ``EffectiveEncoding.maskedSerializedRun_decoded_word,
+  ``EffectiveEncoding.maskedSerializedRun_maskActions,
+  ``EffectiveEncoding.maskedGeneration_uniform,
+  ``EffectiveEncoding.maskedSerializedRun_accountedPrimitiveActions_polynomial,
+  ``EffectiveEncoding.maskedSerializedRun_fidelity
+] [
+  ``EffectiveEncoding.SavedCountWord,
+  ``EffectiveEncoding.savedCountSuccessor,
+  ``EffectiveEncoding.BinaryCountRangeResult,
+  ``EffectiveEncoding.binaryCountRangeProgram,
+  ``EffectiveEncoding.BinaryCountRangeResult.incrementTrimActions,
+  ``EffectiveEncoding.BinaryCountRangeResult.actions,
+  ``EffectiveEncoding.nativeOrderIsAtMost,
+  ``EffectiveEncoding.BinaryTriplePredicateResult,
+  ``EffectiveEncoding.binaryTripleBoundProgram,
+  ``EffectiveEncoding.BinaryTriplePredicateResult.actions,
+  ``EffectiveEncoding.BinaryCandidateFilterResult,
+  ``EffectiveEncoding.binaryCandidateFilterProgram,
+  ``EffectiveEncoding.BinaryCandidateFilterResult.predicateActions,
+  ``EffectiveEncoding.CandidateProductTrace,
+  ``EffectiveEncoding.CandidateProductTrace.actions,
+  ``EffectiveEncoding.CandidateProductResult,
+  ``EffectiveEncoding.candidateProductRowProgram,
+  ``EffectiveEncoding.candidateProductProgram,
+  ``EffectiveEncoding.SavedTripleWords,
+  ``EffectiveEncoding.savedTripleCounts,
+  ``EffectiveEncoding.savedTriplePrepared,
+  ``EffectiveEncoding.specSavedTriple,
+  ``EffectiveEncoding.BinaryTriplesResult,
+  ``EffectiveEncoding.binaryTriplesProgram,
+  ``EffectiveEncoding.BinaryTriplesResult.actions,
+  ``EffectiveEncoding.BinaryGeneratedRankResult,
+  ``EffectiveEncoding.binaryGeneratedRankProgram,
+  ``EffectiveEncoding.BinaryGeneratedRankResult.actions,
+  ``EffectiveEncoding.CandidateRankRecord,
+  ``EffectiveEncoding.CandidateRankEndpoint,
+  ``EffectiveEncoding.candidateNativeBranchEndpoint,
+  ``EffectiveEncoding.candidateNativeNextEndpoint,
+  ``EffectiveEncoding.candidateNativePivotEndpoint,
+  ``EffectiveEncoding.candidateRankRecordsActions,
+  ``EffectiveEncoding.CandidateRankEndpoint.actions,
+  ``EffectiveEncoding.CandidateNativeTableResult,
+  ``EffectiveEncoding.candidateNativeTableProgram,
+  ``EffectiveEncoding.CandidateWordRun,
+  ``EffectiveEncoding.CandidateWordRun.actions,
+  ``EffectiveEncoding.candidateIndexedRun,
+  ``EffectiveEncoding.candidateNativeBranchRun,
+  ``EffectiveEncoding.candidateAlignmentRun,
+  ``EffectiveEncoding.candidateBranchTableRun,
+  ``EffectiveEncoding.CandidateDescriptorResult,
+  ``EffectiveEncoding.CandidateDescriptorResult.actions,
+  ``EffectiveEncoding.candidateOccupationRun,
+  ``EffectiveEncoding.candidateStageRun,
+  ``EffectiveEncoding.candidateCompressionRun,
+  ``EffectiveEncoding.candidateDescriptorRun,
+  ``EffectiveEncoding.CandidateSerializedResult,
+  ``EffectiveEncoding.candidateSerializedRun,
+  ``EffectiveEncoding.CandidateSerializedResult.decoded,
+  ``EffectiveEncoding.RetainedAssembledTargetResult.primitiveActions,
+  ``EffectiveEncoding.CandidateSerializedResult.targetActions,
+  ``EffectiveEncoding.CandidateSerializedResult.accountedPrimitiveActions,
+  ``EffectiveEncoding.candidateSerializedPrimitiveBudget,
+  ``EffectiveEncoding.candidateSerializedPolynomialConstant,
+  ``EffectiveEncoding.BinaryMaskPlanResult,
+  ``EffectiveEncoding.binaryMaskPlanProgram,
+  ``EffectiveEncoding.BinaryMaskPlanResult.copyActions,
+  ``EffectiveEncoding.BinaryMaskPlanResult.actions,
+  ``EffectiveEncoding.BinaryMaskRecord,
+  ``EffectiveEncoding.MaskedCandidateResult,
+  ``EffectiveEncoding.maskedCandidateOccupationRun,
+  ``EffectiveEncoding.MaskedCandidateResult.maskActions,
+  ``EffectiveEncoding.maskedCandidateStageRun,
+  ``EffectiveEncoding.maskedCandidateCompressionRun,
+  ``EffectiveEncoding.maskedCandidateDescriptorRun,
+  ``EffectiveEncoding.MaskedCandidateResult.accountedActions,
+  ``EffectiveEncoding.MaskedSerializedResult,
+  ``EffectiveEncoding.maskedSerializedRun,
+  ``EffectiveEncoding.MaskedSerializedResult.decoded,
+  ``EffectiveEncoding.MaskedSerializedResult.maskActions,
+  ``EffectiveEncoding.MaskedSerializedResult.accountedPrimitiveActions,
+  ``EffectiveEncoding.maskedSerializedPolynomialConstant
+])
+
+#check EffectiveEncoding.savedCountSuccessor_exact
+#print axioms EffectiveEncoding.savedCountSuccessor_exact
+#check EffectiveEncoding.binaryCountRangeProgram_current
+#print axioms EffectiveEncoding.binaryCountRangeProgram_current
+#check EffectiveEncoding.binaryCountRangeProgram_items
+#print axioms EffectiveEncoding.binaryCountRangeProgram_items
+#check EffectiveEncoding.binaryCountRangeProgram_length
+#print axioms EffectiveEncoding.binaryCountRangeProgram_length
+#check EffectiveEncoding.binaryCountRangeProgram_counts
+#print axioms EffectiveEncoding.binaryCountRangeProgram_counts
+#check EffectiveEncoding.binaryCountRangeProgram_incrementCount
+#print axioms EffectiveEncoding.binaryCountRangeProgram_incrementCount
+#check EffectiveEncoding.binaryCountRangeProgram_incrementTrimActions
+#print axioms EffectiveEncoding.binaryCountRangeProgram_incrementTrimActions
+#check EffectiveEncoding.binaryCountRangeProgram_copyActions
+#print axioms EffectiveEncoding.binaryCountRangeProgram_copyActions
+#check EffectiveEncoding.binaryCountRangeProgram_actions
+#print axioms EffectiveEncoding.binaryCountRangeProgram_actions
+#check EffectiveEncoding.nativeOrderIsAtMost_correct
+#print axioms EffectiveEncoding.nativeOrderIsAtMost_correct
+#check EffectiveEncoding.binaryTripleBoundProgram_accepted
+#print axioms EffectiveEncoding.binaryTripleBoundProgram_accepted
+#check EffectiveEncoding.binaryTripleBoundProgram_actions
+#print axioms EffectiveEncoding.binaryTripleBoundProgram_actions
+#check EffectiveEncoding.binaryCandidateFilterProgram_items
+#print axioms EffectiveEncoding.binaryCandidateFilterProgram_items
+#check EffectiveEncoding.binaryCandidateFilterProgram_tests
+#print axioms EffectiveEncoding.binaryCandidateFilterProgram_tests
+#check EffectiveEncoding.binaryCandidateFilterProgram_predicateActions
+#print axioms EffectiveEncoding.binaryCandidateFilterProgram_predicateActions
+#check EffectiveEncoding.candidateProductRowProgram_items
+#print axioms EffectiveEncoding.candidateProductRowProgram_items
+#check EffectiveEncoding.candidateProductRowProgram_actions
+#print axioms EffectiveEncoding.candidateProductRowProgram_actions
+#check EffectiveEncoding.candidateProductProgram_items
+#print axioms EffectiveEncoding.candidateProductProgram_items
+#check EffectiveEncoding.candidateProductProgram_actions
+#print axioms EffectiveEncoding.candidateProductProgram_actions
+#check EffectiveEncoding.candidateProduct_map
+#print axioms EffectiveEncoding.candidateProduct_map
+#check EffectiveEncoding.specSavedTriple_counts
+#print axioms EffectiveEncoding.specSavedTriple_counts
+#check EffectiveEncoding.specSavedTriple_prepared
+#print axioms EffectiveEncoding.specSavedTriple_prepared
+#check EffectiveEncoding.binaryTriplesProgram_candidates
+#print axioms EffectiveEncoding.binaryTriplesProgram_candidates
+#check EffectiveEncoding.binaryTriplesProgram_candidateLength
+#print axioms EffectiveEncoding.binaryTriplesProgram_candidateLength
+#check EffectiveEncoding.binaryTriplesProgram_filtered
+#print axioms EffectiveEncoding.binaryTriplesProgram_filtered
+#check EffectiveEncoding.binaryTriplesProgram_counts
+#print axioms EffectiveEncoding.binaryTriplesProgram_counts
+#check EffectiveEncoding.binaryTriplesProgram_prepared
+#print axioms EffectiveEncoding.binaryTriplesProgram_prepared
+#check EffectiveEncoding.binaryTriplesProgram_tests
+#print axioms EffectiveEncoding.binaryTriplesProgram_tests
+#check EffectiveEncoding.binaryTriplesProgram_testCount
+#print axioms EffectiveEncoding.binaryTriplesProgram_testCount
+#check EffectiveEncoding.binaryTriplesProgram_candidateWidth
+#print axioms EffectiveEncoding.binaryTriplesProgram_candidateWidth
+#check EffectiveEncoding.binaryTriplesProgram_predicateActions
+#print axioms EffectiveEncoding.binaryTriplesProgram_predicateActions
+#check EffectiveEncoding.binaryTriplesProgram_actions
+#print axioms EffectiveEncoding.binaryTriplesProgram_actions
+#check EffectiveEncoding.binaryTriplesProgram_actions_polynomial
+#print axioms EffectiveEncoding.binaryTriplesProgram_actions_polynomial
+#check EffectiveEncoding.binaryGeneratedRankProgram_scan
+#print axioms EffectiveEncoding.binaryGeneratedRankProgram_scan
+#check EffectiveEncoding.binaryGeneratedRankProgram_input
+#print axioms EffectiveEncoding.binaryGeneratedRankProgram_input
+#check EffectiveEncoding.binaryGeneratedRankProgram_index
+#print axioms EffectiveEncoding.binaryGeneratedRankProgram_index
+#check EffectiveEncoding.binaryGeneratedRankProgram_encoding
+#print axioms EffectiveEncoding.binaryGeneratedRankProgram_encoding
+#check EffectiveEncoding.binaryGeneratedRankProgram_output
+#print axioms EffectiveEncoding.binaryGeneratedRankProgram_output
+#check EffectiveEncoding.binaryGeneratedRankProgram_actions
+#print axioms EffectiveEncoding.binaryGeneratedRankProgram_actions
+#check EffectiveEncoding.binaryGeneratedRankProgram_actions_polynomial
+#print axioms EffectiveEncoding.binaryGeneratedRankProgram_actions_polynomial
+#check EffectiveEncoding.candidateNativeBranchEndpoint_point
+#print axioms EffectiveEncoding.candidateNativeBranchEndpoint_point
+#check EffectiveEncoding.candidateNativeNextEndpoint_point
+#print axioms EffectiveEncoding.candidateNativeNextEndpoint_point
+#check EffectiveEncoding.candidateNativePivotEndpoint_point
+#print axioms EffectiveEncoding.candidateNativePivotEndpoint_point
+#check EffectiveEncoding.candidateRankRecordsActions_append
+#print axioms EffectiveEncoding.candidateRankRecordsActions_append
+#check EffectiveEncoding.candidateNativeBranchEndpoint_actions
+#print axioms EffectiveEncoding.candidateNativeBranchEndpoint_actions
+#check EffectiveEncoding.candidateNativeNextEndpoint_actions
+#print axioms EffectiveEncoding.candidateNativeNextEndpoint_actions
+#check EffectiveEncoding.candidateNativePivotEndpoint_actions
+#print axioms EffectiveEncoding.candidateNativePivotEndpoint_actions
+#check EffectiveEncoding.candidateNativeTableProgram_counts
+#print axioms EffectiveEncoding.candidateNativeTableProgram_counts
+#check EffectiveEncoding.candidateNativeTableProgram_items
+#print axioms EffectiveEncoding.candidateNativeTableProgram_items
+#check EffectiveEncoding.candidateNativeTableProgram_length
+#print axioms EffectiveEncoding.candidateNativeTableProgram_length
+#check EffectiveEncoding.candidateEndpointMassActions
+#print axioms EffectiveEncoding.candidateEndpointMassActions
+#check EffectiveEncoding.candidateIndexedRun_word
+#print axioms EffectiveEncoding.candidateIndexedRun_word
+#check EffectiveEncoding.candidateIndexedRun_actions
+#print axioms EffectiveEncoding.candidateIndexedRun_actions
+#check EffectiveEncoding.candidateNativeBranchRun_word
+#print axioms EffectiveEncoding.candidateNativeBranchRun_word
+#check EffectiveEncoding.candidateNativeBranchRun_actions
+#print axioms EffectiveEncoding.candidateNativeBranchRun_actions
+#check EffectiveEncoding.candidateAlignmentRun_word
+#print axioms EffectiveEncoding.candidateAlignmentRun_word
+#check EffectiveEncoding.candidateAlignmentRun_actions
+#print axioms EffectiveEncoding.candidateAlignmentRun_actions
+#check EffectiveEncoding.candidateBranchTableRun_word
+#print axioms EffectiveEncoding.candidateBranchTableRun_word
+#check EffectiveEncoding.candidateBranchTableRun_actions
+#print axioms EffectiveEncoding.candidateBranchTableRun_actions
+#check EffectiveEncoding.candidateOccupationRun_word
+#print axioms EffectiveEncoding.candidateOccupationRun_word
+#check EffectiveEncoding.candidateOccupationRun_actions
+#print axioms EffectiveEncoding.candidateOccupationRun_actions
+#check EffectiveEncoding.candidateStageRun_word
+#print axioms EffectiveEncoding.candidateStageRun_word
+#check EffectiveEncoding.candidateCompressionRun_word
+#print axioms EffectiveEncoding.candidateCompressionRun_word
+#check EffectiveEncoding.candidateCompressionRun_actions
+#print axioms EffectiveEncoding.candidateCompressionRun_actions
+#check EffectiveEncoding.candidateDescriptorRun_word
+#print axioms EffectiveEncoding.candidateDescriptorRun_word
+#check EffectiveEncoding.candidateDescriptorRun_extractionCode
+#print axioms EffectiveEncoding.candidateDescriptorRun_extractionCode
+#check EffectiveEncoding.candidateDescriptorRun_actions
+#print axioms EffectiveEncoding.candidateDescriptorRun_actions
+#check EffectiveEncoding.candidateSerializedRun_generation
+#print axioms EffectiveEncoding.candidateSerializedRun_generation
+#check EffectiveEncoding.candidateSerializedRun_precision
+#print axioms EffectiveEncoding.candidateSerializedRun_precision
+#check EffectiveEncoding.candidateSerializedRun_suffix_roundtrip
+#print axioms EffectiveEncoding.candidateSerializedRun_suffix_roundtrip
+#check EffectiveEncoding.candidateSerializedRun_roundtrip
+#print axioms EffectiveEncoding.candidateSerializedRun_roundtrip
+#check EffectiveEncoding.candidateSerializedRun_word
+#print axioms EffectiveEncoding.candidateSerializedRun_word
+#check EffectiveEncoding.candidateSerializedRun_decoded_word
+#print axioms EffectiveEncoding.candidateSerializedRun_decoded_word
+#check EffectiveEncoding.candidateSerializedRun_fidelity
+#print axioms EffectiveEncoding.candidateSerializedRun_fidelity
+#check EffectiveEncoding.RetainedAssembledTargetResult.primitiveActions_eq
+#print axioms EffectiveEncoding.RetainedAssembledTargetResult.primitiveActions_eq
+#check EffectiveEncoding.retainedAssembledTargetRun_primitiveActions
+#print axioms EffectiveEncoding.retainedAssembledTargetRun_primitiveActions
+#check EffectiveEncoding.candidateSerializedRun_targetActions
+#print axioms EffectiveEncoding.candidateSerializedRun_targetActions
+#check EffectiveEncoding.candidateSerializedRun_outputLength
+#print axioms EffectiveEncoding.candidateSerializedRun_outputLength
+#check EffectiveEncoding.candidateSerializedRun_outerActions
+#print axioms EffectiveEncoding.candidateSerializedRun_outerActions
+#check EffectiveEncoding.candidateSerializedRun_streamLength
+#print axioms EffectiveEncoding.candidateSerializedRun_streamLength
+#check EffectiveEncoding.candidateSerializedRun_streamActions
+#print axioms EffectiveEncoding.candidateSerializedRun_streamActions
+#check EffectiveEncoding.candidateSerializedRun_accountedPrimitiveActions
+#print axioms EffectiveEncoding.candidateSerializedRun_accountedPrimitiveActions
+#check EffectiveEncoding.candidateBudget_add_algebra
+#print axioms EffectiveEncoding.candidateBudget_add_algebra
+#check EffectiveEncoding.candidateSerializedPrimitiveBudget_enlarge
+#print axioms EffectiveEncoding.candidateSerializedPrimitiveBudget_enlarge
+#check EffectiveEncoding.candidateGeneration_uniform
+#print axioms EffectiveEncoding.candidateGeneration_uniform
+#check EffectiveEncoding.candidateSerializedPrimitiveBudget_polynomial
+#print axioms EffectiveEncoding.candidateSerializedPrimitiveBudget_polynomial
+#check EffectiveEncoding.candidateSerializedRun_accountedPrimitiveActions_polynomial
+#print axioms EffectiveEncoding.candidateSerializedRun_accountedPrimitiveActions_polynomial
+#check EffectiveEncoding.endpointBitsProgram_unary_exact
+#print axioms EffectiveEncoding.endpointBitsProgram_unary_exact
+#check EffectiveEncoding.naturalRange_map_ofFn
+#print axioms EffectiveEncoding.naturalRange_map_ofFn
+#check EffectiveEncoding.binaryMaskPlanProgram_outputs
+#print axioms EffectiveEncoding.binaryMaskPlanProgram_outputs
+#check EffectiveEncoding.binaryMaskPlanProgram_plans
+#print axioms EffectiveEncoding.binaryMaskPlanProgram_plans
+#check EffectiveEncoding.binaryMaskPlanProgram_length
+#print axioms EffectiveEncoding.binaryMaskPlanProgram_length
+#check EffectiveEncoding.endpointBitsMap_actions
+#print axioms EffectiveEncoding.endpointBitsMap_actions
+#check EffectiveEncoding.binaryMaskPlanProgram_copyActions
+#print axioms EffectiveEncoding.binaryMaskPlanProgram_copyActions
+#check EffectiveEncoding.binaryMaskPlanProgram_actions
+#print axioms EffectiveEncoding.binaryMaskPlanProgram_actions
+#check EffectiveEncoding.binaryMaskPlanProgram_active_actions
+#print axioms EffectiveEncoding.binaryMaskPlanProgram_active_actions
+#check EffectiveEncoding.maskedCandidateOccupationRun_generation
+#print axioms EffectiveEncoding.maskedCandidateOccupationRun_generation
+#check EffectiveEncoding.maskedCandidateOccupationRun_maskActions
+#print axioms EffectiveEncoding.maskedCandidateOccupationRun_maskActions
+#check EffectiveEncoding.maskedCandidateStageRun_generation
+#print axioms EffectiveEncoding.maskedCandidateStageRun_generation
+#check EffectiveEncoding.maskedCandidateCompressionRun_generation
+#print axioms EffectiveEncoding.maskedCandidateCompressionRun_generation
+#check EffectiveEncoding.maskedCandidateCompressionRun_maskActions
+#print axioms EffectiveEncoding.maskedCandidateCompressionRun_maskActions
+#check EffectiveEncoding.maskedCandidateDescriptorRun_generation
+#print axioms EffectiveEncoding.maskedCandidateDescriptorRun_generation
+#check EffectiveEncoding.maskedCandidateDescriptorRun_word
+#print axioms EffectiveEncoding.maskedCandidateDescriptorRun_word
+#check EffectiveEncoding.maskedCandidateDescriptorRun_maskActions
+#print axioms EffectiveEncoding.maskedCandidateDescriptorRun_maskActions
+#check EffectiveEncoding.maskedCandidateDescriptorRun_accountedActions
+#print axioms EffectiveEncoding.maskedCandidateDescriptorRun_accountedActions
+#check EffectiveEncoding.maskedCandidateDescriptorRun_accountedActions_polynomial
+#print axioms EffectiveEncoding.maskedCandidateDescriptorRun_accountedActions_polynomial
+#check EffectiveEncoding.maskedSerializedRun_execution
+#print axioms EffectiveEncoding.maskedSerializedRun_execution
+#check EffectiveEncoding.maskedSerializedRun_suffix_roundtrip
+#print axioms EffectiveEncoding.maskedSerializedRun_suffix_roundtrip
+#check EffectiveEncoding.maskedSerializedRun_decoded_word
+#print axioms EffectiveEncoding.maskedSerializedRun_decoded_word
+#check EffectiveEncoding.maskedSerializedRun_maskActions
+#print axioms EffectiveEncoding.maskedSerializedRun_maskActions
+#check EffectiveEncoding.maskedGeneration_uniform
+#print axioms EffectiveEncoding.maskedGeneration_uniform
+#check EffectiveEncoding.maskedSerializedRun_accountedPrimitiveActions_polynomial
+#print axioms EffectiveEncoding.maskedSerializedRun_accountedPrimitiveActions_polynomial
+#check EffectiveEncoding.maskedSerializedRun_fidelity
+#print axioms EffectiveEncoding.maskedSerializedRun_fidelity
+#check EffectiveEncoding.SavedCountWord
+#print axioms EffectiveEncoding.SavedCountWord
+#check EffectiveEncoding.savedCountSuccessor
+#print axioms EffectiveEncoding.savedCountSuccessor
+#check EffectiveEncoding.BinaryCountRangeResult
+#print axioms EffectiveEncoding.BinaryCountRangeResult
+#check EffectiveEncoding.binaryCountRangeProgram
+#print axioms EffectiveEncoding.binaryCountRangeProgram
+#check EffectiveEncoding.BinaryCountRangeResult.incrementTrimActions
+#print axioms EffectiveEncoding.BinaryCountRangeResult.incrementTrimActions
+#check EffectiveEncoding.BinaryCountRangeResult.actions
+#print axioms EffectiveEncoding.BinaryCountRangeResult.actions
+#check EffectiveEncoding.nativeOrderIsAtMost
+#print axioms EffectiveEncoding.nativeOrderIsAtMost
+#check EffectiveEncoding.BinaryTriplePredicateResult
+#print axioms EffectiveEncoding.BinaryTriplePredicateResult
+#check EffectiveEncoding.binaryTripleBoundProgram
+#print axioms EffectiveEncoding.binaryTripleBoundProgram
+#check EffectiveEncoding.BinaryTriplePredicateResult.actions
+#print axioms EffectiveEncoding.BinaryTriplePredicateResult.actions
+#check EffectiveEncoding.BinaryCandidateFilterResult
+#print axioms EffectiveEncoding.BinaryCandidateFilterResult
+#check EffectiveEncoding.binaryCandidateFilterProgram
+#print axioms EffectiveEncoding.binaryCandidateFilterProgram
+#check EffectiveEncoding.BinaryCandidateFilterResult.predicateActions
+#print axioms EffectiveEncoding.BinaryCandidateFilterResult.predicateActions
+#check EffectiveEncoding.CandidateProductTrace
+#print axioms EffectiveEncoding.CandidateProductTrace
+#check EffectiveEncoding.CandidateProductTrace.actions
+#print axioms EffectiveEncoding.CandidateProductTrace.actions
+#check EffectiveEncoding.CandidateProductResult
+#print axioms EffectiveEncoding.CandidateProductResult
+#check EffectiveEncoding.candidateProductRowProgram
+#print axioms EffectiveEncoding.candidateProductRowProgram
+#check EffectiveEncoding.candidateProductProgram
+#print axioms EffectiveEncoding.candidateProductProgram
+#check EffectiveEncoding.SavedTripleWords
+#print axioms EffectiveEncoding.SavedTripleWords
+#check EffectiveEncoding.savedTripleCounts
+#print axioms EffectiveEncoding.savedTripleCounts
+#check EffectiveEncoding.savedTriplePrepared
+#print axioms EffectiveEncoding.savedTriplePrepared
+#check EffectiveEncoding.specSavedTriple
+#print axioms EffectiveEncoding.specSavedTriple
+#check EffectiveEncoding.BinaryTriplesResult
+#print axioms EffectiveEncoding.BinaryTriplesResult
+#check EffectiveEncoding.binaryTriplesProgram
+#print axioms EffectiveEncoding.binaryTriplesProgram
+#check EffectiveEncoding.BinaryTriplesResult.actions
+#print axioms EffectiveEncoding.BinaryTriplesResult.actions
+#check EffectiveEncoding.BinaryGeneratedRankResult
+#print axioms EffectiveEncoding.BinaryGeneratedRankResult
+#check EffectiveEncoding.binaryGeneratedRankProgram
+#print axioms EffectiveEncoding.binaryGeneratedRankProgram
+#check EffectiveEncoding.BinaryGeneratedRankResult.actions
+#print axioms EffectiveEncoding.BinaryGeneratedRankResult.actions
+#check EffectiveEncoding.CandidateRankRecord
+#print axioms EffectiveEncoding.CandidateRankRecord
+#check EffectiveEncoding.CandidateRankEndpoint
+#print axioms EffectiveEncoding.CandidateRankEndpoint
+#check EffectiveEncoding.candidateNativeBranchEndpoint
+#print axioms EffectiveEncoding.candidateNativeBranchEndpoint
+#check EffectiveEncoding.candidateNativeNextEndpoint
+#print axioms EffectiveEncoding.candidateNativeNextEndpoint
+#check EffectiveEncoding.candidateNativePivotEndpoint
+#print axioms EffectiveEncoding.candidateNativePivotEndpoint
+#check EffectiveEncoding.candidateRankRecordsActions
+#print axioms EffectiveEncoding.candidateRankRecordsActions
+#check EffectiveEncoding.CandidateRankEndpoint.actions
+#print axioms EffectiveEncoding.CandidateRankEndpoint.actions
+#check EffectiveEncoding.CandidateNativeTableResult
+#print axioms EffectiveEncoding.CandidateNativeTableResult
+#check EffectiveEncoding.candidateNativeTableProgram
+#print axioms EffectiveEncoding.candidateNativeTableProgram
+#check EffectiveEncoding.CandidateWordRun
+#print axioms EffectiveEncoding.CandidateWordRun
+#check EffectiveEncoding.CandidateWordRun.actions
+#print axioms EffectiveEncoding.CandidateWordRun.actions
+#check EffectiveEncoding.candidateIndexedRun
+#print axioms EffectiveEncoding.candidateIndexedRun
+#check EffectiveEncoding.candidateNativeBranchRun
+#print axioms EffectiveEncoding.candidateNativeBranchRun
+#check EffectiveEncoding.candidateAlignmentRun
+#print axioms EffectiveEncoding.candidateAlignmentRun
+#check EffectiveEncoding.candidateBranchTableRun
+#print axioms EffectiveEncoding.candidateBranchTableRun
+#check EffectiveEncoding.CandidateDescriptorResult
+#print axioms EffectiveEncoding.CandidateDescriptorResult
+#check EffectiveEncoding.CandidateDescriptorResult.actions
+#print axioms EffectiveEncoding.CandidateDescriptorResult.actions
+#check EffectiveEncoding.candidateOccupationRun
+#print axioms EffectiveEncoding.candidateOccupationRun
+#check EffectiveEncoding.candidateStageRun
+#print axioms EffectiveEncoding.candidateStageRun
+#check EffectiveEncoding.candidateCompressionRun
+#print axioms EffectiveEncoding.candidateCompressionRun
+#check EffectiveEncoding.candidateDescriptorRun
+#print axioms EffectiveEncoding.candidateDescriptorRun
+#check EffectiveEncoding.CandidateSerializedResult
+#print axioms EffectiveEncoding.CandidateSerializedResult
+#check EffectiveEncoding.candidateSerializedRun
+#print axioms EffectiveEncoding.candidateSerializedRun
+#check EffectiveEncoding.CandidateSerializedResult.decoded
+#print axioms EffectiveEncoding.CandidateSerializedResult.decoded
+#check EffectiveEncoding.RetainedAssembledTargetResult.primitiveActions
+#print axioms EffectiveEncoding.RetainedAssembledTargetResult.primitiveActions
+#check EffectiveEncoding.CandidateSerializedResult.targetActions
+#print axioms EffectiveEncoding.CandidateSerializedResult.targetActions
+#check EffectiveEncoding.CandidateSerializedResult.accountedPrimitiveActions
+#print axioms EffectiveEncoding.CandidateSerializedResult.accountedPrimitiveActions
+#check EffectiveEncoding.candidateSerializedPrimitiveBudget
+#print axioms EffectiveEncoding.candidateSerializedPrimitiveBudget
+#check EffectiveEncoding.candidateSerializedPolynomialConstant
+#print axioms EffectiveEncoding.candidateSerializedPolynomialConstant
+#check EffectiveEncoding.BinaryMaskPlanResult
+#print axioms EffectiveEncoding.BinaryMaskPlanResult
+#check EffectiveEncoding.binaryMaskPlanProgram
+#print axioms EffectiveEncoding.binaryMaskPlanProgram
+#check EffectiveEncoding.BinaryMaskPlanResult.copyActions
+#print axioms EffectiveEncoding.BinaryMaskPlanResult.copyActions
+#check EffectiveEncoding.BinaryMaskPlanResult.actions
+#print axioms EffectiveEncoding.BinaryMaskPlanResult.actions
+#check EffectiveEncoding.BinaryMaskRecord
+#print axioms EffectiveEncoding.BinaryMaskRecord
+#check EffectiveEncoding.MaskedCandidateResult
+#print axioms EffectiveEncoding.MaskedCandidateResult
+#check EffectiveEncoding.maskedCandidateOccupationRun
+#print axioms EffectiveEncoding.maskedCandidateOccupationRun
+#check EffectiveEncoding.MaskedCandidateResult.maskActions
+#print axioms EffectiveEncoding.MaskedCandidateResult.maskActions
+#check EffectiveEncoding.maskedCandidateStageRun
+#print axioms EffectiveEncoding.maskedCandidateStageRun
+#check EffectiveEncoding.maskedCandidateCompressionRun
+#print axioms EffectiveEncoding.maskedCandidateCompressionRun
+#check EffectiveEncoding.maskedCandidateDescriptorRun
+#print axioms EffectiveEncoding.maskedCandidateDescriptorRun
+#check EffectiveEncoding.MaskedCandidateResult.accountedActions
+#print axioms EffectiveEncoding.MaskedCandidateResult.accountedActions
+#check EffectiveEncoding.MaskedSerializedResult
+#print axioms EffectiveEncoding.MaskedSerializedResult
+#check EffectiveEncoding.maskedSerializedRun
+#print axioms EffectiveEncoding.maskedSerializedRun
+#check EffectiveEncoding.MaskedSerializedResult.decoded
+#print axioms EffectiveEncoding.MaskedSerializedResult.decoded
+#check EffectiveEncoding.MaskedSerializedResult.maskActions
+#print axioms EffectiveEncoding.MaskedSerializedResult.maskActions
+#check EffectiveEncoding.MaskedSerializedResult.accountedPrimitiveActions
+#print axioms EffectiveEncoding.MaskedSerializedResult.accountedPrimitiveActions
+#check EffectiveEncoding.maskedSerializedPolynomialConstant
+#print axioms EffectiveEncoding.maskedSerializedPolynomialConstant

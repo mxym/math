@@ -1,0 +1,425 @@
+{
+  "status": "GENERATED_AUTHOR_BOOLEAN_PLAN_SCOPE_NOT_INDEPENDENT_REPLAY",
+  "theorem_count": 25,
+  "model_count": 24,
+  "declarations": [
+    {
+      "name": "EffectiveEncoding.MaskCoordinateTrace",
+      "kind": "inductive",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 9
+    },
+    {
+      "name": "EffectiveEncoding.MaskCoordinateTrace.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.MaskCoordinateResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 20
+    },
+    {
+      "name": "EffectiveEncoding.maskCoordinateSelectProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 26
+    },
+    {
+      "name": "EffectiveEncoding.maskCoordinateSelectProgram_map",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.maskCoordinateSelectProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.packedMask_finRange_map",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 57
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskCoordinates",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 63
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskCoordinates_items",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 67
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskCoordinates_sortedMask",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 74
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskCoordinates_nodup",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 84
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskCoordinates_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "line": 90
+    },
+    {
+      "name": "EffectiveEncoding.CnotListTrace",
+      "kind": "inductive",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.CnotListTrace.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 11
+    },
+    {
+      "name": "EffectiveEncoding.CnotListResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 15
+    },
+    {
+      "name": "EffectiveEncoding.cnotListProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.cnotListProgram_word",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 30
+    },
+    {
+      "name": "EffectiveEncoding.cnotListProgram_length",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 38
+    },
+    {
+      "name": "EffectiveEncoding.cnotListProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.sortedList_head_min",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 50
+    },
+    {
+      "name": "EffectiveEncoding.sortedList_head_erase",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 56
+    },
+    {
+      "name": "EffectiveEncoding.ListPauliPlanResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 75
+    },
+    {
+      "name": "EffectiveEncoding.listPauliPlanProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 83
+    },
+    {
+      "name": "EffectiveEncoding.listPauliPlanProgram_plan",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 99
+    },
+    {
+      "name": "EffectiveEncoding.ListPauliPlanResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 126
+    },
+    {
+      "name": "EffectiveEncoding.listPauliPlanProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "line": 130
+    },
+    {
+      "name": "EffectiveEncoding.BooleanPauliPlanResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.booleanPauliPlanProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.booleanPauliPlanProgram_plan",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 19
+    },
+    {
+      "name": "EffectiveEncoding.BooleanPauliPlanResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 24
+    },
+    {
+      "name": "EffectiveEncoding.booleanPauliPlanProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 28
+    },
+    {
+      "name": "EffectiveEncoding.BooleanPlanTableTrace",
+      "kind": "inductive",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 38
+    },
+    {
+      "name": "EffectiveEncoding.BooleanPlanTableTrace.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.BooleanPlanTableResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 47
+    },
+    {
+      "name": "EffectiveEncoding.booleanPlanTableProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 55
+    },
+    {
+      "name": "EffectiveEncoding.booleanPlanTableProgram_plans",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 63
+    },
+    {
+      "name": "EffectiveEncoding.booleanPlanTableProgram_programs",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 71
+    },
+    {
+      "name": "EffectiveEncoding.booleanPlanTableProgram_traceActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 78
+    },
+    {
+      "name": "EffectiveEncoding.BooleanPlanTableResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 85
+    },
+    {
+      "name": "EffectiveEncoding.booleanPlanTableProgram_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "line": 89
+    },
+    {
+      "name": "EffectiveEncoding.BooleanMaskContextResult",
+      "kind": "structure",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean",
+      "line": 6
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskContextProgram",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean",
+      "line": 13
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskContextProgram_common",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean",
+      "line": 21
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskContextProgram_plans",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean",
+      "line": 26
+    },
+    {
+      "name": "EffectiveEncoding.BooleanMaskContextResult.planActions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean",
+      "line": 31
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskContextProgram_planActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean",
+      "line": 34
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskContextProgram_active_planActions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean",
+      "line": 43
+    },
+    {
+      "name": "EffectiveEncoding.BooleanMaskContextResult.actions",
+      "kind": "def",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean",
+      "line": 65
+    },
+    {
+      "name": "EffectiveEncoding.booleanMaskContextProgram_active_actions",
+      "kind": "theorem",
+      "noncomputable": false,
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean",
+      "line": 69
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskCoordinates.lean",
+      "sha256": "7320f2a92e5dfdb33695598b2fe3a15ebeb2880bfbf0e727de5bbe62496f6df3",
+      "declarations": [
+        "EffectiveEncoding.MaskCoordinateTrace",
+        "EffectiveEncoding.MaskCoordinateTrace.actions",
+        "EffectiveEncoding.MaskCoordinateResult",
+        "EffectiveEncoding.maskCoordinateSelectProgram",
+        "EffectiveEncoding.maskCoordinateSelectProgram_map",
+        "EffectiveEncoding.maskCoordinateSelectProgram_actions",
+        "EffectiveEncoding.packedMask_finRange_map",
+        "EffectiveEncoding.booleanMaskCoordinates",
+        "EffectiveEncoding.booleanMaskCoordinates_items",
+        "EffectiveEncoding.booleanMaskCoordinates_sortedMask",
+        "EffectiveEncoding.booleanMaskCoordinates_nodup",
+        "EffectiveEncoding.booleanMaskCoordinates_actions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/ListPauliPlanProgram.lean",
+      "sha256": "ef27f03d357e9821693b6da0979eef7525cadd1441a224c3a8ecefd513222aed",
+      "declarations": [
+        "EffectiveEncoding.CnotListTrace",
+        "EffectiveEncoding.CnotListTrace.actions",
+        "EffectiveEncoding.CnotListResult",
+        "EffectiveEncoding.cnotListProgram",
+        "EffectiveEncoding.cnotListProgram_word",
+        "EffectiveEncoding.cnotListProgram_length",
+        "EffectiveEncoding.cnotListProgram_actions",
+        "EffectiveEncoding.sortedList_head_min",
+        "EffectiveEncoding.sortedList_head_erase",
+        "EffectiveEncoding.ListPauliPlanResult",
+        "EffectiveEncoding.listPauliPlanProgram",
+        "EffectiveEncoding.listPauliPlanProgram_plan",
+        "EffectiveEncoding.ListPauliPlanResult.actions",
+        "EffectiveEncoding.listPauliPlanProgram_actions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanPauliPlanProgram.lean",
+      "sha256": "7b7539cbe567f5b2c70a7cd94d554372999e7d4b2cae51f77daaf028826adbac",
+      "declarations": [
+        "EffectiveEncoding.BooleanPauliPlanResult",
+        "EffectiveEncoding.booleanPauliPlanProgram",
+        "EffectiveEncoding.booleanPauliPlanProgram_plan",
+        "EffectiveEncoding.BooleanPauliPlanResult.actions",
+        "EffectiveEncoding.booleanPauliPlanProgram_actions",
+        "EffectiveEncoding.BooleanPlanTableTrace",
+        "EffectiveEncoding.BooleanPlanTableTrace.actions",
+        "EffectiveEncoding.BooleanPlanTableResult",
+        "EffectiveEncoding.booleanPlanTableProgram",
+        "EffectiveEncoding.booleanPlanTableProgram_plans",
+        "EffectiveEncoding.booleanPlanTableProgram_programs",
+        "EffectiveEncoding.booleanPlanTableProgram_traceActions",
+        "EffectiveEncoding.BooleanPlanTableResult.actions",
+        "EffectiveEncoding.booleanPlanTableProgram_actions"
+      ]
+    },
+    {
+      "path": "formalizations/extraction-effective-encoding/EffectiveEncoding/BooleanMaskContextProgram.lean",
+      "sha256": "8ac22295a1f4fa25237f1503d295d39054cf9f88dd5e177177b00837c54d35be",
+      "declarations": [
+        "EffectiveEncoding.BooleanMaskContextResult",
+        "EffectiveEncoding.booleanMaskContextProgram",
+        "EffectiveEncoding.booleanMaskContextProgram_common",
+        "EffectiveEncoding.booleanMaskContextProgram_plans",
+        "EffectiveEncoding.BooleanMaskContextResult.planActions",
+        "EffectiveEncoding.booleanMaskContextProgram_planActions",
+        "EffectiveEncoding.booleanMaskContextProgram_active_planActions",
+        "EffectiveEncoding.BooleanMaskContextResult.actions",
+        "EffectiveEncoding.booleanMaskContextProgram_active_actions"
+      ]
+    }
+  ]
+}
