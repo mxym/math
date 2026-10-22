@@ -4,11 +4,7 @@
 
 Mathematical research papers, formal proofs, Lean developments, and reproducible computational certificates.
 
-**Yongxian Zhang**, School of Computer Science and Engineering, South China University of Technology.
-
 Correspondence: [mxymmxym1@gmail.com](mailto:mxymmxym1@gmail.com) · ORCID: [0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [author profile](AUTHOR.md)
-
-Independent research with no external funding. AI is used for research assistance; each project states its proof sources, verification scope, and reproduction instructions.
 
 [Preprints](#preprints) · [Written proofs](#results-with-complete-written-proofs) · [Problems explored](#problems-explored) · [Research directory](RESEARCH.md) · [Verification](#proof-and-reproduction)
 
