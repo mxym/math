@@ -1,5 +1,20 @@
 # Source and scope checks
 
+## Attribution correction: the odd electorate exponent is a consequence of prior work
+
+[Seick Kim and Hocheol Shin, *Kelly’s conjectures on Condorcet winner probabilities for odd electorates*, Theorem 1.1](https://arxiv.org/html/2610.29904v1) proves that at a fixed candidate count the winner probability strictly decreases as the odd electorate increases by two. That October 2026 preprint predates this repository note and was missed in the initial search. Their notation interchanges the roles of $m,n$ relative to ours. Their Theorem 1.2 concerns varying candidates and is not needed here.
+
+For odd $m$ and fixed $k$ with $m\ge2k-1$, their result gives
+$$
+ Q_\infty(n)\le Q(m,n)\le Q(2k-1,n).
+$$
+Here $Q_\infty(n)$ is the infinite-electorate probability at fixed $n$. The older Gaussian leading equivalent gives $Q_\infty(n)\sim\sqrt{8\pi\log n}/n$. Sauermann gives exponent $-1+1/k$ for the right side. Along any joint sequence of odd electorates tending to infinity, take the logarithmic limits and then $k\to\infty$. This already gives the exponent $-1$ from these earlier results. Uniformly in all odd $m$, the chance of a designated star winner on the $d$-cube is at least $Q_\infty(d+1)/(d+1)$. The disjoint-star packing and variance argument in the proof therefore give the local existence and concentration conclusions using prior work as their probabilistic input.
+
+For even $m$, deleting a specified voter from a winning profile preserves every strict pairwise victory: a margin at least two drops by at most one. Hence $Q(m,n)\le Q(m-1,n)$ gives the even upper exponent from the odd one. This deletion does not give the reverse inequality and hence does not give the strict-even lower bound. The proof here supplies that lower bound and explicit two-parameter estimates directly. We do not claim priority.
+
+## Further sources
+
+* [Maassen & Bezembinder, Theorem 5](https://doi.org/10.1007/s003550100129) give the classical integral representation for linear rankings; see also [the authors' paper](https://www.math.ru.nl/~maassen/preps/condorcet.pdf). The conditional representation is not a contribution of the present note.
 * [R. M. May (1971), *Some mathematical remarks on the paradox of voting*](https://doi.org/10.1002/bs.3830160204), and [Hązła et al., §1.3, Eq. (1.7)](https://doi.org/10.1007/s00440-020-00994-7), record the leading equivalent $\sqrt{8\pi\log n}/n$ **after** first taking the electorate limit. This is sharper in its regime, but successively taking two limits alone does not control arbitrary diagonal sequences. The Gaussian orthant representation and results about monotonicity in the limiting model are also discussed by [Krishnamoorthy & Raghavachari](https://arxiv.org/abs/math/0511140).
 * [L. Sauermann, Theorem 1.1](https://arxiv.org/abs/2203.13713) obtains the sharp asymptotic and leading constant when the odd number $m=2k-1$ of voters is **fixed**, with global exponent $-(k-1)/k$. May treated the three-voter case. Our designated-candidate conditional integral is prior; the new argument concerns uniform control as the number of voters varies.
 * [Caizergues, Durand, Noy, de Panafieu & Ravelomanana](https://arxiv.org/abs/2505.06028) consider more general preferences and victory thresholds and derive a finite-electorate expansion under impartial culture with the candidate count fixed. Their parity correction is important and is not computed here.
