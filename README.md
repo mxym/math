@@ -71,6 +71,7 @@ ORCID：[0009-0000-3864-3536](https://orcid.org/0009-0000-3864-3536) · [完整�
 
 | 问题／成果 | 书面已证明的精确范围 | 完整证明与输入 | Lean 实际状态 |
 | --- | --- | --- | --- |
+| Conway 99 图的三阶自同构 | 强正则图 $(99,14,1,2)$ 没有三阶自同构。一般存在性仍然开放 | 已发表的无不动点定理与 161,320 个关联代表的[完整整数枚举](research/conway-99-order-three/six-triangles/quotient/README.md) | 计算机辅助证明，未 Lean 形式化 |
 | APPT 全维数、全扩展阶数的相对熵统一式 | 一个总维数阈值同时覆盖全部2≤m≤n、0≤α≤∞，包括固定／增长／振荡m及任意趋零阶；有限m主体、缺一floor和已知多尺度项保留，qubit用归属明确的精确紧标量归约 | [完整统一稿与独立全读](research/appt-all-dimension-entropy-profile-20261015/README.md)；[原增长m全阶证明](research/appt-growing-renyi/ALL_ORDER_VARIATIONAL.md)、[超线性阶谱](research/appt-ultralinear-spectrum-20261014/README.md)、[原窗口与谱分类](research/appt-growing-renyi/README.md)、[原内部复核](research/appt-growing-renyi/ALL_ORDER_REVIEW.json) | 普通书面，未整体Lean；沿用已知子范围与外部Song–Chen输入，无有效阈值、全有限维最优谱或完整变阶谱刚性，不增重大计数 |
 | 同一 APPT 方向：有限高阶 Rényi 精确极值 | 实际 2⊗n、n≥4、所有实 α≥2 的精确整数秩公式与全部等号；任意 m⊗n 在 D≥6、α≥D/2+1，及 D=4、α≥24 的唯一 spike 极值；维数截止尺度 Θ(D) | [完整有限维书面证明与受审版本](research/appt-finite-high-order-20261014/README.md)；已有谱顶点／纯度及可分离端点明确归属 | 未整体 Lean 化；有限高阶带的常数不宣称最优；同一方向加强，不新增重大猜想计数 |
 | 同一 APPT 方向：实阶扩展与锐截止 | 实际 2⊗n、n≥8、全部实 α>1 的有限精确极值；n≥4 的 pole 最优当且仅当 α≥τ_D，覆盖全部正阶；临界全部等号及锐常数 τ_D/D→log2/2 | [完整书面证明、精确截止方程与源绑定内部复核](research/appt-log-order-phase-20261014/README.md)；一般 m≥3 给充分界与临界唯一性 | 未整体 Lean 化；不声称所有 subcritical 最小值或一般 APPT=ASEP；同一方向加强不另计重大猜想 |
