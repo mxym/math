@@ -30,20 +30,21 @@ def representatives(size):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('executable', type=Path)
-    parser.add_argument('--size', type=int, choices=[4, 5], default=5)
+    parser.add_argument('--size', type=int, choices=[4, 5], default=4)
     args = parser.parse_args()
     exe = str(args.executable.resolve())
     verify()
     t = check(5, golay_steps())
     fixture = '\n'.join(' '.join(map(str, row)) for row in t)
-    subprocess.run([exe, '--golay-test'], input=fixture, text=True, check=True)
+    options = ['--sign-parity'] if args.size == 4 else []
+    subprocess.run([exe, '--golay-test', *options], input=fixture, text=True, check=True)
     total, cases = 0, 0
     for mask, orbit_size in representatives(args.size):
         edges = [set(e) for k, e in enumerate(EDGES) if (mask >> k) & 1]
         if len(edges) == 5 and set.intersection(*edges):
             print(mask, 'excluded by the five-star lemma', flush=True)
         else:
-            subprocess.run([exe, str(mask)], check=True)
+            subprocess.run([exe, str(mask), *options], check=True)
         total += orbit_size
         cases += 1
     assert (cases, total) == {4: (10, 5985), 5: (21, 20349)}[args.size]
