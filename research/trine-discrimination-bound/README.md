@@ -8,7 +8,7 @@ $$
 \max (T-S)=\frac{3\sqrt 3}{2}-2.
 $$
 
-Weiner already proved the qubit case, proved the pure-state case in any finite dimension, and gave both a trine attaining this value and mixed triples attaining it. What is shown here is the matching upper bound for arbitrary mixed triples. This does not classify all maximizers, describe the full quantum profile region, or address unequal priors.
+Weiner already proved the qubit case, proved the pure-state case in any finite dimension, and gave both a trine attaining this value and mixed triples attaining it. The [upper bound](PROOF.md) applies to arbitrary mixed triples. Its [equality corollary](EQUALITY.md) shows that every maximizer, on its joint support, is a pure qubit trine tensored with one shared ancillary state. Weiner already proved that these triples attain the bound; the corollary proves they exhaust the mixed cases. Neither result describes the full quantum profile region or addresses unequal priors.
 
 ## Proof and verification
 
