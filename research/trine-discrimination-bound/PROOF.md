@@ -1,6 +1,6 @@
 # A trine bound for three-state discrimination in arbitrary finite dimension
 
-**AI-assisted research draft.** This note gives an exact upper bound for an equal-prior three-state discrimination witness. It determines the optimal value, not the entire set of quantum discrimination profiles or the set of mixed extremizers. The proof includes the 4.4 kB [certificate](certificate.json) and two independently implemented, exact-arithmetic checkers. It has had AI-assisted internal review, not external peer review. No priority claim is made.
+**AI-assisted research draft.** This note gives an exact upper bound for an equal-prior three-state discrimination witness. This proof determines the optimal value, not the entire set of quantum discrimination profiles. The [companion corollary](EQUALITY.md) classifies the mixed extremizers. The proof includes the 4.4 kB [certificate](certificate.json) and two independently implemented, exact-arithmetic checkers. It has had AI-assisted internal review, not external peer review. No priority claim is made.
 
 ## 1. Target
 
