@@ -1,0 +1,6 @@
+$ python3 -B verify.py
+PASS: 256 graphs; 1024 full-representative completions; 16384 mixed test sets; exact integer binomial checks r<=150
+$ python3 -B -O independent.py
+PASS m=2, clique size=2, reservoir=2: 256 graphs, 16384 mixed tests, 1377 maximal sets
+PASS m=3, clique size=1, reservoir=2: 64 graphs, 2048 mixed tests, 187 maximal sets
+PASS m=2, clique size=2, reservoir=3: 4096 graphs, 524288 mixed tests, 25345 maximal sets
