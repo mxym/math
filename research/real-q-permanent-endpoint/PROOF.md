@@ -5,7 +5,7 @@ $$
 P_q(A)=\sum_{\pi\in S_n}q^{\operatorname{inv}(\pi)}\prod_{i=1}^n A_{i,\pi(i)},\qquad
 \operatorname{inv}(\pi)=\#\{i<j:\pi(i)>\pi(j)\}.
 $$
-Write $P'(1)$ for the derivative in $q$ at 1. This part proves existence; [the companion](FINITE.md) specifies one finite rational matrix and comparison point.
+Write $P'(1)$ for the derivative in $q$ at 1. This part gives a qualitative route to a known existence result. The [October 8 existence proof](../../notes/bapat-real-symmetric-existence-counterexample/proof.md), §§2–7, already proves the real negative derivative and interior decrease; its derivative also yields $P_q>P_1$ just to the left of 1. The [Lean root theorem](../../formalizations/bapat-real-symmetric-existence-counterexample/formalization/sources/BapatIntegerCounterexample.lean) concerns that earlier existence proof, not the quantitative construction here. [The companion](FINITE.md) supplies the additional effective statement: one specified order, ordered rational matrix and rational comparison point.
 
 ## 1. Fischer-norm representation
 
@@ -23,7 +23,7 @@ To see the first, expand the products of two lists of linear forms: assignments 
 $$
 (A_{ik}A_{jl}-A_{il}A_{jk})\operatorname{per} A_{\widehat{ij},\widehat{kl}},
 $$
-where the indicated row and column pairs are deleted. The minor is the inner product of the row wedges, and the complementary permanent is the inner product of the complementary polynomials. Summing over $i<j$ and $k<l$ proves the second identity. The pair-minor and rank-two version are already in [Kitamura’s work](https://github.com/KitaKen1/bapat-lal-q-permanent-lean/tree/4200da4fc1a132d69c23fb877795b5b72089544b).
+where the indicated row and column pairs are deleted. The minor is the inner product of the row wedges, and the complementary permanent is the inner product of the complementary polynomials. Summing over $i<j$ and $k<l$ proves the second identity. The real finite-rank Fischer/wedge identity used here appears in the [October 8 existence proof](../../notes/bapat-real-symmetric-existence-counterexample/proof.md), §2, Eq. (4); that proof also uses the complex-sphere norm conversion. The pair-minor and rank-two version are already in [Kitamura’s work](https://github.com/KitaKen1/bapat-lal-q-permanent-lean/tree/4200da4fc1a132d69c23fb877795b5b72089544b).
 
 Let $\sigma$ be uniform probability on the unit sphere in $\mathbb C^d$. Monomials of a given degree $m$ are orthogonal there and $\int |z^\alpha|^2\,d\sigma=(d-1)!\alpha!/(m+d-1)!$. This follows, for example, by writing a vector of independent standard complex Gaussians as radius times an independent uniform direction and using the gamma radial moment. For nonzero rows define $d\mu_n=|p|^2d\sigma/\int|p|^2d\sigma$. Since $p,F$ have degrees $n,n-2$ respectively,
 $$
@@ -38,6 +38,8 @@ $$
 Each pair contributes its $j$ ratio minus its $i$ ratio. Bilinear Cauchy–Schwarz and $\|z\wedge y\|^2=1-|\langle z,y\rangle|^2\le1$ bound the modulus of the right side above by $\|F(z)/p(z)\|$. The integrating vectors are complex; all Gram entries are still real.
 
 ## 2. A row distribution with two maximizing phase circles
+
+October §§3–6 select conjugate peaks by adding four real factors to an equidistributed sphere cloud, sort real ratios, and concentrate by repeating an ordered base. The variant below builds the desired peaks into a pinned row distribution. The conjugate-peak mechanism and the Gini value themselves are shared with the earlier proof.
 
 Let $T$ have density $1/[\pi(1+|t|^2)^2]$ on the complex plane. Independently pin it to zero with probability $\eta=1/100$ and also replace values with $|T|>R=100$ by zero; call the result $t$. Take an independent uniform phase $s=e^{i\phi}$. The real row and two probe vectors are
 $$

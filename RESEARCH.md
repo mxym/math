@@ -55,7 +55,7 @@
 
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
-| Bapat 原区间 q-永久量猜想 | 指定复数有理反例；实对称整数正定反例存在，无显式实维数上界 | [合并论文](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md)；两项主结论完整 Lean |
+| Bapat 原区间 q-永久量猜想 | 10 月已证明指定复数有理反例及实对称整数正定反例的存在；11 月补充给出固定阶数、实有理矩阵与有理比较点的显式公式，不是首次否定实情形 | [10 月合并论文](submissions/arxiv-2026-10/bapat-q-permanent-counterexamples/README.md)的两项主结论完整 Lean；[11 月显式实构造](research/real-q-permanent-endpoint/README.md)为书面证明及内部校验，未获该 Lean 证书覆盖 |
 | 全图强 Chollet | 任意有限简单无权图及全部主子矩阵；原图度数；包括空集、孤立点与奇异矩阵 | [书面证明](notes/laplacian-chollet-general/README.md)；[完整 Lean 固定源码](https://github.com/mxym/math/tree/4d2eefd40ee930216ccd8fc0f51e4bf694251967/formalizations/laplacian-chollet-all-graphs-progress)；[源码及复核记录核对](verification/chollet-all-graphs-index-2026-10-08.json) |
 | 恒等补齐永久量不等式 | Pan–Skandera–Wang Conjecture 9.3，由其既有 Theorem 8.18 推出 | [完整书面推导](notes/permanent-inequality-padding/README.md) |
 | 永久量余子式谱 | 维数无关比值界不存在；Theorem 1 六个对数主项极限已完整 Lean（复 1、实 1/2）；后续 ramp／endpoint 仍为书面结果 | [无界性证明](notes/cofactor-spectrum-unbounded/README.md)；[锐渐近证明](notes/sharp-cofactor-spectral-asymptotics/README.md)；[完整 Lean 工程](formalizations/cofactor-spectral-asymptotics-progress/README.md) |
