@@ -12,11 +12,15 @@ Thus even a small perturbation raises the minimum above the complete-MUB value $
 
 **The minimum-variance assertion holds.** For arbitrary fixed positive weights summing to one, if $L$ pairwise MU bases exist in $\mathbb C^d$, the Haar variance of $\sum_b w_b H_b$ is minimized exactly by such tuples. The [variance proof](VARIANCE.md) gives the variance difference as an explicit sum of nonnegative powers-of-overlap deficits, including a quantitative gap. Its equal-weight, complete-MUB specialization proves the Shannon assertion of Conjecture 2. This does not assume the existence of a complete MUB in arbitrary dimension.
 
-**中文摘要。** 四组 qutrit 基的最小平均 Shannon 熵可在完整互无偏基附近由一个显式微扰严格提高，反驳猜想 1 关于锐下端点的断言；上端点及全局最优基组未确定。猜想 2 方向相反地得到肯定：当给定数量的互无偏基组存在时，它们恰好最小化 Haar 纯态上的平均 Shannon 熵方差，且有显式方差差值公式。
+**中文摘要。** 四组 qutrit 基的最小平均 Shannon 熵可在完整互无偏基附近由一个显式微扰严格提高，反驳猜想 1 关于锐下端点的断言；本文不处理上端点。猜想 2 方向相反地得到肯定：当给定数量的互无偏基组存在时，它们恰好最小化 Haar 纯态上的平均 Shannon 熵方差，且有显式方差差值公式。
 
 ## Prior work and scope
 
-The 2015 paper distinguished numerically optimized endpoints from particular analytic bounds and proved an order-two Tsallis variance analogue in [Appendix C](https://link.aps.org/accepted/10.1103/PhysRevA.92.032109). The claims here concern **Shannon** entropy. They do not settle optimality of the *upper* sharp endpoint, minimum interval width, a mixed-state variance, or the MUB existence problem.
+The 2015 paper distinguished numerically optimized endpoints from particular analytic bounds and proved an order-two Tsallis variance analogue in [Appendix C](https://link.aps.org/accepted/10.1103/PhysRevA.92.032109). The claims here concern **Shannon** entropy. The lower-endpoint and variance arguments here do not address the sharp upper endpoint, interval width, mixed-state variance, or the MUB existence problem.
+
+**Subsequent result ([companion note](../mub-shannon-upper-endpoint-width/README.md), [#60](https://github.com/mxym/math/pull/60)).** For $d=2^{40}$ and all sufficiently large prime-power dimensions, the later draft gives a probabilistic counterexample: some tuple of $d+1$ bases has both a smaller sharp upper endpoint and a narrower range than every complete MUB in that dimension. This rules out the proposed MUB optimality in those dimensions; it does not identify the actual optimal values or basis tuples. The result is AI-assisted and internally reviewed, not externally peer reviewed.
+
+**后续进展。** [后续稿](../mub-shannon-upper-endpoint-width/README.md)在 $d=2^{40}$ 及所有充分大的素数幂维数给出概率存在性反例：完整互无偏基组既不使锐上端点最小，也不使区间宽度最小。两个优化问题的真正最优值与最优基组仍未由这两篇稿件确定。
 
 The collision identity, the qutrit MUB entropy minimum, and the Hesse states are prior facts. Relevant sources include [Dall'Arno (2014), Corollary 1](https://arxiv.org/pdf/1409.0341#page=5), [Stacey on qutrit SIC/MUB geometry](https://arxiv.org/abs/1404.3774), [Riccardi–Macchiavello–Maccone (2017)](https://arxiv.org/abs/1701.04304) and the [Serino et al. experiment](https://arxiv.org/abs/2507.05025). [Brierley–Weigert–Bengtsson](https://arxiv.org/abs/0907.4097) establish uniqueness of complete qutrit MUBs up to equivalence. [Huang et al., Fig. 3(d)](https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.6.013127#page=5) compare analytic lower bounds for another four-basis qutrit family; this differs from the actual statewise minimum off the MUB point. The Gaussian overlap transform and the Laguerre expansion used to cross-check it are classical probability identities, not claims of new probability theory.
 
