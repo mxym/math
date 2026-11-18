@@ -1,0 +1,13 @@
+$ python3 -B -O verify.py
+Balanced-endpoint sign certificate, ascending coefficients: [1, 21, 210, 1327, 5931, 19890, 51816, 107104, 177842, 238602, 258699, 225435, 156023, 84063, 34206, 10122, 2191, 477, 165, 48, 4, 0]
+q= 7351019648589447/5000000000000000  z left= 0.32606289730212337828  width=1e-20
+  enclosures in units 1e-25, log h(L), log h(U), q log M: (15888, 15889) (-30410, -30409) (-2806923826, -2805386773)
+q= 918877456073681/625000000000000  z left= 0.32606289730212362033  width=1e-20
+  enclosures in units 1e-25, log h(L), log h(U), q log M: (25919, 25920) (-20380, -20379) (2716006432, 2717543485)
+Certified 2.7207109973971711 < t < 2.7207109973971716
+
+$ python3 -B -O independent.py
+Re-derived quartic, both normalized derivative coefficients, all 22 transformed coefficients.
+qlogM scaled by 1e25: (-2806923826, -2805386773) logh ends: (15888, 15889) (-30410, -30409)
+qlogM scaled by 1e25: (2716006432, 2717543485) logh ends: (25919, 25920) (-20380, -20379)
+Both root brackets, signs, published endpoint enclosures and exponent reciprocal passed.
