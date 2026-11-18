@@ -1,0 +1,56 @@
+name: Publish the Conway 99 order-three exclusion
+on:
+  push:
+    branches: [publish-conway99-order-three-v1]
+    paths: [.github/workflows/conway99-order-three-publication.yml]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      TAG: conway99-order-three-exclusion-v1
+      SOURCE_SHA: f2633113f99cd0e6762aef726a0650331b6fb9c3
+      PROOF: research/conway-99-order-three
+      GH_REPO: mxym/math
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: f2633113f99cd0e6762aef726a0650331b6fb9c3
+          sparse-checkout: research/conway-99-order-three
+          persist-credentials: false
+      - name: Bundle the pinned proof and publish its immutable release
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+          python3 "$PROOF/six-triangles/check_cores.py"
+          stage="$RUNNER_TEMP/conway99-artifacts"
+          mkdir "$stage"
+          git archive --format=zip --output="$stage/$TAG.zip" "$SOURCE_SHA" -- "$PROOF"
+          git ls-files -z -- "$PROOF" | xargs -0 sha256sum > "$stage/SOURCE-SHA256SUMS.txt"
+          printf '%s\n' "$SOURCE_SHA" > "$stage/SOURCE-COMMIT.txt"
+          (cd "$stage" && sha256sum "$TAG.zip" SOURCE-SHA256SUMS.txt SOURCE-COMMIT.txt > SHA256SUMS.txt)
+          cat > "$stage/notes.md" <<EOF
+          A strongly regular graph with parameters (99,14,1,2) cannot admit an automorphism of order three. The general Conway 99-graph existence question remains open.
+
+          Starting from the six triangle orbits, an exact finite enumeration covers 156 six-vertex connection graphs. Of these, 130 fail local necessary conditions. The remaining 26 give 161,320 exterior-incidence representatives, of which 154,087 belong to the edgeless connection graph. None extends to the required 33-orbit matrix. Two known strongly regular graphs serve as positive controls. The proof uses the published fixed-point-free theorem of Behbahani–Lam and has not been externally peer reviewed.
+
+          [Proof and reproduction commands](https://github.com/mxym/math/blob/$SOURCE_SHA/$PROOF/six-triangles/quotient/README.md) · [Fixed source commit](https://github.com/mxym/math/commit/$SOURCE_SHA)
+
+          The ZIP contains the proof, the finite catalogue, the enumeration and verification programs, and the recorded batch counts. The accompanying SHA-256 manifests bind the archive and each source file.
+          EOF
+          gh release create "$TAG" --draft --target "$SOURCE_SHA" --title 'The Conway 99-graph has no automorphism of order three (v1)' --notes-file "$stage/notes.md"
+          gh release upload "$TAG" "$stage/$TAG.zip" "$stage/SOURCE-SHA256SUMS.txt" "$stage/SOURCE-COMMIT.txt" "$stage/SHA256SUMS.txt"
+          gh release edit "$TAG" --draft=false
+          gh api "repos/$GH_REPO/releases/tags/$TAG" --jq '.immutable' | grep -x true
+      - name: Verify the release attestation
+        shell: bash
+        run: |
+          for attempt in {1..12}; do
+            if gh release verify "$TAG"; then exit 0; fi
+            sleep 5
+          done
+          exit 1
