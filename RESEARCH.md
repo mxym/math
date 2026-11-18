@@ -8,6 +8,7 @@
 
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
+| 量子 Jensen 熵的五态反例 | 同一五个满秩 qutrit 对所有 0<q<2 否定 Jensen–Tsallis 散度负型性；Jensen–Rényi 对每个固定 0<q<1 可选五态。四点下界、Shannon 及其邻域已有结果 | [精确证明、前作与独立内审](research/five-qutrit-jensen-entropies/README.md)；不否定三角不等式，非外部同行评审 |
 | 纠缠提取的有限块长普适性代价（整合稿） | 谱方法、普适协议、显式有限块长界与锐未知支撑 minimax；纯两比特最优整数 Bell 对和有效电路 | [完整 TIT 投稿准备包](preprints/universal-entanglement-extraction-2026-10/README.md)；完整书面＋独立内部 AI 审读，实际有限核心两个 Lean 范围；下列两份前身保留原范围，不重复计算发现 |
 | 未知态的全局酉预处理纠缠提取 | 一个不依赖谱或本征基的协议族，同时达到最优容量、全速率保真度指数、严格低于容量区间的可靠性函数与非退化高斯阈值 | [Schur 同时分块的完整解析论证](research/universal-schur-extraction/README.md)；标准表示论为外部输入、精确附属检查通过，非 Lean；不解决普通固定输入态 LOCC 蒸馏 |
 | 全局酉预处理后的纠缠提取 | 任意固定局域维数与任意谱的精确容量及全速率保真度指数；LO、LOCC、完全 PPT 三类操作一致 | [确定性分块构造与完整解析预印本](research/global-unitary-ppt-extraction/README.md)；熵上界来源明确、精确附属检查通过，非 Lean；不是普通固定输入态蒸馏问题 |
