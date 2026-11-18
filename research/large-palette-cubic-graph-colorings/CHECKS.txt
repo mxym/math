@@ -1,0 +1,25 @@
+Reproduction (Python 3, standard library only). Run the two generators without -O.
+
+$ python3 -B threshold_generator.py 8
+kind P size 87 K 8 const 0 0 0 0 1/5 -1 -104/7 -778/7 -3509/6 ledger {4: ['0', '0', '0', '1', '1', '-94/9', '-727/6', '-1960/3', '-7895/2']}
+q>= 37 base lower scaled 0.1596141699570914 tail scaled 0.15949302509624702
+kind H size 51 K 8 const 0 0 0 0 0 1/6 0 -25/2 -255/2 ledger {3: ['0', '0', '1', '2', '7/2', '6', '-113/3', '-702', '-20481/4'], 5: ['0', '0', '0', '0', '1', '4', '0', '-40', '-1847/6']}
+q>= 88 base lower scaled 0.16486541877973954 tail scaled 0.16245639472343062
+
+$ python3 -B crosscheck.py 8
+kind P size 87 K 8 const 0 0 0 0 1/5 -1 -104/7 -778/7 -3509/6 ledger {4: ['0', '0', '0', '1', '1', '-94/9', '-727/6', '-1960/3', '-7895/2']}
+kind H size 51 K 8 const 0 0 0 0 0 1/6 0 -25/2 -255/2 ledger {3: ['0', '0', '1', '2', '7/2', '6', '-113/3', '-702', '-20481/4'], 5: ['0', '0', '0', '0', '1', '4', '0', '-40', '-1847/6']}
+
+$ python3 -B verify_rows.py
+q 37 U-z_scaled_tail 85823/708432858 short rows ['617588249/624095613']
+q 88 U-z_scaled_tail 2393573/993586176 short rows ['5572844738365/5572849041408', '359794249/359817216']
+
+$ python3 -B -O independent.py
+unfiltered simple connected subcubic graphs of each order 2..9: 1 2 6 10 29 64 194 531
+unfiltered biconnected supports: 200
+P supports 87 q 37 slack 85823/708432858 short ledgers 617588249/624095613
+H supports 51 q 88 slack 2393573/993586176 short ledgers 5572844738365/5572849041408 359794249/359817216
+4 raw endpoint comparisons of integer chromatic counts, including triangle-rich truncated K4: PASS
+PASS
+
+Run sha256sum -c SHA256SUMS to verify the distributed files.
