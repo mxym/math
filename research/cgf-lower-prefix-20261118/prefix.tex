@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0.87in,top=0.8in,bottom=0.84in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,xcolor,microtype,enumitem,fancyhdr,hyperref}
+\definecolor{ink}{HTML}{18334A}\definecolor{accent}{HTML}{187264}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent,pdftitle={Lower-prefix majorization fails for cyclotomic generating functions}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\pagestyle{fancy}\fancyhf{}\lhead{\small\color{ink}CYCLOTOMIC GENERATING FUNCTIONS}\rhead{\small\color{ink}RESEARCH NOTE}\rfoot{\small\thepage}
+\newcommand{\sect}[1]{\vspace{4pt}{\large\bfseries\color{ink}#1}\par}
+\newcommand{\N}{\mathbb N}
+\begin{document}
+{\small\sffamily\bfseries\color{accent} WORKING PAPER\quad /\quad 18 NOVEMBER 2026}\par
+{\LARGE\bfseries\color{ink} Lower-prefix majorization fails for\\[2pt]cyclotomic generating functions}\par
+Consider a polynomial given by a quotient of equally many $q$-integers $[n]_q=(1-q^n)/(1-q)$. Billey and Swanson conjectured that, if its coefficients are nonnegative integers, the sum of its $k$ smallest numerator parameters cannot be smaller than the sum of its $k$ smallest denominator parameters [1, Conjecture 33]. They also conjectured a separate inequality for the largest parameters. Here we disprove the \emph{smallest}-parameter assertion, first by an explicit example and then, without a finite computation, by an arbitrarily large multiplicative violation.
+
+\sect{1. An explicit counterexample}
+Take
+\[
+ f(q)=(1+q)^4(1-q^2+q^4)^5
+       \bigl((1+q^3)(1+q^4)(1+q^5)\bigr)^{17}.
+\]
+This is a monic integral polynomial with constant term one and only roots of unity: the binomial factors have this property, and $(1-q^2+q^4)(1+q^2)=1+q^6$. Writing $v^{(s)}$ for $s$ copies (not a power) of the \emph{parameter} $v$, the reduced parameter lists are
+\[
+\begin{aligned}
+ A&=(2^{(9)},6^{(12)},8^{(17)},10^{(17)},12^{(5)}),\\
+ B&=(1^{(4)},3^{(17)},4^{(22)},5^{(17)}).
+\end{aligned}
+\]
+Indeed $1+q^d=[2d]_q/[d]_q$ and $1-q^2+q^4=[12]_q[2]_q/([6]_q[4]_q)$. Both lists have length 60; $\sum A-\sum B=228$. At the ninth prefix,
+\[
+ 18=9\cdot2\ <\ 4\cdot1+5\cdot3=19.
+\]
+All 229 coefficients of $f$ are \emph{strictly} positive. Here is an exact certificate in pseudocode. Indices start at 0. Each multiplication of short factors can alternatively be verified by ordinary convolution.
+\begin{verbatim}
+g = [1] followed by 228 zeros
+for a in A:
+    for j = 228, 227, ..., a:   g[j] = g[j] - g[j-a]
+for b in B:
+    for j = b, b+1, ..., 228:   g[j] = g[j] + g[j-b]
+\end{verbatim}
+The loops implement multiplication by $1-q^a$ and division by $1-q^b$ modulo $q^{229}$, respectively. They give $\min_j g_j=1$, $g_{114}=898931775264854$, and $\sum g_j=2^{55}$. The supplied script checks every coefficient by both methods. No floating-point comparison is involved. The next two pages give an independent proof of failure of a much stronger bound.
+
+\newpage\sect{2. Realizing any positive initial coefficient sequence}
+\textbf{Theorem.} Given $t\ge2$ and positive integers $a_0=1,a_1,\ldots,a_{t-1}$, there exists a monic product $P$ of cyclotomic polynomials whose coefficients are all strictly positive and which satisfies $P(q)\equiv\sum_{i<t}a_iq^i\pmod{q^t}$.
+
+Somu [5] studies divisors of $x^n-1$ with arbitrary prescribed initial integer coefficients; those divisors need not be positive in their remaining coefficients. Here the completion is required to be strictly positive in every degree, and repeated cyclotomic factors are allowed.
+
+\textbf{Constructing a seed.} Begin with $F=1$. In increasing order $i=1,\ldots,t-1$, set $d=a_i-[q^i]F$. If $d\ge0$, multiply $F$ by $(1+q^i)^d$; if $d<0$, multiply by $(1-q^i+q^{2i})^{-d}$. Each step changes only the desired coefficient among the coefficients up to degree $i$, by precisely $d$. Both factors are monic, reciprocal, and positive for real $q\ge0$; their roots are roots of unity. Thus the final $F$ has those properties, and its first and last $t$ coefficients are positive by reciprocity.
+
+\textbf{Mixing the residue classes.} For any polynomial $L$, write
+\[
+ L(q)=\sum_{j=0}^{t-1}q^jL_j(q^t),\qquad L_j(X)=\sum_{h\ge0}[q^{j+th}]L(q)\,X^h .
+\]
+The constant and leading coefficients of every $F_j$ are positive, since its first and last coefficients belong to the first and last $t$ coefficients of $F$. Choose $0<a<b$ so that every $F_j(r^t)>0$ for $0<r<a$ and $r>b$. Put $U(q)=1+q^{t+1}$ and $G=FU^M$. On those outer intervals, all $G_j(r^t)$ are also positive: multiplying the sections of $F$ and $U^M$ gives sums of products, with only nonnegative powers of $r^t$ for the carries. Each sum includes a strictly positive term from the constant monomial of $U^M$.
+
+On the compact interval $a\le r\le b$, let $\zeta=e^{2\pi i/t}$. For $1\le h<t$,
+\[
+ \frac{|U(r\zeta^h)|}{U(r)}
+ =\frac{|1+r^{t+1}\zeta^h|}{1+r^{t+1}}<1.
+\]
+By compactness all these ratios are bounded by a common $\rho<1$, while $F(r)>0$ has a positive minimum $c$ and $|F(r\zeta^h)|$ has a finite maximum $C$. The residue-class filter gives
+\[
+ tr^jG_j(r^t)=\sum_{h=0}^{t-1}\zeta^{-jh}F(r\zeta^h)U(r\zeta^h)^M .
+\]
+The $h=0$ term is positive. The remaining terms together have absolute value at most $(t-1)C\rho^M U(r)^M$. Choose $M$ with $(t-1)C\rho^M<c$. Then all sections $G_j$ are positive throughout the positive real axis. They also have positive constant and leading coefficients, since $G$ still has positive first and last $t$ coefficients.
+
+\textbf{Making the coefficients positive.} Apply the univariate form of P\'olya's theorem [3] to each $G_j$: the degree-$d_j$ homogenization is positive on the closed nonnegative unit simplex, including its endpoints. Some common $N$ therefore makes $(1+X)^NG_j(X)$ strictly coefficient-positive for every $j$. Interlacing these sections gives all coefficients of $P(q)=F(q)(1+q^{t+1})^M(1+q^t)^N$: the sections of $G$ reach their natural top degree $\lfloor(\deg G-j)/t\rfloor$, so no terminal holes arise. The new factors are cyclotomic products and equal 1 modulo $q^t$. This proves the theorem.
+
+\newpage\sect{3. No universal multiplicative lower bound}
+Write $S_A(k)$ and $S_B(k)$ for the sums of the smallest $k$ parameters. Even among strictly positive basic cyclotomic generating functions in reduced equal-length presentation,
+\[
+ \inf_{f,k}\frac{S_A(k)}{S_B(k)}=0.
+\]
+
+\textbf{Proof.} Fix an integer $t\ge3$. Let
+\[
+ H(q)=\frac{(1-q^2)^2}{1-q}=1+q-q^2-q^3 .
+\]
+For each fixed $j\ge1$, the coefficient $[q^j]H(q)^m$ is a polynomial in $m$ with leading term $m^j/j!$. Indeed, expand $(1+(H-1))^m$: the term with $j$ nonconstant factors contributes $\binom{m}{j}$, since $[q](H-1)=1$, and the rest has degree at most $j-1$ in $m$. Choose an integer $m$ large enough to make all coefficients through degree $t-1$ strictly positive. By the theorem on page 2, a positive basic cyclotomic generating function $P$ has the same coefficients in that range.
+
+Every cyclotomic product without the factor $q-1$ admits a finite presentation $P=\prod_{d\ge1}(1-q^d)^{c_d}$ with integer exponents, by the divisor-product formula for cyclotomic polynomials. Since $P(1)>0$, its order of vanishing at 1 is zero: $\sum_d c_d=0$. Put $|c_d|$ copies of $d$ on the numerator side if $c_d>0$ or on the denominator side if $c_d<0$. These are disjoint equal-length lists of $q$-integer parameters. Equal initial jets determine their exponents below $t$ (Somu [5, Lemma 3.1]): if two products first differ at $d$, their quotient has nonzero coefficient at $q^d$. Applying this fact to $H^m$ yields
+\[
+ c_1=-m,\qquad c_2=2m,\qquad c_d=0\quad(3\le d<t).
+\]
+Set $k=2m$. Its numerator prefix consists of $2m$ twos. Its denominator prefix consists of $m$ ones and at least $m$ parameters of value at least $t$ (there are enough because the lists have equal length). Consequently,
+\[
+ \frac{S_A(2m)}{S_B(2m)}\le \frac{4m}{m+tm}=\frac4{t+1}.
+\]
+The ratio is positive and $t$ is arbitrary, proving the claim.\hfill$\square$
+
+\sect{Scope and references}
+This note concerns the prefix half of [1]. An earlier public candidate [2] presents a counterexample to the suffix half, hence to the original conjunction, and explicitly leaves the prefix half open. Related unrestricted positivity multipliers appear in [4, Section 4]; the multipliers on page 2 preserve the prescribed initial coefficients. The finite example above is not claimed minimal. This working note has not undergone external peer review or been formally verified; its statement about prior work does not certify priority.
+
+\begin{enumerate}[label={[\arabic*]},nosep,leftmargin=2em]
+\item S. C. Billey and J. P. Swanson, \href{https://doi.org/10.37236/12687}{Cyclotomic generating functions}, \emph{Electron. J. Combin.} \textbf{31}(4), P4.4 (2024), Conjecture 33.
+\item Anonymous, \href{https://www.evidencepress.org/releases/cgf-majorisation-counterexample/}{An explicit counterexample to two-sided majorisation for cyclotomic generating functions}, v1.1.0 candidate, 9 October 2026, \href{https://doi.org/10.5281/zenodo.23270364}{Zenodo record}.
+\item V. Powers and B. Reznick, \href{https://reznick.web.illinois.edu/11200.pdf}{A new bound for P\'olya's theorem with applications to polynomials positive on polyhedra}, \emph{J. Pure Appl. Algebra} \textbf{164}, 221--229 (2001).
+\item M. Gatzweiler, F. Levic\'an-Santib\'a\~nez and A. Yoshida, \href{https://arxiv.org/abs/2603.22226}{Cyclotomic generating functions, empty weighted complete intersections and positivity}, arXiv:2603.22226 (2026).
+\item S. T. Somu, \href{https://doi.org/10.1016/j.jnt.2016.06.004}{On the distribution of numbers related to the divisors of $x^n-1$}, \emph{J. Number Theory} \textbf{170}, 3--9 (2017); \href{https://arxiv.org/abs/1511.03230}{arXiv:1511.03230}.
+\end{enumerate}
+\end{document}
