@@ -1,0 +1,88 @@
+name: Publish CGF lower-prefix counterexample v1
+on:
+  push:
+    branches: [publish-cgf-lower-prefix-v1]
+    paths: [.github/workflows/publish-cgf-lower-prefix-v1.yml]
+permissions:
+  contents: write
+concurrency: publish-cgf-lower-prefix-v1
+jobs:
+  publish:
+    if: github.repository == 'mxym/math' && github.ref == 'refs/heads/publish-cgf-lower-prefix-v1'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      TAG: cgf-lower-prefix-v1
+      SOURCE_SHA: 45e6a01d363ec64a240eef12008fd4acc244d277
+      PROOF: research/cgf-lower-prefix-20261118
+      GH_REPO: mxym/math
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: 45e6a01d363ec64a240eef12008fd4acc244d277
+          sparse-checkout: research/cgf-lower-prefix-20261118
+          persist-credentials: false
+      - name: Verify exact frozen paper and both integer computations
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+          cd "$PROOF"
+          cat > "$RUNNER_TEMP/SHA256SUMS" <<'SUM'
+          5692d12bf45f7e322fe593b5d480ac151fc052452047d819d635bab248b1b2ad  README.md
+          7d77d73971fc17021675d6ccaf9ac4b0f09bc4e5756d6d1d1e3fe9975cc5c138  REVIEW.md
+          0cbe1e6c273a2a8d9538d12b2515e0f186631c231e8b1583f6b8e12e1b9d5170  certificate.json
+          37e4baf011f47304554e7471e958e205c5e592ff4ef757eee57bb0935437f281  prefix.pdf
+          99bc29e2a8a9201ac66889bd53ebc9f76120b979fd837b174907ce0b23c0b247  prefix.tex
+          63c2ce0b894123ddbec28fecf325558178899c2db87eb6f446f77649ae73557e  verify.py
+          SUM
+          sha256sum -c "$RUNNER_TEMP/SHA256SUMS"
+          python3 -B verify.py > "$RUNNER_TEMP/ordinary.json"
+          python3 -B -O verify.py > "$RUNNER_TEMP/optimized.json"
+          cmp certificate.json "$RUNNER_TEMP/ordinary.json"
+          cmp certificate.json "$RUNNER_TEMP/optimized.json"
+      - name: Verify draft, publish pinned release and verify signed attachments
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          stage="$RUNNER_TEMP/cgf-prefix-stage"
+          mkdir "$stage"
+          cp "$PROOF"/{prefix.pdf,prefix.tex,README.md,REVIEW.md,verify.py,certificate.json} "$RUNNER_TEMP/SHA256SUMS" "$stage/"
+          printf '%s\n' "$SOURCE_SHA" > "$stage/SOURCE-COMMIT.txt"
+          cd "$stage"
+          cat > "$RUNNER_TEMP/cgf-notes.md" <<'NOTES'
+          A degree-228 basic cyclotomic generating function has 229 strictly positive integer coefficients, yet the sums of its nine smallest numerator and denominator parameters are 18 and 19 respectively. This disproves the lower-prefix assertion of Billey and Swanson, Conjecture 33. A protected-prefix completion argument shows that the infimum of the corresponding lower-prefix ratios is zero even in reduced, equal-length presentations.
+
+          The [earlier October 2026 suffix counterexample](https://www.evidencepress.org/releases/cgf-majorisation-counterexample/) already addressed the separate largest-parameter assertion and hence the original conjunction. It explicitly left the universal lower-prefix assertion open. We make no claim to the first refutation of the conjunction or to absolute priority. Somu's prescribed-jet antecedent and Euler-exponent uniqueness, the classical positivity theorem, and other inputs are credited in the paper and source review.
+
+          [Frozen proof, code and source review](https://github.com/mxym/math/tree/45e6a01d363ec64a240eef12008fd4acc244d277/research/cgf-lower-prefix-20261118). AI-assisted written research and internal proof review; no external peer review or end-to-end Lean verification. The finite witness is checked by two exact integer algorithms; the zero-infimum result is an analytic proof, not an extrapolation.
+
+          This release is pinned to commit 45e6a01d363ec64a240eef12008fd4acc244d277. The GitHub–Zenodo integration archives the **whole mxym/math repository snapshot at this tag**: its version DOI is not a standalone-paper DOI. The six focused attachments match the proof directory; SHA256SUMS and SOURCE-COMMIT.txt are the release's provenance files. Verify locally with sha256sum -c SHA256SUMS and compare the output of python3 verify.py with certificate.json. Existing repository rights and third-party notices remain unchanged.
+          NOTES
+          files=(README.md REVIEW.md certificate.json prefix.pdf prefix.tex verify.py SHA256SUMS SOURCE-COMMIT.txt)
+          gh release create "$TAG" --target "$SOURCE_SHA" --draft --latest=false --title 'Lower-prefix majorization fails for cyclotomic generating functions (v1)' --notes-file "$RUNNER_TEMP/cgf-notes.md"
+          gh release upload "$TAG" "${files[@]}"
+          id="$(gh release view "$TAG" --json databaseId --jq .databaseId)"
+          gh api "repos/$GH_REPO/releases/$id" > "$RUNNER_TEMP/draft.json"
+          python3 - "$RUNNER_TEMP/draft.json" <<'PY'
+          import hashlib,json,os,pathlib,sys
+          r=json.load(open(sys.argv[1]))
+          assert r['draft'] and r['target_commitish']==os.environ['SOURCE_SHA'] and r['tag_name']==os.environ['TAG']
+          files={p.name:p for p in pathlib.Path('.').iterdir()}
+          assert set(files)=={'README.md','REVIEW.md','certificate.json','prefix.pdf','prefix.tex','verify.py','SHA256SUMS','SOURCE-COMMIT.txt'}
+          assert set(files)=={a['name'] for a in r['assets']} and len(r['assets'])==len(files)
+          for a in r['assets']:
+              b=files[a['name']].read_bytes()
+              assert a['state']=='uploaded' and a['size']==len(b) and a['digest']=='sha256:'+hashlib.sha256(b).hexdigest()
+          PY
+          gh release edit "$TAG" --draft=false --latest=false
+          test "$(gh api "repos/$GH_REPO/releases/tags/$TAG" --jq .immutable)" = true
+          test "$(gh api "repos/$GH_REPO/git/ref/tags/$TAG" --jq .object.sha)" = "$SOURCE_SHA"
+          mkdir "$RUNNER_TEMP/redownload"
+          gh release download "$TAG" --dir "$RUNNER_TEMP/redownload"
+          for f in "${files[@]}"; do cmp "$f" "$RUNNER_TEMP/redownload/$f"; done
+          for attempt in {1..12}; do if gh release verify "$TAG"; then break; fi; sleep 5; done
+          gh release verify "$TAG"
+          for f in "${files[@]}"; do gh release verify-asset "$TAG" "$f"; done
