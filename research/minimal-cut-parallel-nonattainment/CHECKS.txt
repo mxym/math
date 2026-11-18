@@ -1,0 +1,12 @@
+$ python3 verify.py
+PASS parallel and three-shore reductions, 770 connected labeled graphs with marked 0,1, through order 5
+PASS gate amplifier: internal order 6 base count 2 certified 8 actual clean count 9
+PASS gate amplifier: internal order 16 base count 2 certified 256 actual clean count 289
+PASS gate amplifier: internal order 12 base count 3 certified 15 actual clean count 16
+PASS strict gain from a path of 3 internal vertices: k= 8 M= 70 internal order= 218
+
+$ python3 independent.py
+Connected labeled graphs on 3 through 6 vertices: 27474 ; three-shore cases: 4384 ; four-plus-shore codes: 221
+Ordered mixed-cell graph pairs with terminal adjacency allowed: 1764 ; localized exceptional cuts: 3754 ; containing terminals: 3082
+Distinct certified gate witnesses across test instances: 326 ; strict p=3, k=8 integer comparison passed.
+PASS
