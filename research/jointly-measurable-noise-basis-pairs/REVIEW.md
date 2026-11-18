@@ -1,0 +1,40 @@
+# Independent adversarial review: jointly measurable noise
+
+**Verdict:** no gap identified in the rank-one basis-pair theorem. This is an independent internal AI mathematical review, not external peer review, formal verification or a priority certification.
+
+## Model and theorem
+
+In [Designolle, Farkas & Kaniewski, New J. Phys. 21 (2019)](https://arxiv.org/pdf/1906.00448), Eqs. (44)–(45) require both a jointly measurable noise pair and a jointly measurable resulting mixed pair. Their parent arrays need not coincide. Their second parent in (45) is subnormalized: it equals (1−t) times the normalized noise-array parent. Smaller maximal retained visibility means *more* incompatible. Section IV.C.2 after (84) conjectures extremality among pairs of **rank-one projective** measurements under this particular noise. It is not the all-POVM generalized-noise result or any of the fixed-noise claims. Rank-one complete projective measurements correspond to orthonormal bases, with precisely d outcomes in dimension d. A pair of MUBs exists for every d (Fourier and standard bases); no complete set of MUBs is needed.
+
+For every such pair in complex dimension d≥3, the candidate certifies visibility s=(1+1/√d)/2; MUBs attain the minimum. In d=2 the separate known value is 2(√2−1); in the vacuous one-dimensional case there is only a compatible pair. No uniqueness of minimizers, equality of joint and generalized robustness for each pair, or dimension-only optimality over POVMs with arbitrary outcome counts follows from this basis theorem.
+
+## Normalization and mixture
+
+Set r=√d, D=4(d+r). Let U=P+Q+d(PQP+QPQ) and V=2(PQ+QP) for an outcome pair P=P_i,Q=Q_j. Direct expansion gives U+rV as the sum of (P+rPQ)* (P+rPQ) and (Q+rQP)* (Q+rQP); its division by D defines a positive array G. Its row U-sum is I+2dP_i+d Φ_Q(P_i); its row V-sum is 4P_i, where Φ_Q(X)=∑Q_j X Q_j. The coefficients sum over i to D I, and the column formula interchanges the two bases. D s=2(d+2r+1), D(1−s)=2(d−1). Thus the normalized first noise requires
+ N_i=[I−2P_i+dΦ_Q(P_i)]/[2(d−1)],
+and the second noise requires M_j obtained by interchange. These are the *specific* residuals of the known DFK generalized parent, not just effects that majorize an unrelated mixture. Compatibility does not follow from their positivity.
+
+## Different derivation: explicit environment POVM
+
+Let v_k be the d unit regular-simplex vectors in K=1^⊥ of dimension d−1, obtained by normalizing e_k−(1/d)1. Their Gram entries are g_kk=1 and g_kl=−1/(d−1) off diagonal. The sum of v_i v_i* is d I_K/(d−1). Hence
+ F_i=(d−1)(I_K−v_i v_i*)/[d(d−2)]
+forms a POVM on K (d=3 included). In the P basis embed |k> as W|k>=|k>⊗v_k and set T_ij=W*(Q_j⊗F_i)W. This is a joint array of positive effects, with row i diagonal entries <v_k,F_i v_k>, equal to 0 for k=i and 1/(d−1) otherwise. Its column j is the Schur product g∘Q_j, namely (dΦ_P(Q_j)−Q_j)/(d−1). Swap P and Q and transpose outcome labels to obtain T'_ij, then take H=(T+T')/2. Rows are N_i, columns are M_j and H sums to I. Thus G and H satisfy both primal-compatibility requirements. This construction does not divide by any basis overlap and works also with zeros, shared basis vectors and permutation pairs.
+
+As a second check, the matrix (k,l) coefficient of this one-sided CP map is (d−1)(g_kl−g_ki g_il)/[d(d−2)]. It vanishes if either index equals i. On the remaining indices it is 1/(d−1) on diagonal and −1/[(d−1)(d−2)] otherwise. This is exactly the normalized sum of pairwise difference conjugations in the main proof. In particular a fixed remaining index occurs d−2 times and a fixed unordered pair is omitted by d−2 choices of i. The use of two crossed one-sided maps is essential.
+
+## Attainment and the exceptional qubit
+
+For a MUB pair, all P_i+Q_j have top eigenvalue 1+c, c=1/√d. For any compatible mixture with parent G', the sum S=∑Tr[(P_i+Q_j)G'_ij] is at most (1+c)d by normalization. It is at least 2td, since both trace pairings of positive signal projectors with positive noise effects are nonnegative. Hence t≤(1+c)/2. This witness allows arbitrary noise, so remains valid for jointly measurable noise. For qubit MUBs, every P_i+Q_j has *lowest* eigenvalue 1−c, c=1/√2; there is no orthogonal complement to the pair's span. Existence of a normalized noise parent H' therefore improves the lower bound to S≥2td+(1−t)(1−c)d. Combining gives t≤2c/(1+c)=2(√2−1). DFK's universal qubit lower bound (50) (or (69),(77) for their conclusion) gives equality. At d=2 the complement basis is its own outcome-relabeling, hence the complementary MUB pair is incompatible; the denominator d−2 is a genuine obstruction, not a removable singularity. No continuation in dimension was used.
+
+## Literature and scope
+
+* [DFK](https://arxiv.org/pdf/1906.00448), (50), (59)–(64), (69), (73)–(75), (77), and text following (84): prior universal JM lower bound, generalized parent, qubit results, MUB exact evaluations and the precise conjecture. DFK credit [Carmeli–Heinosaari–Toigo](https://doi.org/10.1103/PhysRevLett.122.130402) for prior use of the complementary MUB parent (74).
+* [Kiukas–McNulty–Pellonpää, Thms. 1–2 and App. B](https://arxiv.org/pdf/2011.07239): for unit-diagonal simplex Gram g, Schur multiplication sends any P-unbiased basis Q0 to its complement (I−Q0_j)/(d−1). By DFK (74) it is compatible with the fixed diagonal complement noise (I−P_i)/(d−1). KMP's Theorem 1 then transfers compatibility to g∘Q for any Q, while their instrument representation explains the environment construction above. The one-sided compatibility assertion is therefore already a direct consequence of prior results.
+* [Tavakoli–Farkas–Rosset–Bancal–Kaniewski, App. B.4](https://arxiv.org/pdf/1912.03225) treats compatible-noise robustness *for mutually unbiased measurements* in (B76)–(B81). Their Prop. B.12, (B83)–(B86), gives a generalized-noise all-POVM bound by number of outcomes, not a proof of all-basis JM extremality. Its (B84) literally gives the present mixture parent at equal outcome counts, including beyond rank-one PVMs. The common-Naimark-dilation argument is also theirs.
+* [Designolle, incompatibility robustness of measurements, 2026](https://arxiv.org/pdf/2509.10381) studies random and generalized noise; [McNulty–Townsend–Kiukas](https://arxiv.org/abs/2607.21169) studies compatibility under a fixed Schur decoherence channel. Neither supplies the stated two-compatible-parents minimax theorem. Searches by conjecture wording, citation and several terminological variants produced no matching general JM proof. The contribution identified here is the crossed assembly of those one-sided joints for the particular residuals of the literature parent. Individually neither the mixture formula nor the one-sided compatibility statement is new.
+* Public repo main independently rechecked at 0be49da09b9b205c383727afc28dda5bbba0fe25 (#109). Author-side scan of complete tree, nested archives/PDFs, tag-only blobs and release assets reports no same result; the #109 source mention is another robustness model (binary/m fixed-uniform-noise). Searches cannot certify priority.
+* Fixed equal outcome number and arbitrary dimension is a different mathematical quantifier from arbitrary outcome counts in fixed dimension. The algebraic row/column identities persist for block projectors when d denotes number of outcomes; this observation is not needed for the proof under review. No result for arbitrary outcome counts at fixed dimension is asserted.
+
+## Reproducibility
+
+Run `python3 -O independent.py` in this directory. It compares the simplex and pairwise-difference maps exactly on both array orientations and cross-checks G,H marginals and normalization in the algebra of two free projective measurements. The last effect in each family is eliminated using completeness; reductions impose only orthogonality and idempotence within a family. The rational and √d coefficients are checked as separate identities, a sufficient criterion also for square d. It tested d=3,4,5,6,7 with 270 one-sided cells, no numerical tolerances. This finite test supports, but does not replace, the all-d proof above.
