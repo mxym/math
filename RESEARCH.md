@@ -66,6 +66,7 @@
 | 任意权环的强 Chollet | 所有 n≥3、任意非负实 conductance、原图度数下全部主子矩阵与非负对角增量，含 cycle/bipartite 正支撑块 | [完整 all-n 书面证明](research/weighted-cycle-chollet/README.md)；Lieb 及既有二分图输入明确披露；无新增 Lean，任意加权非二分块仍未解决 |
 | Wakhare 熵多项式 | (k,r)=(11,10) 至少四个内部不同实根，反驳“恰有两个根” | [预印本](preprints/lean-certified-2026-10/entropy-polynomial-roots/README.md)；[新增完整 Lean 工程](formalizations/wakhare-entropy-four-roots-lean/README.md) |
 | 单峰 CGF 因子猜想 | 指定严格单峰 216 次多项式，无素数阶圆分因子 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/cyclotomic-unimodal-counterexample/README.md) |
+| CGF 最小参数前缀不等式 | Billey–Swanson 猜想 33 的前缀部分：228 次正系数反例；约简等长参数表中最小项和之比的下确界为零。已有后缀反例另行归属 | [完整书面证明、范围与精确复核](research/cgf-lower-prefix-20261118/README.md) |
 | Ehrhart 实根性 | 指定 (132,213)-避免置换多面体族的全部维数实根性；使用已发表有限范围定理 | [完整书面证明与有理证书](notes/ehrhart-uniform-real-rootedness/README.md)；非完整 Lean |
 
 ## 高斯几何与分区极值
