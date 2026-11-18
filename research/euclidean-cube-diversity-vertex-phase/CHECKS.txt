@@ -1,0 +1,10 @@
+$ python3 -B -O verify.py
+critical side: 46019/100000 < s* < 46020/100000
+cells for Fprime, F, -Fprime: 256 1280 512
+outward certified lower bounds, divided by 10000000000000000 : 281044178743189 15254435762967 139747639729053
+
+$ python3 -B -O independent.py
+Root bracket signs, lower and upper in 1e-8: 792 -332
+Negative upper bound for F'' on [0,1/4], times 1e6: -71884
+Negative upper bound for F' on [1/4,1/2], times 1e6: -8165
+PASS 128 concave cells + 128 decreasing cells, throughout closed root bracket.
