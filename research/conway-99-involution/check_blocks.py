@@ -49,13 +49,22 @@ def check(dimension, steps):
                 for y, h in ((w, 1), (neg(w), -1)):
                     assert t[i][j] + s*h*l[i][j] == 2 * int(y in neighbours[u])
     print(f'{len(points)} vertices, {len(axes)} axes, {len(reps)} exterior pairs: all checks passed.')
+    def label(i):
+        a, b = (j for j, value in enumerate(xt[i]) if value)
+        return a, b, z[b][i] < 0
+    order = sorted(range(len(reps)), key=label)
+    return [[t[i][j] for j in order] for i in order]
 
 
-if __name__ == '__main__':
-    check(2, {(1, 0), (2, 0), (0, 1), (0, 2)})
+def golay_steps():
     steps, v = set(), (1, 0, 0, 0, 0)
     for _ in range(11):
         steps.update((v, tuple(-x % 3 for x in v)))
         a, b, c, d, e = v
         v = e, (a + e) % 3, (b - e) % 3, (c + e) % 3, d
-    check(5, steps)
+    return steps
+
+
+if __name__ == '__main__':
+    check(2, {(1, 0), (2, 0), (0, 1), (0, 2)})
+    check(5, golay_steps())
