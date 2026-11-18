@@ -1,0 +1,21 @@
+# Internal review record
+
+18 November 2026. An internal AI-assisted review examined the argument separately from its derivation, rederived the identities and checked the critical steps below. No mathematical defect was found in the forest theorem. This record is not an independent human referee report, a formal proof or a claim of global priority.
+
+## What was checked
+
+1. **Fixed-order reduction.** Every nonzero term in the defining sum is a product of disjoint transpositions. Its weight uses squared moduli, also for nonreal matrices. For the residual principal determinant only the parity of the number of swaps matters, so using an induced principal submatrix in the mass does not discard the original labels in the inversion statistic.
+2. **Positive masses and strictness.** Boolean intervals in the matching poset give the stated inversion. Nonnegativity follows because the masses are products of PSD principal minors and squared moduli, not simply because the polynomial has nonnegative coefficients. A support edge and positive diagonal guarantee a positive mass on a nonempty matching, even when the full determinant vanishes.
+3. **Crossings and the probabilistic sign.** No inversion compares more than two positions. The correction is two per interleaved pair, zero for nested pairs. In the token model only the tokens are independent, never the crossing edge events. The probability of avoiding all events decreases in the activation parameter, hence increases in its negative. Distinct endpoint values and polynomiality upgrade monotonicity to strict monotonicity.
+4. **Both boundaries.** At the left endpoint, outcomes with exactly one missing token give the first-order coefficient; configurations missing two or more have probability $O(s^2)$. This recovers the displayed derivative and proves a positive-definite, matrix-dependent extension. A pair of consecutive equal $2\times 2$ correlation blocks shows why the extension is neither uniform nor guaranteed for singular matrices. At zero an isolated long edge can give $P(q)=c+hq^3$, so strict increase need not mean a strictly positive derivative everywhere.
+5. **Scope of the literature.** The tree conclusion on $[-1,1]$ already appears in [2005, Theorem 4.3](https://doi.org/10.1080/03081080500092372). The [published correction](https://arxiv.org/html/1804.02231#S3) and [Marques de Sá's 2017 preprint, Theorem 6.1](https://www.mat.uc.pt/preprints/ps/p1722.pdf) have a noncrossing condition. The length identity is a special case of [Corollary 5.3 in the 2018 preprint](https://www.mat.uc.pt/preprints/ps/p1809.pdf), [published 2019](https://doi.org/10.1016/j.laa.2018.09.027). Targeted searches did not identify an earlier verified all-ordering proof for this forest class, but cannot establish priority. This review did not rerun Kitamura's external Lean project. The result does not settle the real symmetric problem on $[-1,1]$ without the forest assumption.
+
+## Independent computations
+
+Both scripts were run with Python optimization enabled. They use explicit tests rather than Python assertions stripped by `-O`.
+
+* `verify.py` checks 5,937 matching/submatching pairs on eight positions, verifies the token representation, and compares the whole polynomial against direct permutation summation on a crossing connected tree and a singular crossing forest.
+* `audit_independent.py` imports no code from the first script and uses no token construction. It enumerates all 2,620 involutions on nine positions and the 584 distinct nonconstant subgroup polynomials. For each such $H$, the exact Bernstein coefficients of $H(-r)$ decrease weakly from one to zero; this gives a second finite check of monotonicity over an interval, not just at selected parameter values.
+* The second script also checks a complex six-vertex crossing tree as a Gram matrix of rank five and a positive definite variant. Independent vertex choices of incident Gram-column colors produce the matching of mutual choices; their enumerated masses match every corresponding complementary-minor formula. Direct permutation summation agrees with the reconstructed polynomial. The endpoint block formula is also verified symbolically.
+
+For the exact commands, see the [README](README.md). Finite checks corroborate but do not replace the [general proof](proof.md).
