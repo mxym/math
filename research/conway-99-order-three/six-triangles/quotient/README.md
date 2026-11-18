@@ -2,6 +2,8 @@
 
 **计算机辅助定理。** 参数为 $(99,14,1,2)$ 的强正则图没有三阶自同构。推导使用已发表的无不动点定理，以及下文给出程序的有限枚举。这一结论排除的是三阶对称分支。一般的 Conway 99 图存在性问题仍然开放。本研究笔记尚未经外部审稿。
 
+本定理的冻结证明、枚举程序和分批记录见[不可变 release](https://github.com/mxym/math/releases/tag/conway99-order-three-exclusion-v1)及[版本 DOI 10.5281/zenodo.24331664](https://doi.org/10.5281/zenodo.24331664)。
+
 由柯西定理，三阶分支的排除等价于 $3\nmid |\operatorname{Aut}(G)|$。再结合 Behbahani 的素因子限制与 Cesarz–Woldar 关于偶数阶自同构群的定理，剩余的群候选为平凡群和二阶群。[Behbahani，定理 4.14](https://spectrum.library.concordia.ca/id/eprint/976720/) · [Cesarz–Woldar，2025](https://alco.centre-mersenne.org/articles/10.5802/alco.418/)
 
 ## 1. 一个必须存在的整数矩阵

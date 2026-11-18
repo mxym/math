@@ -1,5 +1,9 @@
 # Zenodo DOI 归档索引
 
+## Conway 99 图的三阶自同构
+
+三阶自同构排除定理的版本 DOI 为 [10.5281/zenodo.24331664](https://doi.org/10.5281/zenodo.24331664)。Zenodo 保存了该标签对应的整仓快照。GitHub 的专题附件包含 15 个证明与复核文件，附逐文件 SHA-256 清单。冻结的源提交为 `f2633113f99cd0e6762aef726a0650331b6fb9c3`。一般 Conway 99 图的存在性仍然开放。[不可变 release](https://github.com/mxym/math/releases/tag/conway99-order-three-exclusion-v1) · [签名验证](https://github.com/mxym/math/actions/runs/44246298623) · [证明与复现](../research/conway-99-order-three/six-triangles/quotient/README.md)
+
 Bapat 当前修订稿：**[10.5281/zenodo.23252928](https://doi.org/10.5281/zenodo.23252928)**；全图 Chollet 正式论文版：**[10.5281/zenodo.23252964](https://doi.org/10.5281/zenodo.23252964)**。
 
 [本轮 9 篇修订版及全部下载核验](manuscript-revisions-20261008/README.md) · [原始首轮归档](zenodo-2026-10-08/README.md)。
