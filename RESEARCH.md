@@ -52,6 +52,12 @@
 | 一般互信息连续性拟议界 | 实际 3×3 概率表在任意小正距离下反驳 Berta–Lami–Tomamichel Eq. (106)；两侧边缘均变化 | [署名预印本](preprints/mutual-information-continuity-2026-10/README.md)；[完整经典 Lean](formalizations/mutual-information-continuity-counterexample/README.md)；[冻结证明与附件核对](verification/mutual-information-index-2026-10-08/README.md) |
 | 量子嵌入及必要系数 | 对角量子态反例；任何 c h(ε)+C ε 型一般界必须 c ≥ 2，C 为固定有限常数 | 同稿完整书面证明，未 Lean 化；固定一侧边缘版本与完整最优模量未解决 |
 
+## 矩阵范数与算子不等式
+
+| 研究线 | 结果与范围 | 证明／阅读入口 |
+| --- | --- | --- |
+| Lee 矩阵右模之和的 Schatten 锐常数 | 固定 m≥2 与 1<p<2 时，锐常数随矩阵维数每升一维即严格增大，故不存在有限维极大例。n+1≤m 的比较已有前作；新增范围为 n≥m。不求出锐常数数值 | [解析证明、前作和内部复核](research/lee-moduli-strict-dimension-growth/README.md)；AI 辅助，未获外部同行评审或形式化认证 |
+
 ## 矩阵永久量与多项式猜想
 
 | 研究线 | 结果与范围 | 证明／阅读入口 |
