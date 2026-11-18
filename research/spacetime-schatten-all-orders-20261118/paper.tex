@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,geometry,hyperref}
+\geometry{margin=1in}\hypersetup{colorlinks=true,urlcolor=blue,pdftitle={Spacetime Schatten subadditivity fails at every order above one}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\newcommand{\Tr}{\operatorname{Tr}}\newcommand{\1}{\mathbf1}\newcommand{\ket}[1]{|#1\rangle}\newcommand{\bra}[1]{\langle #1|}
+\begin{document}
+{\small DRAFT FOR REVIEW \hfill 18 NOVEMBER 2026}
+\begin{center}{\Large\bfseries Spacetime Schatten subadditivity fails\\ at every order above one}\end{center}
+For a fixed two-qubit unitary, observing the first qubit at both times suffices to violate the spacetime analogue of Audenaert's inequality at every prescribed Schatten order $p>1$. Only the population of a classical flag in a separable but correlated initial state is varied. At order one the inequality holds universally. The quantifiers matter: no single finite-dimensional example fails at every order arbitrarily close to one.
+
+\textbf{Problem and prior art.} Milekhin, Adamska and Preskill [1, (4), (9), (25)] define the spacetime matrix $T$ for a system $Q$ observed before and after a unitary $U$ on $Q\otimes E$ by the unique bilinear identity
+\[
+ \Tr[T(A\otimes B)]
+ =\Tr\!\left[\rho(A\otimes\1_E)\,U^\dagger(B\otimes\1_E)U\right]                  \tag{1}
+\]
+for every pair of observables. The partial traces are the ordinary reduced states $\rho_A,\rho_B$ of the initial and final observed qubit. Unlike the Hermitian anticommutator pseudo-density matrix, $T$ need not be Hermitian. The conjectured inequality reads
+\[
+ G_p(T):=1+\|T\|_p-\|\rho_A\|_p-\|\rho_B\|_p\ \ge 0.                         \tag{2}
+\]
+Here $\|T\|_p=(\sum_i s_i(T)^p)^{1/p}$ uses singular values. For positive density matrices (2) is a theorem of Audenaert [3]. For arbitrary matrices Costa Rico and Wolf [4, Proposition 9] prove the version with $\|T\|_1$ in place of $1$; the two constants differ for nonpositive trace-one matrices. The Omega Institute [2] already disproved (2) at $p=2$ using a three-qubit dephasing construction and a negative Kirkwood--Dirac weight; it also reports a separate exact (not formalized) $p=4$ example and asks for the infimum of violating exponents. We do not claim the first counterexample. Our family treats \emph{all} $p>1$ with a fixed four-dimensional dynamics, one environmental qubit, and a classical mixture of two product states.
+
+\textbf{Circuit.} In $\ket{q,e}$ order let $\psi=(4,3)^t/5$ on $Q$. Put
+\[
+ \rho_x=(1-x)\ket{0,0}\bra{0,0}+x\ket{\psi,1}\bra{\psi,1},\qquad 0\le x\le1.
+\]
+For $0<x<1$ the environment flag conditions two different qubit states, so $\rho_x$ is not a product. In particular it does not meet the pure-observed-state product hypothesis of [1, Theorem 2].
+
+On inputs $\ket{0,0},\ket{1,0}$, let $U$ take values $\ket{0,0},\ket{1,1}$, respectively. Between the ordered input pair $(\ket{0,1},\ket{1,1})$ and ordered output pair $(\ket{0,1},\ket{1,0})$, let $U$ have matrix
+\[
+ V=\tfrac1{25}\begin{pmatrix}7&24\\-24&7\end{pmatrix},\qquad V\psi=(4,-3)^t/5=:\phi .
+\]
+The two output sectors are orthogonal and $V$ is real orthogonal, hence $U$ is unitary. In the $x=0$ branch, (1) equals $A_{00}B_{00}$: the component $U\ket{1,0}=\ket{1,1}$ is killed when paired with $(B\otimes\1)\ket{0,0}$. Thus $T_0=P=\ket{0,0}\bra{0,0}$ on the two \emph{observed} time slots.
+\newpage
+In the $x=1$ branch the output code vectors $\ket{0,1},\ket{1,0}$ have different environment labels, so the compression of $B\otimes\1_E$ to that code is $\operatorname{diag}(B_{00},B_{11})$. Since $A\otimes\1_E$ preserves the initial environment-$1$ sector, (1) is
+\[
+ \bra\psi A V^\dagger \operatorname{diag}(B_{00},B_{11})V\ket\psi .
+\]
+By cycling the trace this specifies
+$T_1=\sum_{j=0}^1 D_j\otimes\ket j\bra j$ with
+$D_j=V^\dagger\ket j\bra j V\ket\psi\bra\psi$. Explicitly,
+\[
+ D_0=\tfrac1{625}\begin{pmatrix}112&84\\384&288\end{pmatrix},
+ \qquad D_1=\tfrac1{625}\begin{pmatrix}288&216\\-84&-63\end{pmatrix}.
+\]
+By linearity, $T_x=(1-x)P+xT_1$. Its marginals are
+\[
+ \rho_A(x)=(1-x)\ket0\bra0+x\ket\psi\bra\psi,\qquad
+ \rho_B(x)=(1-x)\ket0\bra0+x\operatorname{diag}(16/25,9/25).
+\]
+In particular both have $(0,0)$ entry $1-9x/25$.
+
+\textbf{Why every order fails.} For fixed $p>1$, a matrix $P+xH$ with $P=\ket u\bra u$ rank one and $\|u\|=1$ satisfies
+\[
+ \|P+xH\|_p=1+x\operatorname{Re}\bra uH\ket u+o(x)\qquad(x\downarrow0).
+\]
+Indeed the simple top eigenvalue of $(P+xH)^\dagger(P+xH)$ has derivative $2\operatorname{Re}\bra uH\ket u$, and all other singular values are $O(x)$ by the rank-one approximation $P$. Their $p$th powers are $o(x)$. Thus $\|T_x\|_p=1-513x/625+o(x)$ while the marginal norms are each $1-9x/25+o(x)$. It follows that
+\[
+ G_p(T_x)=-\tfrac{63}{625}x+o(x).
+\]
+The coefficient equals the negative diagonal entry $(D_1)_{11}$: to first order, the three norms at the rank-one anchor see only their three dominant entries.
+
+\textbf{An explicit rational parameter.} For any $p_0>1$ choose
+\[
+ x=2^{-\lceil10p_0/(p_0-1)\rceil}.                                           \tag{3}
+\]
+Then $G_p(T_x)<-x/12$ simultaneously for all $p_0\le p\le\infty$ (including the operator norm at infinity). To see this, write $H=T_1-P$. Each $D_j$ is rank one with Frobenius norm $|\phi_j|$, so $\|T_1\|_2=1$ and $\|H\|_2\le2$. The largest singular value $s_1$ of $T_x$ satisfies
+\[
+ \tfrac12 \le 1-513x/625 \le s_1
+ \le\|T_x\|_2\le 1-513x/625+2x^2,
+\]
+by expanding the squared Frobenius norm and using $\sqrt{1+y}\le 1+y/2$. The other three singular values are at most $2x$. Concavity of $t\mapsto t^{1/p_0}$ gives
+\[
+ \|T_x\|_{p_0}\le s_1+\frac{3(2x)^{p_0}}{p_0s_1^{p_0-1}}
+ \le 1-513x/625+2x^2+3\cdot4^{p_0}x^{p_0}.
+\]
+\newpage
+Now $x\le1/1024$ and $x^{p_0-1}\le 1024^{-p_0}$, so $2x+3\cdot4^{p_0}x^{p_0-1}\le1/512+3/256=7/512$. Monotonicity gives $\|T_x\|_p\le\|T_x\|_{p_0}$ for all the claimed $p$; either marginal norm is at least its $(0,0)$ entry. Hence
+\[
+ G_p(T_x)\le-\left(\tfrac{63}{625}-\tfrac7{512}\right)x<-x/12.
+\]
+For a larger concrete $p=2$ witness take $x=1/8$. The exact identity
+\[
+ (1-18x/25)^2-\|T_x\|_2^2
+ =\tfrac{18x(7-39x)}{625}
+\]
+is strictly positive, which suffices since the two marginal norms are each at least $1-9x/25$.
+
+\textbf{The endpoint and the order of quantifiers.} In any finite-dimensional process in [1], $\Tr T=1$ and its marginals are states. Therefore $G_1(T)=\|T\|_1-1\ge0$. If $\|T\|_1>1$, continuity gives $G_p(T)>0$ on a right-neighborhood of one. If $\|T\|_1=1$, equality $\operatorname{Re}\Tr T=\|T\|_1$ forces $T\ge0$: for the polar decomposition $T=W|T|$, equality forces $Wv=v$ for each eigenvector of $|T|$ with positive eigenvalue, since $\operatorname{Re}\langle v,Wv\rangle\le1$. Audenaert's theorem then applies for all $p>1$. In particular the infimum of violating exponents is one, but no single example violates (2) along a sequence $p\downarrow1$.
+
+\textbf{Why an environment is needed.} When the whole system is observed at both times, the spacetime matrix in (1) is $T=(\1\otimes U)F(\1\otimes U^\dagger)(\rho\otimes\1)$, where $F$ swaps two copies of the $d$-level system. Indeed $\Tr[F(X\otimes Y)]=\Tr(XY)$ recovers (1) by cycling the trace. The factor multiplying $\rho\otimes\1$ is unitary, the marginals are $\rho$ and $U\rho U^\dagger$, and hence $\|T\|_p=d^{1/p}\|\rho\|_p$. Since $\|\rho\|_p\le1$ and $d^{1/p}\ge1$, (2) holds. Thus a single environmental qubit, as used above, is the smallest possible nontrivial environment in this same-system model. This observation is implicit in the original whole-system formula; it is not a priority claim.
+
+\textbf{Sources and status}
+\begin{enumerate}
+\item A. Milekhin, Z. Adamska and J. Preskill, \href{https://arxiv.org/html/2502.12240v2}{Observable and computable entanglement in time}, arXiv:2502.12240v2, (4), (6), (9), and Conjecture 1, (25).
+\item The Omega Institute, \href{https://www.trureturing.org/research/milekhin-adamska-preskill-2025-spacetime-schatten-subadditivity/}{The spacetime density matrix violates the Audenaert-type Schatten subadditivity}, 2026, study of a three-qubit $p=2$ witness and the remaining exponent question.
+\item K. M. R. Audenaert, \href{https://doi.org/10.1063/1.2771542}{Subadditivity of $q$-entropies for $q>1$}, J. Math. Phys. 48 (2007), 083507.
+\item P. Costa Rico and M. M. Wolf, \href{https://arxiv.org/html/2507.18278v1}{Partial trace relations beyond normal matrices} (2025), Proposition 9.
+\end{enumerate}
+AI-assisted draft with a separate internal AI review. Not externally peer reviewed or formally verified. No historical priority claimed.
+\end{document}
