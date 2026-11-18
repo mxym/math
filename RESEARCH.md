@@ -95,7 +95,7 @@
 | 研究线 | 结果与范围 | 证明／阅读入口 |
 | --- | --- | --- |
 | Bootstrap 渗流与两两相交的阻滞集 | 对 Ibrahim、LaFayette、McCall 第 5 节问题 3 给出所有固定阈值的反例，阈值 2 的折叠立方体有精确种子数及最小阻滞集。另给出问题 5 的直径三图族 | [完整书面证明与小图核验](research/intersecting-percolation-forts/README.md) |
-| Conway 99 图的三阶对称 | 参数 $(99,14,1,2)$ 的强正则图没有三阶自同构。全部 156 个六三角形连接图得到排除。一般存在性仍然开放 | [计算机辅助证明与复现](research/conway-99-order-three/six-triangles/quotient/README.md) · [六轨道分类](research/conway-99-order-three/six-triangles/README.md) |
+| Conway 99 图的三阶对称 | 参数 $(99,14,1,2)$ 的强正则图没有三阶自同构。全部 156 个六三角形连接图得到排除。一般存在性仍然开放 | [计算机辅助证明与复现](research/conway-99-order-three/six-triangles/quotient/README.md) · [六轨道分类](research/conway-99-order-three/six-triangles/README.md) · [版本 DOI](https://doi.org/10.5281/zenodo.24331664) |
 | 圆排列交换距离：对径旋转中心化子 | 所有奇数 m≥3 的中心化子循环移位至少 4 环；奇素数 p 时精确最大交换距离为 2p−4；不涉及无对称约束的完整 t(2p) | [完整书面证明与独立穷举](research/circular-sorting-antipodal/README.md)；未 Lean 形式化 |
 | 周期图无限对数凹性 | 全部 n ≥ 3；当且仅当 3 ≤ n ≤ 11，所有负例也已形式化 | [预印本](preprints/lean-certified-2026-10/cycle-chromatic-classification/README.md)；[完整 Lean 工程](formalizations/chromatic-cycles-all-n-lean/README.md) |
 | 通用轨道原始—对偶 | 任意有限群作用的有理最优证书与锐性 | [完整 Lean 主定理预印本](preprints/lean-certified-2026-10/orbital-primal-dual/README.md) |
