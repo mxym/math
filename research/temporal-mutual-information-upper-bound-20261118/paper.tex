@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,geometry,booktabs,hyperref}
+\geometry{margin=1in}
+\hypersetup{colorlinks=true,urlcolor=blue,pdftitle={A partial-trace test of a proposed upper bound on two-time mutual information}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\newcommand{\tr}{\operatorname{Tr}}
+\newcommand{\id}{\mathbf1}
+\begin{document}
+{\small DRAFT FOR REVIEW \hfill 18 November 2026}
+\begin{center}{\Large\bfseries A partial-trace test of a proposed upper bound\\[3pt] on two-time mutual information}\end{center}
+\textbf{Result.} For the signed mutual information of Fullwood and Parzygnat, a two-time partial-trace channel from $d^2$ to $d$ levels has two inputs with exact values
+\[
+ I_+(d)=\log d-(d-1)c,\qquad I_-(d)=\log d+(d+1)c,\qquad c=\tfrac16\log(27/16)>0.\tag{1}
+\]
+The subscripts refer to symmetric and antisymmetric inputs, respectively. At $d=64$ the second value exceeds the suggested upper bound $2\min(\log d_{\rm in},\log d_{\rm out})$, while the first is negative. Both violations grow linearly in $d$. The entropy of the two-time pseudo-density matrix itself is unbounded below on the antisymmetric family. These assertions do not concern ordinary spatial mutual information, and unboundedness means over all finite dimensions, not a fixed dimension.
+
+\textbf{Definitions.} For a CPTP map $N$ and an input density matrix $\rho$, use the input-first convention
+\[
+ J[N]=\sum_{ij}|i\rangle\langle j|\otimes N(|j\rangle\langle i|),\qquad
+ R=\tfrac12\{\rho\otimes\id,J[N]\},\qquad
+ S(X)=-\sum_{x\in\mathrm{spec}(X)}x\log|x|.
+\]
+Eigenvalues are counted with multiplicity, $0\log0=0$, and logs are natural. Set $I=S(\rho)+S(N\rho)-S(R)$. See [1, \S\S3--5] and [2, (2.4), (3.3)]. In particular $J$ is not the positive Choi matrix, and $S$ does not replace $X$ by $|X|$ in the prefactor.
+
+\textbf{Known results.} Fullwood and Parzygnat [1, \S5] proposed nonnegativity and separately suggested, on numerical evidence, the spatial dimension upper bound. Their Example 4 is exactly the $d=2,\ s=-1$ member of our family: the antisymmetric projector is the singlet state and the channel discards one qubit. They already computed its negative two-time joint entropy, $\log(4/(3\sqrt3))$. Nonnegativity of \emph{mutual information} was separately refuted by a five-level Werner--Holevo channel [3]; there are also smaller examples [4]. Indeed the five-level example already yields unboundedness below by parallel repetition: its temporal matrices factorize for scalar inputs, and signed entropy adds for trace-one tensor factors [1, Prop.~1(iii)]. Such factorization is not automatic for arbitrary inputs. We instead exhibit linear growth in both directions using a single channel per dimension.
+
+\textbf{Construction.} Let $H=\mathbb C^d$, $d\ge2$. Take $N:\mathcal L(H_1\otimes H_2)\to\mathcal L(H_3)$ to be $\tr_1$, identifying $H_2$ with the output. Its Kraus operators are $\langle i|_1\otimes\id_2$, so it is completely positive and trace preserving. Let $F_{ij}$ exchange tensor factors $i,j$, and put
+\[
+  s\in\{+1,-1\},\qquad K_s=d(d+s),\qquad \rho_s=(\id+s F_{12})/K_s .
+\]
+This is the normalized projector of rank $K_s/2$ onto the symmetric or antisymmetric space. Thus $S(\rho_s)=\log(K_s/2)$. Since $\tr_1 F_{12}=\id$ and $\tr_1\id_{12}=d\id$, $N\rho_s=\id/d$.
+\newpage
+\textbf{Two-time spectrum.} Using compound indices $i=(a,b)$, $j=(a',b')$, the channel sends $|a'b'\rangle\langle ab|$ to $\delta_{a,a'}|b'\rangle\langle b|$. Hence $J[N]=\id_1\otimes F_{23}$. Permutations below act on the three tensor positions of the input--output space. With $C=F_{12}F_{23}$ and $L_s=K_sR_s$, expansion gives
+\[
+ L_s=F_{23}+\tfrac{s}{2}(C+C^{-1}).\tag{2}
+\]
+On the fixed subspace of the three-cycle $C$, $C+C^{-1}=2\id$. The transposition $F_{23}$ preserves this subspace since $F_{23}CF_{23}=C^{-1}$. Its $+1$ and $-1$ subspaces there are precisely the fully symmetric and fully alternating tensors: a three-cycle and a transposition generate all permutations. Their respective dimensions are $u=\binom{d+2}{3}$ and $v=\binom{d}{3}$. On the orthogonal complement, $C$ has eigenvalues $e^{\pm2\pi i/3}$, hence $C+C^{-1}=-\id$. The transposition exchanges the two cycle eigenspaces, so has trace zero and equally many $+1$ and $-1$ eigenvalues on their sum. Each multiplicity equals $m=(d^3-u-v)/2=d(d^2-1)/3$. This proves the entire spectrum:
+\begin{center}\begin{tabular}{lrrr}\toprule
+sector & multiplicity & $L_+$ & $L_-$\\\midrule
+symmetric & $u$ & $2$ & $0$\\
+alternating & $v$ & $0$ & $-2$\\
+remaining, $F_{23}=+1$ & $m$ & $1/2$ & $3/2$\\
+remaining, $F_{23}=-1$ & $m$ & $-3/2$ & $-1/2$\\\bottomrule
+\end{tabular}\end{center}
+In particular $\tr L_s=K_s$. Define $E_s=K_s^{-1}\sum_\mu\mu\log|\mu|$ using this table. Scaling gives $S(R_s)=\log K_s-E_s$, hence $I_s=\log d-\log2+E_s$. Substitution gives
+\[
+ E_+=\tfrac{2d+1}{3}\log2-\tfrac{d-1}{2}\log3,\qquad
+ E_-=-\tfrac{2d-1}{3}\log2+\tfrac{d+1}{2}\log3.
+\]
+This proves (1). In particular $S(R_-)=\log[d(d-1)/2]-(d+1)c\to-\infty$.
+
+\textbf{Finite witnesses and equal-dimensional channels.} Since $(27/16)^3=19683/4096>4$, $c>(\log2)/9$. At $d=64$ both $63c$ and $65c$ exceed $6\log2=\log d$; thus $I_+<0$ and $I_->2\log d$. To require equal input and output dimensions, postcompose $N$ with an isometric embedding into $\mathbb C^{d^2}$. The output and the two-time matrix each acquire only zero eigenvalues, since $R$ is conjugated by the corresponding output isometry. Therefore $I_s$ is unchanged. The suggested upper bound now equals $4\log d$. At $d=256$ one has $257c>(257/9)\log2>24\log2=3\log d$, so this larger bound still fails.
+
+Both finite witnesses admit full-rank variants: mix each input with arbitrarily little maximally mixed noise. If also desired, mix the channel with an arbitrarily small positive fraction of a completely depolarizing channel to make its Choi matrix positive definite. Signed entropy is continuous in finite dimension; the strict inequalities persist. No noise tolerance or optimization is asserted.
+\newpage
+ \textbf{Cross-check using exact arithmetic.} The analytic argument in (2) suffices for all dimensions. Two accompanying scripts independently check the spectrum by constructing $2K_sR_s$ from the matrix units of the partial trace. Both use the fact that this matrix preserves the multiset of the three basis indices. Each invariant block has at most six rows.
+
+The first script enumerates all blocks for $2\le d\le7$. It computes each characteristic polynomial by expanding its determinant, and compares the resulting multiplicities and the rational coefficients of $\log 2,\log 3$ in $I_s-\log d$ with the formulas above. It uses only the Python standard library.
+
+The independent internal check uses SymPy and compresses all dimensions to three representative multisets. Multisets of the forms $aaa$, $aab$ and $abc$ occur respectively $d$, $d(d-1)$ and $\binom d3$ times. It checks $d=2,3,64,256$ and directly verifies the finite violations by the integer comparisons
+\[
+27^{65}>16^{65}\,64^6,\qquad 27^{63}>16^{63}\,64^6,\qquad 27^{257}>16^{257}\,256^{18}.
+\]
+These compare $I_-(64)$ with $2\log64$, $I_+(64)$ with zero, and the square-channel value $I_-(256)$ with $4\log256$, respectively. They are a check on the signs, not a substitute for the proof.
+
+\textbf{Scope.} There are exactly two times: the first Hilbert space has two \emph{spatial} factors, and the second has one. The result concerns the proposed dimension upper bound for this signed temporal mutual information. It leaves ordinary spatial mutual information and its standard bounds intact. Neither (1) nor these examples assert that the values are extremal over all channels. The result is a candidate counterexample submitted for scrutiny, not a claim of priority.
+
+\textbf{References and review status}
+\begin{enumerate}
+\item J. Fullwood and A. J. Parzygnat, \href{https://doi.org/10.3390/e27040331}{On dynamical measures of quantum information}, \emph{Entropy} 27, 331 (2025), Example 4 and \S5.
+\item J. Fullwood and B. Yang, \href{https://arxiv.org/html/2608.28946v1}{On the entropy of a pseudo-density matrix}, arXiv:2608.28946v1 (2026), (2.4), (2.5), (3.3), Thm.~4.1 and \S6.
+\item The Omega Institute, \href{https://www.trureturing.org/research/fullwood-parzygnat-2025-states-over-time-subadditivity/}{Subadditivity of the entropy of quantum states over time} (2026), five-level Werner--Holevo process with maximally mixed input.
+\item Evidence Press, \href{https://evidencepress.org/releases/negative-mutual-information-in-time/}{Negative mutual information in time in the smallest dimensions} (2026), research release and evidence package. Its open questions include unboundedness below; its low-dimensional witnesses are not our construction.
+\end{enumerate}
+OpenAI AI assistance was used to develop, write and check this working proof. A separate internal review checked the two-time calculation and supplied an independent exact checker. This is not external peer review or formal verification. No historical priority is claimed.
+\end{document}
