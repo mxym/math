@@ -5,6 +5,9 @@ immutability and authorized future major, fully proved research results
 to be published through immutable releases. Ordinary research progress
 can continue through reviewed files and commits without creating a release.
 
+On 18 November 2026 the owner requested an immutable release and a version DOI
+for each fully resolved research problem.
+
 For a qualifying release:
 
 1. Finish the complete theorem, proof, stated dependencies and reproducible
@@ -16,7 +19,10 @@ For a qualifying release:
 3. Publish against that exact commit, then query the resulting release and
    verify `immutable: true`, the tag/commit binding, asset hashes and GitHub's
    generated release attestation. Preserve the public URL and API metadata.
-4. Publish later corrections or stronger versions in a new release, with
+4. Retrieve the Zenodo version DOI for the exact release tag. Verify the tag
+   in both Zenodo and DataCite, compare the archived proof files with the source
+   commit, and record the version DOI in the [release DOI index](ZENODO_RECORDS.md).
+5. Publish later corrections or stronger versions in a new release, with
    explicit links to the earlier version. Do not alter the locked disclosure.
 
 The owner's setting report is not a recorded API verification of a new
