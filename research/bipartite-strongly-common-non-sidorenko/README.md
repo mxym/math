@@ -2,7 +2,7 @@
 
 **Research draft for review · 18 November 2026.** The argument uses the rank-layer limit and explicit kernel construction in the 2026 OpenAI preprint [O]. It has been reviewed internally with AI assistance, not externally refereed or formally verified. No claim of historical priority or optimality of the number of squares is made.
 
-**中文摘要。** 设 $H$ 是文献 [O] 中的 35 顶点二部关联图。将它与 $2^{650}$ 个四圈作不交并，得到强二色 common 但非 Sidorenko 的有限简单二部图。这回答 [G] 第 908 页未要求连通的提问，不解决连通版本。下述反例使用 [O] 的有限域引理，不是从其最终反例定理直接推出；这里只独立推导同一族核的四圈密度极限。
+**中文摘要。** 设 $H$ 是文献 [O] 中的 35 顶点二部关联图。将它与 $2^{650}$ 个四圈作不交并，得到强二色 common 但非 Sidorenko 的有限简单二部图。这回答 [G] 第 908 页未要求连通的提问；本文的构造不连通。[后续稿](../connected-bipartite-strongly-common-non-sidorenko/README.md)另外给出了有割边的连通例子，但没有得到二连通例子。下述反例使用 [O] 的有限域引理，不是从其最终反例定理直接推出；这里只独立推导同一族核的四圈密度极限。
 
 ## The statement
 
@@ -18,7 +18,7 @@ A graphon $W$ is a measurable symmetric $[0,1]$-valued kernel on the unit square
 - **Strongly common:** $t(F,W)+t(F,1-W)\ge p^{e(F)}+(1-p)^{e(F)}$ for every graphon [N, equation (2)].
 - **$j$-common:** $\sum_{i=1}^j t(F,W_i)\ge j^{1-e(F)}$ whenever the graphons $W_i$ sum to 1 almost everywhere. Strong two-color commonness implies two-color commonness by convexity.
 
-Grzesik, Lee, Lidický and Volec [G, p. 908, introduction] asked the converse of the implication from Sidorenko to commonness for bipartite graphs. Their question has no connectedness restriction. The graph here is disconnected; it neither proves that $H$ itself is common nor gives a connected separating example. The multicolor statement does not produce one non-Sidorenko graph common for **all** color counts; that would contradict [K].
+Grzesik, Lee, Lidický and Volec [G, p. 908, introduction] asked the converse of the implication from Sidorenko to commonness for bipartite graphs. Their question has no connectedness restriction. The graph here is disconnected; it neither proves that $H$ itself is common nor gives a connected separating example. The multicolor statement does not produce one non-Sidorenko graph common for **all** color counts; that would contradict [K]. A [subsequent draft](../connected-bipartite-strongly-common-non-sidorenko/README.md) ([#49](https://github.com/mxym/math/pull/49)) supplies the connected example by joining the core to a bouquet of squares with one bridge. That construction is not 2-connected and does not decide whether the core itself is common.
 
 ## 1. The error in counting a bipartite graph
 
