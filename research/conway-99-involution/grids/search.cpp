@@ -57,7 +57,7 @@ public:
     std::uint64_t nodes = 0;
     std::array<bool, capacity> grids{};
     Matrix given{};
-    bool fixture = false;
+    bool fixture = false, sign_parity = false;
 
     bool run() {
         Bounds& start = levels[depth];
@@ -80,6 +80,88 @@ private:
     int twin(int i) const { return p.fixed + ((i - p.fixed) ^ 1); }
     int depth;
     std::vector<Bounds> levels;
+
+    // Bit zero is the affine constant; the other bits are unknown signs.
+    static constexpr int words = (capacity * (capacity + 1) / 2 + 64) / 64;
+    using Equation = std::array<std::uint64_t, words>;
+    std::vector<Equation> pivots = std::vector<Equation>(words * 64);
+    std::vector<int> new_pivots;
+
+    static void toggle(Equation& row, int index) {
+        row[index / 64] ^= std::uint64_t(1) << (index % 64);
+    }
+
+    int edge_sign(int i, int j) const {
+        if (i > j) std::swap(i, j);
+        i -= p.fixed;
+        j -= p.fixed;
+        const int pairs = p.fixed * (p.fixed - 1) / 2;
+        return 1 + pairs + j * (j - 1) / 2 + i;
+    }
+
+    void root_sign(Equation& row, int k, int axis) const {
+        // The smaller coordinate is positive. At the larger coordinate a
+        // single unknown chooses which member of this support has plus sign.
+        if ((supports[k] >> (axis + 1)) == 0) {
+            toggle(row, 1 + pair_id(k));
+            if ((k - p.fixed) % 2) toggle(row, 0);
+        }
+    }
+
+    bool add_zero_sum(Equation& row, int terms) {
+        if (terms % 2) return false;
+        if ((terms / 2) % 2) toggle(row, 0);
+        for (int w = words - 1; w >= 0; --w) {
+            while (row[w]) {
+                int pivot = 64 * w + 63 - __builtin_clzll(row[w]);
+                if (pivot == 0) return false;
+                if (!pivots[pivot][w]) {
+                    pivots[pivot] = row;
+                    new_pivots.push_back(pivot);
+                    return true;
+                }
+                for (int h = 0; h <= w; ++h) row[h] ^= pivots[pivot][h];
+            }
+        }
+        return true;
+    }
+
+    bool possible_signs(int i) {
+        for (int axis = 0; axis < p.fixed; ++axis) {
+            Equation row{};
+            int terms = 0;
+            for (int k = p.fixed; k < p.n; ++k) {
+                if (b[i][k] != 1 || !((supports[k] >> axis) & 1)) continue;
+                ++terms;
+                toggle(row, edge_sign(i, k));
+                root_sign(row, k, axis);
+            }
+            if (!add_zero_sum(row, terms)) return false;
+        }
+        for (int a = p.fixed; a < depth; ++a) {
+            int j = order[a], terms = 0;
+            Equation row{};
+            for (int k = p.fixed; k < p.n; ++k) {
+                if (b[i][k] != 1 || b[j][k] != 1) continue;
+                ++terms;
+                toggle(row, edge_sign(i, k));
+                toggle(row, edge_sign(j, k));
+            }
+            if (b[i][j] == 1) {
+                ++terms;
+                toggle(row, edge_sign(i, j));
+            }
+            int common = supports[i] & supports[j];
+            if (__builtin_popcount(common) == 1) {
+                ++terms;
+                int axis = __builtin_ctz(common);
+                root_sign(row, i, axis);
+                root_sign(row, j, axis);
+            }
+            if (!add_zero_sum(row, terms)) return false;
+        }
+        return true;
+    }
 
     bool eliminate(Bounds& bounds, int i, int first) const {
         for (int f = 0; f < 2; ++f) {
@@ -256,9 +338,17 @@ private:
                     if (grids[pair_id(j)] && !(supports[i] & supports[j])
                         && b[i][j] + b[i][j + 1] != 1) return false;
                 if (!eliminate(next, i, depth + 1)) return false;
-                ++depth;
-                bool found = complete(next);
-                --depth;
+                auto mark = new_pivots.size();
+                bool found = false;
+                if (!sign_parity || possible_signs(i)) {
+                    ++depth;
+                    found = complete(next);
+                    --depth;
+                }
+                while (new_pivots.size() > mark) {
+                    pivots[new_pivots.back()] = {};
+                    new_pivots.pop_back();
+                }
                 return found;
             }
             const Cell& c = cells[t];
@@ -295,13 +385,15 @@ private:
 
 
 int main(int argc, char** argv) {
-    if (argc != 2) {
-        std::cerr << "usage: search GRID_EDGE_MASK | --golay-test\n";
+    bool parity = argc == 3 && std::string(argv[2]) == "--sign-parity";
+    if (argc != 2 && !parity) {
+        std::cerr << "usage: search (GRID_EDGE_MASK | --golay-test) [--sign-parity]\n";
         return 2;
     }
     if (std::string(argv[1]) == "--golay-test") {
         Search<121> search(golay);
         search.fixture = true;
+        search.sign_parity = parity;
         for (int i = 11; i < 121; ++i) {
             for (int j = 11; j < 121; ++j) {
                 int v;
@@ -316,6 +408,7 @@ int main(int argc, char** argv) {
     int mask = std::stoi(argv[1]);
     if (mask < 0 || mask >= (1 << 21)) return 2;
     Search<49> search(conway);
+    search.sign_parity = parity;
     for (int i = 0; i < 21; ++i) search.grids[i] = (mask >> i) & 1;
     if (search.run()) {
         std::cout << "unsigned completion\n";
