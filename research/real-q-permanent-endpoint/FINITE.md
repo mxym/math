@@ -1,6 +1,6 @@
 # An explicit finite rational matrix and rational comparison point
 
-This specifies the rows by a formula and certifies the sign analytically. No enormous matrix or permanent was evaluated. Equations (1)–(5) and the row-coordinate conventions appear in [PROOF.md](PROOF.md); in particular the sphere is in **complex** dimension four and the Gram rows are **real**.
+The [October 8 existence proof](../../notes/bapat-real-symmetric-existence-counterexample/proof.md) and its [Lean root theorem](../../formalizations/bapat-real-symmetric-existence-counterexample/formalization/sources/BapatIntegerCounterexample.lean) already give an integer real positive-definite counterexample in existence, including $P'_1<0$; they do not specify its order or matrix. Here the distinction is effectivity: the construction fixes a dimension, row multiplicities and order, a rational diagonal perturbation and a rational comparison parameter. The old Lean proof is not a certificate for these choices. This section specifies the rows by a formula and certifies the sign analytically. No enormous matrix or permanent was evaluated. Equations (1)–(5) and the row-coordinate conventions appear in [PROOF.md](PROOF.md); in particular the sphere is in **complex** dimension four and the Gram rows are **real**.
 
 ## 1. A discrete list in a fixed order
 
