@@ -1,0 +1,75 @@
+name: Publish the weighted Chollet matching formula v1
+on:
+  push:
+    branches: [publish-weighted-chollet-matching-v1]
+    paths: [.github/workflows/publish-weighted-chollet-matching-v1.yml]
+permissions:
+  contents: write
+concurrency: publish-weighted-chollet-matching-v1
+jobs:
+  publish:
+    if: github.repository == 'mxym/math'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      TAG: weighted-chollet-matching-v1
+      SOURCE_SHA: 079a6c2b729ef37f82a00cb6e4888ed3060046b0
+      PROOF: research/weighted-chollet-matching
+      GH_REPO: mxym/math
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: 079a6c2b729ef37f82a00cb6e4888ed3060046b0
+          sparse-checkout: research/weighted-chollet-matching
+          persist-credentials: false
+      - name: Verify frozen files (no release credential)
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+          cd "$PROOF"
+          echo '8bb6912a2b33c98f553e248cf615683860f27e40b6cca8d1245eb6e4c72b8654  SHA256SUMS' | sha256sum -c -
+          sha256sum -c SHA256SUMS
+          python3 -B check.py
+      - name: Stage, verify and publish only the fixed research release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          stage="$RUNNER_TEMP/weighted-chollet"
+          mkdir "$stage"
+          cp "$PROOF"/{paper.pdf,paper.tex,README.md,check.py,SHA256SUMS} "$stage/"
+          cd "$stage"
+          cat > "$RUNNER_TEMP/notes.md" <<EOF
+          This release binds the written proof and exact reproduction program to source commit [${SOURCE_SHA}](https://github.com/mxym/math/commit/${SOURCE_SHA}).
+
+          For every complex correlation matrix A, the maximum of per(A ∘ B) over all correlation matrices B whose comparison matrix is positive semidefinite is exactly the maximum over matchings M of the product of (1 + |a_ij|²) on the matched pairs. It is at most per(A). Consequently every nonnegatively weighted undirected graph Laplacian, including every ambient principal submatrix and every nonnegative diagonal addition, satisfies the strong self-Chollet inequality. The note also covers real symmetric positive semidefinite Z-matrices.
+
+          This is a written proof using Lieb's block permanent theorem, not a solution to unrestricted Chollet, external peer review, formal verification, or a worldwide priority claim. Earlier unweighted graph and weighted block results and random-map methods are cited in the note. The exact computational checks are finite illustrations, not premises of the proof.
+
+          Attachments reproduce the five files at the fixed commit without modification. Run sha256sum -c SHA256SUMS and python3 check.py from their common directory. [Fixed source and references](https://github.com/mxym/math/tree/${SOURCE_SHA}/${PROOF}).
+          EOF
+          gh release create "$TAG" --target "$SOURCE_SHA" --draft --latest=false --title 'A matching formula for Schur products and a weighted Chollet inequality (v1)' --notes-file "$RUNNER_TEMP/notes.md"
+          gh release upload "$TAG" paper.pdf paper.tex README.md check.py SHA256SUMS
+          id="$(gh release view "$TAG" --json databaseId --jq .databaseId)"
+          gh api "repos/$GH_REPO/releases/$id" > "$RUNNER_TEMP/draft.json"
+          python3 - "$RUNNER_TEMP/draft.json" <<'PY'
+          import sys,json,hashlib,os,pathlib
+          r=json.load(open(sys.argv[1]))
+          assert r['draft'] and r['target_commitish']==os.environ['SOURCE_SHA']
+          files={p.name:p for p in pathlib.Path('.').iterdir()}
+          assert set(files)=={a['name'] for a in r['assets']}
+          for a in r['assets']:
+              b=files[a['name']].read_bytes()
+              assert a['size']==len(b) and a['digest']=='sha256:'+hashlib.sha256(b).hexdigest()
+          PY
+          gh release edit "$TAG" --draft=false --latest=false
+          gh api "repos/$GH_REPO/releases/tags/$TAG" --jq '.immutable' | grep -x true
+          test "$(gh api "repos/$GH_REPO/git/ref/tags/$TAG" --jq .object.sha)" = "$SOURCE_SHA"
+          mkdir "$RUNNER_TEMP/redownload"
+          gh release download "$TAG" --dir "$RUNNER_TEMP/redownload"
+          for f in paper.pdf paper.tex README.md check.py SHA256SUMS; do cmp "$f" "$RUNNER_TEMP/redownload/$f"; done
+          for attempt in {1..12}; do if gh release verify "$TAG"; then break; fi; sleep 5; done
+          gh release verify "$TAG"
+          for f in paper.pdf paper.tex README.md check.py SHA256SUMS; do gh release verify-asset "$TAG" "$f"; done
