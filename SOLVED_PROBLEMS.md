@@ -160,6 +160,7 @@
 
 ### 有限群、张量与覆盖
 
+- Conway 99 图的三阶自同构分支已由完整整数枚举排除。一般存在性仍然开放。[证明与复核](research/conway-99-order-three/six-triangles/quotient/README.md)
 - [Improved two-band lower family for binary tensor rigidity](notes/binary-tensor-two-band-lower-bound/README.md)
 - [Boundary-profile lower bounds for binary tensor rigidity](notes/boundary-profile-binary-tensor-rigidity/README.md)
 - [Diffuse optimal fractional covers and integer recovery](notes/diffuse-fractional-cover-rounding/README.md)

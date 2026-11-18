@@ -150,7 +150,7 @@ def main():
     records = {r['atlas']: graph(r['mask']) for r in json.loads((HERE / 'cores.json').read_text())
                if 'outer' in r}
     assert set(records) == set(COUNTS)
-    for atlas in args.atlas or sorted(set(records) - {53}):
+    for atlas in args.atlas or sorted(records):
         run_core(atlas, records[atlas], incidence, search, args.jobs)
 
 
