@@ -149,6 +149,7 @@
 
 ## 探索项目与文献比较
 
+- [Duchi 矩阵采样不等式的最短反例长度](research/duchi-four-factor-sampling/README.md)：先取各乘积的算子范数再平均。每个样本总数 n≥5 有四因子有理反例；≤3 的正结果及六因子反例归前作，四个样本情形未决。AI 内审草稿，非外部评审。
 - [两储库降雨—径流可辨识性](research/hydrology-identifiability/README.md)：精确证明系数等价纤维、物理等价流反例、受控或双实验恢复三参数，以及有限并联衰减谱从前 (2k) 个矩确定速率集合（仅差标签置换）；非线性扩展仍在研究。
 - [Ryser rank-six 探索](research/ryser-rank-six/README.md)：搜索模型、独立 witness checker 与受限模板排除；未证明一般反例或一般非存在性。
 - [Borsuk 平衡切片记录](notes/balanced_borsuk_slice.md)：排除一个提出的构造，不解决八维问题。
