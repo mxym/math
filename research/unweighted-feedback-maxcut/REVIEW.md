@@ -1,0 +1,7 @@
+# Independent internal review
+
+**PASS, internal AI-assisted review only.** A separate reviewer checked the reduction from the original mean-minimum formula, degree normalization, strictness for multiple nontrivial components, the use of the Edwards–Erdős and de Caen bounds, the decreasing dependence on 1/(n−1) in the large-order error, and the perfect square at n=17. They checked the packed-vector argument for small order and the characterization of equality (all-zero edge case separately). The equivalent high-order calculation is sufficient, not a reversal of an upper/lower bound.
+
+The primary program multiplies subset-sum polynomials by dynamic programming. Independently, `independent.py` groups the equal entries of the packed vector and sums the absolute sign sum with binomial multiplicity for each group. This gives the same fifteen integer row minima and only two zero pairs, (3,3) and (5,10). The public copy uses explicit failure conditions rather than optimizer-removable assertions. Both final versions were executed with Python optimization enabled; see CHECKS.txt.
+
+The conference version explicitly credits a sufficiently-large unweighted theorem and the two tight cliques; the complete version sets the threshold at 10⁹ **edges**. No weighted assertion is established by the present argument. Internal mathematical review and two exact programs are distinct from external refereeing and do not certify priority.
