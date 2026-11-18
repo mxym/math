@@ -96,3 +96,9 @@ Two recent ECQC manuscripts have now been archived as public, findable version-1
 - Pure-state prime-dimensional classification: [10.5281/zenodo.23256948](https://doi.org/10.5281/zenodo.23256948), [immutable release](https://github.com/mxym/math/releases/tag/ecqc-pure-state-classification-v1).
 
 The qutrit Lean supplement and the four-row permanent--determinant Lean theorem have separate immutable GitHub releases. The four-row theorem is not assigned a DOI here because its standalone manuscript has not yet been frozen. Download and DataCite verification for the two new DOI records is preserved in [ecqc-dois-20261009](ecqc-dois-20261009/README.md).
+
+## 加权图的强 Chollet 不等式与匹配极值公式
+
+版本 DOI：[10.5281/zenodo.24340909](https://doi.org/10.5281/zenodo.24340909)。这是标签 `weighted-chollet-matching-v1` 的整仓快照，不是独立论文 DOI。该书面证明给出比较矩阵半正定的相关矩阵乘子上的精确匹配极值，并推出任意非负加权图 Laplacian 及其主子矩阵的强自乘不等式。它不解决一般 Chollet 猜想，不声称 Lean 形式化或外部同行评审。[固定源提交 `079a6c2`](https://github.com/mxym/math/tree/079a6c2b729ef37f82a00cb6e4888ed3060046b0/research/weighted-chollet-matching) · [不可变 Release](https://github.com/mxym/math/releases/tag/weighted-chollet-matching-v1) · [附件与签名核验](https://github.com/mxym/math/actions/runs/44298528580)
+
+[Zenodo 版本记录](https://zenodo.org/records/24340909) 与 [DataCite 版本记录](https://api.datacite.org/dois/10.5281/zenodo.24340909) 均指向上述标签。已从公开 Zenodo ZIP 读出该专题全部 5 个文件，逐字节核对冻结提交和不可变 Release 的附件。归档记录标注整仓 ZIP 为 389,938,999 字节、MD5 `a6a6e33c101341401a5566bbaaa7538c`；其中论文 PDF 的 SHA-256 为 `b3e43516b295e200e443b57953ddbd1a194b73620a3adbdaf6531c13135a6bc1`。
