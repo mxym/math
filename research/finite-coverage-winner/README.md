@@ -1,0 +1,9 @@
+# The finite random covering radius has a unique center
+
+**Yongxian Zhang.** Fix a nonempty compact target in Euclidean space. Whenever the locations of the sites have a joint density, almost surely there is exactly one target point maximizing the distance to its kth nearest site. This holds for every sample size and every k, including for compact targets with no interior. The winning open ball contains exactly k−1 sites; an independent new observation strictly reduces the radius exactly when it enters that ball. The radii strictly increase with k and each Euclidean radius has an absolutely continuous distribution.
+
+The proof identifies the center from a nonzero gradient block of the covering radius with respect to the sample locations. The uniqueness argument also works for any fixed strictly convex norm; the maximum norm need not have this property. [Main proof](PROOF.md) · [Internal review](REVIEW.md).
+
+**The inscribed variant is different.** If the entire ball must stay in a compact Euclidean domain, the same gradient argument works below the reach of its boundary. It provides a short route to the earlier eventual uniqueness result under its stated regularity; a smoothness-class example (a stadium with continuously differentiable, Lipschitz-gradient boundary) shows why one cannot simply assert uniqueness at every sample size here. [Supplement](INSCRIBED.md) · [Internal review](INSCRIBED-REVIEW.md).
+
+The all-sizes fixed-target theorem strengthens the small-radius uniqueness statement in [Penrose, §5](https://arxiv.org/html/2608.19104v3#S5). Neither the record-time asymptotics nor uniqueness for the one-site farthest-point problem are being claimed as new. [Sources, distinctions and search limitations](SOURCES.md). AI-assisted research with independent internal review; no external peer review or guarantee of priority.
