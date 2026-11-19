@@ -1,0 +1,12 @@
+# Monotone-pattern avoidance: permuton deviations and the near-uniform Mallows shape
+
+Fix $d\ge3$ and forbid a decreasing subsequence of length $d+1$. Two conclusions hold for the **uncoloured** permutations of length $n$:
+
+* Under the uniform law, the speed-$n$ permuton rate at $\mu$ is $2\log d$ minus the maximum sum of the horizontal and vertical colour entropies over its representations by $d$ increasing colours. [LDP proof and exact domain, (1)–(3)](LDP.md).
+* Under weights $\exp(\beta\operatorname{inv}(\sigma)/n)$, for fixed $\beta>0$ the limiting permuton lies on $d$ explicit increasing quantile curves of equal mass. Their coordinate densities are consecutive differences of logistic functions. The limiting log partition function per point is $2[G(1)-dG(1/d)]$, with $G(t)=\int_0^t\log(2\sinh(\beta u/2))\,du$. For $\beta\le0$ the limit is the increasing diagonal and the free energy is $2\log d$. [Mallows proof, (6)–(7)](MALLOWS.md).
+
+The bounded-width results include $d=1,2$ for consistency: **the 321-avoiding LDP, constrained Mallows shapes and free energy for $d=2$ were already established by Budzinski et al.** Reflecting the plot gives the increasing-pattern counterpart, with the sign change in the inversion tilt. This is not a theorem about every single forbidden pattern or about the fixed-$q\ne1$ limit. It supplies another positive family for Borga–Féray–Winkler Problem 6.
+
+The finite-rate domain can equivalently be described by absence of the forbidden pattern in $\mu$-samples. One direction follows from the pigeonhole principle for $d$ increasing colours. Conversely, when the $(d+1)$-point decreasing-pattern density is zero, all finite samples from an infinite i.i.d. sequence from $\mu$ avoid the pattern almost surely. Their rank permutons tend to $\mu$ almost surely by the empirical law and uniform marginals. Subsequence limits of the canonical colour profiles exist by compactness, and (2) represents $\mu$. The variational formula therefore has no implicit finite-approximability assumption.
+
+[Sources and attribution](SOURCES.md), [independent LDP review](REVIEW.md), [independent Mallows review](MALLOWS-REVIEW.md), and [expected finite check output](CHECKS.txt) accompany the proofs. Run `python3 -O check.py` and `sha256sum -c SHA256SUMS`. The finite tests verify identities, not the asymptotic theorems. AI-assisted research and internal review; not external peer review, formal verification, or a priority guarantee.
