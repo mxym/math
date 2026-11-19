@@ -1,0 +1,7 @@
+# A finite local normalization for the random covering radius
+
+**Yongxian Zhang.** Fix any compact, positive-volume target inside a smooth bounded Euclidean domain of dimension at least two, and any fixed covering multiplicity. The target need not have a regular boundary. With uniformly sampled sites, a deterministic sum over small local configurations approximates the negative logarithm of the probability of covering the target at each nondegenerate threshold. Applying the resulting monotone transformation to the covering radius gives a standard Gumbel limit. The result covers both fixed and Poisson sample sizes.
+
+This is a constructive, nonlinear answer in the setting of [Penrose–Yang, Remark 2.4](https://arxiv.org/html/2509.19278v2#S2.SS2), not a closed-form centering or a prescription to insert the unknown distribution function. For each tested radius the finite sum uses only the ambient volumes of grid cells and Boolean queries asking whether each cell meets the target. It enumerates lists of polylogarithmically many points with a quasipolynomial real-arithmetic cost in the sample size, counting the geometry oracles as given. No computational bit bound, practical numerical speed, or assertion for all zero-volume targets is intended.
+
+[Full construction and proof](VOXEL.md) · [Independent internal review](REVIEW.md) · [Primary comparisons and search limitations](SOURCES.md). AI-assisted research; internally reviewed, not externally peer reviewed. No claim of priority.
