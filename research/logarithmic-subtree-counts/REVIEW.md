@@ -1,9 +1,0 @@
-# Independent internal review: logarithmic-order inverse subtree counts
-
-PASS for frozen PROOF.md SHA-256 fb75639c5b2514c7b0d6a042563ece6bfd113f6e1eb8550de65f0cb300a8cec2. This is an internal algebra/implementation check, not external peer review or a universal priority search.
-
-I independently checked the enumeration and branch construction. Both branch roots have 16 options and all-subtree counts 40 and 41. The concatenation has no cycles and its distinct ports ensure max degree three even when the hanging branch meets a port. The block counts classify every subtree by whether it meets the main path; those using the gluing edge factor, giving the stated transfer with the promised uniform left port and through counts. The finite switch sum really yields all integers 0 through m, without affecting crossing counts.
-
-For the unbounded interval coverage, independently expanding gives W_j = 93636·17^j−47260 and the w_j adjacent digit increment is 5032−288d+88128·g_j. The carry difference is therefore 47260−5508·17^j, making the largest upward jump 46784 at j=1,d=0. A first passage above a target proves coverage without monotonicity, including the first/last endpoint case. The inter-length difference is 47260−83232·17^m, so E_1<0 and all later levels overlap. The all-zero root count independently gives the announced logarithmic bound, all coverage arguments are exact for unbounded lengths, and the constants are not claimed optimal. The simpler disconnected greedy stars argument proves the literal polylog conjecture; the connected cap-degree-three logarithmic conclusion is stronger. Cite prior unquantified connected existence separately.
-
-Companion replay SHA-256 e329925372c1ee0f208c2ad747b6c90bcd5f031c880014feadfc784870ba2b76 literally enumerates both tiny branches, constructs 6,174 actual graphs and counts via graph DP, and checks every lexicographic gap through four digits. The proof does not depend on these illustrative checks.
