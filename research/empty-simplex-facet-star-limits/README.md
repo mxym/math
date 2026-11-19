@@ -1,0 +1,10 @@
+# The limiting size of the largest common-facet star of empty simplices
+
+In a sample of \(n\) uniform points from a fixed convex body, choose a facet of \(d\) sample vertices and count how many other points complete it to an empty simplex. Let \(D_n\) be the largest such count. Its expectation was already known to be of order \(n\); the [lead author's 2023 questions, slide 25/26](https://www.crm.cat/wp-content/uploads/2023/10/Matthias_Reitzner_Empty_Simplices.pdf), ask for the normalized mean and for distributional information.
+
+- **Plane:** \(D_n/n\) converges to a nondegenerate law, with CDF given by the explicit body integral in [(1)](PROOF.md). The limiting mean for either the disk or square lies strictly between 0.87 and 0.941, within the broader numerical range previously reported. In particular the variance is asymptotic to \(n^2\operatorname{Var}(M_K)\), with positive coefficient.
+- **Dimensions \(d\ge3\):** \(D_n/n\to1\) in probability. A nearly flat facet therefore supports empty simplices from all but a vanishing fraction of possible completion points. The normalized variance tends to zero, not a statement of its finer order or of its fluctuation law. All positive normalized moments converge in both cases.
+
+The Poisson law of *counts* of very close point pairs is classical. The planar proof identifies the limiting **degree** of each short edge, proves ordinary-length edges cannot hide a larger star, and takes the maximum. In higher dimension the proof instead uses flat facets whose lower-dimensional faces stay nondegenerate.
+
+[Analytic proof](PROOF.md) · [Prior results, versions and scope](SOURCES.md) · [Independent internal review](REVIEW.md). The optional `python3 -B -O check.py` checks exact constants and normalization, not the probability theorem. This is the random **facet** statistic, distinct from intermediate-dimensional stars, planar *vertex* stars, and the deterministic Erdős problem. AI-assisted draft; no external peer review or priority guarantee.
