@@ -4,7 +4,7 @@
 \[
  \eta^* \ge \frac23+\frac4{2223}=\frac{1486}{2223}.
 \]
-Consequently the Werner half of the conjectured convergence immediately following Eq. (25) and Fig. 2 in [the published paper](https://doi.org/10.1038/s41534-026-01204-3) cannot hold for this particular witness. This does **not** change the physical projective-steering threshold \(2/3\), assert an optimal numerical pooled threshold, address the isotropic prediction \(5/12\), or cover all steering witnesses/aggregations.
+Consequently the Werner half of the conjectured convergence immediately following Eq. (25) and Fig. 2 in [the published paper](https://doi.org/10.1038/s41534-026-01204-3) cannot hold for this particular witness. This does **not** change the physical projective-steering threshold \(2/3\), assert an optimal numerical pooled threshold, or cover all steering witnesses/aggregations. The isotropic prediction \(5/12\) is treated by a different argument [in the companion proof](ISOTROPIC.md).
 
 ## Which bound is pooled?
 
