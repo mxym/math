@@ -1,4 +1,0 @@
-import ArithmeticSupplyDensityConversions
-#print axioms Entry002.arithmeticSupply_normalized_count_of_relative_density
-#print axioms Entry002.arithmeticSupply_dyadic_normalizer_ratio
-#print axioms Entry002.arithmeticSupply_dyadic_difference_ratio_tendsto

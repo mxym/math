@@ -1,7 +1,0 @@
-import ArithmeticSupplyPNT
-#print axioms WeakPNT
-#print axioms WienerIkeharaTheorem'
-#print axioms Entry002.arithmeticSupply_psi_nat_ratio_tendsto
-#print axioms Entry002.arithmeticSupply_psi_real_ratio_tendsto
-#print axioms Entry002.arithmeticSupply_theta_real_ratio_tendsto
-#print axioms Entry002.arithmeticSupply_prime_counting_ratio_tendsto
