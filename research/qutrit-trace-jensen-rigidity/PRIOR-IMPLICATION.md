@@ -1,0 +1,17 @@
+# Why qualitative existence is already implicit in results of Matsumoto
+
+These deductions are our comparison of earlier theorems; we have not found the exact three matrices of the accompanying certificate in those sources. No priority is claimed for the nonmetricity mechanism.
+
+For probability vectors let $T(p,q)=\tfrac12\sum_x|p_x-q_x|$ and $U(p,q)=\tfrac12\sum_x(p_x-q_x)^2/(p_x+q_x)$, with zero contribution when both entries vanish. Cauchy–Schwarz and $|p_x-q_x|\le p_x+q_x$ give $T^2\le U\le T$. Write $\widehat T,\widehat U$ for the corresponding infima over classical input pairs and preparation channels that output the prescribed pair of quantum states. The inequalities are preserved, since the admissible reverse tests are the same and the square is nondecreasing:
+$$
+\widehat T^2\le\widehat U\le\widehat T.
+$$
+In the **proof** of [Matsumoto, arXiv:1006.0302, Proposition 18, together with the explicit qubit construction of Proposition 6](https://arxiv.org/pdf/1006.0302), the endpoint maximal variation equals 1 and both via-middle maximal variations go to zero as the angle tends to zero. Thus for sufficiently small positive angle the two short distances $\sqrt{\widehat U}$ sum to less than the long one, which is 1. This is more than assuming the mere existence of a strict $\widehat T$ triangle violation. By [Matsumoto, arXiv:1311.4722v4, §9.2, Eq. (9.5)](https://arxiv.org/pdf/1311.4722), $\widehat U$ converges along the straight-line simultaneous regularization replacing each input $P_i$ by $(1-\epsilon)P_i+\epsilon I/2$. The scalar generator $g(t)=(t-1)^2/[2(t+1)]$ is convex, closed, finite, with finite endpoint slopes in the divergence convention; the line lies in its effective domain. Consequently a strict triangle persists for full-rank, trace-one qubits $P_i$.
+
+The same paper's Theorem 6.1, Eq. (6.3), gives the operator-convex perspective formula when both inputs are invertible. Here $g(t)=(t+1)/2-2t/(1+t)=(t-3)/2+2/(1+t)$ is operator convex. The perspective calculation yields
+$$
+\widehat U(P,Q)=\operatorname{Tr}[(P+Q)/2-2(P^{-1}+Q^{-1})^{-1}].
+$$
+Indeed for $T=Q^{-1/2}P Q^{-1/2}$, the perspective of $t/(1+t)$ equals $Q^{1/2}(T^{-1}+I)^{-1}Q^{1/2}=(P^{-1}+Q^{-1})^{-1}$. This is the arithmetic–harmonic mean divergence. The use of maximal, not measured, triangular discrimination is essential here.
+
+To return to the precise Jensen claim about **normalized states**, put $A_i=P_i^{-1}-I_2$, which are positive definite (both eigenvalues of each full-rank qubit density are strictly less than one). For $N>\max_i\operatorname{Tr} A_i$, use trace-one qutrits $X_i^{(N)}=[A_i\oplus(N-\operatorname{Tr}A_i)]/N$ and the operator-convex generator $f_N(x)=(1+Nx)^{-1}$. The upper two-dimensional contributions to the Jensen gaps are exactly $\widehat U(P_i,P_j)$, since $(I+(A_i+A_j)/2)^{-1}=2(P_i^{-1}+P_j^{-1})^{-1}$. All scalar values at every third component and its pairwise midpoints tend to zero as $N\to\infty$ (their denominators are $1+N-\operatorname{Tr} A_i$ or the corresponding averaged traces); hence those scalar gap contributions tend to zero as well. There are only three pairs, so the strict triangle defect persists for all sufficiently large finite $N$. This derives *existence* of a triangle counterexample covered by Teng Zhang v1 using earlier work plus elementary transformations. The companion direct computation does not rely on these transformations or on asymptotics: it specifies $N=79$ and three rational states.
