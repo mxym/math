@@ -1,0 +1,17 @@
+# Two bits is the sharp asymptotic cost of an eventual fair tail
+
+**Yongxian Zhang.** AI-assisted research draft with separate internal mathematical reviews; not externally peer-reviewed.
+
+Draw a real with a prescribed smooth density by selecting a dyadic interval and then copying independent fair bits forever inside it. How much does this eventual switch cost? Let $C_n(f)$ be the minimum expected number of input bits to generate just the first $n$ binary digits with the correct law, using an unrestricted coin tree. A single selector $G$ must produce the whole real, and $T_n$ counts its input bits when it first prints $n$ digits.
+
+The sharp worst-case **asymptotic** excess is two bits:
+$$\sup_{f\ {\rm strictly\ positive\ smooth}}\ \inf_{G\ {\rm exact\ for}\ f}\ \limsup_{n\to\infty}(\mathbb E_G T_n-C_n(f))=2.$$
+The same equality holds for the lower limit. It holds both when the selector may announce known digits before identifying its interval (*streamed*) and when it must identify the whole interval first (*upfront*). The selector may use an infinite decision tree. This is **not** a two-bit guarantee at every finite precision, a claim about every selector, or a finite-memory bound.
+
+* [Upper bound](TWO.md): every continuous density of bounded variation has an upfront selector with limiting upper excess at most two. The proof averages dyadic covers over a shift, then fixes one shift; no extra random seed is assumed.
+* [Lower bound](OBSTRUCTION.md): for any $\eta>0$, a strictly positive smooth density arbitrarily close to uniform forces excess at least $2(1-\eta)$ in the lower limit for **every** eventual-copy selector. A different smooth example makes the unrestricted optimum $C_n(f)-n$ oscillate by arbitrarily close to two bits, sharp as a supremum.
+* [When there is no loss](PROOF.md): every bounded continuous monotone density has a streamed selector that is optimal at **every** precision, itself samples its interval label optimally, and finishes that selection in finite mean time. With output withheld until it finishes, that same selector has excess tending to zero. The timing matters: for the reflected cubic, explicitly defined in the proof, every upfront selector already loses at least $1/8$ bit at the first digit. For general bounded continuous densities, the proof gives an exact criterion for the existence of a streamed optimal selector that eventually copies.
+
+Pokhodzeĭ [studied this type of interval mixture in 1984](https://www.mathnet.ru/php/archive.phtml?jrnid=znsl&option_lang=rus&paperid=4790&wshow=paper). He proved an $n+O(1)$ cost for bounded continuous decreasing densities and asked about arbitrarily small excess over the optimal generator. Here the two timing conventions and the choice of finite versus asymptotic precision are explicit; the original short question does not distinguish them. See [the prior-work comparison](SOURCES.md). The older mixture idea and the unrestricted Knuth–Yao optimal sampler are not claimed as new.
+
+**Evidence.** [Exact finite checks](check.py) can be run with `python3 -O check.py`; compare [recorded output](CHECKS.txt). The infinite-dimensional assertions rest on the proofs, not these checks. The three independent internal reviews pin the [prefix criterion](REVIEW.md), [obstructions](OBSTRUCTION-REVIEW.md), and [minimax upper bound](TWO-REVIEW.md). Run `sha256sum -c SHA256SUMS` to check the files.
