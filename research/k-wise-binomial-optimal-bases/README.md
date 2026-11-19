@@ -1,0 +1,16 @@
+# Where optimal count distributions move under k-wise independence
+
+**Yongxian Zhang.** AI-assisted research note. The four proofs underwent independent internal AI review, not external peer review. No worldwide priority guarantee.
+
+Among n Bernoulli variables of common mean p, suppose every group of at most k is independent. A linear program maximizes the probability that all n equal one. For even k its optimizing count distribution uses a distinguished site n and a set of adjacent integer pairs. Berend, Ernst, Kontorovich and Kumar asked which sets arise, how they change with p, and how far apart their sites can be.
+
+* **Phase order.** For each candidate support basis, the feasible parameters inside 0<p<1 form one interval, possibly empty or a single point. Across consecutive positive-length phases, each ordered pair start stays put or rises by exactly one. This gives the chronological ordering, its indexed reflection, and an unconditional phase-count upper bound. The literal feasibility sets including p=0 and 1 need not be intervals: they can also contain isolated endpoints. [Proof and endpoint example](PROOF.md).
+* **Exact four-wise spread.** We characterize all bases that are feasible on a positive-length interval. For n≥6 the greatest distance between their nondistinguished sites is exactly ⌊√(n−2)⌋+2, as predicted by Conjecture 5.13. [Four-wise phase test](FOUR.md).
+* **Higher fixed orders.** For fixed even k≥4 the maximal spread is h√(n−1)+Oₖ(1), where h is the largest zero of the probabilists' Hermite polynomial of degree k/2. The proof locates every pair to bounded lattice error; it does not prove monotonicity in n for k≥6. [Location theorem](SPREAD.md).
+* **Exceptional points.** If two or more sites depart simultaneously, the parameter is rational for k=4 and k=6. More generally, if r old masses vanish, the algebraic degree is at most ⌊(k−r)/r⌋ and is either one or an odd number at least three. This proves cases, not the full generality, of Conjecture 5.9. [Arithmetic proof](RATIONAL.md).
+
+The original [journal article](https://link.springer.com/article/10.1007/s10959-026-01487-4) and [Hermann's September 2026 reflection theorem](https://arxiv.org/abs/2609.25595) are central inputs. In particular, interior sign reflection, uniqueness of the optimal count law, and exceptional-point reflection (Conjecture 5.11) are **prior results**. Previous moment work already gives methods to find an optimal four-wise support at a fixed p. The note does not settle every support-transition conjecture or give an exact unrestricted formula for the optimal probability.
+
+[Sources and theorem-by-theorem comparisons](SOURCES.md) · [Internal review of the main results](REVIEW.md) · [Internal review of exceptional-point arithmetic](RATIONAL-REVIEW.md).
+
+**Replay:** `sha256sum -c SHA256SUMS` and `python3 -I -B -O verify.py` (standard library only); compare with [recorded output](CHECKS.txt). The checks use exact integer binomial sums. They include 728 auxiliary comparisons of a four-wise selector against all dual candidates, solely as a consistency check, not a priority claim. The unbounded-parameter and arithmetic conclusions rest on their proofs, not finite sampling.
