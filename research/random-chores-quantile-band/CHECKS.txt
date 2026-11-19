@@ -1,0 +1,25 @@
+== verify.py ==
+32768 marked 3×6 arrays with a cheap diagonal in A; 8088 with vertex-disjoint four-cycles; 2772 bad arcs counted on these.
+196608 possible one-singleton/two-pair choices checked; all 3888 passing safe-singleton and pair pruning were independently EF.
+== linear_checks.py ==
+exact union-bound base majorant: 129164765370544816128/672749994932560009201 <1/2; d=24, L=1733, denominator 3462.
+118800 admissible two-distinct-neighbor deletions; max loss three attained 43200 times.
+357 exact rectangular-demand probabilities checked after arbitrary destination restrictions.
+247 capped/uncapped tiny assignment equalities.
+== dichotomy_checks.py ==
+120 power-law quantile ratios: F(x)=x^s gives exactly 2^s on this entire test grid.
+200 nondoubling examples on one fixed law: exact m*u=2^(-j-1), m*v=2^j.
+60 positive-lower-endpoint edge cases: v=1, while m*u vanishes.
+== linear_independent.py ==
+rectangular injection exact probabilities (both orientations): 768 multilayer demand profiles: 162
+endpoint collision equivalences: 4096
+admissible local multiplicity-loss cases: 621
+rigorous upper bound on worst union-bound base: 129164765370544816128/672749994932560009201
+large-Hall complementarities, all tested n,k,s: 8555
+PASS
+== dichotomy_independent.py ==
+flattened continuous CDF: generalized quantile identities: 4950
+rapid-tail exact certificates: 192 floor/density strict-range certificates: 180
+positive lower-endpoint quantile examples: 48
+finite-depth no-fixed-point strictness checked
+PASS
