@@ -1,0 +1,9 @@
+# The stable inversion sequence of 1243-avoiding permutations
+
+How many permutations of a very long list avoid the classical pattern 1243 and have exactly $k$ inversions? The number eventually stops changing for each fixed $k$. Equation (1) of the [proof](LIMIT1243.md) gives an explicit positive, coefficient-finite series for all the stabilized answers. This is [Problem 8.3 in the November version of Claesson–Linusson–Úlfarsson–Verkama](https://arxiv.org/html/2604.01143v2#S8).
+
+To compute a coefficient, the summands use two finite subsets specifying the two decreasing lists of boundary entries, nonnegative row gaps, and geometric-series factors for the column gaps. There is no 1243-avoidance test in this expression. Each coefficient needs only finitely many boundaries of size $O(\sqrt{k}+1)$, and the complete series is analytic for $|q|<1$. Beginning at $k=10$, the next eight terms after the ten given in the question are 511, 810, 1265, 1946, 2956, 4437, 6592, 9699.
+
+The fixed lower-rank entries and smallest-eligible-value filling are classical (West). The additional step is to parameterize every admissible pair of gaps in the stable model and mark its exact inversion cost, including interactions between the two gap directions. [Sources and comparisons](SOURCES.md) also credit Verkama's prior decomposition and identify the distinct known answer when both 1324 **and** 1243 are forbidden. This is not a result on the open coefficientwise inversion-monotonicity conjecture for 1324.
+
+[Separate internal proof review](REVIEW.md). [Standard-library Python checker](check1243.py) and [expected output](CHECKS.txt): run `python3 -O check1243.py` and `sha256sum -c SHA256SUMS`. It uses independent maximum insertion and literal four-index pattern tests in addition to the series. AI-assisted mathematical work with internal AI review, not external peer review; no priority guarantee.
