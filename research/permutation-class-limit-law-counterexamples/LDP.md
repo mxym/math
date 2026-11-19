@@ -1,0 +1,19 @@
+# Exponential growth and a deterministic limit do not ensure a speed-$n$ permuton LDP
+
+**Theorem.** There exists a proper permutation class $E$ with a finite proper growth rate strictly greater than one, whose uniform permutations converge to the increasing permuton, but whose empirical permutons do not satisfy a speed-$n$ large deviation principle. This is a negative answer to the universality part of Borga–Féray–Winkler §8.3, Problem 6, including when exponential growth is required to have a proper limiting base. It does not identify all speeds or preclude LDPs with a different speed. The class here is not the class $D$ used to answer the logical question.
+
+Retain the Pantone–Vatter class $C$ and constants $L<U$ from the logical note. Let $A=C\cup\bar C$, where $\bar\pi(i)=n+1-\pi(i)$ denotes vertical reflection. Reflection preserves pattern containment and interchanges inversions and noninversions, so $A$ is a class, $|C_n|\le|A_n|\le2|C_n|$, and at least half of $A_n$ has normalized inversion count at least $1/2$ for $n\ge2$. Write $a^+=\limsup |A_n|^{1/n}<\infty$.
+
+**A larger exponential class with uniformly negligible displacement.** Let $H$ consist of the direct sums of arbitrary permutations of sizes at most a fixed integer $m$. In a direct sum each block is placed strictly below and to the left of the next. Patterns preserve this decomposition after deleting empty blocks, so $H$ is a class. The operation of joining a length-$r$ and a length-$s$ permutation by direct sum is injective for prescribed lengths; hence $|H_{r+s}|\ge |H_r||H_s|$. The speed is at most exponential, for there are at most $2^n$ compositions of $n$ and at most $(m!)^n$ choices of block permutations. Fekete's lemma gives a finite limit $h=\lim |H_n|^{1/n}=\sup_n |H_n|^{1/n}$. Since $H_m=S_m$, take $m$ sufficiently large that $(m!)^{1/m}>a^+$. Then $h>a^+$. Each $\pi\in H_n$ satisfies $|i-\pi(i)|<m$ for every $i$.
+
+Take $E=A\cup H$. It has growth $h$ since $|H_n|\le |E_n|\le |H_n|+|A_n|$; this also implies properness. For $\sigma_n$ uniform on $E_n$, $\Pr(\sigma_n\notin H_n)\le |A_n|/|H_n|=O(e^{-cn})$ for some $c>0$. Use the standard empirical permuton $\mu_\pi$ with mass $1/n$ spread uniformly over each selected square of the $n\times n$ grid. All $H_n$ samples then have support within $|x-y|\le (m+1)/n$, and both marginals are uniform. They converge uniformly in weak distance to the diagonal permuton (couple $(X,Y)$ to $(X,X)$). This proves the law of large numbers, even with an exponentially small failure probability for every fixed neighborhood.
+
+**Incompatible deviation bounds.** The map $f(\mu)=d_{21}(\mu)$, the probability that two independent samples are oppositely ordered in their coordinates, is continuous on permuton space: product measures converge weakly and the boundary of the event is included in coordinate ties, of probability zero under uniform marginals. For a length-$n$ permutation with inversion fraction $v=\operatorname{inv}(\pi)/\binom n2$ its empirical permuton has $f(\mu_\pi)=(1-1/n)v+1/(2n)$ by conditioning on the same selected square. In particular at least half the members of $A_n$ satisfy $f\ge1/2$. For all sufficiently large $n$, *no* $H_n$ member has $f>1/4$. Set
+$$F=\{f\ge 1/3\},\qquad V=\{f>1/4\},\qquad F\subset V.$$
+Writing $P_n$ for the law on permutons, the bounds
+$$P_n(F)\ge |A_n|/(2|E_n|),\qquad P_n(V)\le |A_n|/|E_n|$$
+hold for all sufficiently large $n$. Since $|E_n|^{1/n}\to h$, the oscillatory input gives
+$$\limsup n^{-1}\log P_n(F)\ge\log(U/h)>\log(L/h)\ge \liminf n^{-1}\log P_n(V).$$
+A speed-$n$ LDP with any rate $I$ would require the opposite ordering:
+$$\limsup n^{-1}\log P_n(F)\le-\inf_F I\le-\inf_V I\le\liminf n^{-1}\log P_n(V),$$
+using closedness, inclusion and openness respectively. This proves the theorem.
