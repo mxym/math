@@ -1,0 +1,7 @@
+# Internal analytical review: the two exponential tail-ratio benchmarks
+
+PASS for frozen PROOF.md SHA-256 `ed078c85235fb10c64a6df2198fdfa919346ee354ff675f3e3526453370b84fb`. I checked the published question as stated in Steinerberger arXiv:1801.00663 §1.3. This does not concern the already proved §1.2 finite-threshold bound or the possibility of smaller universal linear constants. No external peer review or priority claim.
+
+The displayed survival law has a positive continuous density and support unbounded in the required domain, with all moments. Continuity permits the exact decomposition into the disjoint positive-diagonal event (probability S(t)^2) and its complement inside X+Y≥2t. Under the change x=t+u the product of the two tails divided by S(t)^2 becomes exp(−u²), the odd part of the density coefficient integrates to zero, and the x>2t contribution gives exp(−t²). Alternatively the off-diagonal event is exactly 2∫₀ᵗ(5+t−u)exp(−u²)du after dividing by S(t)^2; this confirms the result independently.
+
+The fourth-degree Taylor bound over [0,t] for t≤1 gives 10−(7/3)t²+t and its maximum is 10+3/28. For t≥1, the dilated integral decreases, giving the strict bound 23/3+√π<29/3. The median equation gives coefficient 10+m with m>3/25, since log 2>2/3. Termwise elementary integrals give the stated mean upper bound 603/3125, making the second coefficient strictly larger than 10+3/28 as well. Thus both proposed benchmarks fail strictly at every positive threshold for the same example. The argument is entirely analytic.
