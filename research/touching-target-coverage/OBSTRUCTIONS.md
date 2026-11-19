@@ -1,0 +1,46 @@
+# Two obstructions at one point of smooth ambient boundary
+
+These are examples for the question in [Penrose–Yang, Remark 2.4](https://arxiv.org/html/2509.19278v2#S2.SS2). Both use ordinary Euclidean distance, a fixed smooth bounded sampling domain $A\subset\mathbb R^3$, and a connected positive-volume compact target $B$ meeting $\partial A$ just at the origin. The random sample is iid uniform; write $\lambda=n/|A|$. Two different choices of $B$ serve two different purposes. No impossibility of nonlinear or geometry-dependent transformations is asserted.
+
+Take $A$ with a flat horizontal floor around $0$. Start with a small solid ball tangent there, otherwise strictly inside $A$. On a small disk about the origin replace its lower graph by $v=g(s)$, $s=|x|$ the horizontal distance to zero, and blend the new and old graphs by a smooth annular cutoff. They are positive away from zero, and sufficiently small there to leave the top of the ball unchanged. This realizes the stated compact connected target with the regularity of $g$ at zero. For small $z$ its sublevel area is exactly $V(z)=\pi[g^{-1}(z)]^2$ for the increasing profiles below. A suitable smooth $A$ is obtained, for example, by replacing the bottom graph of a larger ball by a smooth flat patch with an annular transition.
+
+## No affine limiting type, even for a $C^3$ target and single coverage
+
+Fix a nonzero nonnegative $C^\infty$ bump $\psi$ supported in $(0,1)$, bounded by $1/10$ with $|\psi'|\le1/4$. For large $t$, set
+$$F(t)=4t-\sum_{j\ge1}8^j\psi((t-8^j)/8^j),\qquad g(s)=\exp[-F(\log(1/s))],\quad g(0)=0.$$
+At most one summand is nonzero. We have $3.9t\le F(t)\le4t$, $15/4\le F'(t)\le17/4$, and bounded derivatives to every positive order. Thus $g$ is increasing, and each partial derivative of order $i\le3$ of the radial function away from zero is $O(s^{3.9-i})$ by differentiation, giving a $C^3$ extension. In particular $g(s)\ge s^4$ and $V(z)\le\pi\sqrt z$ near zero.
+
+Let $k=1$, $u=\lambda\omega_3 r^3=\log\lambda+2\log\log\lambda+z$, $t_n(z)=\omega_2\lambda r^2$, and use $\gamma,\Theta$ from [CONTACT.md](CONTACT.md). Then for each fixed $z$,
+$$J_I\longrightarrow a e^{-z},\quad a=c_3|B|>0,\qquad
+ \Theta/\sqrt{t_n(z)}\longrightarrow e^{-z/2}/(2\sqrt{\omega_2}). \tag{1}$$
+The second identity follows directly from $\Theta=\lambda r(u/2)e^{-u/2}$; in the first, $c_3$ is the Penrose–Yang interior constant.
+
+There are two sequences of integer sample sizes with these sublevel profiles for every fixed $w>0$:
+$$
+ \sqrt{t_n(z)}\,V(w/t_n(z))\to
+ \begin{cases}\pi\sqrt w&\text{along sequence I},\\0&\text{along sequence II}.\end{cases}\tag{2}
+$$
+For I, choose $u_j^*=4\cdot8^j$; for II choose $u_j^*=(1+\xi)8^j$ with $\psi(\xi)>0$. Choose $n_j$ as the first sufficiently large $n$ with $t_n(0)\ge\exp F(u_j^*)$. This increasing sequence of $t_n(0)$ has consecutive ratios tending to one; also $t_n(z)/t_n(0)\to1$. The solution $v$ of $F(v)=\log(t_n(z)/w)$ thus has $v=u_j^*+O_w(1)$. The expression on the left in (2) equals $\pi\sqrt w\,\exp[-(4v-F(v))/2]$. That deficit is identically zero near the chosen points in sequence I, and diverges in sequence II.
+
+We explain explicitly why the *proof* of the regular-contact formula applies on these two subsequences, without assuming regular variation here. Use the reference area $D_n=t_n(z)^{-1/2}$ in place of $F(1/t)$ in the collar estimates of CONTACT (where that letter $F$ referred to sublevel area). The required uniform estimates hold since $V(L/t)\le C\sqrt L\,D_n$ for small $L/t$ and, after increasing $C$, for all $L/t>0$ by bounded total area. The product $\Theta D_n$ is bounded by (1). The relative areas of every shell $(M-o(1))/t<g<(M+o(1))/t$ are $o(D_n)$ by (2), bracketing with $M\pm\epsilon$, since both limit profiles are continuous on $(0,\infty)$. The rare-cell requirement $\ell^m\Theta=o(1)$ for $\ell=r^{3/4}$ follows from (1). All chart estimates in CONTACT use only bounded second derivatives, including $|\nabla g|\le C\sqrt g$. The exponentially damped tail bound follows by integration from the same $\sqrt L$ envelope; the deep/middle, core, seam, and independence estimates of CONTACT therefore apply unchanged, as does de-Poissonization by $1\pm n^{-1/3}$ intensity changes (these preserve (1),(2)). Finally layer cake and (2) give $\int e^{-tg}dS/D_n\to\pi\Gamma(3/2)$ on I and zero on II. The two CDFs for $\lambda\omega_3 R_{n,1}^3-\log\lambda-2\log\log\lambda$ are consequently
+$$ e^{-a e^{-z}-b e^{-z/2}}\quad \text{and}\quad e^{-a e^{-z}},
+ \qquad b=\gamma\pi\Gamma(3/2)/(2\sqrt{\omega_2})>0. $$
+They are not related by any positive affine change of variable: the logarithm of the negative log CDF is affine for the second, strictly convex for the first. Hence **no deterministic positive affine rescaling and centering of $\lambda\omega_3R_{n,1}^3$ converges in law along the full sequence to any nondegenerate law**. Indeed along either subsequence, convergence to a continuous strictly increasing CDF of the displayed types plus convergence under a different normalization to a nondegenerate law forces the ratios of scales to stay bounded away from zero and infinity and the relative shifts bounded. This follows by tightness and by choosing two separated quantiles of the nondegenerate limit at continuity levels. Subsequential limits of the affine parameters then give an affine image of that type, which cannot be common to both. This obstruction is not a claim that even a nonlinear geometry-dependent normalization is impossible.
+
+## Even the first-order coefficient can oscillate almost surely
+
+For a different $C^2$ target, use the same graph with $F(t)=\int_0^t b(w)dw$, where $3\le b\le8$ is smooth with bounded first derivative. Take $t_1=10,\ t_{j+1}=t_j^2$ and let $b$ equal $3$ and $8$ alternately on each $[t_j+1,t_{j+1}-1]$, with fixed smooth transitions. At $v_j=t_{j+1}/2$, $F(v_j)/v_j$ tends to $3$ and $8$ on the respective subsequences because $t_j/t_{j+1}\to0$. Bounds on $b,b'$ and $F(t)\ge3t$ give derivative bounds $O(s^{3-i})$ through $i=2$, hence $g$ is $C^2$ at $0$. Let $L(z)=g^{-1}(z)$; $L(z)\le z^{1/8}$ at small $z$.
+
+For **every fixed** $k\ge1$ we claim
+$$ \liminf_{n\to\infty}\frac{\lambda\omega_3 R_{n,k}^3}{\log n}=1,\qquad
+ \limsup_{n\to\infty}\frac{\lambda\omega_3 R_{n,k}^3}{\log n}=\frac76
+ \quad\text{almost surely}. \tag{3}$$
+Write $r_n(c)=(c\log n/(\lambda\omega_3))^{1/3}$ for a fixed $c>0$. Pick sparse $n_j$ so that $r_{n_j}(1)=(1+o(1))e^{-F(v_j)}$, possible by monotonicity and consecutive ratios of $r_n(1)$. Along a subsequence $F(v_j)/v_j\to h\in\{3,8\}$, for any fixed positive $w,c$ we have
+$$\log[(L(wr_n(c))/r_n(c))^2]/\log n\to (2/3)(1-1/h).\tag{4}$$
+Indeed $F^{-1}(\log(1/(w r_n(c))))=v_j+O_{c,w}(1)$ by $F'\ge3$, and $\log n_j\sim3F(v_j)$. For all $n$ the limsup in (4) is at most $7/12$ by the pointwise power bound on $L$.
+
+For an upper estimate, cover the part of $B$ of depth $\ge r=r_n(c)$ by an $\epsilon r$-net of $O_\epsilon(r^{-3})$ points within this part. Its shrunken balls have Poisson mean $(1-\epsilon)^3 c\log n$. At depths $\le r$ the net has $O_\epsilon((1+L(2r)/r)^2)$ centers: horizontal coordinates there range over the radius-$L(r)$ disk, the vertical thickness is $r$, and all other parts of the target stay away from the floor. Half-balls give shrunken mean at least $(1-\epsilon)^3 c(\log n)/2$. A union bound for fewer than $k$ neighbors costs only a fixed polylog factor in addition to the exponential probability. Thus for each $c>7/6$ the probability $R_{n,k}>r_n(c)$ is $O(n^{-\eta_c})$ over all $n$ by (4)'s uniform limsup bound, choosing small $\epsilon$. Along the $h=3$ sequence the same is true for every $c>1$ since there the shallow exponent in (4) is $4/9<1/2$.
+
+For $c<1$, pack $\Omega(r^{-3})$ disjoint $r$-balls in a fixed interior ball of $B$; the Poisson probability none is empty is at most $\exp(-n^{\eta_c})$ for large $n$. For $c<7/6$ along the $h=8$ sequence, take at least a constant times $(L(\delta r)/r)^2$ centers on the lower graph at height $\le\delta r$, with horizontal separation $3r$. Their $r$-balls have disjoint sampling neighborhoods and mean at most $c(1/2+C\delta)\log n$, by comparison to a horizontal half-space. Choose $\delta>0$ small enough that $c(1/2+C\delta)<7/12$. By (4) at least one ball is empty except with probability $\le\exp(-n^{\eta_c})$. The estimates transfer to binomial samples at the same radii by the usual monotone Poisson sandwich with means $n\pm n^{2/3}$, changing exponents by $o(1)$; Poisson tail errors are exponentially small in a power of $n$.
+
+Along the sparse $n_j$ these errors are summable, giving the two required attaining subsequences almost surely, using countably many rational $c$. For the bounds over *all* large $n$, sum the uniform estimates on each geometric grid $\lfloor(1+\epsilon)^j\rfloor$ and interpolate by monotonicity of $R_{n,k}$; the change in $n/\log n$ is at most $1+\epsilon+o(1)$. Let $\epsilon\downarrow0$. This proves (3), without assuming monotonicity of the normalized quantity. One may intersect over all fixed integer $k$. Both examples have smooth ambient sampling boundary; the first has $C^3$ target and the second $C^2$. Neither claims a $C^\infty$ example.
