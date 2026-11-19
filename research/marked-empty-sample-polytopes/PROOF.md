@@ -1,0 +1,52 @@
+# Joint extreme empty-polytope processes and the section law of the largest simplex
+
+Let $K$ be a fixed full-dimensional compact convex body in $\mathbb R^d$, $d\ge2$, and let $n$ points be independent uniform points of $K$. For each $k$ in a fixed finite set of integers $k\ge d+1$, each empty sample polytope with exactly $k$ sample vertices contributes a point at
+$$
+ x=n\,V/|K|-d\log n-(k-d-1)\log\log n
+$$
+with mark its unordered set of $k$ vertices (regarded as an element of the compact symmetric product $K^k/\mathfrak S_k$, retaining multiplicities at limits). Here $V$ denotes its volume; emptiness excludes any further sample in its interior. These processes converge jointly, vaguely, to independent Poisson processes, one per $k$, with intensity
+$$
+ A_k e^{-x}\,dx\,\nu_k(dM),\qquad
+ A_k=c_{d,k,K}\,d^{k-d-1}/\Gamma(k-d).
+$$
+Here $c_{d,k,K}$ is the known limiting mean count of all $k$-holes divided by $n^d$. The mark laws $\nu_k$ below are supported on coplanar configurations; the coordinates in the flat section need not be in convex position there. The prior single-threshold, single-$k$ theorem and all technical estimates we cite are from [GENERAL.md](../empty-sample-polytopes-gumbel/GENERAL.md) and [EXTREME-COUNTS.md](../empty-sample-polytopes-gumbel/EXTREME-COUNTS.md). They do not assert joint convergence or the extremal mark law.
+
+## Marked first moment
+
+Scale $K$ uniformly to volume one for the proof. In the first-moment paper's largest-projected-base chart write $b=(b_1,\ldots,b_d)$ for the anchor, $B$ for its difference columns, $J$ for its absolute projected determinant, $u$ for the horizontal coefficients of the $m=k-d$ remaining vertices, $\theta\in S^{m-1}$ for the direction of the $m$ rescaled heights, and $U(u,\theta)$ for the normalized hull volume at unit radius. At volume $v$ the remaining vertices are $b_1+B u_i+v\theta_i e_d/(J U)$. Thus as $v\to0$ the unordered physical vertices converge to the mark
+$$
+ M_0=\{b_1,\ldots,b_d,b_1+B u_1,\ldots,b_1+B u_m\}.
+$$
+Define $\nu_k$ by inserting $M_0$ as a mark in the integral for $q(0)$ of EXTREME-COUNTS and dividing by $q(0)$. This is a probability measure: $q(0)=k!c_{d,k,K}/\Gamma(m)>0$. Almost every limiting mark spans a unique hyperplane since $J>0$. The estimate $U\ge1/(d!\sqrt m)$, the bounded $u$ integration region, and the relative-boundary-nullity argument from that paper permit bounded convergence, also with an indicator of any $\nu_k$-continuity set (null exceptional sets need only be removed where the limiting integrand is nonzero). The same is true when imposing the two tuple cutoffs of GENERAL §1: all projected $d$-minors at least $\eta$ and all normalized full simplex volumes at least $\eta$. Their indicators do not depend on $v$. Denote the cut-off mark subprobability by $\nu_{k,\eta}$, normalized by the original $q(0)$, so that $\nu_{k,\eta}\uparrow\nu_k$ as $\eta\downarrow0$. For a bounded height interval $(a,b]$ the marked Poisson and binomial mean counts tend to $A_k(e^{-a}-e^{-b})\nu_{k,\eta}(D)$ for mark continuity sets $D$. This follows from the original substitution $nv=d\log n+(m-1)\log\log n+x$ in the exact marked first-moment integral.
+
+## Descending-order Palm coupling
+
+Take a finite list of bins $(k,(a,b],D)$ disjoint within each $k$, combine duplicates by splitting as needed, impose a common positive $\eta$, and work first in the intensity-$n$ Poisson sample. Discard bins of zero limiting mean by Markov. To compare a sublist of bins select one of *largest vertex count* in it, say $i$ with $k_R$ vertices. Plant a distinguished regular tuple in bin $i$ with the exact density proportional to $e^{-n|R|}$, delete the original process inside $R$, and add its vertices. This is the joint size-biased coupling for that bin by the same tuple identity as in GENERAL §3. Conditional on the planted configuration the original process is unaltered in law before deletion. We claim that, in the entire sublist, the new count vector equals the old one plus $\mathbf e_i$ with probability $1-o(1)$. The error is uniform over all such regular $R$.
+
+Here are the needed changes to the one-count proof. Set $L=\log n$, let $v_k=(dL+(k-d-1)\log L+a_k)/n$ be a bin's lower endpoint, and let $v_*=\max_k(v_k+H_k/n)$ where each $H_k$ is its fixed bin length (take the maximum over the individual bins if there are repeats). All are asymptotic to $dL/n$. For a competitor $S$ of count $l\le k_R$ its shell estimate is $O(v_l^{l-d-1}/n)$ and
+$$
+ n^l e^{-nv_l}v_l^{l-d-1}/n=O(1).
+$$
+The old lost-count bounds for a vertex in $R$ or a fixed planted blocker in $S$ are $O(v_*)$ by GENERAL §3, using this competitor's own shell. Call a meeting competitor near if its base normal differs from that of $R$ by at most $v_*L^3$ in unoriented angle. For far hulls $n|S\cap R|=o(1)$ as before. With no shared label an old blocker must have been removed, giving the factor $1-e^{-n|S\cap R|}=o(1)$ in the tuple integral. With $1\le j\le d$ shared labels, use them as part of the $d$ anchors; the $l-d$ remaining free vertical variables each have range $O(v_l)$ and the number/survival contribution is at most
+$$
+ C n^{l-j} v_l^{\,l-d} e^{-nv_l+o(1)}=O(n^{-j}L).
+$$
+For $d<j<l$ use $d$ planted anchors and all $l-j$ widths $O(v_l)$; the bound $C(nv_l)^{l-j}e^{-nv_l+o(1)}$ tends to zero. If all $l$ labels are planted, $S\subseteq R$ so $n|R\cap S|=n|S|\asymp L$ precludes a far competitor.
+
+A near competitor lies in the common $O(v_*L^3)$ slab. Set $\delta=20(\max k)\log L/L$. If $|S\setminus R|\ge v_*\delta$, the void probability costs at most $L^{-10d\max k}$, enough for the at most $(Cnv_*L^3)^{l-j}$ possible expected free tuples in this slab, including zero free points. Otherwise
+$$
+ |S\triangle R|/|R|
+ \le \{2|S\setminus R|+\big||R|-|S|\big|\}/|R|
+ =O(\log L/L).
+$$
+Here the different centered windows can differ in absolute volume by $O(\log L/n)$, not just $O(1/n)$. For $l=k_R$, GENERAL §2's uniform linear vertex recovery puts all free vertices inside a region of volume $O(v_*\delta^d)$, and $nv_*\delta^d=o(1)$. The fully shared case is exactly $R$, counted once in its own bin because same-count bins are disjoint. For $l<k_R$ the small-symmetric-difference case is impossible uniformly for large $n$: otherwise normalize $R$ by any $d+1$ of its vertices as in GENERAL §2 and extract a subsequence. The cutoffs on full minors give a limiting normalized $R_*$ with exactly $k_R$ vertices, bounded volume and a common inscribed ball. Relative symmetric difference tending to zero gives $S$ a common smaller ball, bounded diameter by its bounded volume, and then a subsequential Hausdorff limit equal to $R_*$. A limit of hulls of at most $l$ points in a common bounded region has at most $l$ vertices, a contradiction. This covers $j=l$ even when $l<k_R$. Mark restrictions can be dropped in all estimates for additional hits. No estimate for a *larger* competing count is required.
+
+If $F_n$ is the PGF of this subvector, the exact Palm identity and the coupling give $\partial_i F_n=\lambda_{i,n}F_n+o(1)$ uniformly on the unit cube (first take positive coordinates); $\lambda_{i,n}$ is its mean. Indeed the derivative's integrand is the monomial at the size-biased vector minus one in coordinate $i$, bounded in $[0,1]$. Integrating the scalar equation from $z_i=1$ gives the factor $\exp(\lambda_i(z_i-1))$ times the PGF of the sublist with $i$ omitted, plus $o(1)$. Recursion now plants a largest-count bin of that smaller sublist. Hence all limiting counts are independent Poisson. The binomial de-Poissonization in GENERAL §4 applies to each bounded bin using its own $v_k,H_k$ and the displayed shell estimate. A finite union bound gives joint agreement with probability $1-o(1)$; first-moment differences remove the cutoffs jointly. Bounded first moments on each compact height window and compactness of the mark spaces give tightness of point measures. Finite disjoint continuity rectangles from a countable determining basis identify every subsequential limit as the stated marked Poisson processes.
+
+## The simplex section mark
+
+For $k=d+1$ there is a direct intrinsic formula. Let $dE$ denote Euclidean-invariant measure on unoriented affine hyperplanes (its normalization cancels). The limiting hyperplane $E$ has density proportional to $|K\cap E|_{d-1}^{d+1}$ with respect to $dE$. Conditional on $E$, the $d+1$ limiting vertices are an **unordered iid uniform sample on $K\cap E$**.
+
+For the computation take the first $d$ labeled vertices as base, not the largest base. Apply the affine Blaschke–Petkantschin formula to them: the Jacobian relative to $dE$ and $d$ section Lebesgue measures is a dimension-dependent constant times their $(d-1)$-simplex volume $\Delta$. Write the last vertex as $y+h u_E$ with $y\in E$ and $u_E$ either chosen unit normal. The simplex volume is $\Delta |h|/d$, so replacing $|h|$ by $v$ contributes $d/\Delta$, canceling the base weight exactly. Sum the two signs. At $v\downarrow0$ the remaining integral, with any bounded continuous test of the unordered mark, is thus proportional to its integral against $dE\,dy_1\cdots dy_{d+1}$ over $(K\cap E)^{d+1}$. Indeed the base is nondegenerate almost everywhere; almost every relevant plane cuts the interior and has relative-boundary-null section; all possible $y$ range in a bounded projection of $K$ onto that plane, the planes meet a fixed ball, and after cancellation the integrand is bounded. Dominated convergence is legitimate even for small $\Delta$. Almost all such limiting tuples span $E$, identifying the intrinsic section mark with the previous chart law. The *unmarked* section integral for the simplex mean is prior work (Reitzner–Temesvari); the use here is the conditional location law for the extremal simplex.
+
+Finally the highest point in each limiting Poisson process is a.s. unique and its mark is independent of its height with law $\nu_k$. Truncate the heights to a compact interval, apply point-process convergence to the top point, and remove the upper endpoint using the one-threshold mean bound and the lower endpoint using the known zero-count limit. Thus the finitely many centered maxima have independent limiting Gumbels and the same conclusions on their marks. With a fixed cap $d+1\le k\le k_0$, the largest hole uses $k_0$ vertices with probability tending to one, because the deterministic centerings differ by diverging multiples of $\log\log n$ whereas the centered maxima are tight. There is no statement for growing or unrestricted vertex counts.
