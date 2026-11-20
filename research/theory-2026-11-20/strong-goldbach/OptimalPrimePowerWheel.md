@@ -1,5 +1,7 @@
 # An optimal-size even residue mask excluding every proper prime power up to N
 
+For stronger local retention at the same optimal size, see the [dense block wheel](OptimalDensePrimePowerWheel.md).
+
 **Status.** An unconditional, effective local result for the positivity-only Li–Liu projection. It gives neither the existence of a prime pair nor a pointwise spectral estimate. The ordinary method bounds or subtracts the higher-prime-power terms (for example in [Goldbach in arithmetic progressions](https://academic.oup.com/qjmath/article/73/4/1375/6576399) and [Li–Liu's November paper](https://mrc.sdu.edu.cn/english/info/1018/1514.htm)); the construction below instead retains a genuinely prime-only von Mangoldt test at a compatible wheel, with optimal order of the wheel size.
 
 For all sufficiently large even N, write L=log N. There is a squarefree positive modulus W and a 0–1 function M modulo W with the following properties.
