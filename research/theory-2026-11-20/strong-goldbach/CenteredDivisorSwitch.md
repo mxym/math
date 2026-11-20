@@ -74,3 +74,5 @@ For N−n≥N^((1+θ)/2) we have R≥N^((1−θ)/2); Huang–Li Lemma 1 gives th
 ## Remaining barrier
 
 The O(N/B) tail lemma is unconditional for all large even targets; the distribution replacement in §2 and especially §3 is not. Combined with the pointwise squarefree margin, the result quantifies how much room a proof of those remaining errors actually needs. It neither supplies cancellation for the twisted progression discrepancies nor proves an all-even Goldbach theorem.
+
+**Prior work on the moving endpoint.** [Ramón Moya's 14 August 2026 preprint](https://doi.org/10.5281/zenodo.21939906) had already identified the missing moving endpoint in Huang–Li (18), given a finite counterexample to the printed equality, and repaired the argument under the original prefix-uniform hypothesis. The different result here is the centered arithmetic tail estimate, not that correction.
