@@ -50,3 +50,5 @@ In prism language, if all seven triangles through o have twelve prism partners, 
 Companion: [the basic bootstrap percolation argument](Percolation.md); [binary defect equations improve the uniform bound to sixteen generating partners](DefectCode.md).
 
 Latest: [real grid defect vectors rule out zero to five dirty cells per root and give at least 24 generating partners](GridDefectVectors.md).
+
+Related independent argument: [no induced nine-set spans exactly 17 edges](../grid-density-gap/README.md), including cells not at a partner-regular vertex.
