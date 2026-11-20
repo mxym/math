@@ -49,6 +49,7 @@
 | [双边量子态判别的两副本问题](two-copy-collective-ppt/README.md) | 显式双 qutrit 最大纠缠正交基，即使允许对本地副本进行联合处理，两份也不能被 PPT、SEP 或 LOCC 完美判别。PPT 恰需三份；SEP、LOCC 仅证明至少三份。[误差证书](two-copy-collective-ppt/Robustness.md)给出两份的严格误差下界 1/20,000,000。 |
 | [Conway 99 图：排除 1,602 端点](../conway-99-involution/uncovered-squares/three-grid-shell/Theorem.md) | 不假设自同构，排除 1,602 后，由整除性得到至少 1,605 对恰有两条跨边的不相交三角形、至少 210,891 个诱导六环。16 份整数证书排除最后两类壳层；整图存在性仍开放。 |
 | [Conway 99 图：排除完整特征 8-标架](../conway-99-involution/no-characteristic-8-frame/README.md) | 单固定点二阶分支的秩 13 情形排除九类完整特征标架补格。新 24A1 有全量流式重放；不排除无该标架的补格。 |
+| [Conway 99 图：排除两条最短对偶方向](../conway-99-involution/dual-short-directions/README.md) | 单固定点二阶分支的秩 13 情形，排除具有模 7 判别群独立最短对偶方向的 28 类补格。完整正定与奇异搜索均无剩余；不排除整个二阶分支。 |
 | [三能级酉误差基的射影群闭包](qutrit-wild-error-bases/projective-closure/README.md) | 单项式或稠密于 PU(3)；有限群阶恰为正 Eisenstein 范数的 9 倍，并给出显式稠密例。只涉及单 qutrit 的射影门。 |
 | [十一维二元 Sidon 集：最大值 48 与完整分类](binary-sidon-eleven/exact48/classification/Overview.md) | 所有 48 点极值集与 Chen 构造仿射等价；两套精确搜索逐个覆盖 10,746 个低截面锚点和 208 个高截面锚点。二元线性 [47,36,5] 恰有三类、[48,36,6] 恰有一类；线性度达 32 的六变量 APN 函数只有一个 CCZ 类。[47 点稳定性](binary-sidon-eleven/exact48/stability47/README.md)：三类且都唯一延拓至 48 点。 |
 | [Watrous 双量子比特基：LOCC 恰需三份](watrous-four-turns/exact-locc/README.md) | 两份无法由任何有限轮的集体 LOCC 完美判别，允许一个实际无限通信记录也不行；三份足够，而集体 SEP 两份足够。不排除不同协议的渐近无误差极限。 |

@@ -64,3 +64,5 @@ $H$ 的全部保支撑对称构成一个 2 群，包括仅保持无符号数据�
 八维二元空间带有负型二次型。由其全奇异子空间的三维上界可证上述 2 群在七条轴上的作用忠实，故群阶整除 16。[二次型与忠实性证明](binary/quadratic.md)
 
 带符号矩阵 $F=12I-4L-Z^tZ$ 的模 7 秩只能是 11 或 13。选出张成其模 7 行空间的完整轨道行，即可唯一恢复所有其余边的方向。[局部二次型、秩排除与逐行恢复](seven/README.md)
+
+[Two discriminant-independent shortest dual directions](dual-short-directions/README.md): the complete rank-13 local search excludes 28 of the 283 candidate complements, not the full involution branch.
