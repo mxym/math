@@ -1,3 +1,5 @@
+**Stronger numerical bound:** [the order-nine induced-subgraph certificate](../../order-nine-flags/README.md) gives n₃≥1602. The edge-transport method below is kept for its separate structural conclusions.
+
 # Triangle transport defects and an unrestricted bound for Conway's 99-graph
 
 **Theorem.** In any strongly regular graph with parameters (99,14,1,2), at least **864** unordered pairs of disjoint triangles have exactly two cross edges. Thus its number of induced hexagons is at least **210150**, using [Reimbayev's formula](https://arxiv.org/abs/2409.10620) 209286+n₃. Neither the existence nor the nonexistence of the graph follows. No automorphism or coclique hypothesis is used.

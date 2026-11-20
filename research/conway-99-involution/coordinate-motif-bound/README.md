@@ -1,3 +1,5 @@
+**Latest numerical bound:** [the order-nine induced count certificate](../order-nine-flags/README.md) gives n₃≥1602 and at least 210888 induced hexagons.
+
 **Superseded lower bound:** [triangle transport and second-neighborhood cycles](edge-transport/README.md) prove n₃≥864 and at least 210150 induced hexagons. The older 858 proof below is retained for provenance.
 
 # An integral coordinate bound for a six-vertex motif in a hypothetical Conway 99-graph

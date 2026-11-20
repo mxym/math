@@ -47,14 +47,14 @@
 | [Conway 99 图：禁止诱导四维立方体](../conway-99-involution/induced-q4-obstruction/README.md) | 无自同构假设；任何假想图都不含诱导 Q₄。不解决整图存在性。 |
 | [三能级非群型酉误差基的最小投影群](qutrit-wild-error-bases/README.md) | 最小群阶恰为 27，等号有两个局部酉等价类；已发表的一参数族此前给出的 36 阶例不能靠换代表降阶。 |
 | [双边量子态判别的两副本问题](two-copy-collective-ppt/README.md) | 显式双 qutrit 最大纠缠正交基，即使允许对本地副本进行联合处理，两份也不能被 PPT、SEP 或 LOCC 完美判别。PPT 恰需三份；SEP、LOCC 仅证明至少三份。[误差证书](two-copy-collective-ppt/Robustness.md)给出两份的严格误差下界 1/20,000,000。 |
-| [Conway 99 图：全图三角形与诱导六环下界](../conway-99-involution/coordinate-motif-bound/edge-transport/README.md) | 无自同构或余团假设；恰有两条跨边的不相交三角形对至少 864 个，诱导六环至少 210,150 个；每个顶点都排除全极小混合张量。整图仍开放。 |
+| [Conway 99 图：九阶诱导计数下界](../conway-99-involution/order-nine-flags/README.md) | 任意假想图须含至少 1,602 对恰有两条跨边的不相交三角形，以及至少 210,888 个诱导六环。13 项正系数恒等式，标准库精确复核，无自同构假设。整图仍开放。 |
 | [Conway 99 图：排除完整特征 8-标架](../conway-99-involution/no-characteristic-8-frame/README.md) | 单固定点二阶分支的秩 13 情形排除九类完整特征标架补格。新 24A1 有全量流式重放；不排除无该标架的补格。 |
 | [三能级酉误差基的射影群闭包](qutrit-wild-error-bases/projective-closure/README.md) | 单项式或稠密于 PU(3)；有限群阶恰为正 Eisenstein 范数的 9 倍，并给出显式稠密例。只涉及单 qutrit 的射影门。 |
 | [十一维二元 Sidon 集：精确最大值 48](binary-sidon-eleven/exact48/README.md) | 首个原表未定维数，完整排除 49 点并直接验证已知 48 点构造；两套独立精确搜索。十一检验位的二元线性距离 5 码最长 47，六变量 APN 线性度最大 32，十二维 Sidon 仅得上界 84。[早期上界 54](binary-sidon-eleven/README.md)。 |
 | [Watrous 双量子比特基：LOCC 恰需三份](watrous-four-turns/exact-locc/README.md) | 两份无法由任何有限轮的集体 LOCC 完美判别，允许一个实际无限通信记录也不行；三份足够，而集体 SEP 两份足够。不排除不同协议的渐近无误差极限。 |
 | [Conway 99 图：历史 858 端点的秩限制](../conway-99-involution/coordinate-motif-bound/MixedSlices858.md) | 早期条件性归约；新的 864 下界已排除该端点，保留作证明记录。 |
 | [Conway 99 图：能量 10、两个非零轴](../conway-99-involution/energy-ten-two-axes/README.md) | 单固定点二阶分支中，禁止折叠能量恰为 10、恰有两个轴非零的反不变整数特征向量。194 个图表全部精确复核；仓库可直接重放前 156 个，后 38 个的大文件未上传。零轴、四轴及二阶分支仍开放。 |
-| [强哥德巴赫猜想：逐点有符号除数和](strong-goldbach/README.md) | 对每个偶数，无条件把完整对数加权除数余项局限到没有小素因子的补数（截点为任意固定指数 δ<1 的伸展对数），并剔除奇数个素因子的无平方因子合数；剩余偶数因子项仍未控制。另给出平衡区间节省和中心算子均方；不解决猜想。 |
+| [强哥德巴赫猜想：逐点有符号除数和](strong-goldbach/README.md) | 无条件把完整余项局限到固定幂次以上的素因子且偶数个素因子的无平方因子补数，代价是可随幂次缩小的相对误差；余项下界仍未知。更低扭曲分布层级的充分性仍有条件。不解决猜想。 |
 | [Conway 99 图：排除配对规则顶点](../conway-99-involution/partner-regular-kg/README.md) | 任一顶点的七条轴不可能两两全部延伸成 21 个三阶车图。二元辛空间将分类压到 128 个精确情形，再由 Petersen 图排除。实数网格缺陷向量排除少于六个缺陷格，每个顶点至少有 24 个二阈值渗流搭档。无自同构假设；整图仍开放。 |
 | [Conway 99 图：九顶点诱导子图的密度缺口](../conway-99-involution/grid-density-gap/README.md) | 任意九顶点，若诱导超过 16 条边则必是 18 边的三阶车图；不存在恰有 17 条边的情形。纯解析，无自同构假设。 |
 | [16 物理比特编码 5 逻辑比特的最优稳定子码距离](stabilizer-16-5/README.md) | 二元稳定子码的最优距离恰为 4；已构造距离 4，并排除所有距离 ≥5 的纯和非纯稳定子码。使用两套 Sidon 截面枚举和五份精确整数矛盾证书；不排除非加性量子码。 |
