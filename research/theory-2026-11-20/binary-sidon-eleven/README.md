@@ -54,3 +54,5 @@ Run `./replay.sh` with a C++17 compiler and Python 3.10+ (standard library only)
 This is a finite-computation upper bound, not a determination of the maximum. No claim of peer review is made.
 
 [Download the exact replay bundle](Sidon11_54_v1.zip) (SHA-256 `c55ab3055766f5a9f134152d01a6f0d5a95df2224ee1697cccf6e0fac7571cc6`) or read the [completed replay transcript](replay.log). Verify `sha256sum -c SHA256SUMS` after extraction before running `./replay.sh`.
+
+**Superseded for dimension eleven:** the [complete exact proof](exact48/README.md) gives maximum 48. This directory preserves the earlier intermediate upper bound 54.
