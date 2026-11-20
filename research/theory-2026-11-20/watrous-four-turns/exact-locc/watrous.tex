@@ -1,0 +1,132 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=.86in]{geometry}\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=black]{hyperref}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\Tr}{\operatorname{Tr}}\newcommand{\Ree}{\operatorname{Re}}\newcommand{\C}{\mathbb C}
+\newcommand{\ket}[1]{|#1\rangle}\newcommand{\bra}[1]{\langle#1|}\newcommand{\Id}{\mathbb I}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\title{The Watrous two-qubit basis requires three copies for exact collective LOCC discrimination}
+\author{Research manuscript}\date{20 November 2026}
+\begin{document}\maketitle
+\begin{abstract}\noindent
+An orthogonal two-qubit basis proposed by Watrous can be distinguished by a collective separable measurement on two identical copies. We prove that no collective LOCC protocol can do so. A trace-zero functional exposes a common face of the cone of admissible terminal product detectors. On that face, three bilinear identities propagate a local invariant through every communication round. It contradicts the outcome that must identify the product state. The minimum copy numbers are therefore three for exact LOCC and two for separable measurements. We distinguish an actual protocol with an infinite transcript from a vanishing-error limit of unrelated protocols.
+\end{abstract}
+\section{Model and the product branch}
+Let $\omega=e^{2\pi i/3}$. The unknown single-copy state is one of
+$3^{-1/2}(\ket{00}+z\ket{01}+z^2\ket{10})$, $z=1,\omega,\omega^2$, and $\ket{11}$.
+The parties receive two copies with the \emph{same} label and may operate jointly on the two qubits in each laboratory. No preshared entanglement is allowed. Locally index $e_0=\ket{00},e_1=\ket{01},e_2=\ket{10},e_3=\ket{11}$ and write $s=e_1+e_2$.
+In Alice--Bob tensor order, omitting the common $1/3$, the three entangled inputs are
+\[
+ \Psi_z=u_0+zu_1+z^2u_2,\qquad
+ u_0=e_0e_0+e_1e_2+e_2e_1,\quad
+ u_1=e_3e_0+e_0s,\quad u_2=se_0+e_0e_3.
+\]
+The fourth input is $P=e_3e_3$. Bandyopadhyay~\cite{B}, Eqs.~(4)--(6), credits this basis to Watrous, gives a perfect two-copy collective separable measurement, and asks whether two copies suffice for LOCC.
+\begin{theorem}\label{thm}
+No exact finite-round LOCC protocol distinguishes these four two-copy inputs. Thus the LOCC copy number is three, whereas the separable copy number is two.
+\end{theorem}
+Three copies suffice since a single copy can rule out one of any chosen pair by Walgate et al.~\cite{W}. Iterate this elimination until two candidates remain. A perfect measurement on the full single-copy orthonormal basis must use its basis projectors as the coarse-grained effects, and three are not separable.
+
+On an LOCC transcript the cumulative effect on the input is a product $A\otimes B$ of positive local effects. A move by just one party refines only that factor. We can retain local environments or refine Kraus outcomes; either preserves a perfect protocol. A node effect is the sum of its descendant terminal effects. At every node, inner products between distinct candidates after filtering by $A^{1/2}\otimes B^{1/2}$ vanish: each descendant positive effect annihilates all candidates except possibly its assigned label. All identities below are homogeneous in either factor and hence independent of the choice of scaling in the product representation.
+
+On any path where $P$ still has positive probability, $A_{33}B_{33}>0$, and
+\begin{equation} A_{30}=B_{30}=0.\label{corner}\end{equation}
+Indeed both entries are initially zero. Orthogonality of $P$ to $u_1,u_2$ after filtering follows by Fourier inversion. It gives
+$A_{33}B_{30}+A_{30}B_{3s}=A_{3s}B_{30}+A_{30}B_{33}=0$.
+Thus a move changing only one party preserves~\eqref{corner}.
+
+At any terminal outcome we may append Alice's and then Bob's rank-one refinements (in an eigenbasis of the respective effects, pulled back through the retained local isometries). The refined leaves still annihilate all wrong labels. If one detects $P$ with positive probability,\eqref{corner} gives $r_0=b_0=0$ in its product ket $r\otimes b$, since $r_3 b_3\ne 0$. A leaf annihilating $P$ has $r_3 b_3=0$; if dark on every input it may be treated as an entangled-label leaf. Thus the following families exhaust the leaves:
+\begin{itemize}
+\item An entangled-label leaf annihilates $P$ and the other two entangled labels.
+\item A positive $P$-label leaf has $r_0=b_0=0$ and annihilates all three entangled labels.
+\end{itemize}
+The second restriction uses the local tree, not separability alone.
+
+\section{An exact supporting functional}
+Use sum and difference coordinates on the local product ket:
+\[
+ (a,p,h,t)=(r_0,r_1+r_2,r_1-r_2,r_3),\qquad
+ (b,q,k,v)=(b_0,b_1+b_2,b_1-b_2,b_3).
+\]
+Here $b$ alone denotes Bob's scalar corner coordinate. Define $c=ab$, $m=pq$, $n=hk$, and set
+\begin{align*}
+ K_0&=-|c|^2+\Ree\big(\bar c(m+n)\big)+\tfrac14|m|^2-\tfrac12\Ree(\bar m n)-\tfrac14|n|^2,\\
+ K_A&=-\tfrac12|a q|^2+\tfrac32|t b|^2-2\Ree(\overline{a q}\,p v)+3\Ree(\overline{a q}\,t b),\\
+ H&=K_0+K_A+K_B ,
+\end{align*}
+where $K_B$ is $K_A$ with the two parties interchanged. Every monomial has one coordinate and one conjugate coordinate per party. Thus $H$ denotes both this form and its real linear functional on Hermitian product effects, extended to their linear span. In the original orthonormal basis, $H(\Id\otimes\Id)=0$: the sum and difference coordinate functionals are orthogonal of squared norm two, the corner functionals are orthogonal unit vectors, and the three individual traces are $-1,1/2,1/2$.
+The form is invariant under swapping parties and under
+\begin{equation}
+  (a,p,h,t)\longmapsto (a,\omega^2p,\omega^2h,\omega t),\qquad
+  (b,q,k,v)\longmapsto (b,\omega q,\omega k,\omega^2 v).
+  \label{rotation}
+\end{equation}
+This local unitary cycles the entangled inputs and fixes $P$ up to phase. A party swap permutes the entangled labels and fixes that with $z=1$.
+
+\begin{lemma}\label{sos}
+$H\le 0$ on all the allowed leaves. On an entangled-label leaf with label $z=1$ and $t=0$, saturation gives
+\begin{equation}
+  a\bar p q=2\bar a p b\quad(a\ne0);\qquad p b=pq=0\quad(a=0).
+  \label{sat}
+\end{equation}
+On a positive $P$-label leaf saturation gives $pq=0$.
+\end{lemma}
+\begin{proof}
+For label $1$, vanishing of the other two Fourier amplitudes is equivalent to
+\begin{equation}
+ ab+(pq-hk)/2=t b+a q=p b+a v .
+ \label{op}
+\end{equation}
+Indeed the three $u_j$ have real coefficient matrices and the other two Fourier labels are conjugate. Since $tv=0$, swap parties if necessary to take $t=0$.
+When $a\ne 0$, rescale the first ket to $a=1$. Then $hk=2b+(p-2)q$ and $v=q-p b$. Substituting these in $K_0+K_A+K_B$ gives the exact factorization
+\begin{equation}
+ H=-\tfrac12|\bar p\, q-2p b|^2.\label{sq}
+\end{equation}
+Rescaling back gives~\eqref{sat}. If $t=a=0$, Eq.~\eqref{op} gives $pb=0$, $m=n$. Direct substitution gives $H=-|m|^2/2$. Finally, on the positive $P$-label leaves, $a=b=0$ and orthogonality to $u_0$ gives $m=n$; here too $H=-|m|^2/2$. This proves the result by the stated symmetries.
+\end{proof}
+All terms in the resolution of $\Id\otimes\Id$ have nonpositive $H$ and they sum to zero. Consequently \emph{every} nonzero leaf used in the resolution saturates $H$. In particular all descendants of each node do so. Integrals in place of sums give the assertion almost everywhere.
+
+\section{Three identities that persist at every node}
+Compress any local effect $A$ to $\widehat A=L A L^*$ with rows $e_0^*,s^*,e_3^*$ of $L$. Write indices $0,1,2$ for this triple, so $\widehat\Id=\operatorname{diag}(1,2,1)$; the middle row is deliberately not normalized. On a rank-one ket use $X=(a,p,t)(a,p,t)^*$ and $Y=(b,q,v)(b,q,v)^*$, treating the triples as columns.
+\begin{lemma}\label{bil}
+Every saturated allowed leaf satisfies these three identities and their party-swapped versions:
+\begin{align}
+ X_{02}Y_{22}&=0,\label{eq1}\\
+ 2X_{02}Y_{10}&=X_{12}Y_{01},\label{eq2}\\
+ X_{11}Y_{11}+4X_{22}Y_{00}+4\Ree(X_{12}Y_{01})&=4X_{11}Y_{00}.\label{eq3}
+\end{align}
+\end{lemma}
+\begin{proof}
+In scalar coordinates the last two equations say
+\[
+ \bar t(2a q\bar b-p b\bar q)=0,\qquad
+ |p\bar q+2t\bar b|^2=4|p b|^2.
+\]
+They and the first equation are invariant as zero relations under~\eqref{rotation}. By party symmetry it is enough to prove both orientations for $z=1$, $t=0$. In the displayed orientation~\eqref{eq1} and~\eqref{eq2} are immediate. For~\eqref{eq3} we need $|p q|=2|p b|$, which follows from~\eqref{sat} whether $a=0$, $p=0$, or both are nonzero.
+The swapped first identity holds as $t=0$. The swapped second is $\bar v(2 b p\bar a-q a\bar p)=0$, from~\eqref{sat} (and automatic if $a=0$). For the swapped third, first normalize $a=1$. Then $v=q-pb$ by~\eqref{op}, and $q\bar p=2p b$ by saturation. Hence $q\bar p+2v=2q$, giving $|q\bar p+2v\bar a|=2|q a|$ after restoring the normalization. If $a=0$ this just says $pq=0$. On a positive $P$-label leaf $a=b=pq=0$, so both orientations of all three equations hold.
+\end{proof}
+Each identity is linear in the \emph{joint} effect: evaluation on a product is bilinear in its two compressed factors. Summing over descendant leaves at any node $A\otimes B$ proves the identities for $X=\widehat A$, $Y=\widehat B$ as well.
+
+Define $\mathcal T$ by $X_{02}=0$, $X_{00}=X_{22}$ and $X_{11}=2X_{22}$ on Hermitian matrices. If $Y\in\mathcal T$ with $Y_{22}>0$, the identities force $X\in\mathcal T$. Indeed~\eqref{eq1} yields $X_{02}=0$;~\eqref{eq2} and its swap give $X_{12}Y_{01}=X_{01}Y_{12}=0$. Now~\eqref{eq3} gives $X_{11}=2X_{22}$, and its swap gives $2X_{00}=X_{11}$. The implication in reverse party order is identical.
+
+At the root both factors compress into $\mathcal T$. Follow any branch which has positive probability on input $P$. The unchanged party retains its compression in $\mathcal T$ with positive $22$ entry, so the moving party does too. This induction applies also to appended refinements. At a rank-one leaf identifying $P$ we would have $|a|^2=|t|^2>0$, whereas $a=0$ on that leaf. At least one such outcome is necessary; this contradiction proves Theorem~\ref{thm}. For continuously many outcomes the reasoning holds almost surely under the transcript law for $P$.
+
+\section{Actual infinite transcripts versus limits of protocols}
+\begin{proposition}
+The same impossibility holds for a single countable sequence of local instruments with a measurable, exactly correct decision on its full (possibly infinite) classical transcript.
+\end{proposition}
+\begin{proof}
+Use as reference $\mu$ the transcript law for input $\Id/16$. Write $M_n$ for the trace-one normalization of the cumulative product effect after $n$ turns, so $M_0=\Id/16$. For continuous outcomes use the density of the prefix POVM with respect to its trace measure. Equivalently $16\Tr(\rho M_n)$ is the prefix likelihood ratio for input density matrix $\rho$. Conditional expectation from a child to its parent recovers the parent's $M_n$, by local normalization (or the likelihood-ratio property). This bounded finite-dimensional matrix martingale therefore converges almost surely to $M_\infty$ and $M_n=\mathbb E_\mu[M_\infty\mid\mathcal F_n]$. Stopping earlier can be represented by padding with identity moves.
+
+The set of trace-one product positives is compact, hence $M_\infty=A\otimes B$ with trace-one local marginals. The full likelihood ratios are $16\Tr(\rho M_\infty)$: they give the correct integrals on all finite-prefix events and hence on the generated sigma-algebra. Exactness of the reported label implies that each limiting effect annihilates all wrong inputs almost surely. Consequently each prefix preserves mutual orthogonality by conditional expectation. Almost surely on the event that $M_\infty$ has positive likelihood for $P$, all finite-prefix likelihoods for $P$ are positive (a zero conditional mean of a nonnegative variable forces it to vanish). Thus~\eqref{corner} holds there at every prefix and passes to the limiting marginals.
+
+We verify admissible rank-one refinements even for these limiting effects. If the $P$ likelihood is zero, any spectral product refinement annihilates $P$ and all wrong labels, so the entangled-label rule applies, allowing dark atoms. If the $P$ likelihood is positive, $A\otimes B$ annihilates all three entangled inputs and $A_{30}=B_{30}=0$. Take any $r\in\operatorname{ran} A$; a positive multiple of $rr^*\otimes B$ is a subeffect and still annihilates them. Its $P,u_2$ matrix element gives $r_3\bar r_0 B_{33}=0$. Hence all such $r$ satisfy $r_0r_3=0$. In fact $A_{00}=0$: a complex subspace contained in the union of the hyperplanes $r_0=0$ and $r_3=0$ is contained in one, and $A_{33}>0$ excludes the second. Symmetrically $B_{00}=0$. All spectral product refinements therefore have zero first corners and are allowed.
+
+Lemma~\ref{sos} now gives $H(M_\infty)\le0$ almost surely. Its mean is $H(M_0)=0$, so it vanishes, as do all the bilinear identities of Lemma~\ref{bil} on $M_\infty$ by spectral refinement. Conditioning these linear identities yields them at every prefix almost surely. Along histories with positive limiting $P$ likelihood, the same $\mathcal T$ induction applies (the unchanged marginal is unchanged up to normalization). The compression conditions are closed and pass to the limiting marginals, forcing $A_{00}=A_{33}>0$, contradicting $A_{00}=0$. Such histories have positive reference measure since the expected $P$ likelihood ratio is one.
+\end{proof}
+This is a statement about an actual exact protocol, not a uniform error bound or an exclusion of a vanishing-error sequence of unrelated finite protocols.
+\begin{thebibliography}{2}
+\bibitem{B} S. Bandyopadhyay, \emph{Perfect discrimination of an orthogonal $2\otimes2$ basis may require collective separable measurements on two copies}, \href{https://arxiv.org/html/2610.16138v2}{arXiv:2610.16138v2}, 7 November 2026.
+\bibitem{W} J. Walgate, A. J. Short, L. Hardy and V. Vedral, \emph{Local distinguishability of multipartite orthogonal quantum states}, Phys. Rev. Lett. \textbf{85}, 4972 (2000), \href{https://doi.org/10.1103/PhysRevLett.85.4972}{doi:10.1103/PhysRevLett.85.4972}.
+\end{thebibliography}
+\end{document}

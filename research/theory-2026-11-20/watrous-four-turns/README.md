@@ -1,3 +1,5 @@
+**Superseded by the [all-round exact LOCC theorem](exact-locc/README.md).** The following is the earlier, bounded-round checkpoint. The stronger theorem does not rule out asymptotic vanishing-error sequences of unrelated protocols.
+
 # Four collective local turns do not discriminate the two-copy Watrous basis
 
 **Main theorem.** The ensemble in [Bandyopadhyay, arXiv:2610.16138v2](https://arxiv.org/abs/2610.16138v2), Eq. (6), cannot be discriminated perfectly by A–B–A–B or B–A–B–A LOCC, even if each local turn acts jointly on both copies. The first operation counts as a turn and the last laboratory makes the decision. **Five or more turns are not excluded.** A collective separable measurement was already explicitly constructed in the cited source. This is not the different two-qutrit instance for which two copies fail even under PPT.
