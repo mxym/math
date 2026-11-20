@@ -76,3 +76,5 @@ Thus each of the 99 columns has squared norm at least 28, the first multiple of 
 49 B_TT = ||P_T||_F² ≥ 99·28 = 2772 > 49·56.
 ```
 As B_TT is a multiple of four, B_TT≥60. Now 84(n₃−693)=tr B≥231·60, so **n₃≥858**. The separately established [six-vertex count relation](https://github.com/YesterdaysLemon/conway-99-research/blob/main/verification/wave23-literature-audit/2026-07-23-wave23-literature-audit.md) gives number of induced six-cycles = 209286+n₃ ≥ **210144**. The graph-specific doubling and coset arguments here do not depend on the earlier integral-tensor rank inequality or on any classification of lattices.
+
+Follow-up: [mixed-slice constraints at the 858 endpoint](MixedSlices858.md) and [exact arithmetic check](check_mixed.py). At least 33 associated integral vertex operators must have rank at most 40 if equality holds. This does not exclude the endpoint.

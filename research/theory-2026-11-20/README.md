@@ -51,3 +51,5 @@
 | [Conway 99 图：排除完整特征 8-标架](../conway-99-involution/no-characteristic-8-frame/README.md) | 单固定点二阶分支的秩 13 情形排除九类完整特征标架补格。新 24A1 有全量流式重放；不排除无该标架的补格。 |
 | [三能级酉误差基的射影群闭包](qutrit-wild-error-bases/projective-closure/README.md) | 单项式或稠密于 PU(3)；有限群阶恰为正 Eisenstein 范数的 9 倍，并给出显式稠密例。只涉及单 qutrit 的射影门。 |
 | [十一维二元 Sidon 集](binary-sidon-eleven/README.md) | 无对称性限制的上界由 58 改为 54；48 点的已知下界不变。自含轨道质量证书与两个精确终端复核，最优值仍开放。 |
+| [Watrous 双量子比特基的两副本 LOCC](watrous-four-turns/README.md) | 两实验室各自可联合处理本地两份，仍排除最多四次交替本地操作的完美判别。五次或更多及不限轮数的情况未解决；该例已有集体 SEP 测量。 |
+| [Conway 99 图：858 端点的秩限制](../conway-99-involution/coordinate-motif-bound/MixedSlices858.md) | 若达到下界 858，至少 33 个顶点对应的混合张量算子秩至多 40。端点和整图仍未排除。 |
