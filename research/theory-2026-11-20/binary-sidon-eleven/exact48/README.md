@@ -79,7 +79,9 @@ This upper bound is attained. Use $\mathbb F_{32}=\mathbb F_2[t]/(t^5+t^2+1)$, a
 $$F(x,y)=\bigl(x^3+y(x^{16}+x),\;y\operatorname{Tr}_{32/2}(x)\bigr).$$
 This is the known Gold extension given by [Beierle and Carlet, immediately following Proposition 1](https://doi.org/10.1007/s10623-022-01111-6). The included `apn.py` constructs its full 64-value table, checks all 63 derivatives, all 2016 unordered graph pair sums and all 4032 correlations with nonzero output component. In particular $L(F)=32$. Thus the **maximum possible six-variable APN linearity is 32**, or equivalently the **minimum possible component nonlinearity is 16**. The example and graph-section identity are established prior tools; the sharp upper bound for unrestricted six-variable APN maps is the consequence here. [Beierle, September 2026, after Theorem 1.1](https://arxiv.org/html/2609.35689v1#S1) explicitly records the prior dimension-six general upper bound 52. The all-dimensions question about a uniform $C<1$ and questions on the existence of APN permutations are not resolved by this argument.
 
-## 6. A dimension-twelve corollary
+## 6. A historical dimension-twelve corollary
+
+The [follow-up](../../binary-sidon-twelve/Overview.md) improves the upper bound below from 84 to 83 without symmetry assumptions.
 
 The dimension-eleven maximum also gives $s(V_{12})\le84$ (not an exact determination in dimension twelve). If $|S|=85$, all hyperplanes have at most 48 points, so all nontrivial Walsh coefficients have modulus at most 11. Translate $S$ to XOR zero, possible because 85 is odd. Every character evaluates to one on an even number of points, so the allowed signed values are $-11,-7,-3,1,5,9$. On these six numbers
 $$P(x)=-(x+11)(x+3)(x-1)(x-9)=-x^4-4x^3+98x^2+204x-297$$

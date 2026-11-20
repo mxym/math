@@ -50,7 +50,7 @@
 | [Conway 99 图：九阶诱导计数下界](../conway-99-involution/order-nine-flags/README.md) | 任意假想图须含至少 1,602 对恰有两条跨边的不相交三角形，以及至少 210,888 个诱导六环。13 项正系数恒等式，标准库精确复核，无自同构假设。整图仍开放。 |
 | [Conway 99 图：排除完整特征 8-标架](../conway-99-involution/no-characteristic-8-frame/README.md) | 单固定点二阶分支的秩 13 情形排除九类完整特征标架补格。新 24A1 有全量流式重放；不排除无该标架的补格。 |
 | [三能级酉误差基的射影群闭包](qutrit-wild-error-bases/projective-closure/README.md) | 单项式或稠密于 PU(3)；有限群阶恰为正 Eisenstein 范数的 9 倍，并给出显式稠密例。只涉及单 qutrit 的射影门。 |
-| [十一维二元 Sidon 集：精确最大值 48](binary-sidon-eleven/exact48/README.md) | 首个原表未定维数，完整排除 49 点并直接验证已知 48 点构造；两套独立精确搜索。十一检验位的二元线性距离 5 码最长 47，六变量 APN 线性度最大 32，十二维 Sidon 仅得上界 84。[早期上界 54](binary-sidon-eleven/README.md)。 |
+| [十一维二元 Sidon 集：精确最大值 48](binary-sidon-eleven/exact48/README.md) | 首个原表未定维数，完整排除 49 点并直接验证已知 48 点构造；两套独立精确搜索。十一检验位的二元线性距离 5 码最长 47，六变量 APN 线性度最大 32，十二维 Sidon 先得上界 84，后续得到 83。[早期上界 54](binary-sidon-eleven/README.md)。 |
 | [Watrous 双量子比特基：LOCC 恰需三份](watrous-four-turns/exact-locc/README.md) | 两份无法由任何有限轮的集体 LOCC 完美判别，允许一个实际无限通信记录也不行；三份足够，而集体 SEP 两份足够。不排除不同协议的渐近无误差极限。 |
 | [Conway 99 图：历史 858 端点的秩限制](../conway-99-involution/coordinate-motif-bound/MixedSlices858.md) | 早期条件性归约；新的 864 下界已排除该端点，保留作证明记录。 |
 | [Conway 99 图：能量 10、两个非零轴](../conway-99-involution/energy-ten-two-axes/README.md) | 单固定点二阶分支中，禁止折叠能量恰为 10、恰有两个轴非零的反不变整数特征向量。194 个图表全部精确复核；仓库可直接重放前 156 个，后 38 个的大文件未上传。零轴、四轴及二阶分支仍开放。 |
@@ -59,3 +59,4 @@
 | [Conway 99 图：九顶点诱导子图的密度缺口](../conway-99-involution/grid-density-gap/README.md) | 任意九顶点，若诱导超过 16 条边则必是 18 边的三阶车图；不存在恰有 17 条边的情形。纯解析，无自同构假设。 |
 | [16 物理比特编码 5 逻辑比特的最优稳定子码距离](stabilizer-16-5/README.md) | 二元稳定子码的最优距离恰为 4；已构造距离 4，并排除所有距离 ≥5 的纯和非纯稳定子码。使用两套 Sidon 截面枚举和五份精确整数矛盾证书；不排除非加性量子码。 |
 | [PG(5,4) 四一般集：精确最大值与分类](pg54-exact21/Overview.md) | 精确最大值 21，全部最优集恰有两个射影等价类；等价地，四元线性 [22,16] 码最佳距离为 4。两套独立的穷举均逐一完成 327 个分支。不决定十二维二元 Sidon 集最大值。 |
+| [十二维二元 Sidon 集：上界 83](binary-sidon-twelve/Overview.md) | 排除所有大小为 84 的集，无对称性假设。69 份整数证书和 66 点正对照可直接复核。现有范围 66–83，精确最大值仍开放。 |
