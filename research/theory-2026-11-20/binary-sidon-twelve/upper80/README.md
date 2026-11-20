@@ -80,3 +80,5 @@ The file `quarter/README.md` explains only the analytic reduction component and 
 [Frozen replay archive](Sidon12_no81_upper80_v1.zip), SHA-256 `37080023c020f2be050b5d376327f0a7a53b2d6bb4d8289e47cb1baf76708e1f`.
 
 [Full replay transcript](ReplayFull.txt): the clean extraction was completed after a workspace restart by rechecking saved exact outputs and running the remaining jobs. Both generators, both raw joins and both representative endpoints passed. The frozen archive is unchanged.
+
+[Subsequent upper-79 proof](../upper79/README.md) excludes size 80 as well. The frozen upper-80 archive is unchanged.
