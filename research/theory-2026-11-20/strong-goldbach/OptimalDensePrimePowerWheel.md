@@ -7,7 +7,7 @@ Fix any δ in (0,1) and ε>0. For every sufficiently large even N, put L=log N. 
 - log W ≍_{δ,ε} √L; M is even, is supported on units, and excludes every actual proper prime power p^j≤N.
 - Write B_W(N) for the number of residues a mod W with both a,N−a units. Then the mask retains at least (1−δ)B_W(N) choices, uniformly in N, including targets divisible by one or more of the test primes.
 - The multiplicative Fourier expansion M=Σ_ψ c_ψψ involves only even Dirichlet characters, with Σ|c_ψ|≤exp(ε√L) for all sufficiently large N.
-- Conversely any nonempty periodic unit mask rejecting all proper prime powers ≤N must have log W≫√L, regardless of its target dependence, parity or retained mass. This lower bound assumes exclusion on all of [1,N]; it does not apply as stated to a fixed central window alone.
+- Conversely any nonempty periodic unit mask rejecting all proper prime powers ≤N must have log W≫√L, regardless of its target dependence, parity or retained mass. This proof assumes exclusion on all of [1,N]. See the [central-window addendum](CentralWindowWheelObstruction.md) for the matching lower bound even when the mask is required to work only in one central interval of length at least `N exp(−D sqrt(log N))`.
 
 There is also an optional signed lower-count variant using only O(√L/log L) total one-factor Fourier cost, with an explicit finite high-power correction (§5).
 
