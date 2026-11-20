@@ -1,0 +1,116 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,amsthm,microtype,booktabs}
+\usepackage[margin=.86in]{geometry}\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\C}{\mathbb C}\newcommand{\I}{\mathbb I}\newcommand{\ket}[1]{|#1\rangle}\newcommand{\bra}[1]{\langle #1|}
+\DeclareMathOperator{\Tr}{Tr}\DeclareMathOperator{\Sym}{Sym}
+\title{Two copies do not suffice for bipartite PPT discrimination}
+\author{Research manuscript}\date{20 November 2026}
+\begin{document}\maketitle
+\begin{abstract}\noindent We exhibit an orthonormal basis of nine maximally entangled two-qutrit pure states for which two identical copies cannot be perfectly distinguished by any collective positive-partial-transpose (PPT) measurement. This excludes separable measurements and LOCC, even with unrestricted coherent local processing of the copies. At the critical maximally entangled trace bound, the partial transpose of each measurement effect, in its target's unitary frame, must be supported on the symmetric square. An exact reshuffling identity transfers the other labels into kernel constraints and turns completeness into a local copy-swap constraint. For one target these conditions contradict an explicit positive definite quartic certificate. The check uses 19 integer coefficients and Hermitian matrices of order at most three over the Eisenstein integers. By a known general upper bound, three copies suffice for PPT, giving exact PPT copy complexity three.
+\end{abstract}
+
+\section{The states and the distinction between the models}
+Write $\omega=e^{2\pi i/3}$, $\eta=e^{2\pi i/7}$, $Z=\operatorname{diag}(1,\omega,\omega^2)$, $D=\operatorname{diag}(\eta,\eta^2,\eta^4)$, and $J$ for the all-ones $3\times3$ matrix. Put
+\[
+ u=\frac{-13+3i\sqrt3}{14},\qquad H=I+\frac{u-1}{3}J,\qquad
+ B=HZ^2,\qquad B_j=D^j B D^{-j}\quad (0\le j<7).
+\]
+For $U\in\mathcal S=\{I,Z,B_0,\ldots,B_6\}$ set $\ket{\Phi_U}=3^{-1/2}\sum_{r=0}^2\ket r_A\otimes U\ket r_B$.
+\begin{theorem}\label{main}The vectors $\{\ket{\Phi_U}:U\in\mathcal S\}$ form an orthonormal maximally entangled basis of $\C^3\otimes\C^3$. No PPT POVM across $A_1A_2:B_1B_2$ perfectly distinguishes the vectors $\ket{\Phi_U}^{\otimes2}$. Hence neither separable measurements nor collective LOCC, even in its closure, suffice.
+\end{theorem}
+Here the unknown classical label is the same on both copies. There is no extra shared entangled resource. PPT means that every POVM effect and its partial transpose on the \emph{whole} Alice system are positive semidefinite. The measurement need not factor or proceed sequentially across the copies. The question of whether bipartite orthogonal pure states can require more than two copies goes back to Bennett et al.~\cite{Bennett}; see Russo's formulation~\cite{Russo}. The canonical Bell bases are distinguishable with two copies~\cite{Bell}. Prior negative results for copy-by-copy protocols do not imply a collective obstruction; Bandyopadhyay~\cite{Watrous} gives a two-qubit example for which the distinction matters, leaving the general bipartite question open. Li, Wang and Zheng~\cite{multi} establish collective obstructions for a growing number of separate parties. Joining their parties into two laboratories need not preserve such obstructions.
+
+Indeed $H$ has eigenvalues $1,1,u$, with $|u|=1$. Its diagonal entries are $(3+\omega)/7$ and its off-diagonal entries $(-4+\omega)/7$, of squared moduli $1/7$ and $3/7$. The common diagonal of the $B_j$ is a scalar times $Z^2$, so each is orthogonal to $I,Z$. The six nonzero ordered differences of $1,2,4$ exhaust $(\mathbb Z/7)\setminus\{0\}$. Thus for $j\ne k$,
+\[
+                  \Tr(B_j^\dagger B_k)=\tfrac37+\tfrac37\sum_{r=1}^6\eta^{r(k-j)}=0.
+\]
+The nine unitaries are Hilbert--Schmidt orthogonal, proving the basis assertion.
+
+\section{The symmetric moment matrix forced by perfect PPT discrimination}
+Regroup the two-copy state as $\ket{\Psi_i}=m^{-1/2}|V_i\rangle\!\rangle$, where $m=9$, $U_i\in\mathcal S$, $V_i=U_i\otimes U_i$, and $|M\rangle\!\rangle=\sum_a\ket a\otimes M\ket a$ for an $m\times m$ matrix. Let $L=(\C^3)^{\otimes2}=\C^m$, $F$ exchange the two \emph{qutrits within} $L$, and $S$ exchange the two \emph{whole} factors in $L\otimes L$. These swaps are different. We write $\Gamma$ for partial transpose on the first whole $L$ in the computational basis.
+
+\begin{lemma}\label{moment}If there is a perfect PPT POVM, then for each label $i$ there is $J_i\ge0$, $\Tr J_i=m$, supported on $\Sym^2 L$, such that, for every $m\times m$ matrix $T$,
+\begin{align}
+ \Tr[J_i(M\otimes T)]=0\quad\text{for }&
+ M=V_i^\dagger V_j,\ (V_i^\dagger V_j)^\dagger\ (j\ne i),\quad
+                 \text{or } M=F-\tfrac13 I . \label{momentconstraints}
+\end{align}
+\end{lemma}
+\begin{proof}Group all outcomes by their reported labels, assigning outcomes of zero probability on all candidates arbitrarily. For the resulting effects $E_i$ define
+\[
+ R_i=(I\otimes V_i^\dagger)E_i(I\otimes V_i),\qquad
+ J_i=R_i^\Gamma=(I\otimes V_i^\dagger)E_i^\Gamma(I\otimes V_i).
+\]
+Both are positive. The correct-label probability equals $\Tr(J_i S)/m$ because $(|I\rangle\!\rangle\langle\!\langle I|)^\Gamma=S$. Hence $\Tr J_i\ge m$. The $m$ traces sum to $m^2$ by completeness. Each inequality is tight, so $\Tr[J_i(I-S)]=0$. Positivity gives $SJ_i=J_iS=J_i$. Furthermore, perfect discrimination and $R_i\ge0$ imply $R_i|V_i^\dagger V_j\rangle\!\rangle=0$ for $j\ne i$.
+
+For all matrices $A,T$ one now has the exact contraction identity
+\begin{equation}
+ \langle\!\langle A|R_i|T\rangle\!\rangle
+   =\sum_{a,b,c,d}\overline{A_{ba}}\,(J_i)_{cb,ad} T_{dc}
+   =\sum_{a,b,c,d}\overline{A_{ba}}\,(J_i)_{bc,ad} T_{dc}
+   = \Tr[J_i(A^\dagger\otimes T)]. \label{reshuf}
+\end{equation}
+In the middle use $SJ_i=J_i$. Thus each wrong-label kernel vector gives the zero expectation for $A^\dagger\otimes T$. Taking complex conjugates and using $J_i=J_i^\dagger$, cyclicity of trace, and arbitrariness of $T$ gives the zero for $A\otimes T$ as well.
+
+To obtain the last constraint set $W=F-I/3$; it is Hermitian and $\Tr W=0$, since $\Tr F=3$. Each $V_i$ commutes with $W$. Therefore
+\[
+ \sum_i\langle\!\langle W|R_i|W\rangle\!\rangle
+ =\sum_i\Tr[J_i(W\otimes W)]
+ =\Tr\Big[\Big(\sum_i E_i^\Gamma\Big)(W\otimes W)\Big]
+ =(\Tr W)^2=0.
+\]
+Each left-hand term is nonnegative, whence $R_i|W\rangle\!\rangle=0$ on every label. Equation~\eqref{reshuf} proves the claim. No product decomposition or separability of the PPT effects was assumed.
+\end{proof}
+
+\section{An exact positive certificate at the clock label}
+We apply Lemma~\ref{moment} at the anchor $U_i=Z$ and denote its hypothetical matrix by $J_Z$. The $L^{\otimes2}$ on which it acts still describes the original two-copy problem after regrouping; no additional copies are supplied. With $\nu=\omega-\bar\omega=i\sqrt3$ define the three Hermitian matrices
+\[
+ M_1=49\nu\big((Z^\dagger)^{\otimes2}-((Z^\dagger)^{\otimes2})^\dagger\big),\quad
+ M_3=49\nu\big((Z^\dagger B)^{\otimes2}-((Z^\dagger B)^{\otimes2})^\dagger\big),
+ \quad M_4=49(3F-I).
+\]
+For every $T$, Eq.~\eqref{momentconstraints} gives $\Tr[J_Z(M_\ell\otimes T)]=0$ for each of these three choices.
+For $a=3r+s$ write $\ket a=\ket{r,s}$. Let $E_{aa}=\ket a\!\bra a$ and $E_{ab}=\ket a\!\bra b+\ket b\!\bra a$ for $a<b$. Form $T_\ell=\sum_{a,b}c_{\ell ab}(E_{ab}+FE_{ab}F)$ with the following nonzero integer coefficients (each tuple is $(a,b,c_{\ell ab})$):
+\[
+\begin{array}{c|l}
+ \ell & (a,b,c_{\ell ab})\\ \hline
+ 1 &(1,1,10),(1,3,-8),(2,6,5),(4,4,2),(8,8,-2)\\
+ 3 &(0,1,5),(0,2,-8),(1,3,-12),(1,4,5),(1,5,30),(1,7,-38),\\
+   & (2,5,23),(2,7,-18),(2,8,-8),(4,4,3),(8,8,-19)\\
+ 4 &(0,0,5),(1,1,20),(1,3,-5)
+\end{array}
+\]
+Let $Y=\sum_\ell M_\ell\otimes T_\ell$, so $\Tr(J_ZY)=0$. This is also true after simultaneously conjugating its two factors by each of the following local unitaries on $L$: $D\otimes D$, $X\otimes X$ (where $X\ket r=\ket{r+1\bmod3}$), and $\exp(i\theta (I-F)/2)$. Indeed qutrit conjugation by $D$ sends $B_j$ to $B_{j+1}$ and fixes $I,Z$. Conjugation by $X$ sends $D$ to $D^4$, $Z$ to a phase times $Z$, and fixes $H$; hence it permutes the same labels up to phases and preserves the anchor projectively. All square unitaries $V_i^\dagger V_j$ commute with $F$. Consequently the complex span of the admissible $M$ in~\eqref{momentconstraints} is preserved by these conjugations; the second-factor multipliers are unrestricted. This reasoning requires no invariance assumption on $J_Z$ itself.
+
+Write $X_4=X^{\otimes4}$ and $K=Y+X_4^\dagger YX_4+X_4 YX_4^\dagger$. Average $K$ over the conjugations by $D^{\otimes4}$ and by the relative phase just described, applied to both $L$ factors. Compress to $\Sym^2 L$ and call the result $K_*$. The two averages commute and remove entries between distinct joint frequency sectors. The trace invariance just proved and symmetric support give $\Tr(J_Z K_*)=0$. We now verify $K_*>0$ there, impossible for the positive $J_Z$ of trace nine.
+
+\paragraph{Explicit verification.}
+Use local basis vectors $b_{rs}^+=\ket{rs}+\ket{sr}$ for $r<s$, $b_{rr}^+=\ket{rr}$, and $b_{rs}^-=\ket{rs}-\ket{sr}$ for $r<s$. List positive vectors first, then negative, lexicographically within each sign. For indices $i\le j$ take $v_{ij}=b_i\otimes b_j+b_j\otimes b_i$ if $i<j$, otherwise $b_i\otimes b_i$. These 45 real, unnormalized vectors form a basis of $\Sym^2 L$. A local vector with index $rs$ has $D$-charge $2^r+2^s\bmod 7$ and negative count $0$ or $1$ according to its sign. Add these data for $v_{ij}$ to get its sector $(q,h)$. In each sector, let $C$ have these $v_{ij}$ as columns in lexicographic pair order. Its matrix is $C^\dagger K C$; different sectors of $K_*$ do not couple. The minimum of the leading principal minors of each nonempty block is:
+\[
+\begin{array}{c|rrrrrrr}
+ &q=0&q=1&q=2&q=3&q=4&q=5&q=6\\ \hline
+ h=0&1952&4280&7528&2650&290&1712&2650\\
+ h=1&592&4720&5168&1856&4736&568&1856\\
+ h=2&\text{--}&5880&5880&3696&5880&3696&3696
+\end{array}
+\]
+For reproducibility one can evaluate this table without constructing any roots of order seven. For computational indices $a,b,c,d\in\{0,\ldots,8\}$, let $\pi(3r+s)=3((r+1)\bmod3)+((s+1)\bmod3)$. Then
+\[
+     K_{ac,bd}=\sum_{t=0}^2\sum_\ell
+       (M_\ell)_{\pi^t(a),\,\pi^t(b)}(T_\ell)_{\pi^t(c),\,\pi^t(d)} .
+\]
+Contract with the real columns specified above. Use $7H_{rs}=3+\omega$ on the diagonal, $-4+\omega$ elsewhere, $\omega^2=-1-\omega$, and $\bar\omega=-1-\omega$. Each block has size at most three. The accompanying short integer verifier prints all 45 minors, not rounded eigenvalues; an independent symbolic reconstruction is also provided. Sylvester's criterion proves positivity on each sector. This is the required strict positivity and proves Theorem~\ref{main}.
+
+The finite-dimensional set of PPT POVMs with nine outcomes is compact. Thus the optimum for uniform prior is strictly less than one; no numerical gap is claimed. In fact the PPT copy complexity of this example is \emph{exactly three}. To recall Nathanson's upper bound~\cite[Thm.~4]{Nath}: for $n$ orthogonal maximally entangled projectors $P_i$ in local dimension $d'$, the effects $P_i+(I-\sum_jP_j)/n$ perfectly distinguish them. Their partial transposes are bounded below by $(1/n-(2-2/n)/d')I$, since $\|P_j^\Gamma\|_\infty=1/d'$. With three copies $n=9$, $d'=27$, this lower bound is $11/243>0$. Hence three suffice under PPT, while only the lower bound of three is established here under SEP and LOCC. The smaller two-qubit collective LOCC question for the example in~\cite{Watrous} is not decided by this argument.
+
+\begin{thebibliography}{9}\setlength{\itemsep}{0pt}
+\bibitem{Bennett} C.H.~Bennett et al., \emph{Quantum nonlocality without entanglement}, Phys. Rev. A 59, 1070 (1999), \href{https://arxiv.org/abs/quant-ph/9804053}{arXiv:quant-ph/9804053}.
+\bibitem{Bell} S.~Ghosh et al., \emph{Distinguishability of maximally entangled states}, \href{https://arxiv.org/abs/quant-ph/0205105}{arXiv:quant-ph/0205105}.
+\bibitem{Russo} V.~Russo, \href{https://vprusso.github.io/posts/two_copy_problem/}{\emph{The two-copy problem for quantum states}}, including August 2026 update.
+\bibitem{multi} M.-S.~Li, Y.-L.~Wang, Z.-J.~Zheng, \href{https://arxiv.org/abs/2609.07233}{\emph{Power and limits of collective local measurements in multicopy state discrimination}}, arXiv:2609.07233 (2026).
+\bibitem{Watrous} S.~Bandyopadhyay, \emph{Perfect discrimination of an orthogonal $2\otimes2$ basis may require collective separable measurements on two copies}, \href{https://arxiv.org/html/2610.16138v2}{arXiv:2610.16138v2}, 7 November 2026, Secs.~1 and~7.
+\bibitem{Nath} M.~Nathanson, \emph{Three maximally entangled states can require two-way LOCC for local discrimination}, \href{https://arxiv.org/abs/1310.4220}{arXiv:1310.4220}, Thm.~4.
+\end{thebibliography}
+\end{document}

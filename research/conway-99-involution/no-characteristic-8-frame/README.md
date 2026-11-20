@@ -1,0 +1,7 @@
+# Conway 99: no complete characteristic norm-eight frame
+
+In the one-fixed-point, rank-13 involution branch of a hypothetical strongly regular graph with parameters (99,14,1,2), neither of the two rank-24 odd unimodular completions can contain 24 mutually orthogonal characteristic vectors of squared norm eight. This excludes the nine framed code models, not lattices without such a frame, the whole involution branch, or the whole graph. The proof does not require any energy-ten chart exclusion.
+
+[Download the source, exact model reduction, inputs and replay logs](Conway99_No_Characteristic_8Frame_Stream_Source_Clean.zip) (SHA-256 `929224a8c38f7a94ec64edff169edacf0a1b315bcd01a29022c71f92eda37bea`). Extract and run `bash verify.sh` to regenerate the final 24A1 check. The group-streaming replay covered all 39 groups and checked 22,252,181 finite-field separators, with none surviving and complete logs matching the canonical run. See the archive README for prerequisites, proof dependencies, and the nine-model classification.
+
+Related replays: [odd Leech](../odd-leech-frame/README.md), [4D6 and 2A7+2D5](../rootful-frame-pair/README.md), [6D4 and 8A3](../frames-6d4-8a3/README.md), and [integral anti-invariant energy at least 10](../dual-minimum-ten/README.md). The last link is a theorem and replay summary; its roughly 572 MB certificate archive is not included in this repository packet. The new 24A1 streaming component can be replayed from this packet, but a complete from-scratch verification of all dependencies also needs the referenced archives.
