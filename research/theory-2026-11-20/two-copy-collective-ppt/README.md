@@ -20,3 +20,5 @@ The proof has two independent pieces. First, equality in the maximally entangled
 - Searches of recently indexed original papers and the mxym/math tracked tree found no directly matching bipartite counterexample. This is not a guarantee of priority. No finite physical experiment is used.
 
 The PPT copy complexity is **exactly three**: [Nathanson's Theorem 4](https://arxiv.org/abs/1310.4220) supplies a perfect PPT measurement on three copies, which are nine orthogonal maximally entangled states of local dimension 27. At least three are necessary under SEP/LOCC, but the paper does not show that three suffice in those narrower models. We do not optimize the success probability or claim minimum example dimensions or unbounded copy complexity at fixed party number.
+
+Follow-up: [explicit two-copy error floor and perturbation bound](Robustness.md), with [exact integer replay](robust_check.py). The positive-gap statement in the original archive is strengthened to average error strictly greater than 1/20,000,000 under uniform prior.

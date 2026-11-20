@@ -46,7 +46,7 @@
 | [Conway 99 图：有理特征空间与三角形投影](../conway-99-involution/rational-eigenspaces/README.md) | 不假设自同构；−4 特征空间为平方行列式类，三角形投影模 7 的秩至多 42。独立 Hasse 推导；模 7 秩与指定端点筛选不改进后续 Wave 66 已有结果。 |
 | [Conway 99 图：禁止诱导四维立方体](../conway-99-involution/induced-q4-obstruction/README.md) | 无自同构假设；任何假想图都不含诱导 Q₄。不解决整图存在性。 |
 | [三能级非群型酉误差基的最小投影群](qutrit-wild-error-bases/README.md) | 最小群阶恰为 27，等号有两个局部酉等价类；已发表的一参数族此前给出的 36 阶例不能靠换代表降阶。 |
-| [双边量子态判别的两副本问题](two-copy-collective-ppt/README.md) | 显式双 qutrit 最大纠缠正交基，即使允许对本地副本进行联合处理，两份也不能被 PPT、SEP 或 LOCC 完美判别。PPT 恰需三份；SEP、LOCC 仅证明至少三份。 |
+| [双边量子态判别的两副本问题](two-copy-collective-ppt/README.md) | 显式双 qutrit 最大纠缠正交基，即使允许对本地副本进行联合处理，两份也不能被 PPT、SEP 或 LOCC 完美判别。PPT 恰需三份；SEP、LOCC 仅证明至少三份。[误差证书](two-copy-collective-ppt/Robustness.md)给出两份的严格误差下界 1/20,000,000。 |
 | [Conway 99 图：全图三角形与诱导六环下界](../conway-99-involution/coordinate-motif-bound/README.md) | 无自同构假设；恰有两条跨边的不相交三角形对至少 858 个，诱导六环至少 210,144 个。纯解析证明，不决定整图存在性。 |
 | [Conway 99 图：排除完整特征 8-标架](../conway-99-involution/no-characteristic-8-frame/README.md) | 单固定点二阶分支的秩 13 情形排除九类完整特征标架补格。新 24A1 有全量流式重放；不排除无该标架的补格。 |
 | [三能级酉误差基的射影群闭包](qutrit-wild-error-bases/projective-closure/README.md) | 单项式或稠密于 PU(3)；有限群阶恰为正 Eisenstein 范数的 9 倍，并给出显式稠密例。只涉及单 qutrit 的射影门。 |
