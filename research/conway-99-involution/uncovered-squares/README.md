@@ -4,9 +4,11 @@ Let n₃ be the number of unordered pairs of disjoint triangles joined by exactl
 $$
 4n_3-83160/13\ge (136/195) U_0 .
 $$
-At the first arithmetically possible value n₃=1602 this gives **at most 15** such squares. In this case there are **precisely 53 or 54** induced rook grids: the [earlier lower bound 53](../grid-density-gap/GridFreeDichotomy.md) combined with the count below excludes all larger values. No lower bound exceeding 15 on uncovered squares is asserted. This does not exclude 1602 or settle graph existence.
+At the first arithmetically possible value n₃=1602 this gives **at most 15** such squares. The counting argument initially leaves only 53 or 54 induced rook grids: the [earlier lower bound 53](../grid-density-gap/GridFreeDichotomy.md) combined with the count below excludes all larger values. The 53-grid alternative is excluded by the follow-up below. No lower bound exceeding 15 on uncovered squares is asserted. This does not exclude 1602 or settle graph existence.
 
-[Switching in the 53-grid case](Switch.md) shows that at `n₃=1602` there are no uncovered squares and no doubly covered squares outside grids if `g=53`. If `g=54`, the counting identity below instead gives `9≤U₀≤15`, with exactly `U₀−9` doubly covered squares outside grids. Neither alternative is excluded.
+[Switching in the 53-grid case](Switch.md) shows that at `n₃=1602` there are no uncovered squares and no doubly covered squares outside grids if `g=53`. If `g=54`, the counting identity below instead gives `9≤U₀≤15`, with exactly `U₀−9` doubly covered squares outside grids. The 53-grid alternative is excluded by the following refinement.
+
+[Covered-root motif inequality](covered-root/Theorem.md) excludes the 53-grid alternative at `n₃=1602`: the switching lemma makes all 99 roots covered in that case, which would force at least 144 center incidences of a nine-point motif whose certified limit is 72. Thus an endpoint graph would have **exactly 54 grids**, with `9≤U₀≤15` uncovered squares and exactly `U₀−9` doubly covered squares outside grids. The endpoint itself remains open.
 
 ## Counting prism directions
 
