@@ -43,5 +43,6 @@
 | [18 维等角线：K₁₀ 锚](eql-k10-anchor/README.md) | 所述正确着色的 K₁₀ 的 45 线锚精确最多扩到 57 条；不主张 N(18)=57。 |
 | [18 维等角线：假想 58/59 条的对称群](eql-solvable/README.md) | 排除素数 p≥5 的对称，故相关对称群可解；不排除 58/59 条等角线本身。 |
 | [纯态排除的锐扩维界与条件误差](pure-state-projective-exclusion/companion/README.md) | 最小扩维与稀疏 Gram 秩公式、候选列表大小的投影测量分类、一个确定性投影测量逐状态不劣于任意给定 POVM，以及 Bures–Wasserstein 最优误差公式。 |
-| [Conway 99 图：有理特征空间与三角形投影](../conway-99-involution/rational-eigenspaces/README.md) | 不假设自同构；−4 特征空间为平方行列式类，三角形投影模 7 的秩至多 42。指定端点的索引候选仅剩 49 和 441。 |
+| [Conway 99 图：有理特征空间与三角形投影](../conway-99-involution/rational-eigenspaces/README.md) | 不假设自同构；−4 特征空间为平方行列式类，三角形投影模 7 的秩至多 42。独立 Hasse 推导；模 7 秩与指定端点筛选不改进后续 Wave 66 已有结果。 |
 | [Conway 99 图：禁止诱导四维立方体](../conway-99-involution/induced-q4-obstruction/README.md) | 无自同构假设；任何假想图都不含诱导 Q₄。不解决整图存在性。 |
+| [三能级非群型酉误差基的最小投影群](qutrit-wild-error-bases/README.md) | 最小群阶恰为 27，等号有两个局部酉等价类；已发表的一参数族此前给出的 36 阶例不能靠换代表降阶。 |
