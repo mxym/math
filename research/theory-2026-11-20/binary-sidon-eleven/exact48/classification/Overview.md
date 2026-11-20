@@ -15,3 +15,5 @@ The two independent exact search engines each cover 4,100 largest-half-30 anchor
 [APN permutation corollary](apn-permutations/README.md): any six-variable APN permutation has linearity at most 28 (nonlinearity at least 18). The only class that can attain 32 among arbitrary APN functions, D7, is already known not to contain a permutation. The replay verifies that class-specific fact two ways. Sharpness is not asserted.
 
 [Subsequent dimension-twelve proof](../../../binary-sidon-twelve/Overview.md) improves the upper bound from 81 to 80 by excluding size 81. The frozen classification archive here is unchanged.
+
+[Stability one point below the maximum](../stability47/README.md): every 47-set uniquely extends to the Chen class. There are three 47-set affine classes, 33 codes with parameters `[46,35,5]`, and three with `[47,35,6]`. This also improves the unrestricted dimension-twelve upper bound to 78.
