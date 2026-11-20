@@ -1,3 +1,5 @@
+**Strengthened bound:** [the real grid defect vectors](GridDefectVectors.md) prove at least 24 generating partners at every vertex.
+
 **Strengthened bound:** [the binary defect equations](DefectCode.md) now give at least sixteen generating partners at each vertex. The closure criterion below still applies.
 
 # Every vertex has at least eight 2-percolating partners

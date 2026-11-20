@@ -1,3 +1,5 @@
+**Strengthened bound:** [the real grid defect vectors](GridDefectVectors.md) prove at least 24 generating partners at every vertex.
+
 # Binary cut equations at every root, and sixteen generating partners
 
 This corollary strengthens the local numerical bound in Percolation.md. It uses the no-partner-regular-root theorem but not an automorphism.
