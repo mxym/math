@@ -1,0 +1,45 @@
+# A two-star charge for squares not lying in a prism
+
+Let n₃ be the number of unordered pairs of disjoint triangles joined by exactly two edges in a hypothetical SRG(99,14,1,2). A *square* is an induced four-cycle; each nonedge is the diagonal of a unique square. Let U₀ count squares contained in **no induced triangular prism**. Using the [thirteen-motif positive identity](../order-nine-flags/README.md), one has
+$$
+4n_3-83160/13\ge (136/195) U_0 .
+$$
+At the first arithmetically possible value n₃=1602 this gives **at most 15** such squares. In this case there are **precisely 53 or 54** induced rook grids: the [earlier lower bound 53](../grid-density-gap/GridFreeDichotomy.md) combined with the count below excludes all larger values. No lower bound exceeding 15 on uncovered squares is asserted. This does not exclude 1602 or settle graph existence.
+
+## Counting prism directions
+
+Take an induced square with vertices in cyclic order. Its four edges have distinct third vertices completing them to triangles (pair caps). Two opposite edges can be the paired triangle edges of a prism if and only if their two third vertices are adjacent. There are two such directions. A missing direction gives precisely a pair of disjoint triangles with exactly two cross edges; conversely every such pair gives this square and missing direction. If N_i counts squares with i prism directions then N₀=U₀, N₀+N₁+N₂=2079 (4158 nonedges, two per square), and 2N₀+N₁=n₃. Hence N₂=2079−n₃+U₀. Each rook grid contains nine distinct two-direction squares; no two different grids share a square because two of its intersecting row/column lines uniquely determine the grid by the common-neighbor rule. At 1602 we obtain 9g≤477+15=492, hence g≤54. For completeness, the lower bound uses the 2079 rooted cells, four flips each for exactly 9g cells (the others ≤2 by the nine-set gap); so with P prisms, 6P≤4158+18g and 3P=4158−n₃. Thus g≥53.
+
+## All two-star charts
+
+Fix an unordered nonedge u,v and its two common neighbors a,b. Write X=N(u)−{a,b}, Y=N(v)−{a,b}. In either 12-point wing the two points paired with a,b at its own root are named 0,1, respectively. The other ten carry an unknown perfect matching, and there are no other internal edges. In the cross graph B between X,Y each marked singleton has degree 1, each free point degree 2 (common-neighbor count against the opposite root). Like-marked endpoints in opposite wings cannot be adjacent because a and b already have the two respective matched pairs in their neighborhoods. A four-cycle in B would give its same-wing opposite points two common neighbors in the other wing in addition to their root. Thus B consists of two paths with endpoints the four marks, and some disjoint even cycles of length at least six. If the paths are same-side they connect the two X marks and the two Y marks; otherwise they join corresponding or crossed marks. In each of the three cases the lengths can be sorted, interchanging roots or simultaneously swapping a,b as needed. They are even in the first case, odd in the other two; corresponding endpoints cannot have distance one. The remaining vertices partition into the even cycle lengths. Conversely this list covers all possible B (not an assertion that any candidate extends). Distances one count the two prism directions above; both diagonals have the same count. The numerical classification is 74,15,5 with zero,one,two directions, respectively.
+
+Let C be the fixed 28-point chart (including roots, common parents and wings) with the two still-unknown matchings omitted, with adjacency D. For a free pair p,q in a single wing write its unknown edge b_pq∈{0,1}; these form a matching covering all free points. Let W be the remaining 71 points. A W-point sees at most one of a,b (these already have both common neighbors u,v); if it sees t of them, it sees 2−t points in each wing. Let x_H count points with each such trace H on the 26 nonroot sites. Each count is at most one: if t=0 two sites in its first wing already have the common root; if t=1 the common parent and first-wing point also share that root. All variables b,x are in [0,1].
+
+Put M equal to the unknown matching adjacency with zero rows elsewhere. For every distinct nonroot pair p,q, write R_pq=2−D_pq−(D²)_pq. Counting common neighbors in W gives
+$$
+\sum_{H:p,q\in H}x_H+M_{pq}+(DM+MD)_{pq}=R_{pq}.
+$$
+This is exact because M² is diagonal. Also ∑_H x_H=71, and ∑_{H containing p}x_H=14−deg_D(p)−1_{p free in a wing}. Enforce all free matching degree equations. Discard a candidate H containing a pair with R≤0 or having |H∩N_D(p)|+[p∈H]>2 anywhere; discard a matching edge if its R=0. These are necessary chart conditions; they need not be sufficient.
+
+## Charging the positive identity
+
+Use the thirteen graph masks, coefficients c_h and labeled induced counts J(h) of the companion positive identity. A single unlabeled copy therefore carries mass c_h Aut(h). We allocate this mass over selected nonedge diagonals. Copies never pay more than their own mass.
+
+* The seven-point H147 (first mask) has 4 automorphisms and coefficient 1/2. In it a unique root has two matched axes; the two opposite outside sign-pair points are adjacent. A length-two same-side path between the two marked wing endpoints witnesses exactly this rooted diagonal (its center is that wing’s root, its opposite-cell point is the common cross-neighbor). Each copy gives exactly two choices for the distinguished nonedge, the center with either endpoint of the exterior edge, so charge one for each such path. This already suffices for 15 of the 74 uncovered charts.
+* The eight-point H412 (second mask) has two automorphisms. If the two marked wing endpoints have distinct free cross-neighbors which are mated in the other wing, those eight points (the roots, a,b, the two marks and their two matched neighbors) induce H412. Its two degree-four vertices are precisely the distinguished roots, and the side containing the two selected marks is determined uniquely in that copy. Give it mass 421/1170 at this pair.
+* For each nine-point motif, select its nonedge pairs i,j satisfying the following intrinsic test. Both have degree four with two common neighbors a,b. Its sets P=N(i)−N(j), Q=N(j)−N(i), S={a,b} each have size two; exactly one ninth point z is left outside. In each of P,Q either a vertex meets S or both meet z. There are respectively 3,3,3,5,7,3,1,2,1,0,2 eligible pairs in the eleven masks in their published order. For a nonempty class split its mass equally among these pairs; the zero class contributes nothing. At any eligible mark the two P-points, and likewise the two Q-points, are not adjacent: in the first alternative a marked singleton has no in-wing neighbor, in the second the pair already has the root and z as common neighbors. Thus their 9-set can be read *exactly* from B and the one trace H of z; no unknown matching entries occur. Its other edges are the marked-singleton contacts, four P×Q bits of B, and six contacts of z. Conversely a matching 18-bit description together with chosen unordered P,Q in their distinguished wings gives one actual copy at that marked pair. Changes of orders of i,j, a,b, P or Q produce different descriptions of isomorphic labeled charts, not extra charges. The small C++ loop scans all P,Q once each, enforces the eligibility test, and looks up the resulting bit string; the Python verifier builds that table by relabeling the eleven motifs and verifies all thirteen automorphism orders.
+
+The pair cost is therefore a constant equal to its number of same-side length-two paths plus a linear combination of matching edges and trace counts. Costs are nonnegative. Summing over all unordered nonedges costs at most ∑c_h J(h)=4n₃−83160/13.
+
+## Exact finite inequality and replay
+
+For each of the 59 uncovered path/cycle charts with zero length-two same-side paths, the supplied vector π assigns rational multipliers to the 372 displayed equations Ax=b. For any x∈[0,1] the elementary bound
+$$
+ c^t x\ge \pi^t b + \sum_k\min(0,c_k-(A^t\pi)_k)
+$$
+is valid. All denominators divide 245700000. The checker rebuilds these equations, the entire cost vector and all allowed columns, and verifies the bound is at least 68/195 in every chart. Equality in this linear relaxation is neither claimed nor needed. Every uncovered square contributes this much at each of its two diagonal pairs; the other square types may be charged zero.
+
+Run `python3 check.py` with a C++17 compiler. The only stored numeric evidence is `cert.json`: it contains integer equation multipliers, not solver decisions, and the checker uses integer/rational arithmetic only. No external software libraries, solver or network are needed.
+
+For background on induced rook grids in a putative Conway graph, see [Ibrahim–LaFayette–McCall, Theorem 4.19](https://ajc.maths.uq.edu.au/pdf/93/ajc_v93_p060.pdf), and for induced-hexagon counts see [Reimbayev](https://ejaam.org/articles/2024/10.62780-ejaam-2024-001.pdf). The grid count 53 or 54 here is conditional on the endpoint `n₃=1602`. Certificate SHA-256: `eadf213e9433f39c2bb9bec3b4effc131ed7c520dc8e2af616be425e4ef73104`.
