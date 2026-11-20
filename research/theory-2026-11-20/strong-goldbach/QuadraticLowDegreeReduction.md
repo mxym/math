@@ -76,3 +76,5 @@ For C keep ten terms and bound the rest by (log 10+1)/(10(4−1/11²)), before t
 The upper envelope min(t, 2π⁻¹log(1+t²)+2C) is increasing, as is arctan; it is not necessary for J itself to be monotone. By (3), after deleting the nonpositive five-factor term and all vanishing even k≥4 terms, the adverse high ranks consume at most .13132 NS after limsup. This is precisely (1).
 
 Finally I₂(Q)=½ because Q(t₁,t₂)=t₁t₂. For k=3, (4) yields I₃(Q)=(8/(3π))∫₀^∞arctan(t/2)³dt/t³. Substitute v=arctan(t/2), T₀=π/2; twice integrating by parts gives the inner integral −T₀³/8+(3/4)∫₀^{T₀}v cot v dv=−T₀³/8+(3/4)T₀log2. Hence I₃(Q)=log2−π²/24<.2820. As 1.11(.5+.2820)=.86802<.86868, (2) follows. The simplex constants here normalize the proposed input; neither using them as actual asymptotics nor claiming their presently unproved 11%-upper comparison would be justified.
+
+[Two-sided comparison and switching scope](QuadraticUpperAndSwitchingScope.md) gives the additional unconditional upper bound `limsup (R/4+W₂+W₃)/(NS)<1.266`. This upper bound is larger than the threshold needed for a Goldbach lower bound.
