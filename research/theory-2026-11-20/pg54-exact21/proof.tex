@@ -1,0 +1,91 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.82in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{hidelinks}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\F}{\mathbb F}
+\newcommand{\PG}{\mathrm{PG}}
+\newcommand{\PGL}{\mathrm{PGL}}
+\newcommand{\sem}{\mathrm{P}\Gamma\mathrm L}
+\title{The maximum four-general set in $\mathrm{PG}(5,4)$:\\two extremal configurations}
+\author{Yongxian Zhang}
+\date{20 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The largest family of points in $\PG(5,4)$ with no four coplanar has size 21. There are exactly two extremal orbits under either projective linear or projective semilinear equivalence. This resolves the first open rung in the quaternary climb problem and gives $d_4(22,16)=4$ for linear codes. We reduce the problem to nine hyperplane types and independently check the exhaustive extension in two ways. The certificate needs only small integer arithmetic.
+\end{abstract}
+
+\begin{theorem}
+Let every four points of $S\subset\PG(5,4)$ be independent. Then $|S|\leq21$. Equality holds in exactly two $\PGL(6,4)$-orbits, also distinct under $\sem(6,4)$. One is Pavese's $\mathcal V_1=\{P(x,x^{-2}):x\in\F_{64}^*\}$ in the $\F_4$-space $\F_{64}^2$.
+\end{theorem}
+Lu et al.\ \cite[Sec.~8]{lu} ask whether a 22-point four-general set exists; they give an unconditional upper bound 30 and a local rigidity result near $\mathcal V_1$. They also distinguish collineation orbits from the specific family $\mathcal V_\alpha$. Pavese \cite[Thm.~4.6]{pav} constructed $\mathcal V_1$. We do not use a uniqueness assumption for any previously exhibited code. We consider only $n=|S|=21,22$, since four-generality is hereditary.
+
+\section{An obligatory large hyperplane}
+Put $[j]_4=(4^j-1)/3$. For a hyperplane $H$ let $h=|S\cap H|$. For $0\le t\le4$,
+\[
+  \sum_H {h\choose t}={n\choose t}[6-t]_4;
+\]
+each chosen $t$-set spans a vector $t$-space. In particular
+\[
+ (h-2)^2(h-7)=-28+22{h\choose1}-16{h\choose2}+6{h\choose3}.
+\]
+The sum over hyperplanes is 1302 for $n=21$ and 6704 for $n=22$, so some $h\ge8$.
+
+In $\PG(3,4)$ at most five points are four-general. Otherwise the nullspace of a $4\times6$ column matrix would be a length-six, dimension-two code of distance at least five. A generator for it cannot have a zero or two proportional columns: some nonzero linear combination of its two independent rows would then vanish at two coordinates. There are only five projective columns in $\PG(1,4)$. Similarly seven points in $\PG(4,4)$ cannot have all five-subsets independent, since the resulting $[7,2,\ge6]_4$ code again needs more than five column directions. Thus inside any hyperplane section of size at least seven there is a solid (projective $3$-space) containing five points; these five form a circuit. The section spans the hyperplane.
+
+If the maximum $h$ were eight, select such a solid $D$ in a maximum hyperplane $H$. The four other hyperplanes through $D$ partition $S\setminus H$ outside $D$; each has room for at most $8-5=3$ further points. But $n-8\ge13$. The maximum is therefore at least nine.
+
+\section{An independently counted hyperplane census}
+In the five-dimensional vector space of $H$, every section of interest contains a frame
+\[
+ F=\{e_1,e_2,e_3,e_4,e_1+e_2+e_3+e_4,e_5\}.
+\]
+Indeed any ordering of four points of the circuit is a basis of its solid, its fifth has all four coordinates nonzero, and one further point extends the basis to $H$. Column and row scalings give the displayed form.
+
+The first algorithm grows all four-general extensions of $F$ by one point at a time, excluding planes spanned by a previously present triple. To identify equal configurations it tries all marked frames in each set and normalizes their coordinates. For an ordered quartet of the five circuit points the fifth fixes their relative scales; the outside point has three relative scales, and field conjugation is optional. Among fixed-frame normal forms take a least representative. A preliminary invariant (hyperplane-incidence counts at the marked points) can restrict which frames need normalizing; coverage is independently checked by the following exact mass test.
+\begin{center}
+\begin{tabular}{c r r}
+\toprule size $a$ & inequivalent sections containing a frame & labeled supersets of fixed $F$\\\midrule
+7&2&150\\8&3&5,220\\9&4&39,720\\10&4&42,660\\11&1&2,160\\12&0&0\\\bottomrule
+\end{tabular}
+\end{center}
+The second algorithm counts actual labeled sets through $F$, adding projective points in increasing order; on adding $p$ it forbids $p+u x+v y$ for each older pair $x,y$ and all $u,v\in\F_4$, normalizing to projective points. Old forbidden points stay forbidden. It separately checks representatives are valid and pairwise inequivalent. To calculate a representative's automorphism size $g$ and test equivalence, it enumerates semilinear maps on the basis, sending the marked circuit and outside point to all possible images. Its implementation initially counts vector maps, dividing by three for projective maps. The projective semilinear stabilizer of $F$ has order $5!\cdot3\cdot2=720$. If a representative of size $a$ has $t$ five-point solid sections, it contains $t(a-5)$ marks: each marked copy of $F$ has a unique circuit and outside point. It thus accounts for exactly $720t(a-5)/g$ labeled supersets of the fixed $F$, by double counting. The sum over listed representatives agrees exactly with the third column. This proves completeness separately from the first canonicalization. In particular a maximum section in our original space is one of the four, four, or one representatives of size 9, 10, or 11.
+
+\section{All affine extensions of the nine types}
+Fix such a section $A$ as the hyperplane at infinity. Outside points have coordinates $(v,1)$ for $v\in\F_4^5$. The stabilizer of $A$ includes translations of $v$ and the linear or semilinear transformations inducing a collineation of $A$, with arbitrary nonzero scalar lifts. Classify possible nonzero differences of affine points into orbits under these transformations; a difference on an infinity secant of $A$ is forbidden. Fix an order on the remaining orbits. In an extension select a pair in the least orbit it uses, translate the first point to $0$ and take the second to a fixed representative $q$. All remaining pair differences must avoid earlier orbits. This normalization requires no automorphisms of the unknown full configuration.
+
+For each $A$ the numbers of difference orbits are displayed below. Both algorithms build the orbit partition, using separately coded basis transformations.
+\begin{center}
+\begin{tabular}{c l r}
+\toprule $|A|$ & orbits per representative & total\\\midrule
+9 & 32, 66, 121, 11 & 230\\
+10 &22, 18, 28, 26 &94\\
+11 &3&3\\\bottomrule
+\end{tabular}
+\end{center}
+Two complete, cutoff-free searches extend the fixed $A,0,q$.
+\begin{enumerate}
+\item \textbf{Affine planes.} For two affine points $p,r$, let $d=p-r$. To exclude a fourth point coplanar with $p,r$ and $a\in A$, forbid $p+\langle d,a\rangle$. To exclude one coplanar with three selected affine points, forbid their affine plane. The initial difference exclusion treats two selected points at infinity, and the infinity points already form a four-general set. Three infinity points span a plane entirely at infinity. The search also enforces the assumed maximum section: on every affine hyperplane $\ell(v)=s$, the number of affine points is at most $|A|-|A\cap\ker\ell|$.
+\item \textbf{Disjoint secants.} Store the projective points already selected and all three internal points of each secant. Four-generality is equivalent to no collision in this list: a collinear triple collides with a secant, and for four noncollinear coplanar points the two opposite lines intersect at an internal point. Conversely every collision violates independence in a subset of size at most four. When candidate $x$ is considered, its incremental list consists of $x$ and the three internal points of every line joining $x$ to a selected point. To select $x,y$ together their lists must be disjoint and the three internal points of $xy$ must be free of both lists and the old occupied list. This update is repeated recursively; it uses \emph{no} maximum-section capacity bound.
+\end{enumerate}
+Both searches use the same elementary coloring bound, implemented separately: a simple graph on the available points joins compatible pairs, so any further feasible set is a clique. Partitioning a candidate prefix into independent color classes bounds the clique size by their number; a fixed graph retaining impossible edges is still a safe upper bound. Include/exclude branching over the remaining candidates enumerates every feasible completion. No time or node cutoff is used. A separate checker requires exactly one completed branch log for each prescribed orbit at each size, and compares the full normalized solution multisets of the two searches. At 22 both outputs are empty. At 21 they each contain 26 normalized solutions, all for $|A|=9$.
+
+\section{The extremal orbits and coding consequence}
+Use field digits $0,1,2,3=0,1,\omega,\omega^2$ with $\omega^2=\omega+1$. Encode a vector $x$ as $\sum_{i=0}^{5}x_i4^i$ with those digit labels. The first representative is $\mathcal V_1$, using $\F_{64}=\F_4[u]/(u^3+u+1)$ and coefficient triples for the two field entries; $u^3+u+1$ is irreducible over $\F_4$. The second has integer representatives
+\[
+\begin{gathered}
+1,4,16,64,85,256,281,353,420,1024,1046,1097,1135,\
+1319,1474,1493,1549,1632,1874,2022,2045.
+\end{gathered}
+\]
+A small independent checker uses polynomial arithmetic over $\F_4$ to verify all $\binom{21}{4}$ ranks for each representative and to compute their full hyperplane spectra. Their numbers of nine-point hyperplanes are respectively 63 and 72. For every enumerated solution the supplied matrix explicitly gives a semilinear isomorphism to one of the two sets (respectively two and 24 normalized solutions). Each matrix is checked to have rank six and to send the entire point set onto its stated image. These are not unmarked orbit-mass counts. The two semilinear orbits do not split under $\PGL$: simultaneous squaring of the two $\F_{64}$ entries stabilizes $\mathcal V_1$ and induces conjugation on $\F_4$; the checker verifies a conjugating stabilizer for the second representative as well.
+
+Finally a quaternary linear parity-check matrix of rank six and distance at least five is exactly a spanning four-general column configuration (for lengths here). Thus no linear $[22,16,\ge5]_4$ code exists. One can adjoin a point away from the secants of a 21-set to get distance at least four, since its secant cover has at most $21+3\binom{21}{2}=651<1365$ points. This proves $d_4(22,16)=4$ without relying on a lower-bound table. No assertion about non-$\F_4$-linear codes or unrestricted binary Sidon sets follows from the projective classification.
+
+\begin{thebibliography}{9}
+\bibitem{lu} L. Lu, R. Yang, Q. Fu, H. Song, \emph{The climb problem for 4-general sets in $\mathrm{PG}(n,4)$}, arXiv:2610.03272v1 (2026), \url{https://arxiv.org/abs/2610.03272}.
+\bibitem{pav} F. Pavese, \emph{On 4-general sets in finite projective spaces}, J. Algebraic Combin. 61 (2025), 27. \url{https://doi.org/10.1007/s10801-025-01383-w}.
+\end{thebibliography}
+\end{document}
