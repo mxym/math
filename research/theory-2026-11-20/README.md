@@ -49,3 +49,4 @@
 | [双边量子态判别的两副本问题](two-copy-collective-ppt/README.md) | 显式双 qutrit 最大纠缠正交基，即使允许对本地副本进行联合处理，两份也不能被 PPT、SEP 或 LOCC 完美判别。PPT 恰需三份；SEP、LOCC 仅证明至少三份。 |
 | [Conway 99 图：全图三角形与诱导六环下界](../conway-99-involution/coordinate-motif-bound/README.md) | 无自同构假设；恰有两条跨边的不相交三角形对至少 858 个，诱导六环至少 210,144 个。纯解析证明，不决定整图存在性。 |
 | [Conway 99 图：排除完整特征 8-标架](../conway-99-involution/no-characteristic-8-frame/README.md) | 单固定点二阶分支的秩 13 情形排除九类完整特征标架补格。新 24A1 有全量流式重放；不排除无该标架的补格。 |
+| [三能级酉误差基的射影群闭包](qutrit-wild-error-bases/projective-closure/README.md) | 单项式或稠密于 PU(3)；有限群阶恰为正 Eisenstein 范数的 9 倍，并给出显式稠密例。只涉及单 qutrit 的射影门。 |
