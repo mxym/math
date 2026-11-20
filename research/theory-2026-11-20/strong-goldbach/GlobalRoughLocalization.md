@@ -1,3 +1,5 @@
+**Stronger cutoff:** [rough-layer iteration](RoughLayerIteration.md) extends the fixed stretch exponent to every `0<δ<1` with a positive, δ-dependent log-power saving.
+
 # Unconditional localization of the entire signed Goldbach switch to rough complements
 
 This is an **individual-target** result for the full logarithmically weighted Möbius divisor switch, not merely its balanced block or its unweighted primitive. It does not estimate the remaining signed sum on rough complements. In particular it does not prove Goldbach positivity.

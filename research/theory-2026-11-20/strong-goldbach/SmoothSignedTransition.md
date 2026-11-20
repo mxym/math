@@ -1,3 +1,5 @@
+**Stronger cutoff:** [rough-layer iteration](RoughLayerIteration.md) extends the fixed stretch exponent to every `0<δ<1` with a positive, δ-dependent log-power saving.
+
 # The smoothed signed transition to square-root times exp(−(log N)^δ), δ<1/9
 
 This companion extends SignedBalancedTransition.md. The new estimate is unconditional for the signed **smooth** cutoff. Reduction to a Hardy–Littlewood asymptotic remains conditional on a specific Möbius-twisted distribution estimate at smaller moduli. We make no first-in-literature claim.
