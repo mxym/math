@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+using namespace std;using U=uint64_t;using W=uint32_t;int pc(W z){return __builtin_popcount(z);}int ix(W z){return __builtin_ctz(z);}int bit(int i,int j){return j*(j-1)/2+i;}
+U canon(int n,W *O,W *I){vector<W> cs{(1u<<n)-1};while(1){vector<W>ns;for(W s:cs){map<U,W> grp;for(W z=s;z;z&=z-1){int i=ix(z);U k=0;for(W w:cs)k=(k<<6)|(pc(O[i]&w)*8+pc(I[i]&w));grp[k]|=1<<i;}for(auto [_,v]:grp)ns.push_back(v);}if(ns.size()==cs.size())break;cs=move(ns);}
+ vector<vector<int>>VV;for(W s:cs){vector<int>p;for(W w=s;w;w&=w-1)p.push_back(ix(w));VV.push_back(p);}
+ U ret=~0ull;int p[7];auto visit=[&](auto &vis,int x,int st)->void{if(x==VV.size()){U h=0;for(int j=1;j<n;j++)for(int i=0;i<j;i++)h|=U(((O[p[i]]>>p[j])&1)+2*((O[p[j]]>>p[i])&1))<<(2*bit(i,j));ret=min(ret,h);return;}auto &q=VV[x];do{copy(q.begin(),q.end(),p+st);vis(vis,x+1,st+q.size());}while(next_permutation(q.begin(),q.end()));};visit(visit,0,0);return ret;}
+bool br(W *O){W A[14]={};for(int i=0;i<7;i++){A[i]=O[i]<<7;for(W ww=O[i];ww;ww&=ww-1)A[7+ix(ww)]|=1<<i;}int num[14]={},low[14]={},time=0;bool good=true;auto go=[&](auto&f,int u,int p)->void{low[u]=num[u]=++time;for(W z=A[u];z;z&=z-1){int v=ix(z);if(v==p)continue;if(!num[v]){f(f,v,u);low[u]=min(low[u],low[v]);if(low[v]>num[u])good=false;}else low[u]=min(low[u],num[v]);}};for(int i=0;i<14;i++)if(!num[i])go(go,i,-1);return good;}
+// Each dirty arc a->b must support some alternating closed curve through that arc
+// with no other used arcs incident to underlying a,b except same-tail and same-head ones. This is equivalent to non-bridge in H minus arcs ending at a or starting at b.
+bool rowtest(W *O){for(int a=0;a<7;a++)for(W w=O[a];w;w&=w-1){int b=ix(w);W reach=(1<<a),seen=0;for(int k=0;k<8;k++){W out=0;for(W z=reach&~(1<<b);z;z&=z-1){int v=ix(z);out|=O[v]&~((v==a?1<<b:0)|(1<<a));}out&=~seen;if(out>>b&1)break;if(!out)return false;seen|=out;for(int v=0;v<7;v++)if(v!=b&&(O[v]&out))reach|=1<<v;}}return true;}
+int main(){set<U>qs={0};for(int n=2;n<=7;n++){set<U>ns;int lim=1;for(int i=1;i<n;i++)lim*=3;long long raw=0;int cnt[22]={};for(U pre:qs){W Oo[7]={},Ii[7]={};for(int j=1;j<n-1;j++)for(int i=0;i<j;i++){int v=(pre>>(2*bit(i,j)))&3;if(v==1)Oo[i]|=1<<j,Ii[j]|=1<<i;if(v==2)Oo[j]|=1<<i,Ii[i]|=1<<j;}
+for(int code=0;code<lim;code++){W O[7],I[7];copy(Oo,Oo+7,O);copy(Ii,Ii+7,I);int x=code;for(int j=0;j<n-1;j++){int v=x%3;x/=3;if(v==1)O[j]|=1<<(n-1),I[n-1]|=1<<j;if(v==2)O[n-1]|=1<<j,I[j]|=1<<(n-1);}
+if(n==7){bool good=true;int d=0;for(int i=0;i<7;i++){if(pc(I[i])==1||pc(O[i])==1)good=false;d+=pc(O[i]);}if(!good||d<6||d>14||!br(O)||!rowtest(O))continue;}raw++;ns.insert(canon(n,O,I));}}
+qs=move(ns);cerr<<n<<" candidates "<<qs.size()<<" raw "<<raw<<"\n";}ofstream f("orient.dat");for(U h:qs)f<<h<<"\n";}

@@ -45,3 +45,5 @@ Enumerate oriented simple graphs on up to seven axes. From every representative 
 Run python3 verify.py with a C++17 compiler. The numerical discovery process is not part of the proof. The fundamental cycles, all ternary rows, cell means, moments, every motif-count coefficient and each minimum are reconstructed from the diagrams by the integer verifier. The per-chart data are only the sparse integer multipliers.
 
 The compressed evidence file [`bounds.txt.gz`](bounds.txt.gz) has SHA-256 `28cc9198c49361926c8a930cd3253e1f993652f96d7aed6ce2ab8a7a4275274b`. The [clean replay output](replay.txt) verifies 9,057 charts and least fivefold integer clearance 119,760. The two C++ sources and evidence file must be in the same directory as `verify.py`.
+
+[Follow-up within the 54-grid case](../nice-triangle/Theorem.md): the same motif argument with a separate calculation for low dirty degrees requires 11–15 uncovered squares and forces a triangle with one of four 39-point shells. No shell extension or endpoint existence is asserted.

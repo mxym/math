@@ -8,7 +8,7 @@ At the first arithmetically possible value n₃=1602 this gives **at most 15** s
 
 [Switching in the 53-grid case](Switch.md) shows that at `n₃=1602` there are no uncovered squares and no doubly covered squares outside grids if `g=53`. If `g=54`, the counting identity below instead gives `9≤U₀≤15`, with exactly `U₀−9` doubly covered squares outside grids. The 53-grid alternative is excluded by the following refinement.
 
-[Covered-root motif inequality](covered-root/Theorem.md) excludes the 53-grid alternative at `n₃=1602`: the switching lemma makes all 99 roots covered in that case, which would force at least 144 center incidences of a nine-point motif whose certified limit is 72. Thus an endpoint graph would have **exactly 54 grids**, with `9≤U₀≤15` uncovered squares and exactly `U₀−9` doubly covered squares outside grids. The endpoint itself remains open.
+[Covered-root motif inequality](covered-root/Theorem.md) excludes the 53-grid alternative at `n₃=1602`: the switching lemma makes all 99 roots covered in that case, which would force at least 144 center incidences of a nine-point motif whose certified limit is 72. Thus an endpoint graph would have **exactly 54 grids**, with `9≤U₀≤15` uncovered squares and exactly `U₀−9` doubly covered squares outside grids. The [five-chart follow-up](nice-triangle/Theorem.md) further excludes `U₀=9,10` and shows that a remaining endpoint graph has a common 39-point triangle shell of one of four types. Thus `11≤U₀≤15` is now required, but the endpoint itself remains open.
 
 ## Counting prism directions
 
