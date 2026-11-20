@@ -1,6 +1,8 @@
 # An order-nine induced-subgraph certificate for Conway's 99-graph
 
-**Theorem.** In a strongly regular graph with parameters (99,14,1,2), the number n₃ of unordered pairs of vertex-disjoint triangles joined by exactly two edges is at least **1,602**. No assumption on symmetries or on another subgraph is made. This does not decide existence. Using [Reimbayev's induced-hexagon identity](https://ejaam.org/articles/2024/10.62780-ejaam-2024-001.pdf), it gives at least **210,888** induced hexagons.
+**Update.** The [complete endpoint analysis](../uncovered-squares/three-grid-shell/Theorem.md) excludes `n₃=1602`, improving the bound to **1,605** disjoint triangle pairs and **210,891** induced hexagons. The order-nine identity below is the starting point of that argument; graph existence remains open.
+
+**Original order-nine theorem.** In a strongly regular graph with parameters (99,14,1,2), the number n₃ of unordered pairs of vertex-disjoint triangles joined by exactly two edges is at least **1,602**. No assumption on symmetries or on another subgraph is made. This does not decide existence. Using [Reimbayev's induced-hexagon identity](https://ejaam.org/articles/2024/10.62780-ejaam-2024-001.pdf), it gives at least **210,888** induced hexagons.
 
 The certificate is a positive identity involving thirteen induced graph counts. All its entries and the exact integer/rational replay are in `check.py` (plain Python 3.10+, no dependencies or downloaded data). It does **not** require the nine-vertex density-gap theorem, a graph atlas, a solver, numerical tolerances, or the separate partner-regular proof.
 
@@ -43,4 +45,4 @@ The following elementary rules verify the stated identity.
 
 Substitute rules 1–4 in the left side minus the thirteen weighted terms. Exact rational coefficients of *every* formal graph symbol cancel, leaving the constant 83160/13. This supplies a short checkable proof, not a solver feasibility report. The earlier seven-vertex census approach and its scope can be compared with [Wave 44's integration audit](https://github.com/YesterdaysLemon/conway-99-research/blob/main/verification/2026-07-27-wave44-integration-audit.md); this certificate operates through nine vertices.
 
-[Uncovered squares and rook grids at the endpoint](../uncovered-squares/README.md): an exact two-star certificate strengthens the identity to `4n₃−83160/13 ≥ (136/195)U₀`. If `n₃=1602`, at most 15 squares lie in no induced triangular prism and only 53 or 54 rook grids pass the first count. The [covered-root follow-up](../uncovered-squares/covered-root/Theorem.md) excludes 53, so any endpoint graph must have exactly 54 rook grids. The endpoint remains open.
+[Uncovered squares and rook grids at the endpoint](../uncovered-squares/README.md): an exact two-star certificate strengthens the identity to `4n₃−83160/13 ≥ (136/195)U₀`. If `n₃=1602`, at most 15 squares lie in no induced triangular prism and only 53 or 54 rook grids pass the first count. The [covered-root follow-up](../uncovered-squares/covered-root/Theorem.md) excludes 53, so any endpoint graph must have exactly 54 rook grids. The original 54-grid remainder is closed in the update above.

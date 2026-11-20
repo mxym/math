@@ -1,5 +1,7 @@
 # A two-star charge for squares not lying in a prism
 
+**Update.** The [three-grid shell certificate](three-grid-shell/Theorem.md) now excludes the last two cases at `n₃=1602`. Thus `n₃≥1605`; the reasoning below is the intermediate reduction. Conway 99 itself remains open.
+
 Let n₃ be the number of unordered pairs of disjoint triangles joined by exactly two edges in a hypothetical SRG(99,14,1,2). A *square* is an induced four-cycle; each nonedge is the diagonal of a unique square. Let U₀ count squares contained in **no induced triangular prism**. Using the [thirteen-motif positive identity](../order-nine-flags/README.md), one has
 $$
 4n_3-83160/13\ge (136/195) U_0 .

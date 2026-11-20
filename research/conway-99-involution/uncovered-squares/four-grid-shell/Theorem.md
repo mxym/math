@@ -32,3 +32,5 @@ In both cases the search maintains the residual prescribed two-symbol occurrence
 Run `python3 verify.py` with GCC C++17. Do not use `python -O`, which disables proof assertions. It regenerates the 2 integral cut replays and the representatives in both word cases, then executes the complete search. The 21/3 frame counts and transcripts make no use of Z3, real arithmetic, or any unprovided proof logs.
 
 [Replay transcript](replay.txt) · [All 21 normalized `(0,0,2)` frame outputs](frames002.tsv).
+
+[Subsequent exact reduction](../three-grid-shell/Theorem.md) excludes both three-grid types and thus the entire `n₃=1602` endpoint. Existence of an SRG(99,14,1,2) remains open.
