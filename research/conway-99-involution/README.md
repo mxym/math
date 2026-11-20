@@ -68,3 +68,5 @@ $H$ 的全部保支撑对称构成一个 2 群，包括仅保持无符号数据�
 [Two discriminant-independent shortest dual directions](dual-short-directions/README.md): the complete rank-13 local search excludes 28 of the 283 candidate complements, not the full involution branch.
 
 [At most one shortest dual direction](dual-five-shell/README.md): a further 18 disjoint complement classes are excluded, for 46 total out of 283 in these lattice tests. The whole involution branch remains open.
+
+[七条正交稀疏记录](unsigned-seven-rows/README.md)：借助格球堆积界，对两种带符号模 7 秩均强制七条两两正交的无符号 −4 特征向量。每条恰有七正、七负；每组各至多两条内部边。二阶分支仍开放。
