@@ -53,6 +53,7 @@
 | [三能级酉误差基的射影群闭包](qutrit-wild-error-bases/projective-closure/README.md) | 单项式或稠密于 PU(3)；有限群阶恰为正 Eisenstein 范数的 9 倍，并给出显式稠密例。只涉及单 qutrit 的射影门。 |
 | [十一维二元 Sidon 集：最大值 48 与完整分类](binary-sidon-eleven/exact48/classification/Overview.md) | 所有 48 点极值集与 Chen 构造仿射等价；两套精确搜索逐个覆盖 10,746 个低截面锚点和 208 个高截面锚点。二元线性 [47,36,5] 恰有三类、[48,36,6] 恰有一类；线性度达 32 的六变量 APN 函数只有一个 CCZ 类。[47 点稳定性](binary-sidon-eleven/exact48/stability47/README.md)：三类且都唯一延拓至 48 点。 |
 | [九变量 Gold 函数：精确仿射距离](gold9-affine-distance/README.md) | 三种 Gold 幂函数距仿射映射为 493、494、494，三个逆函数均为 493；三类函数的图与任意九维仿射平面最多交 19 点，均可达到。两套不同有限域实现复核。 |
+| [二元范数圆删点与 APN 函数图](binary-norm-circle-graphs/README.md) | 对所有 m≥3，范数圆删一点后不能仿射等价于任何 m 变量函数图；偶数 m 时，带圆心的版本删任意两点也不行。并分类了正则超卵形的仿射 APN 图情形；不解决一般 APN 极大性猜想。 |
 | [Watrous 双量子比特基：LOCC 恰需三份](watrous-four-turns/exact-locc/README.md) | 两份无法由任何有限轮的集体 LOCC 完美判别，允许一个实际无限通信记录也不行；三份足够，而集体 SEP 两份足够。不排除不同协议的渐近无误差极限。 |
 | [Conway 99 图：历史 858 端点的秩限制](../conway-99-involution/coordinate-motif-bound/MixedSlices858.md) | 早期条件性归约；新的 864 下界已排除该端点，保留作证明记录。 |
 | [Conway 99 图：能量 10、两个非零轴](../conway-99-involution/energy-ten-two-axes/README.md) | 单固定点二阶分支中，禁止折叠能量恰为 10、恰有两个轴非零的反不变整数特征向量。194 个图表全部精确复核；仓库可直接重放前 156 个，后 38 个的大文件未上传。零轴、四轴及二阶分支仍开放。 |
