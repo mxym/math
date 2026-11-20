@@ -1,0 +1,56 @@
+# Rational quadratic spaces and the triangle projector of a Conway 99-graph
+
+**Scope.** These are necessary conditions if a strongly regular graph with parameters (99,14,1,2) exists. Part I and the triangle-projector consequences require no automorphism. Part II concerns an involution with one fixed vertex. Neither the graph nor either endpoint in the cited search is excluded. No priority claim is made.
+
+## I. The unrestricted eigenspace
+
+**Theorem.** With its ordinary rational dot product the 44-dimensional −4 eigenspace has positive square determinant class; its local Hasse invariants are −1 at 2 and 7 and +1 everywhere else. In particular it is rationally isometric to the positive diagonal form ⟨1⟩⁴² ⊥ ⟨7,7⟩ (by the rational classification of quadratic forms). The 54-dimensional +3 eigenspace has determinant square class 11.
+
+Write t for the all-ones vector, J=ttᵀ, and A for adjacency. The SRG equation A²+A=12I+2J gives eigenvalues 14,3,−4 of multiplicities 1,54,44. Write E_s and E_r for the *orthogonal projectors* onto the latter negative and positive restricted eigenvalues:
+    
+    E_s=(27I−9A+J)/63,     E_r=(44I+11A−2J)/77.
+
+These identities can be checked on the three eigenspaces. Put R=ℤ⁹⁹, R₀=t⊥∩R. In coordinates x₁,…,x₉₈ with last entry −Σx_i its Gram is I+J of order 98, with determinant 99, and (I+J)⁻¹=I−J/99. Its discriminant group is cyclic of order 99: the inverse columns modulo the integral lattice all generate the same order-99 subgroup. On R₀ localized at every p≠7 the operators (3I−A)/7 and (4I+A)/7 are complementary integral self-adjoint idempotents. Thus R₀ splits there as the orthogonal direct sum of its two eigenspace lattices; a unimodular local lattice has unimodular summands in such an integral decomposition.
+
+* For p not dividing 3·7·11, both summands are unimodular in R₀.
+* At 11 the operator E_s has denominator 63, a unit, and hence its image splits unimodularly off R itself.
+* At 3 the operator E_r has denominator 77, a unit, and splits unimodularly off R. The local lattice of E_r in R and R₀ agrees since t is perpendicular to E_r. Inside R₀ the remaining (−4) summand has the entire cyclic discriminant of order 9 at 3. Equivalently in the unimodular orthogonal complement of E_r in R, the primitive vector t has norm 99; it stays primitive since it is already primitive in R, and its perpendicular is exactly the −4 summand. These descriptions do not presume that the constant line splits unimodularly at 3. Diagonalization over ℤ₃ gives 43 unit entries and one 9 times a unit, and dividing the last *basis vector* by 3 gives a unimodular rationally equivalent form at 3.
+* At 2 the split −4 summand in R₀ is even and unimodular: the dot-square of every integral sum-zero vector is even.
+
+Consequently the positive determinant class has even valuation at every prime except possibly 7, so is 1 or 7. An even unimodular 2-adic lattice of rank 2m splits orthogonally into m unimodular binary planes. Indeed the reduction modulo 2 is alternating nondegenerate, so choose two vectors of unit pairing; the even binary block they span has unit determinant and splits integrally. A plane has Gram [[2a,b],[b,2c]], b odd, of determinant Δ=4ac−b²≡−1 mod4. The rank-44 determinant therefore equals (−1)²²=1 mod4, ruling out square class 7. Here local bases only affect a determinant by a unit square. Since R₀ has determinant 99 and splits rationally into the two eigenspaces, the other class is 99≡11 modulo positive rational squares.
+
+**Hasse calculation.** On a rational diagonal form ⟨a_i⟩ use Hasse sign ε_p=∏_{i<j}(a_i,a_j)_p, where parentheses denote the Hilbert symbol. At odd p, a rational form admitting a unimodular integral basis has ε_p=+1, since it diagonalizes into units. This includes 3 by the cyclic-order-nine calculation, but makes no assumption at 7. Over the reals positivity gives +1. At 2 each even binary block above has Δ≡7 mod8 if ac is even, and Δ≡3 mod8 if ac is odd. In the former case −Δ is a 2-adic square and the plane is hyperbolic, of Hasse sign +1. In the latter case a is odd and diagonalizing on the first vector gives the sign (2a,−Δ)₂=(2a,5)₂=−1. The determinant is odd and a square, so if j of the 22 planes are of the latter type, its residue is (−1)²²(−3)^j=5^j mod8, forcing j even. Every pair of block determinants is (3 mod4,3 mod4) with Hilbert sign −1 at 2. Their product is (−1)^{binom(22,2)}=−1. Hence ε₂=−1, and the product formula gives ε₇=−1. The displayed diagonal rational model has these invariants, determinant square and the correct positive signature.
+
+**Principal-minor application.** For any 44 vertices T, the principal Gram D=(27I−9A+J)[T,T] is positive semidefinite. If nonsingular its determinant has the square class of E_s, since it is the Gram of the projected basis vectors in the dot product scaled by 63 and the rank is even. Thus det D is zero or an integer square; subtracting the first row from the other 43 shows it is divisible by 9⁴³. This is a fully local obstruction on proposed induced graphs of that order that satisfy the real rank/positivity test; it is not itself a contradiction for the parameters.
+
+## Triangle-incidence rank and the published index endpoint
+
+Every graph edge lies in exactly one triangle and every vertex lies in seven, so the 99×231 incidence matrix N satisfies NNᵀ=7I+A. In particular Nᵀ identifies E_sℚ⁹⁹ with a 44-dimensional subspace U of ℚ²³¹, multiplying all dot products by 3. The orthogonal projector onto U is E=(1/3)NᵀE_sN. The scaled matrix M=21E=Nᵀ(3I−A+J/9)N is integral (each column of N has sum 3), and M²=21M. Set L=U∩ℤ²³¹, with the dot product. Its square class is square since 3⁴⁴ is square. More strongly its local Hasse signs coincide with E_s: scalar multiplication by a changes ε in rank n by (a,a)^{binom(n,2)}(a,det)^{n−1}; for n=44 and square determinant both multipliers are +1.
+
+For an integral basis matrix of L as columns, with Gram G, put S=21G⁻¹. This form is integral: projecting ℤ²³¹ gives L* in U (every integral functional on primitive L extends to ℤ²³¹), so Mℤ²³¹=21L*⊂L. Consequently
+
+    h=[L:21L*]=det S=21⁴⁴/det L.
+
+The form S is rationally congruent to 21G, since G⁻¹ is rationally congruent to G. The same scaling observation shows ε₇(S)=−1. Thus 7 divides det S: otherwise an integral Gram of unit determinant over ℤ₇ diagonalizes entirely into units and has Hasse +1. Since h is an integer square, **49 divides h**. Furthermore 21L⊂Mℤ²³¹⊂L, so all 44 nonzero Smith invariants of M divide 21, their product is h, and
+
+    h=3^(44−rank_F3 M) 7^(44−rank_F7 M).
+
+In particular both modular ranks are individually even and rank_F7 M≤42. These are unrestricted conditional constraints.
+
+For the literature's n₃, the number of unordered pairs of disjoint graph triangles with exactly two cross edges, see the [triangle projector derivation](https://github.com/YesterdaysLemon/conway-99-research/blob/main/agents/2026-07-23-wave20-global-schur.md). That project's [independently replayed index table for n₃=708](https://github.com/YesterdaysLemon/conway-99-research/blob/main/verification/wave24-n3-708-index/2026-07-23T204222Z-audit.md) gives h∈{9,21,49,81,189,441,729,1029}. Its intersection with the square multiples of 49 is precisely **{49,441}**, giving possible (rank₃ M,rank₇ M) only **(44,42),(42,42)**. The analogous [prism-free upper endpoint](https://github.com/YesterdaysLemon/conway-99-research/blob/main/agents/2026-07-26-wave36-modular-reflection.md) previously required rank₇≥11; the parity gives rank₇≥12 there. No improved bound on n₃ or existence result follows.
+
+For either surviving h the 7-part of S over ℤ₇ has two 7-unit lines and otherwise unimodular lines (the elementary-divisor statement applies also to S by the preceding index description). If h=441 the same is true at 3. Writing the rank-two block as p⟨a,b⟩ with units a,b, its Hasse contribution is (−1/p)(ab/p); all cross terms with the unimodular block contribute +1 since they contain p twice, and unit-unit terms are trivial. Hence (ab/7)=+1 and at h=441 also (ab/3)=−1. This selects one of the two mixed finite local possibilities in the [published formal discriminant census](https://github.com/YesterdaysLemon/conway-99-research/blob/main/agents/2026-07-24-wave28-glue-discriminant.md): taking inverses or multiplying both binary coefficients by a common unit preserves their determinant character.
+
+## II. Extra square-minor test for a one-fixed-point involution
+
+Suppose the only fixed vertex is o, with 49 other pairs. Let R⁺ be the symmetric orbit lattice, with Gram diag(1,2,…,2). The symmetric −4 eigenspace has dimension 22: on the antisymmetric signed adjacency the trace is −7 (precisely seven neighbor pairs have adjacent twins), and the eigenvalues 3,−4 have multiplicities 27,22; subtract from the total. This paragraph's square-class conclusion does not require the rank-13 hypothesis.
+
+The sum-zero sublattice R₀⁺ has x₀=−2Σx_i and Gram 2(I+2J) in its 49 free coordinates, so determinant 2⁴⁹·99 and cyclic order-nine discriminant at 3 (inverse to I+2J is I−2J/99). The argument in Part I away from 2 applies word for word: R⁺ is unimodular at all odd primes, E_r splits there at 3, E_s at 11, and the difference 7 is a unit elsewhere when required. Thus all odd valuations except 7 are even. At 2 use instead the halved form on R₀⁺. It has Gram I+2J and is unimodular (det 99); the r,s eigenspaces split by their integral eigenprojectors on R₀⁺. Restoring the factor 2 contributes an even valuation, 22, in the s-space. Again only classes 1,7 remain.
+
+For any integral x in the local s-summand, k=−99E_s e_o lies in that summand and
+     
+     (k,x)/2=−99x₀/2 ≡ Σx_i ≡ (x,x)/2 mod2.
+
+Its norm in the halved form is 99²(E_s)oo/2 = 2178, since (E_s)oo=28/63=4/9. In any unimodular 2-adic form on n coordinates, the norm |k|² of a characteristic vector satisfies det ≡ (−1)^((n−|k|²)/2) mod4. Indeed split off odd unit lines until the residual form is even and decomposes into the even binary blocks above. In a line of odd norm a the characteristic square is a mod4, and a≡(−1)^((1−a)/2) mod4. In each even binary plane the characteristic has even coordinates, giving square 0 mod4 and determinant −1 mod4. Multiplication proves the formula. Here n=22 and 2178≡2 mod4, so the determinant is 1 mod4. This rules out class 7. The ordinary symmetric −4 dot product thus has square determinant class, since 2²² is square. Every full-rank 22×22 principal Gram obtained from symmetric vectors via the integral scaling 63E_s has integer square determinant. No positiveness or rank statement has been inferred from the square condition alone.
+
+**Literature note.** The projector and index framework and the eight-row table above are the cited authors' prior work; only the additional arithmetic deductions are supplied here. This document is an elementary application of quadratic-space theory, not a claim that local discriminant tests are new in general or that the present particular conclusions have publication priority.
