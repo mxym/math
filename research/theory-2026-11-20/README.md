@@ -53,3 +53,4 @@
 | [十一维二元 Sidon 集](binary-sidon-eleven/README.md) | 无对称性限制的上界由 58 改为 54；48 点的已知下界不变。自含轨道质量证书与两个精确终端复核，最优值仍开放。 |
 | [Watrous 双量子比特基的两副本 LOCC](watrous-four-turns/README.md) | 两实验室各自可联合处理本地两份，仍排除最多四次交替本地操作的完美判别。五次或更多及不限轮数的情况未解决；该例已有集体 SEP 测量。 |
 | [Conway 99 图：858 端点的秩限制](../conway-99-involution/coordinate-motif-bound/MixedSlices858.md) | 若达到下界 858，至少 33 个顶点对应的混合张量算子秩至多 40。端点和整图仍未排除。 |
+| [Conway 99 图：能量 10、两个非零轴](../conway-99-involution/energy-ten-two-axes/README.md) | 单固定点二阶分支中，禁止折叠能量恰为 10、恰有两个轴非零的反不变整数特征向量。194 个图表全部精确复核；仓库可直接重放前 156 个，后 38 个的大文件未上传。零轴、四轴及二阶分支仍开放。 |
