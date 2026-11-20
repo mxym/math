@@ -23,3 +23,5 @@ The two 0s must be joined: otherwise X₀ sees both t-neighbors of Z as well as 
 The previous rooted 4-cell gap follows immediately by adjoining the root and the four signed parents: such a 9-set has 14+m edges when m of the six possible edges among its four labels are present. This does not state whether any rook grid occurs.
 
 The analytical proof is complete without computation. [Optional terminal-case audit](unrooted.py): run `python3 unrooted.py`; expected surviving cases: `0`.
+
+[Grid-free dichotomy](GridFreeDichotomy.md): if a hypothetical Conway graph contains no induced 3-by-3 grid, it has at least 2,079 pairs of disjoint triangles joined by exactly two edges. More generally `n₃ ≥ 2079−9g` for `g` induced grids. This is a split into two regimes, not an existence result.
