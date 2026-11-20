@@ -84,3 +84,5 @@ Each argument function U or U·1_{H_k} is an even-character expansion of ℓ¹ n
 The total coefficient ℓ¹ cost in this expansion is at most 1+2π(K)=O_{δ,ε}(√L/log L), not exponential. Unlike M this is not a nonnegative prime-only mask and may undershoot even an existing true pair; the assertion is only that a strictly positive corrected lower count certifies genuine primes. No positive lower bound for that count is obtained here.
 
 Run `python3 -O check_dense_wheel.py` for a full finite differential test of the block and deletion counts, including targets divisible by test primes. The asymptotic conclusions use the analytic argument above.
+
+For an exponentially shrinking loss rather than fixed δ, see the [sharp size–retention tradeoff](DenseWheelPrecisionBarrier.md).
