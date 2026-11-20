@@ -47,4 +47,4 @@ Here is a short purely combinatorial contradiction. Each K₇ edge e is a vertex
 
 In prism language, if all seven triangles through o have twelve prism partners, then for each two axes and each sign of one, the prism based at the other axis flips the other sign, so o is partner-regular. Conversely partner matchings make all twelve partners at each rooted triangle. Hence every vertex lies on at least one triangle with fewer than twelve prism partners. This is a local obstruction, not a solution of the 99-graph existence problem.
 
-Companion: [every vertex has at least eight generating partners for two-neighbor bootstrap percolation](Percolation.md).
+Companion: [the basic bootstrap percolation argument](Percolation.md); [binary defect equations improve the uniform bound to sixteen generating partners](DefectCode.md).

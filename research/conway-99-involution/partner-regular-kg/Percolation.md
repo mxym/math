@@ -1,3 +1,5 @@
+**Strengthened bound:** [the binary defect equations](DefectCode.md) now give at least sixteen generating partners at each vertex. The closure criterion below still applies.
+
 # Every vertex has at least eight 2-percolating partners
 
 Write cl(S) for the closure obtained by repeatedly adding vertices with at least two neighbors already present. In a hypothetical SRG(99,14,1,2), every vertex o has at least **eight nonneighbors** y such that cl({o,y}) is the entire graph. In particular there are at least 396 unordered generating pairs. This follows from the no-partner-regular-vertex theorem; no construction or nonexistence conclusion follows.
