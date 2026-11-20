@@ -1,0 +1,7 @@
+# Conway 99 involution: at most one shortest dual direction
+
+In the signed rank-13 involution branch the Δ-norm-five shell of the complement's dual lattice contains at most one opposite pair. The [earlier orthogonal result](../dual-short-directions/README.md) excluded 28 candidate complements; this [new exact result](Theorem.md) excludes 18 more, leaving **at most 237 out of 283 by these tests**. Neither the full involution branch nor the Conway graph problem is resolved.
+
+The positive-Schur searches reject 5,640,934 signed alignments for inner product +2 and 3,353,994 for −2. The singular cases leave some locally permitted marked rows, but independent signed-coordinate and directed-coordinate orbit computations show that none can be compatible with all four required choices of marked axis. This is global consistency of the local views; it does not assert that each surviving local chart is individually contradictory.
+
+[Frozen replay archive](Conway99_Rank13_Dual5Shell_46_Exact.zip) · [Original replay summary](replay-summary.txt). Archive SHA-256: `5c003993a607d5e3ea5fdb578261c52319342a6302f4881d30dc191bf8574946`. After extraction, run `bash replay.sh` for the full computation. The independently executed quick replay checks both rank and singular ledgers, the complete orbit comparison and a positive-Schur pilot for each sign rather than rerunning the two full positive-Schur ledgers. GNU C++17, Python 3, GMP and an x86 CPU with popcount are required.

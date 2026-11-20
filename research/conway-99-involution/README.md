@@ -66,3 +66,5 @@ $H$ 的全部保支撑对称构成一个 2 群，包括仅保持无符号数据�
 带符号矩阵 $F=12I-4L-Z^tZ$ 的模 7 秩只能是 11 或 13。选出张成其模 7 行空间的完整轨道行，即可唯一恢复所有其余边的方向。[局部二次型、秩排除与逐行恢复](seven/README.md)
 
 [Two discriminant-independent shortest dual directions](dual-short-directions/README.md): the complete rank-13 local search excludes 28 of the 283 candidate complements, not the full involution branch.
+
+[At most one shortest dual direction](dual-five-shell/README.md): a further 18 disjoint complement classes are excluded, for 46 total out of 283 in these lattice tests. The whole involution branch remains open.
