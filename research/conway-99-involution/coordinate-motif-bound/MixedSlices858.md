@@ -1,3 +1,5 @@
+**Historical endpoint:** [the edge-transport theorem](edge-transport/README.md) rules out all-minimum vertices and gives n₃≥864, so the conditional 858/861 endpoint analysis below is now vacuous.
+
 # Mixed vertex tensors near the 858 motif bound (research note)
 
 Use [the coordinate lower bound](README.md), writing g=7E, g_i=g e_i, Z=(w_U)_U, u_U=w_U/√7, s_U(i)=w_U(i)−1/3, and q(T)=a₂(T)/3=12−a₃(T). Define q_ij=Σ_U w_U(i)w_U(j)w_U, and K_i to have columns q_ij. The self-adjoint endomorphism D_i=K_i/7 on the 44D −4 eigenspace obeys D_i g_j=q_ij. In particular q_ii=−g_i: coordinatewise s_U(i)²=2N_iU−s_U(i), so q_ii=2(ZNᵀ)e_i−(ZZᵀ)e_i/3=(42−49)Ee_i. Hence D_i g_i=−g_i. The trace vanishes by Σ w_U(i)=0 and ||w_U||²=28.

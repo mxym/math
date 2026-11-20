@@ -47,10 +47,11 @@
 | [Conway 99 图：禁止诱导四维立方体](../conway-99-involution/induced-q4-obstruction/README.md) | 无自同构假设；任何假想图都不含诱导 Q₄。不解决整图存在性。 |
 | [三能级非群型酉误差基的最小投影群](qutrit-wild-error-bases/README.md) | 最小群阶恰为 27，等号有两个局部酉等价类；已发表的一参数族此前给出的 36 阶例不能靠换代表降阶。 |
 | [双边量子态判别的两副本问题](two-copy-collective-ppt/README.md) | 显式双 qutrit 最大纠缠正交基，即使允许对本地副本进行联合处理，两份也不能被 PPT、SEP 或 LOCC 完美判别。PPT 恰需三份；SEP、LOCC 仅证明至少三份。[误差证书](two-copy-collective-ppt/Robustness.md)给出两份的严格误差下界 1/20,000,000。 |
-| [Conway 99 图：全图三角形与诱导六环下界](../conway-99-involution/coordinate-motif-bound/README.md) | 无自同构假设；恰有两条跨边的不相交三角形对至少 858 个，诱导六环至少 210,144 个。纯解析证明，不决定整图存在性。 |
+| [Conway 99 图：全图三角形与诱导六环下界](../conway-99-involution/coordinate-motif-bound/edge-transport/README.md) | 无自同构或余团假设；恰有两条跨边的不相交三角形对至少 864 个，诱导六环至少 210,150 个；每个顶点都排除全极小混合张量。整图仍开放。 |
 | [Conway 99 图：排除完整特征 8-标架](../conway-99-involution/no-characteristic-8-frame/README.md) | 单固定点二阶分支的秩 13 情形排除九类完整特征标架补格。新 24A1 有全量流式重放；不排除无该标架的补格。 |
 | [三能级酉误差基的射影群闭包](qutrit-wild-error-bases/projective-closure/README.md) | 单项式或稠密于 PU(3)；有限群阶恰为正 Eisenstein 范数的 9 倍，并给出显式稠密例。只涉及单 qutrit 的射影门。 |
 | [十一维二元 Sidon 集：精确最大值 48](binary-sidon-eleven/exact48/README.md) | 首个原表未定维数，完整排除 49 点并直接验证已知 48 点构造；两套独立精确搜索。十一检验位的二元线性距离 5 码最长 47，六变量 APN 线性度最大 32，十二维 Sidon 仅得上界 84。[早期上界 54](binary-sidon-eleven/README.md)。 |
 | [Watrous 双量子比特基：LOCC 恰需三份](watrous-four-turns/exact-locc/README.md) | 两份无法由任何有限轮的集体 LOCC 完美判别，允许一个实际无限通信记录也不行；三份足够，而集体 SEP 两份足够。不排除不同协议的渐近无误差极限。 |
-| [Conway 99 图：858 端点的秩限制](../conway-99-involution/coordinate-motif-bound/MixedSlices858.md) | 若达到下界 858，至少 33 个顶点对应的混合张量算子秩至多 40。端点和整图仍未排除。 |
+| [Conway 99 图：历史 858 端点的秩限制](../conway-99-involution/coordinate-motif-bound/MixedSlices858.md) | 早期条件性归约；新的 864 下界已排除该端点，保留作证明记录。 |
 | [Conway 99 图：能量 10、两个非零轴](../conway-99-involution/energy-ten-two-axes/README.md) | 单固定点二阶分支中，禁止折叠能量恰为 10、恰有两个轴非零的反不变整数特征向量。194 个图表全部精确复核；仓库可直接重放前 156 个，后 38 个的大文件未上传。零轴、四轴及二阶分支仍开放。 |
+| [强哥德巴赫猜想：中心算子均方](strong-goldbach/README.md) | 对实际素数，无条件给出中心算子在密度意义下的小误差和固定有限局部模型的精确方差；不提供每个偶数的估计。另核查一篇声称完全证明的预印本。 |
