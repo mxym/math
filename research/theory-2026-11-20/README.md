@@ -55,3 +55,4 @@
 | [Conway 99 图：历史 858 端点的秩限制](../conway-99-involution/coordinate-motif-bound/MixedSlices858.md) | 早期条件性归约；新的 864 下界已排除该端点，保留作证明记录。 |
 | [Conway 99 图：能量 10、两个非零轴](../conway-99-involution/energy-ten-two-axes/README.md) | 单固定点二阶分支中，禁止折叠能量恰为 10、恰有两个轴非零的反不变整数特征向量。194 个图表全部精确复核；仓库可直接重放前 156 个，后 38 个的大文件未上传。零轴、四轴及二阶分支仍开放。 |
 | [强哥德巴赫猜想：中心算子均方](strong-goldbach/README.md) | 对实际素数，无条件给出中心算子在密度意义下的小误差和固定有限局部模型的精确方差；不提供每个偶数的估计。另核查一篇声称完全证明的预印本。 |
+| [Conway 99 图：排除配对规则顶点](../conway-99-involution/partner-regular-kg/README.md) | 任一顶点的七条轴不可能两两全部延伸成 21 个三阶车图。二元辛空间将分类压到 128 个精确情形，再由 Petersen 图排除。无自同构假设；整图仍开放。 |

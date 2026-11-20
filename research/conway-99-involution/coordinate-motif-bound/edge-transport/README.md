@@ -50,3 +50,5 @@ Indeed all seven triangles through i sum to zero on v; the triangles with s_T(i)
 Therefore every tr(D_i²) is at least 48. Summation yields 28(n₃−693)≥99·48, i.e. n₃≥863; divisibility by three gives **n₃≥864**. This does not exclude the 864 endpoint or imply nonexistence.
 
 Run `python3 -O check.py` for auxiliary exact arithmetic. The proof is analytical and does not depend on a search.
+
+Further local obstruction: [no vertex of the hypothetical graph is partner-regular](../../partner-regular-kg/README.md), independently of whether its mixed tensor slice is minimum.
