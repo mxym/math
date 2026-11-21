@@ -314,6 +314,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Dyadic rank with prescribed prime seeds](PrimeOrbitDyadicRank.md): short supported lattice relations and a 2-adic logarithm estimate show that any hypothetical dyadic exception must have a sufficiently large prescribed forward closure or independent seed classes and a large directed cycle hitting set. This is not a contradiction for either surviving alternative.
 
+[Independent moving direction in a bounded orbit of one fixed seed](PrimeOrbitMovingSeed.md): at targets whose part supported on a fixed prime set exceeds the square root by a fixed power, the fixed seed and least other label are independent in the rational quotient of any bounded all-composite closure. A hypothetical failure there needs at least six labels in each fixed seed's full orbit. The theorem does not control unbounded orbits or decide the target family.
+
 [Feedback generators and cyclic Smith obstruction](PrimeOrbitCyclicSmith.md): small seeds generate the unit group up to sign, so every set hitting every directed cycle must generate it too. The Smith divisibility uses only cyclic components, even with an arbitrarily large transient set. Singular blocks consume precisely the stated invariant-factor allowance. The exact checker covers represented centers and synthetic block couplings, not Goldbach exceptions.
 
 [Square-root bound on centers with compact nonsingular components](EACNonsingularSquareRoot.md): for any size cap o(log log log X), at most X^(1/2+o(1)) centers up to X have a component below that cap with nonsingular exponent presentation. This covers every three-label component, with unrestricted labels and exponents. The count is of component-bearing centers, not Goldbach exceptions.
