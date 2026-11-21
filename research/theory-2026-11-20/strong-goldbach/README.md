@@ -310,4 +310,6 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Five-label doubly singular components need two heavy rows](EACFiveDoubleSingular.md): the two singularities force two disjoint mutual pairs, and exact congruences exclude both the all-semiprime and one-heavy-row branches. Combined with the square-root counts this treats five-label centers with at most one heavy row, not all five-label components.
 
+[Supported minors and sparsity for all five-label components](EACSupportedMinorFive.md): even in the doubly singular case, a signed multiplicative relation supported only on small labels bounds the number of centers. All five-label EACs together occur at at most X^(3/4+o(1)) centers up to X. This is not a count of Goldbach exceptions or a claim that the five-label class is empty.
+
 [No three-label components at powers of two or twice powers of three](EACThreeTwoAndThreePowers.md): a signed order obstruction, followed by an exact 39-center replay, excludes this entire component-size class along both sequences. It does not exclude other component sizes or prove representability along either sequence.
