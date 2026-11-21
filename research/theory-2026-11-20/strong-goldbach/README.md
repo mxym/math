@@ -296,6 +296,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Coupled cutoffs and two simultaneous negative sectors](CoupledParityCompensation.md): a single globally equivalent coefficient uses different reflected parity profiles on the uncored and marked quotient families. Their disjoint complete macro-rough sectors are at most −.16 and −.10 of the reference, respectively. The complement is still uncontrolled; older bounds from other coefficients are not added.
 
+[Where the compensated mass goes](CompensationNeutrality.md): after summing all actual quotient values, changing the reverse cutoff also has zero total effect on each of the fixed reflected prime-product profiles used above. The signed gains on selected quotient families are exactly paid back by their complements within such a profile; they are not new global slack.
+
 [Dyadic divisors and Smith torsion](EACDyadicSmith.md): a large dyadic divisor forces a large Smith invariant for a nonsingular factor matrix, or an eigenvalue-one obstruction. In the strongly connected case the latter forces two vertex-disjoint directed cycles.
 
 [Dyadic rank with prescribed prime seeds](PrimeOrbitDyadicRank.md): short supported lattice relations and a 2-adic logarithm estimate show that any hypothetical dyadic exception must have a sufficiently large prescribed forward closure or independent seed classes and a large directed cycle hitting set. This is not a contradiction for either surviving alternative.

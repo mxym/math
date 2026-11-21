@@ -107,3 +107,5 @@ The new sign on no-core arises by replacing the adverse even-rank kernel by the 
 ## Comparison with 2026 work
 
 [Arneth's September signed-coefficient and conditional-compensation note](https://zenodo.org/records/23016346) includes balanced-factor identities and discusses the difficulty of prime-filtered compensation. [Pham's October v1](https://www.preprints.org/manuscript/202610.3061) gives different reflected rough and signed boundary comparisons. The result here is the two freely chosen exact whole-row cutoff pairs and unconditional signs on the two stated opened sectors, not a result on their joint complement or a priority claim about general parity compensation.
+
+[Profilewise accounting](CompensationNeutrality.md) shows that changing the reverse cutoff has zero total effect on each admissible fixed reflected profile after summing all quotient values. Thus the coupled correction alone redistributes signed contributions among quotient sectors even at fixed reflected rank, and its favorable selected pieces need the corresponding complement bookkeeping.
