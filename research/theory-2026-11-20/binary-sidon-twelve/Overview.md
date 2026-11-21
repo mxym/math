@@ -7,3 +7,5 @@ The same work completely classifies binary `[46,35,5]` codes (33 coordinate-perm
 [Full proof and frozen replay](../binary-sidon-eleven/exact48/stability47/README.md). The previous [upper bound 79](upper79/README.md), [80](upper80/README.md), [81](../binary-sidon-eleven/exact48/classification/Overview.md) and [83](README.md) packets remain available.
 
 [40 点超平面截面的唯一延拓](circle40/README.md)：若一个 ≥66 点 Sidon 集含标准范数圆构造的任一最大截面，则它就是该 66 点构造的一个仿射像。这里不限制其他 66 点集或潜在的 67 点集。
+
+[三次及以下代数支撑的极值](degree-three/README.md)：在任意 GF(64)² 坐标下，若一个 Sidon 集落于非零次数 ≤3 的方程零点上，至多 66 点；等号才是椭圆加核。此结论不排除更高次数或非代数支撑上的 67 点。
