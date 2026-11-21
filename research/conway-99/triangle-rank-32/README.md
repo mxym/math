@@ -42,3 +42,5 @@ The two passes reproduce the following SHA-256 digests over lexicographically so
 | Three-wing extension test | 72 | d8df755af3c521d71fa51fd7506de4f036da7cee17b6dcbbad0bfadf2dcf7cb4 |
 
 An instrumented run visited 16,475,511,643 prefixes and reached 1,721,394 leaves across all matching triples. A separate run of the packaged census reproduced the first-pass digest. Both runs use the same mathematical enumeration.
+
+The [rank-34 exclusion](../rank-34-exclusion/README.md) combines the marked counts with a separate upper bound on norm-18 supports. The remaining ranks are 36, 38, 40 and 42.
