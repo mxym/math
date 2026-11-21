@@ -199,3 +199,5 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [All-height restrictions on three-label exponents](EACThreeExponentGaps.md): when the largest prime occurs to the first power, the last complement must be a pure power, the small base satisfies q > p^e, and b ≥ ed+1. Repeated-largest configurations obey two coprimality restrictions on the exponents. Neither surviving branch is excluded.
 
 [Repeated-largest components with one bounded label](EACRepeatedFixedLabel.md): logarithms show d = O(log p), and for each fixed upper bound on even one label there are only finitely many centers in the repeated-largest branch. This uses integral curves and restricted-denominator approximation, not an explicit center census.
+
+[Reverse Möbius dispersion and a double-Vaughan region](ReverseVaughanDoubleResidual.md): opening the true quotient prime now cancels its two Type I terms against the entire high reflected remainder, plus a quotient divisor slice and the genuine double sector with product below x^(1−ε). The surviving product-above-cut sector is an actual coupled signed Möbius sum, not a proven Goldbach estimate.
