@@ -280,6 +280,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Signed divisor-cube compensation at the original Pan cutoff](PanCriticalDivisorCubeCompensation.md): on an explicit bounded mask of actual divisor terms, two fixed mark geometries support signed compensation at joint moduli (P^{.505}) through (P^{.5151}). Exact cube algebra, full triple well-factorability and Lichtman's moving-residue theorem give arbitrary-log cancellation on the combined mask, not on all divisors of the selected complements or on the full remainder.
 
+[Physical roughness at the original Pan cutoff](PanCriticalPhysicalRoughness.md): uniformly over every subset of primes up to (log log P)^(5/2), discarding actual inputs where either summand has one of those factors changes the full asymmetric signed remainder by O(P/log(P)^(1/5)). This includes all divisors and the target-supported prime part; it leaves the signed mass on the surviving set open.
+
 [Equal reverse cuts and all positive small cores](WholePositiveSmallCore.md): the original true-prime test admits a globally equivalent reverse expansion in which any quotient with only one distinct small prime has zero coefficient, apart from paid powers. All positive cores up to exponent .14 have a uniform net negative bound against the full macro-rough reflected side; this by itself does not bound the residual.
 
 [Opposite net signs on the no-core and negative-core sectors](NoCoreAdverseSign.md): with the same equal cuts, the complete no-core sector on the macro-rough reflected side contributes at least +.030 of the reference, despite containing the negative rank-four section. Negative small cores also have the opposite net sign to positive small cores. No whole-row bound follows.
