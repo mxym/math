@@ -292,6 +292,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Both smooth cutoffs reduce the whole opened residual to bounded ranks](DoubleSmoothBoundedRankResidual.md): the full two-variable opened row has absolute mass at most a constant times the reference. For any desired fixed tolerance, removing a sufficiently small fixed polynomial factor cutoff on both variables and then deleting squareful inputs leaves bounded ranks with that error. This is a reduction of the signed problem, not the needed signed inequality.
 
+[Coupled cutoffs and two simultaneous negative sectors](CoupledParityCompensation.md): a single globally equivalent coefficient uses different reflected parity profiles on the uncored and marked quotient families. Their disjoint complete macro-rough sectors are at most −.16 and −.10 of the reference, respectively. The complement is still uncontrolled; older bounds from other coefficients are not added.
+
 [Dyadic divisors and Smith torsion](EACDyadicSmith.md): a large dyadic divisor forces a large Smith invariant for a nonsingular factor matrix, or an eigenvalue-one obstruction. In the strongly connected case the latter forces two vertex-disjoint directed cycles.
 
 [Dyadic rank with prescribed prime seeds](PrimeOrbitDyadicRank.md): short supported lattice relations and a 2-adic logarithm estimate show that any hypothetical dyadic exception must have a sufficiently large prescribed forward closure or independent seed classes and a large directed cycle hitting set. This is not a contradiction for either surviving alternative.
