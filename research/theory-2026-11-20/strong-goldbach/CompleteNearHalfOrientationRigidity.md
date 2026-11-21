@@ -163,6 +163,78 @@ intersection of the permitted marker set with one
 interval in the actual logarithms. This conclusion
 does not rely on equality or smoothing of their weights.
 
+### Complete weighted sign, even over the full original marker band
+
+For all sufficiently large \(x\), the largest of the six prime factors is above \(x^{.14}\), since \(n>x/2\). Allow **any subset** of the
+true marker primes of \(n\) at exponents in \([.10,.14]\),
+not necessarily the tight bands used for (5).
+At the exact canonical half the following is pointwise:
+\[
+ \text{if some allowed }s\text{ has }S(q_s)>0,\qquad
+                     \sum_{s\in J(n)}W_s(q_s)S(q_s)>0 .
+ \tag{8}
+\]
+Moreover, if \(S(q_s)=6\) or \(4\) then no opposite
+negative marker can occur anywhere in the same allowed set.
+If \(S(q_s)=2\) there is at most one opposite negative
+marker, and it is larger than \(s\).
+
+To prove this write \(T=\log n\), \(P_0=\log P\) and
+use \(a_s=\log s\). Suppose \(S(q_s)>0\), so the number
+\(j_s\) of long pairs in \(q_s\) is at most 2.
+Every negative orientation \(t\) has a four-edge star at
+\(P\) in \(q_t\). It must have \(a_t>a_s\): otherwise its
+half is larger, and the three common star edges already
+give at least three long pairs in \(q_s\). Also its edge
+\((P,s)\) in \(q_t\) is strictly long, so
+\[
+ P_0+a_t-(T-a_s)/2
+  =P_0+a_s-(T-a_t)/2+(a_t-a_s)/2>0 .
+\]
+That is, \((P,t)\) is a long pair in \(q_s\).
+Hence the number of negative markers cannot exceed \(j_s\).
+
+If \(j_s=1\) and \(t\) were negative, the three other
+pairs at \(P\) in \(q_s\) would all be short.
+Writing \(H_s=T-a_s\) and summing the four non-\(P\)
+label exponents of \(q_s\) yields
+\(H_s\le P_0+a_t+3(H_s/2-P_0)\), hence
+\(2P_0\le a_t+H_s/2\).
+The negative star at \(t\) has
+\(2P_0>T-a_t-2a_s\).
+Combining yields \(T<4a_t+3a_s\le.98L\), contradicting
+\(T\ge L-\log2\) for large \(x\).
+The case \(j_s=0\) was already excluded.
+
+If \(j_s=2\) and two negative markers \(t_1,t_2\) occurred,
+the two known long pairs \((P,t_1),(P,t_2)\) would exhaust
+all long pairs in \(q_s\). The two other pairs at \(P\)
+are short, so \(H_s\le P_0+a_{t_1}+a_{t_2}
+   +2(H_s/2-P_0)\) gives \(P_0\le a_{t_1}+a_{t_2}\le.28L\).
+But either negative star has
+\(P_0>(T-a_{t_i})/2-a_s\ge.29L-O(1)\), a contradiction.
+Thus at most one negative marker occurs. Its weight is
+strictly smaller than \(W_s\) since \(t>s\) and the exact
+original cubic is strictly decreasing in its normalized exponent
+argument: its derivative at \(u\) is \(-(1-2u)(5-6u)<0\) for \(0<u<1/2\). If this marker exists, the sum in (8) is at
+least \(2(W_s-W_t)>0\).
+If none exists, the positive orientation alone proves (8).
+When all orientations have \(S\le0\), their weighted sum
+is of course nonpositive, strictly negative if any
+is negative. This completely classifies the sign of the
+canonical all-marker sum in terms of which individual
+signs occur, without hypotheses on factor spacings.
+
+The statement for exact canonical halves is independent
+of whether this entire wide marker band admits a single
+whole-row smooth exchange of the desired strength.
+For the actual narrow transferred rows of §1 the canonical
+conclusion is applicable up to the literal neck error (5).
+In particular (8) rules out a purely local repair using
+all canonical original orientations in **any** adverse
+rank-five case with \(S>0\), not
+just in the specific example below.
+
 Here is a genuine unavoidable same-sign sector, even
 when all three original near-half marker bands are present.
 Take \(n=s_2 s_3 s_4 B_1 B_2 B_3\) and retain the
