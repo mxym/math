@@ -15,7 +15,7 @@ In particular \(g(0)=0\), so \(S_2=0\) on prime \(m\), just as \(C-T_q=0\) on pr
 \]
 For this score its proof is unchanged except that there is **no** extra prime label of \(d_m\) or interval \(m\le B_m r^2\): the new weight is a bounded smooth function of the genuine \(d_m,m\). The all-integer CRT, the actual giant-quotient prime \(p>x^{.501}\) which is tested by product BV for \(n=p(su)\), the exact cutoff \(s p(u/d)>x^{1-\delta}\), and the restored coprime short/long \(\mu\) principal all apply to this simpler weight. In particular the true reflected-prime subtraction that would obstruct the same argument with \(T_m\) is **absent**. The squareful rough errors still have arbitrary log reserve by bounded divisor moments.
 
-Thus the exact threshold \((J+.010)M_N\) with strict margin can be tested against the original joint squarefree score with \(T_qT_m\) replaced by
+Thus the [single-cell budget target](JointShortDivisorProjection.md#1-statement-and-literal-endpoints) \((J+.010)M_N\) with strict margin can be tested against the original joint squarefree score with \(T_qT_m\) replaced by
 \[
                   T_q T_m+(C-T_q)S_2.                               \tag{2}
 \]

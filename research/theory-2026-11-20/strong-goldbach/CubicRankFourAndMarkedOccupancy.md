@@ -18,7 +18,7 @@ For all sufficiently large even \(N\), uniformly in the target,
 \[
                               H_N^*>.0033 M_N.                       \tag{2}
 \]
-This is a lower bound for the cubic ledger's own favorable term, not independent reserve in any prior representation. The remaining upper threshold is strictly below \((.010-5J)M_N\) for the signed terms after the explicit \(6J M_N\), unless other terms are also accounted for.
+This is a lower bound for the cubic ledger's own favorable term, not independent reserve in any prior representation. For the [semiprime cell’s assigned budget](JointShortDivisorProjection.md#1-statement-and-literal-endpoints), the upper target is strictly below \((.010-5J)M_N\) for the signed terms after the explicit \(6J M_N\), while the other low-marker cells still require separate net control.
 
 ## 2. Whole signs and true prime-source transfer
 

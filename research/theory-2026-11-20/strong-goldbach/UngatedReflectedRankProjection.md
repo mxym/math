@@ -107,7 +107,7 @@ Given any tolerance, first fix \(h\), then choose fixed \(\epsilon>0\) sufficien
    \sum_{\substack{q,m\text{ composite}\\ P^+(m)\le x^{1/2+\epsilon}\\\Omega(m)\ge3}}
       W_s(q)(\log m)H_h(q) H_f(m)T_b(m).                              \tag{8}
 \]
-The sufficient eventual positivity criterion is a fixed-margin upper bound below \(.010 M_N\) for (8) plus the small allowance (7); the original reference and inequality are unchanged. In particular one need not pay any of the old two-sided large-prime tag packets in addition to (8).
+If the [whole low-marker allowance](CenteredMarkerHighRows.md#4-the-new-remaining-condition) is assigned to this particular semiprime cell, its corresponding budget target is a fixed-margin upper bound below \(.010 M_N\) for (8) plus the small allowance (7); the original semiprime reference is unchanged, and this does not estimate the other low-marker cells. In particular one need not pay any of the old two-sided large-prime tag packets in addition to (8).
 
 There is an exact first-rank sign. On \(\Omega(m)=3\), every two-distinct-prime product divisor of \(m\) is \(m/\ell\) for a prime \(\ell\le B\), hence at least \(m/B\); the same conclusion applies if one of the three prime factors is repeated. The least prime factor is below \(m/B\) because \(b<2/3\). Thus
 \[

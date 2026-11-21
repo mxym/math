@@ -18,11 +18,11 @@ Then uniformly at the actual target,
  Z_N= 2P'(1)J M_N+\mathcal S_c\big[W_s(q)(\log m)T_q(q)R_P^*(m)\big]+o(M_N).
                                                                     \tag{1}
 \]
-The strict sufficient eventual threshold for the composite sum in (1) is
+For the [single-cell allocation](JointShortDivisorProjection.md#1-statement-and-literal-endpoints) of the entire low-marker allowance, the corresponding upper target for the composite sum in (1) is
 \[
  \big((1-2P'(1))J+.010\big)M_N
 \]
-with a fixed strict margin. This is not the threshold of an earlier composite representation.
+with a fixed strict margin. It is not the threshold of the earlier composite representation, and meeting it would not handle the other low-marker cells.
 
 For odd squarefree \(k=\Omega(m)\), write \(m=\prod_{i=1}^k p_i\), \(a_i=\log p_i/\log m\). Full complementary reflection gives
 \[

@@ -117,4 +117,4 @@ Finally, for any tolerance, first fix \(K_0\) large using (2), then a fixed smal
 \[
               Z_N\le6J M_N-H_N^*+D_{6,N}+.0073 M_N+o(M_N).
 \]
-It would still need, for example, a uniform fixed-margin lower on \((H_N^*-D_{6,N})/M_N\) above \(5J-.0027\), about \(.97566\), to reach the old sufficient upper for \(Z_N\). The proved favorable lower \(.0033\) alone is far below this requirement. No all-target Goldbach positivity follows.
+It would still need, for example, a uniform fixed-margin lower on \((H_N^*-D_{6,N})/M_N\) above \(5J-.0027\), about \(.97566\), to reach the [assigned upper budget for this semiprime cell](JointShortDivisorProjection.md#1-statement-and-literal-endpoints). The proved favorable lower \(.0033\) alone is far below this requirement. No all-target Goldbach positivity follows.

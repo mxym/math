@@ -11,7 +11,7 @@ For all sufficiently large even targets, uniformly,
  H_N^*>.0679 M_N,\qquad D_{6,N}<.0375 M_N,\qquad
          -H_N^*+D_{6,N}+E_{\ge8,N}<-.023 M_N.                       \tag{1}
 \]
-The last constant uses the tighter rational lower before rounding the first displayed number. Earlier independent reserves are not added. The Goldbach sufficient target for the total correction remains below \((.010-5J)M_N\), approximately \(-.96836M_N\), far below the uniform upper in (1).
+The last constant uses the tighter rational lower before rounding the first displayed number. Earlier independent reserves are not added. The [single-cell budget target](JointShortDivisorProjection.md#1-statement-and-literal-endpoints) for this cubic correction remains below \((.010-5J)M_N\), approximately \(-.96836M_N\), far below the uniform upper in (1).
 
 ## 1. Majorize the actual Richert weight by the cubic score
 
@@ -87,4 +87,4 @@ Since \(|A_{k+2}|/|A_k|\le\pi^2/((k+1)(k+2))\) and the even signs alternate star
                                 {\sum_{N\in[2Y,4Y],\;2\mid N} M_N}
           <.9779012.
 \]
-The prior sufficient uniform threshold \(5J-.0027\approx.9756612\) is **below** this mean. Thus the sufficient condition is not obstructed by its mean, but it needs an almost asymptotic uniform lower in a true shifted prime-product statistic, far beyond (1). The displayed strict signed reserve does not itself solve Goldbach.
+The uniform single-cell requirement \(5J-.0027\approx.9756612\) is **below** this mean. Thus this cell target is not obstructed by its mean, but it needs an almost asymptotic uniform lower in a true shifted prime-product statistic, far beyond (1). The displayed strict signed reserve does not itself solve Goldbach.

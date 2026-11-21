@@ -1,6 +1,6 @@
 # Both reflected and quotient largest-factor cutoffs at one target
 
-This note gives two joint projections of the actual weighted semiprime–prime observable. The fixed smooth-score version also proves the nonzero intersection calibration in the centered ledger. A kernel-free version places both legs above an exact subpower roughness cutoff and removes the entire reflected semiprime row up to \(o(M_N)\). Both retain a signed higher-rank remainder; neither bounds it at the Goldbach threshold.
+This note gives two joint projections of the actual weighted semiprime–prime observable. The fixed smooth-score version also proves the nonzero intersection calibration in the centered ledger. A kernel-free version places both legs above an exact subpower roughness cutoff and removes the entire reflected semiprime row up to \(o(M_N)\). Both retain a signed higher-rank remainder; neither bounds it at the assigned semiprime-cell budget.
 
 ## 1. Statement and literal endpoints
 
@@ -21,7 +21,7 @@ All sums include the literal true \(s\) wherever not displayed. In particular, t
  \sum_c X(T_q-1)(T_m-1)=(J+o(1))M_N,
  \qquad J=\log(7/5)-.1408.                                           \tag{3}
 \]
-Thus the strict sufficient eventual threshold for the literal sum in (2) is \((J+.010)M_N\) with fixed margin, not \(.010M_N\). The centered ledger is still \(E_N=Z_N-(J+o(1))M_N\). There is no additional budget from a previous projection.
+Thus, if the entire \(.010 M_N\) low-marker allowance were assigned to this particular semiprime cell, the corresponding upper target for the literal sum in (2) would be \((J+.010)M_N\) with fixed margin, not \(.010M_N\). The centered ledger is still \(E_N=Z_N-(J+o(1))M_N\). There is no additional budget from a previous projection. The [original sufficient criterion](CenteredMarkerHighRows.md#4-the-new-remaining-condition) concerns the **entire** low-marker discrepancy, not this cell alone. The [polynomial marker](PolynomialLogConservationMarker.md) preserves the high comparison; all other low cells still require their own combined accounting, as noted in [the original switch](DoubleSwitchedMain.md#4-what-actually-survives-both-subtractions).
 
 ## 2. Joint CRT and the two single-prime distributions
 
