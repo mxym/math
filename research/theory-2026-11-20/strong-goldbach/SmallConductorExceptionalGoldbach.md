@@ -1,5 +1,7 @@
 # A conditional pointwise Goldbach theorem at small-conductor exceptional zeros
 
+**Literature status (2026-11-21).** These implications are retained as conditional calculations, not as coverage of any large even target. [Banks, Theorem 1.1 (October 2026)](https://arxiv.org/abs/2610.15483v1) gives a positive uniform lower bound for `(1 − β) log q₀` for primitive real Dirichlet characters; see also [Kerr's simplification](https://arxiv.org/abs/2610.21099v1). In the small-conductor window this product is bounded above by `c Δ₀ / √log N`; in the polynomial-conductor window it is at most `κ (log N)^(−A)` for fixed positive `A`. Both tend to zero. Thus Banks's result rules out the hypotheses for all sufficiently large `N`. This is independent of RH/GRH and does not settle ordinary binary Goldbach.
+
 **Status.** This is a research proof of a pointwise theorem in a *conditional exceptional-zero regime*. It does not assert that such a zero exists, settle the no-exception regime, or prove unconditional strong Goldbach.
 
 There are positive absolute constants \(c,\Delta_0\) such that the following holds for all sufficiently large even \(N\). Put \(L=\log N\). Suppose a primitive real nonprincipal character \(\chi\) of conductor \(q_0\) has a real zero \(1-\delta\), where

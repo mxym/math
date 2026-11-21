@@ -1,5 +1,7 @@
 # Strong Goldbach: central operator and proof audit
 
+**Scope correction for the exceptional-zero notes.** The 2026 uniform exclusion of Landau–Siegel zeros, in the form of [Banks's Theorem 1.1](https://arxiv.org/abs/2610.15483v1), makes the small- and polynomial-conductor hypotheses in the conditional notes below empty for sufficiently large targets. Those calculations are archived for their method, not counted as Goldbach coverage.
+
 The target is the unconditional assertion that every even integer at least four is a sum of two primes. **The conjecture is not proved or refuted here.**
 
 - [Mean-square central kernel and exact finite-wheel variance](CentralMeanSquare.md): a density-one operator bound for the actual primes, by established linear forms asymptotics. It does not give the signed uniform estimate for every even target.
