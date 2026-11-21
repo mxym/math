@@ -107,3 +107,5 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [Actual depth-zero prime prefix at cutoff 317](PrimePrefix317.md): 65 certified annihilators give a nonzero cubic socle at weight 615. This weight exceeds the cutoff, so the example does not refute the Goldbach-relevant weight-window criterion or say that the full ring is nonreduced.
 
 [Power-sparse exceptional prime anchors](PowerSparseLocalization.md): an unconditional Oε(X^(7/12+ε)) bound on anchors that fail the single-variable localization test, using Pintz’s explicit formula for prime multiples and primes’ restriction estimate. This controls where nontoric prime components can be supported; it says nothing about regularity before localization.
+
+[Seven-ring socle criterion for all even residue classes](NineProgressionSocle.md): use the full prime-prefix ring for multiples of six and six specified restricted-support rings for the other even targets. A missing large N would produce a cubic socle in the corresponding prefix, but no depth lower bound is proved and the restricted theorem does not apply to the full ring outside multiples of six.
