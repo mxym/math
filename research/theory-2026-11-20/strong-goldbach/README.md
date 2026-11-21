@@ -195,3 +195,7 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [An exact limitation of positive-only bounds on the actual Vaughan residual](UnmarkedVaughanPositiveRankThree.md): balanced reflected triple products contribute on average more than .0335 of the reference mass after taking the positive part, so a uniform .010 allowance cannot be proved by discarding every negative term. This gives no lower bound on the signed residual.
 
 [Smooth-cutoff localization of the actual Vaughan remainder](SmoothedActualVaughanRough.md): exact Möbius toggles remove reflected integers with many distinct small factors after averaging two already-valid cutoffs. An upper sieve retaining the genuine quotient prime bounds the rare remaining support in absolute value by x(log x)^(-1+o(1)), but the required strict signed bound remains open.
+
+[All-height restrictions on three-label exponents](EACThreeExponentGaps.md): when the largest prime occurs to the first power, the last complement must be a pure power, the small base satisfies q > p^e, and b ≥ ed+1. Repeated-largest configurations obey two coprimality restrictions on the exponents. Neither surviving branch is excluded.
+
+[Repeated-largest components with one bounded label](EACRepeatedFixedLabel.md): logarithms show d = O(log p), and for each fixed upper bound on even one label there are only finitely many centers in the repeated-largest branch. This uses integral curves and restricted-denominator approximation, not an explicit center census.
