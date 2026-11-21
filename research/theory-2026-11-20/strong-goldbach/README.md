@@ -283,3 +283,5 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [Dyadic divisors and Smith torsion](EACDyadicSmith.md): a large dyadic divisor forces a large Smith invariant for a nonsingular factor matrix, or an eigenvalue-one obstruction. In the strongly connected case the latter forces two vertex-disjoint directed cycles.
 
 [Dyadic rank with prescribed prime seeds](PrimeOrbitDyadicRank.md): short supported lattice relations and a 2-adic logarithm estimate show that any hypothetical dyadic exception must have a sufficiently large prescribed forward closure or independent seed classes and a large directed cycle hitting set. This is not a contradiction for either surviving alternative.
+
+[Feedback generators and cyclic Smith obstruction](PrimeOrbitCyclicSmith.md): small seeds generate the unit group up to sign, so every set hitting every directed cycle must generate it too. The Smith divisibility uses only cyclic components, even with an arbitrarily large transient set. Singular blocks consume precisely the stated invariant-factor allowance. The exact checker covers represented centers and synthetic block couplings, not Goldbach exceptions.
