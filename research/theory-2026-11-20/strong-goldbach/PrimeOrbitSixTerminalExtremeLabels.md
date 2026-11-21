@@ -24,7 +24,7 @@ It is not zero: p and q are distinct primes each coprime to N and at least one o
 
     log |Λ| ≥ −C₁ log(2q) log(2T).
 
-Here all bases are positive rationals with their real determinations. In (1.3) the denominators in the marked b_q term are the fixed-base heights (bounded below), and the other term divides by h*(q)≍log(2q). One may retain q as a base with coefficient zero when b=0; alternatively the fixed-base bound with u,mv_l(N)=O(LT⁴) costs O(log L+log(2T)), absorbed since log L=log T+log log q. Zero coefficients on other primes may be omitted; a single nonzero base is elementary.
+Here all bases are positive rationals with their real determinations. In (1.3) the denominators in the marked b_q term are the fixed-base heights (bounded below), and the other term divides by h*(q)≍log(2q). When b=0 use the fixed-base bound with u,mv_l(N)=O(LT⁴) costs O(log L+log(2T)), absorbed since log L=log T+log log q. Zero coefficients on other primes may be omitted; a single nonzero base is elementary.
 
 As every label occurs in a composite row it is ≤(N−3)/3. Thus |log(1−x_i/N)|≤(3/2) x_i/N and |Λ|≤C₂T⁴ M/N. Combining the last two inequalities and absorbing 4 log T and the fixed constant proves (1). Finally log(2q)log(2T)/L→0 since T→∞ and q≥3. This gives the asserted logarithmic upper extreme. For a row with M as a factor, the cofactor is ≤N/M, and it is at least 3 since the complement is an odd composite. As M>√N eventually, it can occur only to exponent one.
 
