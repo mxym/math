@@ -9,3 +9,5 @@ The same work completely classifies binary `[46,35,5]` codes (33 coordinate-perm
 [40 点超平面截面的唯一延拓](circle40/README.md)：若一个 ≥66 点 Sidon 集含标准范数圆构造的任一最大截面，则它就是该 66 点构造的一个仿射像。这里不限制其他 66 点集或潜在的 67 点集。
 
 [三次及以下代数支撑的极值](degree-three/README.md)：在任意 GF(64)² 坐标下，若一个 Sidon 集落于非零次数 ≤3 的方程零点上，至多 66 点；等号才是椭圆加核。此结论不排除更高次数或非代数支撑上的 67 点。
+
+[Sharp 60-point circle-section threshold](circle-section-threshold/README.md): a Sidon set of size at least 60 containing a maximum 40-point norm-circle section has a unique circle completion; an explicit 59-point anchored set shows the universal threshold cannot be lowered. A 38-point section in any of the four orbits forces a circle at size 66, up to its opposite-half shear. The unrestricted dimension-12 bound is unchanged.
