@@ -304,4 +304,6 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Jacobian bounds with singular or nonsingular complement presentation](EACJacobianSquareRoot.md): when A itself is invertible the same square-root sparsity holds for a much wider size cap, even if I−A is singular. Fixed tiny labels and one label at most the square root suffice to isolate a physical tuple. The two nonsingular cases together cover all four-label EACs; they count centers with an EAC, not failures of Goldbach.
 
+[Five-label doubly singular components need two heavy rows](EACFiveDoubleSingular.md): the two singularities force two disjoint mutual pairs, and exact congruences exclude both the all-semiprime and one-heavy-row branches. Combined with the square-root counts this treats five-label centers with at most one heavy row, not all five-label components.
+
 [No three-label components at powers of two or twice powers of three](EACThreeTwoAndThreePowers.md): a signed order obstruction, followed by an exact 39-center replay, excludes this entire component-size class along both sequences. It does not exclude other component sizes or prove representability along either sequence.
