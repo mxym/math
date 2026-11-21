@@ -76,3 +76,5 @@ $H$ 的全部保支撑对称构成一个 2 群，包括仅保持无符号数据�
 [十五维 Hamming 格](unsigned-simplex/README.md)：单固定点二阶对称强制无符号外层格进入一个明确的 Hamming 模型，并强制十五条两两正交的稀疏记录。覆盖两种带符号秩；尚未排除这个模型。
 
 [每个对合至少有一条轴涉及四个非双连支撑](collapsed-root-cut/README.md)：用补 Gram 矩阵的根系结构和七轴穷举排除所有最大度至多三的配置。两种带符号秩都适用；并未排除对合。
+
+[每个中心星的带符号模 7 秩只能为 10 或 11](unsigned-simplex/central-star-low-ranks/README.md)：结合 Hamming 格、统一剩余二次空间以及完整局部搜索，排除 12 标签主块的秩 7 至 9；二阶分支仍开放。

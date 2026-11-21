@@ -10,3 +10,5 @@
 - [完整离线复核包](Conway99_Involution_UnsignedSimplex_Exact.zip)，SHA-256：`f59122cc87e939d76782b7e9108e72af925391c779e4f931ec715a332549d05e`
 
 在解压后的 `singleton-simplex-packet/` 运行 `bash replay.sh quick`；`bash replay.sh full` 再完整重跑第一层。原始完整第一层约 40.9 核分钟，两个互补分片使用同一套程序。
+
+- [中心星的低秩排除](central-star-low-ranks/README.md)：进一步限制每个 12 标签带符号模 7 主块，不是整个矩阵的秩。
