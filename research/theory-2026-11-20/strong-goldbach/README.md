@@ -276,7 +276,9 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Both unsigned parts grow below the quarter cutoff](PanQuarterTwoSigns.md): uniform signed rough-divisor mean estimates and bounded label multiplicity extend the log-log excess of each physical sign to any fixed cutoff exponent below .25. This extension proves aggregate masses, not individual coefficient bounds past the earlier deterministic range.
 
-[Equal reverse cuts and all positive small cores](WholePositiveSmallCore.md): the original true-prime test admits a globally equivalent reverse expansion in which any quotient with only one distinct small prime has zero coefficient, apart from paid powers. All positive cores up to exponent .14 have a uniform net negative bound against the full macro-rough reflected side; the no-core and negative-core residuals are not bounded.
+[Equal reverse cuts and all positive small cores](WholePositiveSmallCore.md): the original true-prime test admits a globally equivalent reverse expansion in which any quotient with only one distinct small prime has zero coefficient, apart from paid powers. All positive cores up to exponent .14 have a uniform net negative bound against the full macro-rough reflected side; this by itself does not bound the residual.
+
+[Opposite net signs on the no-core and negative-core sectors](NoCoreAdverseSign.md): with the same equal cuts, the complete no-core sector on the macro-rough reflected side contributes at least +.030 of the reference, despite containing the negative rank-four section. Negative small cores also have the opposite net sign to positive small cores. No whole-row bound follows.
 
 [Dyadic divisors and Smith torsion](EACDyadicSmith.md): a large dyadic divisor forces a large Smith invariant for a nonsingular factor matrix, or an eigenvalue-one obstruction. In the strongly connected case the latter forces two vertex-disjoint directed cycles.
 
