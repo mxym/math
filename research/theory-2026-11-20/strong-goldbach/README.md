@@ -318,4 +318,6 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Sharper two-thirds bound for five-label centers](EACFiveTropical.md): exact exponent-chart enumeration plus two integer identities exclude the large-product regime in the doubly singular branch. The supported-minor count improves to X^(2/3+o(1)) for centers with a five-label component. This neither excludes all such components nor bounds unrepresented evens.
 
+[Square-root sparsity for every component with at most five labels](EACFiveSquareRoot.md): in the remaining doubly singular five-label case, an added first-order congruence gives a finite Laurent fiber, or the possible sign supports force a reciprocal pair with a square-root parameter count. No hypotheses on the labels or exponents remain. This improves the count of component-bearing centers, not the exceptional set of Goldbach.
+
 [No three-label components at powers of two or twice powers of three](EACThreeTwoAndThreePowers.md): a signed order obstruction, followed by an exact 39-center replay, excludes this entire component-size class along both sequences. It does not exclude other component sizes or prove representability along either sequence.
