@@ -99,3 +99,5 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [Far-angle Poisson descent](FarAnglePoissonDescent.md): the physical covariance on a comparable-label sub-block has negligible large-gcd tails and a negligible signed zero frequency, with both prime factors retained. The reciprocal frequencies collectively remain open, so this does not prove the signed sub-block estimate.
 
 [Square-zero cubic and the fixed variable x₃](SquareZeroBridge.md): a missing sufficiently large multiple of six would yield a nonzero square-zero difference of two actual prime triples, annihilated by x₃. Reducedness or a specific injectivity statement would rule it out, but neither is proved for the full prime ring. Deleting just 7 gives an exact nonreduced example for a different prime set.
+
+[Cancellation for the long free factor](HeathBrownLongFreeNotch.md): in the actual far-angle covariance, a rigorously identified Heath–Brown component with complementary product at most x^0.01 cancels whenever it appears on at least one side. The two-sided remainder with no such free factor remains unbounded at the required scale.
