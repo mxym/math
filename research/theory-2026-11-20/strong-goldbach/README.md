@@ -111,3 +111,5 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [Seven-ring socle criterion for all even residue classes](NineProgressionSocle.md): use the full prime-prefix ring for multiples of six and six specified restricted-support rings for the other even targets. A missing large N would produce a cubic socle in the corresponding prefix, but no depth lower bound is proved and the restricted theorem does not apply to the full ring outside multiples of six.
 
 [Low-window socle under density-one thinning](DenseThinningLowSocle.md): a single sparse deletion of genuine primes gives infinitely many prefixes with a socle cubic of weight exactly the cutoff. This rules out a proof based solely on density-robust input, not the low-weight statement for the full primes.
+
+[Major and irrational shells of actual zeta zeros](ReflectedZetaMajorMinorShells.md): subunit interval reflection isolates a single integer; after a specified smooth spectral projection, the parity shell has an explicit sign and one badly approximable shell is small on zeta RH. The parity calculation uses nearby targets, and neither result controls the total fixed-target sign.
