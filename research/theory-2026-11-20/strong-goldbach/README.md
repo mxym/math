@@ -103,3 +103,7 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [Cancellation for the long free factor](HeathBrownLongFreeNotch.md): in the actual far-angle covariance, a rigorously identified Heath–Brown component with complementary product at most x^0.01 cancels whenever it appears on at least one side. The two-sided remainder with no such free factor remains unbounded at the required scale.
 
 [Finite-prefix cubic socle criterion](CubicPrefixSocle.md): for the complete prime prefix through s=N+3, every prime variable annihilates the difference of the two central cubic classes via explicit pointwise paths. A missing large multiple of six would force a nonzero cubic socle and depth zero at that prefix. No lower depth bound is proved.
+
+[Actual depth-zero prime prefix at cutoff 317](PrimePrefix317.md): 65 certified annihilators give a nonzero cubic socle at weight 615. This weight exceeds the cutoff, so the example does not refute the Goldbach-relevant weight-window criterion or say that the full ring is nonreduced.
+
+[Power-sparse exceptional prime anchors](PowerSparseLocalization.md): an unconditional Oε(X^(7/12+ε)) bound on anchors that fail the single-variable localization test, using Pintz’s explicit formula for prime multiples and primes’ restriction estimate. This controls where nontoric prime components can be supported; it says nothing about regularity before localization.

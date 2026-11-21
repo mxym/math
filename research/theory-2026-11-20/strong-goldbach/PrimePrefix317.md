@@ -1,0 +1,13 @@
+# Actual complete prime prefix of depth zero: cutoff 317
+
+Let G be the quotient over any field of the polynomial ring on **all** odd primes p≤317 by **all** available equal-sum prime-pair binomials, no truncation on the weight of those binomials. The homogeneous maximal ideal is associated, witnessed by
+
+    f = x₁₉ x₂₈₃ x₃₁₃ − x₁₇ x₂₈₁ x₃₁₇ .
+
+The cubic terms both have total 615. A pair summing to 612 in the prefix would require a prime p∈[295,317]. The only such primes are 307,311,313,317, with complements 305,301,299,295, respectively, none prime. This is purely a cutoff phenomenon: 612=5+607 on the full genuine primes. No triple of total 615 in the prefix therefore contains 3. Every such triple has all three entries equal modulo 3, with sign + for the first monomial and − for the second. Every equal-pair move leaves one entry unchanged, so the two triples are in different components; f≠0 in every characteristic.
+
+For **each** odd prime t≤317, the explicit sequence in [prefix317_paths.json](prefix317_paths.json) joins the first triple plus t to the second triple plus t inside the prefix. Every step keeps two entries and replaces the other two by two prime labels with the same sum. Thus x_t f=0 for every prime variable, and the homogeneous maximal ideal is exactly ann(f). This ordinary complete prime prefix has depth 0 and is not reduced (f²=0). The prime labels were not thinned. The binomial has total 615>317: its scope is a counterexample to universal depth positivity over *all* finite prime prefixes, not to eventual positivity, not to a prohibition of such cubics at weights ≤ cutoff, and not to reducedness/domainhood of the infinite ring. In the untruncated ring an additional prime label may connect the endpoints prior to multiplication. The weight-615 fiber is not a Goldbach counterexample.
+
+Run `python -O check_prefix317.py` beside the JSON: the verifier enumerates the exact prime prefix, checks absence of a cutoff pair at 612, and reads the literal states and checks each edge without any search or algebra system. Optional `python build_prefix317_paths.py` independently regenerates the paths by breadth-first search on quartets sharing two labels (equivalent shortest paths may give a different valid certificate). No finite enumeration underlies any asymptotic claim.
+
+In comparison, [Nelson, Appendix B](https://arxiv.org/html/2611.14580v2#A2), gives an earlier complete finite-prime cutoff example with some zero-divisor variables and some regular variables. The literal witness above is annihilated by every variable in its separate cutoff. See [the degree-window criterion](CubicPrefixSocle.md) for the condition relevant to a hypothetical binary Goldbach failure.
