@@ -159,3 +159,9 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [Parallel-work check on Li–Liu's spectral hypothesis R](LiLiuRParallelCheck.md): Yilin Liu's November 21 preprint refutes the full uniform R norm under Dirichlet GRH on represented even targets, using tests at the edge rather than the center. This does not refute general S, the restricted central test, or the independent arithmetic delta route.
 
 [One-sided control on a genuine balanced triple region](WeightedTripleMarkedSieve.md): on the actual selected carrier, the signed contribution from triples with every factor at most x^0.3685 is less than 0.984 of one matched prime-reference unit asymptotically. A dual covering calculation explains why this particular one-marker sieve formula cannot bound the full positive triple sector below one unit. The outer sector, other signed sectors, and higher ranks remain open.
+
+[All-height three-label autonomous components with two small primes](EACThreeLabels.md): no such component has both smaller labels at most 53, regardless of its largest label. Explicit logarithmic heights, rational continued-fraction controls, a separately checked finite modular ledger, and a GMP terminal enumeration certify the branch.
+
+[At most one label above 53](EACOneLarge.md): with no bound on that one label, the only exceptional autonomous components are still the known examples at represented centers 128 and 2200. The S-unit sweep and three-label argument are separate; this does not exclude a hypothetical center with larger components.
+
+[Moving lower threshold for almost half the labels](EACMovingMedian.md): from every nontrivial factor-closed coprime prime set, at least (k−1)/(2+η) labels exceed (log N)^(3−δ) for fixed positive η,δ in range. This is a structural restriction only.
