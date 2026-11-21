@@ -286,6 +286,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Residue profiles at the same Pan cutoff](PanCriticalPhysicalResidues.md): entirely signed class totals, summed in total variation, match the local uniform admissible density after subtracting actual prime pairs. The three-part full comparison is valid jointly over periods up to (log P)^.1, and the simpler short rows jointly to (log P)^4. Prime-pair counts in the individual classes remain unknown.
 
+[Full square-part projection in the original mixed Pan row](PanCriticalSquarePartProjection.md): even jointly with the tiny-prime-subset filter, the signed row is concentrated in total variation on squarefree complements, with error O(P/log(P)^(1/8)). All square parts are treated, not merely a pointwise deletion of rare large repeated primes. Squarefree parity of the surviving complements remains uncontrolled.
+
 [Equal reverse cuts and all positive small cores](WholePositiveSmallCore.md): the original true-prime test admits a globally equivalent reverse expansion in which any quotient with only one distinct small prime has zero coefficient, apart from paid powers. All positive cores up to exponent .14 have a uniform net negative bound against the full macro-rough reflected side; this by itself does not bound the residual.
 
 [Opposite net signs on the no-core and negative-core sectors](NoCoreAdverseSign.md): with the same equal cuts, the complete no-core sector on the macro-rough reflected side contributes at least +.030 of the reference, despite containing the negative rank-four section. Negative small cores also have the opposite net sign to positive small cores. No whole-row bound follows.
