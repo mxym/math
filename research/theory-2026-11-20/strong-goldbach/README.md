@@ -306,6 +306,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Actual reverse dispersion on a reflected semiprime band](TrueSemiprimeReverseDispersion.md): the original affine equation survives in two independent factor placements; large-residue triple-modulus dispersion and cancellation of the signed principal part remove these blocks up to arbitrary log accuracy, reaching selected modulus exponents near 153/256. This applies neither to all factor placements nor the entire genuine prime-quotient comparison.
 
+[Whole long-free descent on a balanced reflected semiprime band](BalancedSemiprimeLongFreeDescent.md): after switching all long quotient factors, the nonzero reference is exact and the rank-one and rank-two quotient sector costs only a fixed-width error relative to that band. This leaves two opposite rank-three sectors and higher ranks unresolved in the true prime-quotient comparison.
+
 [Dyadic divisors and Smith torsion](EACDyadicSmith.md): a large dyadic divisor forces a large Smith invariant for a nonsingular factor matrix, or an eigenvalue-one obstruction. In the strongly connected case the latter forces two vertex-disjoint directed cycles.
 
 [Dyadic rank with prescribed prime seeds](PrimeOrbitDyadicRank.md): short supported lattice relations and a 2-adic logarithm estimate show that any hypothetical dyadic exception must have a sufficiently large prescribed forward closure or independent seed classes and a large directed cycle hitting set. This is not a contradiction for either surviving alternative.
