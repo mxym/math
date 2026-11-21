@@ -1,0 +1,44 @@
+# The full residue degree survives: no repeated factor in the zero algebra
+
+Use the [single-translate zero algebra](PrimeOrbitSlowCurveZeroAlgebra.md) and [fixed-power-class exclusion](PrimeOrbitSixKummerCofactors.md) in the same near-smooth five-macroscopic six-terminal setup. Write R for the affine coordinate algebra of the physical curve over Q. The five moving primes are distinct, have reduced positive pole-weight fractions w_j<1, and d=den(w)=deg(T). Let v be the primitive signed generator of ker B′, v₀=0, and Z=X^ω with ω·v=1 on T=0. Then, eventually,
+
+\[
+ R/TR=\mathbb Q[Z,Z^{-1}]/(g(Z)),\qquad \deg g=d\ge2,
+\]
+
+where g is irreducible and separable. In particular the *whole* geometric affine zero-fiber algebra is reduced, even if one started with a possibly nonnormal affine model: the function x↦T has d distinct affine points over 0. For every fixed number field K the polynomial g is still irreducible over K eventually along the sequence. Thus no fixed number field can contain these residue fields (or their splitting fields) on an infinite subsequence. The common torus constants in that fiber satisfy
+
+    X_j = σ_j p^(b_j) Z^(v_j),   σ_j∈{±1}, b_j∈Z;
+    B′ b = a−e₀,                 B′ s ≡ 1   (mod 2),  σ_j=(−1)^(s_j).
+
+These are necessary conditions on a hypothetical sequence, not a construction or a claim that every exceptional center is eliminated.
+
+## The rational translate and why degree one is impossible
+
+The large fixed-field proof in the zero-algebra note gives X_j Z^(−v_j)=λ_j at *all* geometric points of the affine zero fiber, and in fact in its full algebra. The function on the left is defined over Q, and the set of all these geometric points is stable under Gal(Qbar/Q). Its common value λ_j is consequently rational. It was a root of unity times a rational power of p, so it is ±p^(b_j) for an integer b_j (take any common power killing the root of unity and the denominator and use unique factorization). Descent by faithful scalar extension gives the same equality in the rational fiber ring. Substituting in the row identities at T=0 now gives the displayed integral equality and sign condition, including row 0, where X₀=p.
+
+Accordingly over Q the presentation is by g^e, with g monic irreducible, g(0)≠0, and e deg g=d. Moreover g remains irreducible after every *prescribed fixed* extension along the hypothetical sequence eventually: Z generates the algebra and hence separates the geometric points, so a factorization over that field would split their orbit, contrary to the preceding theorem. For fixed-chart subselections neither d nor a fixed field grows in this statement.
+
+First exclude deg g=1 on an infinite subsequence. The multiplicity bound e≤4 in the zero-algebra note then gives d≤4. At least one moving label q has degree-one pole, i.e. n_j=d w_j=1 for some j. In fact d≥2 as 0<w_j<1. A prime divisor of N−p is below √N, so some n_j≤d/2. This settles d=2,3. For d=4, if all n_j≥2 then at least one equals 3 (otherwise every w_j=1/2 and d=2). That label occurs in some row by strong connectivity. In the equality ∑ A_ij n_j=4 for that row, a term 3 cannot be completed to 4 from parts of size ≥2, a contradiction.
+
+The one-pole theorem now makes q a degree-one rational function on the smooth completion, so the curve is P¹ over Q with coordinate q. Its sole pole is infinity in this coordinate. Thus T is a polynomial of degree d in q. A rational linear g means only one affine zero tuple, and because q is itself an affine coordinate of degree one, T has a single geometric zero at one rational q=β. Hence T=c(q−β)^d. At the positive physical infinity branch the leading coefficient of q as a function of T^(1/d) is p^(−(Ga_I)_j); so c=p^(d(Ga_I)_j) is a positive pure p-power, with integral exponent since c is rational. At the physical q, for every prime ℓ other than p this gives v_ℓ(N)=d v_ℓ(q−β); v_p(N)=0 by hypothesis. Thus the positive integer N is a dth power. Its outside-F part is therefore a dth power too. This contradicts the chart-specific power-class exclusion with d=den(G1). No bound on β, its denominator, or the original seed arity is required for this valuation argument.
+
+## Uniform good primes and Hermite finiteness
+
+Order the labels on a subsequence, fixing the nonseed chart and signed v. Its primitive six exponents v_i are pairwise distinct including zero. From the zero-algebra note, for each of two fixed integral basis vectors c for the rational left kernel of B′ (also of B), g^e divides the Laurent polynomial
+
+    P_c(Z)=Σ_i c_i λ_i^(−1) Z^(−v_i).
+
+Take λ₀=p. Let j be the largest genuine prime in the terminal, necessarily a moving label along our sequence. All its potential parents are smaller because it has no self-loop. A smaller parent i must equal the integer residue of N modulo x_j in [1,x_j−1]. Hence there is exactly one, by strong connectivity. Its positive multiplicity A_ij is fixed since column j is nonseed. All left eigenvectors c satisfy c_j=A_ij c_i. In the two-by-six matrix with our two chosen basis rows this says the j and i columns are proportional, even if one vanishes. This one proportional pair is an exact obstruction at every good residue characteristic.
+
+Exclude a finite set S of rational primes: p, those dividing a nonzero difference v_i−v_j, the prime factors of the finitely many nonzero entries of the two chosen basis vectors, and the divisors of one nonzero two-by-two minor certifying their independence. These choices do not depend on the unbounded exponents b_j. At ℓ outside S our polynomials P_c have coefficients ℓ-integral, with every nonzero coefficient a unit. Clear the lowest exponent separately for each c. The resulting polynomials have both leading and constant coefficient units. In particular their monic common factor g has ℓ-integral coefficients and unit constant term: its roots are integral units at all places above ℓ, or apply Gauss’s lemma to the monic normalization and its reciprocal. Reduction preserves the divisibility g^e | P_c after Laurent shifts (monic division is integral).
+
+Suppose both reduced P_c have a root z₀ in the algebraic torus over Fbar_ℓ with multiplicity ≥4. Applying the first four Euler derivatives gives four row constraints on their two coefficient vectors c in the original basis. The four-by-six matrix with rows
+
+    ( λ_i^(−1) z₀^(−v_i) (−v_i)^k )_i,      k=0,1,2,3,
+
+has *all* its four-by-four minors nonzero by Vandermonde and the choice of S. Its two-dimensional kernel thus projects isomorphically onto any chosen two coordinates: a vector vanishing there must vanish on the other four by an invertible minor. But our two independent reduced left vectors would form a basis of that kernel and their two coordinates i,j above always satisfy the same proportionality. This contradiction forbids multiplicity four at every good ℓ.
+
+If e≥2, any repeated root of g mod ℓ outside S would have given a common root of multiplicity ≥4 for both reduced P_c. All such reductions of the monic polynomial g are therefore separable. Its splitting field then is unramified outside the *fixed* set S: at a good prime the roots of the squarefree reduction split in an unramified extension of Q_ℓ and Hensel-lift to all the roots. The global splitting-field degree is at most d!, fixed, hence only finitely many such fields exist by Hermite–Minkowski. For the standard discriminant bound used here, a degree-n local extension has different exponent at most e_ℓ−1+e_ℓ v_ℓ(e_ℓ) in its normalized integer valuation over Q_ℓ; with n bounded this bounds the exponent at each allowed prime in the global discriminant (indeed, over the maximal unramified intermediate field choose a uniformizer with Eisenstein polynomial f of degree e_ℓ. The different is generated by f′ evaluated at that uniformizer. Its nonzero derivative terms have distinct valuations modulo e_ℓ, so the valuation of their sum is at most that of the leading derivative term, e_ℓ v_ℓ(e_ℓ)+e_ℓ−1; see [Serre, *Local Fields*, Chapter III](https://doi.org/10.1007/978-1-4757-5673-9)). Combine these bounds over S and apply Hermite’s theorem, or equivalently use the standard finiteness of bounded-degree extensions unramified outside given places. In particular all the splitting fields for any putative e≥2 subsequence lie in one fixed finite compositum. The previously proved transitivity over that very field forces deg g=1 there, already excluded. Thus e=1 and deg g=d follow.
+
+For a reference to the bounded-degree unramified-outside-S formulation, see [Darmon–Diamond–Taylor, Theorem 2.2](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf). The November 21 parallel comparison is as in the [one-pole note](PrimeOrbitSlowCurveOnePole.md), including the access limitation for Kelanemer’s preprint. The argument gives no full exclusion of varying reduced fibers and makes no priority claim.
