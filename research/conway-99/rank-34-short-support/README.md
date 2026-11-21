@@ -56,3 +56,5 @@ Substitute these bounds in the modular identity, using $x_{11},y_1\ge0$. Over th
 ## Reproduce
 
 Run `python3 count_marks.py` and `python3 verify.py` in this directory. Both use the Python standard library. The first enumerates the induced subgraphs and the second checks the exact rational modular identity, grid and prism multiplicities, and the final inequalities.
+
+The [rank-34 exclusion](../rank-34-exclusion/README.md) combines the marked counts with a separate upper bound on norm-18 supports. The remaining ranks are 36, 38, 40 and 42.

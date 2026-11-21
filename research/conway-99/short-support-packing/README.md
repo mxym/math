@@ -37,3 +37,5 @@ The [norm-18 reduction](https://github.com/YesterdaysLemon/conway-99-research/tr
 ## Numerical consequence at rank 34
 
 Apply the [rank-34 marked theta inequality](../rank-34-short-support/README.md). At each $0\le P\le851$ use the lower bounds there for $y_2,y_3,y_4$, and maximize $2387N_{14}+407N_{16}$ subject to the packing inequalities and evenness. The worst bound is at $P=851$: $2387N_{14}+407N_{16}+43N_{18}\ge17603866$, whereas the first two terms sum to at most $2387\cdot990+407\cdot10522$. Parity gives $N_{18}\ge254844$. At $P=0$ the corresponding upper pair is $(990,7968)$, giving $N_{18}\ge537904$. These lower bounds leave existence open. Run `python3 verify.py` to replay the Fano closures and all integer bounds.
+
+The [rank-34 exclusion](../rank-34-exclusion/README.md) combines the marked counts with a separate upper bound on norm-18 supports. The remaining ranks are 36, 38, 40 and 42.
