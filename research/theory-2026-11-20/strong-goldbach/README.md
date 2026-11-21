@@ -165,3 +165,5 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [At most one label above 53](EACOneLarge.md): with no bound on that one label, the only exceptional autonomous components are still the known examples at represented centers 128 and 2200. The S-unit sweep and three-label argument are separate; this does not exclude a hypothetical center with larger components.
 
 [Moving lower threshold for almost half the labels](EACMovingMedian.md): from every nontrivial factor-closed coprime prime set, at least (k−1)/(2+η) labels exceed (log N)^(3−δ) for fixed positive η,δ in range. This is a structural restriction only.
+
+[Half the labels escape a stretched-exponential threshold at fixed size](EACLargeMajority.md): a component of fixed size k has at least ceil(k/2) labels above exp((log N)^σ) for σ<1/(k+1); a slower growing-size companion uses a power-log threshold. The odd boundary is excluded by genuine factorizations and a second logarithm bound. This is not a classification at unspecified finite heights or an exclusion of all components.
