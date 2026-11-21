@@ -276,6 +276,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Both unsigned parts grow below the quarter cutoff](PanQuarterTwoSigns.md): uniform signed rough-divisor mean estimates and bounded label multiplicity extend the log-log excess of each physical sign to any fixed cutoff exponent below .25. This extension proves aggregate masses, not individual coefficient bounds past the earlier deterministic range.
 
+[Physical harmonic pairing below the quarter cutoff](PanQuarterHarmonicPairing.md): fixed, unit-weight singleton and two-prime label shapes match their harmonic densities and cancel to arbitrary logarithmic precision across any set of the chosen shells. Each side individually still has divergent signed mass. This weights the whole physical coefficient, but only on its positive bounded labelled mask at fixed subquarter cutoff.
+
 [Signed divisor-cube compensation at the original Pan cutoff](PanCriticalDivisorCubeCompensation.md): on an explicit bounded mask of actual divisor terms, two fixed mark geometries support signed compensation at joint moduli (P^{.505}) through (P^{.5151}). Exact cube algebra, full triple well-factorability and Lichtman's moving-residue theorem give arbitrary-log cancellation on the combined mask, not on all divisors of the selected complements or on the full remainder.
 
 [Equal reverse cuts and all positive small cores](WholePositiveSmallCore.md): the original true-prime test admits a globally equivalent reverse expansion in which any quotient with only one distinct small prime has zero coefficient, apart from paid powers. All positive cores up to exponent .14 have a uniform net negative bound against the full macro-rough reflected side; this by itself does not bound the residual.
