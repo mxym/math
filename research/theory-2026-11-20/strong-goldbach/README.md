@@ -65,3 +65,7 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [A single one-sided prime-row test](SinglePrimeRoughRowCriterion.md): exact factor subtraction and ordinary Type I estimates leave a specific signed sum with a prime row below exponent 1/3. A fixed one-sided bound would imply eventual central binary Goldbach. The required bound is **open**; this is a conditional reduction, not an existence result for actual prime pairs.
 
 [Flat-passband analytic route](FlatPassbandMajorArcs.md): a fixed-scale Fourier cutoff and Sobolev treatment give an unconditional moving-target mean-square estimate. A restricted zero condition gives a pointwise major-arc main term. An individual target's signed minor-arc term is still uncontrolled; this is not a new Goldbach or exceptional-set theorem.
+
+[Unconditional bound on the high prime rows](HighPrimeRowBound.md): product-distribution and sieve estimates control all rows at or above x^(4/15) in the one-sign criterion. The precise remaining uniform low-row inequality would still need to be proved.
+
+[What real-prime thinning preserves](GenuinePrimeThinning.md) and [a single hole in an algebraically rigid model](QuadraticRingOneHole.md): diagnostics for least-exception/additive or algebraic propagation. Neither is a result on the absence or presence of a binary representation in the complete set of primes.
