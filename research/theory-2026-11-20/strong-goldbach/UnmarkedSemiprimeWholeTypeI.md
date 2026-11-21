@@ -6,7 +6,7 @@ Let \(N=2x\) be even, \(I=(x/2,x]\), \(L=\log x\); take a dyad \(S<s\le 2S\), wh
 
 Fix \(0<\Delta<.01\), and set
 \[
-       b_0=\tfrac12-.51\alpha,\qquad b_1=\tfrac12-\alpha/3-\Delta.
+       b_0=\tfrac12-.51\alpha,\qquad b_1=\tfrac12-\alpha/4-\Delta.
 \tag{1}
 \]
 Take \(x^{.40}\le U\le x^{b_1}\); for the second identity also take \(1\le V\le x^{.03}\), \(UV\le x^{b_1}\). Let \(|\kappa_s|\ll L^C\), and \(W_s(v)\) be a finite sum of powers of \(\log s/L\) times smooth functions of \(sv/x\) with uniformly log-power derivatives; dependence on \(L\) in the latter is allowed. The exact \(K_{P_3}(sq)=(1-t)(1-2t)^2\), \(t=\log s/\log(sq)\), qualifies. The central interval is allowed to be sharp, as are all divisor bounds. Define
@@ -28,7 +28,7 @@ T_2(U,V)&=O_{\Delta,B}(xL^{-B}).
 \end{aligned}
 \tag{2}
 \]
-Constants may also depend on the fixed weight family. The continuous improvement above the exponent \((1-\alpha)/2\) from ordinary quotient-prime Bombieri–Vinogradov is \(\alpha/6-\Delta>0\). Across the whole \(s\)-band \(b_1\ge34/75-\Delta\), and at \(\alpha=.10\) one has \(b_1=7/15-\Delta\).
+Constants may also depend on the fixed weight family. The continuous improvement above the exponent \((1-\alpha)/2\) from ordinary quotient-prime Bombieri–Vinogradov is \(\alpha/4-\Delta>0\). Across the whole \(s\)-band \(b_1\ge.465-\Delta\), and at \(\alpha=.10\) one has \(b_1=.475-\Delta\).
 
 Since \(m\in[x,3x/2)\), the literal Vaughan identity is
 \[
@@ -37,7 +37,7 @@ Since \(m\in[x,3x/2)\), the literal Vaughan identity is
  +(\mu_{>U}*\Lambda_{>V}*1)(m).
 \tag{3}
 \]
-Here its fourth usual piece \(\Lambda_{\le V}(m)\) is zero. For instance fix tiny \(\upsilon>0\) with \(\upsilon+\Delta<1/60\), and use \(V=x^\upsilon,\ U=x^{b_1-\upsilon}\); both coprime Type I evaluations extend past the BV boundary. The **complete last term of (3), with its actual signs, remains**. In particular the positive main of (2) does not imply a prime count.
+Here its fourth usual piece \(\Lambda_{\le V}(m)\) is zero. For instance fix tiny \(\upsilon>0\) with \(\upsilon+\Delta<1/40\), and use \(V=x^\upsilon,\ U=x^{b_1-\upsilon}\); both coprime Type I evaluations extend past the BV boundary. The **complete last term of (3), with its actual signs, remains**. In particular the positive main of (2) does not imply a prime count.
 
 With \(W_s=K_{P_3}\), \(\kappa_s=1\), and the complete band \(x^{.10}<s<x^{.14}\), summing dyads in (2) and applying the prime number theorem gives
 \[
@@ -60,9 +60,9 @@ with free-factor weight \(\log h\) or \(1\). In both cases \(|c(d)|\le L\) up to
 \(\mathcal Q=\sum_u|\sum_{N-dh=Au}\kappa_Ac(d)\cdot\text{(test)}|^2\),
 with all quotients \(u>0\) on the retained unit support. It is enough to bound \(\mathcal Q\ll_B xS L^{-B}\). The argument in this section in fact allows any log-bounded quotient weight supported on units.
 
-The main mechanisms are as in [the marked divisor argument](UnmarkedSemiprimeSignedBlock.md), but **there is no condition on the factorization of \(d\)**, and the smaller natural frequency range permits varying \(B\) alone. The following records the normalization and all arithmetic modifications.
+The physical tails and zero-mode cancellation use the determinant from [the marked divisor argument](UnmarkedSemiprimeSignedBlock.md), but **there is no condition on the factorization of \(d\)**. The decisive sharper bound below uses that each fixed reciprocal frequency lives in one coset modulo the row prime \(A\), with an orthogonality bound of length \(Q/A\), not \(Q\). No inverse-energy estimate is needed.
 
-**Physical smoothing and tails.** Use logarithmically many dyads \(d\asymp D,h\asymp H\), or \(r\asymp R,h'\asymp H'\) in a second copy, with \(DH,RH'\asymp x\). The finite separation of \(W_s\) reduces it to an \(A\)-label and product test. A product or free-variable edge from smoothing at relative width \(L^{-F}\) is supported on at most \(O(xL^{-F}+D+R)\) integers: for a free edge this follows by counting the pairs \(d,h\) before forgetting the factorization. The absolute edge sequence in \(m\) is \(\ll L^C\tau_2(m)\), so its squared mass is \(O(xL^{-F/2+C'})\) by the fourth divisor moment. A test \(z(m)\) with this bound costs at most \(O(S\sum_m|z(m)|^2)\) in the quadratic form, by Cauchy across labels and the fact each \(0<N-m\ll x\) has \(O(1)\) prime divisors in the label band. This proves smooth free/product endpoints at arbitrary prescribed log precision. The sharp divisor endpoints and both coefficients (5) are not smoothed. The diagonal \(A=B\) costs \(O(x^{1+o(1)})\).
+**Exact same-divisor dyad and sharp boundaries.** Split the *original linear sum* by its \(d\)-dyads before Cauchy; logarithmic triangle inequality recovers the full sum. In each individual quadratic estimate both \(d\) and \(r\) are therefore in the **same** dyad \(D<d,r\le2D\), possibly with further sharp interval endpoints. In particular \(H=x/D\) is a common free-variable scale, and \(h/H,h'/H\in[1/2,3/2]\) on the original support. Take a fixed broad smooth free cutoff identically one on this interval, and smooth only the central product endpoints at relative width \(L^{-F}\). The product edge sequence is bounded by \(L^C\tau_2(m)\) on \(O(xL^{-F}+1)\) integers, so its squared mass is \(O(xL^{-F/2+C'})\) by the fourth divisor moment. A test \(z(m)\) with this bound costs at most \(O(S\sum_m|z(m)|^2)\) in the quadratic form, by Cauchy across labels and the fact each \(0<N-m\ll x\) has \(O(1)\) prime divisors in the label band. This proves arbitrary log precision for smoothing; all divisor bounds stay sharp. The diagonal \(A=B\) costs \(O(x^{1+o(1)})\).
 
 Off diagonal put \(m_1=dh=N-Au\), \(m_2=rh'=N-Bu\), \(j=B-A\), with \(A,B\) distinct genuine primes in the same \(S\) dyad. We have
 \[
@@ -86,7 +86,7 @@ Put \(d=g n,\ r=g r_1,\ q_0=A r_1,\ C_0=Nj/g\). Then \(Bnh-q_0h'=C_0,\ (Bn,q_0)=
 \tag{7}
 \]
 The true smooth test \(W_{\rm ph}\) substitutes
-\(h'/H'=(BnH/(q_0H'))(h/H)-C_0/(q_0H')\)
+\(h'/H=(Bn/q_0)(h/H)-C_0/(q_0H)\)
 in the second free and product weights. The prefactor in this substitution is \(\asymp1\), and the offset is bounded. The normalized \(n\)-derivatives and \(h/H\)-derivatives therefore cost only fixed powers of \(L\), after smoothing above.
 
 We use uniform maximal coprime Mertens, for each fixed \(c,C_1,M>0\),
@@ -107,29 +107,45 @@ a fixed log power; no Möbius factorization of the *new coefficient* is presumed
  e_Q\left((N/f)\frac{\ell(B-A)}{g s_0}\overline B\,\overline n\right).
 \tag{9}
 \]
-Here \(N/f\) is a unit mod \(Q\). The true dual scale satisfies
+Here \(N/f\) is a unit mod \(Q\). Since \(d,r\le x^{b_1}\) and the shorter \(h\)-scale is \(H=x/D\), the true dual scale satisfies
 \[
  fq_0/H \le x^{\alpha+2b_1-1+o(1)}
-              =x^{\alpha/3-2\Delta+o(1)} .
+              =x^{\alpha/2-2\Delta+o(1)} .
 \]
-Thus retain \(0<|\ell|\le x^{\alpha/3-\Delta}\), with arbitrary power reserves in the remaining terms by integration by parts in (7); fixed derivatives suffice for each desired power and the number of untransformed variables is polynomially bounded.
+Thus retain \(0<|\ell|\le x^{\alpha/2-\Delta}\), with arbitrary power reserves in the remaining terms by integration by parts in (7); the polynomially bounded counts of the untransformed variables do not spoil an arbitrarily high fixed-order reserve.
 
-Fix \(g,f,s_0,A,r_1\) and **vary the genuine prime \(B\)** together with \(\ell\). The signed rational
+Fix \(g,f,s_0,A,r_1\) and a single signed nonzero \(\ell\), and **vary the genuine prime \(B\)**. Since \(g s_0\) divides \(j=B-A\), the signed rational
 \[
-                          \frac{\ell(B-A)}{g s_0 B}
+                  t_B=\frac{\ell(B-A)}{g s_0 B}\pmod Q
 \tag{10}
 \]
-is reduced with denominator \(B\), since the numerator is integral, \(B\nmid B-A\), \(0<|\ell|<B\), and \((B,q_0)=1\). Its signed cross-products, for two such rationals, have sizes \(\ll x^{7\alpha/3-\Delta+o(1)}\le x^{.327}\), whereas \(Q\ge x^{.549+o(1)}\). Therefore congruence mod \(Q\) identifies the *rational*, then the prime \(B\), then \(\ell\). All restrictions defining \(g\mid j,s_0,(j,r),(B,q_0)=1\) are on this joint \((B,\ell)\) slot given the fixed outer representation. The remaining exact condition \((n,q_0)=1\) stays on the \(n\) slot.
+is reduced with denominator \(B\), since \(B\nmid B-A\) and \(0<|\ell|<B\); the denominator is a unit mod \(Q\). Cross-products have size \(O(x^{5\alpha/2-\Delta+o(1)})\le x^{.351}\), whereas \(Q\ge x^{.549+o(1)}\). Thus the \(t_B\)'s are distinct mod \(Q\). Crucially both \(g,s_0\) are units mod \(A\) since \(A\nmid j\), so \(A\mid Q\) and
+\[
+              t_B\equiv \ell (g s_0)^{-1}\pmod A
+\tag{10a}
+\]
+for **every** admissible \(B\). This statement remains true if \(A^2\mid Q\); we do not assume a coprime factorization of \(Q\). The exact conditions \(g\mid j,\ s_0,\ (j,r),(B,q_0)=1\) affect only the joint \((B,\ell)\) slot once the fixed outer representation is given.
 
-Put \(Z\asymp D/g\), and \(T\) for a signed dyadic \(\ell\)-scale. Use fixed-cutoff Mellin inversion to separate the smooth normalized \(n/Z\) dependence of \(\widehat W_{\rm ph}\) from the joint \((B,\ell)\) coefficients; the integrable coefficient norms are log powers by normalized derivatives. All sharp \(n\) restrictions, including (5), its dyadic bounds and unit tests, are already on the \(n\)-side. The \((B,\ell)\) vector on residues has \(\ell^{4/3}\)-norm \(\ll (ST)^{3/4}L^C\) by (10). The inverse sum vector over \(n\) has fourth moment at most \(Q L^C J_2(Q;2Z)\) by orthogonality, where \(J_2(Q;K)\) counts \(1/n_1+1/n_2\equiv1/n_3+1/n_4\bmod Q\) for units up to \(K\). In particular the arbitrary coefficient dependence on the fixed outer representation is allowed by the positive collision majorant.
+Put \(Z\asymp D/g\) and \(Q_2=Q/A=r_1/s_0\), so \(Q_2\ll Z\) by the genuine same-dyad step. Use fixed-cutoff Mellin inversion only in \(n/Z\) to separate the smooth Fourier test from the \(B\)-coefficient, with log-power integrable norms, by normalized derivatives. All sharp conditions on \(n\), including (5), the divisor cutoff and units, stay on the \(n\)-side. Their coefficients are bounded by \(L^C\) even after the unit-modulus Mellin character in \(n/Z\) is included. For each such separated contribution let
+\[
+ V(t)=\sum_{\substack{n\asymp Z\\(n,Q)=1}}c_n
+                                   e_Q((N/f)t\overline n).
+\]
+Write \(t=t_A+A k\) on the unique coset (10a), where \(k\pmod{Q_2}\). By orthogonality over \(k\), inversion on the unit classes of \(Q_2\), and bounded coefficients,
+\[
+ \sum_{k\bmod Q_2}|V(t_A+A k)|^2
+ \ \le\ Q_2 L^{C}\sum_{a\bmod Q_2}
+                    \bigl(\#\{n\asymp Z:n\equiv a\bmod Q_2\}\bigr)^2
+ \ \ll\ (Q_2+Z)ZL^C\ \ll Z^2L^C.
+\tag{10b}
+\]
+Indeed \(N/f\) is a unit mod \(Q_2\), and \(\overline{n_1}\equiv\overline{n_2}\pmod{Q_2}\) iff \(n_1\equiv n_2\); phases from \(t_A\) are harmless inside the squared norm. Injectivity of (10) and Cauchy over \(B\) give \(\ll\sqrt S\,Z L^C\) per fixed \(\ell\). Summing the true frequency length \(\le x^{\alpha/2-\Delta}\) still saves \(x^{-\Delta}\) relative to \(SZ\), up to log factors. At a common dyadic divisor exponent \(b\) this has saving \(1-2b-\alpha/2\) before reserving smoothing slack.
 
-For fixed \(g,f,s_0\) each \(Q\) has \(O(1)\) actual outer representations \(s_0Q=A r_1\): each \(A\) must be a prime divisor in \(S\), and determines \(r_1\). Over a dyad \(Q\asymp Q_1\), [Shparlinski, Lemma 2.5](https://arxiv.org/pdf/1710.02777) applies with \(2Z<Q_1\). It gives \(Q_1^{-1}\sum_QJ_2(Q;2Z)\ll(Z^4/Q_1+Z^2)Q_1^{o(1)}\). By Jensen the average fourth norm (normalizing by the length of the full modulus dyad, with missing moduli taken as zero) is at most \((Z+Q_1^{1/4}Z^{1/2})x^{o(1)}\). In this whole strip \(Z\ge x^{.4286+o(1)}\) and \(Q_1\le x^{.59334+o(1)}\), so there is no loss from the second term. Hölder thus bounds the average compared to the target \(SZ\) by \(T^{3/4}S^{-1/4}x^{o(1)}\le x^{-3\Delta/4+o(1)}\). Equivalently, at a common dyadic divisor exponent \(b\) this is the saving \(3/4-\alpha/2-3b/2\) before reserving smoothing slack.
-
-The Poisson prefactor is \(\asymp H/(f s_0 Q_1)\). Sum over the modulus dyad to get \(O(xS x^{-c_\Delta}/(g f s_0))\) for some \(c_\Delta>0\), since \(HZ\asymp x/g\). The remaining \(g,f,s_0\) sums are harmonic. There is **no extra \(B\)-sum** since \(B\) was already counted in the \(\ell^{4/3}\)-norm. The full nonzero contribution is power-small; together with the zero mode, physical tails and diagonal this proves the signed cancellation in the entire claimed interval.
+For fixed \(g,f,s_0\) each \(Q\) has \(O(1)\) actual outer representations \(s_0Q=A r_1\), because every \(A\) is a prime divisor in \(S\) and determines \(r_1\). The Poisson prefactor \(H/(fs_0 Q)\) summed over this dyad of moduli is \(\ll H/(f s_0)\); multiplying by the proved bound before this prefactor gives \(O(xS x^{-c_\Delta}/(g f s_0))\), since \(HZ\asymp x/g\). There is no additional \(B\)-sum, and \(g,f,s_0\) have harmonic costs. Together with the true zero mode and physical tails this proves cancellation throughout the claimed strip; there is no marker divisor or assumed cancellation of a Kloosterman energy.
 
 ## 3. Exact BV overlap and uniform evaluation of the Euler main
 
-For fixed \(s\), quotient primes are at scale \(Y=x/S\). For \(d\le x^{b_0}\), apply standard maximal BV at \(Y\) to \(q\equiv N\bar s\bmod d\), with \((d,Ns)=1\). This is below \(Y^{1/2}\) by the fixed exponent reserve \(.01\alpha\). The retained true primes excluded previously are a power-small difference. For a reference see the classical theorem in the introduction to [Akbary–Hambrook](https://arxiv.org/pdf/1309.2730v2); prime powers are discarded with a power reserve when summing moduli by starting with the usual theta form of classical BV, or by Cauchy from the maximal theta error with weighted absolute Brun–Titchmarsh. More directly, for the proper prime powers, the maximal sum of per-residue counts over all moduli \(d\le x^{b_0}\) is \(O\big(x^{b_0}Y^{1/2}\log^2Y\big)\): each maximum is at most their entire contribution at scale \(Y\), so this is power-small compared with \(Y\). Partial summation gives the corresponding unweighted prime theorem. The two weights \(W_s(v),\log((N-sv)/d)\) have uniformly log-power sup norms and total variation on \(I/s\); maximize over prefixes to handle arbitrary retained endpoints. The BV error is \(O_B(YL^{-B})\) per \(s\), even with bounded log factors in (5), so \(O_B(xL^{-B})\) in all.
+For fixed \(s\), quotient primes are at scale \(Y=x/S\). For \(d\le x^{b_0}\), apply standard maximal BV at \(Y\) to \(q\equiv N\bar s\bmod d\), with \((d,Ns)=1\). This is below \(Y^{1/2}\) by the fixed exponent reserve \(.01\alpha\). The retained true primes excluded previously are a power-small difference. For a reference see the classical theorem in the introduction to [Akbary–Hambrook](https://arxiv.org/pdf/1309.2730v2); to pass from the von Mangoldt to the prime version, for the proper prime powers, the maximal sum of per-residue counts over all moduli \(d\le x^{b_0}\) is \(O\big(x^{b_0}Y^{1/2}\log^2Y\big)\): each maximum is at most their entire contribution at scale \(Y\), so this is power-small compared with \(Y\). Partial summation gives the corresponding unweighted prime theorem. The two weights \(W_s(v),\log((N-sv)/d)\) have uniformly log-power sup norms and total variation on \(I/s\); maximize over prefixes to handle arbitrary retained endpoints. The BV error is \(O_B(YL^{-B})\) per \(s\), even with bounded log factors in (5), so \(O_B(xL^{-B})\) in all.
 
 For \(Z\ge x^c\) fixed \(c>0\), apply
 \[
@@ -144,15 +160,13 @@ to the summatory function of \(\mu(a)a/\phi(a)\) with \((a,E)=1\). Below \(\sqrt
  \prod_{p\nmid E}\frac{1-1/((p-1)p^z)}{1-p^{-1-z}}
  \prod_{p\mid E}(1-p^{-1-z})^{-1}.
 \]
-\(G_E\) is analytic near 0 by absolute convergence of the first product and finiteness of the second. Here \(E=Ns\) is even. Abel convergence, justified by the summatory estimates also for the derivative series, gives
+\(G_E\) is analytic near 0 by absolute convergence of the first product and finiteness of the second. Here \(E=Ns\) is even. These are also the uniform Goldston–Yıldırım tails quoted in [Huang–Li, Lemma 1](https://huixil.wordpress.com/wp-content/uploads/2019/10/on-a-variant-of-the-elliott-halberstam-conjecture-and-the-goldbach-conjecture.pdf), since \(\log E\ll\log Z\). Abel convergence, justified by the summatory estimates also for the derivative series, gives
 \[
  \sum_{\substack{a\le Z\\(a,E)=1}}\frac{\mu(a)}{\phi(a)}\ll_B L^{-B},\qquad
  -\sum_{\substack{a\le Z\\(a,E)=1}}\frac{\mu(a)\log a}{\phi(a)}
        =G_E(0)+O_B(L^{-B})=\mathfrak S(E)+O_B(L^{-B}).
 \tag{11}
 \]
-The harmonic conclusions in (11) also follow directly from Goldston–Yıldırım's estimates as reproduced in [Huang–Li, Lemma 1](https://huixil.wordpress.com/wp-content/uploads/2019/10/on-a-variant-of-the-elliott-halberstam-conjecture-and-the-goldbach-conjecture.pdf), since \(\log E\ll\log Z\).
-
 For the first BV main insert \(Z=\min(U,x^{b_0})\ge x^{.40}\), and split the real weight \(\log((N-sv)/d)\) at \(\log d\). This is the first line of (2).
 
 For the second BV main keep both factors. Write \(Z_0=x^{b_0}\); its coefficient sum is
@@ -165,4 +179,4 @@ If \(\Lambda(\ell)\ne0\), write \(\ell=p^k\). The exact factor \(\phi(d)\phi(\el
 
 ## 4. Related scope
 
-[Pham Van Khanh, *Uniformity, Local Structure and Boundary Correlations in Goldbach Representations*, v1 (30 Oct 2026)](https://www.preprints.org/manuscript/202610.3061), Appendix A uses ordinary BV with \(DM<x^{1/2-\epsilon}\) for mixed prime–rough slope sums. B.1 proves weighted Type I for the full reflected-prime/rough sequence below \(x^{1/2}\); B.4 treats the rough reference on fixed-rank products. D.2 is a two-rough benchmark, D.4 an upper sieve, D.5 explicitly assumes a centered two-sided covariance, and F.4 compares actual product-formation primes to the rough reference only off an exceptional set of targets. Appendix L's rational-target kernel concerns different parity-signed weights with a complementary slab outside its estimate. None of these statements supplies (2) above *quotient-prime* BV, and (2) does not provide a general BV improvement for arbitrary modulus coefficients, a whole prime-shift asymptotic or binary Goldbach. The mechanism here is the exact moving prime label \(B\) recovered from (10) and the literal signed zero-mode cancellation of (5).
+[Pham Van Khanh, *Uniformity, Local Structure and Boundary Correlations in Goldbach Representations*, v1 (30 Oct 2026)](https://www.preprints.org/manuscript/202610.3061), Appendix A uses ordinary BV with \(DM<x^{1/2-\epsilon}\) for mixed prime–rough slope sums. B.1 proves weighted Type I for the full reflected-prime/rough sequence below \(x^{1/2}\); B.4 treats the rough reference on fixed-rank products. D.2 is a two-rough benchmark, D.4 an upper sieve, D.5 explicitly assumes a centered two-sided covariance, and F.4 compares actual product-formation primes to the rough reference only off an exceptional set of targets. Appendix L's rational-target kernel concerns different parity-signed weights with a complementary slab outside its estimate. None of these statements supplies (2) above *quotient-prime* BV, and (2) does not provide a general BV improvement for arbitrary modulus coefficients, a whole prime-shift asymptotic or binary Goldbach. The mechanism here is the exact moving prime label \(B\) recovered from (10), localized to one coset modulo \(A\) by (10a), and the literal signed zero-mode cancellation of (5).
