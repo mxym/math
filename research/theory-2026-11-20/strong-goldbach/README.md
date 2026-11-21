@@ -284,6 +284,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Opposite net signs on the no-core and negative-core sectors](NoCoreAdverseSign.md): with the same equal cuts, the complete no-core sector on the macro-rough reflected side contributes at least +.030 of the reference, despite containing the negative rank-four section. Negative small cores also have the opposite net sign to positive small cores. No whole-row bound follows.
 
+[Smooth reverse cutoff and a whole small-factor bound](SmoothReverseCoreShield.md): a smooth cutoff average preserves the globally equivalent opened row. Its full nontrivial quotient core has bounded absolute mass on the macro-rough reflected side, and an arbitrarily small prime factor of the quotient up to exp(log(x)^η) costs o of the reference there, without any cutoff on the size or rank of the core.
+
 [Dyadic divisors and Smith torsion](EACDyadicSmith.md): a large dyadic divisor forces a large Smith invariant for a nonsingular factor matrix, or an eigenvalue-one obstruction. In the strongly connected case the latter forces two vertex-disjoint directed cycles.
 
 [Dyadic rank with prescribed prime seeds](PrimeOrbitDyadicRank.md): short supported lattice relations and a 2-adic logarithm estimate show that any hypothetical dyadic exception must have a sufficiently large prescribed forward closure or independent seed classes and a large directed cycle hitting set. This is not a contradiction for either surviving alternative.
