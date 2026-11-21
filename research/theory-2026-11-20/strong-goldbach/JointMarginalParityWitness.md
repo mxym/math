@@ -91,7 +91,7 @@ The prime-\(q\) marginal of the same measure on \(m\) is, by (4),
            +\text{arbitrarily log-small relative-scale error}.
 \tag{6}
 \]
-For each \(s,m\), the error is in fact of arbitrarily log-small size compared with \(\mathfrak S(Mm)/((s-1)L)\), including the exact zero on even ranks. Therefore (2a)--(2b) and partial summation prove the same ordinary \(d\mid m\) Type I mean as for a genuine prime quotient, throughout \(d\le x^{1-\epsilon}\) with \((d,Ns)=1\); the only harmless scale difference from the continuous \(q\)-rate per \(dm\) is \(s/(s-1)=1+O(x^{-.10})\). For any polylog-divisor-weighted sum of these progression errors the harmonic moments absorb the losses. In particular no ordinary such short-divisor probe of this marginal detects the Liouville tilt.
+For each \(s,m\), the error is in fact of arbitrarily log-small size compared with \(\mathfrak S(Mm)/((s-1)L)\), including the exact zero on even ranks. Therefore (2a)--(2b) and partial summation prove the same ordinary \(d\mid m\) Type I mean as for a genuine prime quotient, throughout \(d\le x^{1-\epsilon}\) with \((d,Ns)=1\); the only harmless scale difference from the continuous \(q\)-rate per \(dm\) is \(s/(s-1)=1+O(x^{-.10})\). For any polylog-divisor-weighted sum of these progression errors the harmonic moments absorb the losses. This is a range for the model, not a claim that actual prime-quotient distribution is known to that level. In particular no ordinary such short-divisor probe of this marginal detects the Liouville tilt.
 
 ## 3. Whole signed identities and the two selected inequalities survive
 
