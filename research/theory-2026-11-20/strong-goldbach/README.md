@@ -308,6 +308,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Whole long-free descent on a balanced reflected semiprime band](BalancedSemiprimeLongFreeDescent.md): after switching all long quotient factors, the nonzero reference is exact and the rank-one and rank-two quotient sector costs only a fixed-width error relative to that band. This leaves two opposite rank-three sectors and higher ranks unresolved in the true prime-quotient comparison.
 
+[Raised reverse cut removes every giant quotient prime](BalancedSemiprimeRaisedSign.md): on the same balanced band, the centered quotient coefficient vanishes whenever it has a prime factor above the specified half threshold, at every rank. Among the remaining values, the entire sector with at most two small prime bases has only a small possible adverse contribution. Three or more small bases remain uncontrolled.
+
 [Dyadic divisors and Smith torsion](EACDyadicSmith.md): a large dyadic divisor forces a large Smith invariant for a nonsingular factor matrix, or an eigenvalue-one obstruction. In the strongly connected case the latter forces two vertex-disjoint directed cycles.
 
 [Dyadic rank with prescribed prime seeds](PrimeOrbitDyadicRank.md): short supported lattice relations and a 2-adic logarithm estimate show that any hypothetical dyadic exception must have a sufficiently large prescribed forward closure or independent seed classes and a large directed cycle hitting set. This is not a contradiction for either surviving alternative.
