@@ -304,6 +304,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Joint parity witness for the relaxed marginal envelope](JointMarginalParityWitness.md): a positive law on nearby, not exactly reflected, integer pairs preserves the stated short divisor moments, profilewise cutoff neutralities and both selected negative inequalities. Its residual is nevertheless above the required threshold, so those specific constraints cannot close the argument without additional input using the exact equation.
 
+[Actual reverse dispersion on a reflected semiprime band](TrueSemiprimeReverseDispersion.md): the original affine equation survives in two independent factor placements; large-residue triple-modulus dispersion and cancellation of the signed principal part remove these blocks up to arbitrary log accuracy, reaching selected modulus exponents near 153/256. This applies neither to all factor placements nor the entire genuine prime-quotient comparison.
+
 [Dyadic divisors and Smith torsion](EACDyadicSmith.md): a large dyadic divisor forces a large Smith invariant for a nonsingular factor matrix, or an eigenvalue-one obstruction. In the strongly connected case the latter forces two vertex-disjoint directed cycles.
 
 [Dyadic rank with prescribed prime seeds](PrimeOrbitDyadicRank.md): short supported lattice relations and a 2-adic logarithm estimate show that any hypothetical dyadic exception must have a sufficiently large prescribed forward closure or independent seed classes and a large directed cycle hitting set. This is not a contradiction for either surviving alternative.
