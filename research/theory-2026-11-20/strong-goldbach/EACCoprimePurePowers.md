@@ -62,3 +62,7 @@ Suppose $J=k$. Then $P(F-S_k)=a_{k+1}p^v(1+O_k(P^{-1}))$. If $p^v\to\infty$ this
 Every possibility for unbounded $P$ with $g\ge2$ has now been eliminated. The asymmetric use of $P^t\mid M$ is essential in the wide case; an ordinary irrationality exponent near 2 would not cover all the boundary cases. The conclusion does not exclude three-label components with $\gcd(b,d)=1$ or imply Goldbach.
 
 For the related September 2026 terminal-component claim, see the scope note in [the exponent gaps](EACThreeExponentGaps.md). The named Padé lemmas and the weighted logarithmic inequality are older inputs; the claim here is confined to the actual shared-pure-exponent branch. No priority inference from a bounded comparison is made.
+
+### Independent exact controls
+
+Run `python3 -O check_eac_coprime_pade.py`. It independently generates 144 finite Padé controls by rational linear algebra and tests neighboring determinants, both asymmetric denominator clearings, and 101 dyadic denominator cases. These examples check the local bookkeeping; they do not replace the infinite-parameter proof.
