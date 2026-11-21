@@ -1,6 +1,6 @@
 # A triangle obstruction to small Seidel rank for the Conway 99-graph
 
-**Theorem.** Let $A$ be the adjacency matrix of a strongly regular graph with parameters $(99,14,1,2)$. Then $S=2A-J+I$ has rank greater than 30 over $\mathbb F_7$. Together with the known evenness and upper bound this leaves $32,34,36,38,40,42$. The proof uses a finite exhaustive computation and applies to a graph with any automorphism group. Existence is still open.
+**Theorem.** Let $A$ be the adjacency matrix of a strongly regular graph with parameters $(99,14,1,2)$. Then $S=2A-J+I$ has rank greater than 30 over $\mathbb F_7$. Together with the known evenness and upper bound this leaves $32,34,36,38,40,42$. The proof uses a finite exhaustive computation and applies to a graph with any automorphism group. The [subsequent rank-32 census](../triangle-rank-32/README.md) reduces the list to five values. Existence is still open.
 
 Previously the eight even values from 28 to 42 survived the lattice argument. The triangle calculation below excludes the first two. The convention for the sign of the Seidel matrix does not affect its rank. [Wave 66 and related bounds](https://github.com/YesterdaysLemon/conway-99-research#readme) · [Rational eigenspaces and rank parity](../../conway-99-involution/rational-eigenspaces/Theorem.md).
 
