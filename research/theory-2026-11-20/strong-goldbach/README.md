@@ -284,6 +284,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Polynomial roughness for the whole both-composite sector](PanCriticalCompositePolynomialSieve.md): at the original cutoff the signed both-composite mass is retained to any fixed tolerance after imposing an appropriate positive-power rough cutoff on both summands. This uses genuine signed bilinear Poisson dispersion for the allocated sieve moduli and covers no true-prime row.
 
+[Parity transfer of the original rough mixed row to a composite covariance](PanCriticalParityTransfer.md): a moving-half complementary-divisor identity and signed true-target dispersion evaluate the tagged side. The original whole mixed row, restricted to fixed-power rough points, is reduced to one centered all-composite covariance with at most 12 prime factors on its more restrictive side. Its sign and magnitude remain open; the true prime-pair term is not estimated.
+
 [Residue profiles at the same Pan cutoff](PanCriticalPhysicalResidues.md): entirely signed class totals, summed in total variation, match the local uniform admissible density after subtracting actual prime pairs. The three-part full comparison is valid jointly over periods up to (log P)^.1, and the simpler short rows jointly to (log P)^4. Prime-pair counts in the individual classes remain unknown.
 
 [Full square-part projection in the original mixed Pan row](PanCriticalSquarePartProjection.md): even jointly with the tiny-prime-subset filter, the signed row is concentrated in total variation on squarefree complements, with error O(P/log(P)^(1/8)). All square parts are treated, not merely a pointwise deletion of rare large repeated primes. Squarefree parity of the surviving complements remains uncontrolled.
