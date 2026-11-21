@@ -46,10 +46,10 @@ W=lambda t:(1-t)*(1-2*t)**2
 d=f(".017")
 hcredit=he[0]*(1-he[1]+he[0]**2/2)
 den=40*d*hq[0]*hcredit
-base=f("286")*he[1]/den
+base=f("176")*he[1]/den
 broad=base*h2[1]*h3[1]*W(f(".138"))/W(f(".139"))
 narrow=base*f("7.3")*h2n[1]*h3n[1]*(hsn[1]/hs[0])*(han[1]/ha[0])*W(f(".1384"))/W(f(".139"))
-require(broad<f(".810"),"full broad increment")
-require(narrow<f(".003"),"full narrow corrected")
-require(broad+narrow<f(".813"),"single total new reserve")
+require(broad<f(".499"),"full broad increment")
+require(narrow<f(".002"),"full narrow corrected")
+require(broad+narrow<f(".500"),"single total new reserve")
 print("500 strict exponential cells; exact new reserves",float(broad),float(narrow),float(broad+narrow))

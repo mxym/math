@@ -2,6 +2,8 @@
 
 The sharp coefficient of [DeeperRoughTriprimeDebit](DeeperRoughTriprimeDebit.md) left all sufficiently small reflected least factors unbounded. Here an exact new smooth replacement preserves the **whole original no-\(F_1\) ledger** and its prime atom. A recalculated negative mean pays the entire added debit on the specified genuine broad triprime quotient, with **no reflected least-factor restriction**, and the entire corrected positive contribution on the original narrow packet. Its analytic input for the formerly unbounded tiny factors is Fourier cancellation of the actual Möbius divisor sum, with the exact local coprimality mask kept before taking a nonnegative quadratic upper. This does not estimate other quotient shapes, remove the requirement of exactly one reflected \(E\)-mark, or prove Goldbach.
 
+**Sharper certificate.** [The Fourier refinement](SmoothFourierBudget176.md) keeps this exact ledger and replaces 286 by 176 in (4). The two charges together are then less than **0.500** of the same mean, without widening either charge's scope. The original 286 bound below is retained as a simpler independent fallback; the companion packet checker now uses 176.
+
 ## 1. Same original row, with a different exact smooth coefficient
 
 Keep \(N=2x\), \(L=\log x\), \(M_N=\mathfrak S(N)x/(2L)\), \(n=sq\in(x/2,x]\), \(m=N-n\), \((n,N)=1\), and the original \(W_s(q)\), \(C(m)\) and \(B'(s,q)=D_B(q)/\log q+2F_2(s,q)/3\) of [WholeQuotientTriprimeRemoval](WholeQuotientTriprimeRemoval.md). This section uses the entire original \(s\in(x^{.10},x^{.14})\) band in the ledger.
