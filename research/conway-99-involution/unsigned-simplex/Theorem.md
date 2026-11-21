@@ -1,0 +1,25 @@
+# Forced binary-simplex coordinate model for the unsigned involution sector
+
+**Conditional theorem.** Suppose a strongly regular graph with parameters (99,14,1,2) has an involution fixing one vertex. Let L⁺ be the rank-15 integral Gram lattice of the unsigned exterior projector H, and choose any 7-primary maximal integral isotropic gluing L₀ as in the [unsigned seven-row theorem](https://github.com/mxym/math/tree/main/research/conway-99-involution/unsigned-seven-rows). Then, in a suitable orthonormal integral ambient I₁₅,
+  
+  L₀ = {z∈ℤ¹⁵ : (z mod 2) ∈ C⊥},
+
+where C is the binary [15,4,8] simplex code (the nonzero length-4 binary columns taken once each). In particular L₀ has minimum 3, its dual has exactly 15 norm-one lines, the 15 corresponding unsigned frame rows are mutually orthogonal, and all have seven +1, seven −1 and 28 zero entries. This conclusion is independent of the 7-rank 11/13 alternative for the separate **signed** sector.
+
+On coordinates indexed by the points of PG(3,2), every one of the 42 exterior vectors p has ±1 on a five-element circuit and is zero elsewhere. The 21 twin-label classes have six five-point supports each, within the 28 short cosets of C in C⊥. This is an explicit finite model, **not** a construction or a nonexistence proof. It does not rule out additional, nonstandard, unimodular extensions of the same L₀.
+
+## Why the computation proves the theorem
+
+1. The prior seven-row theorem gives an extension I₁₅ or I₇⊥E₈, with glue specified by a dimension-4 norm-0 mod-4 binary subspace. See the background unsigned15/Theorem.md and [published theorem](https://github.com/mxym/math/tree/main/research/conway-99-involution/unsigned-seven-rows). Standard I₁₅ can always be used if the mixed glue has non-injective projection onto the first seven coordinates.
+2. unsigned15/BinaryCharts.md proves exhaustive coverage of 20 standard types plus 11 genuinely needed mixed possibilities, with eight choices per type of the K₇ geometry. Exact necessary support marginals and certified linear inequalities reduce the standard list to three types and the genuine mixed list to seven. The independent subcode-chain and root reflection checks are part of the replay. Every remaining type **except standard simplex** has a norm-two root on a singleton cut whichever of its eight omitted vertices is used.
+3. unsigned15/RootsBridge.md gives the precise 12-light/4-heavy form of this eigenfunction. unsigned15/SingletonSearch.md gives the complete signed/unsigned chart and coupled extension test; the ledgers and executable replay eliminate every singleton-cut root. These point tests use only necessary constraints and make no existence claims about a survivor of a local test.
+4. For the surviving simplex case C⊥ is the binary Hamming code: binary subsets of nonzero vectors of F₂⁴ that sum to zero. No nonempty subset of size one or two is in it, while every projective line of size three is in it. This establishes minimum 3 of L₀; the dual is I₁₅+C/2, whose noninteger cosets have squared norm at least 8/4=2. Its unit vectors are exactly the standard signed basis. The previous seven-row theorem applies separately to every such unit. Every column has squared norm 5, hence consists here of five signed units, no ±2. Its support has zero sum in F₂⁴; no three form a line (the other two would coincide), nor any four sum to zero (the last point is nonzero). Thus it is a circuit. Each circuit is an unordered independent ordered basis up to choice of omitted fifth point, giving |GL₄(2)|/(5·4!)=168. A simplex word of weight 8 has overlap exactly four with a given circuit in precisely five cases: any four of the five points form a basis, hence there is exactly one functional taking value 1 there; the fifth point, their sum, has value 0. Thus any occupied weight-five coset has six supports. There are 168/6=28 such cosets. The 21 actual pairs of exterior labels occupy distinct cosets by the nonsingular seven-dimensional quotient isometry.
+
+## Offline reproduction
+
+The package uses only Python 3.10+ standard library, GNU C++17 on 64-bit Linux, and GMP (C++ headers). Run from this directory:
+
+    bash replay.sh quick
+    bash replay.sh full
+
+Both modes verify all archived SHA-256 hashes, regenerate the 3,580-chart list with Burnside's lemma, regenerate all standard/mixed binary atlas rows, replay the integral separating inequalities, integral E₈ lifts and flag-transitivity checks, and regenerate the entire independent signed-permutation/star-Schur ledger. They independently rebuild 58 passed physical 47-point controls; additional tests directly check real-projection finite-prime logic on realizable synthetic Grams and compare compact 49-point caps with literal adjacency on both accepted/rejected candidates. Both modes replay every second-layer open case from the first test. The quick mode samples the first layer on IDs 183,890,1395; full regenerates the whole ledger serially. The full two parity shards in unsigned15/expected/ are disjoint partitions of one implementation, not two independent whole solutions. Numeric CPU times alone are ignored when comparing results.

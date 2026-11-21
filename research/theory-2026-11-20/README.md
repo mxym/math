@@ -19,6 +19,7 @@
 | [纯态的投影测量排除](pure-state-projective-exclusion/README.md) | 状态数不超过维数时，一般 POVM 能完美排除则投影测量也能；平方情形每个已指定标签一个秩一投影。不是任意混态结论。 |
 | [Conway 99 图：七条正交稀疏记录](../conway-99-involution/unsigned-seven-rows/README.md) | 单固定点二阶对称强制七个正交的无符号 −4 特征向量，每个恰有七正、七负，两组各至多两条内部边。覆盖两种带符号秩，不排除整个分支。 |
 | [Conway 99 图：单条最短双格方向](../conway-99-involution/dual-unary-five/README.md) | 单固定点二阶分支、带符号秩 13：排除最小 Δ=5，覆盖此前 46 类且新增排除 91 类。此筛法共排除 137/283 类；二阶分支仍开放。 |
+| [Conway 99 图：二阶分支的十五维 Hamming 格](../conway-99-involution/unsigned-simplex/README.md) | 无符号外层格的 7-primary 扩张被迫是二元 Hamming 码的整数原像，因而强制十五条正交稀疏记录；两种带符号秩均适用。未排除这个剩余模型。 |
 | [Conway 99 图：奇 Leech 补格](../conway-99-involution/odd-leech-frame/README.md) | 在单固定点二阶分支的秩 13 情形排除 32 类带标记奇 Leech 补格；不排除其他补格。 |
 | [Conway 99 图：两类有根补格](../conway-99-involution/rootful-frame-pair/README.md) | 秩 13 分支排除 4D6 与 2A7+2D5 两类；不排除整个二阶分支。 |
 | [Conway 99 图：反不变能量下界](../conway-99-involution/dual-minimum-ten/README.md) | 在单固定点二阶分支，非零整数反不变 −4 特征向量的折叠能量至少 10。这里收录数学归约和证书摘要；约 572 MB 的全量重放材料未随本提交上传。 |
