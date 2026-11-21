@@ -296,4 +296,6 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Square-root bound on centers with compact nonsingular components](EACNonsingularSquareRoot.md): for any size cap o(log log log X), at most X^(1/2+o(1)) centers up to X have a component below that cap with nonsingular exponent presentation. This covers every three-label component, with unrestricted labels and exponents. The count is of component-bearing centers, not Goldbach exceptions.
 
+[Jacobian bounds with singular or nonsingular complement presentation](EACJacobianSquareRoot.md): when A itself is invertible the same square-root sparsity holds for a much wider size cap, even if I−A is singular. Fixed tiny labels and one label at most the square root suffice to isolate a physical tuple. The two nonsingular cases together cover all four-label EACs; they count centers with an EAC, not failures of Goldbach.
+
 [No three-label components at powers of two or twice powers of three](EACThreeTwoAndThreePowers.md): a signed order obstruction, followed by an exact 39-center replay, excludes this entire component-size class along both sequences. It does not exclude other component sizes or prove representability along either sequence.
