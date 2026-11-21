@@ -1,0 +1,35 @@
+# A physical square-root lower bound on the largest of the four macros
+
+In the [four-intermediate fixed-seed theorem](PrimeOrbitFourMacroNearSmoothIntermediate.md), suppose exactly four labels have positive limiting logarithmic weights along a weight-convergent sequence of near-smooth even centers N: one label p is fixed, the other small prime q→∞ has log q=o(log N), and the six vertices form a closed strongly connected all-composite orbit. Write M for its actual largest prime. Then
+
+    liminf M/sqrt(N) > 0.
+
+The implied positive constant is a statement on the given sequence, not an explicit universal constant over moving charts or degenerate sequences with a vanishing fourth weight. Together with [the above-half exclusion](PrimeOrbitFourMacroNoAboveHalf.md) and [top multiplicity](PrimeOrbitFourMacroThreeTop.md), this gives W=1/2, with at least three of the four macros having logarithmic weight 1/2. It does not exclude that remaining square-root regime or prove Goldbach.
+
+**Setup.** Suppose to the contrary M/sqrt(N)→0 on a subsequence. Fix the macro chart R, indices, the row l and the two-dimensional 1-eigen Gale matrix C as in the four-intermediate result. The integer l has lA=0, l·1=0 and l_M≠0. No Gale column is zero and no three are proportional. Let K be the second-largest physical label; K≍M by l's leading balance. Write S_j=∑l_x x^j. From ∑l_x log(1−x/N)=0 and S_0=0, Taylor expansion gives |S_1|≪M²/N=o(1). Thus S_1=0 exactly. Expanding one order further gives |S_2|≪M³/N=o(M). Only S_1 must be an exact equality here.
+
+We use the fixed-algebraic-ratio lift in [the lower-third proof](PrimeOrbitFourMacroThirdThreshold.md): if two macros X,Y with comparable size have X/Y=α+O(N^(−η)) for fixed α>0 algebraic and η>0, then α=p^z for fixed rational z, and X/Y=α(1+O(M/N)). This follows from the fixed [R,1] row lift and Bugeaud's normalized logarithm theorem with q the only moving base. If α is rational this is impossible here, since clearing its fixed denominator would yield a nonzero integer of magnitude O(M²/N)=o(1). Two distinct diverging primes cannot have exactly that fixed rational ratio. Also, for rational a,b,c with abc≠0, if α and β are positive rational powers of p and aα+bβ=c, then α and β are rational: reduce the two exponents modulo one and use the Eisenstein basis of Q(p^(1/D)) for a common denominator D. This applies equally to negative exponents.
+
+**All four macros must be maximal-weight and active.** Consider only maximal-weight macros with nonzero l, including M. Every other nonzero-l label divided by M is O(N^(−η)) for some fixed η>0, by the finite gap of limiting weights. There is another comparable active macro K' by the first-moment balance. With only two active maximal-weight terms, S_1=0 gives a fixed positive rational limit to M/K' with power saving, impossible. If there are exactly three, use a,b,c≠0 for their l-coefficients at M,K',T. Put z=M/K' and y=T/K'. Dividing the two moment estimates by K' and (K')² gives
+
+    a z+b+c y=O(N^(−η')),       a z²+b+c y²=O(N^(−η')).
+
+Here K'≍M, z,y are bounded, and the second normalized error O(M/N) is power-small. Substitution gives (b+c y)²/a+b+c y²=O(N^(−η'')); its polynomial is nonzero since the linear coefficient is 2bc/a. Thus y is within a power-saving distance of a fixed algebraic real root on a subsequence (a repeated root merely changes the exponent). That root is positive since y=N^o(1). In turn z has a power-close positive algebraic limit; positivity also follows from z≥1. Both limits are rational powers of p by the lift, and their affine relation with nonzero rational constant −b implies both rational. This contradicts the discreteness just proved. There are only four macros, hence all four have maximal weight and nonzero l.
+
+**A forbidden affine triple.** For any ordering X,Y,Z,T of those four macros with Y≍M, we cannot have a relation X=hY+Z with fixed h a positive integer. Indeed put a,b,c,d for the nonzero l-values on this ordering and y=Z/Y. The low p,q contributions divided by Y are O(N^(−η)), as Y has positive limiting weight. Substituting the affine identity in S_1=0 and solving for T/Y, then using S_2/Y²=O(M/N), gives
+
+    a(h+y)²+b+c y²+((ah+b)+(a+c)y)²/d = O(N^(−η')).
+
+As in the lower-third proof this is not identically zero: if the quadratic coefficient vanishes, either a+c=0 (linear coefficient 2ah) or d=−(a+c) (linear coefficient −2b). Thus after extraction y has a power-close fixed algebraic limit; it is positive since all four weights coincide. Both y and h+y have such limits; the ratio lift and their nonzero rational difference force rational limits, impossible. No exact vanishing of S_2 was needed.
+
+**Parents and pairs.** If M→K, M cannot be K's only parent since lA=0 and l_M≠0. There is a second parent s<K, unique as two smaller parents would differ by a nonzero multiple of K of absolute value below K. Consequently M−s=hK with h positive even and bounded since M/K is bounded. Fix h. If s=p or q, this gives a forbidden rational ratio with power saving since K is macroscopic. Otherwise this is exactly the forbidden macro triple. Hence M does not point to K.
+
+Now each of M,K has a unique smaller parent. They cannot share a parent: their two Gale columns would both be proportional to that parent's column since CA=C, contradicting the no-three property. Nor can K parent M, for K itself has a lower parent and the same three-column contradiction results. The two parents have zero l-coordinate by the singly parented columns of lA=0; thus they are precisely p,q, with no assumption on their order or their multiplicities. The pairs (M,its parent) and (K,its parent) have distinct Gale directions, with the two members' columns positively proportional in either. Killing either direction with a nonzero left eigenrow of eigenvalue one leaves the other pair with the same sign; both remaining labels have the opposite sign since both sign supports must contain directed cycles of length at least two. In particular the last two macros U>V form a mutual pair. Also l_p=l_q=0, so l is supported just at M,K,U,V.
+
+**Force the forbidden triple.** We have liminf U/M>0 along this subsequence. Otherwise, extract U/M→0; also V/M→0. Pass to a further subsequence with K/M→s>0. Divide the first moment by M and the second by M². Then l_M+l_K s=l_M+l_K s²=0, so s=1 and l_K=−l_M. From l·1=0 now l_V=−l_U. The exact first moment then gives
+
+    S_2 = l_M(M−K)(M+K−U−V).
+
+This has magnitude ≫M since M−K is a nonzero integer and the large sum is comparable to M, contradicting S_2=o(M). Thus U≍M. The smaller V parents U; by the residue argument no other smaller label can do so, in particular not p,q. Since l_V≠0, lA=0 in column U forces at least one additional parent X, necessarily M or K. Hence X−V=hU for positive even h, bounded since U≍M. Fix h. This is the forbidden macro triple with Y=U. The contradiction proves the stated physical lower bound.
+
+[Kelanemer (2026)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7274460) studies a related exponent-digraph framework. Its full argument was unavailable for direct comparison; no priority claim is made.
