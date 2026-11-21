@@ -97,3 +97,5 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [Generic one-variable localization](GenericOneVariableLocalization.md): for a density-one set of individual primes t, inverting just x_t in the full ring makes every prime variable a unit. For those t, regularity of x_t is equivalent to the full fiber-connectivity problem; the theorem does not prove regularity or the existence of missing binary weights.
 
 [Far-angle Poisson descent](FarAnglePoissonDescent.md): the physical covariance on a comparable-label sub-block has negligible large-gcd tails and a negligible signed zero frequency, with both prime factors retained. The reciprocal frequencies collectively remain open, so this does not prove the signed sub-block estimate.
+
+[Square-zero cubic and the fixed variable x₃](SquareZeroBridge.md): a missing sufficiently large multiple of six would yield a nonzero square-zero difference of two actual prime triples, annihilated by x₃. Reducedness or a specific injectivity statement would rule it out, but neither is proved for the full prime ring. Deleting just 7 gives an exact nonreduced example for a different prime set.
