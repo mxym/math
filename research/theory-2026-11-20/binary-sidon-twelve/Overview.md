@@ -11,3 +11,5 @@ The same work completely classifies binary `[46,35,5]` codes (33 coordinate-perm
 [三次及以下代数支撑的极值](degree-three/README.md)：在任意 GF(64)² 坐标下，若一个 Sidon 集落于非零次数 ≤3 的方程零点上，至多 66 点；等号才是椭圆加核。此结论不排除更高次数或非代数支撑上的 67 点。
 
 [Sharp 60-point circle-section threshold](circle-section-threshold/README.md): a Sidon set of size at least 60 containing a maximum 40-point norm-circle section has a unique circle completion; an explicit 59-point anchored set shows the universal threshold cannot be lowered. A 38-point section in any of the four orbits forces a circle at size 66, up to its opposite-half shear. The unrestricted dimension-12 bound is unchanged.
+
+[Codimension-two sections have size at most 31](codim-two-at-most31/README.md) in every binary Sidon set of size at least 66 in dimension 12. This eliminates all configurations with a quarter of size 32 or larger, not all possible constructions of size 67.
