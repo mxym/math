@@ -167,3 +167,5 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 [Moving lower threshold for almost half the labels](EACMovingMedian.md): from every nontrivial factor-closed coprime prime set, at least (k−1)/(2+η) labels exceed (log N)^(3−δ) for fixed positive η,δ in range. This is a structural restriction only.
 
 [Half the labels escape a stretched-exponential threshold at fixed size](EACLargeMajority.md): a component of fixed size k has at least ceil(k/2) labels above exp((log N)^σ) for σ<1/(k+1); a slower growing-size companion uses a power-log threshold. The odd boundary is excluded by genuine factorizations and a second logarithm bound. This is not a classification at unspecified finite heights or an exclusion of all components.
+
+[Moving Vaughan cuts and low-rank signs](MovingVaughanRankSigns.md): both cuts depend on the actual shifted integer without leaving the verified prefix Type I range. The revised coefficient vanishes on primes/semiprimes and negative triples, is nonpositive on squarefree rank four, and still has both signs at rank five. Bounds for its signed arithmetic discrepancy and for all other low cells remain open.
