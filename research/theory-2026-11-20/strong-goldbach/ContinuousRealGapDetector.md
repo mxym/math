@@ -1,6 +1,8 @@
-# A single shrinking real zero-gap window for a fixed even Goldbach target
+# A uniform signed asymptotic in a single shrinking real zero-gap window
 
-This is a conditional spectral implication, not an estimate of the sign in the selected window and not a proof of binary Goldbach. The parity projection and support isolation go back at least to [Gou–Wang–Xu, §3, (3.1), November 2026](https://arxiv.org/html/2611.18825v1#S3); their full asymptotic assumes a separate ratios conjecture in addition to GRH. This note uses a continuous-scale **same-target detector**, with an explicit entire (Chebyshev-type) multiplier and a matching width obstruction for this uniform leakage method. Unlike a dyadic filter, it has no periodic aliases. Unlike an exact reproducer of one prescribed arithmetic weight, its signed arithmetic weights may vary with the target; nonzero arithmetic signal still forces an actual prime pair after removal of prime powers.
+**Correction to the original interpretation.** This particular filter also suppresses the active arithmetic scales. Its negative signed zero-pair asymptotic holds for every large even target under Dirichlet GRH, whether or not the target has a prime-pair representation. It does not give a viable one-sided criterion for binary Goldbach.
+
+Under Dirichlet GRH we evaluate a parity-signed two-zero statistic in one shrinking interval of genuine real gaps at **each even modulus**. The negative main term holds whether or not the target is represented. The filtered statistic loses the arithmetic signal; it cannot prove binary Goldbach. The parity projection and support isolation go back at least to [Gou–Wang–Xu, §3, (3.1), November 2026](https://arxiv.org/html/2611.18825v1#S3); their full asymptotic assumes a separate ratios conjecture in addition to GRH. This note uses a continuous-scale **same-target detector**, with an explicit entire (Chebyshev-type) multiplier and a matching width obstruction for this uniform leakage method. Unlike a dyadic filter, it has no periodic aliases. Unlike an exact reproducer of one prescribed arithmetic weight, this continuum detector assigns a vanishing norm to every live scale, as quantified below.
 
 Let $N>2$ be even, $L=\log N$, $\Phi=\varphi(N)$. Fix nonnegative $f\in C_c^\infty((b_0,b))$ positive near $1/2$, where $0<b_0<1/2<b<1$. Write $m(s)=\int f(u)u^{s-1}\,du$ and $m=m(1)>0$. For $Y>0$ let
 $$
@@ -47,11 +49,23 @@ The free term represents atoms of mass $1/2$ at $\pm a$, and $\sin(uz)/z$ is the
 $$
  \|\lambda_N\|_{\rm TV}\le\cosh(aw)/|U(-i)|\le\exp(O_{c,D}(\sqrt{L\log L}))=N^{o(1)}.        \tag{3}
 $$
-Thus $K_N(-i)=1$, the error in (1) is $o(1)$, and the absolute total contribution of all pairs outside $I_N$ is $O_f(L^{-3})$. The same-index and different-index but equal-ordinate terms are outside $I_N$ and discarded with this very bound for all sufficiently large $N$. In particular **if $N$ has no prime-pair representation**, the uniform prime-power estimate and (3) imply
+Thus $K_N(-i)=1$, the error in (1) is $o(1)$, and the absolute total contribution of all pairs outside $I_N$ is $O_f(L^{-3})$. The same-index and different-index but equal-ordinate terms are outside $I_N$ and discarded with this very bound for all sufficiently large $N$. 
+## The negative sign is provable, but independent of representation
+
+For every sufficiently large even $N$ under the same GRH hypothesis,
 $$
- \boxed{\displaystyle Z_N(K_N;I_N)=-\frac N\Phi m^2+o_{f,t_0,c,D}(1).}                  \tag{4}
+ \boxed{\displaystyle Z_N(K_N;I_N)=-\frac N\Phi m^2+o_{f,t_0,c,D}(1).}                 \tag{4}
 $$
-Equality here is complex, with an absolute vanishing error; its real part is a sufficient one-sided test. A proof that for one such $t_0$ and all sufficiently large even $N$ the real part exceeds $-(1-\delta)(N/\Phi)m^2$, for any fixed $\delta>0$, would imply binary Goldbach on that range under the stated GRH. We do not obtain this sign estimate: the on-window multiplier can grow as $\exp(O(\sqrt{L\log L}))$.
+Equality here is complex, with an absolute vanishing error. No hypothesis on prime pairs is needed. The conclusion gives a signed asymptotic for a deliberately amplified two-level weight on one *nonperiodic*, shrinking, off-diagonal interval. It also shows why (4) cannot serve as a Goldbach criterion that is sometimes violated.
+
+Indeed take $h=\log(2b)>0$. All arithmetic scales outside $0\le s<h$ are exactly zero, and throughout the live interval $T_N(Ne^{-s})\ll_f L^2$, even from the trivial bound of $O_f(N)$ candidate pairs. We sharpen the estimate (3) on this short one-sided endpoint of the inverse measure. For $r\ge0$ the defining positive measure $\sigma_a$ gives
+$$
+ |U(-ir)|_{t_0=0}=e^{-ar}\cosh(a\sqrt{r^2+w^2})
+               \le \exp\!\left(\frac{aw^2}{2r}\right)\qquad (r>0).
+$$
+The unnormalized inverse at any real $t_0$ is the same positive shifted measure with a unit-modulus modulation. The norm of that measure on $[0,h]$ is at most $e^{rh}$ times its Laplace transform at $r$, hence bounded by $\exp(rh+aw^2/(2r))$. Taking $r=\sqrt{aw^2/(2h)}$ gives $\exp(\sqrt{2haw^2})=\exp(O(\sqrt{\log L}))=L^{o(1)}$. The normalization $|U(-i)|\ge L^5$ then gives $\|\lambda_N\|_{[0,h]}\le L^{-5+o(1)}$. It follows that the left side of (1) is $O_f(L^{-3+o(1)})$ for **all** targets; combining with (1) and the absolute complementary leakage proves (4).
+
+The pole normalization is therefore borrowed from scales where the full arithmetic correlation is exactly zero, and the negative signed zero-pair statistic compensates it. This resolves the sign for *this specific* filter; it does not resolve the sign for a filter retaining a live arithmetic signal. In particular a uniform lower bound by $-(1-\delta)(N/\Phi)m^2$ is impossible even on represented targets. Constraints like an exact unit atom at zero delay and no remaining delays in $[0,h]$ instead preserve $T_N(N)$; then the full complement of a bounded real interval **cannot** have uniformly small multiplier. Indeed for any such measure, its Fourier transform averaged on $[T,2T]$ tends to its unit atom by dominated convergence, so the limiting tail supremum is at least one. Using actual zero weights to damp nonuniform tail leakage is a distinct, open strategy.
 
 ## Why the width scale is sharp for uniform leakage with bounded causal delay
 
@@ -63,4 +77,4 @@ For a direct proof, center the type by $B(z)=e^{iaz}K(z)$, so $|B(z)|\le\|\lambd
 
 In particular any method demanding a uniform complementary bound $\epsilon\le (\log N)^{-A}$ for some fixed $A>0$, with delays at most $O(\log N)$ and $K(-i)=1$, cannot shrink this genuine real interval to $o(\sqrt{\log\log N/\log N})$. This is a restriction on the specified **uniform-multiplier** method, not on cancellations among the actual L-function zeros, on unbounded delays, or on Goldbach itself.
 
-Relevant scope: [Languasco–Perelli (1996)](https://www.research.unipd.it/retrieve/e14fb267-6015-3de1-e053-1705fe0ac030/%5B3%5D.pdf) concern pair correlation with further averages; [Althöfer–Chen–Perelli–Pintz (November 2026)](https://arxiv.org/html/2611.09386v1#S4) bound exceptional sets rather than this one prescribed target; [Bhowmik–Grimmelt (July 2026)](https://arxiv.org/html/2607.27282v2#S7) use smooth zero formulas on major arcs. None is used to infer the missing estimate (4) would contradict. The complex-analytic Chebyshev/slit principle is a classical type of entire-function argument, not a priority claim for approximation theory.
+Relevant scope: [Languasco–Perelli (1996)](https://www.research.unipd.it/retrieve/e14fb267-6015-3de1-e053-1705fe0ac030/%5B3%5D.pdf) concern pair correlation with further averages; [Althöfer–Chen–Perelli–Pintz (November 2026)](https://arxiv.org/html/2611.09386v1#S4) bound exceptional sets rather than this one prescribed target; [Bhowmik–Grimmelt (July 2026)](https://arxiv.org/html/2607.27282v2#S7) use smooth zero formulas on major arcs. Neither pair-correlation heuristic, exceptional-set bound, nor ratios conjecture is used to infer (4). The complex-analytic Chebyshev/slit principle is a classical type of entire-function argument, not a priority claim for approximation theory.
