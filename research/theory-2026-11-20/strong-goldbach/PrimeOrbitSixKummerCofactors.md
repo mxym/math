@@ -1,0 +1,44 @@
+# An unbounded-cofactor exclusion for five polynomial-sized moving primes
+
+Fix an odd prime seed \(p\), a finite prime set \(F\), and \(0<\delta\le1/2\). Let \(N_F\) be the full \(F\)-part of an even integer \(N\) coprime to \(p\). Define, for one deliberately generous explicit choice,
+
+\[
+ M=\lfloor 1/\delta\rfloor,\quad H=120M^5,\qquad D=\operatorname{lcm}(1,2,\ldots,H).
+\]
+
+**Theorem.** Along any sequence \(N\to\infty\) such that \(\log(N/N_F)=o(\log N)\), suppose the classes of \(N/N_F\) in \(\mathbb Q_{>0}^{\times}/(\mathbb Q_{>0}^{\times})^{D}\) belong to a *fixed finite set*. Then, eventually, there is no strongly connected six-prime set \(C=\{p,x_1,\ldots,x_5\}\) of distinct odd primes coprime to \(N\), all below \(N-1\), for which all \(x_j\ge N^\delta\) and all six complements \(N-x\), \(x\in C\), are composite and factor entirely in \(C\). No bound on the total number of factors with multiplicity is assumed. For a fixed projected chart it suffices to use the common denominator of the five coordinates of \(U^{-1}{\bf1}\) in the power-class assumption, where \(U\) is any nonsingular five-row minor of the nonseed columns. No bound on the *size* or number of distinct prime divisors of the perfect-power part of the cofactor is required.
+
+For example \(N=fv^D\) with \(f\) tending to infinity through even \(F\)-smooth integers, \((v,p\prod_{\ell\in F}\ell)=1\), and \(\log v=o(\log f)\), is covered even if the primes of \(v\) vary. This is not an exclusion for arbitrary near-smooth centers, smaller moving primes, larger components, or for all binary Goldbach exceptions. Here and below an edge of a factor diagram points from its input to a prime divisor of its complement.
+
+## 1. Rational near-units in the correct power class
+
+Suppose there is an unbounded countersequence; pass to subsequences throughout. Put \(x_0=p, L=\log N\). The [five-macroscopic seed-mass theorem](PrimeOrbitSixSubpowerSeedMass.md) gives, on fixing the five bounded nonseed columns \(A'\) of \(A_{ij}=v_{x_j}(N-x_i)\), rank five, a fixed \(\eta>0\) with every nonseed \(x_j\le N^{1-\eta}\), and \(a_i=A_{i0}=o(L)\) for *every* row. Each entry of \(A'\) is at most \(M\) since its base is at least \(N^\delta\). Choose any five-row nonsingular submatrix \(U\), with row indices \(I\). Write \(G=U^{-1}\), \(w=G{\bf1}\), \(d=\mathrm{den}(w)\) (the least common positive denominator) and \(h=|\det U|\). Then \(d\mid h\le5!M^5\), so \(d\mid D\); every entry of \(hG\) is an integer. The chart-specific improvement follows since only \(d\) is needed for the cofactor. Taking logs of the five row identities and dividing by \(L\) gives \(\log x_j/L=w_j+o(1)\); in particular \(\delta\le w_j\le1-\eta\).
+
+Since \(F\) is finite and the outside cofactor is in finitely many classes modulo \(d\)th powers, there is a fixed positive \(d\)-power-free integer \(c\) and a positive integer \(s\) varying with the point such that \(N=c s^d\). Indeed pass to fixed residues of the \(F\)-valuations modulo \(d\) and a fixed outside class, then take the least nonnegative residues of all valuations of \(N\). In particular \(p\nmid cs\), \(\log s=L/d+O(1)\), and the outside-\(F\) part of \(s\) has log size \(o(L)\). Write \(-(Ga_I)_j=b_j+u_j/h\) where \(b_j\in\mathbb Z\), \(0\le u_j<h\); fix all residues. Thus \(|b_j|=o(L)\). For \(j=1,\ldots,5\) put
+\[
+ n_j=d(w_j-1)\in\mathbb Z,\qquad X_j=s^{n_j}p^{b_j},\qquad \alpha_j=c^{w_j-1}p^{u_j/h}.
+\]
+
+Append \(X_0=1/N\), \(X_*=1/N^2\), and let \(X=(X_0,X_*,X_1,\ldots,X_5)\). Each coordinate is *rational*, not merely algebraic of bounded degree. Let \(T_i=x_i/N\). The five selected physical equations are exactly
+\[
+ T_j=\alpha_jX_j\prod_{i\in I}(1-T_i)^{G_{ji}},\qquad T_0=pX_0.
+\]
+At the origin these equations define unique convergent power series \(\Phi_j(X)\) with algebraic coefficients, using the binomial branches equal to one at zero: the derivative of the implicit system in the five unknowns is the identity because of the outer \(X_j\). The physical ratios tend to zero, so \(\Phi_j(X)=T_j\) eventually by this same local uniqueness.
+
+## 2. Polynomial output and separate extension of the identity
+
+Use [Corvaja–Zannier, *S-unit points on analytic hypersurfaces*, Theorem 1, pp. 78–79](https://www.numdam.org/item/10.1016/j.ansens.2004.09.003.pdf) over \(K=\mathbb Q\), at the real place. With \(S=F\cup\{p,\infty\}\) (one may add the prime divisors of \(c\)), each input has outside-\(S\) numerator and denominator log-heights \(o(L)\), since all its nonfixed prime factors come from \(s\) or \(N\). Each individual input height is \(\gg L\) since \(X_j=N^{w_j-1+o(1)}\) for the nonseeds, while the two appended coordinates are explicit. Every input height is \(O(L)\), and \(-\log\|X\|_\infty\gg L\). The input *projective* height is at least \(h(X_0/X_*)=L\). The rational output \(x_j/N\) has outside-\(S\) *denominator* log-height \(o(L)\), and total height \(\le L\); there is no requirement that its numerator be an approximate unit. Consequently Theorem 1 gives a finite covering of the physical points by translates of subtori on which \(\Phi_j\) is a polynomial **over \(\mathbb Q\)**. Fix one such translate and polynomial \(P_j\) for each of the five indices with a common infinite subsequence. We need only the identities \(P_j(X)=x_j/N\) on that subsequence. We do **not** apply the exact-S-unit zero theorem of that paper to these near-units.
+
+Let \(Y=(p^{b_1},\ldots,p^{b_5})\). The points \((s,Y)\) possess a subsequence whose Zariski closure is \(\mathbb G_m\times W\), where \(W\) is a connected subtorus translate with a rational base point. First choose an irreducible Zariski closure with densely occurring \(Y\)'s, using Noetherianity (take a minimal closure of an infinite subsequence). The ordinary torus Mordell–Lang theorem for the genuine finitely generated subgroup \(\langle p\rangle^5\) gives such a translate \(W\); see [Laurent, *Équations diophantiennes exponentielles*](https://doi.org/10.1007/BF01388597). Representatives can be chosen from the actual rational points. For any Laurent polynomial relation on \((s,Y)\) over \(\mathbb Q\) clear negative powers in \(s\) and write it as \(\sum_k s^k f_k(Y)=0\). Every nonzero evaluated \(f_k(Y)\) has rational height \(o(L)\), hence real magnitude between \(\exp(-o(L))\) and \(\exp(o(L))\). Since \(\log s\sim L/d\), the highest nonzero term would dominate the others. All \(f_k\) therefore vanish on the entire tail and on \(W\), proving the product closure over \(\mathbb Q\); the same closure over \(\overline{\mathbb Q}\) follows by rational base change (the evaluated points are rational). A fixed finite extension of the field of coefficients can equivalently be expanded in a rational basis here.
+
+Now substitute \(X_0=(cs^d)^{-1}, X_*=(cs^d)^{-2}, X_j=s^{n_j}Y_j\) and define \(R_j=(cs^d)P_j(X)\). These are regular rational Laurent functions on the product closure. The exact seed row becomes the identity there
+\[
+ c s^d-p=\prod_{j=1}^5R_j^{A_{0j}},\qquad \sum_j A_{0j}\ge2,
+\]
+since it holds at all the dense physical points and the seed exponent of its own row is zero. After translation in \(W\) by an actual point \(Y^0\), its coordinate ring is a split Laurent polynomial ring, since the character lattice of a connected subtorus of a split torus is a torsion-free quotient lattice. Thus \(cs^d-p\) is irreducible in the product coordinate ring: it is Eisenstein at \(p\) (\(p\nmid c\)) over \(\mathbb Q[s]\) by Gauss's lemma, and its prime ideal survives adjoining and inverting independent Laurent variables as well as inverting \(s\).
+
+No \(R_j\) is a unit. Otherwise it would be a fixed rational constant times \(s^n\) times a character of the translated \(W\). Such characters lift to integer Laurent monomials of \(Y/Y^0\), so their physical values are powers of \(p\). In particular the prime divisors of the numerator of the physical \(R_j=x_j\) must divide the fixed rational constant's numerator or denominator, \(p\), or \(s\). Since \(x_j\) is coprime to \(pN\), \(s\mid N\), and \(x_j\to\infty\), none of these is possible eventually. There are at least two nonunit factors counted with multiplicity in the displayed identity, a contradiction. This proves the theorem.
+
+## Comparison
+
+The earlier [smooth-center proof](PrimeOrbitInteriorEisenstein.md) handles an arbitrary finite fixed prime support. The theorem above allows the primes of the perfect-power part of the small cofactor to vary without bound, but keeps only finitely many Kummer classes and the five polynomial lower bounds. [Kelanemer’s 2026 preprint](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7274460) uses the nearby terminal exponent-matrix framework; only its abstract was accessible in the November 21 comparison, so no priority or comprehensive nonoverlap claim is made.
