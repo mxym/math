@@ -1,0 +1,39 @@
+# The four-macro maximal weight is at least one third
+
+Consider the same six-label, strongly connected, all-composite orbit at an unbounded sequence of near-smooth even centers as in [the four-intermediate theorem](PrimeOrbitFourMacroNearSmoothIntermediate.md). There is one fixed seed p; the subpower nonseed q tends to infinity; and precisely four nonseeds have positive limiting logarithmic weights. Write W for their maximum. Then **1/3≤W≤1/2**, with at least three macros of weight W. The upper bound and multiplicity were proved previously; here we prove the lower bound. We also show that, with exactly three maximal weights and W<1/2, the largest prime cannot point to the second-largest. No exclusion of the remaining interval is asserted.
+
+Fix chart and indices after extracting subsequences. With M the largest label and K the second-largest, the fixed primitive row l has lA=0, l·1=0 and l_M≠0. The identity ∑l_x log(N−x)=0 implies ∑l_x x=O(M²/N), hence M/K is bounded: the fixed other coefficients must supply a term comparable to M. All four macro exponents are arranged in a fixed 6×4 matrix R, with [R,1] of column rank five. The fixed left eigenspace at 1 has a two-row basis with all Gale columns nonzero and no three proportional. These are inputs of the linked theorem. The argument below does not assume M/K has a rational limit.
+
+**Algebraic-ratio lift.** For arbitrary fixed macro indices X,Y and fixed positive algebraic α, if X/Y=α+O(N^(−η)) for fixed η>0, then α is a fixed rational power of p, and
+
+    X/Y = α(1+O(M/N)).
+
+Indeed take a fixed integral c and D>0 with cR=D(e_X−e_Y), c·1=0. Factoring complements gives (X/Y)^D p^u q^v=∏(1−x/N)^(c_x) with |u|≪log N and |v|≪log N/log q. The linear form D log α+u log p+v log q is O(N^(−η')) for a possibly smaller η'>0. If v≠0 apply [Bugeaud, *B′*, Theorem 1.1 (1.3)](https://arxiv.org/pdf/2209.00275) with fixed positive algebraic bases α,p and the only moving base q last (omit α=1), in a fixed number field. For a nonzero form the negative logarithm of its magnitude is at most O(log q·log(3+log N/log q))=o(log N). If v=0 use the fixed-base estimate, dropping any absent base. Thus the form vanishes exactly. Then α^D=p^(−u)q^(−v) is fixed rational and q→∞ is eventually coprime to its numerator and denominator and different from p. Hence v=0, u fixed and α=p^(−u/D). The sharper comparison follows from the exact identity. If W<1/2, a positive *rational* such limit for two distinct macros is impossible: clearing its fixed denominator gives a nonzero integer of magnitude O(M²/N)=o(1), with equality excluded eventually by distinct diverging prime labels.
+
+**Moment isolation.** Let t count the maximal-weight macros with l_x≠0, including M. We have W≥1/t. Indeed suppose W<1/t. Put S_j=∑l_x x^j. Taylor-expand ∑l_x log(1−x/N)=0. Starting at j=1, if the preceding moments vanish, then |S_j|≪M^(j+1)/N. Therefore S_j=0 for 1≤j<t by integrality; also |S_t|≪M^(t+1)/N. All inactive terms carry zero coefficient and all active non-maximal labels x/M are O(N^(−η)) for a fixed η>0 by the finite limiting-weight gap. Apply
+
+    f(z)=z ∏_{s≠M, active maximal-weight}(z−s/M)
+
+to z=x/M. The coefficients are bounded, f(0)=0, and the normalized moments give |∑l_x f(x/M)|≪M/N. The low terms are O(N^(−η)), while all other high terms vanish. Hence the product ∏(1−s/M) is O(N^(−η')) with some η'>0. For t=1 this is immediately contradictory. For t≥2 at least one factor is O(N^(−η'/(t−1))); fix its index and apply the ratio lift with α=1. Since W<1/t≤1/2 this is impossible. This proves the asserted bound, without presuming distinct top weights give comparable ratios.
+
+Suppose now W<1/3. By moment isolation all four macros are of maximal weight and each has nonzero l-coordinate. The two first moments S_1,S_2 vanish exactly by the Taylor argument.
+
+**Exclude the arc M→K below one third.** First consider the possibility that M points to K. It cannot be K's sole parent, by the K column of lA=0 and l_M≠0. K has exactly one other parent s<K because two distinct smaller parents would have a nonzero difference of absolute value below K divisible by K. Then M−s=hK with h positive even and bounded since M/K is bounded; fix h. The label s cannot be p or q: otherwise M/K=h+O(N^(−η)) and the positive rational ratio is impossible. Let T be the fourth macro, and denote l's coefficients on M,K,s,T by a,b,c,d. All are fixed and nonzero. Set y=s/K∈(0,1). From S_1=0 and K=N^(W+o(1)),
+
+    d T/K = −(ah+b)−(a+c)y + O(N^(−η)),
+
+the small labels contributing a power-saving error. S_2=0 therefore gives F(y)=O(N^(−η')) with
+
+    F(Y) = a(h+Y)²+b+cY²+((ah+b)+(a+c)Y)²/d.
+
+This is not the zero polynomial. Its quadratic coefficient could vanish only if a+c=0 or d=−(a+c). In the first case its linear coefficient is 2ah≠0; in the second, its linear coefficient is −2b≠0. A nonzero constant would already contradict the error tending to zero. By factoring the other polynomials over the complex numbers, y must approach some fixed real algebraic y₀ with power saving (fix one of finitely many roots). We have y₀>0 because y=N^o(1) by the common positive limiting weights. Hence both y and h+y give positive algebraic limits to the ratio-lift lemma, so y₀ and h+y₀ are rational powers of p. These two rational powers whose difference is the nonzero integer h must themselves be rational. Indeed choose a common exponent denominator D; the basis 1,p^(1/D),…,p^((D−1)/D) is linearly independent over Q by Eisenstein, and reducing each exponent modulo D shows that a nonzero rational difference is possible only if both residues are zero. The ratio lift for M/K at this rational limit contradicts W<1/2. This excludes the arc M→K.
+
+**If there is no such arc.** Both M and K have a unique smaller parent, by their being the largest and second-largest and the residue uniqueness just used. K cannot parent M: together with its own lower parent, this would give three proportional nonzero Gale columns by CA=C, including multiplicities. The two lower parents are likewise distinct or there would be three proportional columns. The l-coordinate of each parent vanishes since lA=0 at a singly parented target. Since l is active on every macro, its two zero coordinates are precisely p and q. Thus its support consists of four distinct real points x₁,…,x₄, and l annihilates 1,x,x² on these points. Up to nonzero scaling it is the third divided-difference functional (Vandermonde rank three). This functional on log(N−x) equals its third derivative at some point between the four inputs divided by 3!; that derivative is −2/(N−x)³ and nowhere zero. This contradicts ∑l_x log(N−x)=0. We have excluded W<1/3.
+
+**Additional arc restriction at exactly three maximal weights.** Suppose W<1/2 with exactly three top macros. Then S_1=0 exactly. If M→K we again have M−s=hK with fixed positive even h. The other parent s must have weight W, for otherwise M/K would have the excluded rational limit h with power saving. Thus M,K,s are exactly the three top macros. Write a,b,c for their l coefficients, with a≠0. The remaining macro T has strictly smaller positive weight. Then
+
+    (ah+b)+(a+c)(s/K) = O(N^(−η)).
+
+If a+c=0, necessity forces ah+b=0. If a+c≠0, the ratio s/K is power-close to the rational −(ah+b)/(a+c); this rational is nonnegative and cannot be zero since s/K=N^o(1). A positive rational limit is impossible by the lift. Thus a+c=ah+b=0 is necessary, and the three top terms of S_1 vanish exactly via M−hK−s=0. The remaining terms l_T T+l_q q+l_p p vanish exactly. Their strictly separated growth rates and q→∞ force all three coefficients to vanish. Now l·1=a+b+c=−ah≠0, contradiction. So in this three-top sector M cannot point to K.
+
+The closest 2026 exponent-digraph manuscript identified was [Kelanemer](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7274460); its full argument was not available for direct comparison, and no priority claim is made.
