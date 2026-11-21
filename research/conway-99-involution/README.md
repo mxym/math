@@ -1,6 +1,8 @@
 # Conway 99 图的二阶自同构
 
-**固定点定理。** 如果参数为 $(99,14,1,2)$ 的强正则图有一个二阶自同构 $t$，则 $t$ 恰好固定一个顶点。49 个二点轨道中恰有七个内部相邻，其余 42 个必须配成 21 个诱导四圈。二阶自同构的存在性仍然开放。
+**结论：如果 Conway 99 图存在，它没有二阶自同构。** [证明、穷举记录与复核程序](even-axis-exclusion/README.md)。这只排除了二阶对称，图本身是否存在仍是开放问题。
+
+**固定点定理（排除证明的起点）。** 如果参数为 $(99,14,1,2)$ 的强正则图有一个二阶自同构 $t$，则 $t$ 恰好固定一个顶点。49 个二点轨道中恰有七个内部相邻，其余 42 个必须配成 21 个诱导四圈。
 
 Makhnev–Minakova 研究了固定子图的候选类型。以下计数从图的参数重新推导固定点数。根点的距离二标号也见 Cesarz–Woldar。本文是未经外部审稿的研究笔记。[Makhnev–Minakova](https://www.mathnet.ru/eng/dm144) · [Cesarz–Woldar，第 2 节](https://alco.centre-mersenne.org/articles/10.5802/alco.418/)
 
@@ -67,11 +69,11 @@ $H$ 的全部保支撑对称构成一个 2 群，包括仅保持无符号数据�
 
 [Two discriminant-independent shortest dual directions](dual-short-directions/README.md): the complete rank-13 local search excludes 28 of the 283 candidate complements, not the full involution branch.
 
-[At most one shortest dual direction](dual-five-shell/README.md): a further 18 disjoint complement classes are excluded, for 46 total out of 283 in these lattice tests. The whole involution branch remains open.
+[At most one shortest dual direction](dual-five-shell/README.md): a further 18 disjoint complement classes are excluded, for 46 total out of 283 in these lattice tests.
 
-[七条正交稀疏记录](unsigned-seven-rows/README.md)：借助格球堆积界，对两种带符号模 7 秩均强制七条两两正交的无符号 −4 特征向量。每条恰有七正、七负；每组各至多两条内部边。二阶分支仍开放。
+[七条正交稀疏记录](unsigned-seven-rows/README.md)：借助格球堆积界，对两种带符号模 7 秩均强制七条两两正交的无符号 −4 特征向量。每条恰有七正、七负；每组各至多两条内部边。该步骤本身未排除二阶分支。
 
-[一条 Δ=5 方向也不可能](dual-unary-five/README.md)：秩 13 分支共排除 137/283 类候选补格，包含此前 46 类，新增 91 类。该分支仍开放。
+[一条 Δ=5 方向也不可能](dual-unary-five/README.md)：秩 13 分支共排除 137/283 类候选补格，包含此前 46 类，新增 91 类。该步骤本身未排除该分支。
 
 [十五维 Hamming 格](unsigned-simplex/README.md)：单固定点二阶对称强制无符号外层格进入一个明确的 Hamming 模型，并强制十五条两两正交的稀疏记录。覆盖两种带符号秩；尚未排除这个模型。
 
