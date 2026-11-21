@@ -282,6 +282,8 @@ The [moving endpoint correction](https://doi.org/10.5281/zenodo.21939906) in the
 
 [Physical roughness at the original Pan cutoff](PanCriticalPhysicalRoughness.md): uniformly over every subset of primes up to (log log P)^(5/2), discarding actual inputs where either summand has one of those factors changes the full asymmetric signed remainder by O(P/log(P)^(1/5)). This includes all divisors and the target-supported prime part; it leaves the signed mass on the surviving set open.
 
+[Polynomial roughness for the whole both-composite sector](PanCriticalCompositePolynomialSieve.md): at the original cutoff the signed both-composite mass is retained to any fixed tolerance after imposing an appropriate positive-power rough cutoff on both summands. This uses genuine signed bilinear Poisson dispersion for the allocated sieve moduli and covers no true-prime row.
+
 [Residue profiles at the same Pan cutoff](PanCriticalPhysicalResidues.md): entirely signed class totals, summed in total variation, match the local uniform admissible density after subtracting actual prime pairs. The three-part full comparison is valid jointly over periods up to (log P)^.1, and the simpler short rows jointly to (log P)^4. Prime-pair counts in the individual classes remain unknown.
 
 [Equal reverse cuts and all positive small cores](WholePositiveSmallCore.md): the original true-prime test admits a globally equivalent reverse expansion in which any quotient with only one distinct small prime has zero coefficient, apart from paid powers. All positive cores up to exponent .14 have a uniform net negative bound against the full macro-rough reflected side; this by itself does not bound the residual.
