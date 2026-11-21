@@ -39,3 +39,5 @@ Optional stronger cross-check: JOBS=2 python3 -B replay.py terminal runs all 924
 ## Download
 
 [Exact replay archive](Conway99_NoInvolution_EvenAxis_Exact.zip) (302,052 bytes). SHA-256: `d1e96df2669067e103d2c82d7345b1c3f2c3d9666eb1b8c5ea45292005b8b07a`.
+
+[Completed alternate terminal transcript](AlternateTerminal.tsv): a second scalar implementation, with no first-outside-vector symmetry or real pairwise Cauchy cut and with literal common-neighbor counts, has now rejected all 924 normalized stars in the six degree-0 and degree-2 scopes. The 62 rows are contiguous half-open blocks within each chart/parity; the last block in each scope exhausts naturally. This supplements the exact direct search and full-orbit coverage already in the archive. It is not an independent rerun of all 3,156 high-rank cases.
