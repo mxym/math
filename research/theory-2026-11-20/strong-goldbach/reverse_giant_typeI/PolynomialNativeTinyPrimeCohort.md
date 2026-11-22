@@ -16,7 +16,7 @@ constants in these two bounds depend only on the fixed
 compact support.
 
 On any disjoint union of qualifying dyadic boxes as in
-[PolynomialNativePrimeCohort.md](PolynomialNativePrimeCohort.md)
+[the two-free exterior definition](PolynomialNativePlantedPairs.md)
 (fixed two-free exterior margin \(\delta>0\)), the signed
 score satisfies
 \[
