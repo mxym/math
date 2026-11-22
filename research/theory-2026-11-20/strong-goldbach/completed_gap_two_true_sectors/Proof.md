@@ -360,3 +360,5 @@ does it grant a Goldbach lower bound from the shifted
 all-completed score or its distinct calibration.
 
 A [prime-short follow-up](../prime_short_core_compensation/Proof.md) finds true cancellation between near-root prime divisors and their tiny attached cores at sufficiently subcritical shell depths. The terminal depth and larger cores remain outside its scope.
+
+A [complementary same-row payment](../direct_macro_collar_payment/Proof.md) uses distinct positive safe orientations for certain adverse multi-macro collar terms. These are existing score terms and cannot also fund a separate positive reserve.
