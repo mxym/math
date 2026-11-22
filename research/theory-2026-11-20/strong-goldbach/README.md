@@ -4,6 +4,15 @@
 
 The target is the unconditional assertion that every even integer at least four is a sum of two primes. **The conjecture is not proved or refuted here.**
 
+## Current fixed-target shared-index route
+
+These results treat one specified balanced family of reflected-prime columns for each sufficiently large even target $N=2x$. They do not bound the full covariance or count a Goldbach pair.
+
+- [Composite-only proxy for the true tagged prime columns](full_endpoint_composite_proxy/Proof.md): a moving endpoint contributes exactly a reduced prime-density term. After centering, the remaining task in this family is a signed second-moment estimate on explicit composite weights, not another first-moment calculation.
+- [Current cap for the two-tag proxy](flat_cap_composite_proxy/Proof.md): retains that prime-column comparison while zeroing the proxy on every integer with a prime factor above $x^{.611}$. Squarefree semiprime weights are zero; negative squarefree four-factor weights require a largest prime in $(x^{.505},x^{.611}]$. These are statements about the new weights, not about the absence of such integers.
+- [Balanced triprime removal in a separate one-tag family](one_tag_balanced_three_free/Proof.md): a weighted three-variable estimate eliminates squarefree triprimes with largest prime at most $x^{.427}$ when the common index is squarefree. This uses a different modulus family and does not combine with the two-tag cap.
+- [Nonabelian factor signs at every target](gaussian_cubic_parity/Proof.md): both cubic trace signs occur on genuine prime shifts with squarefree, rough Gaussian-split complements. This sign counts a selected class of prime factors, not all prime factors, and does not distinguish a prime complement from a composite one.
+
 - [Mean-square central kernel and exact finite-wheel variance](CentralMeanSquare.md): a density-one operator bound for the actual primes, by established linear forms asymptotics. It does not give the signed uniform estimate for every even target.
 - [Two specific tests of arXiv:2611.09007v1](AntidiagonalAudit.md): the asserted transition equality fails on an infinite progression, and the universal growth assertion omits an unbounded local factor. These facts test that paper's argument, not the conjecture. Run `python3 -O check.py` for the elementary finite arithmetic.
 
