@@ -18,6 +18,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 - [Absolute whole-row light-core deletion](direct_light_complete_core/Proof.md) and [joint tiny-label signed bounds](direct_tiny_label_tv/Proof.md): the first controls absolute row scores on its support; the second controls sums within profiles before taking absolute values. They are not interchangeable.
 - [Exact terminal orbits](wide_gap_all_terminal/Proof.md) and [adaptive first-three completion](adaptive_first_three_completion/Proof.md): whole terminal packets cancel in a verified wider-gap score, and first-three profile means cancel at a separate moving small-factor cutoff. Neither result determines the remaining fully rough signed excess.
 
+- [Balanced rough composite companions](balanced_rough_reservoir/Proof.md): a genuine positive reservoir of prime-opposite squarefree composites with all factors in a strict sub-root power range, even with prescribed divisor tags. It does not select a factor-count parity or give positivity after centering.
+
 ## Earlier fixed-target shared-index route
 
 These results treat one specified balanced family of reflected-prime columns for each sufficiently large even target $N=2x$. They do not bound the full covariance or count a Goldbach pair.
