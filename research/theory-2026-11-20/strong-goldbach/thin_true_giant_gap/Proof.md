@@ -98,3 +98,5 @@ This is an all-rank harmonic bound, not a finite-rank estimate with nonuniform c
 The proof does not transfer the old fee calibration without a change of endpoint, and it does not assert a small error on every near-root divisor. Fixed exponents such as \(p,q\asymp x^{.49}\), with a genuine \(x^{.02}\)-scale remaining core, are not in (2). That larger core couples its divisor parity to a true \(P=N-Spq\); its signed test is not supplied by this two-form upper bound.
 
 The November 2026 [unitary Möbius sign-pattern result of Tian and Yang](https://arxiv.org/abs/2611.10499), Sections 3–4, uses multiple additive decompositions into arbitrary integers and separately leaves the reflected ordinary Möbius correlation conjectural. It does not estimate the shoulder on the genuine prime rows above.
+
+The [payer-transport calculation](../true_gap_payer_cocycle/Proof.md) shows that holding the calibration fixed between two already admissible thin gaps introduces a signed term larger than the Goldbach scale for an admitted payer choice. It separately evaluates this term and does not assume an asymptotic at the own-root endpoint.
