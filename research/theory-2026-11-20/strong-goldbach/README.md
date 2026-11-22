@@ -24,6 +24,11 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 - [Signed balanced-semiprime cross term](balanced_semiprime_giant_cross/Proof.md): the entire genuine giant-composite contribution against a specified semiprime source is evaluated. The related rough-partner lower leaves at most three factors, not necessarily a prime, and does not concern a pair of primes.
 
+
+- [Whole at-most-two-macro cancellation in a smoothed gap](smoothed_gap_two_macro/Proof.md): recalibrating at each gap before averaging lets the entire signed score for this actual reflected-prime cohort be discarded at the natural scale, including its safe orientations. At least three macro factors remain uncontrolled.
+
+- [Central semiprime source with a Chen-type partner](broad_semiprime_chen/Proof.md): an all-target lower bound for actual central pairs with one source a product of two distinct primes both above $N^{.27}$ and its partner having at most two prime factors. This does not imply a prime pair.
+
 ## Earlier fixed-target shared-index route
 
 These results treat one specified balanced family of reflected-prime columns for each sufficiently large even target $N=2x$. They do not bound the full covariance or count a Goldbach pair.
