@@ -15,8 +15,8 @@ and
 \]
 The proof also covers \(T_y=S\) fixed (row-relative \(B'=y/S\)).
 Use the literal strict inequality \(d<T_y\); no endpoints are ignored.
-In the first displayed theorem one can in fact take any \(T_y\)
-because the simple bound on \(Q_y\) is independent of it.
+Only in the absolute low-rank bound (1) can \(T_y\) be arbitrary,
+because the pointwise bound used there is independent of the cutoff.
 
 The main result concerns the actual remainder of the
 [giant prime-divisor reduction](../giant_prime_divisor_remainder/Proof.md).
