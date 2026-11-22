@@ -230,3 +230,5 @@ This proves the asserted real cancellation on the varying union.
 It does not justify moving the last cut to the actual square
 root, where this proof has no spare modulus for sieving the
 free cofactor.
+
+A [literal terminal packet](../terminal_tiny_core_toggle/Proof.md) pays the actual narrow tiny-core terminal raw debit with distinct positive raw-only receiver pairs. It uses different coordinates of the same score and is not an estimate for the entire gap-minus-own-root difference.
