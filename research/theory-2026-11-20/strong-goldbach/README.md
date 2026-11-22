@@ -14,6 +14,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 [Sparse split-factor suppression](sparse_split_factor_suppression/Proof.md): a fixed quadratic splitting mask of prime density $\delta$ leaves an absolute composite score of order at most $\delta^2$ in the actual reflected-prime moment. A positive signed moment of order $\delta$ would suffice to find prime pairs in the mask, but no such lower bound is proved.
 
+[Uniform rank tail for the centered even-divisor cusp](true_even_cusp_rank_tail/Proof.md): a global-largest-prime mark gives a central bound uniform for a growing rank cutoff and moves a genuine smoothed gap below the square root to the exact divisor-pair center. It recovers the earlier parity formula by a different route; the signed low-even comparison is still missing.
+
 ## Direct-score follow-ups
 
 - [Many-small gate](direct_many_small_gate/Proof.md) and [leading cancellation](direct_many_small_renormalization/Proof.md): the complete two-small debit is paid by a disjoint genuine reserve, and the leading negative many-small cancellation is explicit. Its residual is not evaluated at the required scale.
