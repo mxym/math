@@ -49,6 +49,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 - [Rational-mode projection on two balanced semiprime legs](e2e2_rational_projection/Proof.md): the actual equation $ut+vs=N$ has an explicitly calibrated same-line covariance after removing low-denominator rational modes in polylogarithmic cells. A [polynomial band extension](e2e2_rational_projection/PolynomialBand.md) also removes a large rational-frequency band with denominators up to a fixed power. The genuinely joint high-frequency covariance remains; no two-semiprime representation follows.
 
+- [Actual same-target shared-cofactor forks](true_shared_cofactor/Proof.md): many prime-opposite squarefree rough rows have a genuine factor above $N^{.60}$, and at their physically attained cofactors there are distinct actual prime-opposite rows with prescribed prime tags and rough squarefree residuals. This does not select the residual's parity or give a prime pair.
+
 ## Earlier fixed-target shared-index route
 
 These results treat one specified balanced family of reflected-prime columns for each sufficiently large even target $N=2x$. They do not bound the full covariance or count a Goldbach pair.
