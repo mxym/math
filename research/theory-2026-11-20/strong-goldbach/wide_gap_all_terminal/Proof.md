@@ -305,3 +305,5 @@ twice. In particular (2) and (3) leave a true signed condition
 on the exterior raw and safe rows relative to the nonzero
 \(Q_\epsilon(.5)-1\) baseline, not an unconditional Goldbach
 lower bound.
+
+A [same-cutoff adaptive completion](../adaptive_first_three_completion/Proof.md) uses no more than the first three actual small tags. Its pinned triple-profile means cancel to natural-scale accuracy for both the adaptive and fully completed scores, but the remaining fully rough channel is not signed.
