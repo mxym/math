@@ -192,3 +192,5 @@ All credited scores are the literal same-row raw terms.
 The result neither counts any new prime pair nor treats the
 known signed shoulder evaluations of other sectors as unused
 credit automatically.
+
+A [separate wider-gap theorem](../wide_gap_all_terminal/Proof.md) removes the tiny-core hypothesis from the terminal packet and treats both total parities by exact raw-only orbits. It verifies the new score's calibration but not the signed remainder outside the selected orbits.
