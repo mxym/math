@@ -16,6 +16,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 [Uniform rank tail for the centered even-divisor cusp](true_even_cusp_rank_tail/Proof.md): a global-largest-prime mark gives a central bound uniform for a growing rank cutoff and moves a genuine smoothed gap below the square root to the exact divisor-pair center. It recovers the earlier parity formula by a different route. A [weighted moment addendum](true_even_cusp_rank_tail/MomentAddendum.md) strengthens the central rough tail rate to above 0.058; the signed low-even comparison is still missing.
 
+[Six-factor adverse cusp cap](central_six_cusp_cap/Proof.md): a directed rational integral bound improves the central six-factor debit to under $0.436|J|\mathfrak S(N)$ for the half-cusp, in its specified interval. The semiprime debit and the other even ranks are not paid by this estimate.
+
 ## Direct-score follow-ups
 
 - [Many-small gate](direct_many_small_gate/Proof.md) and [leading cancellation](direct_many_small_renormalization/Proof.md): the complete two-small debit is paid by a disjoint genuine reserve, and the leading negative many-small cancellation is explicit. Its residual is not evaluated at the required scale.
