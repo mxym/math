@@ -20,6 +20,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 - [Balanced rough composite companions](balanced_rough_reservoir/Proof.md): a genuine positive reservoir of prime-opposite squarefree composites with all factors in a strict sub-root power range, even with prescribed divisor tags. It does not select a factor-count parity or give positivity after centering.
 
+- [Signed balanced-semiprime cross term](balanced_semiprime_giant_cross/Proof.md): the entire genuine giant-composite contribution against a specified semiprime source is evaluated. The related rough-partner lower leaves at most three factors, not necessarily a prime, and does not concern a pair of primes.
+
 ## Earlier fixed-target shared-index route
 
 These results treat one specified balanced family of reflected-prime columns for each sufficiently large even target $N=2x$. They do not bound the full covariance or count a Goldbach pair.
