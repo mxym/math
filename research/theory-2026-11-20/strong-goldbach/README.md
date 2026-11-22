@@ -27,6 +27,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 - [Whole at-most-two-macro cancellation in a smoothed gap](smoothed_gap_two_macro/Proof.md): recalibrating at each gap before averaging lets the entire signed score for this actual reflected-prime cohort be discarded at the natural scale, including its safe orientations. At least three macro factors remain uncontrolled.
 
+- [Projection through a growing number of macro factors](smoothed_gap_growing_macro/Proof.md): a different, recalibrated smoothed score removes the whole small-containing contribution through a macro-rank limit growing as $0.07\log\log\log x$. It leaves explicit nonnegative safe terms and an untreated higher-rank signed contribution; no surplus over the calibration is established.
+
 - [Central semiprime source with a Chen-type partner](broad_semiprime_chen/Proof.md): an all-target lower bound for actual central pairs with one source a product of two distinct primes both above $N^{.27}$ and its partner having at most two prime factors. This does not imply a prime pair.
 
 ## Earlier fixed-target shared-index route
