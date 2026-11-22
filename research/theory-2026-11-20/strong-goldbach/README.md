@@ -55,6 +55,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 - [Composite-only sign transfer for two balanced semiprime legs](e2e2_composite_sign_transfer/Proof.md): the same actual determinant has a calibrated remainder supported on composite long coordinates. Disjoint neutral prime banks make its whole bounded-rank-by-bounded-rank portion nonnegative for any fixed chosen ranks; an [actual high-bank witness](e2e2_composite_sign_transfer/HighBankDebt.md) shows the resulting negative part can grow with the fixed rank choice, so an absolute-tail argument cannot finish this repair. A [signed same-opponent compensation](e2e2_composite_sign_transfer/AnchoredBankCompensation.md) pays this specified adverse chamber with true favorable rows; other chambers remain. A [moving one-sided rough transfer](e2e2_composite_sign_transfer/MovingRoughTransfer.md) now removes the entire less-rough sector on one argument in the recalibrated determinant, including repeated and target-common factors. The remaining covariance still has no sign.
 
+- [Unconditional near-full prime factors at small-radical targets](small_radical_projection/Proof.md): each individual even target with polylogarithmic radical has actual prime-opposite factorizations with a second near-full-size prime and each cofactor parity, without the earlier external Dirichlet hypothesis. The cofactor is not shown to be 1, so this is not binary Goldbach even on that family.
+
 ## Earlier fixed-target shared-index route
 
 These results treat one specified balanced family of reflected-prime columns for each sufficiently large even target $N=2x$. They do not bound the full covariance or count a Goldbach pair.
