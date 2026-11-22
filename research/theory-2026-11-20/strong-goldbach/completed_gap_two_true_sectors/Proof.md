@@ -358,3 +358,5 @@ multi-prime products that have neither of the two required
 bands. The result does not constrain their signed net, nor
 does it grant a Goldbach lower bound from the shifted
 all-completed score or its distinct calibration.
+
+A [prime-short follow-up](../prime_short_core_compensation/Proof.md) finds true cancellation between near-root prime divisors and their tiny attached cores at sufficiently subcritical shell depths. The terminal depth and larger cores remain outside its scope.
