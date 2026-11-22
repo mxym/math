@@ -395,3 +395,5 @@ small cofactor rank, while total rank of the residual
 W-rough partner can still grow. No upper or lower
 bound of the needed new sign in that k=0 channel
 is asserted here.
+
+The [full-cutoff addendum](FixedFullCutoffAddendum.md) retains the actual full completed score, pins one, two or three least real primes, and proves joint signed suppression of those profile means. In particular the least-prime case removes a much larger actual least-factor band without changing the cofactor cutoff. The surviving rough signed sum is open.
