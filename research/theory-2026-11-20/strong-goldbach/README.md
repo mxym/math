@@ -28,6 +28,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 [A true combined low-rank credit after overmarking](overmarked_rough_low_rank_reserve/Proof.md): a lower sieve on actual shifted primes and upper bounds on disjoint neutral cohorts force a negative contribution on the combined low ranks if the target has no prime pairs. The larger-factor ranks must be re-estimated with the new mark; no separate rank-three lower or proof of Goldbach is claimed.
 
+[Bilateral revised cusp and a compensating signed bank](revised_cusp_true_mixed_rank_bank/Proof.md): the two actual rough legs calibrate to the same prime-pair count. On one ordered rank-five source a real higher-rank bank contributes positively, but the exact complement on that same source has a compensating negative total. This neither prices the rest of the bilateral form nor closes the one-leg signed inequality.
+
 ## Direct-score follow-ups
 
 - [Many-small gate](direct_many_small_gate/Proof.md) and [leading cancellation](direct_many_small_renormalization/Proof.md): the complete two-small debit is paid by a disjoint genuine reserve, and the leading negative many-small cancellation is explicit. Its residual is not evaluated at the required scale.
