@@ -158,3 +158,5 @@ the earlier collar proof.
 This handles the actual literal paired score without
 moving any long free term across its root, and proves the
 theorem.
+
+A [tiny-factor extension](../direct_tiny_literal_collar_payment/Proof.md) pays additional even-rank subfamilies while retaining every very small factor in the safe receivers. Its receiver sets are disjoint from the minimum-factor packet above.
