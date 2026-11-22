@@ -24,6 +24,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 [All-rank angular obstruction for marked transfers](angular_even_barrier/Proof.md): a parity-only angular measure can match every fixed marked null calibration in the stated class and the reference without a rank-one atom. This rules out using only those calibrations and a uniform positive angular factor of at least 2, not arithmetic prime data or sharper signed arguments.
 
+[A stronger true angular upper at level .555](angular_prime_level_555/Proof.md): the existing ordinary Rosser packing gives the coefficient $400/111$ instead of $200/53$ on the same source profiles, and improves a native ordered signed sub-block. A stronger overlapping preprint is cited and not used. This upper alone still cannot certify the whole signed budget.
+
 ## Direct-score follow-ups
 
 - [Many-small gate](direct_many_small_gate/Proof.md) and [leading cancellation](direct_many_small_renormalization/Proof.md): the complete two-small debit is paid by a disjoint genuine reserve, and the leading negative many-small cancellation is explicit. Its residual is not evaluated at the required scale.
