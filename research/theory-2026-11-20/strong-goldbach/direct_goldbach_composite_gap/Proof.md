@@ -546,3 +546,5 @@ family and proves nonnegativity at even total squarefree rank. At odd
 rank it isolates a signed difference of Möbius values of the two actual
 macro factors against the same opposite prime. That difference and the
 part with at least three eligible small primes remain uncontrolled.
+
+A [subsequent comparison](../direct_many_small_gate/Proof.md) bounds the whole exactly-two-small adverse contribution against a larger disjoint no-small reserve, without estimating the standalone Möbius difference. For sufficiently small fixed parameters the remaining signed estimate is restricted to actual squarefree complements of rank at least five with at least three eligible small primes, keeping the original calibration.
