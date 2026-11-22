@@ -18,6 +18,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 [Six-factor adverse cusp cap](central_six_cusp_cap/Proof.md): a directed rational integral bound improves the central six-factor debit to under $0.436|J|\mathfrak S(N)$ for the half-cusp, in its specified interval. The semiprime debit and the other even ranks are not paid by this estimate.
 
+[Zero-mean marked transfer of the semiprime debit](monotone_mark_transfer/Proof.md): a genuine shifted-prime calibration removes the positive debit of ranks two through four up to arbitrary chosen error, by moving it into a finite band of actual ranks five and above. The new remaining score includes odd ranks and has real adverse examples; no upper below the same reference is proved.
+
 ## Direct-score follow-ups
 
 - [Many-small gate](direct_many_small_gate/Proof.md) and [leading cancellation](direct_many_small_renormalization/Proof.md): the complete two-small debit is paid by a disjoint genuine reserve, and the leading negative many-small cancellation is explicit. Its residual is not evaluated at the required scale.
