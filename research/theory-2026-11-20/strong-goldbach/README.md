@@ -12,6 +12,8 @@ The target is the unconditional assertion that every even integer at least four 
 
 The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes the same actual weighted Goldbach count, with no calibration term, as a signed sum over squarefree composites opposite genuine primes. At any prescribed accuracy on the Goldbach scale, the counted composites can be restricted to finitely many prime-factor ranks and factors above a fixed positive power of the target. The required signed lower bound on this finite collection of factor-size regions is open.
 
+[Sparse split-factor suppression](sparse_split_factor_suppression/Proof.md): a fixed quadratic splitting mask of prime density $\delta$ leaves an absolute composite score of order at most $\delta^2$ in the actual reflected-prime moment. A positive signed moment of order $\delta$ would suffice to find prime pairs in the mask, but no such lower bound is proved.
+
 ## Direct-score follow-ups
 
 - [Many-small gate](direct_many_small_gate/Proof.md) and [leading cancellation](direct_many_small_renormalization/Proof.md): the complete two-small debit is paid by a disjoint genuine reserve, and the leading negative many-small cancellation is explicit. Its residual is not evaluated at the required scale.
