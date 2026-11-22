@@ -26,6 +26,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 [A stronger true angular upper at level .555](angular_prime_level_555/Proof.md): the existing ordinary Rosser packing gives the coefficient $400/111$ instead of $200/53$ on the same source profiles, and improves a native ordered signed sub-block. A stronger overlapping preprint is cited and not used. This upper alone still cannot certify the whole signed budget.
 
+[A true combined low-rank credit after overmarking](overmarked_rough_low_rank_reserve/Proof.md): a lower sieve on actual shifted primes and upper bounds on disjoint neutral cohorts force a negative contribution on the combined low ranks if the target has no prime pairs. The larger-factor ranks must be re-estimated with the new mark; no separate rank-three lower or proof of Goldbach is claimed.
+
 ## Direct-score follow-ups
 
 - [Many-small gate](direct_many_small_gate/Proof.md) and [leading cancellation](direct_many_small_renormalization/Proof.md): the complete two-small debit is paid by a disjoint genuine reserve, and the leading negative many-small cancellation is explicit. Its residual is not evaluated at the required scale.
