@@ -333,3 +333,5 @@ accuracy. It does not turn the paired subcomponent (2)
 into a bound for the calibration remainder.
 
 [Arneth’s September 2026 compensation framework](https://zenodo.org/records/23016346) gives a finite example across different partner integers and an open capacity criterion; the present packet evaluates an explicit divisor selection on the identical physical partner row and pays its collision losses. The global signed inequality is still open.
+
+The [literal-score upgrade](../direct_literal_collar_payment/Proof.md) uses all single-prime deletions to pay the actual raw collar, rather than only the gap-versus-own-root difference, on the indicated types. The same positive terms cannot be used twice.
