@@ -4,6 +4,10 @@
 
 The target is the unconditional assertion that every even integer at least four is a sum of two primes. **The conjecture is not proved or refuted here.**
 
+## Direct fixed-target reduction
+
+[Composite score tested against actual reflected primes](direct_goldbach_composite_gap/Proof.md): an unconditional square-root gap keeps all rough divisor moduli within Bombieri–Vinogradov. The resulting signed sum uses the true prime $p=N-y$ and equals the actual weighted Goldbach count in the central interval up to arbitrary logarithmic error. A protected part has positive mass at every target, but unresolved negative weights on rough numbers with at least five prime factors may offset it. This is a reduction, not a proof of positivity.
+
 ## Current fixed-target shared-index route
 
 These results treat one specified balanced family of reflected-prime columns for each sufficiently large even target $N=2x$. They do not bound the full covariance or count a Goldbach pair.
