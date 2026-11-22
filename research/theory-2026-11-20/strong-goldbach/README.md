@@ -8,7 +8,17 @@ The target is the unconditional assertion that every even integer at least four 
 
 [Composite score tested against actual reflected primes](direct_goldbach_composite_gap/Proof.md): an unconditional square-root gap keeps all rough divisor moduli within Bombieri–Vinogradov. The resulting signed sum uses the true prime $p=N-y$ and equals the actual weighted Goldbach count in the central interval up to arbitrary logarithmic error. A protected part has positive mass at every target, but unresolved negative weights on rough numbers with at least five prime factors may offset it. This is a reduction, not a proof of positivity.
 
-## Current fixed-target shared-index route
+## Zero-offset finite-rank reduction
+
+The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes the same actual weighted Goldbach count, with no calibration term, as a signed sum over squarefree composites opposite genuine primes. At any prescribed accuracy on the Goldbach scale, the counted composites can be restricted to finitely many prime-factor ranks and factors above a fixed positive power of the target. The required signed lower bound on this finite collection of factor-size regions is open.
+
+## Direct-score follow-ups
+
+- [Many-small gate](direct_many_small_gate/Proof.md) and [leading cancellation](direct_many_small_renormalization/Proof.md): the complete two-small debit is paid by a disjoint genuine reserve, and the leading negative many-small cancellation is explicit. Its residual is not evaluated at the required scale.
+- [Absolute whole-row light-core deletion](direct_light_complete_core/Proof.md) and [joint tiny-label signed bounds](direct_tiny_label_tv/Proof.md): the first controls absolute row scores on its support; the second controls sums within profiles before taking absolute values. They are not interchangeable.
+- [Exact terminal orbits](wide_gap_all_terminal/Proof.md) and [adaptive first-three completion](adaptive_first_three_completion/Proof.md): whole terminal packets cancel in a verified wider-gap score, and first-three profile means cancel at a separate moving small-factor cutoff. Neither result determines the remaining fully rough signed excess.
+
+## Earlier fixed-target shared-index route
 
 These results treat one specified balanced family of reflected-prime columns for each sufficiently large even target $N=2x$. They do not bound the full covariance or count a Goldbach pair.
 
