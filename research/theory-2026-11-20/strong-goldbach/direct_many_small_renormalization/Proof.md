@@ -442,3 +442,5 @@ macro divisors \(\sqrt y/S<d\le\sqrt y\).
 This last pointwise statement does not transfer all
 unbounded ranks from the actual gap to the own-root score.
 The proof of (2) uses the actual gap throughout.
+
+A [same-score least-factor deletion](../direct_completed_rough_deletion/Proof.md) raises the actual roughness threshold in this all-completed variant, with the sharp gap, physical small-factor boundary and recentered main unchanged to natural-scale precision. It does not estimate the surviving many-small signed sum.
