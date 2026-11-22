@@ -14,7 +14,7 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 [Sparse split-factor suppression](sparse_split_factor_suppression/Proof.md): a fixed quadratic splitting mask of prime density $\delta$ leaves an absolute composite score of order at most $\delta^2$ in the actual reflected-prime moment. A positive signed moment of order $\delta$ would suffice to find prime pairs in the mask, but no such lower bound is proved.
 
-[Uniform rank tail for the centered even-divisor cusp](true_even_cusp_rank_tail/Proof.md): a global-largest-prime mark gives a central bound uniform for a growing rank cutoff and moves a genuine smoothed gap below the square root to the exact divisor-pair center. It recovers the earlier parity formula by a different route; the signed low-even comparison is still missing.
+[Uniform rank tail for the centered even-divisor cusp](true_even_cusp_rank_tail/Proof.md): a global-largest-prime mark gives a central bound uniform for a growing rank cutoff and moves a genuine smoothed gap below the square root to the exact divisor-pair center. It recovers the earlier parity formula by a different route. A [weighted moment addendum](true_even_cusp_rank_tail/MomentAddendum.md) strengthens the central rough tail rate to above 0.058; the signed low-even comparison is still missing.
 
 ## Direct-score follow-ups
 

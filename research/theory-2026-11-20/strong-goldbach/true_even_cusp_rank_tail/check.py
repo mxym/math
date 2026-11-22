@@ -83,6 +83,9 @@ def main():
             tested += 1
     if not F(3, 2) ** 2 > 2:
         raise ValueError("no positive Cauchy exponent")
+    b = F(53, 50)
+    if not 2 * b * b < F(9, 4) or not ((b - 1) - (b - 1) ** 2 / 2) > F(58, 1000):
+        raise ValueError("invalid explicit even-tail rate")
     print(f"verified {tested} exact synthetic log profiles, {crossing} nonzero gap scores")
 
 
