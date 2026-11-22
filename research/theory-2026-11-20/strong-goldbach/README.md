@@ -24,7 +24,7 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 [All-rank angular obstruction for marked transfers](angular_even_barrier/Proof.md): a parity-only angular measure can match every fixed marked null calibration in the stated class and the reference without a rank-one atom. This rules out using only those calibrations and a uniform positive angular factor of at least 2, not arithmetic prime data or sharper signed arguments.
 
-[A stronger true angular upper at level .555](angular_prime_level_555/Proof.md): the existing ordinary Rosser packing gives the coefficient $400/111$ instead of $200/53$ on the same source profiles, and improves a native ordered signed sub-block. A stronger overlapping preprint is cited and not used. This upper alone still cannot certify the whole signed budget.
+[A stronger true angular upper at level .555](angular_prime_level_555/Proof.md): the existing ordinary Rosser packing gives the coefficient $400/111$ instead of $200/53$ on the same source profiles, and improves a native ordered signed sub-block. [Removing disjoint true first-prime composite rows](angular_prime_first_composite/Proof.md) then improves the coefficient to 3.446 and gives a stronger native ordered signed sub-block. A stronger overlapping preprint is cited and not used. Neither upper certifies the whole signed budget.
 
 [A true combined low-rank credit after overmarking](overmarked_rough_low_rank_reserve/Proof.md): a lower sieve on actual shifted primes and upper bounds on disjoint neutral cohorts force a negative contribution on the combined low ranks if the target has no prime pairs. The larger-factor ranks must be re-estimated with the new mark; no separate rank-three lower or proof of Goldbach is claimed.
 
