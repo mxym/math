@@ -1,0 +1,43 @@
+# Six degree distributions suffice for the square exterior
+
+One can choose the square in the [51-site reconstruction](square-exterior.md) so that its exterior has maximum degree nine and one of the six distributions below. Write $h$ for the number of prism directions of the square and $l$ for the sum of the two marked length-two path counts. The last five columns give numbers of vertices of the displayed exterior degrees.
+
+| $h$ | $l$ | Degree 6 | Degree 7 | Degree 8 | Degree 9 | Degree 10 |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 0 | 0 | 17 | 30 | 2 | 2 | 0 |
+| 0 | 0 | 18 | 27 | 5 | 1 | 0 |
+| 0 | 0 | 19 | 24 | 8 | 0 | 0 |
+| 0 | 1 | 17 | 29 | 4 | 1 | 0 |
+| 0 | 1 | 18 | 26 | 7 | 0 | 0 |
+| 1 | 0 | 16 | 28 | 7 | 0 | 0 |
+
+The [four-cell argument](four-cell-choice.md) gives an uncovered square with at most one marked corner and no four-cap exterior site whenever any uncovered square exists. For comparison, the following direct replacement already removes a four-cap site from a base square. If a vertex $z$ sees all four caps, it has no ordinary boundary neighbors by the exterior degree formula. Choose a corner $r$ of the square. Its two incident caps together with $r,z$ form another square. Two caps of this new square are the old square neighbors of $r$. The other two are the mates at $z$ of the two incident caps. These mates must be exterior to the old square shell since no two old caps are adjacent. Thus the new square also has $h=0$. The only common neighbors of the two old square neighbors of $r$ are $r$ and its old opposite corner. The latter sees neither of the two exterior mates, so no exterior vertex sees all four new caps.
+
+It remains to consider a graph in which every square is covered by a prism. Some square has just one prism direction, since otherwise the 2,079 squares would supply 4,158 prism directions and hence 1,386 prisms, exceeding the [851 upper bound](../rank-34-short-support/README.md). We show that no far vertex at a one-direction square of such a graph sees three caps.
+
+Let $p,q$ be the endpoints of its middle edge among three consecutive sides whose caps are seen by a proposed far vertex. Let $b$ be the cap on $pq$. Match the other neighbors $p_i,q_i$ of $p,q$ across the two wings of the triangle $pqb$. Let $P,Q$ be the internal mate involutions on these two wings. The third wing at $b$ pairs $p_i$ to $q_{U(i)}$ by their common third-wing neighbor, defining a permutation $U$. The twelve squares on $pq$ are $p,q,q_i,p_i$ and their numbers of prism directions are
+$$h_i=1_{P(i)=Q(i)}+1_{U(i)=i}.$$
+In fact the other three caps are $p_{P(i)},q_{Q(i)}$, and the third vertex of $p_i q_i$. The latter touches $b$ exactly when $U(i)=i$. Seeing the three consecutive caps $p_{P(i)}, b,q_{Q(i)}$ forces $U(P(i))=Q(i)$. Put $j=P(i)$ and $k=Q(i)$. If $j\ne k$, then $U(j)\ne j$ and $P(j)=i\ne Q(j)$, giving the uncovered square at $j$. If $j=k$, the square at $j$ has two directions, since $P(j)=Q(j)=i$ and $U(j)=j$. The squares at $i$ and $j$ lie in the same four-cell at $p$, on the two axes $(q,b)$ and $(p_i,p_j)$. At a covered root every four-cell with a two-direction square is a rook grid, by the [nine-site gap](../../conway-99-involution/grid-density-gap/README.md) and the [covered-cell description](../../conway-99-involution/uncovered-squares/covered-root/Theorem.md). All its squares then have two directions, contradicting $h_i=1$.
+
+## Switching at an edge with two marked endpoints
+
+At an uncovered square call a corner marked if its incident caps have a common ordinary neighbor adjacent to the opposite corner. Two consecutive marks always give another uncovered square for which the two ends of their common edge are unmarked. Furthermore, no site outside this new square's shell sees the three caps on that edge and its two neighboring edges.
+
+To see this, keep the edge $pq$ and its cap $b$. Match the wings of $p,q$ directly with labels $p_i,q_i$. Denote their mate involutions by $P,Q$. Define $U$ in the same convention as above: the third-wing vertex meeting $p_i$ meets $q_{U(i)}$. At square $i$, the caps incident to $p$ are $b,p_{P(i)}$. The only common neighbor of these caps besides $p$ is the third-wing vertex meeting $p_{P(i)}$. Hence $p$ is marked precisely when $U(P(i))=i$. Exchanging the two wings, $q$ is marked precisely when $U(i)=Q(i)$. An exterior site seeing the three caps $p_{P(i)},b,q_{Q(i)}$ requires $U(P(i))=Q(i)$.
+
+Suppose both endpoints are marked. Write $j=P(i)$ and $k=Q(i)$. They differ since the old square is uncovered. We have $U(j)=i$ and $U(i)=k$. At square $j$, neither prism direction occurs: $U(j)\ne j$ and $P(j)=i\ne Q(j)$. Neither endpoint is marked: $U(P(j))=k\ne j$ and $U(j)=i\ne Q(j)$. The triple-cap condition fails there too, because $U(P(j))=k=Q(i)\ne Q(j)$.
+
+Begin with an uncovered square without a four-cap site, as obtained above. If its marked corners contain no adjacent pair, there are at most two of them. When there are two they are opposite, so any three consecutive caps would include two incident to a marked corner. Such caps already have two common neighbors in the shell. Otherwise switch at any pair of adjacent marks. At the new square only the two corners off $pq$ can be marked. A four-cap site would see the forbidden triple containing the cap on $pq$. If both corners off $pq$ are marked, the only triple avoiding their pairs of incident caps is precisely this forbidden triple. Thus one can choose an uncovered square with at most two marks, with no four-cap site, and with no three-cap site whenever it has two marks. These are restrictions on the choice of square. A square with three marks has not been individually excluded.
+
+The same switch gives a global bound. At every edge, $i\mapsto P(i)$ injects the uncovered squares with both endpoints marked into those with neither marked. For a square with $l$ marks, the number of its edges with two marks minus the number with zero marks equals $2l-4$. Summing over edges shows that the mean number of marks over the uncovered squares is at most two, whenever they exist.
+
+For the census let $C_z$ be the subset of caps seen by exterior site $z$. The four cap row sizes are ten or eleven. For each adjacent-side cap pair the required number of exterior witnesses is one minus the presence of a marked two-step path at their shared corner. For opposite caps it is two minus their adjacency indicator. Each subset of three or four caps can occur at most once because it contains an adjacent-side pair. Enumerate its possible multiplicity as zero or one; the counts of two-, one- and zero-cap incidences now follow by subtraction. Reject negative counts. The [profile checker](square_profiles.py) verifies the table. These are necessary degree distributions; they do not specify the exterior edges.
+
+
+## A square cannot have a marked two-step path at every corner
+
+Suppose all four corners have such a path. Then $h=0$. Opposite each corner sits one ordinary site adjacent to both caps incident to that corner. Call these four sites $b_0,\ldots,b_3$, indexed by their own square roots. They occupy different ordinary wings. Each cap has used both of its ordinary neighbors among these four sites. No exterior site can see caps on adjacent sides, since the corner and its opposite ordinary site already give two common neighbors. Each opposite cap pair is seen by two exterior sites. Consequently the 51 exterior sites have cap multiplicities zero, one, two in numbers $15,32,4$. Denote the fifteen cap-free exterior sites by $Z$.
+
+Each $b_i$ has ten exterior neighbors. Indeed it sees its own root, its mate and two caps in the square shell. Its two caps already supply all required common neighbors with the opposite root and the remaining requirements at both adjacent roots. For each of the four caps, at most one exterior neighbor of $b_i$ can see that cap. For a cap adjacent to $b_i$ this follows from the one-common-neighbor rule. For a cap incident to its own root, the root already uses one of the two common neighbors. Thus at least six of the ten exterior neighbors of $b_i$ belong to $Z$.
+
+There are at least 24 edges from the four ordinary sites to $Z$. For $z\in Z$ put $m_z=|N(z)\cap\{b_0,\ldots,b_3\}|$. Each pair of ordinary sites has at most two common neighbors; four of the twelve available pair incidences are already taken by the caps, each adjacent to two of the ordinary sites. Therefore $\sum_{z\in Z}\binom{m_z}{2}\le8$. The elementary inequality $m\le1+\binom{m}{2}$ at each of the fifteen sites now gives $\sum_z m_z\le23$, a contradiction. This excludes that degree distribution at any square of any hypothetical graph, for every lattice rank.

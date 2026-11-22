@@ -1,0 +1,15 @@
+# An eleven-site density bound and its two equality templates
+
+Any eleven vertices span at most 22 edges. Equality forces four neighbors inside the set at every vertex and determines a 33-site induced graph up to two templates. The 33 sites span 32 of the 44 marked dimensions in both templates. This statement is conditional on attaining the edge bound.
+
+Write $S$ for the eleven sites, $m$ for the edge count, and $d_i$ for the internal degrees. Counting neighbors and common neighbors outside gives
+$$154-2m\le 88+110-m-\sum_i\binom{d_i}{2}.$$
+At $m=22$ convexity minimizes the sum at 66, attained only when all degrees equal four. At larger $m$ Jensen's inequality gives $\sum_i\binom{d_i}{2}-m\ge 2m^2/11-2m>44$, which violates the same count. At equality, the pointwise inequality $k\le1+\binom{k}{2}$ is sharp everywhere: each outside vertex has either one or two neighbors in $S$. The 88 outside sites partition into 66 sites $C$ seeing one and 22 sites $B$ seeing two.
+
+For a point of $B$, applying $A^2=12I-A+2J$ to the indicator of $S$ gives 20 walks of length two into $S$. Its two neighbors inside $S$ already give eight, and its twelve other neighbors give at least twelve. Thus it has no neighbor in $B$. The same identity at a point of $C$ gives 21 walks. Its unique neighbor in $S$ gives four, and its thirteen outside neighbors must include exactly four sites of $B$. At each point of $S$ there are four neighbors in $B$ and six in $C$, by the identity there. The graph on $C$ is nine-regular.
+
+Let $D$ be the adjacency on $S$. The pair $i,j$ labels precisely $2-D_{ij}-(D^2)_{ij}$ sites of $B$. Thus the independent set $B$ and its entire incidence with $S$ are specified by $D$. In particular $B$ is an independent set attaining the [22-point bound](../marked-coset-shells/README.md). For each $y\in C$ one may use its unique parent in $S$ and its four distinct neighbors in $B$ as a contact word for the remaining search.
+
+The [exact enumeration](eleven_sites.py) checks the two possible graphs $D$. At one root the four neighbors induce a matching of size zero, one or two. The other six vertices have at most two neighbors among these four. Order the six contact masks numerically, test the required degrees at the four sites, and fill the edges among the remaining six sites to degree four. Cut a branch as soon as an adjacent pair has more than one common neighbor or a nonadjacent pair more than two. This covers every admissible graph by relabeling around any root. Explicit bijections identify every survivor with one of the two template adjacency lists in the checker. Both occur as local graphs and the lists are nonisomorphic.
+
+For the span calculation take $G=3I-A+J/9$. The identity $(A-3I)1_S=1+1_B$ and $G(A-3I)=-7G$, $G1=0$ give the column relation $G1_B=-7G1_S$. Thus the rank of the 33-site principal Gram is at most 32. The checker performs elimination on its integer multiple $9G$ modulo seven and gets rank 32 in both cases. This leaves a 12-dimensional real complement. None of these local conditions proves that an equality template extends.
