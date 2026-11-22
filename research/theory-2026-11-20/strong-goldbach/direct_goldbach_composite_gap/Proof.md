@@ -537,3 +537,12 @@ population or its signed gap. A natural-scale lower
 for the full remaining signed prime correlation is
 still needed for a binary Goldbach conclusion.
 
+
+### Follow-up: exactly two eligible small primes
+
+The [opposite-divisor pairing](../direct_two_small_pairing/Proof.md)
+uses the own square root to control the entire moving shoulder in this
+family and proves nonnegativity at even total squarefree rank. At odd
+rank it isolates a signed difference of Möbius values of the two actual
+macro factors against the same opposite prime. That difference and the
+part with at least three eligible small primes remain uncontrolled.
