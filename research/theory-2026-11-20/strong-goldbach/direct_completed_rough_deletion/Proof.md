@@ -243,3 +243,5 @@ The resulting statement is on the actual many-small
 composite rows, with the original sharp gap retained.
 
 For the reciprocal cutoff variant, [two actual signed orientation sectors](../completed_gap_two_true_sectors/Proof.md) allow comparison to the own root at the same stronger roughness range, but only on the specified near-root divisors. This is not a whole-score own-root transfer.
+
+A [joint tiny-label refinement](../direct_tiny_label_tv/Proof.md) controls the sum of absolute *profile totals* over all nonempty sets of actual tiny prime factors in a specified sub-band. It permits arbitrary bounded selections by the entire label set but does not bound absolute row mass or settle the surviving empty profile.
