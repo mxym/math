@@ -550,3 +550,5 @@ part with at least three eligible small primes remain uncontrolled.
 A [subsequent comparison](../direct_many_small_gate/Proof.md) bounds the whole exactly-two-small adverse contribution against a larger disjoint no-small reserve, without estimating the standalone Möbius difference. For sufficiently small fixed parameters the remaining signed estimate is restricted to actual squarefree complements of rank at least five with at least three eligible small primes, keeping the original calibration.
 
 A [thinner-gap variant](../thin_true_giant_gap/Proof.md) retains natural-scale transfer precision and pays the whole shoulder on a shrinking two-giant factor sector, without a rank cutoff. It does not control the full many-small remainder.
+
+An [independent zero-offset reduction](../zero_offset_finite_rank/Proof.md) uses a smooth genuinely short Möbius score on squarefree partners instead of the moving-gap calibration. At any chosen accuracy it reduces the actual count to a signed sum over finitely many ranks and polynomially large prime factors. The required signed lower bound remains open.
