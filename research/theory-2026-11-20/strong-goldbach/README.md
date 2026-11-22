@@ -51,6 +51,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 - [Actual same-target shared-cofactor forks](true_shared_cofactor/Proof.md): many prime-opposite squarefree rough rows have a genuine factor above $N^{.60}$, and at their physically attained cofactors there are distinct actual prime-opposite rows with prescribed prime tags and rough squarefree residuals. This does not select the residual's parity or give a prime pair.
 
+- [Composite-only sign transfer for two balanced semiprime legs](e2e2_composite_sign_transfer/Proof.md): the same actual determinant has a calibrated remainder supported on composite long coordinates. Disjoint neutral prime banks make its whole bounded-rank-by-bounded-rank portion nonnegative for any fixed chosen ranks; the cost on the larger ranks remains uncontrolled and can depend on the choice.
+
 ## Earlier fixed-target shared-index route
 
 These results treat one specified balanced family of reflected-prime columns for each sufficiently large even target $N=2x$. They do not bound the full covariance or count a Goldbach pair.
