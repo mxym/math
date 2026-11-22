@@ -1,0 +1,51 @@
+# An uncovered square with at most one marked corner
+
+Suppose a Conway graph has an uncovered square. Then it has an uncovered square with at most one marked corner and no exterior vertex adjacent to all four caps. Here a cap is the third vertex on a square edge, and a corner is marked if its two incident caps have a common neighbor adjacent to the opposite corner and distinct from the marked corner.
+
+## Square choices at a fixed root
+
+At a root $r$, choose two of its seven matched pairs of neighbors, written $a_+,a_-$ and $b_+,b_-$. The signed parents $a_s,b_t$ have exactly one common neighbor $y_{st}$ besides $r$. These four vertices are distinct because a nonneighbor of $r$ has just two neighbors in its neighborhood. Each labels the square $r,a_s,y_{st},b_t$. Write $u_{st},v_{st}$ for the triangle partners on $a_s y_{st}, b_t y_{st}$, respectively.
+
+An edge between two labels differing in one sign is a flip. A square is uncovered precisely when its label has no incident flip: a flip changing the first sign is the triangle partner on $b_ty_{st}$ adjacent to the opposite cap $a_{-s}$, and conversely. Its corner $r$ is marked precisely when $y_{st}$ sees $y_{-s,-t}$, since the latter and $r$ are the only two common neighbors of its caps $a_{-s},b_{-t}$. Call such a label edge a diagonal. A diagonal prevents every flip in this four-cell: for example $y_{st}$ and $a_{-s}$ already share $a_s,y_{-s,-t}$, so the flip to $y_{-s,t}$ is impossible. Apply the same argument at both endpoints and both signs.
+
+When there are no flips, all eight partners $u_{st},v_{st}$ are outside the cell and its parents. Indeed a triangle partner in the cell would be a flip, and a signed parent cannot be this partner. These eight sites are distinct. At a shared signed parent, distinct edges to the labels have distinct partners by the matching in its neighborhood. The two parents on the same axis share only $r$, and parents from different axes share just $r$ and one cell vertex.
+
+We use three consequences.
+
+* A mark at $a_s$ requires $y_{-s,t}$ to see $u_{st}$, since its other required contacts are $a_{-s}$ and $b_t$. If a diagonal touches $y_{-s,t}$, this mark is impossible at an uncovered $y_{st}$: the common neighbors of $y_{-s,t}$ and $a_s$ already include $a_{-s}$ and $y_{s,-t}$, and $u_{st}$ would be a third. Exchange the axes for the corresponding test at $b_t$.
+* Two sign-neighbor labels $y_{st},y_{-s,t}$ cannot both give uncovered squares marked at their respective changing parents $a_s,a_{-s}$. Otherwise $y_{st},y_{-s,t}$ have the three common neighbors $b_t,u_{st},u_{-s,t}$. The two partners are distinct since $a_s,a_{-s}$ share only $r$. Neither is $b_t$.
+* At an uncovered label, a four-cap exterior site must be $y_{-s,-t}$, the only candidate besides $r$ seeing both $a_{-s}$ and $b_{-t}$. It must therefore see $u_{st}$ and $v_{st}$. This precludes every flip at $y_{-s,-t}$: for a flip to $y_{s,-t}$, its common neighbors with $a_s$ would include $a_{-s},u_{st},y_{s,-t}$. The partner is outside the cell since the original label is uncovered. The other flip gives the same contradiction using $b_t$. With both opposite labels isolated from flips, there are no flips at all. Two opposite labels cannot both give four-cap squares: each would have to see the other's two distinct partners, supplying four common neighbors by the preceding distinctness argument.
+
+## The remaining configuration
+
+Assume that every uncovered square with at most one mark has a four-cap site. A cell with just one diagonal would give two uncovered squares at the labels off that diagonal. At each of those labels the root is unmarked and both signed parents are unmarked by the first consequence. The two squares are opposite labels and cannot both have four-cap sites. Thus single diagonals are impossible under the assumption.
+
+Every mark now lies at a double-diagonal cell of its root. Its two neighboring corners are unmarked by the first consequence. Consequently every uncovered square either has two opposite marks or has a four-cap site. In the latter case there are no marks: each incident cap pair already shares its corner and the exterior site, which is adjacent to no corner.
+
+An uncovered four-cap square would give a cell with no flips at any of its roots. There are no diagonals there: the root is unmarked and single diagonals have been excluded. All four labels then give uncovered squares with the root unmarked. Labels for the two-mark squares must mark both signed parents. No two of them can differ in just one sign, by the second consequence. At most two labels can therefore give two-mark squares, and if two do they are opposite. The remaining labels necessarily include an opposite pair of four-cap squares, which is impossible by the third consequence. This excludes four-cap squares under the assumption.
+
+Take any uncovered square, whose marks must now be opposite. Write its cyclic corners as $r,p,y,q$ with $r,y$ marked. At root $p$ the signed parents for this square are $r,y$ and their mates $a,b$, the caps on $pr,py$. Its label is $q$. This cell has no diagonals, since $p$ is unmarked and single diagonals have been excluded. Each of the two sign-neighbors of $q$ must have an incident flip. Otherwise its square also has an unmarked root and both signed parents marked, contradicting the second consequence for the shared sign. Since $q$ is uncovered, both flips lead to the diagonally opposite label $e$. It sees $a,b$.
+
+The two sign-neighbors are the two ordinary witnesses $x,w$ for the marks at $r,y$. Indeed $x$ sees $y,a$ and $w$ sees $r,b$; in each case the only other common neighbor is $p$. Thus $e$ sees $x,w$ as well. This forces a forbidden eleven-vertex subgraph.
+
+## Eleven-vertex obstruction
+
+Take the four square vertices, their four caps, $x,w$, and $e$. These are distinct: the witnesses are ordinary sites at different roots, and $e$, which sees both caps at $p$, is an exterior site. In fact $e$ cannot see $r$ or $y$ since each is paired with its own cap in the neighborhood of $p$ (equivalently its two common neighbors with $p$ are $a,b$); it cannot see $q$ since $p$ is unmarked. The square contributes four edges, the caps contribute eight incident edges, and each of $x,w$ contributes its two cap edges and its edge to its own root. Finally $e$ sees $a,b,x,w$. These 22 edges give two degrees five, seven degrees four and two degrees three.
+
+For any eleven vertices with internal degrees $d_i$ and $m$ edges there are $154-2m$ edges from the eleven to the remaining 88 sites. The number of common-neighbor incidences outside the eleven, summed over unordered pairs inside them, is $110-m-\sum_i\binom{d_i}{2}$. Each outside site with $k$ neighbors in the eleven satisfies $k\le1+\binom{k}{2}$. The 22 specified edges would require $110\le88+20=108$. Each additional internal edge increases the left side minus the right side by $d_i+d_j-1>0$, so additional edges cannot fix the inequality. This contradiction proves the square choice. The [general eleven-site bound](eleven-sites.md) identifies both possible equality templates.
+
+## At least one tenth of the uncovered squares qualify
+
+The following exact incidence count strengthens the existential argument. Number the corners cyclically from the chosen root, and encode their marks in a four-bit integer with the root as bit zero. A four-cap square receives score zero at each root. Otherwise take the smaller mask after reflecting about the root and its opposite corner. Assign the scores below. Mask 15 is impossible by the [four-mark obstruction](square-profiles.md).
+
+| Mask | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 10 | 11 | 14 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Score | 10 | 1 | 3 | −3 | 10 | 1 | 3 | 0 | −1 | 0 | 0 |
+
+Summed over its four roots, a qualifying square scores at most 40, and every other uncovered square scores at most zero. At one root and two fixed axes the total score over the uncovered labels is at least their number. Thus if there are $U$ uncovered squares and $H$ qualifying ones, the score summed over the rooted cells is at least $4U$ and at most $40H$.
+
+For the cell bound, each label $y$ has exactly one cell or exterior neighbor carrying each of the four signed parents. For a sign on $y$ this is the triangle partner. For the opposite sign it is the second common neighbor besides the matched signed parent. Remove requirements already supplied by an internal cell edge. For each signed parent, partition its remaining requirements according to which share a contact vertex. No block can contain two labels that themselves carry that parent, by the triangle rule. Different parent groups have no common contact vertex outside the cell. For any label pair bound the number of common block contacts by its pair quota after subtracting common signed parents and common cell neighbors.
+
+Number the labels $0,1,2,3$ as two sign bits. At an uncovered label $i$, its two partner blocks $u,v$ for the signs it carries determine the two parent marks by membership of $i$ with the first or second sign flipped in $u,v$, respectively. The root mark is its diagonal. If the diagonally opposite label is in both partner blocks it is a four-cap site. If it is in just one it witnesses a triple of caps which forbids the marks at both ends of their middle edge. Allow either status for the opposite corner when compatible with these tests and the four-mark obstruction. If both signed parents are marked, the two flips at the diagonally opposite label are forbidden by the eleven-vertex count: its two adjacent labels are the witnesses for these parent marks, just as in the configuration above. These tests give a superset of the actual scores.
+
+The [integer checker](four_cell_choice.py) enumerates these partitions and takes the minimum score at each uncovered label. In order of no edges, one diagonal, two diagonals, one flip, and two adjacent flips, the minimum cell scores are $5,4,4,2,3$. The respective numbers of uncovered labels are $4,4,4,2,1$. Every other cell has no uncovered labels. The checker also rotates all allowed corner masks to verify the square bounds. It uses only the Python standard library.
