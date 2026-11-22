@@ -241,3 +241,5 @@ Subtract these and the negligible squareful part from (1)
 at \(W=z\) and at the chosen \(W\).
 The resulting statement is on the actual many-small
 composite rows, with the original sharp gap retained.
+
+For the reciprocal cutoff variant, [two actual signed orientation sectors](../completed_gap_two_true_sectors/Proof.md) allow comparison to the own root at the same stronger roughness range, but only on the specified near-root divisors. This is not a whole-score own-root transfer.
