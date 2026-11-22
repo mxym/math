@@ -33,6 +33,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 - [Central semiprime source with a Chen-type partner](broad_semiprime_chen/Proof.md): an all-target lower bound for actual central pairs with one source a product of two distinct primes both above $N^{.27}$ and its partner having at most two prime factors. This does not imply a prime pair.
 
+- [Near-balanced semiprime source with squarefree almost-prime partners](narrow_semiprime_greaves/Proof.md): for each large even target, almost every eligible smaller prime label in each indicated dyadic band has many actual squarefree partners of rank at most two. The source is always composite. The [separate long-prime dispersion argument](prime_slot_dispersion_512/Proof.md) derives the needed level independently and states its overlap with Wright's stronger general formulation.
+
 ## Earlier fixed-target shared-index route
 
 These results treat one specified balanced family of reflected-prime columns for each sufficiently large even target $N=2x$. They do not bound the full covariance or count a Goldbach pair.
