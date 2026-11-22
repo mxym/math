@@ -22,6 +22,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 [Fixed-rank limits and the one-mark angular budget](marked_cusp_finite_rank/Proof.md): the fully marked sharp limit cancels each fixed even rank, but creates genuine score on odd ranks. A rational certificate shows that the existing uniform angular majorant applied separately to positive parts cannot close the budget already in ranks 2, 5 and 8 for any single common monotone cutoff. This excludes that estimate, not a signed prime-side inequality.
 
+[All-rank angular obstruction for marked transfers](angular_even_barrier/Proof.md): a parity-only angular measure can match every fixed marked null calibration in the stated class and the reference without a rank-one atom. This rules out using only those calibrations and a uniform positive angular factor of at least 2, not arithmetic prime data or sharper signed arguments.
+
 ## Direct-score follow-ups
 
 - [Many-small gate](direct_many_small_gate/Proof.md) and [leading cancellation](direct_many_small_renormalization/Proof.md): the complete two-small debit is paid by a disjoint genuine reserve, and the leading negative many-small cancellation is explicit. Its residual is not evaluated at the required scale.
