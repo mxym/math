@@ -20,6 +20,8 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 [Zero-mean marked transfer of the semiprime debit](monotone_mark_transfer/Proof.md): a genuine shifted-prime calibration removes the positive debit of ranks two through four up to arbitrary chosen error, by moving it into a finite band of actual ranks five and above. The new remaining score includes odd ranks and has real adverse examples; no upper below the same reference is proved.
 
+[Fixed-rank limits and the one-mark angular budget](marked_cusp_finite_rank/Proof.md): the fully marked sharp limit cancels each fixed even rank, but creates genuine score on odd ranks. A rational certificate shows that the existing uniform angular majorant applied separately to positive parts cannot close the budget already in ranks 2, 5 and 8 for any single common monotone cutoff. This excludes that estimate, not a signed prime-side inequality.
+
 ## Direct-score follow-ups
 
 - [Many-small gate](direct_many_small_gate/Proof.md) and [leading cancellation](direct_many_small_renormalization/Proof.md): the complete two-small debit is paid by a disjoint genuine reserve, and the leading negative many-small cancellation is explicit. Its residual is not evaluated at the required scale.
