@@ -307,3 +307,5 @@ on the exterior raw and safe rows relative to the nonzero
 lower bound.
 
 A [same-cutoff adaptive completion](../adaptive_first_three_completion/Proof.md) uses no more than the first three actual small tags. Its pinned triple-profile means cancel to natural-scale accuracy for both the adaptive and fully completed scores, but the remaining fully rough channel is not signed.
+
+The [safe-bank extension](../wide_gap_safe_bank_packet/Proof.md) covers a wider part of the actual collar by paying it with disjoint safe score terms, including all odd total ranks. Those terms cannot also be used in an overlapping packet, and the centered remainder remains open.
