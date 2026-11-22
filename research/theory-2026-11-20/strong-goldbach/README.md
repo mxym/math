@@ -47,7 +47,7 @@ The [smooth short-divisor reduction](zero_offset_finite_rank/Proof.md) writes th
 
 - [Near-balanced semiprime source with squarefree almost-prime partners](narrow_semiprime_greaves/Proof.md): for each large even target, almost every eligible smaller prime label in each indicated dyadic band has many actual squarefree partners of rank at most two. The source is always composite. The [separate long-prime dispersion argument](prime_slot_dispersion_512/Proof.md) derives the needed level independently and states its overlap with Wright's stronger general formulation.
 
-- [Rational-mode projection on two balanced semiprime legs](e2e2_rational_projection/Proof.md): the actual equation $ut+vs=N$ has an explicitly calibrated same-line covariance after removing low-denominator rational modes in polylogarithmic cells. The genuinely joint high-frequency covariance remains; no two-semiprime representation follows.
+- [Rational-mode projection on two balanced semiprime legs](e2e2_rational_projection/Proof.md): the actual equation $ut+vs=N$ has an explicitly calibrated same-line covariance after removing low-denominator rational modes in polylogarithmic cells. A [polynomial band extension](e2e2_rational_projection/PolynomialBand.md) also removes a large rational-frequency band with denominators up to a fixed power. The genuinely joint high-frequency covariance remains; no two-semiprime representation follows.
 
 ## Earlier fixed-target shared-index route
 
