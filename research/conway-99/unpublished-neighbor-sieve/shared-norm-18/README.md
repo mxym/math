@@ -4,9 +4,9 @@ The [exact overlap proof and global counting consequences](exclusion.md) and the
 
 The [three-label exclusion](panel-heights.md#the-three-label-exclusion-and-the-rank-38-contradiction) rules out the rank-38 alternative with just norm-18 and norm-24 markings. Ranks 36 and 38 both need at least three of the twelve selected unit types. Whenever norms 16 and 20 are absent, all four ranks satisfy $N_{18}\le16,166$. At rank 36, [exactly three types including norm 18 would require at least 694,558 distinct 26-site supports](panel-heights.md#a-rank-36-consequence-if-norm-18-occurs). The [height-three theorem and norm-36 injection](height-three.md) hold at every rank.
 
-## One further rank-36 three-type exclusion
+## Two further rank-36 three-type exclusions
 
-The [charge-one packing bound and exact moment identities](affine-triples.md) rule out the alternative consisting of norm 24 and the unit types `(1,21)` and `(3,37)`. At most nine of the 220 exactly-three-type alternatives remain at rank 36; rank 36 itself is not excluded. The companion `python3 rank36_affine_triples.py` replays the exact identities with the same python-flint dependency.
+The [charge-one packing bound and exact moment identities](affine-triples.md) rule out the alternative consisting of norm 24 and the unit types `(1,21)` and `(3,37)`. A [two-cycle packing bound](rank36-two-cycle.md) rules out the alternative consisting of norm 24, unit norm 26, and type `(1,21)`. At most eight of the 220 exactly-three-type alternatives remain at rank 36; rank 36 itself is not excluded. The companion `python3 rank36_affine_triples.py` replays the exact identities with the same python-flint dependency.
 
 ## Reproduce the rank-38 and rank-36 results
 
