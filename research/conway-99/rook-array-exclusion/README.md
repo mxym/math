@@ -23,3 +23,5 @@ The [two 12-fiber exclusions](partial-k6-12.md) force at least four bad secondar
 The [11-fiber pentagon theorem](partial-k6-11.md) rules out the four-edge-path missing pattern and forces all five secondary prisms of every good Berge pentagon to be bad. This strengthens the preceding bound to \(5N_5\le32B+6R\le44B\).
 
 The [double-cell isolation theorem](pentagon-isolation.md) strengthens this to the tradeoff \(5N_5+16R\le32B\). It also embeds these pentagons injectively as induced five-cycles in a simple graph on bad prisms.
+
+The [36-site cube exclusion](cube-fibers.md) shows that each equal-mark pair of bad prisms supports at most one good rectangle. It lowers the all-rank maximum to **120 rook grids** and raises the norm-eight lower bound to **3,737,742**. The [replay](cube-fibers.py) reconstructs the core matchings, all surviving contact tables, and their impossible exterior neighborhoods.
