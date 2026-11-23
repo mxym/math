@@ -1,6 +1,26 @@
 # Screening two overlapping norm-18 supports
 
-This experiment tests whether two oriented norm-18 vectors can share a positive root, its four negative neighbors and four designated positive pair labels, with dot product nine. All 6,065 archived inputs failed an exterior-contact test. The input list still needs an independently checkable completeness argument, and the linear-programming rejections use floating-point arithmetic. The [bounds on all four ranks](../short-shell-moments.md) are independent of this experiment.
+The [exact overlap proof and global counting consequences](exclusion.md) and the [higher-degree identity](higher-moments.md) supersede the preliminary screen below. The degree enumeration reconstructs the two input families, and integer certificates or independently verified DRAT proofs exclude every one of the 6,065 cores.
+
+The [three-label exclusion](panel-heights.md#the-three-label-exclusion-and-the-rank-38-contradiction) rules out the rank-38 alternative with just norm-18 and norm-24 markings. Ranks 36 and 38 both need at least three of the twelve selected unit types. Whenever norms 16 and 20 are absent, all four ranks satisfy $N_{18}\le16,166$. At rank 36, [exactly three types including norm 18 would require at least 694,558 distinct 26-site supports](panel-heights.md#a-rank-36-consequence-if-norm-18-occurs). The [height-three theorem and norm-36 injection](height-three.md) hold at every rank.
+
+## Reproduce the rank-38 and rank-36 results
+
+Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
+
+```sh
+python higher_moments.py
+python packing.py
+python panel_heights.py --genbg /path/to/genbg
+python three_label_panels.py --genbg /path/to/genbg --drat-trim /path/to/drat-trim --jobs 4
+python rank36_three_types.py
+```
+
+The three-label verifier reconstructs 9,106 twelve-edge cores and 1,959 thirteen-edge cores. It checks integer inequalities for 10,110 of them and regenerates and checks DRAT proofs for the other 955. The rank-36 verifier excludes 210 of the 220 possible triples and checks the population bounds for the remaining ten. The [earlier overlap replay](exclusion.md#replay) gives the commands for the supporting exclusions.
+
+## Preliminary screen of November 22
+
+The original experiment tested whether two oriented norm-18 vectors can share a positive root, its four negative neighbors and four designated positive pair labels, with dot product nine. All 6,065 archived inputs failed an exterior-contact test. At that stage the input completeness and the floating-point linear-programming rejections remained to be certified. The [bounds on all four ranks](../short-shell-moments.md) are independent of this experiment.
 
 ## Local inputs
 
@@ -30,4 +50,4 @@ python replay.py
 python replay.py --family 0 --case 159
 ```
 
-The contact replay starts from the archived graphs. To promote the experiment to a proof, the remaining work includes exact certificates for the numerical rejections and an audit of the reduction from overlapping vectors to the two enumerated families.
+The contact replay starts from the archived graphs. The [exact replay](exclusion.md#replay) reconstructs the input list directly and certifies both rejection stages.
