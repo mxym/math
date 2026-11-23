@@ -48,6 +48,8 @@ A [positive support rigidity bound](unit-neutral-positive-support.md) shows that
 
 The [99-coordinate ternary adjacency code](ternary-adjacency-code.md) has dimension 44 and minimum weight at least 11. Its dual has minimum weight at least 9, with exactly two oriented weight-nine words per induced rook grid.
 
+[Marked ternary coset counts](ternary-affine-coset.md) give minimum weight at least 11 in both length-99 affine cosets, exactly 99 minimum all-negative open-neighborhood marks, and compulsory coefficients for an exact three-coset weight transform. These are graph constraints, not an exclusion of any rank.
+
 [Endpoint compatibility](two-type-no-fano.md) excludes Fano markings in the two-type case, reducing the short-count list from ten tuples to eight. If an extension has three eligible cocliques, its overlap matching has at least 45 pairs.
 
 [Class-centered Gram bounds](two-type-class-trace.md) force at least 810 distinct intersecting norm-18 support pairs per maximal extension on the two-type face. At rank 40 this gives at least 20,250 graph-wide such pairs; they are not a disjoint matching.
