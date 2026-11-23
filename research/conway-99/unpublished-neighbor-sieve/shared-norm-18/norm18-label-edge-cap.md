@@ -2,7 +2,7 @@
 
 Work in a hypothetical SRG(99,14,1,2). First assume \(N_{16}=U_{1,27}=0\), with \(U\) counting signed-unit affine fields. Under those two absences, whenever the six labels of a norm-eighteen seed have exactly one actual adjacency, at most five markings occur; with at least two label edges at most four occur, and with at least three edges at most three occur. All these local assertions are rank-free.
 
-Under the two additional actual absences \(U_{2,28}=U_{2,30}=0\), the [six-mark theorem for independent labels](norm18-seven-mark-seed.md) applies. The present refinements then give the **oriented graph-wide bound \(N_{18}\le29,842\)**. These four shell absences hold on the rank-36 twelve-type palette \(\{018,020,024,026\}\).
+The [six-mark theorem for independent labels](norm18-seven-mark-seed.md) holds under the same two absences. Combining it with these label-edge refinements yields the **oriented graph-wide bound \(N_{18}\le29,842\)**. No absence of norm 20 or any other affine shell is needed.
 
 We use the actual seed \((o,Q)\), six pair-center labels, and chosen four-label positive sets from the [earlier saturated-seed analysis](norm18-saturated-seed-cap.md). Their omitted pairs form the triangle-free graph \(L\). Any actual label adjacency must meet every omission pair, because the chosen four-label sets are independent. If two omission pairs intersect, the corresponding markings have dot eight and all their common sites are the five sites \(o,Q\) and their three common positive labels; no private sites are shared. If two omission pairs are disjoint, the two fields have only two common positive labels. They can share **at most one private negative**, because two such negatives would give dot nine with exactly three common positives, whereas the [dot-nine classification](panel-heights.md) requires four common positives and five common negatives. To apply this last clause below all fields under discussion are proved thin, i.e. they use precisely their four chosen positive labels. The neutral differences at a seed are unit, and dot ten is absent, as proved in the antecedent. Every private negative has zero parents in \(Q\).
 
@@ -36,7 +36,7 @@ Four distinct chosen covers through \(a\) leave one peripheral label \(z\) never
 
 ## Graph-wide cap
 
-Assume additionally \(U_{2,28}=U_{2,30}=0\). Pull in \(m\le6\) on independent labels from the [six-mark theorem](norm18-seven-mark-seed.md). For \(j,k\) counting actual label edges with shared/disjoint parents, respectively, intersect the new bounds with the [old exact at-most-two-per-triple table](norm18-dot8-nonstar.md). The resulting necessary upper table on \(m\), in rows \(j=0,\ldots,4\) and columns \(k=0,\ldots,3\), is
+Use \(m\le6\) on independent labels from the [six-mark theorem](norm18-seven-mark-seed.md). For \(j,k\) counting actual label edges with shared/disjoint parents, respectively, intersect the new bounds with the [old exact at-most-two-per-triple table](norm18-dot8-nonstar.md). The resulting necessary upper table on \(m\), in rows \(j=0,\ldots,4\) and columns \(k=0,\ldots,3\), is
 \[
  \begin{pmatrix}
  6&5&4&0\\
@@ -53,4 +53,4 @@ Thus pointwise \(m+j+k\le6\). Over all 55,440 actual seeds, \(\sum m=9N_{18}\), 
  9N_{18}\le6\cdot55440-8(99\cdot84-6P)-(99\cdot336+6P)
  =232848+42P\le268590.
 \]
-The count is even by negation, so \(N_{18}\le29,842\). This imposes only the four stated shell absences.
+The count is even by negation, so \(N_{18}\le29,842\). This imposes only the two stated shell absences.
