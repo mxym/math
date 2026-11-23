@@ -50,3 +50,23 @@ The maximum U230 coefficient in this row is now 36, so the same folded scalar ar
 9U026+243U121+102U127+606U230 ≥200088+6U125+57U228+9U337 .
 ```
 These remain necessary quantitative conditions, not categorical rank exclusions. The separate [triple prohibition](norm18-triple-exterior.md) when U230=0 is stronger on that special face.
+
+## An edged difference is forced even in the one-nine case
+
+In fact the B0 contribution can be dropped. Every remaining triple is either all-seven or has exactly one nine. In the latter let i be one of the two endpoints of that nine, and k the unpaired marking. Exactly one singleton leaf of i is shared with its nine-partner; none is shared with k, since t_i,t_k already coincide on o, two centers and four parents. The two omitted centers of i again must each meet at least two of the three exclusive leaves, hence have a common exclusive leaf B. In field t_k, B is zero and these two centers are positive neighbors. Its negative k-neighbors must therefore include a site outside Q: B has only its one parent in Q. Such a negative neighbor is zero in t_i (the only common negatives are Q, and opposite conflicts do not occur). Thus the edge from B to this neighbor is inside the positive sign of the true oriented norm-22 difference t_i−t_k. This works for **both** endpoints of the dot nine, giving four oriented edged-difference incidences per one-nine triple. The two undirected difference lines are distinct: equality up to sign would give either t_i=t_j, or t_k=(t_i+t_j)/2 with strictly smaller norm.
+
+Let T1 and T7 be the counts of one-nine and all-seven triple seeds, respectively, and H_e the number of oriented residual norm-22 fields with e positive edges. The [edged-difference root count and colored-collision inverse](norm18-u230-edge-pressure.md#charging-all-seven-triples-through-edged-differences) apply to these incidences together: the selected difference t−u has dot-seven source pair and a common triple seed, so the two centers and four parents exhaust its shared signed sites, exactly the hypothesis used for its colored four-set and distance. At a repeated colored edge, the recovered omitted center is still used at each seed by exactly two of its three fields; the dot of the other two source pairs at that seed never enters the inverse. For each orientation r and root o, m≤5+C/2 and ΣC≤6n1 as before. The zero-height root count is at most six for e=1, **one** for e=2, and there are no larger e. Therefore
+```
+2T7+4T1 ≤30H1+5H2+3n1
+        =30(B1+2B2)−55H2+3n1.
+```
+The last equality uses the reversible positive-edge correspondence H1+2H2=B1+2B2. In particular, without subtracting H2 or T1,
+```
+9N18 ≤110880+15B1+30B2+(3/2)n1.
+```
+If B1=B2=0 then no actual edged norm-22 difference exists at all: T1=T7=0 and N18≤12320 independently of n1, even if independent-positive U230 fields occur. With no additional restrictions the full rank-38 scalar row now gives the stronger graph-wide pressure
+```
+9U026+243U121+102U127+30B0+270B1+510B2
+ ≥200088+6U125+57U228+9U337 .
+```
+In particular the U230 coefficient can be reduced to 510 if subtypes are not recorded. Keeping the exact incidence debit adds 440H2+16T1 to the right-hand side of the last inequality. Here H2 is an oriented neutral norm-22 count, not a further positive-charge population. This is not an exclusion of arbitrary nonzero (2,30).
