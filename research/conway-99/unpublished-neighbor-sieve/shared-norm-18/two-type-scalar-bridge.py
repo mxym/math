@@ -24,13 +24,25 @@ n=fun(rr({(0,18):1}));q=fun(rr({(0,22):1}))
 def check(k,q0):
  assert np.all(fun(rr({k:1}))==q0),k
 check((0,28),-1386*J+90*n+8*q)
+check((0,24),fun(rr({(3,35):1}))+F(13,2)*n-93*J)
 check((3,39),221*J+55*n+8*q)
 check((1,37),121432*J+768*n)
 check((4,46),24*n-108*J)
 check((1,33),10169*J+57*n)
 assert np.all(4*q+2*fun(rr({(3,35):1}))-3*S-172*J==0)
 assert np.all(3*q-3*fun(rr({(3,33):1}))-S-19*J==0)
-print("verified seven exact original shell identities on the rank-42 M=1 two-type chart")
+print("verified eight exact original shell identities on the rank-42 M=1 two-type chart")
 for k in (50,51,52,53):
  s=3*k-148;lo=F(19+s,3);hi=F(172+3*s,4)
  print(k,s,"W022",lo,hi,"N28",90*k-1386+8*lo,90*k-1386+8*hi)
+
+# Final two-type exclusion with the graph-side inequality 2D <= 3L + 42S.
+# The excess of the T upper bound over sqrt(2) times B increases
+# with L because 35 - 14 sqrt(2) > 0. Check only the maximum even L.
+for n0, s0 in [(50, 2), (51, 5), (52, 8), (53, 11)]:
+    lmax = 2 * ((172 + 3 * s0) // 2)
+    half_n24 = -28 + 6 * s0 + 26 * n0 - 2 * lmax
+    B = 4 * n0**2 - 7 * half_n24
+    T_upper = 14 * (-693 + 45 * n0) + 35 * lmax + 294 * s0 - 12 * n0 * (n0-7)
+    assert T_upper >= 0 and B > 0 and T_upper**2 < 2 * B**2
+    print("two-type contradiction", n0, s0, lmax, B, T_upper, 2 * B**2 - T_upper**2)

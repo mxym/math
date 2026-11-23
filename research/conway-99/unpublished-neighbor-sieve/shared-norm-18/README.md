@@ -56,7 +56,9 @@ The [99-coordinate ternary adjacency code](ternary-adjacency-code.md) has dimens
 
 The [marked Hoffman-coclique identity and two-mark obstruction](two-type-true-hoffman.md) reduce the eight two-type parameter tuples to at most four. Every maximal extension then contains exactly one eligible 22-coclique; at rank 42 it is the graph's unique Hoffman coclique.
 
-The [rank-40 tangent-line congruence](rank40-two-type-tangent-deck.md) eliminates the last two-type support at rank 40: at least three selected unit types are necessary there. Rank 40 itself and the rank-42 two-type case remain open.
+The [rank-40 tangent-line congruence](rank40-two-type-tangent-deck.md) eliminates the last two-type support at rank 40: at least three selected unit types are necessary there. Rank 40 itself remains open.
+
+The [rank-42 two-type closure](rank42-two-type-closure.md) eliminates all four remaining norm-18/norm-24 two-type tuples by a centroid lower bound and a local-to-global bound on double differences. Consequently no remaining rank can have only two of the twelve selected types. This does not exclude rank 42 or any of the other remaining ranks with larger supports. The earlier results on this face below are retained as intermediate steps.
 
 On the rank-42 two-type face, [eight short counts determine the entire true Hoffman-axis Jacobi theta series](two-type-hoffman-jacobi.md), not just a truncation. This determines a generating function, not a graph or a case exclusion.
 
