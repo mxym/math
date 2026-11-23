@@ -1,5 +1,7 @@
 # Rank 36 and the dimension-three 18-component: the 18+12+6 split
 
+The residual charts in this intermediate note are all excluded by the [subsequent single-star test](wing-eighteen-capped-star.md).
+
 In the notation of the [preceding 18-wing results](wing-eighteen-three-two.md), if rank is 36 and a triangle has the special 18-component D3, the other components must be the 12-component B (tree number 7140, centered radical dimension one) and a triangular prism. Moreover, at most 39 of the 99 oriented current-comparison charts in this last case can occur. This does not assert any of them is realizable; it is a statement about a specific rooted component, not all rank-36 triangles.
 
 The earlier 18+18 and 18+6+6+6 exclusions leave only 18+12+6. The unit-tree 12-components were already removed by the rank bound. The two remaining 12-components are A (tree number 7350, centered dimension two) and B, with centered evaluations visible on the exterior. In both cases rank forces their evaluation space to lie in the D3 space: here ell=34−3−d for the three components, and increasing s from 3 to ≥4 gives ell+2s≥37. For d=1 or 2 this containment is a full-row-rank matrix M over F7 (size d-by-3) expressing EVERY pair evaluation on the twelve-component as M times the simultaneous triple evaluation on D3. The D3 template realizes every permutation of the wings; we may therefore fix the twelve-component's relative naming, as may the single prism (label its three pairs by wing and its two triangle lines by bit).
