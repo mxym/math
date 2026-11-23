@@ -40,6 +40,10 @@ The [original graph-site quartic](original-site-quartic.md) supplies two weight-
 
 [Original graph-site populations](original-site-populations.md) exclude three more exactly-four-type supports at rank 36 and two exactly-three-type supports at rank 38, leaving at most eight and thirteen respectively. These counts apply only to the named support sizes.
 
+A [Fano orthogonality cap](original-site-fano-four.md) excludes one further exact-four support at rank 36 and two exact-three supports at rank 38; at most seven and eleven respectively remain. This does not bound the ranks with larger support.
+
+For [same-positive unit (1,27) fields](u127-same-positive-matching.md), squared distances 18, 20 and 22 are impossible; pairs at squared distances 16 or 24 form a matching. At distance 24 the common negative graph is a disjoint union of paths on three and four vertices, with 32 necessary local colored cores.
+
 [Endpoint compatibility](two-type-no-fano.md) excludes Fano markings in the two-type case, reducing the short-count list from ten tuples to eight. If an extension has three eligible cocliques, its overlap matching has at least 45 pairs.
 
 The [ternary rank of the Hoffman coclique design](hoffman-ternary-rank.md) is at least 19; if a Fano switch exists, it is exactly 21. The associated six-site restrictions have a residual collision bound, not an exclusion of a full rank.
