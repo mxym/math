@@ -72,6 +72,7 @@ rows=[subtract(F[0],D[0])]
 rows+=[D[j] for j in range(1,N+1) if j<=8 or j%3==2 or j in (10,13)]
 rows+=[subtract(F[j],D[21*j]) for j in range(1,1+N//21)]
 cuts = [
+    [(-5256,D[0]),(-67,D[9]),(82,D[12]),(3,D[15]),(1,D[27]),(1,D[30])],
     [(-13056,D[0]),(394,D[9]),(16,D[16]),(1,D[19]),(2,D[27]),(1,D[33])],
     [(-472520,D[0]),(6277,D[12]),(658,D[16]),(43,D[24]),(224,D[27]),(38,D[30])],
     [(8,D[0]),(1,F[1]),(-2,D[9]),(-3,D[12]),(-1,D[15]),(-1,D[16])],
@@ -80,5 +81,8 @@ cuts = [
 assert len(basis(rows))==23
 assert len(basis(rows+[lin(cut) for cut in cuts]))==23
 assert len(basis(rows+[D[j] for j in (0,9,12,15,16)]))==28
-print("rank 28; homogeneous conditions rank 23; four cuts verified")
+print("rank 28; homogeneous conditions rank 23; five cuts verified")
 print("oriented caps: D9 <= 32, D12 <= 74")
+# The graph height switch gives D9 = 0 on the specified two-type face.
+assert 2*(5256//(2*82)) == 64
+print('after the graph-height switch: D9 = 0, D12 <= 64')

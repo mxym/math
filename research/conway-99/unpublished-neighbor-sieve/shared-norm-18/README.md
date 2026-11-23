@@ -64,6 +64,8 @@ The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exa
 
 [Nonunit norm-32 residual labels](hoffman-residual-norm32.md) admit exact two-site reconstruction from norm-18 labels meeting the fixed coclique in two sites of each sign, with at most two reconstructions per oriented label.
 
+[Literal coclique heights](hoffman-kappa-literal.md) rule out zero-on-coclique norm-18 fields, improve the maximal-intersection projection to at most two preimages, and recover exact intersection counts from affine slots. The residual theta cap for norm 24 then improves to 64.
+
 A [42-site bisection](hoffman-bisection.md) from two Hoffman cocliques meeting in one point completes to four exactly when its residual shore is bipartite. On the two-type face no such completion is possible. The shore-density cuts also apply to actual nonunit charge-four bisection marks without assuming any coclique.
 
 For any [three Hoffman cocliques meeting pairwise in eight sites](hoffman-triple-eight.md), explicit integer certificates force a triple intersection of size three or four, without assumptions on the Seidel rank. Both sizes survive the stated local star equations.

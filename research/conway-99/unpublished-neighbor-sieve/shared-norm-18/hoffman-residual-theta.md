@@ -44,3 +44,13 @@ The first two follow in the checker by appending coefficient rows without changi
 For connection with fields not vanishing on C, let t be an H-eligible neutral field and let z be its coordinates on C, extended by zero. Suppose ∑z_i=0. Then w=3t−(3I−A)z vanishes on C and ∑w_i²=9∑t_i²−21∑z_i² by the tight frame or the eigenvalue equation. Its residual vector is x=(1/7)∑_{b∈B}t_b m_b=√3 P y, and is in T* regardless of the maximal subgroup at three: it lies in L locally at three by the denominator seven, and is compatible at seven by the chosen orthogonal splitting. (Graph y=√3x associated to w is 3P y_t.) For norm 18, C hits kappa of each sign; when kappa=3 one obtains a norm-36 field in D18. The [ternary kernel argument](hoffman-ternary-rank.md) bounds this map by three-to-one at kappa=3. Thus there are at most 3D18 such oriented t for fixed H,C. This is a link between the residual count and the full graph, not a lower bound on D9.
 
 The modular and lattice background is classical; see, e.g., [Diamond and Shurman](https://link.springer.com/book/10.1007/978-0-387-27226-9) for valence and modular curves, and [Böcherer and Nebe's account of theta series of maximal lattices](https://www.math.rwth-aachen.de/~Gabriele.Nebe/papers/MAX.pdf) for full/partial dual transforms. The graph-specific construction and the four numerical cuts above are separate from those general facts.
+
+## Improvement from the actual coclique height switch
+
+The [literal height switch](hoffman-kappa-literal.md#no-norm-18-field-can-avoid-the-actual-compatible-coclique) shows that no eligible norm-18 field vanishes on C. Thus on this two-type face D9=0 in every prescribed maximal ternary extension. The same exact coefficient calculation above gives a fifth row, valid before imposing this extra vanishing:
+
+```
+82D12+3D15+D27+D30 = 5256+67D9.
+```
+
+With D9=0, nonnegativity and antipodal parity improve the norm-24 cap to **D12≤64**. This is still a bound only in the specified residual dual, not a contradiction.
