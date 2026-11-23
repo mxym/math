@@ -57,3 +57,5 @@ $$
 Over the admissible integer pairs $0\le P\le851$, $0\le6G\le P$, the resulting lower bounds are **44,328** and **3,724,902** respectively. Both minima of the bounds occur at $P=851$, $G=122$, $h=118$, $d=947$. One can verify the minima without enumerating the parameters. Dropping floors and using $h\le P-6G$ gives $d\le924+7P/4-12G$. Consequently $y_3\ge70224-27P-24G$ and $y_4\ge4838526-612P-4860G$. At $(851,122)$ these linear expressions are 44,319 and 3,724,794. Lowering either integer parameter by even one raises both past the claimed minima. At the corner the integer bound $d=947$ gives the stated values directly. These parameter values need not be realizable. The [arithmetic checker](triangle_pair_packing.py) verifies the two minima with standard-library Python.
 
 The later [cube exclusion](cube-fibers.md#at-most-one-rectangle-per-equal-bad-prism-pair) sharpens the rectangle multiplicity to one and the grid bound to 120.
+
+The later [two-good-partner exclusion](two-good-partner-packing.md) lowers the two common-good-mate caps to two and one, respectively, while leaving the bound of three on arbitrary partner pairs unchanged.

@@ -29,3 +29,5 @@ The [36-site cube exclusion](cube-fibers.md) shows that each equal-mark pair of 
 [Triangle-degree parity](triangle-grid-parity.md) combines with the cube result to give at most **119 rook grids**, \(y_3\ge44{,}672\), and \(y_4\ge3{,}742{,}746\) at every remaining rank.
 
 The [10-fiber exclusion](partial-k6-10.md) forbids the base \(K_6-C_5\) triangle array itself. Thus the good-prism grid incidence graph has no Berge pentagon, with no rank, symmetry, or secondary-prism hypothesis.
+
+The [two-good-partner exclusion](two-good-partner-packing.md) gives at most two common good prism mates of any anticomplete pair of triangles, and at most one for faces of distinct equal-mark bad prisms. This is a separate 30-site pattern from the ten-fiber pentagon.
