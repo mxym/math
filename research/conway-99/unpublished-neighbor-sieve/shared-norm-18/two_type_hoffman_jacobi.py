@@ -99,9 +99,30 @@ def modular_forms(d):
     assert sorted(B)==list(range(dim))
     return B
 
+
+def signed_cuts(atoms,sel,eq):
+    # Boolean feasibility or modular rank alone would not prove row membership.
+    import sympy as sm
+    def X(a,t,d=None):return sm.Matrix([sel(a,t,d)])
+    one=X(0,0);s=X(1,23)-99*one;e=X(2,36,-6)
+    lower=(e-81*one-6*s-2*X(4,46,2)-2*X(2,34,1)-12*X(1,23,11)
+           -2*X(1,29,11)-5*(X(1,23,4)-77*one))
+    upper=(3*e+12*X(4,44,9)+12*X(1,23,11)+6*X(1,29,11)
+           +3*(X(1,23,4)-77*one)-557*one-8*s)
+    r,piv=sm.Matrix(eq).to_DM().rref();v=r.to_Matrix().tolist()
+    for p in (lower,upper):
+        h=list(p)
+        for i,j in enumerate(piv):
+            q=h[j]
+            if q:h=[w-q*z for w,z in zip(h,v[i])]
+        assert not any(h)
+    assert [(81+6*j,(557+8*j)//3) for j in (2,5,8,11)]==[(93,191),(111,199),(129,207),(147,215)]
+    print("Both signed population identities verified over the rationals.")
+
 def main():
     atoms,by,ix,sel,eq=chart();N=len(atoms)
     assert N==218;sp=Span()
+    signed_cuts(atoms,sel,eq)
     for v in eq:sp.add(v)
     def coeff(j,d):
         R=[0]*N

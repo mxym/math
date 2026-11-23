@@ -60,6 +60,8 @@ The [rank-40 tangent-line congruence](rank40-two-type-tangent-deck.md) eliminate
 
 On the rank-42 two-type face, [eight short counts determine the entire true Hoffman-axis Jacobi theta series](two-type-hoffman-jacobi.md), not just a truncation. This determines a generating function, not a graph or a case exclusion.
 
+[Actual-angle positivity](two-type-hoffman-jacobi.md#compulsory-fields-with-six-or-seven-positive-sites-on-c) forces at least 81+5S genuine unit fields of charge two and norm 36 that have six or seven positive vertices on C, with a one-neighbor restriction in the six-site case. This is a lower bound, not a solved tuple.
+
 The [ternary rank of the Hoffman coclique design](hoffman-ternary-rank.md) is at least 19; if a Fano switch exists, it is exactly 21. The associated six-site restrictions have a residual collision bound, not an exclusion of a full rank.
 
 The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exact theta relations and caps of 32 and 74 for oriented norm-18 and norm-24 fields vanishing on a fixed coclique, in each specified maximal ternary extension. They are not caps on all graph labels.
@@ -71,6 +73,8 @@ The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exa
 The [complementary rank-33 Hoffman lattice](hoffman-positive-residual.md) encodes actual rook grids as short dual vectors and couples their Gram matrix to the 22-point block design. It applies whenever a Hoffman coclique exists, without a restriction on the unit types.
 
 The positive residual has a [determinant-two saturation](hoffman-plus-det2.md). For any actual Hoffman coclique, either a norm-14 +3 field vanishes on it or at least 60 oriented norm-70 +3 fields do. Neither alternative is yet excluded.
+
+The [binary Hoffman design code](hoffman-binary-grid-deck.md) links the true number of grids to binary nullity, computes the unsaturated positive residual's dyadic determinant, and characterizes grids by literal residual cosets. It does not assume or establish the existence of a grid.
 
 A [42-site bisection](hoffman-bisection.md) from two Hoffman cocliques meeting in one point completes to four exactly when its residual shore is bipartite. On the two-type face no such completion is possible. The shore-density cuts also apply to actual nonunit charge-four bisection marks without assuming any coclique.
 

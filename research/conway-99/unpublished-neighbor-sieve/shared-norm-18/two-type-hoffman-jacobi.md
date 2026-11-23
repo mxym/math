@@ -39,3 +39,36 @@ Take any two such lattices with equal data and subtract their series. For each e
 On every original shell, equality of even zonal moments through 22 implies equality of ordinary even power moments through 22: start at degree zero and use the monic expansion whose other powers are lower even powers multiplied by fixed powers of the shell norm and the fixed axis norm. Thus, for every τ in the upper half-plane, all z-derivatives of the difference of φ at z=0 through order 22 vanish. For fixed τ the elliptic transformation law under z↦z+1 and z↦z+τ follows by integral pairing and the reindexing v↦v+w. Its index is w²/2=11; a nonzero holomorphic section of that elliptic line bundle has exactly 22 zeros with multiplicity in a period parallelogram (equivalently apply the logarithmic-derivative argument principle and quasi-periodicity). Order at least 23 at zero is impossible. Hence the two Jacobi theta series coincide. The Poisson transformation of the common Jacobi series gives equality at the other cusp too, with the dual normalization explained above.
 
 Run `python3 two_type_hoffman_jacobi.py` next to the previously published native helpers. No large search, floating-point optimization or guessed symmetry occurs.
+
+## Compulsory fields with six or seven positive sites on C
+
+Write E=K236(−6) and S=W123−99. The map b↦b+c is a bijection from this angular population to K446(16), by charge, cost and angle addition. Here both types have zero residual seven-value, so E is a raw graph count, not a per-eight mean. Write E₀=K123(4)−77, E₁=K123(11). These are counts of *extra* unit (1,23) labels at those angles, because the ordinary d_i have angles −3 and 4. The following two exact signed identities sharpen the [previous marked mass identity](two-type-true-hoffman.md):
+```
+E = 81+6S + 2K446(2)+2K234(1)+12E₁+2K129(11)+5E₀,
+3E = 557+8S −12K444(9)−12E₁−6K129(11)−3E₀.
+```
+All K entries retain their stated normalization, even when the target E is an actual count. The verifier proves both equalities by **rational** row-span reduction, not by a residue test. For these equalities the rank-48 true-Hoffman rows already suffice after applying the N14 absence to translated fields and the M=1 fact to all (2,22) angles. They do not require the higher original Jacobi coefficients. Positivity gives these actual intervals:
+
+| S | necessary interval for E |
+|---:|---:|
+|2|93 to 191|
+|5|111 to 199|
+|8|129 to 207|
+|11|147 to 215|
+
+In fact **at least 81+5S of the corresponding graph fields b are unit** and have either all seven positive sites on C, or precisely six there with their seventh vertex adjacent to at most **one** of those six. The argument below distinguishes this actual assertion from positivity in a theta relaxation.
+
+For any such b put h=b+c. Its charge is four and its cost is 46, so h is either unit with exactly one positive, or has exactly one negative entry −2, all remaining nonzero entries −1. Indeed Σ h_i(h_i+1)=2. Since b=h+1_C, a nonunit b has either a unique +2 on C or a unique −2 off C, never both. When b_i=+2 on C, u=b−d_i has charge one and cost 23, with u_i=−1 and angle −3. It cannot be an ordinary d_j: the −3 angle of d_j requires j∈C, while u_i=−1 would make two sites on C adjacent. Nonordinary charge-one cost-23 fields are unit: an entry +2 would give an absent Fano by subtracting d_i, +3 is exactly d_i, and an entry at most −2 gives a charge-two field below cost 22 or an impossible positive on the equality floor. A unit u at angle −3 has six positive sites; if x of them lie in C, it has x−3 negatives there. A negative on C needs at least two positive neighbors, all outside C. Hence x≤4 and at most one C negative. Thus (u,i) uniquely costs at most a single preimage per angle−3 extra unit, of which there are S−E₀−E₁.
+
+When b_i=−2 outside C there are exactly six positives P⊂C and no other positive. The field f=b+d_i has charge three, cost 39 and angle −2; it is positive at i. Its positives on C are precisely P outside the four neighbors of i on C. Since a (3,39) field has at most three positive sites, all four neighbors must lie in P. The resulting f has two C positives and precisely one outside, so it recovers i and b. The whole supporting population K339(−2) equals K446(2) by f↦−f−c−1, again a raw count. This bounds the second nonunit deduction without double counting.
+
+A unit b of charge two and cost 36 has seven positives and 29 negatives. Their count difference on C is six. Hence either all seven positives and one negative lie on C, or six positives and no negatives lie there. In the latter case let q be the seventh positive. If q has two positive C neighbors p,p′, then
+```
+u=d_p+d_q+d_p′−b
+```
+has charge one, cost 23 and angle 4: the three sites induce a path, its mark sum has cost 53, and its dot with b equals 33. Both C endpoints are positive in u, which therefore is not ordinary and must be unit. A third positive C neighbor of q would get value −2 in u, impossible. Further, the two chosen endpoints are all the positive C sites of u (evaluate the displayed formula on C). To invert, q is a common neighbor of these two endpoints, so there are at most two choices. Thus omitting this two-neighbor subcase costs at most 2E₀. Subtracting both nonunit costs and this last cost from the lower identity leaves at least
+```
+81+6S+2K446(2)+12E₁+5E₀ − (S−E₀−E₁) − K446(2) − 2E₀
+ ≥ 81+5S.
+```
+In the all-seven case h=b+c is one of the literal [rooted bisections](hoffman-bisection.md): its doubled negative is at the sole C negative of b; of the 21 other sites of C, 14 lie in its 42-set shore and seven in the complementary shore. In the six-positive case h instead is unit with one positive outside C, not such a bisection. The theorem does not prescribe the split between these two geometries or show that any of the four short tuples occurs.
