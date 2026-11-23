@@ -35,3 +35,5 @@ No unimodular gluing root can have a nonzero \(K^*\) projection. If its projecti
 \sum_{v^2=4}\|P_K v\|^2=\frac{43}{12}Y_2+86R.
 \]
 Indeed the root sum is \(-43R/24\), and weight 26 on the unimodular rank48 cusp has second Fourier coefficient \(-48\) times the first. The same principle applies to projection onto the one auxiliary direction orthogonal to the four roots' span, where the norm-four projection sum is \(Y_2/12+2R\). Both are actual necessary identities, not a numerical exclusion.
+
+[Fixing the actual Hoffman mark as well](simultaneous-hoffman-33-residual.md) yields a primitive rank-42 simultaneous perpendicular section and a distinct projection for every norm-18 label.
