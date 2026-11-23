@@ -33,3 +33,5 @@ For A,B and B,B choose h in every projective current line of the first component
 For 12+24 with unit larger tree, ell=35−d where d is the smaller centered radical dimension; visibility gives s=d. At d=2 the lower rank is 37. At d=1 equality in dimension 36, the sign of B is −, and the hyperbolic plane contributes −, requiring a nonsquare sign from the larger tree.
 
 For 12+12+12, ell=34−2a−b where a,b count A,B. A current has dimension 2, B current 1; A,B and B,B have trivial intersection and A,A are not equal. Using these lower bounds on s in the rank and determinant test gives the stated table by 455 elementary multiset checks. With three A planes, rank forces s≤4 and nonsquare determinant excludes s=4; pairwise distinct planes give s≥3. The [checker](triangle_wing_twelve_currents.py) uses only the existing twelve_sites.py and Python's standard library. No topology of the far graph or global branch exclusion is inferred.
+
+[The full type-A intersection test](triangle-wing-aa-direct.md) further shows two A current images are disjoint, raising the excluded rank-36 count to 66 of 455 in this particular split.
