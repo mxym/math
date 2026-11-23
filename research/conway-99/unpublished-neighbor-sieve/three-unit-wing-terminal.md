@@ -1,0 +1,23 @@
+# One exterior row reduces a three-unit Conway 99 wing chart to two candidates
+
+Fix a triangle at mod-seven Seidel rank 36 whose 36 wing sites form three connected components with seven-unit spanning-tree numbers. Suppose the sixty labeled far contact words are given, along with one exterior adjacency row whose residual after projection off the wing is nonzero. There are at most **two** candidate exterior adjacencies following the elementary necessary tests below, and at most **one** is an actual graph. This includes an isotropic anchor. It neither constructs words or an anchor nor excludes a wing shape.
+
+Use \(M=3I-A+J/9\) over \(\mathbf F_7\). Its wing Gram is the component Laplacian plus \(J/9\); the three centered blocks and the constant direction give rank \(36-3+1=34\). Component sizes are multiples of six, hence nonzero modulo seven. The two balanced component-constant relations vanish on all graph marks by the fixed far-contact quotas; and the triangle marks are in the wing span by their three neighbour equations. See [triangle-complement.md](triangle-complement.md). Choose any nondegenerate principal wing basis with Gram \(G\), and write \(g_{ij}=p_i^{\mathsf T}G^{-1}p_j\) for the known projected pairings of the far marks. Their residual vectors span the resulting nondegenerate plane.
+
+If the specified anchor has nonzero residual norm, append it to the basis. This leaves a rank-one Schur block. The [rank-one sign test](two-unit-wing-terminal.md) applies unchanged: its sign, degree and literal common-neighbour arguments only use a nondegenerate basis, a residual line supported on far coordinates, and the graph Gram entries 3 and 4. It leaves at most two candidates.
+
+Otherwise the residual \(u\) of the anchor is nonzero isotropic. Choose an isotropic dual \(f\) with \((u,f)=1\), and write the far residual of site \(i\) as \(a_i f+d_i u\). Subtracting the known projection from the pinned row determines \(a_i\). Its extension by zero on the triangle and wing lies in the row space of \(M\). The diagonal equation is
+\[
+2a_i d_i=-g_{ii}.
+\]
+For all \(a_i\ne0\) it fixes \(d_i\). The anchor itself has \(a_i=0,d_i=1\). For another zero site \(j\), require \(g_{jj}=0\) and retain
+\[
+d_j\ \in\ \bigcap_{a_i\ne0}(\{3,4\}-g_{ij})/a_i .
+\]
+All zero-zero pairings are fixed independently of these choices. In particular the exact far degree-eight constraint filters each two-element set independently.
+
+Suppose a zero site retains two distinct values \(d,d'\). For every nonzero \(a_i\), their two graph entries are 3 and 4, so \(a_i(d'-d)=\pm1\). Thus all nonzero \(a_i\) have one absolute amplitude; the sign of \(a_i\) alone tells which of the two choices gives an edge, because the entry changes either \(3\) to \(4\) or \(4\) to \(3\). The choices complement adjacency to the entire nonzero support. Both surviving degree-eight filters therefore give the same number of neighbors in that support, forcing its size \(n\) to be positive, even, and at most 16. Also \(M^2=0\) in the field, so its row space is totally isotropic and \(\sum a_i^2=0\). Hence \(7\mid n\) and \(n=14\). Each sign class has exactly seven sites. Every ambiguous zero row must join precisely one of these two actual seven-site classes. Two such rows choosing the same class have at least seven common neighbors, which is impossible. Thus three ambiguous rows reject the input, two must take distinct classes (two choices), and one has at most two choices. The argument also applies when a known visible wing current supplies the isotropic anchor and the vector \(a\) directly as in [one-current reconstruction](one-current-two-components.md).
+
+Finally, for two true candidates on the same pinned chart, the difference of their far Gram blocks has rank at most two over \(\mathbf F_7\): either it is a difference of rank-one terms, or it is \(a(d-d')^{\mathsf T}+(d-d')a^{\mathsf T}\). Every integer \(3\times3\) minor of the signed adjacency difference has magnitude at most \(3^{3/2}<7\), and is divisible by seven, so vanishes over the integers. By the [rank-two trade lemma](triangle-complement.md#a-rank-two-difference-is-a-transposition), a nonzero difference would transpose two vertices, each losing twelve old neighbors. All changed edges here are far-far, whereas each far site has only eight far neighbors. This is impossible.
+
+The statement is per pinned usable row. An anchor with \(g_{ii}\ne0\) is automatically usable; if all those diagonal entries vanish and some projected \(g_{ij}\notin\{3,4\}\), row \(i\) is necessarily a nonzero isotropic anchor in an actual completion. In other cases a nonzero anchor still exists for a true rank-36 completion, but its row must be found or otherwise supplied.
