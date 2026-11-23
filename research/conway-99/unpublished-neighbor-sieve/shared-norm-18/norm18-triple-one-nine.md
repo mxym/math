@@ -57,3 +57,28 @@ Now every true triple has all three dots seven. If T is the number of triple see
 9N18−110880 ≤ T ≤ min(44G444, 15B1+30B2−(55/2)H2+(3/2)n1).
 ```
 The other upper bound is the [edged norm-22 incidence budget](norm18-triple-all-nine.md#an-edged-difference-is-forced-even-in-the-one-nine-case), with B_j the positive-charge (2,30) matching subtypes, H2 the oriented norm-22 fields with two positive edges, and n1 the true (2,26) subtype with one negative common neighbor of its two positives. Counts concern actual graph fields, not modular averages. In particular N18≤12320 whenever G444=0, independently of the (2,30) shell. No full rank exclusion follows.
+
+## A single edged pair cannot use a two-edge positive marking cheaply
+
+There is a useful universal improvement of the B2 term. In an all-seven triple suppose that just one unordered pair (i,j) has a difference with edges, and that this difference has only one edge per signed side. Denote the third field by k. The independence of the differences t_i−t_k and t_j−t_k shows that each omitted center of i misses its own five private negatives: this center is k-positive and the i-private negatives are k-zero, so an adjacency would be an internal edge of k−i. The center therefore has exactly two neighbors among the four private i-positive leaves. At an i-leaf p, its only k-negative neighbor is its Q parent (private k-negatives have the same k−i sign as this i-positive leaf). Its balance in k gives **at most one** adjacent omitted i-center. The two centers have a total of four contacts with four leaves, so each leaf has exactly one. The identical statement holds in group j.
+
+Thus the sole positive edge e of r=t_i−t_j joins an i-private positive leaf p to one of the five j-private negatives. Indeed a center of L_j cannot touch a j-negative, and other pairs inside that side are independent. The sole negative edge f similarly joins a j-leaf p' to an i-negative. For an i-leaf the positive neighbors in t_j are its unique omitted i-center and any j-private leaves, whereas the negative neighbors are its Q parent and any j-private negatives. Only p meets a j-private negative, and it meets exactly one, hence it needs one j-leaf neighbor. Interchanging i,j shows this leaf is p'. Therefore e and f are **not** anticomplete.
+
+For the reversible edge transfer b=d_e−r, an unmarked positive site outside e must have r-value −1 and be anticomplete to e. If b had a second positive edge it would therefore be precisely the sole negative edge f of r, impossible. The same argument works for −r. Both outputs from this one-edged-pair, e=1 triple are consequently B1 labels, not B2.
+
+For oriented edged differences with one positive edge, give each of their incidences weight 1/2 when its transfer lands in B1, or 1/4 when it lands in B2. Give weight 1/2 to each incidence of a difference with two positive edges. Every triple now receives total weight at least one: a unique edged pair of degree one just received two halves, a unique degree-two pair also receives two halves, and two or more edged pairs supply at least four quarters. As in the [colored root incidence](norm18-u230-edge-pressure.md), m≤5+C/2 per (oriented r,root), the total colored collisions is ≤6n1, and r has ≤6 or ≤1 roots at e=1 or 2 respectively. In particular let K_j count the marked positive edges of oriented *two-edge* norm-22 differences transferring to B_j (j=1,2). Then K1+K2=2H2 and the actual numbers of one-edge oriented differences going to B1,B2 are B1−K1 and 2B2−K2. It follows that
+```
+T ≤15(B1−K1)+(15/2)(2B2−K2)+(5/2)H2+(3/2)n1
+  =15(B1+B2)−(55/4)K1−(25/4)K2+(3/2)n1.
+```
+Together with T≤44G444 this is a count of the same shared-seed triples, with all (2,30) signatures and all (1,27) labels allowed. Using the [rank-38 scalar row](norm18-u226-graph-cap.md) as before gives
+```
+9U026+243U121+102U127+30B0+270(B1+B2)
+ ≥200088+6U125+57U228+9U337.
+```
+Optionally keep both T-bounds simultaneously. The native scalar row contains 48N18−10G444; this is at most 591360+(337/66)T, since 9N18≤110880+T and 44G444≥T. Using 12n0≤12·4158 and the [positive path and isolated edge transfer](u226-disjoint-transfers.md), one has (12+337/44)n1+12n2≤(1129/44)U127: per U127 field there are q≤1 positive three-paths and l isolated edges with 2q+l≤3, giving at most (12+337/44)q+6l. Dropping the K1,K2 debits, exact integer scaling yields
+```
+132U026+3564U121+1481U127+440B0+3810(B1+B2)
+ ≥2934624+88U125+836U228+132U337.
+```
+This is a joint graph pressure test, not a contradiction with arbitrary nonzero shell populations.
