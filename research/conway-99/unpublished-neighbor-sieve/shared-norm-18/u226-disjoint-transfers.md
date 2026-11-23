@@ -23,3 +23,5 @@ As a scalar consequence on any rank-36 graph for which N16 and N20 vanish (unit 
 2 U026 + 2 U125 + 29 U127 ≥ 130,480 .
 ```
 Indeed substitute 9G226≤9·4158+(27/2)U127 before subtracting 6·16166+17·29372. The explicit U127 coefficient on the left of the native identity supplies the additional one. There is no support cardinality assumption.
+
+**Graph-wide refinement.** The [norm-16 lifts use none of these transfer slots](u226-norm16-disjoint.md). This improves the bound to `2G226 + 3N16 ≤ 8316 + 3U127` for actual graph-wide counts.
