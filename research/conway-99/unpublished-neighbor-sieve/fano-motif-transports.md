@@ -1,15 +1,15 @@
 # Fano translations of edges, triangles, and induced three-site paths
 
-For any Conway graph and signed original seven-class β, write C_{a,t}(β) for the literal fields of that charge and cost in the class (no division by eight). Let F(β)=C_{0,14}(β), and M(β)=C_{2,22}(β) count the signed Fano fields and the negative indicators of Hoffman cocliques, respectively. The following hold without Seidel rank or rootlessness hypotheses:
+For any Conway graph and signed original seven-class β, write C_{a,t}(β) for the literal fields of that charge and cost in the class (no division by eight). Let F(β)=C_{0,14}(β), and M(β)=C_{2,22}(β) count the signed Fano fields and the negative indicators of Hoffman cocliques, respectively. Let S(β) count all signed-unit fields of charge 1 and cost 23 in that class (these are the genuinely noncanonical all-unit fields). The following hold without Seidel rank or rootlessness hypotheses:
 
     C_{2,36}(β) ≥ 693 [β=0] + 70 F(β),
-    C_{3,39}(β) ≥ 231 [β=0] + 21 F(β) + 22 M(β),
+    C_{3,39}(β) ≥ 231 [β=0] + 21 F(β) + 22 M(β) + S(β),
     C_{3,53}(β) ≥ 8316 [β=0] + 1134 F(β),
     C_{0,42}(β) ≥ 8316 [β=0] + 1050 F(β).
 
 The same formulas hold in each maximal extension with its own signed residual classes. In particular the rank-44 scalar coefficients in the original lattice and each extension separately satisfy
 
-    Y₂ ≥ 462 + 42 F(0) + 44 M(0) + C_{0,28}(0),
+    Y₂ ≥ 462 + 42 F(0) + 44 M(0) + 2 S(0) + C_{0,28}(0),
     Y₃ ≥ 24948 + 3318 F(0).
 
 At each of these coefficients, (0, t) and (3, t+11) are the actual two charge species; the latter is counted twice because charge signs differ. Only one of the several previously known Y₃ floors is refined here. The inequalities concern true fields; they are not a rank exclusion.
@@ -30,4 +30,4 @@ No induced P3 has sign-sum ±2 or ±3: two sites of the same Fano sign are nonad
 
 where Σ_edges f_if_j=−28 and Σ_nonedges f_if_j=21. The total linear sum is 252Σ f_i=0, so exactly 1134 have sum −1. For ordered nonedges with f_i−f_j=−1 the possibilities are i∈N,j∈Z∪H or i∈Z∪H,j∈P, totaling 2(7·85−70)=1050. We omit sign-difference ±2; those do not enter this unit-shift argument.
 
-The additional coclique outputs in C_{3,39} are b+d_i for b=−1_C and i∈C, recognizable by their unique +2 at i. An ordinary triangle mark has no +2. A translated triangle with sign-sum −1 contains no P vertex, so on P the original mark is ≤0 and addition of f cannot make a +2; anywhere else the original mark is ≤1 and f≤0. This gives the claimed disjoint sum. No assertion of additivity with other noncanonical auxiliary families is made.
+The additional coclique outputs in C_{3,39} are b+d_i for b=−1_C and i∈C, recognizable by their unique +2 at i. An ordinary triangle mark has no +2. A translated triangle with sign-sum −1 contains no P vertex, so on P the original mark is ≤0 and addition of f cannot make a +2; anywhere else the original mark is ≤1 and f≤0. There is also no overlap with the previously proved S-family, which has one isolated positive edge whose inverse source is a unit G123 field (see [the coclique/edge budget](shared-norm-18/coclique-sidon-cut.md)). Indeed, a switched triangle has T={n,x,y}, n∈N and x,y∈H. Each H-site has a unique N neighbor, so no N-site apart from n touches T. Of the seven P-sites, exactly six touch T: four at n, one at x and one at y, all distinct because a vertex off a triangle cannot hit two triangle sites. Let p be the seventh. Thus d_T+f is unit with positive set {x,y,p}, where xy is its unique positive edge. Subtract d_x+d_y to invert it: the result d_n+f has a +2 at n, so is not an S-source. This proves the full disjoint budget, with no assumption on the number of additional unit G123 families.
