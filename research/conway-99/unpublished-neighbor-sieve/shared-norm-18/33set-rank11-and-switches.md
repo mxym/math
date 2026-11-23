@@ -48,3 +48,5 @@ A further exact lattice datum is the unsaturated \(S\)-mark Gram determinant
  \end{cases}
 \]
 where \(L_\ell,F_\ell\) are the Lucas and Fibonacci numbers. Indeed the constant eigenvalue changes from 1 to \(14/3\); the cycle factor is \(\lambda_+^\ell+\lambda_-^\ell-2=L_{2\ell}-2\) for \(\lambda_\pm=(3\pm\sqrt5)/2\). The primitive saturation at primes other than seven is not determined by this formula; this is not a determinant assertion for the integral rank-11 residual outside seven.
+
+[The primitive perpendicular to the whole 33-set mark](33set-det154-gluings.md) instead has rank 43 and determinant 154. Two explicit even unimodular rank-48 parents give exact harmonic equations for that mark.
