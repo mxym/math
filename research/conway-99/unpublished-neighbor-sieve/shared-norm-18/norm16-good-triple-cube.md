@@ -1,6 +1,6 @@
 # Packing good norm-16 triples by their common cube
 
-> **Stronger general cap:** The [matched-cube obstruction](norm16-no-six-cubes.md) improves the rank-free bound to **N16 ≤ 6,062** when N20=0. The rank-36 contradiction and the original proof below remain valid.
+> **Stronger cap:** [The good–bad overlap argument](norm16-four-good-bad.md) improves the graph-wide bound to **N16 ≤ 5,196** whenever N20=0, without a rank assumption.
 
 If no integral neutral field has squared norm 20, then the graph-wide oriented count satisfies **N16 ≤ 6,496**, with no symmetry or Seidel-rank assumption. At Seidel rank 36 the same oriented count would be **at least 6,880** if the selected unit types were contained in **{016,024,127,228,337}**. Thus that five-type containment and every subcase are impossible, not rank 36 itself.
 

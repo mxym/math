@@ -1,5 +1,7 @@
 # No six matched cubes; at most four good rooted norm-16 extensions
 
+> **Stronger cap:** [The good–bad overlap argument](norm16-four-good-bad.md) improves the graph-wide bound to **N16 ≤ 5,196** whenever N20=0, without a rank assumption.
+
 All statements concern a hypothetical SRG(99,14,1,2), at any Seidel rank. Use the definition of a good field at a rooted independent triple \((o,T)\), and the unconditional common-cube construction in [Packing good norm-16 triples by their common cube](norm16-good-triple-cube.md). The absence of norm 20 is needed only for the **last population consequence**, not for either geometric exclusion below.
 
 **Theorem.** There cannot be seven disjoint induced 3-cubes with their bipartite signs oriented so that every pair of cubes is joined by a sign-preserving bijective matching, with no other cross edges. If five or more norm-16 fields are good at a fixed rooted triple, they yield that forbidden configuration. Thus at most four fields are good at any rooted triple. In particular, when \(N_{20}=0\), the graph-wide oriented count is \(N_{16}\le 6062\).
