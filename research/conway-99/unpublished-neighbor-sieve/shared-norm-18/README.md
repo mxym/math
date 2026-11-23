@@ -137,3 +137,5 @@ python replay.py --family 0 --case 159
 ```
 
 The contact replay starts from the archived graphs. The [exact replay](exclusion.md#replay) reconstructs the input list directly and certifies both rejection stages.
+
+[The rooted Hoffman wing graph](hoffman-root-fourcut.md) is four-edge-connected with its true projected weights. Its marks span 13 dimensions, leaving exactly a nine-dimensional common residual at each vertex of an actual Hoffman coclique.
