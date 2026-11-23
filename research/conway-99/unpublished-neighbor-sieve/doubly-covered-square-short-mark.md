@@ -49,3 +49,19 @@ On the rank-42 two-type branch the [four remaining short tuples](shared-norm-18/
 2079−n₃+U₀−9G ≤ S,
 ```
 where U₀ counts uncovered squares and n₃ counts disjoint triangle pairs with exactly two joining edges. The known unconditional grid and uncovered-square inequalities do not by themselves force this left side above 2,5,8 or 11. This gives an actual common-field restriction, not an exclusion of any of the four tuples or of a whole rank.
+
+## An eligible coclique charges some squares twice
+
+Fix an actual Hoffman coclique C and a marked extension in which it is eligible. Let $S_C$ count the eligible unit $(1,23)$ labels in this extension, and let $D_k$ count the nongrid doubly covered squares with $|C\cap H|=k$ for their eight-site set H. Then
+$$D_0=0,\qquad D_1+D_2+2D_3\le S_C.$$
+For a square counted in $D_1$, its single point in C is a square corner, not an extension vertex. The eight-site diagram is part of a three-by-three grid, so its independent sets have order at most three.
+
+Put $c=-\mathbf1_C$. The marking of H has actual angle
+$$\delta=u\cdot c=7k-10,$$
+since $A\mathbf1_C=4(\mathbf1-\mathbf1_C)$. If $k=0$, the field $u+c$ would have charge three and cost $23+22-20=25$, below the minimum absolute coordinate sum 33. If $k=1$, then $\delta=-3$, meaning that C contains three more positive than negative sites of u. Every extension vertex is negative in u and is adjacent to three of the six positive pair witnesses. If that extension vertex belonged to C, at most three positive sites would remain available, whereas at least four would be required.
+
+When $k=3$, its three sites occupy distinct rows and columns in the eight-site grid diagram. They include one endpoint of each of the two negative extension edges: the truncated row and the truncated column have to be used. Now $\delta=11$. The eligible translate $u'=c-u$ has charge one and cost $22+23-2\cdot11=23$. Its entries are at most one, so it cannot be an ordinary mark; by Fano-freeness it is therefore unit. Its positives are exactly the negative sites of u outside C, an independent set because both negative edges meet C. The degree balance above gives only one negative edge for $u'$. It is therefore not any square label. The transformation is injective, so each $D_3$ square spends an extra label from the same shell, in addition to its original square label. Here this translate retains zero terminal discriminant class because c is eligible and u came from the original marked lattice.
+
+On the rank-42 two-type face, $S_C=S$ in the [actual coclique identity](shared-norm-18/two-type-true-hoffman.md#a-universal-marked-identity-on-this-face), and independently
+$$3D_2+16D_3\le V_C=(853-62S)/3.$$
+Each $D_2$ square has angle four and contributes a nonordinary mark to the angle-four bracket of $V_C$. Both labels of a $D_3$ square have angle eleven, with coefficient eight each. These are constraints on literal square counts; they do not provide a lower bound contradicting a tuple.
