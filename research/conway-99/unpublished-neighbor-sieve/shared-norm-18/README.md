@@ -56,6 +56,8 @@ The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exa
 
 A [42-site bisection](hoffman-bisection.md) from two Hoffman cocliques meeting in one point completes to four exactly when its residual shore is bipartite. On the two-type face no such completion is possible. The shore-density cuts also apply to actual nonunit charge-four bisection marks without assuming any coclique.
 
+For any [three Hoffman cocliques meeting pairwise in eight sites](hoffman-triple-eight.md), explicit integer certificates force a triple intersection of size three or four, without assumptions on the Seidel rank. Both sizes survive the stated local star equations.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
