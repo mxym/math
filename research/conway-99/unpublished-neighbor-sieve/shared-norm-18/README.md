@@ -50,6 +50,8 @@ The [ternary rank of the Hoffman coclique design](hoffman-ternary-rank.md) is at
 
 The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exact theta relations and caps of 32 and 74 for oriented norm-18 and norm-24 fields vanishing on a fixed coclique, in each specified maximal ternary extension. They are not caps on all graph labels.
 
+A [42-site bisection](hoffman-bisection.md) from two Hoffman cocliques meeting in one point completes to four exactly when its residual shore is bipartite. On the two-type face no such completion is possible. The shore-density cuts also apply to actual nonunit charge-four bisection marks without assuming any coclique.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
