@@ -151,3 +151,5 @@ The contact replay starts from the archived graphs. The [exact replay](exclusion
 [The graph of doubly represented norm-28 directions](norm22-johnson-double-graph.md) connects actual norm-22 lines, with a degree and site-incidence bound controlled by their norm-18 decompositions. This applies on the rank-42 two-type face only.
 
 [Marked lattice 2-neighbors](marked-two-neighbor-fields.md) supply an exact per-vertex parity identity and identify true 42-site bisections with the norm-three vectors of a canonical odd rooted coset. The rank-42 short-shell table is restricted to the two-type face.
+
+The [charge-three far-path theorem](g337-far-paths.md) controls the 17 far negative sites of every unit (3,37) field when unit (1,21), neutral unit 26 and unit (2,28) are absent. They form disjoint paths of at most six vertices; the result does not yet exclude the rank-36 no-norm-18 support.
