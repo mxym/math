@@ -1,5 +1,7 @@
 # An edge at height two forces an isolated cap and two missed zero sites
 
+> **Update:** The [unified rank-36 exact proof](q4-excluded-r36.md) excludes induced Q4 at rank 36 in both portraits. Other ranks remain unaffected by that test.
+
 Let an actual integral neutral norm-16 marking have signed support shores P,N, eight height-two sites H, eleven height-zero sites Z and 64 height-one sites Y. The [zero-star forest proof](../n16-zero-star-forest.md) gives `d_Z(g)=4+d_H(g)` on H, `d_H(z)=2+d_Z(z)` on Z and at most one edge on H. Each signed support site meets precisely two H sites. Write W_g for the four signed neighbors of g, two on each shore. No rank or symmetry assumption.
 
 **Theorem.** If H has an edge ab, its unique common neighbor z is in Z and is isolated there. Exactly two Z vertices m,m' miss both a,b. The other six H vertices g meet the eight signed sites W_a union W_b in exactly 2,2,1,1,1,1 sites. The two meeting two are the entire common neighborhood of m,m'; their own two signed contact words are disjoint. Each of the four others touches exactly one of m,m'. The Z-degrees of m,m' sum to four. No height-one site adjacent to a or b is adjacent to another H site.
