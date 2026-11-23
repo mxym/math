@@ -21,3 +21,5 @@ For a different forbidden configuration and a bound on cycles of prism mates, se
 The [two 12-fiber exclusions](partial-k6-12.md) force at least four bad secondary prisms in each pentagon. Combining that fact with the triangle-pair bound gives the [pentagon-rectangle inequality](pentagon-rectangle-budget.md): \(N_5\le8B+\frac32R\le11B\).
 
 The [11-fiber pentagon theorem](partial-k6-11.md) rules out the four-edge-path missing pattern and forces all five secondary prisms of every good Berge pentagon to be bad. This strengthens the preceding bound to \(5N_5\le32B+6R\le44B\).
+
+The [double-cell isolation theorem](pentagon-isolation.md) strengthens this to the tradeoff \(5N_5+16R\le32B\). It also embeds these pentagons injectively as induced five-cycles in a simple graph on bad prisms.

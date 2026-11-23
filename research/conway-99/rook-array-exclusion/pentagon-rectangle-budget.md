@@ -21,3 +21,5 @@ since each good rectangle yields just two bad diagonal prisms, as in [the rectan
 For a row with d=0,1,2,3, the bounds a,b<=3 and a+b<=4+d give ab-d<=4,5,7,6 respectively. These are all at most 4+3d/2. Thus the two orientations of U,T receive at most 4(g_U+g_T)+3d_{UT}<=32+3d_{UT} charges. Summing and dividing by four gives the first inequality. The others follow from R<=2H in the packing theorem and H<=B since each bad-mark class has size at most three. This incidence inequality is unconditional, not an existence decision or rank exclusion.
 
 **Stronger consequence of the 11-fiber exclusion.** The [four-edge-path missing-pattern theorem](partial-k6-11.md) forces all five secondaries of each pentagon to be bad. The same charging argument therefore gives \(5N_5\le32B+6R\le44B\), which supersedes the weaker coefficient 11 above.
+
+The [double-cell isolation theorem](pentagon-isolation.md) further strengthens the count to \(5N_5+16R\le32B\) and gives a bad-prism graph encoding every such pentagon.
