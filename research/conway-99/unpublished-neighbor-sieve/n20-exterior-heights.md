@@ -1,0 +1,32 @@
+# Exterior heights of a norm-twenty marking
+
+All statements apply at every Seidel rank. Let \(t=1_P-1_N\) be an oriented norm-twenty integral \(-4\)-field, with unit entries by the [short shell bound](short-shell-moments.md#when-the-nonzero-labels-must-all-be-signed-units). Both shores have ten sites. The number \(e\) of same-sign edges is the same on both shores. The [existing norm-twenty edge switch](edge-switches.md#switching-a-positive-edge-of-a-three-positive-labeling) gives \(e\in\{0,1\}\). We recall a short alternative proof: \(v=1+3\,1_N-A1_P\) has charge one and squared norm \(49-14e\). Indeed \(A^2=12I-A+2J\); the sign-side degrees into the opposite sign are four plus their own-side degrees, so \(\|A1_P\|^2=320-2e\), \(\|1+3\,1_N\|^2=249\), and \((1+3\,1_N)\cdot A1_P=260+6e\). The charge-one bound \(t_v\ge21\) gives \(e\le2\). If \(e=2\), then \(\sum_i v_i(v_i+1)=10\), and there are at most five positive sites, whereas \(v_p=1-d_P(p)\) is positive at at least six \(p\in P\). This contradiction proves \(e\le1\).
+
+For \(z\notin P\cup N\) let \(h(z)=|N(z)\cap P|=|N(z)\cap N|\). Write \(H_j=\{z:h(z)=j\}\), \(n_j=|H_j|\), and \(Z=H_0\). Let \(\eta(z)\) count neighbours of \(z\) at the two ends of either sign edge if \(e=1\), and put \(\eta(z)=0\) if \(e=0\). The identity \(A^2=12I-A+2J\) at \(z\) gives
+\[
+\sum_{\substack{y\sim z\\ y\notin P\cup N}} h(y)=20-5h(z)-\eta(z).
+\]
+Here the \(h(z)\) neighbours in \(N\) contribute four each to \(A^2 1_P\), plus the contribution \(1\) when such a site has an internal neighbour; the neighbours in \(P\) contribute precisely their own-side degrees. In particular \(h\le4\). If \(e=1\) and \(h(z)=4\), the charge-one field \(v\) above has \(v_z=-3\); adding \(d_z=(3I-A)e_z\) gives charge two and squared norm \(35+23+2(-21+2)=20<22\), impossible by the absolute-sum bound.
+
+The first exterior height moment is \(100-4e\). The second, \(\sum_z\binom{h(z)}2\), is 30 at \(e=0\) and 21 at \(e=1\): count all common neighbours of the positive pairs, subtract the negative shore contributions (60 or 68), and note that a graph on \(P\) with at most one edge contributes no wedges. Thus
+\[
+ n_0=9-n_3-3n_4\quad(e=0),\qquad n_0=4-n_3\quad(e=1,\ n_4=0).
+\]
+
+**Edge-bearing case.** At \(z\in H_3\), eight exterior neighbours have heights summing to \(5-\eta(z)\), so at least \(3+\eta(z)\) of them are zeros. Hence \(n_3\le1\). If \(n_3=1\), the site sees all three members of \(Z\) and five members of \(H_1\), and has no neighbour among either sign-edge endpoint or \(H_2\).
+
+**Independent case, without height four.** At \(z\in H_3\), at least three neighbours lie in \(Z\). Thus \(3n_3\le2\binom{9-n_3}{2}\), giving \(n_3\le4\). If \(n_3=4\), the four sites of \(H_3\) send at least twelve incidences to the five zeros, producing at least nine pairwise common-neighbour incidences there (by balancing degrees \(3,3,2,2,2\)). They also send exactly 24 incidences into the twenty support sites, producing at least four more common-neighbour incidences. The total exceeds \(2\binom42=12\). Hence \(n_3\le3\). Moreover \(H_3\) is independent. If two height-three sites were adjacent, the identity \(d_Z(z)=3+d_{H_2}(z)+2d_{H_3}(z)\) would make each have at least five zero neighbours. They would have at least three in common among the at most seven zeros, but an adjacent pair has exactly one common neighbour.
+
+**Independent case, with height four.** A height-four site \(x\) has six exterior neighbours and their height sum is zero. Hence \(n_0\ge6\), and necessarily \(n_4=1\), \(n_3=0\), and \(n_0=6\). The remaining populations are \(n_1=48,n_2=24\). Write \(P_x=P\cap N(x)\), \(N_x=N\cap N(x)\). The neighbours of \(x\) are exactly \(P_x,N_x,Z\), of sizes \(4,4,6\), and form a matching. Each shore is independent, and \(Z\) has no contacts to either shore. Thus \(Z\) is exactly three disjoint edges and \(P_x,N_x\) are matched to each other. The four sites of \(P_x\) have four neighbours each on \(N\); any two share at most one because they already share \(x\). The union must be at least \(16-6=10\), so it is all of \(N\), equality holds for all six pair intersections, and no three share a point of \(N\). Consequently the six sites of \(N\setminus N_x\) are identified with the six distinct pairs of \(P_x\), and symmetrically \(P\setminus P_x\) with the six pairs of \(N_x\). The graph between \(P\setminus P_x\) and \(N\setminus N_x\) is 2-regular.
+
+The 72 exterior vertices in \(H_1\cup H_2\) each have two neighbours in \(P_x\cup N_x\cup Z\), by the nonadjacent common-neighbour count with \(x\). None can see two in \(P_x\) or two in \(N_x\), because these pairs already have \(x\) and the distinct other-shore witness. For the 12 nonadjacent pairs of \(Z\), each has exactly one other common neighbour besides \(x\), and it is in \(H_1\cup H_2\). These yield 12 distinct sites of \(Z\)-degree two. Exactly 12 sites have \(Z\)-degree zero, each attached to one vertex in \(P_x\) and one unmatched vertex in \(N_x\); there is exactly one such site for each unmatched pair, again by the common-neighbour count. The other 48 have \(Z\)-degree one.
+
+## Injection to a literal charge-two field
+
+In the last case put \(b=v+d_x\). It has charge two and squared norm \(49+23+2(-21+2)=34\). Explicitly
+\[
+ b=1_{P\setminus P_x}-1_{N_x\cup H_2}.
+\]
+Indeed \(x\) becomes zero, the six zero sites and the four shore sites \(P_x\) cancel their \(+1\), and exactly \(N_x\) acquire new negative units. The seven-residue of \(b\) is four times that of \(t\): \(v=1+D_N+4t\) with \(D_N=\sum_{i\in N}d_i\), and constants are removed in the centred projection while \(D_N\) and \(d_x\) have trivial seven-class.
+
+This field determines the original oriented \(t\) uniquely. Its negative sites with at least three positive neighbours are exactly \(N_x\): each site of \(N_x\) sees three \(P\setminus P_x\) sites, whereas a site of \(H_2\) sees at most two. The unique vertex adjacent to all four \(N_x\) sites is \(x\) (two such vertices would have four common neighbours). Subtract \(d_x\) to recover \(v\), whose positive sites are \(P\cup Z\); the isolates in this induced graph are \(P\), since \(Z\) is matched and anticomplete to \(P\). The equality \(3\,1_N=v-1+A1_P\) recovers \(N\). This proves an injective, residue-scaled map from the oriented height-four norm-twenty fields to actual unit cost-34 charge-two fields. The deductions do not exclude norm twenty or any entire rank.

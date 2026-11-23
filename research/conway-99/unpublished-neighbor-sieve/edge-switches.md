@@ -51,3 +51,5 @@ Enumerate the eight remaining rows using these types and the sums. Within each i
 | 2 | 71 | 23 |
 
 Run `python3 edge_switch.py` with `pynauty` installed. The checker counts 168 and 242 row arrays before the final isomorphism check, verifies every same-sign and opposite-sign common-neighbor cap and reproduces the 182 shapes. Allowing a simultaneous exchange of the two signs gives counts 30, 32, 50 and 20 in row-major order, hence 132 shapes. The multiplicity of a shape on a fixed graph still needs to be bounded.
+
+[Exterior height bounds for the norm-twenty fields](n20-exterior-heights.md) apply to both edge-bearing and independent sign sides and give an injective charge-two transform in the height-four case.
