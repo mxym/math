@@ -13,3 +13,5 @@ The checker uses partial multiset containment in these oriented six-block types 
 The [Python/NumPy replay](six_prism_flow_plane.py) decodes only 169 signed integer rows; every remaining coverage, basis, parity and nonnegative-integral test is regenerated. No optimization solver, inferred group symmetry of the Conway graph or numerical tolerance occurs.
 
 After splitting off the hyperbolic planes of the visible currents, the remaining nondegenerate space over the five-element field has dimension one (if all twelve are visible) or three (if the invisible kernel has dimension one).
+
+**Actual exterior rank.** The [five-local rank calculation](six-prism-far-five-rank.md) proves that the sixty-site exterior adjacency minus the identity has rank 45 or 47 modulo five. The centered word quotient carries a form of rank at most three, without asserting that the entire exterior is determined.
