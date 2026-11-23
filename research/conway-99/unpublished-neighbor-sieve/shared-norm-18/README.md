@@ -32,6 +32,8 @@ In the two-type case at ranks 40 and 42, [unaveraged residue balance](two-type-r
 
 An [orthogonal-Fano transport](rank36-four-orthogonal-cut.md) excludes one more rank-36 four-type support, leaving at most 12 of 495.
 
+The [Fano endpoint and triangle-free bound](rank36-four-endpoint-cut.md) excludes another rank-36 four-type support, leaving at most eleven.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
