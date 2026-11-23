@@ -44,11 +44,15 @@ A [Fano orthogonality cap](original-site-fano-four.md) excludes one further exac
 
 For [same-positive unit (1,27) fields](u127-same-positive-matching.md), squared distances 18, 20 and 22 are impossible; pairs at squared distances 16 or 24 form a matching. At distance 24 the common negative graph is a disjoint union of paths on three and four vertices, with 32 necessary local colored cores.
 
+A [positive support rigidity bound](unit-neutral-positive-support.md) shows that one entire sign determines each signed-unit neutral marking of fixed norm at most 30. If G(3,37) is absent, even 12 positive sites determine a unit norm-26 marking.
+
 [Endpoint compatibility](two-type-no-fano.md) excludes Fano markings in the two-type case, reducing the short-count list from ten tuples to eight. If an extension has three eligible cocliques, its overlap matching has at least 45 pairs.
 
 The [ternary rank of the Hoffman coclique design](hoffman-ternary-rank.md) is at least 19; if a Fano switch exists, it is exactly 21. The associated six-site restrictions have a residual collision bound, not an exclusion of a full rank.
 
 The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exact theta relations and caps of 32 and 74 for oriented norm-18 and norm-24 fields vanishing on a fixed coclique, in each specified maximal ternary extension. They are not caps on all graph labels.
+
+[Nonunit norm-32 residual labels](hoffman-residual-norm32.md) admit exact two-site reconstruction from norm-18 labels meeting the fixed coclique in two sites of each sign, with at most two reconstructions per oriented label.
 
 A [42-site bisection](hoffman-bisection.md) from two Hoffman cocliques meeting in one point completes to four exactly when its residual shore is bipartite. On the two-type face no such completion is possible. The shore-density cuts also apply to actual nonunit charge-four bisection marks without assuming any coclique.
 
