@@ -13,3 +13,5 @@ Next choose one row from each of 72 domains. For i≠j impose reciprocity r_i[j]
 The original existence question remains open at each of the four unrestricted mod-seven Seidel ranks 36, 38, 40, and 42. This theorem only excludes graphs containing the displayed array.
 
 See [Nongrid prism classes and a grid-sensitive prism bound](bad-prisms.md) for the consequences for actual prism and norm-four vector counts.
+
+For a different forbidden configuration and a bound on cycles of prism mates, see [Thirteen triangle fibers of the K6 disjointness pattern](partial-k6.md).
