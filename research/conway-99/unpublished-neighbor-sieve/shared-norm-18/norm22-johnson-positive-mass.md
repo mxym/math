@@ -27,3 +27,5 @@ G(3,33)=8W333            ≥80   ≥76   ≥74   ≥72
 The last line is the exact conversion 8W333=2L−8(19+S)/3. In particular every surviving tuple requires actual (3,33) labels. These are conditional necessities on the face, not an exclusion of the face.
 
 Run `python3 two-type-scalar-bridge.py` alongside `two_type_true_hoffman.py`, with the latter's dependencies, to check the exact scalar rows. The population bound above additionally uses the displayed graph-side centroid and exceptional-site argument.
+
+[The mandatory unit double](unit-double-four-arcs.md) also forces a 36-site signed core with one of three exact directed mass decks in every tuple.
