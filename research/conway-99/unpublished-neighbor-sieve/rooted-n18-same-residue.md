@@ -1,0 +1,17 @@
+# Same-residue norm-18 differences on a common closed star
+
+**Scope.** Assume the rank-42 two-type {N18,N24} face and its [four true-Hoffman tuples](shared-norm-18/two-type-true-hoffman.md). In each of the eight SIGNED norm-18 residues there are exactly n=50,51,52,53 respectively. This is the [projective residue balance](shared-norm-18/two-type-residue-balance.md) combined with negation and W018=N18/8, not an assumption of symmetry of the underlying graph. Write B_j(o) for the oriented neutral original-seven-zero fields of norm 14j vanishing on the entire closed star N[o]. This agrees with the q^j coefficient of the rooted dyadic B lattice for the terminal rank 42 (D_{7j}=B_j). At least one true root admits such a field of norm 28 or 42. More precisely,
+[
+\sum_o (2 B_2(o)+B_3(o))\ge8(3n-99)=408,432,456,480.
+]
+This excludes the assertion that *all* rooted B minima are at least 8 in lattice units on this face. It does not exclude a particular root having that minimum or the face itself.
+
+**Zero stars of any norm-18 field.** For one such t, the [norm-18 support theorem](../short-support-packing/README.md) gives independent nine-sets P,N inducing a 4-regular bipartite graph. An exterior vertex x sees equal numbers h of either sign. Inside its neighborhood the h P-neighbors see at most h edges to its h N-neighbors, since that neighborhood is a matching. Each of the other 9−h N sites has at most 2 common neighbors with x, so 4h≤h+2(9−h), hence h≤3. Over the 81 exterior sites sum h=90 and sum binom(h,2)=2 binom(9,2)−9 binom(4,2)=18. With z_i counts of heights i this gives z_0=9−z_3, with 0≤z_3≤6. The nonmarked height-zero vertices are exactly the roots where t vanishes on N[o], consequently every t has between three and nine such roots.
+
+**Angular gap.** For distinct nonopposite norm-18 fields the absolute inner product is ≤7. Indeed, after choosing sign, dot 8,10,11 would give differences in the absent norms 20,16,14, and larger dots violate the neutral minimum 14. Dot 9 would give reduced mod-7 Gram matrix with diagonal 4 and off-diagonal ±2, determinant 5, nonsquare in F7. This contradicts the terminal anisotropic 2-plane's square determinant, since a nonsingular Gram there must span the plane. In the *same signed* residue one has t.u≡18≡4 mod 7, so t.u=−3 or 4. 
+
+**Count.** Choose one signed residue from each of the four antipodal residue lines. At o write m_i(o) for the number of fields in the chosen class i vanishing on N[o]. All its ordered distinct pairs (t,u) map to c=t−u, of norm 28 or 42 and original-zero class. Fix an oriented c. For any second source (v,w) one has w=v−c, t.c=c²/2, and t.w=t.v−c²/2. Distinct sources have v≠t and w≠u. No chosen fields can be negatives of one another, since the choice contains no opposite residues and all these classes are nonzero. Also t=w would force an impossible t.v=18+c²/2. Thus t.v and t.w belong to [−7,7]. If c²=42 this contradicts their difference 21, so there is at most one source. If c²=28 they must be 7 and −7, and the residues of t and v are orthogonal in the anisotropic plane. Neither line is isotropic, giving at most two pairwise orthogonal such source residues in dimension two, with no repeats. Therefore at each root
+[
+   \sum_{i=1}^4 m_i(o)(m_i(o)-1)\le 2B_2(o)+B_3(o).
+]
+The observation on zero stars gives sum_o m_i(o)≥3n for every selected class. As m(m−1)≥2(m−1) for all nonnegative integers, sum the displayed root cut to obtain the stated four lower bounds. No global automorphism, root equivalence or mutually overlapping signs have been used.
