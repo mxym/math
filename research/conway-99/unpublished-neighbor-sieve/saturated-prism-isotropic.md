@@ -1,0 +1,20 @@
+# Every exterior mark of a completely gridded triangle is nonzero and isotropic modulo seven
+
+Suppose all six components of the cubic wings of a triangle T are prisms (six grids pass through T). In the nondegenerate mod-seven Seidel marking space, project orthogonally off the 31-dimensional wing span. Every one of the 60 exterior sites then has a **nonzero isotropic** residual vector. This holds for any of the four remaining Seidel ranks; the residual dimension is r−31, hence five at rank 36. At rank 36 these sites define points on the parabolic quadric Q(4,7); distinct sites are not asserted to determine distinct projective points. This does not exclude a saturated triangle.
+
+Each exterior site x chooses one point of each prism; its chosen wings have multiplicities 2,2,2. Name each prism point by its wing and a bit specifying which triangular line contains it. Two points of one prism are adjacent precisely if they have the same wing or the same bit, but not both. Orient the six bits independently so x chooses bit zero everywhere. For another site y define a=# identical symbols, b=# same wing but opposite bit, c=# different wing and the same bit, and e=[x adjacent y]. In the [triangle-complement notation](triangle-complement.md) the wing projection pairs as 1/36+Σ L_prism^+(x_j,y_j). The entries of 180 times the prism Laplacian pseudoinverse are 47,−7,−1,−19 for, respectively, identical, same wing opposite bit, different wing same bit, neither. For example diagonalize into the bit-sign constants, centered wing-functions, and the products of the two, with eigenvalues 2,3,5. Thus for the residual Gram H,
+
+    60 H_xy = 43−18a−4(a+b)−6c−60e  (x≠y),        60 H_xx=91.
+
+The tree number 75 is a 7-unit, the six component sizes and 9 are 7-units, and the wing Gram has centered rank 6·5 plus one constant direction, also square-unit. Therefore this rational projection reduces correctly in the true nondegenerate mod-seven space. In particular all diagonal entries 91/60 vanish mod seven.
+
+If the residual of x vanished, its whole row would vanish mod seven. Each y≠x then satisfies the above numerator congruence as well as a+e≤2 (near common sites), a+b+c≤6, and a+b≠5 (two words with identical wing multiplicities cannot differ in exactly one wing). These elementary restrictions leave only the following 16 rows (a,b,c;e); no symmetry of graph is imposed:
+
+    003;1  006;0  010;1  013;0  020;0  024;1  031;1  041;0
+    100;0  104;1  111;1  114;0  121;0  132;1  201;0  222;0
+
+For each row the integer F=choose(c,2)+bc+(e−2)c+2choose(a,2) is nonnegative (its values in the listed order are 0,3,0,0,0,10,2,2,0,2,0,2,0,5,0,3). Yet the sums over the 59 actual other exterior sites of choose(c,2),bc,ec,c,choose(a,2) equal respectively 102,96,12,120,12. Their same linear combination is −6.
+
+Here is the incidence arithmetic. Every prism point is selected ten times. For distinct prism components any particular pair of selected points occurs twice minus the indicator that their wings agree: the two are nonadjacent with no wing common neighbor, and the only possible triangle common neighbor is the shared wing's root. Among the 15 unordered pairs of components there are three with equal x-wings and twelve with different x-wings. To count choose(a,2) sum the pair counts and subtract x itself for each component pair, giving 12. For choose(c,2) the two choices of other wing in each component yield 8 minus the size of their overlap: 6 or 7 per component pair, for 102 total. For bc use ordered distinct components: 6 equal-wing choices give 4 each, and 24 different-wing choices give 3 each, i.e. 96. There are 6·2·10=120 total c. Finally for each x_j the two other-wing bit-zero symbols v are prism neighbors of x_j; each is nonadjacent to the exterior x, and among its two common neighbors with x exactly x_j is near. Thus exactly one exterior neighbor of x contains v, giving 6·2=12 for ec. This proves the contradiction and the theorem. In fact some other residual pairs nontrivially with each given residual.
+
+The residue table and final arithmetic can be replayed with `python3 saturated_prism_isotropic.py`.
