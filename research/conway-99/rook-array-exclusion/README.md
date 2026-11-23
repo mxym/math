@@ -25,3 +25,5 @@ The [11-fiber pentagon theorem](partial-k6-11.md) rules out the four-edge-path m
 The [double-cell isolation theorem](pentagon-isolation.md) strengthens this to the tradeoff \(5N_5+16R\le32B\). It also embeds these pentagons injectively as induced five-cycles in a simple graph on bad prisms.
 
 The [36-site cube exclusion](cube-fibers.md) shows that each equal-mark pair of bad prisms supports at most one good rectangle. It lowers the all-rank maximum to **120 rook grids** and raises the norm-eight lower bound to **3,737,742**. The [replay](cube-fibers.py) reconstructs the core matchings, all surviving contact tables, and their impossible exterior neighborhoods.
+
+[Triangle-degree parity](triangle-grid-parity.md) combines with the cube result to give at most **119 rook grids**, \(y_3\ge44{,}672\), and \(y_4\ge3{,}742{,}746\) at every remaining rank.

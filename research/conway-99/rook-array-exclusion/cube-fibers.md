@@ -41,3 +41,5 @@ $$
 Hence $P\le851$ gives $G\le120$, and at $P=851$ at least 131 prisms are bad. At that endpoint the [norm-four count](bad-prisms.md) gives at least 550 vectors. These constraints apply together with the [pentagon isolation inequality](pentagon-isolation.md) $5N_5+16R\le32B_0$.
 
 For the [norm-six and norm-eight count](triangle-pair-packing.md#consequences-for-the-short-lattice-shells) put $h=B_0-[3\nmid B_0]$. The new upper bound on equal-mark prism pairs is $d=h+\min(15G,\lfloor(3696-P+2h)/4\rfloor)$. The checker obtains uniform minima of **44,636** and **3,737,742** respectively from the earlier shell formulas. One can check both minima directly. The rougher $d\le924+5P/4-9G$ gives $y_3\ge70224-25P-36G$ and $y_4\ge4838526-588P-5004G$. At $(851,120)$ these expressions are 44,629 and 3,737,658. Lowering either integer parameter raises both past the stated minima, and at the corner the precise $d=906$ gives the claimed values.
+
+The [triangle parity refinement](triangle-grid-parity.md) keeps the exact correction in the path inequality and improves the grid cap to 119, and the uniform shell bounds to \(y_3\ge44{,}672\), \(y_4\ge3{,}742{,}746\).
