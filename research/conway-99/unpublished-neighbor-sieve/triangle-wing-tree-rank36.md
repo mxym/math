@@ -21,3 +21,5 @@ There is a stronger array condition if τ is a unit. For each X site b write d_b
 In particular a candidate set of 60 triples of nonmate pairs must make every diagonal right-hand side zero and every off-diagonal lie in {3,4} mod7. This is a necessary constraint, not an assumption about W, an exhaustive graph search, or a proof that any actual triangle violates it. At larger Seidel rank r the same Schur complement has rank at most r−36, not zero.
 
 The [exact determinant and short-vector bound](triangle-wing-short-field.md) applies whether or not the wing tree number is divisible by seven.
+
+[The disconnected twelve-site case](triangle-wing-twelve-currents.md) uses actual far-contact evaluations of mod-seven harmonic currents. In rank 36 it rules out 58 of the 455 three-component multisets and gives further restrictions for the split 12+24.
