@@ -1,5 +1,7 @@
 # A parity-reversing cyclic return cannot support nine active Conway squares
 
+The [stronger eigen-equation test](active-square-nine-cycle.md) now excludes **every** return permutation in the one-cycle case. The shift-four control below survives only the weaker pairwise row tests in this note.
+
 Use the [full root row](u226-full-root-row.md) at an edge of a hypothetical Conway graph. A square is active if it supports a true positive-charge (2,26) field of subtype c=0. The edge-chart exclusion below is independent of rank; the population corollary is for the specified rank-38 support only.
 
 The live rank-38 support contained in \(\{018,024,226,230\}\) requires at least 2,910 positive-charge (2,26) fields and hence at least 1,455 active literal squares. Its latest published reduction forces an edge in at least nine active squares. I excluded a family of such edge charts. If the two mate matchings \(l,r\) on that edge's left and right wing indices form one alternating 12-cycle, the left-to-right-to-third return permutation \(\tau\) cannot be a parity-reversing automorphism of the index cycle. No assumptions on the third wing's mate matching or on automorphisms of the full graph are needed. This excludes a chart family, not the four-type support.
