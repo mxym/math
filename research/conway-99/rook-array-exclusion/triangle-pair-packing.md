@@ -59,3 +59,5 @@ Over the admissible integer pairs $0\le P\le851$, $0\le6G\le P$, the resulting l
 The later [cube exclusion](cube-fibers.md#at-most-one-rectangle-per-equal-bad-prism-pair) sharpens the rectangle multiplicity to one and the grid bound to 120.
 
 The later [two-good-partner exclusion](two-good-partner-packing.md) lowers the two common-good-mate caps to two and one, respectively, while leaving the bound of three on arbitrary partner pairs unchanged.
+
+The [eight-fiber cube exclusion](cube-eight-fibers.md) also lowers the cap on arbitrary partner pairs from three to two.
