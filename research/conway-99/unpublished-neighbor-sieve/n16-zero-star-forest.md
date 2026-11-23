@@ -82,3 +82,5 @@ At a given positive \(p\), consider its four negative neighbours. If \(p\) lies 
 28N_{14}+24N_{16}+2D\le27\,720\qquad(r=42).
 \]
 There is no resulting all-rank exclusion of norm sixteen or of the ambient graph.
+
+**Height-two overlap and four-cubes.** The [height-two edge theorem](shared-norm-18/norm16-edge-and-cube.md) forces an isolated zero-height cap and two missed zero-height sites, and removes 22 of 24 necessary portraits of an induced four-cube. The remaining two are not asserted to extend.
