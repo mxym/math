@@ -46,7 +46,7 @@ def fourier(RR,d):
  assert len(bs)==dim,(len(bs),dim,d)
  mat=sm.Matrix([bs[i][:22]+[v*7**(RR//2-11+d//2)for v in ws[i][:4]]for i in sorted(bs)])
  return [simp(list(col)) for col in mat.nullspace()]
-def calc(RR,cert):
+def calc(RR,cert,*,export=False):
  P=7**((44-RR)//2)+1
  shs=[None,*SHIFTS];raw=rows();tabs={(i,n):projections(h,n)for i,h in enumerate(shs)for n in (1,2,3)}
  keys=sorted(set().union(*raw,*tabs.values()));zset=set();by=defaultdict(list)
@@ -129,6 +129,8 @@ def calc(RR,cert):
  assert (len(keys),len(atoms),N,len(eq),len(piv))==(60,172,205,295,184)
  def red(v):
   return [F(v[j])-sum(F(v[k])*F(mat[i,j]) for i,k in enumerate(piv) if v[k] and mat[i,j])for j in free]
+ if export:
+  return one,w,c,glob,un,ub,red
  for codes,terms in cert:
   allowed={divmod(k,100)for k in codes}
   assert allowed<=UNIT and len(allowed)==(4 if RR==36 else 3)
