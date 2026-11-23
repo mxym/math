@@ -22,6 +22,8 @@ The [unconditional degree-ten site inequality](site-degree-ten-global.md) gives 
 
 The [49 rank-36 support constraints](rank36-four-hit-sets.md) apply at every support size. They and two exact support implications leave at most 16 of the 495 four-type possibilities. Each of those 16 has a rational control for the specified relaxation, not a graph.
 
+[Fano palette transports](rank36-four-fano-palette-cut.md) exclude three of those 16 supports; at most 13 four-type supports remain at rank 36. The old rational controls do not impose the new transport inequalities.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
