@@ -139,3 +139,5 @@ python replay.py --family 0 --case 159
 The contact replay starts from the archived graphs. The [exact replay](exclusion.md#replay) reconstructs the input list directly and certifies both rejection stages.
 
 [The rooted Hoffman wing graph](hoffman-root-fourcut.md) is four-edge-connected with its true projected weights. Its marks span 13 dimensions, leaving exactly a nine-dimensional common residual at each vertex of an actual Hoffman coclique.
+
+[The norm-28 ternary classes](hoffman-norm28-ade.md) each complete to a small ADE root configuration. For ternary nullity 0, 1, 2 respectively the oriented eligible fields of norm 28 vanishing on an actual Hoffman coclique number at most 0, 222, 2376, not bounds on the full graph shell.
