@@ -17,3 +17,5 @@ For the final table, take x of pair labels (e,f). For i in the first component t
 The rank accounting now gives 66/455 ruled-out multisets of three previously retained connected twelve-site templates, comprising 36 AUU, 11 ABU, 6 BBU, all 11 AAU, one AAB and one AAA (U signs as before). If A,A accompany two six-site components, both six-site graphs are prisms, hence seven-unit. The wing Gram has rank 37−4−4=29 and the two A current images span four, forcing graph rank at least 29+8=37. For A,A,A the ambient determinant further excludes the only numerical border rank 36 as in the preceding note. The [exact replay](triangle_wing_aa_direct.py) needs only the previous checker and its twelve_sites.py dependency.
 
 Run `python3 triangle_wing_aa_direct.py` next to `triangle-wing-aa-farkas.b64` and the two previous checkers. The branching certificate uses only fixed integers and no solver.
+
+**Further B-only case.** The [three-B12 zero-section test](three-b12-zero-section.md) also excludes BBB, bringing the number of ruled-out multisets in this split to at least 67 of 455.
