@@ -44,3 +44,5 @@ At cardinalities four and above these figures describe just the hit-set and supp
 24 26 230       26 125 230      26 228 230
 ```
 For each control the verifier requires the declared denominator positive, W000=1, and nonnegativity of all raw counts, selected unit counts, unconditionally imposed slacks, and relevant conditional slacks. Its exact positive support must be the listed triple. These checks do not impose integrality of a real graph or prove that any of the fifteen candidates is realizable.
+
+**A further closed support (not the whole rank).** The [rooted norm-18 and norm-22 proof](rank38-norm18-triple-closure.md) excludes the {018,024,226} support at rank 38: the *same oriented graph-wide norm-18 population* would have to be at least 24,154 and at most 16,166. The [six-type pressure identity](norm18-six-type-pressure.md) also excludes its entire four-type superset {018,024,226,228} and supplies a necessary inequality when (1,25) or (3,37) is allowed.
