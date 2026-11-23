@@ -31,3 +31,5 @@ $$
  2022N_{18}\ge44(2058\cdot344-12\cdot4158)-1108800=27845664.
 $$
 Equivalently before rounding N_{18}≥(44(2058·344−12·4158)−1,108,800)/2022; it is even by antipodality. Consequently N_{18}≥13,772, at least 13,068 seed triples occur, and at least 297 distinct true positive-charge (4,44) fields occur. The known same-oriented upper bound is 16,166, so this does not by itself exclude the support.
+
+**Norm-22 multiplicity.** A [second count of the ordered triple differences](norm18-norm22-root-capacity.md) forces one actual oriented norm-22 field to occur at least 16 times across at most eleven roots. The same-root collisions have three possible intersection types. A contradictory upper bound on multiplicity has not yet been established.
