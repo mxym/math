@@ -132,18 +132,18 @@ def crossing_matrices(graph, start, n):
     return extend(())
 
 
-def gluings(wings):
+def gluings(wings, first_sign=5):
     for i, first in enumerate(wings):
         for second in wings[i:]:
             graph = [first[k] | ((second[k] & ~COMMON) << 9) for k in range(9)]
             graph += first[9:] + [(v & COMMON) | ((v & ~COMMON) << 9) for v in second[9:]]
             if not valid(graph):
                 continue
-            for plus in crossing_matrices(graph, 9, 5):
+            for plus in crossing_matrices(graph, 9, first_sign):
                 partial = place(graph, 9, plus)
                 if valid(partial):
-                    for minus in crossing_matrices(partial, 14, 4):
-                        full = place(partial, 14, minus)
+                    for minus in crossing_matrices(partial, 9+first_sign, 9-first_sign):
+                        full = place(partial, 9+first_sign, minus)
                         if valid(full):
                             yield full
 
