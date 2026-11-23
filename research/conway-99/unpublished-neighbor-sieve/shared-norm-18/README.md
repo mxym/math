@@ -4,9 +4,9 @@ The [exact overlap proof and global counting consequences](exclusion.md) and the
 
 The [three-label exclusion](panel-heights.md#the-three-label-exclusion-and-the-rank-38-contradiction) rules out the rank-38 alternative with just norm-18 and norm-24 markings. Ranks 36 and 38 both need at least three of the twelve selected unit types. Whenever norms 16 and 20 are absent, all four ranks satisfy $N_{18}\le16,166$. At rank 36, [exactly three types including norm 18 would require at least 694,558 distinct 26-site supports](panel-heights.md#a-rank-36-consequence-if-norm-18-occurs). The [height-three theorem and norm-36 injection](height-three.md) hold at every rank.
 
-## Three further rank-36 three-type exclusions
+## Four further rank-36 three-type exclusions
 
-The [charge-one packing bound and exact moment identities](affine-triples.md) rule out the alternative consisting of norm 24 and the unit types `(1,21)` and `(3,37)`. A [two-cycle packing bound](rank36-two-cycle.md) rules out the alternative consisting of norm 24, unit norm 26, and type `(1,21)`. A [combined short and scalar moment argument](rank36-third-triple.md) rules out unit norm 26 together with types `(1,25)` and `(1,27)`. At most seven of the 220 exactly-three-type alternatives remain at rank 36; rank 36 itself is not excluded. Run `python3 rank36_affine_triples.py` and `python3 rank36-third-triple.py` to replay the exact identities with python-flint.
+The [charge-one packing bound and exact moment identities](affine-triples.md) rule out the alternative consisting of norm 24 and the unit types `(1,21)` and `(3,37)`. A [two-cycle packing bound](rank36-two-cycle.md) rules out the alternative consisting of norm 24, unit norm 26, and type `(1,21)`. A [combined short and scalar moment argument](rank36-third-triple.md) rules out unit norm 26 together with types `(1,25)` and `(1,27)`. A [coclique packing and moment argument](rank36-coclique-tangent.md) rules out norm 18, norm 24, and unit norm 26, the only surviving exactly-three-type alternative with norm 18. At most six of the 220 exactly-three-type alternatives remain at rank 36; rank 36 itself is not excluded. Run `python3 rank36_affine_triples.py`, `python3 rank36-third-triple.py`, and `python3 rank36-coclique-tangent.py` to replay the exact identities with python-flint.
 
 ## Reproduce the rank-38 and rank-36 results
 
