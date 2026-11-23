@@ -19,3 +19,5 @@ In particular on the three-type support above, the following compare lower and u
 | 42 | 280 | 1,588 |
 
 The [rank-38 active-square result](u226-rank38-forcing.md) gives a different lower bound on the **charge-two** population; that count is not added to the numbers in this table. None of these intervals is empty. There is no new rank or support exclusion here.
+
+**Improved rank-38 interval.** The [second identity and literal (2,26) cap](norm18-u226-graph-cap.md) give a stronger lower bound, which [rooted triple feedback](rooted-norm18-triples.md) raises to 13,772. The upper on that same oriented graph-wide count remains 16,166 under this support assumption.
