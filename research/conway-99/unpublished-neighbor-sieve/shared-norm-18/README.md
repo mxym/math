@@ -6,6 +6,8 @@ The [three-label exclusion](panel-heights.md#the-three-label-exclusion-and-the-r
 
 In the remaining two-type case at ranks 40 and 42, [a residue count and a dimension bound](two-type-overlap-matching.md) force eight pairs of distinct norm-18 supports with six or seven common sites per pair. All sixteen supports are different.
 
+The [short-population identity](two-type-short-counts.md) leaves ten integer tuples in the two-type case. Each extension has one or three eligible 22-cocliques and 400 to 448 eligible oriented norm-18 labels.
+
 ## Rank 36 requires at least four selected types
 
 The [Fano square packing and original graph-lattice identity](rank36-four-types.md) force a neutral label of norm 16, 18 or 20 at rank 36. This excludes the final three-type alternative. At every rank, absence of norm 20 implies at most 198 oriented norm-14 labels. The [standard-library checker](rank36_four_types.py) verifies the identity and bounds.
