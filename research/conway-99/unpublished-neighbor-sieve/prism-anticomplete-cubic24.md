@@ -31,3 +31,5 @@ Thus H is a triangle. Its six incidences to Z must be distributed one per Z vert
 Every site of S∪Z sees exactly one point of H, so these 36 sites are precisely H's wing. In it P and R are whole cubic components, and N is the union of the remaining components. The triangle is unique because its vertices were recovered as the three actual rung caps of P. Any prism disjoint and anticomplete to S is wholly in Z, so the new prism is also unique.
 
 Finally a bad prism cannot have 24 vertices in cubic components of F by this theorem. It also cannot have all 30 vertices in cubic components: applying the maximum-size (6,30) case of the anticomplete-shore theorem makes the prism a component of a triangle wing, hence good. Since each component order is a multiple of six, the total for a bad prism is at most 18.
+
+**Eighteen-site strengthening.** The [three-cap overlap argument](prism-anticomplete-cubic18.md) lowers the sufficient anticomplete cubic volume to eighteen even for a connected shore, and limits a bad prism's cubic anticomplete region to twelve sites.
