@@ -29,3 +29,5 @@ Exactly 52,144 / 1,945 / 42 base diagrams remain at ranks 5/4/3. Requiring every
 In particular the six-cubic twelve-grid/no-large-component rank36 case is excluded: nine dirty edges, six cubic groups and no degree-two group force at least one saturated axis (at most six distinct original axes across the six groups). This contradicts the nine-grid bound without requiring a classification of the dirty graph. Together with the independent [four-prism split theorem](wing-twelve-four-prism-split.md) and preceding rank-free four-cubic reductions, a rank36 twelve-grid root has an incident wing component of size at least 24; the analogous thirteen-grid case was already proved. This is a conditional root theorem and does not assert that any such root occurs.
 
 Run `OPENBLAS_NUM_THREADS=1 python3 saturated_prism_clean_matching.py` to reproduce the counts.
+
+**Strengthening.** The [disjoint-pair theorem](saturated-disjoint-clean.md) also excludes two disjoint clean pairs among the six axes. Thus the matching has size at most one, and the seven-grid bound at a rank-36 saturated-axis vertex holds without any component-size hypothesis.
