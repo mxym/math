@@ -64,6 +64,8 @@ On the rank-42 two-type face, [eight short counts determine the entire true Hoff
 
 The [ternary rank of the Hoffman coclique design](hoffman-ternary-rank.md) is at least 19; if a Fano switch exists, it is exactly 21. The associated six-site restrictions have a residual collision bound, not an exclusion of a full rank.
 
+For the actual graph design, the [triple-incidence obstruction](hoffman-ternary-rank-three.md) improves the ternary rank bound to 20, by compressing the putative rank-three kernel to five exact decks and ruling each out. No Seidel rank is excluded.
+
 The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exact theta relations and caps of 32 and 74 for oriented norm-18 and norm-24 fields vanishing on a fixed coclique, in each specified maximal ternary extension. They are not caps on all graph labels.
 
 [Nonunit norm-32 residual labels](hoffman-residual-norm32.md) admit exact two-site reconstruction from norm-18 labels meeting the fixed coclique in two sites of each sign, with at most two reconstructions per oriented label.

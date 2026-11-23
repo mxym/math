@@ -1,5 +1,7 @@
 # Ternary kernel of the point--block design of a Hoffman coclique
 
+**For the actual graph design**, the [triple-incidence argument](hoffman-ternary-rank-three.md) subsequently raises this bound to rank 20. The statement below applies to any simple design of these parameters.
+
 Let C be a 22-coclique. Its 77 outside vertices give 77 four-element blocks on C; any pair of points lies in two blocks. The blocks are distinct since distinct vertices cannot have four common neighbors. In fact the following holds in any simple 2-(22,4,2) design; it does not use the modular shell hypotheses. Write D for its 22-by-77 incidence matrix and K for the kernel of D-transpose over F3.
 
 **Theorem.** The only possible nonzero weights in K are 12, 15 and 18. Weight 12 or 18 is balanced: its standard lift to 0,+1,−1 has equally many signs. Weight 15 has 9 of one sign and 6 of the other, or is a constant-sign word. At most one constant-positive weight-15 word exists. Moreover dim K ≤ 3, i.e. D has ternary rank at least 19. In the constant-sign case dim K=1 exactly.
