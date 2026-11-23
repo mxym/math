@@ -15,3 +15,5 @@ The original existence question remains open at each of the four unrestricted mo
 See [Nongrid prism classes and a grid-sensitive prism bound](bad-prisms.md) for the consequences for actual prism and norm-four vector counts.
 
 For a different forbidden configuration and a bound on cycles of prism mates, see [Thirteen triangle fibers of the K6 disjointness pattern](partial-k6.md).
+
+[Triangle-pair packing](triangle-pair-packing.md) bounds equal-mark partners at two anticomplete triangles by three. It gives at most 122 grids and at least 3,724,902 primal lattice vectors of squared norm eight at every rank. The [arithmetic checker](triangle_pair_packing.py) verifies the shell minima.
