@@ -68,6 +68,8 @@ The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exa
 
 The [complementary rank-33 Hoffman lattice](hoffman-positive-residual.md) encodes actual rook grids as short dual vectors and couples their Gram matrix to the 22-point block design. It applies whenever a Hoffman coclique exists, without a restriction on the unit types.
 
+The positive residual has a [determinant-two saturation](hoffman-plus-det2.md). For any actual Hoffman coclique, either a norm-14 +3 field vanishes on it or at least 60 oriented norm-70 +3 fields do. Neither alternative is yet excluded.
+
 A [42-site bisection](hoffman-bisection.md) from two Hoffman cocliques meeting in one point completes to four exactly when its residual shore is bipartite. On the two-type face no such completion is possible. The shore-density cuts also apply to actual nonunit charge-four bisection marks without assuming any coclique.
 
 For any [three Hoffman cocliques meeting pairwise in eight sites](hoffman-triple-eight.md), explicit integer certificates force a triple intersection of size three or four, without assumptions on the Seidel rank. Both sizes survive the stated local star equations.
