@@ -117,10 +117,10 @@ def main():
    old.append((M,S,n,k))
    threeV=1173-320*M-62*S
    if threeV<0:continue
-   if M==3 and threeV<2*k:continue  # Sum of the three V_C equals threeV.
+   if M==3 and threeV<4*k:continue  # Sum of the three V_C equals threeV.
    surv.append((M,S,n,k))
  assert len(old)==8
- assert surv==[(1,2,50,129),(1,5,51,102),(1,8,52,75),(1,11,53,48),(3,0,51,63)]
- assert 3*71<2*(2*63)
+ assert surv==[(1,2,50,129),(1,5,51,102),(1,8,52,75),(1,11,53,48)]
+ assert [21+2*k for k in (1,8)]==[23,37] and 3*71<4*63
  print('surviving (M,S,n,W234):',surv)
 if __name__=='__main__':main()

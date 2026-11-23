@@ -1,11 +1,11 @@
-# Marking an actual Hoffman coclique leaves at most five two-type tuples
+# Marking an actual Hoffman coclique leaves four two-type tuples and a unique coclique in every extension
 
 Fix a maximal determinant-49 extension in the remaining two-type case (only neutral unit norms 18 and 24 among the twelve selected types), at rank 40 or 42. Write M for its number of eligible 22-cocliques, S for its eligible unit charge-one norm-23 labels, n for its size of each signed norm-18 residue class, and W234 for the usual raw folded population. Then only the following necessary tuples remain:
 ```
 (M,S,n,W234) = (1,2,50,129), (1,5,51,102), (1,8,52,75),
-                (1,11,53,48), (3,0,51,63).
+                (1,11,53,48).
 ```
-In that last tuple not all three pairs of cocliques can intersect in one point. These are arithmetic/geometric restrictions, not a proof that any listed population is realized.
+These are arithmetic/geometric restrictions, not a proof that any listed population is realized.
 
 ## A universal marked identity on this face
 
@@ -49,10 +49,18 @@ Subtract the ordinary-mark lower constant 9·77 and substitute W123=99+S to get 
 
 For a charge-two norm-34 field b, the only possible δ against an eligible C are −6,1,8. Indeed δ≡1 mod 7. At δ≤−13, b+c would have charge four with cost 56+2δ≤30<44. At δ=15, b−c has neutral norm 26, ruled out including its nonunit part; at δ=22 it has the impossible neutral norm 12, and larger δ make the cost negative. At δ=−6, b+c has charge four, cost 44, so every entry of b+c is 0 or −1. Consequently b has only 0 and +1 on C, only 0 and −1 off C, and its cost and sum give exactly six positives and 28 negatives. In particular **all six positive sites belong to C**.
 
-When M=3 no field can have δ=−6 for all three cocliques. If any pair meets in one site this follows at once. Otherwise all three pairs meet in eight sites (15 is excluded by W014=0), and [the triple-intersection theorem](hoffman-triple-eight.md) bounds their common intersection by four. Each individual b therefore contributes at least once to δ=1 or δ=8 among the three. The normalization factor is 1/8 for the (2,34) type, the same for all three choices of C; hence
+No field can have δ=−6 at two distinct eligible cocliques C_i,C_j. For c_i=−1_{C_i}, k=|C_i∩C_j|, the field f=b+c_i+c_j+1 has charge −3 and norm
 ```
-Σ_C [K(2,34,1)+K(2,34,8)] ≥ W234.
+34+22+22+2(−6−6+k)−132+99=21+2k.
 ```
-If M=3,S=3, then W234=36 and V_C=9 for every C. The terms of V_C give 2·36≤Σ_C V_C=27, impossible. If M=3,S=0, V_C=71 and W234=63. If all three pairs met in one site, each fixed b could have δ=−6 for at most one C (again six positive sites), giving 2·(2·63)≤3·71, also impossible. The other pair patterns remain open. More quantitatively, at least 156 actual charge-two norm-34 fields must attain δ=−6 against two of the cocliques. To see this, let F be the number of such fields. The total contribution to the other angles across the three cocliques, with their normalization, is at least 2·63−F/8, while it is at most 3·71/2 by the three copies of V_C. This gives F≥156. Each such field belongs to a unique overlap-eight pair; with one, two, or three overlap-eight pairs, some pair carries at least 156, 78, or 52 of them, respectively.
+Here k=1 or 8: seven-orthogonality gives k≡1 (mod 7), and k=15 would put c_i−c_j in the absent Fano shell. Thus the norm is 23 or 37. The former is below the charge-three mass floor 33. At the latter norm, every field is unit: negate to positive charge three and, at an entry ≥2, subtract d_i to obtain charge two and cost ≤20; at an entry ≤−2, add d_i to obtain charge four and cost ≤44, which must be all nonpositive units at equality although the marked entry then equals +1. If the entry is ≤−3 the cost is already <44. The unit (3,37) type is absent on this face. All translations are equalities in the graph field group, not just in a formal theta cone.
 
-The program checks the eight previous tuples via 6n=291+5M+2S and W234=189−42M−9S, and verifies these three deletions plus the final conditional inequality. Run `python3 two_type_true_hoffman.py` alongside higher_moments.py, with its existing dependencies and SymPy. The conclusion holds inside every actual maximal extension for either residual rank; independence of different extensions is never assumed.
+Therefore if M=3, each (2,34) field contributes at least twice to the angles 1,8 among all three marks. The normalization 1/8 is unchanged for each C, so
+```
+Σ_C V_C ≥ 2 Σ_C[K(2,34,1)+K(2,34,8)] ≥ 4W234.
+```
+At S=3 this requires 27≥144; at S=0 it requires 213≥252. Both are impossible. The program checks all eight input tuples via 6n=291+5M+2S and W234=189−42M−9S, leaving exactly the four listed at the top. Run `python3 two_type_true_hoffman.py` alongside higher_moments.py, with its existing dependencies and SymPy. No independence of different extensions is assumed.
+
+## Actual graph implications on this two-type face
+
+Every maximal determinant-49 extension contains exactly one eligible Hoffman coclique. At rank 42 it is the unique one in the graph. At rank 40 the isotropic lines in the four-dimensional minus-type original seven-discriminant space are the 50 maximal extensions. Every coclique has isotropic residual value, so a graph coclique with zero original seven-class is eligible in all 50 extensions; a nonzero one is eligible in precisely its own line. Writing m for the former count and u for the latter gives 50m+u=50. Equivalently the actual graph either has a unique Hoffman coclique of original seven-class zero, or has exactly 50, one on each distinct nonzero isotropic line. This argument uses that in Witt index one two distinct isotropic lines cannot be orthogonal. It neither assumes nor constructs a graph.

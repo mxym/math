@@ -54,7 +54,7 @@ The [99-coordinate ternary adjacency code](ternary-adjacency-code.md) has dimens
 
 [Class-centered Gram bounds](two-type-class-trace.md) force at least 810 distinct intersecting norm-18 support pairs per maximal extension on the two-type face. At rank 40 this gives at least 20,250 graph-wide such pairs; they are not a disjoint matching.
 
-A [marked Hoffman-coclique identity](two-type-true-hoffman.md) reduces the eight two-type parameter tuples to at most five. Only one tuple with three eligible cocliques remains, and at least one pair in that triple meets in eight sites.
+The [marked Hoffman-coclique identity and two-mark obstruction](two-type-true-hoffman.md) reduce the eight two-type parameter tuples to at most four. Every maximal extension then contains exactly one eligible 22-coclique; at rank 42 it is the graph's unique Hoffman coclique.
 
 The [ternary rank of the Hoffman coclique design](hoffman-ternary-rank.md) is at least 19; if a Fano switch exists, it is exactly 21. The associated six-site restrictions have a residual collision bound, not an exclusion of a full rank.
 
