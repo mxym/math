@@ -19,3 +19,5 @@ For speed, reject any candidate as soon as any of the following shortages appear
 4. For a required dart pair, in one physical wing fewer than M **distinct tags** occur among all remaining triples containing the pair. These cannot represent M distinct real far sites because the tag map is injective in each wing.
 
 The four successive rejections are **20,581; 3,756; 142; 8**, with none left. Thus no E₀ can occur. The rejected abstract planes were only hypothetical simultaneous dependencies, not actual graph classes.
+
+**Currents supported on eight tails.** The [binary pair-quota test](eight-tail-five-code.md) bounds the invisible space of any union of entire components on eight tails by dimension one, even if that union is disconnected.
