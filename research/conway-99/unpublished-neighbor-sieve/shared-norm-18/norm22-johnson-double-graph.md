@@ -33,3 +33,5 @@ All ±2 sites here are outside q. If m=5 or 6, counting occupancy of the P_i as 
 4·#{q: μ(q)=5} + 6·#{q: μ(q)=6} ≤ 12S.
 ```
 These are true norm-18/22/28 incidence conditions, not an exclusion of the two-type face or any remaining rank.
+
+[Together with the exact marked scalar bridge](norm22-johnson-positive-mass.md), these constraints force a positive population of actual charge-three norm-33 labels in all four surviving tuples.
