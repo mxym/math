@@ -42,3 +42,5 @@ $$N^tC=S,\qquad C^tC=30I-D+18J-3X^2-XS-SX$$
 follow from $AN=NX+C$, $N^tN=3I$, and $A^2=12I-A+2J$. Thus even the pair intersections of the 33 singleton-contact columns are determined by the quotient.
 
 Once these endpoint choices are made, the remaining unknowns are one permutation of three sites on each edge of $H$. With $B=NX+C$ their point-to-line equations are linear: $AB=12N-B+6J$. A completed adjacency must also satisfy $A^2+A=12I+2J$. Conversely any completed simple adjacency satisfying this identity directly supplies a Conway graph. Neither existence nor impossibility of the quotient completion is established here.
+
+**Circulation marks.** The [mod-five description](saturated-five-currents.md) of a saturated triangle gives either a residual line or an explicit invisible integral circulation field. The [four-prism test](four-prism-five-flows.md) gives independent currents from any four prism components. These results do not assert that a saturated triangle is impossible.
