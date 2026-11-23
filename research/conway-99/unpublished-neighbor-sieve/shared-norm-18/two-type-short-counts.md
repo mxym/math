@@ -26,3 +26,5 @@ In particular, three eligible cocliques preclude any eligible Fano root. An elig
 At rank 40, let $m_0$ count the graph's 22-cocliques with zero original seven-class, and let $h$ count maximal extensions containing three eligible cocliques. There are 50 extensions, corresponding to the isotropic lines of the four-dimensional minus space. A zero-class coclique belongs to all 50. Each coclique with nonzero isotropic class belongs to its unique isotropic line, since the quotient of its perpendicular by the line is anisotropic. Thus the graph has exactly $50+2h-49m_0$ cocliques. In particular it has between 50 and 150 when $m_0=0$.
 
 Run `python3 two_type_short_counts.py` with python-flint. The tuples are necessary counts. Their realization by a graph remains open.
+
+[Endpoint compatibility](two-type-no-fano.md) rules out the two (B=2) tuples, leaving eight necessary possibilities.
