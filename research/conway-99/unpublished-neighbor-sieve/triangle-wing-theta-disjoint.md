@@ -1,5 +1,7 @@
 # The last two-cubic theta needs a nongrid doubly covered square
 
+The final remaining local type is excluded by the [subsequent positive-edge argument](triangle-wing-no-two-cubic.md). The analysis below gives the intermediate reductions.
+
 Continue the [theta path classification](triangle-wing-theta-paths.md) and the [no separate cycles refinement](triangle-wing-theta-no-cycles.md). At a root \(o\) with no wing component of size at least 24 and exactly two cubic split vertices, the entire dirty split graph is the theta with paths of lengths \(1,3,3\); all other cells are clean. Write \(a,b\) for its distinct endpoint axes, \(p,q\) for the start defect columns of the two long paths, and \(r=v_{ab}\) for the direct edge. Then \(p+q+r=0\), \(p^2=q^2=28\), and the two long ends on each path are matching cells. The middle cells have two edges but might be paths plus isolates.
 
 **Theorem.** The two length-three paths must have disjoint internal original axes. At least one middle cell is a two-edge path plus an isolate. Consequently each such root lies on a doubly prism-covered square contained in no grid. In the Fano-free case, if \(S\) is the number of nonordinary unit positive-charge fields of cost 23, there are at most \(4S\) such roots on the graph. This does not eliminate the last local layout when \(S>0\).
