@@ -63,4 +63,6 @@ At S=3 this requires 27≥144; at S=0 it requires 213≥252. Both are impossible
 
 ## Actual graph implications on this two-type face
 
+**Subsequent exclusion at rank 40.** The [tangent-line congruence](rank40-two-type-tangent-deck.md) rules out this entire two-type face at rank 40. The rank-40 dichotomy below is an intermediate necessary condition; the four surviving tuples apply only to rank 42 after that additional argument.
+
 Every maximal determinant-49 extension contains exactly one eligible Hoffman coclique. At rank 42 it is the unique one in the graph. At rank 40 the isotropic lines in the four-dimensional minus-type original seven-discriminant space are the 50 maximal extensions. Every coclique has isotropic residual value, so a graph coclique with zero original seven-class is eligible in all 50 extensions; a nonzero one is eligible in precisely its own line. Writing m for the former count and u for the latter gives 50m+u=50. Equivalently the actual graph either has a unique Hoffman coclique of original seven-class zero, or has exactly 50, one on each distinct nonzero isotropic line. This argument uses that in Witt index one two distinct isotropic lines cannot be orthogonal. It neither assumes nor constructs a graph.

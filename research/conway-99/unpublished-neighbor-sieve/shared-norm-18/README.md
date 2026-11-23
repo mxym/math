@@ -56,6 +56,8 @@ The [99-coordinate ternary adjacency code](ternary-adjacency-code.md) has dimens
 
 The [marked Hoffman-coclique identity and two-mark obstruction](two-type-true-hoffman.md) reduce the eight two-type parameter tuples to at most four. Every maximal extension then contains exactly one eligible 22-coclique; at rank 42 it is the graph's unique Hoffman coclique.
 
+The [rank-40 tangent-line congruence](rank40-two-type-tangent-deck.md) eliminates the last two-type support at rank 40: at least three selected unit types are necessary there. Rank 40 itself and the rank-42 two-type case remain open.
+
 The [ternary rank of the Hoffman coclique design](hoffman-ternary-rank.md) is at least 19; if a Fano switch exists, it is exactly 21. The associated six-site restrictions have a residual collision bound, not an exclusion of a full rank.
 
 The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exact theta relations and caps of 32 and 74 for oriented norm-18 and norm-24 fields vanishing on a fixed coclique, in each specified maximal ternary extension. They are not caps on all graph labels.
