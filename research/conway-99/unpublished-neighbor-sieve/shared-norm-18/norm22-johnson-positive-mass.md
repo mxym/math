@@ -31,3 +31,5 @@ Run `python3 two-type-scalar-bridge.py` alongside `two_type_true_hoffman.py`, wi
 [The mandatory unit double](unit-double-four-arcs.md) also forces a 36-site signed core with one of three exact directed mass decks in every tuple.
 
 [The forced 33-sets](33set-rank11-and-switches.md) have cycle switches, exact short-field incidence constraints, and an 11-dimensional true zero-section.
+
+[Two unit edges with a shared source](forced-unit-wedge.md) are also forced in every tuple, giving six actual norm-18 fields on 41–43 sites around one norm-22 decomposition field.
