@@ -1,0 +1,43 @@
+# Every Hoffman coclique misses at least sixty norm-70 positive eigenfields
+
+For every independent 22-set C in a hypothetical Conway graph, there are at least **60 distinct oriented integral +3 eigenvectors t of squared norm 70 that vanish everywhere on C**. This holds at every remaining mod-seven Seidel rank. In fact there is a single determinant-two saturation whose dual labels include all sixty. This improves the earlier [norm-14 or norm-70 alternative](hoffman-plus-det2.md); it does not establish existence of C or exclude any rank.
+
+We retain the actual rank-33 projected lattice L, with marks twice the projections of the +3 marks onto the orthogonal complement of the C marks. Its dual is in bijection with integral +3 fields supported off C, with ordinary field inner product **28 times** the dual inner product. For a maximal even extension T of determinant 2, write a,b for its numbers of dual vectors of norms 1/2,5/2 and R for its number of roots. The preceding E7 gluing gives
+$$b=60+2R-32a.$$
+We choose the two primary gluings so a=0. The dual vectors from the b shell then give the claim; distinct such oriented fields have pairings 14 modulo 28, since they are in the same nonzero T*/T class.
+
+## The screen at seven needs at most 6,468 lines
+
+For a neutral +3 field of norm 14 both sets of sites of a given sign have size seven, and all nonzero entries are units by the [positive short-shell argument](../../complementary-rank56/README.md#2-dual-label-dictionary). Within its sign each site has degree three plus its number of opposite-sign neighbors. No internal degree can exceed four: five neighbors have at most the one other point to help meet their own degree requirements, and at most two of them can see that point; six leave no other point. Since a cubic graph on seven sites is impossible, choose a center of degree four. Its four neighbors can see at most one mate each among those neighbors and need at least one contact apiece with the last two sites. Each of those two sites sees at most two of the four. Hence the four form two mate pairs and take exactly one exterior contact each; the last two are adjacent and must each see one endpoint from each mate pair (mates already share the center). Thus the center is unique and the other six have degree three; the sole cross-sign edge joins the two centers.
+
+Let B be the other 77 graph sites. At either center in B four of its seven neighbor pairs have a point in C, leaving three complete B-pairs. Once the center and two selected complete pairs are fixed, the other two same-sign sites are determined up to at most two choices: they come from one of the two matchings across the given pairs, using the unique second common neighbor of each such nonedge. Fix an **oriented** center edge pq in B. If its unique triangle cap is in B, its own B-pair cannot be used, leaving at most two choices at each end; if the cap is in C, at most six. The induced graph on B is 10-regular. Of its 385 edges, 22·7=154 have C-caps and 231 have B-caps. Consequently at most
+$$2(231\cdot2^2+154\cdot6^2)=12,936$$
+oriented fields of norm 14 vanish on C, or 6,468 pairs of opposite fields.
+
+The seven-discriminant of L is split of dimension 2m=54−r over F₇, by the rank-33 construction. A nonzero isotropic line lies in a fraction 1/(7^(m−1)+1) of the maximal totally isotropic spaces H. Indeed the split form has (7^m−1)(7^(m−1)+1) nonzero isotropic vectors (write it as a dot product of two m-tuples); double count their incidences with H using transitivity on isotropic vectors. The seven-class of x=t/√28 for a norm-14 field is isotropic because x²=1/2 is seven-integral. The selected H has H^perp=H, and m≥6. Since 6,468<7^5+1, we can choose H avoiding *all nonzero* seven-classes of these points.
+
+For a point with zero seven-class, y=2x=t/√7 is an actual root of the unrestricted [rank-56 lattice Λ](../../complementary-rank56/README.md) in the real rank-33 residual space. Indeed y has neutral integral evaluations t_i at all +3 marks, so (y,0) pairs integrally with the mark differences, the binary supplement, and the glue (a_0,k); hence it is in Λ*. At seven, the binary supplement and the span of the C marks split off unimodularly, and L is the remaining projected Λ-lattice there since two is a unit. Thus y is in Λ at seven, and Λ is unimodular at every other prime. In particular **all remaining candidates together number at most 1,056 antipodal pairs**: norm-two vectors in the rank-at-most-33 integral root lattice form a simply laced root system, with at most 64 roots per dimension by the A,D,E counts.
+
+## A simultaneous dyadic escape
+
+At two, write S for the primitive orthogonal complement of the saturated C-span in the even unimodular rank-54 graph-mark lattice. It has rank 33. The [dyadic projection identity](hoffman-binary-grid-deck.md) is L₂=2S*. Its finite discriminant module is
+$$A=L_2^*/L_2=(S/2)/(2S^*)\ \cong\ S/(4S^*),$$
+where S/2 on the left means the lattice of half-vectors, not reduction modulo two. The order of every element divides four, and 2A is totally isotropic (a doubled half-vector is a vector of even S). The discriminant group of S is isomorphic as a group to that of the primitive rank-21 orthogonal complement, so has at most 21 generators. Thus at least twelve of the 33 Smith entries for S are units, and A has at least twelve cyclic factors of order four.
+
+Use q(g)=(g,g)/2 modulo one and its bilinear form b. Write A=A₄⊥A₂ with A₄ free of rank l≥12 over ℤ/4 and A₂ elementary of exponent two. For an elementary proof of this orthogonal splitting, take any order-four element e and an f with 4b(e,f) odd. Every 4b(v,v) is even since 2A is isotropic. Hence e,f span a nonsingular free rank-two block, which splits off. Iterate. In particular l is even. On V=2A₄ the pairing
+$$\beta(2v,2w)=4b(v,w)\pmod2$$
+is a nondegenerate alternating binary form. The map Q(2v)=4q(v) modulo two, for v in A₄, is well defined (changing v by an element of 2A₄ cannot affect it), and polarizes to β.
+
+Each remaining candidate x=y/2 represents a class in A of q-value 1/4. If it has order **four**, declare the nonzero direction 2x in V forbidden; there are at most 1,056 such directions. If x has order **two**, then y∈2S* locally and its pairing with every vector of S is even. For two distinct nonopposite root candidates of this kind, their global integral root pairing is even, hence zero. Their A₂ projections e_i are thus mutually orthogonal with self-pairing 1/2 and q(e_i)=1/4: subtracting the 2A₄ component does not affect any of these values.
+
+Choose a nonzero d∈V different from all forbidden directions as follows. For a lift 2h₄=d in A₄, set
+$$h_2=\sum_i c_i(d)e_i,\qquad c_i(d)=1-2b(x_i,h_4)\pmod2.$$
+These coefficients are well-defined affine-linear functions of d since the A₄ component of each x_i has order at most two. Then b(x_i,h₄+h₂)=1/2 for every order-two candidate. To get q(h₄+h₂) integral or half-integral is a **single** binary equation
+$$Q(d)+\sum_i c_i(d)=0.$$
+A nondegenerate quadratic form plus an affine-linear term on l variables has at least 2^(l−1)−2^(l/2−1) zeros: the square of its character sum is 2^l by translating by each vector and using nondegeneracy of the polar form. This gives at least 2,016 choices even at l=12, exceeding 1,056+1. Thus d can be chosen as required. If q(h₄+h₂)=1/2, add to h₄ an element of 2A₄ pairing to 1/2 with it, which exists by nondegeneracy and d≠0. The sum h is now isotropic, with the same d and order-two candidate pairings.
+
+Take N={n∈2A:b(n,h)=0}. The subgroup generated by N and h is isotropic; extend it to a maximal isotropic subgroup. No order-two candidate is orthogonal to h. For an order-four candidate x, the two functionals on 2A given by b(x,·) and b(h,·) are distinct nonzero binary linear forms, since their β directions are 2x and d. Therefore x is not orthogonal to N. **No candidate survives in the dual of this dyadic extension.** Combining this local choice with the seven choice gives the required even T with a=0.
+
+A quantitative alternative follows from the same construction. Fix the dyadic choice avoiding every zero-seven-class root. Write Z and U for the numbers of oriented zero-on-C norm-70 fields whose dual seven-class is respectively zero or nonzero. At every good seven extension, at least 60 occur. At least 1−6468/(7^(m−1)+1) of all seven extensions are good. A nonzero seven-class at norm 70 is isotropic and is eligible in fraction 1/(7^(m−1)+1) of the extensions (dyadic eligibility can only reduce the count). Hence
+$$ (7^{m-1}+1)Z+U\ge 60(7^{m-1}+1-6468).$$
+If Z=0 this requires at least 620,400 oriented norm-70 fields even at rank 42. No assertion that Z vanishes is made.

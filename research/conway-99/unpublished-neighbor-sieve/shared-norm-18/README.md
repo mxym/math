@@ -78,7 +78,7 @@ The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exa
 
 The [complementary rank-33 Hoffman lattice](hoffman-positive-residual.md) encodes actual rook grids as short dual vectors and couples their Gram matrix to the 22-point block design. It applies whenever a Hoffman coclique exists, without a restriction on the unit types.
 
-The positive residual has a [determinant-two saturation](hoffman-plus-det2.md). For any actual Hoffman coclique, either a norm-14 +3 field vanishes on it or at least 60 oriented norm-70 +3 fields do. Neither alternative is yet excluded.
+The positive residual has a [determinant-two saturation](hoffman-plus-det2.md). By [choosing its two primary extensions together](hoffman-positive-norm70.md), one can always get at least 60 oriented norm-70 +3 fields vanishing on any actual Hoffman coclique. This is conditional on the coclique and does not exclude a full rank.
 
 The [binary Hoffman design code](hoffman-binary-grid-deck.md) links the true number of grids to binary nullity, computes the unsaturated positive residual's dyadic determinant, and characterizes grids by literal residual cosets. It does not assume or establish the existence of a grid.
 
