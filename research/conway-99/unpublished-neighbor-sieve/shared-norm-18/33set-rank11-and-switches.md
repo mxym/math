@@ -50,3 +50,28 @@ A further exact lattice datum is the unsaturated \(S\)-mark Gram determinant
 where \(L_\ell,F_\ell\) are the Lucas and Fibonacci numbers. Indeed the constant eigenvalue changes from 1 to \(14/3\); the cycle factor is \(\lambda_+^\ell+\lambda_-^\ell-2=L_{2\ell}-2\) for \(\lambda_\pm=(3\pm\sqrt5)/2\). The primitive saturation at primes other than seven is not determined by this formula; this is not a determinant assertion for the integral rank-11 residual outside seven.
 
 [The primitive perpendicular to the whole 33-set mark](33set-det154-gluings.md) instead has rank 43 and determinant 154. Two explicit even unimodular rank-48 parents give exact harmonic equations for that mark.
+
+## Two-gap restriction on a switched shore
+
+At an overlap-24 switch let $P=S\setminus S'$ be the nine positive points of $t=\mathbf1_S-\mathbf1_{S'}$. These points are independent. **There are at most two length-two gaps between consecutive points of P around the cycles of S.** The same holds for the negative shore in $S'$. In particular the 24 shared sites contain at most two points of height two and at most eight zero-star roots for this switch.
+
+Put $F=3I-A_S$ and $G=F+J/9$, the Gram of the 33 marks. Because $F\mathbf1=\mathbf1$, one has $G^{-1}=F^{-1}-J/42$. The physical vector $t/\sqrt7$ has squared norm $18/7$ and evaluates to $z=\mathbf1_P$ on these marks. Orthogonal projection therefore gives
+$$
+z^TF^{-1}z\le 18/7+81/42=9/2.
+$$
+Let $\rho=(3-\sqrt5)/2$. On a cycle of length $\ell$ the inverse kernel is
+$$
+(F^{-1})_{ij}=\frac{1}{\sqrt5}\sum_{m\in\mathbb Z}\rho^{|i-j+m\ell|},
+$$
+as follows by substituting in the three-term recurrence for $F$. On each visited cycle take the cyclic gaps between successive marked points, including the full cycle as one gap if it has just one mark. There are nine gaps of length at least two and their total is at most 33. Keep the nine diagonal zero-length terms and both directions of each arc crossing one or two consecutive gaps in the periodic kernel sum. These terms are distinct because the number of steps and the signed lifted distance determine each walk from its starting point. This remains valid when a walk makes a full turn, or two turns for the two-gap walk on a one-point cycle. Therefore
+$$
+\sum_{g}\rho^g+\sum_{g,g'\ \text{consecutive}}\rho^{g+g'}
+\le (9\sqrt5-18)/4=:B,
+$$
+where the second sum counts each cyclic starting gap once.
+
+Four gaps of length two already exceed $B$ from their one-gap terms. With precisely three, the other six have total length at most 27. The affine line through $(4,\rho^4),(5,\rho^5)$ is a lower bound on $\rho^g$ at integer $g\ge3$, with equality only at 4 and 5. Every other integer has defect at least $\rho^6-2\rho^5+\rho^4>0.0081$; decreasing the total below 27 adds at least $\rho^4-\rho^5>0.0131$. The minimum total from the one-gap terms is $M=3\rho^2+3\rho^4+3\rho^5$, with $0.00520<B-M<0.00522$. Thus the remaining six lengths must be $4,4,4,5,5,5$. If two length-two gaps are adjacent, they contribute $\rho^4$ to the two-gap sum. Otherwise the three short gaps touch six distinct consecutive windows with total length at most seven each. Either way the contribution is at least $\min(\rho^4,6\rho^7)>0.0071$, more than $B-M$. The strict comparisons can be checked with $2.2360679<\sqrt5<2.2360680$. This proves the gap bound.
+
+The height of a shared vertex equals its number of P-neighbors within S. Each height-two vertex is the midpoint of one length-two gap. There are 18 P-to-shared contacts in all, so the zero count in the 24 shared sites is six plus the height-two count. If the switch has nine zero-star roots, at least one is outside the shared shore.
+
+There is also a rigid equality case: if all nine gaps have length three, the full Green contribution in gap units is $9\rho^3/(1-\rho^3)=B$, so the projection saturates. The six unused sites of S are entire cycles. The vector $v=F^{-1}z$ equals $1/2$ at P, $1/4$ at other sites in the visited cycles, and zero on the unused six, by direct substitution. The vector $t/\sqrt7$ is in the S mark span with coefficients $v-(3/14)\mathbf1$. For any support-zero site outside S, evaluation at that site gives $\sum_{i\in N(x)\cap S}v_i=3/2$, since x has six S-neighbors. If its height is h and it has k neighbors in the unused six, the left side is $(6+h-k)/4$; hence $k=h$. This is an equality-case dictionary, not a switch existence assertion.
