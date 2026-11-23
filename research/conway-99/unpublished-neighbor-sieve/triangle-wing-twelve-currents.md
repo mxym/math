@@ -37,3 +37,5 @@ For 12+12+12, ell=34−2a−b where a,b count A,B. A current has dimension 2, B 
 [The full type-A intersection test](triangle-wing-aa-direct.md) further shows two A current images are disjoint, raising the excluded rank-36 count to 66 of 455 in this particular split.
 
 **All seven-singular types in the three-twelve split are excluded.** The [A plus two unit components test](auu-plane-quotient.md) and [A plus two B components test](abb-orthogonal-quotient.md) complete the zero-section exclusions of this split. At rank 36 any actual 12+12+12 triangle must have three seven-unit tree numbers: 169 of the 455 abstract multisets are excluded by the singular-type result, leaving the 286 pure-unit multisets for other arguments. This does not assert that any of those are realizable or rule out other triangle-wing splits.
+
+**First seven-unit family.** The [far-cap boundary test](hhu-cap-boundary.md) also excludes all eleven pure-unit multisets containing at least two copies of the hexagonal-prism type. Thus at least 180 of 455 multisets in this specific rank-36 split are excluded, leaving 275 not ruled out by these tests.
