@@ -80,6 +80,8 @@ The [binary Hoffman design code](hoffman-binary-grid-deck.md) links the true num
 
 At binary nullity seven, [a block-swap argument](hoffman-nullity-seven-no-grids.md) forbids every rook grid in the graph and gives dyadic determinant valuation 37. Any graph containing both a grid and a Hoffman coclique must have binary nullity at most six at that coclique.
 
+The [affine-plane obstruction](hoffman-binary-nullity-six.md) subsequently rules out binary nullity seven altogether for every actual Hoffman coclique, raising the binary incidence rank bound from 15 to 16.
+
 A [42-site bisection](hoffman-bisection.md) from two Hoffman cocliques meeting in one point completes to four exactly when its residual shore is bipartite. On the two-type face no such completion is possible. The shore-density cuts also apply to actual nonunit charge-four bisection marks without assuming any coclique.
 
 For any [three Hoffman cocliques meeting pairwise in eight sites](hoffman-triple-eight.md), explicit integer certificates force a triple intersection of size three or four, without assumptions on the Seidel rank. Both sizes survive the stated local star equations.

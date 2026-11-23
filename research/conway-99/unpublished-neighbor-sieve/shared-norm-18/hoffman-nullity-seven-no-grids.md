@@ -1,5 +1,7 @@
 # At maximum binary Hoffman nullity, every signature is distinct and there is no rook grid
 
+**Subsequent strengthening.** [Binary nullity seven is impossible](hoffman-binary-nullity-six.md) in an actual Hoffman design. The argument below first restricts that hypothetical case; its signature conclusion is used in the later proof.
+
 Use the [binary Hoffman design code and its dyadic lift](hoffman-binary-grid-deck.md). If k=dim ker(D^T mod 2)=7, then B2=0, the graph has no nine-site rook grid, and j=0 (so v2(det L+)=37). Without fixing k, v2(det L+)≤45. This is a conditional result: it does not prove either that k=7 or that a grid must occur.
 
 Write p=B2. The binary code identity gives B4=112−7p, and the design has 77 distinct actual blocks, so p≤5. The p candidate pairs are the pairs of equal coordinate signatures, meaning columns of any generator matrix of K. Join two disjoint candidate pairs e,f in a mate graph when e∪f is an actual block. Every pair e is in exactly two blocks by the design. In either one, the complementary pair f has equal signatures because a block belongs to K^perp. The two complements are disjoint: if not, two distinct design columns would share three C sites, impossible by the SRG common-neighbor cap. Thus this mate graph is simple and 2-regular.
