@@ -41,3 +41,5 @@ $$
 When $N_{20}=0$, the square bound limits the first term to $57967\cdot198=11{,}477{,}466$. Subtraction gives the claimed inequality. In particular if $N_{16}=N_{20}=0$, there are at least 2,092 oriented norm-18 labels, using their even count. If $N_{18}=N_{20}=0$, there are at least 544 oriented norm-16 labels.
 
 The qualitative exclusion also follows from the older [squared-norm-six bound of 41,058](../../rank-34-exclusion/README.md), which still gives $17150N_{16}+4459N_{18}\ge5{,}465{,}362$ when norm 20 is absent. Run `python3 rank36_four_types.py` with the standard library. It checks the finite Fano incidences, the theta identity and both versions of the inequality. Rank 36 with four or more selected types and the other three ranks remain open.
+
+The [Fano difference-packing inequalities](fano-difference-packing.md) strengthen the square estimate quantitatively, also when norm 20 is present.

@@ -18,6 +18,8 @@ The [unconditional degree-ten site inequality](site-degree-ten-global.md) gives 
 
 [Global coclique Sidon packing](global-coclique-sidon.md) makes no assumption on residue-class compatibility: among all 22-cocliques, an ordered difference determines the pair.
 
+[Fano difference packing](fano-difference-packing.md) makes the norm-14 bounds quantitative in terms of norms 20 and 24, with no rank restriction.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
