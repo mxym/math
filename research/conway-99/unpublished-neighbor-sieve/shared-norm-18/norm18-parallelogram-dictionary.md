@@ -1,0 +1,27 @@
+# The four norm-18 collision counts in one residual plane
+
+Fix a maximal determinant-49 extension. All labels below are true oriented H-eligible integral neutral fields with graph-coordinate squared norm 18, unless another cost is specified. No neighboring shell is assumed absent. A line of fields is an antipodal pair of actual fields. A projective source direction is instead one of the four antipodal pairs of classes on the residual norm-four circle; index them 1,2,3,4 so that 1⊥2 and 3⊥4.
+
+For an unoriented norm-j resultant line q, write μ_j(q) for the number of unordered pairs of oriented norm-18 fields summing to one specified orientation of q; reversing the orientation simultaneously negates both fields and gives the same count. Put B_j=sum_q binom(μ_j(q),2). For an unoriented zero-class norm-28 resultant line z, let r_i(z) count the representations of a fixed orientation of z in source direction i. Each is uniquely z=a+b with a in a chosen signed class β_i and b in −β_i. In particular there is no factor two for permuting a and b.
+
+The following are exact integer identities:
+```
+sum_z sum_i binom(r_i(z),2)             = 2 B16,
+sum_z (r_1(z)r_2(z)+r_3(z)r_4(z))     = B22/2,
+sum_z (r_1(z)+r_2(z))(r_3(z)+r_4(z)) = B20 = B24.
+```
+They distinguish collisions within a direction, between perpendicular directions, and between nonperpendicular ones. In particular B22 is even. The last equality counts actual incidences, not an assertion equating the norm-20 and norm-24 shell totals.
+
+**General four-field bijection.** Suppose a fixed z has two distinct representations z=a+b=c+d. None of a,b,c,d share a field up to sign (up to signs this would either make the two representations coincide or force a scalar product exceeding the maximum allowed by a·z=14). In more detail a=c or b=d gives equality of representations; a=−c would give a·z=14=−14. The same excludes any cross-pair repeat or opposite. The two additional ways to pair the four fields give resultant directions
+```
+q=a−c=d−b,      s=a−d=c−b.
+```
+Both q and s have two unordered decompositions. They are distinct up to sign: q=s would force c=d (impossible since 4||c||²≠28); q=−s would force 2a=z, likewise impossible. Changing the signs of the entire original data just negates both companions, and exchanging the two sources of either representation permutes or negates the two companions. This construction is reversible: given q and the unordered pair of its decompositions one recovers the two other pairing lines by the same three-partition rule, up to order and sign. These are incidences of a resultant WITH A CHOSEN PAIR OF DECOMPOSITIONS, so third or further decompositions introduce no ambiguity.
+
+**A norm-28 starting point.** The products a·c and a·d sum to 14. Each lies between 4 and 10 by the [unconditional norm-18 angular cap](unconditional-cross-shell-centroids.md). If the two directions coincide, choose a,c in the same signed class: their dot must be 4, and a·d=10. Thus q and s have norms 28 and 16 in some order. If the directions are perpendicular both products must be 7, giving norms 22 and 22. Otherwise the two products are 6 and 8, giving norms 24 and 20. These alternatives exhaust all pairs.
+
+**Reverse at norm 16.** A signed sum q of squared norm 16 has both source residues equal to [q]/2: a source ω satisfies ω²=4, ω·[q]=[q]²/2; here (ω−[q]/2)²=0 and the plane is anisotropic. For two distinct decompositions q=a+b=c+d, cross products a·c and a·d are in {4,−3,−10} by the common signed class and sum to 8. Both must equal 4. Thus there are exactly TWO distinct norm-28 companions, and at each their two decompositions are in one direction. Conversely each counted pair of same-direction norm-28 representations has just ONE norm-16 companion (its other companion has norm 28). This proves the factor 2 multiplying B16.
+
+**Reverse at norms 20,22,24.** An oriented norm-j resultant determines its unordered pair of distinct, nonopposite signed source classes. Indeed a source has product j/2 with the resultant and lies on the norm-four circle; this line meets the circle at at most two points. The points cannot coincide since j is not 4·18 modulo 7, and cannot be negatives as j is nonzero modulo 7. Align a,c in the same first class in two distinct decompositions. Their product must be 4: the alternatives −3 or −10 would give a·d=j/2−a·c at least 13, impossible. Thus one companion ALWAYS has norm28, with two source directions as indicated by their mutual residue. The other companion has norm 36−2(j/2−4)=44−j, explicitly 24,22,20 for j=20,22,24. At a norm-20 or norm-24 incidence, therefore, exactly one corresponding norm-28 incidence occurs, and each nonperpendicular direction pair at norm 28 has exactly one companion of EACH of those two norms. At a norm-22 incidence exactly one norm-28 incidence occurs but a perpendicular direction pair at norm 28 has TWO norm-22 companions. This proves the remaining identities.
+
+For example, writing e_4 for the total within-chosen-signed-class pairs of dot four and E16 for those of dot minus ten, one also has e_4=sum_z sum_i r_i(z) and E16=sum_q μ16(q). For cross blocks E6,E8 denote unordered absolute-dot events; they are exactly sum μ24 and sum μ20, respectively. Consequently the universal centroid relation may be used with the actual occupation numbers and the three exact collision moments rather than uniform multiplicity caps. No new support or rank exclusion is claimed by these identities alone.
