@@ -9,3 +9,5 @@ In the [replay](three_neutral_plus_u125.py) the precise same thirteen harmonic r
 630 K125[−3] + 660 K125[4] + 690 K125[11].
 ```
 All are nonnegative. Hence the same contradiction to the literal graph-incidence inequality applies. The verifier needs only the Python standard library.
+
+The [five-way hitting theorem](high-rank-five-hit.md) further strengthens this result by simultaneously allowing both type 121 and type 226.
