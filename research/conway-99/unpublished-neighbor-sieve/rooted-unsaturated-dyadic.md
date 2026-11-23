@@ -75,3 +75,5 @@ F3(o) ≤ 30 + f_o,        sum_o F3(o) ≤ 2970 + 14 N14(H).
 In particular F3(o)≤30 on any no-Fano face. Both the trace and rank calculations use actual graph subspaces; relabeling the two axes in a formal cell-pattern count introduces no graph symmetry assumption.
 
 The [global grid cap of 118](../rook-array-exclusion/rectangle-class-forest.md) also gives a sharper total. If $g(o)$ counts grids through $o$, then $\sum_o g(o)=9G\le1062$. Summing $m(o)\le13+\lfloor g(o)/7\rfloor$ gives $\sum_o m(o)\le13\cdot99+151=1438$. Consequently $\sum_o F_3(o)\le 2876+14N_{14}(H)$.
+
+[The reciprocal cusp](rooted-dyadic-reciprocal-gap.md) has no terms of degrees 1 through 20; its degree-21 count is exactly the primal degree-three count.

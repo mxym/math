@@ -1,0 +1,13 @@
+# The reciprocal zero-star cusp starts in degree 21
+
+Use the 7-extended, dyadically unsaturated rooted lattice F and the [230-signature atlas](rooted-unsaturated-dyadic.md). Let F^{*7} denote its dual at seven only, unchanged at all other primes, and put A=√7 F^{*7}. An A-vector of norm 2j comes from x∈F^{*7} with x²=2j/7; its 84 evaluations y, extended by zero on the root and neighbors, form an integral neutral minus-four eigenfield. Indeed F^{*7}⊂F*, and the original frame marks belong to F. The squared evaluation norm is 56x²=16j. The evaluations still satisfy the same mod-eight image condition and the same fourteen zero row sums because the original frame lattice, F and F^{*7} agree locally at two. Nothing requires the signed classes of nonzero seven-residues to be uniform.
+
+We claim there is no nonzero such evaluation of squared norm below 336. A zero residue would give y=8t for a nonzero integral neutral eigenfield t of squared norm below 336/64<6, contrary to the graph's [short-support bound](../short-support-packing/README.md). For nonzero residue, the complete atlas and its integer duals leave just (00)^6(26) below 336: the two other classes with row bound 320 have strengthened bounds 432 and 448, and the rest start at 336 or higher.
+
+In the remaining class, with global negation or formal relabeling if necessary, the 12 entries at the first active mate are all 2 mod 8, and the 12 at the second all −2 mod 8. A zero-sum row of the first kind has squared norm at least 144 (nine 2's and three −6's attain the row minimum), and the same bound applies to the opposite row. These rows have disjoint coordinates, since no exterior label contains two mate root neighbors. Their union is the 24-site two-wing subgraph. Every other coordinate is 0 mod 8; if any is nonzero, its square adds at least 64, for total at least 352. If none is nonzero, y is a nonzero minus-four eigenfield supported on the two-wing subgraph, impossible since its maximum degree is two. This proves the claim.
+
+Consequently
+```
+[q^j] theta(A)=0       (1≤j≤20).
+```
+The remaining seven-discriminant plane of F is anisotropic. If x∈F^{*7} has integral even square, its class has quadratic value zero mod 1, so x belongs to F. Therefore [q^(7j)]theta(A)=[q^j]theta(F) at every j, in particular A_21=F_3≤30+f_o by the signed-cell Gram bound, where f_o counts H-compatible oriented norm-14 fields nonzero at the root. In terms of B=√8 F^{*2}, this proves min(B*)≥42/56=3/4, because √56 B*=A. This is a necessary condition at every root and every H, not a proof that the (separate) minimum of B itself is at most six.
