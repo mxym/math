@@ -51,3 +51,5 @@ A Fano vector excludes all norm-sixteen vectors at its rooted triples at rank 42
 There are $99\binom73 2^3=27,720$ rooted triples. A Fano vector uses 28 such triples. For norm sixteen count a good triple with weight one and each other triple with weight one half. At each rooted triple the total weight over both types is at most one. At each positive site of a norm-sixteen vector at least two of the four triples are good, because at most one of the six pair labels among its four neighbors is missing. Its eight positive sites therefore use total weight at least 24. Consequently
 $$28N_{14}+24N_{16}\le27,720 \quad (r=42).$$
 In particular $N_{16}\le1,154$ by evenness. Run `python3 norm16_packing.py` to replay the finite arithmetic checks for both packing arguments.
+
+[The zero-star forest and shore multigraphs](n16-zero-star-forest.md) refine this count by measuring actual double-edge components. The forest/shore theorem holds independently of the Seidel rank.
