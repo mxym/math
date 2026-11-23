@@ -46,3 +46,32 @@ If a common transposition uses two fixed indices, the corresponding six wing sit
  \;\le\;3g_T+\frac{3(12-f_T)+B_1(T)}2 \;\le\;18-f_T+2g_T.
 \]
 In fact the unused budget counts the incidences of wholly uncovered squares on the three edges of \(T\): the four-cycle consisting of \(e\) and the two transverse endpoints has one prism direction exactly when its transverse edge is in a transversal triangle, and the other exactly when that edge is aligned with its two mates. Hence both directions missing is precisely an unused edge. This local inequality is not presented as an improvement to the already stronger global prism bound.
+
+
+## Exact identification of five-site three-edge shores
+
+Let \(C_5\) count actual **nontrivial bonds with a five-site shore** in the cubic triangle wings, with the base triangle specified; no orientation sign for the other shore is used. A bond is a cut within one connected wing component into two connected nonempty shores, and nontrivial here excludes a singleton on either side. Then, with no rank/Fano hypothesis,
+\[
+ C_5=4(Q_2-9G)=2B_1\le4S_{\rm edge}.
+\]
+
+To see that every such bond gives the same eight-site shape, write the counts of the five-site shore in its three physical wings. The sum of the lower bounds on crossed inter-wing matching edges is twice the difference between the maximum and minimum counts, so they differ by at most one. Hence their values are \(1,2,2\). Name the small-wing site \(u\) and its root \(p\). The odd single site in its physical mate matching requires a boundary edge, and the two unequal inter-wing size pairs require one edge each. This exhausts the budget of three. Therefore the two larger wing pairs are mate edges, and their inter-wing matching lies wholly inside the shore. They form a square, say with matched pairs \(v,w\) and \(v',w'\), where \(v,v'\) and \(w,w'\) are the mates. Site \(u\) sees one site in each larger wing inside the shore. These two sites must be one of the matched pairs, since opposite corners of the square already have two common neighbors within it. Take them to be \(v,w\).
+
+Write the other two roots \(b,c\), with \(v,v'\) in the wing of \(b\) and \(w,w'\) in the wing of \(c\). The eight sites of \(T\) and the shore are exactly the punctured grid \(K\): its central square is \(b,c,w,v\), the two extension edges are \(pu\) and \(v'w'\), and its four full lines are the two triangles of the rooted square's row directions and the two of its column directions. If this \(K\) lay in a rook grid, the missing site \(x\) would belong to the wing of \(p\) and would absorb all three boundary edges (the mate edge of \(u\) and the transverse edges of \(v',w'\) into the small wing). In that grid the six sites outside its root line form an entire wing component, so the complementary shore would be a singleton. Thus any nontrivial bond of this size gives a nongrid \(K\), and its label is exactly the unit square mark proved above.
+
+Conversely take a nongrid \(K\) and remove any of its four full lines \(T\). The other five sites are in \(W(T)\), since each has exactly one neighbor on \(T\). They induce the connected triangle-square sharing one edge, with six edges, hence have cubic boundary of size \(3\cdot5-2\cdot6=3\) within the wing. The three outside boundary endpoints are distinct: each is in the small physical wing, already sees its root in \(T\), and if two boundary edges met there, the label \((A-3I)1_K-1\) would have value at least \(+2\) there, contrary to the unit proof. The other shore within the affected component is connected: if it had multiple components, each would need at least two crossing edges since no wing has a bridge, invoking the [thin-cut theorem](arbitrary-wing-thin-cuts.md). The three distinct endpoints also make that other shore nonsingleton. All four choices of full line are distinct bonds, and recovering \(K\) from the base triangle and five-site shore is literal union. Conversely in each bond its root triangle is one of the four full lines of \(K\). This is the asserted exact correspondence, not merely a reuse limit of four per field. In particular a separate lower bound on \(C_5\) can spend square marks, but one must not add \(C_5/4\) and \(Q_2-9G\) as two independent shell charges.
+
+
+## Disjointness of five-site shores at a fixed triangle
+
+Distinct five-site shores at one triangle are disjoint, and at most one wing edge joins two of them. There is no rank hypothesis. Suppose two five-site shores \(X,Y\) intersect, and put \(I=X\cap Y\), \(O=W\setminus(X\cup Y)\) inside the affected component (the two shores then belong to the same component). Write \(d(Z)\) for edge boundary size. The cut identity
+\[
+ 6=d(X\setminus Y)+d(Y\setminus X)+2e(I,O)
+\]
+forces the two equal difference sizes to be 1 or 3: a two-site set in a cubic graph has boundary at least four, and a four-site set does too since a five-edge diamond and \(K_4\) are forbidden. Hence \(I\) has size 4 or 2 and \(d(I)\ge4\). The other identity
+\[
+ 6=d(I)+d(O)+2e(X\setminus Y,Y\setminus X)
+\]
+forces the union's cut size at most two. It is nontrivial as the component has at least twelve sites: its order is a multiple of six, and order six would give a singleton complementary shore for either five-set. It is therefore a two-cut, since there is no wing bridge. Such a shore has size divisible by six by [cut balance](arbitrary-wing-thin-cuts.md); the union size eight is impossible, and size six is impossible by [the no-six-site-shore theorem](no-six-site-wing-two-cut.md).
+
+For disjoint \(X,Y\) their ten-site union has boundary \(6-2e(X,Y)\), so two connecting edges would yield an impossible ten-site two-cut, and three would give a union of whole cubic wing components of order ten (wing component orders are multiples of six). With the original charge-one cost-23 marks \(u_X,u_Y\) of \(T\cup X,T\cup Y\), the raw product is exactly \(2-7e(X,Y)\). Indeed the two eight-sets meet in \(T\), and their directed cross-adjacency count is \(6+5+5+e(X,Y)\): these are respectively the edges in the ordered triangle, the contacts of each shore to its roots, and the edges between shores. Thus their physical centered Gram has diagonal \(28/9\), and off-diagonal \(1/9-e(X,Y)\). In particular one may contract the distinct five-site shores at a fixed triangle into degree-three vertices with simple pairwise adjacency.
