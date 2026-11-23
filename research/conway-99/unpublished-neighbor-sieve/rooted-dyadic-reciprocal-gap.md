@@ -39,3 +39,5 @@ j=24   (00)^7: y/8 is neutral of norm 6, impossible.
 All conclusions tolerate the representative's overall sign and all formal mate/axis relabelings. Wherever actual raw G(2,26), N20, and G(2,28) are absent, in particular on the remaining [rank-42 two-type face](shared-norm-18/two-type-true-hoffman.md#exact-derivation-and-scope-of-the-mark), A22=A23=A24=A25=0. This certainly does not assert the nonexistence of that face.
 
 Run `python3 rooted-dyadic-reciprocal-extra.py` beside the existing atlas checker to replay the congruence and four lifts with the standard library.
+
+[At degree 27](rooted-dyadic-a27-population.md) a global double count bounds the sum of the rooted coefficients by the population of true charge-two norm-34 labels on the rank-42 two-type face.
