@@ -36,6 +36,8 @@ An [orthogonal-Fano transport](rank36-four-orthogonal-cut.md) excludes one more 
 
 The [Fano endpoint and triangle-free bound](rank36-four-endpoint-cut.md) excludes another rank-36 four-type support, leaving at most eleven.
 
+The [original graph-site quartic](original-site-quartic.md) supplies two weight-26 identities at every remaining rank and a numerical lower bound from actual original-class marks, rather than counts averaged over extensions.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
