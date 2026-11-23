@@ -17,3 +17,5 @@ The [standalone verifier](high_rank_five_hit.py) uses the same ten auxiliary qua
 All twenty terms are nonnegative. Average over eligible D **in this H**. Since each K123[-3]≥22, the incidence inequality demands G=4(W339−231−22M)+7W014−78(mean K123[-3]−22)≥0. But the identity shows G≤−4202/3−14(M−78)<0. No root/Fano bound or assumption that a negative residual class vanishes on every individual H is used.
 
 Only ranks 40 and 42 are concluded from this argument.
+
+A [separate rank-independent angular bound](high-rank-62-cap.md) caps the number of eligible Hoffman cocliques by 61 on this support face in any maximal extension, without using any native original-coclique lower bound. It also gives a quantitative necessary condition when only unit type 127 is restored.
