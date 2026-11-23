@@ -8,6 +8,8 @@ The [three-label exclusion](panel-heights.md#the-three-label-exclusion-and-the-r
 
 The [charge-one packing bound and exact moment identities](affine-triples.md) rule out the alternative consisting of norm 24 and the unit types `(1,21)` and `(3,37)`. A [two-cycle packing bound](rank36-two-cycle.md) rules out the alternative consisting of norm 24, unit norm 26, and type `(1,21)`. A [combined short and scalar moment argument](rank36-third-triple.md) rules out unit norm 26 together with types `(1,25)` and `(1,27)`. A [coclique packing and moment argument](rank36-coclique-tangent.md) rules out norm 18, norm 24, and unit norm 26, the only surviving exactly-three-type alternative with norm 18. A [Sidon bound on compatible cocliques](coclique-sidon-cut.md) rules out norm 24, unit norm 26, and unit type `(1,27)`. A [degree-ten graph-site harmonic certificate](site-degree-ten.md) rules out norm 24 with unit types `(1,27)` and `(3,37)`. At most four of the 220 exactly-three-type alternatives remain at rank 36; rank 36 itself is not excluded. Run `python3 rank36_affine_triples.py`, `python3 rank36-third-triple.py`, `python3 rank36-coclique-tangent.py`, `python3 coclique_sidon_cut.py`, and `python3 site_degree_ten.py` to replay the exact identities with python-flint.
 
+Without any three-type assumption, the [unconditional four-family bound](coclique-sidon-global.md) forces at least one of neutral norms 18 or 20, or the unit types `(2,30)` or `(3,37)`, at every remaining rank.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
