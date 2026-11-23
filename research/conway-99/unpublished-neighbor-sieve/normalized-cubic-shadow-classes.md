@@ -36,3 +36,5 @@ For a triangle T let D_s(T) count unordered pairs of disjoint unions of its wing
 Indeed, a disconnected 12-shore consists of two prisms, so choosing one of them and taking the other plus the opposing 12-shore gives prism+18, a triangle wing by the theorem. A disconnected 18-shore could have component orders 6+12,6+6+6, or 8+10; the 8+10 possibility is excluded by the gcd bound against the opposing 18-shore, and a prism case is a triangle wing. Thus in the non-wing part both shores in either count are connected. A non-wing class containing two twelves has no prism, and any third partner must also be twelve by the classification and size bound. A class containing two eighteens has no third member. The coefficients 2 and 6 simply count oriented pairs of literal components.
 
 These identities count the anticomplete signed-unit subset of the true +3 shells, not all their vectors; neither identity asserts nonemptiness of any class.
+
+**Order ten.** The [old mark budget](cubic-ten-old-mark-budget.md) links actual order-ten cubic supports and mutually anticomplete pairs to the zero original seven-class population, without assuming those supports exist.
