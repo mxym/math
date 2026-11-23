@@ -74,7 +74,7 @@ The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exa
 
 [Literal coclique heights](hoffman-kappa-literal.md) rule out zero-on-coclique norm-18 fields, improve the maximal-intersection projection to at most two preimages, and recover exact intersection counts from affine slots. The residual theta cap for norm 24 then improves to 64.
 
-[Hoffman translation fibers](hoffman-22site-fibers.md) express actual marked counts in terms of residual shell vectors and signed ternary compositions, with exact short graph transports. This is a decomposition and not yet a contradiction.
+[Hoffman translation fibers](hoffman-22site-fibers.md) express actual marked counts in terms of residual shell vectors and signed ternary compositions, with exact short graph transports. This is a decomposition and not yet a contradiction. The [308-direction tight frame](hoffman-308-frame.md) supplies 616 distinct oriented norm-126 residual fields from actual vertices, capped edges and triangles.
 
 The [complementary rank-33 Hoffman lattice](hoffman-positive-residual.md) encodes actual rook grids as short dual vectors and couples their Gram matrix to the 22-point block design. It applies whenever a Hoffman coclique exists, without a restriction on the unit types.
 
