@@ -45,3 +45,5 @@ Since M≥78 and every K123[−3]≥22, (1) requires G≥0. But (2) implies
 G ≤ −16288/9 − 32(M−78) < 0.
 ```
 This closes the stated three-type face in both ranks without an integer program or candidate-graph enumeration.
+
+The [four-type extension](three-neutral-plus-u125.md) permits arbitrary unit charge-one cost-25 markings, without weakening the contradiction at either rank.
