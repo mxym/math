@@ -1,5 +1,7 @@
 # A rank-40 norm-16 bound and a seven-cube complementary shell
 
+> **Update:** [The seven-cube obstruction](norm16-no-six-cubes.md) proves that six matched cubes would force seven, and that seven are impossible. The norm-16 bound 6,062 under N20=0 therefore holds at all ranks. The conditional seven-cube profiles below document the earlier intermediate argument.
+
 Use the [good rooted-triple packing](norm16-good-triple-cube.md). For any root and independent triple let m count its actual oriented norm-16 fields and g the good ones. Four or more good fields share one signed eight-site cube Q; their other signed sites are disjoint induced cubes.
 
 ## Rank 40 with no norm-20 fields
