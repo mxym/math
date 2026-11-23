@@ -77,3 +77,11 @@ for ds in [[8],[6,2],[4,4],[4,2,2],[2,2,2,2]]:
  expected={(8,):(2,8,1820,1820,243,4),(6,2):(4,6,681,681,118,0),(4,4):(4,32,2068,1984,77,0),(4,2,2):(4,16,326,324,26,0),(2,2,2,2):(2,192,90,72,2,2)}
  assert (nmat,len(G),len(out),len(seen),len(cl),len(cyc))==expected[tuple(ds)]
  print(ds,'group',len(G),'bare',len(out),'survivors',len(seen),'orbits',len(cl),'cyclic',len(cyc),'cyclic sizes',[n for h,n in cyc],flush=True)
+ cc=Counter()
+ for H in cl:
+  Q=[set(a)|{8+i for i in b}for a,b in H]
+  v=min(sum(len(Q[i]&Q[j])for i in T for j in range(8)if j not in T) for T in combinations(range(8),4))
+  cc[v]+=1
+ print(ds,sorted(cc.items()))
+ expect={(8,):{4:127,6:114,8:2},(6,2):{4:83,6:35},(4,4):{0:3,4:48,6:20,8:6},(4,2,2):{0:2,2:4,4:18,6:2},(2,2,2,2):{4:2}}
+ assert cc==expect[tuple(ds)]
