@@ -1,5 +1,7 @@
 # The positive seven-set determines a unit cost-25 charge-one label
 
+> **Provenance:** The injectivity statement is already proved in the [signed-support census](signed-supports.md#seven-positive-and-eighteen-negative-sites). The argument below is an alternative rank-free proof, not an additional classification.
+
 Let \(A\) be a hypothetical \(\mathrm{SRG}(99,14,1,2)\), and let \(b\) be an actual **signed-unit** solution of \(Ab=-4b-2\mathbf1\), \(b^2=25\). Its positive and negative sets have sizes seven and eighteen. Its positive set uniquely determines the field. There is no Seidel-rank, seven-class, or palette assumption. This caps a collision on a *whole seven-set*, not a smaller seed or the full graph-wide population.
 
 Write \(d_i=(3I-A)e_i\). For a charge-\(a\) label, \(b\cdot d_i=7b_i+2a\). If its positive graph has \(e_P\) edges and its negative graph \(k\), summing the cross incidences gives \(k=e_P+3\): a positive site sees \(6+d_P\) negatives, and a negative site sees \(2+d_N\) positives. Positive-pair capacity gives \(18+4k\le42-e_P\) since each negative site with negative degree \(d_N\) witnesses at least \(1+2d_N\) positive pairs. Therefore \(e_P\le2\), \(3\le k\le5\).
