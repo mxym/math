@@ -20,6 +20,8 @@ The [unconditional degree-ten site inequality](site-degree-ten-global.md) gives 
 
 [Fano difference packing](fano-difference-packing.md) makes the norm-14 bounds quantitative in terms of norms 20 and 24, with no rank restriction.
 
+The [49 rank-36 support constraints](rank36-four-hit-sets.md) apply at every support size. They and two exact support implications leave at most 16 of the 495 four-type possibilities. Each of those 16 has a rational control for the specified relaxation, not a graph.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
