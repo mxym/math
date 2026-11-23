@@ -24,6 +24,8 @@ The [49 rank-36 support constraints](rank36-four-hit-sets.md) apply at every sup
 
 [Fano palette transports](rank36-four-fano-palette-cut.md) exclude three of those 16 supports; at most 13 four-type supports remain at rank 36. The old rational controls do not impose the new transport inequalities.
 
+For rank 38, [27 exact support constraints](rank38-three-hit-sets.md) and the norm-16 support implication leave at most 15 of the 220 exactly-three-type supports. All 15 have controls for the stated relaxation, not for graph existence.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
