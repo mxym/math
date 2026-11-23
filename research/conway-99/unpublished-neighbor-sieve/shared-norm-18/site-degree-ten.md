@@ -37,3 +37,5 @@ The normalized nonnegative expression
  +627 [K(1,23,−1)−14] +165 [K(2,36,−2)−7]
 ```
 is **−70** by the exact row span. The representative X(−4,44,2) can even be zero by the integer absolute-value bound, but this is not needed. The checker [site_degree_ten.py](site_degree_ten.py) constructs the raw rows, the actual marked site harmonic averages and every signature switch, using only integer/rational arithmetic. The 60 signed-charge types (using the nonnegative charge orientation) produce 172 site orbit columns. Including the constant in the affine rows gives rank 165, unchanged on appending the displayed identity. Its impossible sign proves the assertion without any linear-programming feasibility decision.
+
+The [unconditional lift and explicit rational witness](site-degree-ten-global.md) preserve the nine absence rows as variables. The direct dot-product replay does not need a row reduction.

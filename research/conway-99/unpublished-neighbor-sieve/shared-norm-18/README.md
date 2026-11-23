@@ -10,6 +10,8 @@ The [charge-one packing bound and exact moment identities](affine-triples.md) ru
 
 Without any three-type assumption, the [unconditional four-family bound](coclique-sidon-global.md) forces at least one of neutral norms 18 or 20, or the unit types `(2,30)` or `(3,37)`, at every remaining rank.
 
+The [unconditional degree-ten site inequality](site-degree-ten-global.md) gives a second all-rank population constraint. In particular it rules out a graph whose selected units are confined to norm 24 and the types `(1,27)`, `(2,28)`, `(3,37)`.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
