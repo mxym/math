@@ -39,3 +39,5 @@ Use only residue pairs compatible with the chosen gluing; no reverse surjectivit
 Run `python3 rooted_rank32.py` for the exact frame, discriminant, and scalar Fourier arithmetic checks.
 
 [Two marked moments](rooted-rank32-moments.md) reduce the shortest guaranteed graph norm to 174 and give a companion span bound in the rootless gluing.
+
+[The all-gluing bounded harmonic identities](rooted-rank32-norm136.md) further reduce the guaranteed squared norm to 136. If the chosen dual has no shorter nonzero field, exactly 240 oriented norm-136 fields occur in that dual.
