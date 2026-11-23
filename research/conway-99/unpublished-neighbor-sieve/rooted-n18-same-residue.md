@@ -15,3 +15,5 @@ This excludes the assertion that *all* rooted B minima are at least 8 in lattice
    \sum_{i=1}^4 m_i(o)(m_i(o)-1)\le 2B_2(o)+B_3(o).
 ]
 The observation on zero stars gives sum_o m_i(o)≥8n for every selected class. The integer convex inequality m(m−1)≥8m−20 (equivalently (m−4)(m−5)≥0) gives the four stated lower bounds. If q roots admit any B2 or B3 field, each other root has m_i≤1 and every root has m_i≤n. Hence 8n≤qn+(99−q), giving q≥7 in all four cases. At least one root also has oriented D9(o)≥34,34,34,36 respectively, from the mean 64n/99 and antipodal integrality (at n=50 this gives ≥34). No global automorphism, root equivalence or mutually overlapping signs have been used.
+
+[Support-carrier counting](rooted-n18-support-carriers.md) further raises the number of distinct roots with a norm-28 or norm-42 field to at least 10, 10, 10, or 9 in the four respective tuples.
