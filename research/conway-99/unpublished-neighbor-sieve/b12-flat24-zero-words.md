@@ -18,3 +18,5 @@ Each near site \(i\) must also satisfy \(w_i+(Dw)_i\le2\) by its common-neighbor
 * If \(a=1\), the remaining near-site quota \(2-w_i-(Dw)_i\) of \(w\) must be positive at every contact \(i\) of \(v\), and conversely. The second far site would otherwise be an uncompensated common neighbor.
 
 A transversal clique with one member of each of the ten classes is necessary. The checker generates all the data exactly, repeatedly branches over the smallest remaining class, and intersects other classes with the selected word's allowed partners. All 30 search trees are empty of transversals, the largest visits 173 nodes. There is no random selection, floating point, arbitrary solver, or scan of possible full exterior graphs. Full replay (Python 3 + NumPy) takes about eight seconds: `OPENBLAS_NUM_THREADS=1 python3 b12_flat24_zero_words.py`. The independently reproduced total is 1,251 DFS nodes.
+
+**Further exclusion.** The [cross-return transposition proof](b12-six-transversal.md) also rules out exactly six transversal triangles. Thus this component has at most five in any remaining case.
