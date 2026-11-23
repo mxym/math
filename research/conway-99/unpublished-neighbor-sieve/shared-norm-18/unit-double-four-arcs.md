@@ -27,3 +27,5 @@ The last row sums the true common-neighbor count plus the adjacency correction o
 This is a three-deck necessary condition for every signed-unit double, and each tuple must realize at least one such double. No actual 36-site core or full graph is asserted.
 
 Run `python3 unit-double-four-arcs.py` (Python 3.10+, standard library) to verify all 19 mass decks and the two fixed integer certificates. The script does not enumerate graphs.
+
+**Subsequent exclusion:** [the seven-cancellation theorem](seven-overlap-core.md) excludes deck 10 (the first listed above) by ruling out a 5+2 split at any seven-overlap decomposition. Decks 14 and 18 remain open.
