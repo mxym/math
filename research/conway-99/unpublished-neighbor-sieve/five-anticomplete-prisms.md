@@ -1,5 +1,7 @@
 # Five anticomplete prisms force a saturated triangle
 
+**Prior result.** The five-to-six conclusion is already implicit in the [equal-mark prism-class argument](../rook-array-exclusion/bad-prisms.md): anticomplete cubic prism differences are +3 eigenvectors, so the prisms have equal marks, and a class of size at least five has its common three caps forming a triangle. The wing remainder then forces the sixth prism. The proof below is an alternative contact-height derivation, not a claim of a new exclusion.
+
 In a hypothetical strongly regular graph with parameters (99,14,1,2), every family of five pairwise anticomplete induced triangular prisms lies in a unique family of six. The six are exactly the six components of the wing of one triangle, so that triangle lies on six actual nine-site rook grids. In particular the triangle is uniquely determined by the original five prisms. This is rank-free and does not assert that five such prisms occur.
 
 ## Contact heights and the aligned-prism rule
