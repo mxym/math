@@ -66,11 +66,15 @@ The [ternary rank of the Hoffman coclique design](hoffman-ternary-rank.md) is at
 
 For the actual graph design, the [triple-incidence obstruction](hoffman-ternary-rank-three.md) improves the ternary rank bound to 20, by compressing the putative rank-three kernel to five exact decks and ruling each out. No Seidel rank is excluded.
 
+At ternary nullity two, [integer pair equations](hoffman-ternary-rank-two.md) eliminate four of the six color decks. The other two survive the stated aggregate equations; neither is a verified design.
+
 The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exact theta relations and caps of 32 and 74 for oriented norm-18 and norm-24 fields vanishing on a fixed coclique, in each specified maximal ternary extension. They are not caps on all graph labels.
 
 [Nonunit norm-32 residual labels](hoffman-residual-norm32.md) admit exact two-site reconstruction from norm-18 labels meeting the fixed coclique in two sites of each sign, with at most two reconstructions per oriented label.
 
 [Literal coclique heights](hoffman-kappa-literal.md) rule out zero-on-coclique norm-18 fields, improve the maximal-intersection projection to at most two preimages, and recover exact intersection counts from affine slots. The residual theta cap for norm 24 then improves to 64.
+
+[Hoffman translation fibers](hoffman-22site-fibers.md) express actual marked counts in terms of residual shell vectors and signed ternary compositions, with exact short graph transports. This is a decomposition and not yet a contradiction.
 
 The [complementary rank-33 Hoffman lattice](hoffman-positive-residual.md) encodes actual rook grids as short dual vectors and couples their Gram matrix to the 22-point block design. It applies whenever a Hoffman coclique exists, without a restriction on the unit types.
 
