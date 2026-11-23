@@ -27,3 +27,5 @@ At Δ=5, since every gap is at least two, the kernel gives the automatic X≤(5/
 Run `python3 all-cycles-hit.py` for the exact rational comparisons and optional formal cycle-deck counts.
 
 [Without a seven-rank or short-shell assumption](large-hoffman-33-overlap.md), any overlap from 13 through 16 likewise forces every cycle to meet the actual Hoffman coclique.
+
+[The eleven-triangle endpoint](eleven-triangle-residual.md) has an exact real residual description, including a switch criterion on its 66 exterior sites.
