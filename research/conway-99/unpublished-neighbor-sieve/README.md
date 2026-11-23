@@ -4,9 +4,9 @@ The existence of a strongly regular graph with parameters $(99,14,1,2)$ remains 
 
 ## Recent bounds on actual oriented counts
 
-- **Rank 36.** [Every norm-14 Fano field is excluded](rank36-no-fano.md). In two further [specified support families](shared-norm-18/norm18-rank36-dot8-star.md), the very same oriented norm-18 count would have to be at least 62,042 or 55,852, respectively, yet at most 55,666. Only five supports of size four survive these and the earlier necessary tests; larger supports and rank 36 itself are not excluded.
+- **Rank 36.** [Every norm-14 Fano field is excluded](rank36-no-fano.md). In two further [specified support families](shared-norm-18/norm18-rank36-dot8-star.md), the very same oriented norm-18 count would have to be at least 62,042 or 55,852, respectively, yet at most 55,666. Further [mixed discriminant](shared-norm-18/norm18-rank36-mixed-discriminant.md) and [saturated-seed](shared-norm-18/norm18-rank36-saturated-seed.md) comparisons leave only one size-four candidate, the neutral types 018, 020, 024 and unit 026. Larger supports and rank 36 itself are not excluded.
 - **Rank 38.** In the [specified six-type family](shared-norm-18/active-square-eight-all.md#literal-populations-and-the-rank-38-contradiction), that oriented count would have to lie between 12,526 and 12,320. A [separate marked bound](shared-norm-18/norm18-rank38-three-family.md) forces one of three actual unit types even when the other nine types are unrestricted.
-- **Bounds independent of rank.** If N16=0, [N18≤55,666](shared-norm-18/norm18-dot8-star.md); if the unit (1,27) shell also vanishes, [N18≤48,004](shared-norm-18/norm18-dot8-nonstar.md). If N20=0, [N16≤5,196](shared-norm-18/norm16-four-good-bad.md).
+- **Bounds independent of rank.** If N16=0, [N18≤55,666](shared-norm-18/norm18-dot8-star.md); if the unit (1,27) shell also vanishes, [N18≤35,298](shared-norm-18/norm18-saturated-seed-cap.md). If N20=0, [N16≤5,196](shared-norm-18/norm16-four-good-bad.md).
 
 The [rooted rank-32 lattice](rooted-rank32.md) works at any vertex, with no coclique or short-type assumption. Its dual graph part vanishes on the closed neighborhood. It gives a lower-dimensional modular-form route at every remaining rank, not an exclusion.
 
