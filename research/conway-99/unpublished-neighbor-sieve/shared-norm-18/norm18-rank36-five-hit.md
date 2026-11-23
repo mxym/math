@@ -1,5 +1,7 @@
 # A five-type must-hit at Seidel rank 36
 
+The [four-type strengthening](norm18-rank36-four-hit.md) removes the absence assumption on neutral norm 24.
+
 At rank 36 at least one of the five selected signed-unit graph types
 ```
 (0,16), (0,20), (0,24), (2,28), (3,37)
