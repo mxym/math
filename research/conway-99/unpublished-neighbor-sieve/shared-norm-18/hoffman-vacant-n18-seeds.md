@@ -53,3 +53,5 @@ The lower bound on empty seeds concerns the orthogonality and intersection assum
 9 N18 ≤ 6(55440−E(M)) + 385 N16 + 544 U127.
 ```
 The two geometric assumptions on the Hoffman family still apply; they are not being inferred merely from this inequality.
+
+The [Fano endpoint seed count](many-hoffman-fano-seeds.md) extends the vacancy bound to compatible families with fifteen-overlaps. The [soft original-class bound](hoffman-soft-vacancy.md) also allows nonorthogonal markings, with cost at most 36 flags per actual unit of charge two and cost 26.
