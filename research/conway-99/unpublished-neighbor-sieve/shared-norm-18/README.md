@@ -143,3 +143,5 @@ The contact replay starts from the archived graphs. The [exact replay](exclusion
 [The norm-28 ternary classes](hoffman-norm28-ade.md) each complete to a small ADE root configuration. For ternary nullity 0, 1, 2 respectively the oriented eligible fields of norm 28 vanishing on an actual Hoffman coclique number at most 0, 222, 2376, not bounds on the full graph shell.
 
 [The graph of doubly represented norm-28 directions](norm22-johnson-double-graph.md) connects actual norm-22 lines, with a degree and site-incidence bound controlled by their norm-18 decompositions. This applies on the rank-42 two-type face only.
+
+[Marked lattice 2-neighbors](marked-two-neighbor-fields.md) supply an exact per-vertex parity identity and identify true 42-site bisections with the norm-three vectors of a canonical odd rooted coset. The rank-42 short-shell table is restricted to the two-type face.
