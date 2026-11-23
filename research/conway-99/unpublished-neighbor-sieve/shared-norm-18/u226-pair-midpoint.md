@@ -15,3 +15,5 @@ At d=0 this nonzero field would have forbidden norm12. At d=1 its norm is 20. It
 **Rank-38 application.** For the remaining selected support {018,024,226}, the [certified lower bound](u226-rank38-forcing.md) forces at least 363 distinct marked squares and an edge shared by at least three of them. These bounds do not by themselves exclude that support.
 
 **Unconditional strengthening.** The [height-two edge bound](norm16-height-two-edge.md) also rules out the norm-16 difference constructed here. Therefore a positive pair supports at most one c=0 field even when norm-16 fields are present elsewhere. The other U226 subtypes are not covered.
+
+**Global use.** The [signed population identity](u226-global-pressure.md), combined with the 4,158 cap when U127 is absent and a sharper prism bound for U121, gives a rank-36 four-family hit without a support-size restriction. The [disjoint transfer bound](u226-disjoint-transfers.md) applies even when U127 is present.
