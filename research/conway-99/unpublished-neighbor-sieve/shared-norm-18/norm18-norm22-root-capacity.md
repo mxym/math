@@ -28,3 +28,5 @@ Now z=t_Q+u_Q′=t_Q′+u_Q has norm 50−d (use t_Q·r=t_Q′·r=11). Its posit
 * m≤1 has ell=0. For m=0, d=28−2j with 0≤j≤4; for m=1, d=24−2j with 0≤j≤3. The signed-unit w must have norm ≥21 and cannot have costs 21,25,27 on this support. Also N16 and N20 are absent. Thus only (m,j)=(0,3),(1,1) are possible. Both yield d=22 and a genuine extra signed-unit (1,23) mark w with a positive root o and exactly m positive neighbors there.
 
 This is a necessary structural restriction and a forcing of a 16-incidence norm-22 marking. It is not a proof of a 15-incidence upper bound.
+
+**Collision charges.** The [intersection-zero and intersection-two budget](norm22-root-collision-charges.md) absorbs one type through the height count and charges the other at most six times per actual charge-two field. Intersection-one collisions remain a separate obstacle.
