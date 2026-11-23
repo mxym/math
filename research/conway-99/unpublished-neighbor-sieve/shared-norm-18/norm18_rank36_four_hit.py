@@ -30,13 +30,13 @@ def check():
     assert C['no20/24']==[112*y-z for y,z in zip(o,R['N'])]
     assert C['no20']==[198*y-z for y,z in zip(o,R['N'])]
     F=80688058247
-    gap=lambda f:9*(num+F*(112-f))-den*(110880-42*f)
-    assert gap(0)==84863139479973 and gap(198)==11180063884239
-    assert min(gap(0),gap(198))>0
+    gap=lambda f:9*(num+F*(112-f))-den*(110880-210*f)
+    assert gap(0)==84863139479973 and gap(1)-gap(0)==210*den-9*F>0
+    assert gap(0)>0
     ceil=lambda x,y:(x+y-1)//y
-    assert ceil(P*gap(198),9*other[(2,28)]*(-1))==1163
-    assert ceil(P*gap(198),9*other[(3,37)]*(-1))==2326
+    assert ceil(P*gap(0),9*other[(2,28)]*(-1))==8823
+    assert ceil(P*gap(0),9*other[(3,37)]*(-1))==17653
     return True
 if __name__=='__main__':
     assert check()
-    print("Rank36 must hit 016, 020, 228 or 337; verified minimum integer gap 11180063884239.")
+    print("Rank36 must hit 016, 020, 228 or 337; verified minimum integer gap 84863139479973.")
