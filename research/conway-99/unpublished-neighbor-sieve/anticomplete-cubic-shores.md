@@ -46,3 +46,5 @@ Any neutral signed-unit +3 field with anticomplete sign shores has cubic shores 
 **Five-prism rigidity.** The earlier [equal-mark prism proof](../rook-array-exclusion/bad-prisms.md) also implies that five pairwise anticomplete induced prisms force their unique sixth prism and central triangle; see the [alternative height proof](five-anticomplete-prisms.md). No existence of such a family is implied.
 
 **A prism and a cubic 24-set.** The [fixed-prism capacity argument](prism-anticomplete-cubic24.md) forces a central triangle even when the anticomplete cubic 24-set is connected. A bad prism can have at most eighteen vertices in cubic components of its anticomplete region.
+
+**Connected classes.** [Normalized contact shadows](normalized-cubic-shadow-classes.md) identify when two connected cubic supports are anticomplete, and give exact counts for the anticomplete subsets of the complementary norm-24 and norm-36 fields.
