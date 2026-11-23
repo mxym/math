@@ -62,6 +62,8 @@ The [rank-42 two-type closure](rank42-two-type-closure.md) eliminates all four r
 
 A [common support sieve](common-unit-hits.md) plus a [six-family identity](common-six-family.md) imposes restrictions at every rank and every support size. In particular at most eighteen of the 220 supports of size exactly three pass these common tests. Stronger rank-specific bounds still apply where available; none of the surviving supports is a graph construction.
 
+The [four-type exclusion](nearface-four-exclusion.md) forbids support contained in `{018,024,228,337}` at every rank, by strengthening the blocked-edge count and applying fixed-extension moment identities. In combination this leaves at most sixteen exact-three supports under the common tests.
+
 On the rank-42 two-type face, [eight short counts determine the entire true Hoffman-axis Jacobi theta series](two-type-hoffman-jacobi.md), not just a truncation. This determines a generating function, not a graph or a case exclusion.
 
 [Actual-angle positivity](two-type-hoffman-jacobi.md#compulsory-fields-with-six-or-seven-positive-sites-on-c) forces at least 81+5S genuine unit fields of charge two and norm 36 that have six or seven positive vertices on C, with a one-neighbor restriction in the six-site case. This is a lower bound, not a solved tuple.
