@@ -32,6 +32,6 @@ Run `python3 two-type-scalar-bridge.py` alongside `two_type_true_hoffman.py`, wi
 
 [The forced 33-sets](33set-rank11-and-switches.md) have cycle switches, exact short-field incidence constraints, and an 11-dimensional true zero-section.
 
-[Two unit edges with a shared source](forced-unit-wedge.md) are also forced in every tuple, giving six actual norm-18 fields on 42 or 43 sites around one norm-22 decomposition field, with 17 possible signed support-population decks before graph adjacency.
+[Two unit edges with a shared source](forced-unit-wedge.md) are also forced in every tuple, giving six actual norm-18 fields on 42 or 43 sites around one norm-22 decomposition field, with 14 signed support-population decks left after elementary graph cuts, not 14 adjacency completions.
 
 [Perpendicular residue balance](rank42-even-weil-q11.md) additionally gives divisibility of the oriented norm-22 total by four. The third lower bounds above consequently round to 148 and 76, respectively.
