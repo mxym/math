@@ -13,3 +13,5 @@ V226−31968538/(344·44055)
    + (13811/15154920)(16166−344n) + (20/26433) T .
 ```
 The norm18 cap 16166 in the penultimate term is the earlier graph-wide conditional no-16/no-20 bound encoded in that chart. Every term is nonnegative and 31968538/44055>725. This concerns the same true G226 counted by the graph-side upper 4158; the two numerical bounds themselves are compatible.
+
+**Shared-edge geometry.** The [full root-row lemma](u226-full-root-row.md) gives six possible residual row assignments per marked square with fixed internal matchings. The guaranteed triple on an edge needs three distinct five-sets independent in both mate matchings of its rooted triangle. Compatibility of such triples remains open.
