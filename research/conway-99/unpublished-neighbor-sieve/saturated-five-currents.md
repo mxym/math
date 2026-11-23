@@ -17,3 +17,5 @@ For two specified labels h,k let n(e,f) count far sites with those contacts in t
 **Elementary cycles.** An [invisible simple-cycle current](saturated-elementary-five-cycle.md) must have length ten, with exact color widths and eight extremal far witnesses. This is individual visibility only; distinct visible cycles can still be linearly dependent in the marking space.
 
 **Small supports.** The [eight-edge theorem](saturated-eight-edge-five-flow.md) shows that any invisible mod-five current must use at least nine contraction edges. In particular the current map is injective on the circulation space of every fixed subgraph of at most eight edges.
+
+**Connected contractions.** An [exact four-plane obstruction](connected-saturated-five-rank.md) proves that at most three independent mod-five currents are invisible when the saturated wing contraction is connected. Disconnected contractions and the existence of saturated triangles are not settled by that theorem.
