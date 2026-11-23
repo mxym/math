@@ -62,3 +62,5 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python partial-k6-11.py --stage termina
 ~~~
 
 The reference environment is Python 3.12, NumPy 2.3.5, SciPy 1.17.0. The first stage takes about 2.5 minutes on a single thread and the terminal stage about 20 seconds; timing and the auxiliary branch/dual counts can vary. The terminal stage uses only NumPy and Python's standard library. Both stages together run by default. No data file, network fetch, randomness, assumed global automorphism, or external proof database is required.
+
+The subsequent [10-fiber exclusion](partial-k6-10.md) rules out the base pentagon without any assumption on its secondary prisms.

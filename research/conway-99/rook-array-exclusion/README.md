@@ -27,3 +27,5 @@ The [double-cell isolation theorem](pentagon-isolation.md) strengthens this to t
 The [36-site cube exclusion](cube-fibers.md) shows that each equal-mark pair of bad prisms supports at most one good rectangle. It lowers the all-rank maximum to **120 rook grids** and raises the norm-eight lower bound to **3,737,742**. The [replay](cube-fibers.py) reconstructs the core matchings, all surviving contact tables, and their impossible exterior neighborhoods.
 
 [Triangle-degree parity](triangle-grid-parity.md) combines with the cube result to give at most **119 rook grids**, \(y_3\ge44{,}672\), and \(y_4\ge3{,}742{,}746\) at every remaining rank.
+
+The [10-fiber exclusion](partial-k6-10.md) forbids the base \(K_6-C_5\) triangle array itself. Thus the good-prism grid incidence graph has no Berge pentagon, with no rank, symmetry, or secondary-prism hypothesis.
