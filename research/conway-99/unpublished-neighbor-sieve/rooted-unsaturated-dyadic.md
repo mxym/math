@@ -51,3 +51,27 @@ F3(o) ≤ 44 + f_o,                 sum_o F3(o) ≤ 4356 + 14 N14(H).
 For the common H at all roots, the last population counts each oriented Fano once; it has fourteen nonzero sites. On any no-Fano branch, each root has F3≤44. These a priori cusp constraints do not exclude any complete Seidel rank.
 
 Run `python3 rooted-unsaturated-dyadic.py` to reproduce the exact residue and lower-bound calculations with the standard library.
+
+## The signed-cell Gram bound for the rooted norm-six cusp
+
+In the notation of the rooted dyadic shell proof above, let m be the number of actual compatible checkerboard directions modulo sign at o. In the sign normalization used there, no two seven-axis sign choices differ in one coordinate up to global negation: their difference would give a nonzero minus-four eigenfield on a 24-vertex union of two matched wings of maximum degree two.
+
+For each pair of axes a,b let v_ab have the pattern (+1,−1,−1,+1) on its four exterior sites with respect to arbitrarily chosen mate orientations, zero elsewhere. The 21 vectors e_ab=v_ab/2 are orthonormal. Let V be their span and W its intersection with the true neutral minus-four fields on the second subconstituent. The span of the six patterns incident with a fixed axis contains no nonzero vector in W by the same 24-site maximum-degree argument, so dim W≤15 even without a grid result.
+
+Every valid product checkerboard, divided by four, has cell coefficients s_a s_b, where s is a seven-sign vector taken modulo simultaneous reversal. Pick its unique even Hamming-weight (number of negative signs) representative. Two distinct representatives have distance 2 or 4, since distance 6 was excluded above. Let G1 be the ordinary Gram matrix of these seven-sign vectors and G2 the ordinary Gram matrix of their 21 pair-product coefficients. The off-diagonal entries of G1 are 3 or −1. For every pair the corresponding G2 entry is ((G1 entry)^2−7)/2; in particular it is 1 or −3 off the diagonal, with diagonal 21. Consequently
+```
+G2=16I+G1−2J.
+```
+It is positive definite on the codimension-one coefficient hyperplane of sum zero, hence rank G2≥m−1. These rows give genuine residual fields on the disjoint four-site cells, so rank G2≤dim W.
+
+For the sharper dimension bound write P=Q/56 for the actual minus-space projection. Since each v_ab is in ker D and is centered, P=(3I−A_X)/7 on V (this equality is as a map to the ambient second subconstituent; it does **not** assume V invariant). The two sets of equal signs in a four-cell are its two diagonals, while side edges of the sign-square join opposite signs. If s and d count its actual side and diagonal edges, respectively, then e_ab^t A_X e_ab=(d−s)/2. Thus
+```
+dim W ≤ tr(P compressed to V) = 9 + sum_cells (s−d)/14.
+```
+Each nine-site axis cell already has 14 prescribed edges (root and four parent neighbors, the two mate edges, and eight incidence edges to the four exterior points). If it does not form a grid, the unconditional [nine-point density gap](../../conway-99-involution/grid-density-gap/README.md) permits at most two further edges, so s−d≤2. For any grid it is at most four. The unconditional [root grid bound](five-grids/fifteen-grid-exclusion.md) gives g≤14 grids through o, so the trace is at most 9+(42+2g)/14≤14. Therefore dim W≤14 and **m≤15**, with no anticode theorem needed. In fact m≤13+floor(g/7) for a known g. The original root shell inequality is now
+```
+F3(o) ≤ 30 + f_o,        sum_o F3(o) ≤ 2970 + 14 N14(H).
+```
+In particular F3(o)≤30 on any no-Fano face. Both the trace and rank calculations use actual graph subspaces; relabeling the two axes in a formal cell-pattern count introduces no graph symmetry assumption.
+
+The [global grid cap of 118](../rook-array-exclusion/rectangle-class-forest.md) also gives a sharper total. If $g(o)$ counts grids through $o$, then $\sum_o g(o)=9G\le1062$. Summing $m(o)\le13+\lfloor g(o)/7\rfloor$ gives $\sum_o m(o)\le13\cdot99+151=1438$. Consequently $\sum_o F_3(o)\le 2876+14N_{14}(H)$.
