@@ -43,3 +43,5 @@ The right side is the minimum over the current box, contradicting every feasible
 **Replay:** put `seven-overlap-core.py`, `seven-overlap-certificates-a.json` and `seven-overlap-certificates-b.json` together and run `python3 seven-overlap-core.py` under Python 3.10 or later. Optional chart arguments such as `10 11` select individual chart keys. The pure standard-library run enumerates every case afresh and checks all leaves, not a sample.
 
 In the complete replay all 1,151 per-chart representatives are rejected; 21 need the integer branch certificate, whose trees have 473 nodes in total. The two JSON bundles have SHA-256 `70ddad5296254a3adaa73f2728b5ed8325f553555c6e38c4e6b6fc43537d0bbe` and `86ef845d41b9c94c3964f82168a3b240eaabb7f55dcc1156fcd49248d58bbab9` respectively.
+
+[A balanced-half inequality](n28-balanced-half.md) gives a further graph-side constraint on the pair of cancelling panels in the two remaining directed decks.
