@@ -9,3 +9,5 @@ The [four-prism result](four-prism-five-flows.md) leaves only exact support five
 Its certificate gives u·c_w≥0, u·b=0. Thus positive columns cannot be used; only 620 of the 1,224 allowed columns remain. Reducing the remaining equality modulo two, binary elimination shows that b is **not** in their column span. This last exact integrality step is necessary for the stated checker; real infeasibility is not asserted in this orbit.
 
 The [standalone standard-library verifier](five_prism_flow_code.py) reconstructs all orbit and word labels, validates every signed integer inequality against the original (ungrouped) 540 pair rows, and regenerates the final GF(2) span test. The compressed payload consists only of the 66 signed rows; no solver is required. This leaves open invisible flows of full six-block support and does not rule out the saturated geometry.
+
+**One-dimensional bound.** The [two-generator plane obstruction](six-prism-flow-plane.md) rules out a two-dimensional invisible space. On six prisms there are at least eleven independent actual currents; a single invisible direction still remains possible.
