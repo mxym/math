@@ -50,6 +50,8 @@ The [99-coordinate ternary adjacency code](ternary-adjacency-code.md) has dimens
 
 [Endpoint compatibility](two-type-no-fano.md) excludes Fano markings in the two-type case, reducing the short-count list from ten tuples to eight. If an extension has three eligible cocliques, its overlap matching has at least 45 pairs.
 
+[Class-centered Gram bounds](two-type-class-trace.md) force at least 810 distinct intersecting norm-18 support pairs per maximal extension on the two-type face. At rank 40 this gives at least 20,250 graph-wide such pairs; they are not a disjoint matching.
+
 The [ternary rank of the Hoffman coclique design](hoffman-ternary-rank.md) is at least 19; if a Fano switch exists, it is exactly 21. The associated six-site restrictions have a residual collision bound, not an exclusion of a full rank.
 
 The [rank-22 Hoffman residual lattice](hoffman-residual-theta.md) gives four exact theta relations and caps of 32 and 74 for oriented norm-18 and norm-24 fields vanishing on a fixed coclique, in each specified maximal ternary extension. They are not caps on all graph labels.
