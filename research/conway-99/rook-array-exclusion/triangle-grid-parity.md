@@ -27,3 +27,5 @@ In fact the cube calculation's linear relaxations \(70224-25P-36G\) and \(483852
 d\le136+\min\bigl(15\cdot119,\lfloor(3696-851+2\cdot136)/4\rfloor\bigr)=915 .
 \]
 Substitution in the [shell formulas](triangle-pair-packing.md#consequences-for-the-short-lattice-shells) gives the displayed bounds. The corner is not asserted to be realized by a graph. None of the four possible ranks is decided by this parity argument.
+
+The later [three-prism rectangle obstruction](rectangle-class-forest.md) uses this parity bound with a stronger rectangle count to reduce the grid cap further, to **118**.

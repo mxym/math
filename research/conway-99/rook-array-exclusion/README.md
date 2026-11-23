@@ -31,3 +31,5 @@ The [36-site cube exclusion](cube-fibers.md) shows that each equal-mark pair of 
 The [10-fiber exclusion](partial-k6-10.md) forbids the base \(K_6-C_5\) triangle array itself. Thus the good-prism grid incidence graph has no Berge pentagon, with no rank, symmetry, or secondary-prism hypothesis.
 
 The [two-good-partner exclusion](two-good-partner-packing.md) gives at most two common good prism mates of any anticomplete pair of triangles, and at most one for faces of distinct equal-mark bad prisms. This is a separate 30-site pattern from the ten-fiber pentagon.
+
+The [three-prism rectangle obstruction](rectangle-class-forest.md) gives \(R\le\lfloor2B/3\rfloor\) and improves the all-rank cap to **118 rook grids**, with \(y_3\ge44{,}804\) and \(y_4\ge3{,}748{,}902\).
