@@ -50,3 +50,5 @@ Place the checker beside `higher_moments.py` and `rank36_three_types.py` in the 
 -406138318584356050,\quad -85401435,\quad -50714072332.
 \]
 This completes exactly the three stated exclusions, separately from all unresolved or merely numerical tests.
+
+The subsequent [orthogonal-Fano cut](rank36-four-orthogonal-cut.md) excludes a fourth support under a separate exact witness.

@@ -30,6 +30,8 @@ For rank 38, [27 exact support constraints](rank38-three-hit-sets.md) and the no
 
 In the two-type case at ranks 40 and 42, [unaveraged residue balance](two-type-residue-balance.md) forces a compatible Hoffman coclique, at least 400 eligible norm-18 markings in every maximal extension, and at least 42 disjoint intersecting-support pairs there (at least 2,075 total distinct pairs in the rank-40 graph).
 
+An [orthogonal-Fano transport](rank36-four-orthogonal-cut.md) excludes one more rank-36 four-type support, leaving at most 12 of 495.
+
 ## Reproduce the rank-38 and rank-36 results
 
 Run these commands from this directory in a checkout of the repository. Use Python with NumPy, pynauty, python-flint and python-sat, nauty's `genbg`, and a compiled `drat-trim`. Replace the two executable paths with their local paths.
