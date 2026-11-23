@@ -1,5 +1,7 @@
 # Disjoint rook grids have at most three good cross prisms
 
+The [stronger two-prism theorem](disjoint-grids-two-cross-prisms.md) also excludes the remaining two-plus-one pattern.
+
 Let G,H be two disjoint literal nine-site rook grids in a hypothetical SRG(99,14,1,2). Every vertex outside a grid sees exactly one grid site: two are impossible because every pair in the grid already has its full common-neighbor quota there, and the nine grid sites contribute nine times ten outside incidences across ninety sites. Thus the edges between G and H form a perfect matching \(\pi\).
 
 A *good cross line* is a row or column \(L\) of G for which \(\pi(L)\) is a triangle and the matched prism \(L\cup\pi(L)\) completes to a rook grid. At most three of the six lines of G are good cross lines; if there are three, their directional pattern is two parallel and one perpendicular. In particular the statement requires neither a rank assumption nor an isomorphic matching of the two grids.
