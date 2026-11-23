@@ -17,3 +17,5 @@ See [Nongrid prism classes and a grid-sensitive prism bound](bad-prisms.md) for 
 For a different forbidden configuration and a bound on cycles of prism mates, see [Thirteen triangle fibers of the K6 disjointness pattern](partial-k6.md).
 
 [Triangle-pair packing](triangle-pair-packing.md) bounds equal-mark partners at two anticomplete triangles by three. It gives at most 122 grids and at least 3,724,902 primal lattice vectors of squared norm eight at every rank. The [arithmetic checker](triangle_pair_packing.py) verifies the shell minima.
+
+The [two 12-fiber exclusions](partial-k6-12.md) force at least four bad secondary prisms in each pentagon. Combining that fact with the triangle-pair bound gives the [pentagon-rectangle inequality](pentagon-rectangle-budget.md): \(N_5\le8B+\frac32R\le11B\).
