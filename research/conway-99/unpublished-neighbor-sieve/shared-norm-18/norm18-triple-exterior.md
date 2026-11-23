@@ -1,0 +1,50 @@
+# The 38-site triple obstruction does not require the (3,37) shell to be empty
+
+Suppose the graph has no neutral fields of squared norms 16 or 20 and no signed-unit type (2,30). There is no positive root and specified set of four negative neighbors carrying three norm-18 markings. Thus **N18≤12,320**, counting both orientations, with the (1,27) and (3,37) populations both unrestricted. At rank 38 this excludes the entire selected-support family contained in **{018,024,125,226,228,337}**. Allowing (1,27) in this rank-38 family gives a pressure inequality instead of a categorical exclusion.
+
+## Partial cores and the missing neighbors
+
+The [rooted-distance and three-label results](panel-heights.md#the-three-label-exclusion-and-the-rank-38-contradiction) require only N16=N20=0 to give the following facts. The two markings at a seed have scalar product seven or nine, no opposite-sign overlap, and at most two common positive pair-centers. Each uses at least four of the six centers, so if three markings occur their used sets all have size four, and their omitted pairs partition the six. Four markings cannot occur. Beyond the root and the four centers it uses, each marking has four positive singleton leaves, with one parent contact and hence three neighbors among its five nonparent negatives.
+
+If exactly one or three of the paired dots are nine, the [rooted triple cost formula](rooted-norm18-triples.md) produces a forbidden raw (2,30), which is always signed-unit. Exactly two nines can be excluded without the earlier (1,27) hypothesis. Let t_i be their common endpoint and t_j,t_k the other two markings, with dot seven. Each dot-nine pair has four shared positives and five shared negatives by the [common-panel theorem](panel-heights.md). Its four shared positives are the root, the two shared centers, and one further singleton leaf. The extra leaf shared by t_i,t_j and that shared by t_i,t_k must be different: t_j,t_k already share exactly seven signed sites (the root, two centers and the four parents). Exactly two positive sites of t_i are therefore exclusive of both satellites, both singleton leaves. Its omitted pair x,y is positive in both satellites, so neither center can meet any positive of t_i occurring in either satellite. At each center, t_i vanishes but at least two t_i-negative parents are neighbors. Its eigen-equation forces at least two t_i-positive neighbors, necessarily the two exclusive leaves. These leaves have x and y as common neighbors. But each has three neighbors among the same five nonparent negatives of t_i, giving a third common neighbor distinct from x,y. This rules out the two-nine case. (The local exclusion of precisely two dot-nine pairs itself needs no (2,30) absence.)
+
+The only outstanding triple has all three dots seven. The [38-site derivation](norm18-triple-core.md#the-actual-core) now gives the 23 known vertices and their edges, the three groups of five private negatives, and the exact allowed inter-group degrees. The derivation of that layout uses none of the hypotheses on charge-three or (1,27) fields; only the earlier final paired-center saturation required the absence of (3,37).
+
+If the omitted centers for marking i are x,y, put u=t_i−t_j−t_k+d_x+d_y. This has charge 2 and cost 34. At any actual exterior common neighbor v of x,y, u(v)=−2, so u+d_v has charge 3 and cost 37. Every raw (3,37) is signed-unit, as proved in the preceding note. Thus a *second* exterior common neighbor would have value −2 or −3 in u+d_v, impossible. We impose only that the number of exterior common neighbors of an omitted center pair is **zero or one**, admitting positive-charge (3,37) fields freely.
+
+As before there are 15 partitions, 424 labelled leaf diagrams, and 34 charts modulo the four parent labels and three marking labels. For every chart generate the five private rows of each missing group and the binary 5-by-5 inter-group matrices with the forced margins. For efficiency the following is an exact test on the 28- and 33-vertex intermediate cores. Let A be the actual adjacency matrix on the currently included sites, T the three signed marking rows restricted there, d=14·1−A·1, and F=12I+2J−A−A². The unseen vertices consist of the 61 sites outside every marking, and a number (zero to two at these steps) of private negative groups of size five. By the eigen-equations, row j of U=4T+TA counts, at each core site, neighbors in the missing negative group of marking j; it vanishes for a group already included. Let e=d−Uᵀ1. If the core extends, F is the Gram matrix of its remaining incidence columns. Centering those columns separately in each size-five block and in the size-61 block gives
+```
+305 F − 61 UᵀU − 5 e eᵀ ⪰ 0.
+```
+Nonnegativity of F, U and e is also necessary. With the full 38-core, the final test is 61F−ddᵀ⪰0. Use exact fraction-free integer Schur complements for all tests.
+
+There remain 7,217 labelled 38-site cores passing these filters. Compute the stabilizer of the given leaf diagram by trying only the 24 permutations of its four named parents; the parent-pair assignment then fixes the induced permutation of centers, marking groups and private leaves. Within each transported negative group, sort its five rows by their 23-core contact masks; these masks are distinct by the common-neighbor bound. Take the minimum of the resulting 15 contact masks followed by the three 25-bit inter-group adjacency matrices. These keys retain the full adjacency, the marking groups and their signs. The checker reconstructs and re-encodes the canonical adjacency for each key. No symmetry of the unknown graph, or of its 61 outside sites, is used. This gives precisely 1,082 representatives.
+
+## Exterior contact words and integer witnesses
+
+For a 38-site core, write h for the binary incidence word of one outside vertex. Necessarily h has at most 14 ones, pairs of sites j,k with F[j,k]=0 do not both occur, and Ah+h≤2 coordinatewise. The last inequality is the common-neighbor bound between the outside vertex and each core site. Its contacts with the two signs of each t_i agree since t_i vanishes outside the core, and the common value is at most three by the [norm-18 height bound](height-three.md). Enumerate all these words by adding sites in increasing order or the deterministic branching order in the verifier, rejecting exactly the displayed local violations. The empty word is allowed. To enumerate only the words incident to a particular i, start with i selected and the sites j with F[i,j]>0 available.
+
+For a distinguished core site i, the sum of all actual exterior words incident to i, with multiplicity, is exactly row i of F, including its diagonal degree. Consequently an integer vector c with nonnegative dot product against every enumerated word incident to i and negative dot product against F[i,:] refutes that core. On 1,081 of the 1,082 representatives this suffices. On the remaining representative, the unrestricted word list has 3,754 words. Append to each its constant 1, linear entries h_j and quadratic entries h_j h_k for j<k; their target sums are 61, the diagonal of F and the off-diagonals of F. A verified integer potential again has nonnegative dot product on every word and negative dot product on this target. No equation requires that the enumerated contact words actually extend; they are supersets of every possible actual incidence column.
+
+Run `python norm18_triple_exterior.py`, with [the checker](norm18_triple_exterior.py), its [compressed integer witnesses](norm18_triple_exterior_certs.json) and the preceding [38-site core generator](norm18_triple_core.py) in the same directory. Python 3.10+ and NumPy suffice for proof replay; SciPy is optional and used only by `--discover` to propose witnesses, never to verify them. Optional positional chart IDs allow parallel shards. The records contain a dictionary of sparse integer witnesses and the witness index for each sorted representative. Across [all 34 charts](norm18-triple-exterior-transcript.txt) there are 941,438 private-side tuples after the one-group filters, then 413,532 joint partial tuples, 27,666 nonempty interface triples, 74,700 complete matrices with nonnegative Gram entries, and 7,217 matrices passing the exact Gram test. Canonical grouping leaves 1,082 matrices, certified by 608 distinct signed integer witnesses. Numerical optimization status does not appear in the proof path. The verifier enforces an integer-product overflow bound before each separating-potential evaluation. The 28-,33-,38-site incidence matrices before the arbitrary-width Schur step have binary adjacency and small dimensions, so their entrywise integer products are safe as well.
+
+## Count and rank-38 consequence
+
+There are 55,440 seeds and nine positive roots per oriented norm-18 marking, so 9N18≤110,880. On the displayed rank-38 six-type family the [full folded row](norm18-u226-graph-cap.md) is
+```
+48V018 +12V226 −2V125 −19V228 −3V337
+  = 2058+98W014+11S+10W444 ≥2058.
+```
+The four added positive-charge types have nonzero discriminant norm; multiplying the fixed-extension mean for each retained selected type by 344 gives its actual graph population at rank 38. Here U127=0 gives [G226≤4,158](norm16-height-two-edge.md). Therefore the same oriented N18 count is at least 13,710, incompatible with 12,320. At rank 38, if U026 and U121 are allowed as well, the exact row instead forces
+```
+3U026+81U121 ≥ 66,696+2U125+19U228+3U337.
+```
+This alone does not exclude those further types, the whole rank, or the graph.
+
+## If (1,27) is allowed
+
+The same N18 upper bound is independent of U127, but [the disjoint transfer](u226-disjoint-transfers.md) now gives the softer 2G226≤8316+3U127. Substituting this, 48N18≤591,360 and the native row on the three-absence family yields at rank 38
+```
+3U026 +81U121 +26U127 ≥ 66,696 +2U125 +19U228 +3U337.
+```
+Here 26=8+12·(3/2). All counts are graph-wide; U's count only the displayed positive charge and N18 counts both orientations. This inequality does not exclude arbitrary U127.

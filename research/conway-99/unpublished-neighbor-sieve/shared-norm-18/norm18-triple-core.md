@@ -41,3 +41,5 @@ More generally, allowing 026 and 121 as well gives the necessary rank-38 inequal
 3U026+81U121 ≥ 66,696+2U125+19U228
 ```
 by using 48·12,320 and 12·4,158 in the same row; this is a pressure inequality, not a larger-support exclusion.
+
+**Fewer shell absences.** The [exterior-incidence strengthening](norm18-triple-exterior.md) proves the same 12,320 upper bound assuming only N16=N20=U230=0, and extends the rank-38 contradiction to the six-type family that also permits (3,37).
