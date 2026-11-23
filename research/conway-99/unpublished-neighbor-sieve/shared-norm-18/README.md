@@ -46,6 +46,8 @@ For [same-positive unit (1,27) fields](u127-same-positive-matching.md), squared 
 
 A [positive support rigidity bound](unit-neutral-positive-support.md) shows that one entire sign determines each signed-unit neutral marking of fixed norm at most 30. If G(3,37) is absent, even 12 positive sites determine a unit norm-26 marking.
 
+The [99-coordinate ternary adjacency code](ternary-adjacency-code.md) has dimension 44 and minimum weight at least 11. Its dual has minimum weight at least 9, with exactly two oriented weight-nine words per induced rook grid.
+
 [Endpoint compatibility](two-type-no-fano.md) excludes Fano markings in the two-type case, reducing the short-count list from ten tuples to eight. If an extension has three eligible cocliques, its overlap matching has at least 45 pairs.
 
 The [ternary rank of the Hoffman coclique design](hoffman-ternary-rank.md) is at least 19; if a Fano switch exists, it is exactly 21. The associated six-site restrictions have a residual collision bound, not an exclusion of a full rank.
