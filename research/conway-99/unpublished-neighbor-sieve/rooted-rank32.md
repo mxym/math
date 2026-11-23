@@ -40,6 +40,8 @@ Run `python3 rooted_rank32.py` for the exact frame, discriminant, and scalar Fou
 
 [Two marked moments](rooted-rank32-moments.md) reduce the shortest guaranteed graph norm to 174 and give a companion span bound in the rootless gluing.
 
-[The all-gluing bounded harmonic identities](rooted-rank32-norm136.md) further reduce the guaranteed squared norm to 136. If the chosen dual has no shorter nonzero field, exactly 240 oriented norm-136 fields occur in that dual.
+[The all-gluing bounded harmonic identities](rooted-rank32-norm136.md) further reduce the guaranteed squared norm **in the chosen saturated dual** to 136. If the chosen dual has no shorter nonzero field, exactly 240 oriented norm-136 fields occur in that dual.
 
 [Before dyadic saturation](rooted-unsaturated-dyadic.md), the universal rank-30 lattice has a fixed local Smith profile, empty norm-two and norm-four primal shells, and a norm-six primal shell controlled by rooted Fano fields and at most 22 checkerboard directions.
+
+[Conflict-free rectangles](rooted-rectangle-fields.md) separately give a graph-only spanning family of actual fields of squared norms 56, 70 and 84 in the entire rooted residual space. These fields need not satisfy the dyadic restrictions of the chosen saturated dual.

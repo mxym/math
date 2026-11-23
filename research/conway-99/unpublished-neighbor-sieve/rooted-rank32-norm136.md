@@ -1,4 +1,4 @@
-# Every closed vertex has a true field of squared norm at most 136
+# Each chosen saturated rooted dual has a field of squared norm at most 136
 
 Fix any vertex o of a prospective srg(99,14,1,2). Apply the [rooted rank-32 construction](rooted-rank32.md), with T of rank 30 and determinant 392, K=<14> perpendicular <28>, and each anti-isometric gluing U of T and K even unimodular of rank 32. Keep T fixed; varying only its gluing does not change the field set. A vector x in the full dual of T gives a genuine integral minus-four eigenfield, zero on the closed neighborhood of o, of squared norm 56(x,x). The evaluation is injective. There is such a nonzero field of squared norm at most 136. More sharply, if T-dual has no such field of positive squared norm below 136, its norm-136 field count is **exactly 240 oriented fields**, not 240 auxiliary lifts.
 
@@ -18,4 +18,4 @@ Here the Laplacian on functions of p,q is 14 partial_p²+28 partial_q² since th
 
 Under W_n=0 for 0<n<68, substitute zero in these relations. The [exact checker](rooted-rank32-norm136.py) generates 126 integer rows on 120 still-possible indices from n=0 through 224; their exact rank is 102, unchanged on appending W68-30W0. Thus W68=30: eight eligible residue classes times thirty gives exactly 240 nonzero graph fields in this dual. This is a rank statement with exact integers and rationals; no numerical optimizer, modular-rank lower bound, quadratic cone, or positivity certificate is needed.
 
-Run with Python 3 and SymPy: `python rooted-rank32-norm136.py`. Its sole line is `PASS: rank 102 on 120 columns; W68=30 W0 under the gap`. This sharpens the previous closed-vertex bound especially at Seidel ranks 40 and 42; at the two lower ranks the independent triangle-wing determinant estimates can already be smaller. It is not a rank exclusion.
+Run with Python 3 and SymPy: `python rooted-rank32-norm136.py`. Its sole line is `PASS: rank 102 on 120 columns; W68=30 W0 under the gap`. This sharpens the previous harmonic bound in the chosen dyadically saturated dual. The [graph-only rectangle fields](rooted-rectangle-fields.md) give smaller norms for the unrestricted real residual space, but their norm-70 fields are excluded from every such saturated dual by its dyadic norm residue. It is not a rank exclusion.
