@@ -35,3 +35,5 @@ Run `python3 two-type-scalar-bridge.py` alongside `two_type_true_hoffman.py`, wi
 [Two unit edges with a shared source](forced-unit-wedge.md) are also forced in every tuple, giving six actual norm-18 fields on 42 or 43 sites around one norm-22 decomposition field, with 14 signed support-population decks left after elementary graph cuts, not 14 adjacency completions.
 
 [Perpendicular residue balance](rank42-even-weil-q11.md) additionally gives divisibility of the oriented norm-22 total by four. The third lower bounds above consequently round to 148 and 76, respectively.
+
+[Nonzero signed-class centroids](nonzero-centroids-two-sided-wedge.md) further raise these lower bounds to N22 ≥140/144/148/156 and G333 ≥84/80/76/76. In the smallest tuple they force either an all-unit three-source configuration or a 49-site two-sided configuration.
