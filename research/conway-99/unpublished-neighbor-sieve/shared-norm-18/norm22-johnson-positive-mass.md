@@ -29,3 +29,5 @@ The last line is the exact conversion 8W333=2L−8(19+S)/3. In particular every 
 Run `python3 two-type-scalar-bridge.py` alongside `two_type_true_hoffman.py`, with the latter's dependencies, to check the exact scalar rows. The population bound above additionally uses the displayed graph-side centroid and exceptional-site argument.
 
 [The mandatory unit double](unit-double-four-arcs.md) also forces a 36-site signed core with one of three exact directed mass decks in every tuple.
+
+[The forced 33-sets](33set-rank11-and-switches.md) have cycle switches, exact short-field incidence constraints, and an 11-dimensional true zero-section.
