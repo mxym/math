@@ -42,3 +42,5 @@ More generally, for a fixed (k>0), two disjoint unions (U,V) of components of th
 Prior-work check: the complementary rank-56 foundation and tail-budget notes give the normalization and lower-shell translations. The published triangle-complement article already gives the full spectrum and triangle count of the far graph, so these are not asserted here as new. The new scope is the literal norm-22 nonunit and charge-two norm-24 split, its coefficient identity, and the stated support-recovery incidence. No complete maximization of (x^+_{11}), no unconditional lower number of (18+18) triangles, and no rank exclusion follow from these identities alone.
 
 **Anticomplete support bound.** The [cubic-shore theorem](anticomplete-cubic-shores.md) gives a total size cap of 36 and recovers the originating wing at maximum contact height. It does not bound arbitrary +3 fields having edges between their shores.
+
+**Adjacent shells.** The [windmill recovery theorem](plus20-unit-windmills.md) shows that the entire +3 neutral norm-20 shell, and the two specified adjacent charged shells, are signed-unit. This does not assert nonemptiness of these shells.
