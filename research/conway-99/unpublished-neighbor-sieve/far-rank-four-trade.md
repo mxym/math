@@ -41,3 +41,5 @@ It is unnecessary to search for either graph: each terminal chart has the follow
 Put \(k'_i=[\,i\sim\bar i\text{ in }K\,]\). Since the rows of \(F\) at antipodes are negatives, this implies \(k'_i+k'_j=1\) along **every** nonzero \(F_{ij}\). The triangle makes those binary equations impossible. No rank-four trade survives.
 
 The [standalone verifier](far_rank_four_trade.py) uses Python 3 and NumPy, only exact integer arithmetic, and no numerical optimization. It enumerates small signed pivot matrices and subsets of at most 18 signed lines, not 99-vertex graphs or far-adjacency charts.
+
+**Odd-characteristic extension.** The [small-field trade proof](far-odd-trade.md) extends the gap to every odd prime and gives a singular-safe uniqueness criterion from the rank of a set of full known rows. It remains a fixed-chart result.
