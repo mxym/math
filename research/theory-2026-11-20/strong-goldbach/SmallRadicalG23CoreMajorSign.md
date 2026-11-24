@@ -97,3 +97,24 @@ Uniformly in \(q,r_0\) and the actual moving endpoints of \(r\), the weighted pr
 The model conditional on \(r_0\bmod q\) is independent of that reduced class: its usual prime denominator factors as \(\varphi(q)\varphi(\prod a_j e_j)\). At a fixed packet prime the \(M\) residues \(jP d^{-1}\) are distinct nonzero residues, establishing exactly the above first-hit law. If one keeps the valuations before forming occupancy indicators, the probability of a fixed \(j\) having valuation at least \(k\) is \(1/\varphi(\ell^k)\); no simultaneous valuations at two distinct offsets are allowed at that prime. The model profile truncation is again superlog-small by Rankin and this tail. Thus summing the actual selector weight in the model gives precisely \(\mathfrak c/\varphi(q)\) times the unmarked interval main, independent also of the prior label \(d\). The reduced rational sum is then \(\mu(q)\) exactly as in (3), and the same real integration over the earlier true primes completes (4).
 
 Combining (4) with the unmarked \(S_g\) estimate proves the genuine **marked** major term equals \(\mathfrak c\) times the right hand leading term of (1), plus \(O(PS(P)/L^2)\). In particular it is still strictly positive and order \(PS(P)/L\) for every fixed \(M\) for which the genuine greedy cover is defined. This is separate from a possible minor cancellation and does not estimate the whole marked restricted mixed coefficient.
+
+## 5. The full reflected parity factor cancels those positive major arcs through other complement ranks
+
+Let
+\[
+g_{\rm all}(m)=\phi(m/P)R_y(m)\lambda(m),
+\]
+without imposing a rank limit. On the very same small-rational arcs, \(S_{g_{\rm all}}(a/q+\beta)=O_A(PL^{-A})\) for every fixed \(A\). This ordinary additive statement does not use the projected tag theorem. Here is a direct proof. Locally at a prime \(\ell\le y\), convolution by \(1+\ell^{-s}\) cancels the Liouville Euler series, so exactly
+\[
+\lambda(m)R_y(m)=\sum_{\substack{v\mid m\\v\text{ squarefree},\,P^+(v)\le y}}\lambda(m/v).
+\]
+All primes of \(q\le Q\) are below \(y\), so the exact support has \((m,q)=1\); keep this mask on the expansion. The actual \(v>P^{1/4}\) tail costs \(\ll P\sum_{v>P^{1/4}}1/v=O_A(PL^{-A})\) on this smooth support by Rankin with exponent \(1/\log y\), since the resulting exponential is \(\exp(-L^{1-\delta}/4)\) times a fixed power of \(L\). For each small \(v\), write \(m=v b\). Then \((v,q)=(b,q)=1\) on retained terms. Ordinary Liouville BV in reduced progressions at endpoint \(P/v\ge P^{3/4}\) gives the corresponding arbitrary-log estimate individually in each of the at most \(q\) classes, including \(q=1\). The additive phase \(e(a v b/q)\) is constant on each class; the remaining smooth \(\phi(vb/P)e(\beta v b)\) has variation \(O(1+|\beta|P)\), only a fixed log-power loss. Sum the uniform error by the reciprocal \(v\)-mass \(O(\log y)\). This proves the additive major bound.
+
+Consequently for **any** \(f_*(n)\) on \(n\asymp P\) bounded pointwise by fixed powers of \(L\), including the actual \(f_C\) in §4 or the entire marked short-prime source in the earlier \(G_{23}\) identity, one has
+\[
+\int_{\mathfrak M} S_{f_*}(\alpha)S_{g_{\rm all}}(\alpha)e(-P\alpha)\,d\alpha
+=O_A(PL^{-A})
+\]
+after arbitrary extra saving in the preceding bound, since the major measure is \(O(Q^3/P)\). No independence from the actual \(C\) is needed on this source side, and a sharp reflected interval in place of \(\phi\) also works by the same endpoints and partial summation.
+
+In particular, keep exactly \(f_*=f_C\) from §4. Since all factors in \(A_2',A_3'\) are \(>P^{1/4}>y\), the difference \(g_{\rm all}-g\) is the actual rough parity weight on the complement of those two classes. Its major integral against \(f_C\) is therefore the **negative** of the full marked major leading term computed in §4, up to the same \(O(PS(P)/L^2)\) error. The positive core major is canceled at the major level by genuine other complement ranks even with the source core held fixed. This still leaves the aggregate fixed-target minor integral completely uncontrolled; it neither proves that the core total was positive nor gives the missing full signed estimate.
