@@ -13,6 +13,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Growing seed closures](SmallRadicalGrowingSeedRank.md), with [Kummer sharpening](SmallRadicalGrowingSeedKummer.md): at a small-radical target, bounded simultaneous all-composite orbits must contain many distinct singular cyclic components. A [feedback-depth variant](SmallRadicalFeedbackDepthRank.md) replaces the total size bound by a retained-size times acyclic-depth budget, sharpened further using [actual branching](SmallRadicalEffectiveBranching.md). No assertion is made that those components are terminal or that targets without a pair exist.
 
+- [One-side-prime cycles](SmallRadicalOneSidePrimeCycle.md): genuine cycles using a single extra prime for all cofactors are excluded at small radical.
+
 ## Actual fixed-target sieve correlations
 
 - [Prime versus positive-block bounds](CQActualMixedPrimePositiveBlock.md): uniform weighted mixed inequalities for genuine complementary arguments with one actual prime, not a lower bound for two primes.
@@ -22,7 +24,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Rough complement parity](SmallRadicalRoughLiouville.md), with [Möbius extension](SmallRadicalRoughMobius.md): relative sign cancellation for genuine complements of primes at each small-radical target, not prime–prime positivity.
 - [Arbitrary small-factor profiles](SmallRadicalSmoothProfileParity.md): relative rough-part parity cancellation persists for weights of the entire small-prime valuation pattern. A [signed-switch application](SmallRadicalSmoothDivisorChannel.md) handles its smooth-divisor channel on nontrivial profiles, not the rough term.
 - [First tag cover](SmallRadicalFirstTagCover.md): a direct covering decomposition saves a fixed log power in the same relative weighted parity estimate, still not the entire rough kernel.
-- [Translated tag coverage](SmallRadicalTranslatedTagTypeI.md): the uncovered mass and short-variable pieces are controlled; a [separate off-diagonal reduction](SmallRadicalTranslatedTagGamma.md) removes shared-factor and close-tag cases, but a new coupled large-variable estimate remains necessary.
+- [Translated tag coverage](SmallRadicalTranslatedTagTypeI.md): the uncovered mass and short-variable pieces are controlled; a [separate off-diagonal reduction](SmallRadicalTranslatedTagGamma.md) removes shared-factor and close-tag cases, but [some high-source chambers](SmallRadicalShiftedHighChambers.md) also cancel or are negligible, but a new coupled large-variable estimate remains necessary.
 - [Actual high-rank exterior removal](CQTrueExteriorHighRankRemoval.md): the existing positive reserve pays the even ranks 10 and above with the stated rough floor, and a specified part of rank 8, with all shared pair regions accounted for.
 - [True middle overlap](CQMiddleOverlapPrimeExclusion.md): a shared budget bounds both negative overlap and the mixed positive–negative terms on the same target. This controls a specified part of the signed score, not the whole exterior.
 
