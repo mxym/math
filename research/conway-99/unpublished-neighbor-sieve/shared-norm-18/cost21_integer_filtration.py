@@ -6,7 +6,7 @@ from functools import reduce
 from fractions import Fraction as F
 import sympy as sm
 
-def model():
+def model(expected_w=None):
  o,w,c,g,u,ub,red=calc(42,[],export=True)
  absent=[red(u[k]) for k in sorted(UNIT-{(0,18),(1,21),(1,25)})]
  # At rank 42 there is just H=0 at seven: the separate eligible-zero and original sectors coincide.
@@ -32,6 +32,13 @@ def model():
   return tuple(z//g for z in a)
  rows=sorted({prim(test(v)) for v in list(ub.values())+extras})
  def apply(z,vs):return sum(i*j for i,j in zip(test(z),vs))
+
+ if expected_w is not None:
+  last=(1,10,0,27,0,8,0,0)
+  for k,expect in expected_w.items():
+   coeff=test(w(k))
+   assert coeff[-1]==0 and sum(x*y for x,y in zip(coeff,last))==expect,(k,coeff,expect)
+  print('Original-site marginals exactly verified at the sole aggregate for all y.')
  return rows,test(g((1,25)))
 
 def find():

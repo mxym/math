@@ -11,3 +11,5 @@ For either of the sorted \(018\) populations before the [26-point split cut](cos
  |X\cap E|=|C\cap E|+|D\cap E|-7[\,s\in E\,].
 \]
 Consequently every third high coclique meets both in eight, and no third coclique can meet both in one. The one-overlap graph induced on the high cocliques is a matching. These deductions make no transitivity assumption.
+
+The [parallel-overlap congruence](cost21-eight-parallel-44.md) shows that each individual Hoffman coclique has the same intersection size with all eight equitable sets, although the size can depend on the coclique.
