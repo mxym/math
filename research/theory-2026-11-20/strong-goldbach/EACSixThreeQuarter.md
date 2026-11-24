@@ -50,7 +50,11 @@ The following elementary geometry sharply restricts the five remaining semiprime
 * **If any semiprime row contains \(p\):** it is \(pg\) with \(g\ne p\) since \(p^2<2N/3\) (use \(N>p^3\)). Each such output \(g>2N/(3p)>(2/3)N^{2/3}\). For all sufficiently large \(N\), \(gq>N\) since \(q>N^{5/12}\); thus any row using \(g\) must be a \(p\)-pair. Every other non-\(p\) output occurs in a pair omitting \(p\) and is \(<N/q<N^{7/12}\), so the \(g\)'s are exactly a contiguous tail of largest labels. Their diameter is \(<M/p<2p\): \(Mp<N=p^3+r\le p^3+M\), so \(M/p<p^2/(p-1)<2p\). All inputs of \(p\)-pairs and of the cube are congruent to \(r\) mod \(p\). As the labels are odd, at most one tail label can be input of any such row (two would differ by at least \(2p\)).
 * **If no semiprime row contains \(p\):** the cofactor graph on the other five labels, with a pair an undirected edge and squares represented by loops, has a star as the component containing \(M\). Indeed every label in that graph appears as a factor by strong connectivity. Let \(s\) be the unique mate of \(M\). Any other edge at \(s\) has mate \(z>(2/3)M\) by comparing its product with \(sM\) in \((2N/3,N)\). Such a \(z\) occurs in only one row because a shared factor \(>M/2\) would divide the nonzero even input difference of magnitude \(<M\). In particular there is no loop at \(s\) (it would make \(s\) a mate \(>M/2\) with two occurrences). All its other neighbors are leaves, proving the star restriction.
 
-## 3. Exact small chart table and two genuine algebraic contradictions
+## 3. Closing the lone-cube case
+
+The [search-free proof](EACSixLoneCubePaper.md) rules out singular \(A\) in the lone-cube case when \(pq>N^{3/4}\). It classifies the tiny cofactor graph by its possible connected components and uses the exact equations for the products, without enumerating exponent charts. The chart table below is an independent check of this same step. (The earlier finite rank certificate in the different corank-two branch is still used.)
+
+### Independent exact chart check
 
 Index the labels by 0,…,5. For each cube row \(j=1,\dots,5\), choose a weakly increasing pair from the other five labels for each remaining row. The universal tests above apply just to the semiprime rows; the cube only has output 0, introducing no upward parent. Test accessibility from every vertex, then exact \(\det A=0\) and exact \(\det(I-A)=0\), then the two geometry lanes from §2. Here is the entire table:
 
