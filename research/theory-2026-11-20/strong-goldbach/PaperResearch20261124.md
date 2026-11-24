@@ -60,11 +60,13 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Two/three-factor bilateral core](SmallRadicalG23CoreBilateral.md): a different exact coefficient suppresses the entire low-rank adverse high term up to the target error, including the new three-by-three sign introduced by the half-divisor switch. Its cost is the same genuine marked mixed parity statistic, still uncontrolled off the base cover.
 
-- [Squarefree rough complements and a three-factor threshold](PrimeOppositeSquarefreeThirdFactor.md): the true rough prime subfamily can also be made squarefree, and if a complement has a factor below $N^\kappa$, $\kappa<1/4$, its other two cannot both sit within the stated fixed power window below their balancing scale. Three factors near the cube root remain outside the estimate.
+- [Squarefree rough complements and a three-factor threshold](PrimeOppositeSquarefreeThirdFactor.md): the true rough prime subfamily can also be made squarefree, and if a complement has a factor below $N^\kappa$, $\kappa<1/4$, its other two cannot both sit within the stated fixed power window below their balancing scale. A later curved-shell estimate below handles three factors near the cube root by a different method.
 
 - [Genuine marked major-arc sign](SmallRadicalG23CoreMajorSign.md): on a width-positive polynomial-factor subcore, the actual mixed statistic restricted to the major arcs has a positive main term too large to discard, even with the true shifted mark. The full reflected rough parity weight has no main term on these arcs: other complement ranks cancel the core major term. The aggregate minor integral remains uncontrolled.
 
 - [Failure of a three-region pair extension](CQMultiRoughPairExtensionFailure.md): a relaxed composite pairing meets selected coarse constraints but its fixed outer blocks cannot be repaired internally to satisfy a genuine deeper rough window. This does not rule out other pair models or prove a sign on actual pairs.
+
+- [Curved-shell removal of three near-cube-root factors](PrimeOppositeThreeFactorCurvedShell.md): Guo's fixed-body lattice discrepancy plus an exact partition into translated cubic lattices removes a fixed power window of genuine rank-three complements from the same squarefree rough prime cloud. Other rank-three shapes and the existence of prime or semiprime complements remain open here.
 
 ## Signed minor arcs and the central operator
 
