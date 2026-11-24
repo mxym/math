@@ -26,6 +26,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [First tag cover](SmallRadicalFirstTagCover.md): a direct covering decomposition saves a fixed log power in the same relative weighted parity estimate, still not the entire rough kernel.
 - [Translated tag coverage](SmallRadicalTranslatedTagTypeI.md): the uncovered mass and short-variable pieces are controlled; a [separate off-diagonal reduction](SmallRadicalTranslatedTagGamma.md) removes shared-factor and close-tag cases, but [some high-source chambers](SmallRadicalShiftedHighChambers.md) also cancel or are negligible, but a new coupled large-variable estimate remains necessary.
 - [Actual high-rank exterior removal](CQTrueExteriorHighRankRemoval.md): the existing positive reserve pays the even ranks 10 and above with the stated rough floor, and a specified part of rank 8, with all shared pair regions accounted for.
+- [Independent positive shell](CQIndependentPositiveShellRankEight.md): a disjoint real positive sector pays a separate rank-eight adverse sector, without reusing the existing reserve.
 - [True middle overlap](CQMiddleOverlapPrimeExclusion.md): a shared budget bounds both negative overlap and the mixed positive–negative terms on the same target. This controls a specified part of the signed score, not the whole exterior.
 
 ## Signed minor arcs and the central operator
