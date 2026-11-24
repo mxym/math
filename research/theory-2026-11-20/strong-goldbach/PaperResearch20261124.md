@@ -60,6 +60,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Two/three-factor bilateral core](SmallRadicalG23CoreBilateral.md): a different exact coefficient suppresses the entire low-rank adverse high term up to the target error, including the new three-by-three sign introduced by the half-divisor switch. Its cost is the same genuine marked mixed parity statistic, still uncontrolled off the base cover.
 
+- [Squarefree rough complements and a three-factor threshold](PrimeOppositeSquarefreeThirdFactor.md): the true rough prime subfamily can also be made squarefree, and if a complement has a factor below $N^\kappa$, $\kappa<1/4$, its other two cannot both sit within the stated fixed power window below their balancing scale. Three factors near the cube root remain outside the estimate.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
