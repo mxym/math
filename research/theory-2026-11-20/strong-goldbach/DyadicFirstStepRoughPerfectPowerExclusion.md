@@ -79,3 +79,21 @@ For fixed \(p\), fixed finite dictionary \(S\), and \(N=2^k\), a shorter proof u
 The elementary shared-index shortcut is independent: \(2^k-p=x^m\) with \(d_0=\gcd(k,m)>1\) forces \(p=A_0^{d_0}-B_0^{d_0}\), \(A_0=2^{k/d_0}\), \(B_0=x^{m/d_0}\); primality yields \(A_0-B_0=1\) and \(p>A_0^{d_0-1}\ge\sqrt N\), excluding all low roots. When \(N=2^{2t}\), any square complement to a prime has root \(2^t-1\), and \(p=2^{t+1}-1\). For \(t\ge3\), primality forces \(t+1\) prime and \(t\) even, so the square root factors into the coprime odd integers \(2^{t/2}-1\) and \(2^{t/2}+1\), both \(>1\). Thus the only prime-square complement for even \(k\) is \(N=16,p=7,3^2\); a square with composite base at larger targets is not excluded for arbitrary macroscopic roots.
 
 The old repository theorem EACThreeTwoAndThreePowers.md concerns three-label exceptional autonomous components at all dyadic centers (and twice powers of three), with unrestricted labels and whole closed-factor-graph hypotheses. This note concerns actual **single first rows** with quantitative small-root and radical restrictions and requires no component; neither result implies the other. The repository checks and literature search disclosed no reason to assert priority for the fixed-shift perfect-power conclusion. All bounds are effective in principle but no numerical cutoff \(N_0\) was computed. A surviving squarefree complement or a non-perfect-power composite with exponents gcd 1 is entirely compatible with the theorem. It neither proves a Goldbach representation nor claims a significant measure gain in the central near-full positive bank.
+
+## 6. Independently, a much larger threshold leaves almost all the logarithmic size
+
+The perfect-power exclusion in §1 is proved only at its stated cutoff. A different application of Yu shows that the true complement remains almost full in size after removing a substantially larger set of primes. For any fixed \(a,d\ge0\), fixed \(0<\sigma<1/2\), and the same bounds \(\operatorname{rad}(N)\ll W^d\), \(\log p\ll W^a\), let \(L=\log N\), \(W=\log L\), and \(T=L^\sigma\). Then
+\[
+ \log\left(\prod_{r\le T}r^{v_r(N-p)}\right)\le L^{2\sigma+o(1)},
+ \qquad
+ \prod_{r>T}r^{v_r(N-p)}=N^{1-o(1)}.
+\]
+Products run over primes. In particular \(P^+(N-p)>(\log N)^\sigma\) for every such actual root \(p\), for all sufficiently large \(N\).
+
+Indeed, if \(r\mid N-p\), the coprimality of \(p\) and \(N\) implies \(r\nmid Np\). Use \(N/p-1\) as Yu's nonzero form at \(r\), with bases \(p\) and the distinct prime divisors of \(N\), and exponents \(-1\) and \(v_\ell(N)\), respectively. All bases are units at \(r\), the rank is \(O(1+\log W)\), and the logarithm of the maximum exponent (or 3) is \(O(W)\). As in §3, use an unramified auxiliary field of degree at most 2 with \(r^f\le 4r\). For \(r\le T\) each modified height is \(O(1+W^a+W)\); hence the product of all heights and the rank-dependent factor in Yu are \(\exp(O((\log W)^2))\). Consequently
+\[
+ v_r(N-p)\ll r\exp(O((\log W)^2))
+\]
+uniformly. Multiply by \(\log r\) and sum, even over all integers \(2\le r\le T\) as an upper bound, to get \(T^2\exp(O((\log W)^2))=L^{2\sigma+o(1)}\). Finally \(p=\exp(O(W^a))=o(N)\), so subtracting the logarithmic smooth-factor bound from \(\log(N-p)=L+o(1)\) gives the asserted logarithmic size of the rough factor.
+
+The two statements have different content: §1 controls exponent gcd at a small cutoff; §6 controls size at a much larger cutoff without claiming exponent gcd 1 there. The latter may have multiple distinct factors, or one factor of multiplicity greater than one.
