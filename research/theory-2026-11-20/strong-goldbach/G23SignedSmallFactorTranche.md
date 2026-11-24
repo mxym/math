@@ -60,3 +60,19 @@ For option 2, the genuine prime-energy distribution also shows that the unhandle
 However the included product is only \(P^{o(1)}\) in the corresponding energy sense. For squarefree k, \(\log k_{\le w}=\sum_{z<q\le w,\ q\mid k}\log q\). In the true prime square select one such divisor q, open \(k=qt\) and use the actual two-prime / one-rough upper count \(O((K/q)\kappa_z S(|p-p'|)/L^2)+P^{.04+o(1)}\) on a dyadic k block, as in the rank-concentration proof. The factor q is already rough; at q itself the reflected roots disappear, a factor \(1+O(1/q)\). The genuine slope singular average and \(\sum_{q\le w}\log q/q\ll\log w\) give total log-weighted energy \(O((P^2\kappa_z/L^3)\log w)\). Aggregate floors over \(q\le w=P^{o(1)}\) are still a power saving; include the diagonal separately even with \(\log k\ll L\). Hence for any fixed \(\rho>0\), the subset \(k_{\le w}>P^\rho\) costs only \(O((P^2\kappa_z/L^3)(\log w)/(\rho L))=o(P^2\kappa_z/L^3)\). The omitted large-prime factor still has almost the full polynomial size of k.
 
 The exact original sign is \(f_w(k)\lambda(k_{>w})\). The few remaining factors cannot be deleted, treated as constant on k bins, or inferred to be independent. Directly opening them in ordinary BV increases \(p d v\) beyond the true endpoint's square-root level in general. A true shifted bilinear input or correlation with the remaining long multiplicative coefficient is still needed; the paper notes no full G23 or Goldbach conclusion.
+
+## Full conditional small-factor data, not merely its parity
+
+The same valid BV calculation proves (1) uniformly with \(f_w(k)\) replaced by **any** real or complex \(|F|\le1\) of the exact set \(S(k)=\{q:z<q\le w,\ q\mid k\}\). In option 2 take \(a_0=a_0(A,\varepsilon)\) small for the new truncation constant; in option 1 the cutoff is unchanged. In fact, for squarefree \(v\) supported on the tranche, Boolean Möbius inversion writes \(F(S)=\sum_{v\subset S}\alpha_v\), with \(|\alpha_v|\le2^{\omega(v)}\), where \(\alpha_v=\sum_{b\mid v}\mu(v/b)F(S(b))\). If \(s=|S|>R\), the total absolute difference after truncating to \(\omega(v)\le R\) is bounded by
+\[
+ 1+\sum_{j\le R}2^j\binom{s}{j}
+ \le (1+3^{R+1})\binom{s}{R+1}.
+\]
+The inequality follows by \(\binom{s}{j}\binom{s-j}{R+1-j}=\binom{s}{R+1}\binom{R+1}{j}\). For \(s\le R\) the expansion is exact. The shell and term coefficients are therefore covered by the same positive factorial reciprocal and floor bounds, with 3 instead of 2 and a larger fixed multiple of \(\log L\) allowed. In particular all constants are uniform in \(F\).
+
+Equivalently, for each \(\mathcal K\) the exact actual conditional signed masses
+\[
+ \mu(S)=\sum_{\substack{k\in\mathcal K\\ S(k)=S}}R_z(k)(H_1(k)-B_1(k))
+\]
+satisfy \(\sum_S|\mu(S)|\ll_A PL^{-A}\), by choosing \(F(S)\) to be the sign of \(\mu(S)\). Thus the true prime and signed composite conditional measures match in total variation on the entire observed small-factor set, even though the partition may have extremely many pieces. This is a statement about actual integer data, not a model of independence of the omitted factor. Fixed marked versions have the same explicit total-variation penalty from §3. The unhandled test \(\lambda(k_{>w})\) is not controlled by this matching of the small-factor data and physical k bins; no full parity conclusion is obtained.
+
