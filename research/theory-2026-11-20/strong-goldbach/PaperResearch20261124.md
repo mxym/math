@@ -68,6 +68,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Curved-shell removal of three near-cube-root factors](PrimeOppositeThreeFactorCurvedShell.md): Guo's fixed-body lattice discrepancy plus an exact partition into translated cubic lattices removes a fixed power window of genuine rank-three complements from the same squarefree rough prime cloud. Other rank-three shapes and the existence of prime or semiprime complements remain open here.
 
+- [Subexponential small-radical rational arcs](SmallRadicalSubexponentialArcs.md): a genuine part of the ordinary minor arcs is negligible for the actual marked mixed sum, for denominators and scaled offsets through $\exp((\log P)^\theta)$, $\theta<4/7$, with polylogarithmic denominator radical. No estimate of the whole minor contribution follows.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
