@@ -129,6 +129,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Actual rank-seven subtraction](CQActualRankSevenSubtraction.md): two genuine named primes occupy the middle modulus slot. Subtract a genuine below-root upper for the zero-score rank-seven rows, then retain the actual negative ranks four to six. This adds more than $.00090336M$ to each orientation of the negative-partner bound on disjoint Y-source rows, not enough to close the fixed-target sign.
 - [Flexible three-tag rank-seven removal](CQFlexibleThreeTagRankSeven.md): genuine reallocation of middle-slot tags opens 15,885 new disjoint angular cells; the sharper actual rank-five reverse upper yields $.00159469M$ per orientation, replacing $.00090336M$, without settling the signed exterior.
 - [Named-only four-tag rank-seven payment obstruction](CQFourTagRankSevenPaymentObstruction.md): the broad positive linear lower with four true names would require a reverse rank-seven coefficient below $.607$ even if rank eight were handled free. The current true reverse upper is $1.672$; other modulus packings or switching remain open.
+- [Programmed four-tag lower count](CQFourTagProgrammedLower.md): the genuine original modified lower sieve can place a positive-power sieve factor in the middle slot, giving a new disjoint broad rank-five-through-seven count. The current reverse upper still cannot subtract zero-score rank seven; even the general full-level budget would need a coefficient below $1.277$.
 
 ## Signed minor arcs and the central operator
 
