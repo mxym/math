@@ -41,7 +41,9 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Single-window adverse semiprime upper](SmallRadicalAdverseSemiprimeWindow.md): a modular hyperbola/Weil bound controls a specified negative (two semiprimes) domain, including balanced windows, without constraining both sides. A [rank-three threshold strip](SmallRadicalAdverseRankThreeThreshold.md) also bounds a genuine adverse part with an unrestricted central prime or rank-three complement.
 - [True middle overlap](CQMiddleOverlapPrimeExclusion.md): a shared budget bounds both negative overlap and the mixed positive–negative terms on the same target. This controls a specified part of the signed score, not the whole exterior.
 
-- [Actual first-step rough perfect-power exclusion](DyadicFirstStepRoughPerfectPowerExclusion.md): for powers of two and certain moving small-radical targets, deleting an explicitly growing dictionary of tiny primes from the genuine complement to any sufficiently small unit prime leaves a nontrivial factor that is not a perfect power. This excludes a whole multiplicity pattern, not the remaining composite complements.
+- [Actual first-step rough perfect-power exclusion](DyadicFirstStepRoughPerfectPowerExclusion.md): for powers of two and certain moving small-radical targets, deleting an explicitly growing dictionary of tiny primes from the genuine complement to any sufficiently small unit prime leaves a nontrivial factor that is not a perfect power. This excludes a whole multiplicity pattern, not the remaining composite complements. A separate valuation argument shows that discarding all primes up to $(\log N)^\sigma$ with $\sigma<1/2$ still leaves almost all of the complement's logarithmic size.
+
+- [Exact smooth-divisor alternative](SmallRadicalSmoothDivisorAlternative.md): an equivalent shifted budget makes all genuine odd-complement rows favorable or zero and pays actual least-prime annuli. On the smaller symmetrically rough set the mixed-sign composite pairs cancel up to a negligible error; normalized threshold combinations cannot erase the common even/even core.
 
 ## Signed minor arcs and the central operator
 
