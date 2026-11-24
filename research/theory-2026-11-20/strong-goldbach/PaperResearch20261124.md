@@ -56,6 +56,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Calibrated angular prime-axis obstruction](CQPrimeAxisAngularCountermodel.md): a relaxed companion law preserves the current prime-axis counts and score constraints, while varying the key mixed moment. Does not model actual integer pairs or satisfy the missing composite-side joint constraints.
 - [Fixed-angle exclusion without imposing roughness](PrimeOppositeAllSourceFixedAngle.md): a positive proportion of all actual prime inputs in each stated source interval has at most one very large complement factor. A separate elementary count also excludes much smaller repeated factors on either surviving subfamily.
 
+- [True short-prime mixed parity](SmallRadicalShortPrimeMixedParity.md): a mixed two-Liouville factor with a genuine short-prime marker cancels on the actually base-covered set, and the corresponding first coefficient can be paid there. The polynomial rank-two/rank-three core often misses this cover, and the high contribution remains.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
