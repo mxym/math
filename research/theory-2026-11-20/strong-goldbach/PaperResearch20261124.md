@@ -74,6 +74,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Three-factor angular separation at all scales](PrimeOppositeThreeFactorAngularSeparation.md): a one-variable B transform and a Robert–Sargos monomial estimate supply the remaining per-box discrepancy, with a rigorous factorization of the moving dual cutoffs. One can exclude both adjacent near-equal logarithmic angles from the same genuine rough cloud; the sum over all three-factor shapes need not be smaller than the cloud.
 
+- [Polynomial-scale good prime-denominator arcs](SmallRadicalGoodPrimeDenominatorArcs.md): zero density and the genuine two-slot prime marker pay all numerators for almost every prime denominator in a fixed small polynomial band. Composite and exceptional denominators and the generic remainder stay outside the estimate.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
