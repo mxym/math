@@ -60,3 +60,26 @@ Compress to the first \(D\) primes as before and sum \((j\log(j+1))^{-\rho}\) by
  N^\alpha\exp\!\left(-\frac{L}{2\log L}\right),
 \]
 which is negligible even compared with \(N^\alpha/L^C\) for each fixed \(C\). The earlier used-vertex exclusions and mutual-pair count are unchanged. Greedy selection can therefore continue for at least a fixed small multiple of \(L^{1/(1-\alpha)}/\log L\) steps.
+
+
+## Unconditional depth-two paths from the \(N^{.4832}\) root window
+
+The two-factor choice below removes the need for the high-largest-label branch in the smaller window, at the cost that the first edge need not always choose the largest factor.
+
+Fix \(0<a<b\), a profile size bound \(M=dm\le L^A\) with \(L=\log N\), and any nontrivial admissible profile \(d>1\) for the [exact planted \(P_4\) window](PrimeOppositeExactKernelPlantedP4.md). For all sufficiently large even \(N\) there are
+\[
+ \gg \frac{L^{1000/753}}{\log L}
+\]
+pairwise vertex-disjoint true \(p\to q\to r\) paths with \(p\in(aN^{.4832},bN^{.4832}]\). Primes \(q,r\) are vertices in the forward-divisor convention above, permitting a prime second complement as the sole factor. Since some nontrivial polylogarithmic admissible profile exists for every sufficiently large even \(N\), the window conclusion itself is unconditional.
+
+Write \(Y=(b-a)N^{.4832}\) and \(Q=(N-p)/d\). The cited theorem supplies \(\gg Y/(ML^2)\) actual unit prime roots whose \(Q\) is squarefree, has rank at most four, and is \(N^{.0393}\)-rough. Any prime \(q\mid Q\) is coprime to \(M\), and all its parents satisfy a true CRT class modulo \(Mq\); their count is at most \(Y/(Mq)+1\).
+
+Separate the roots by whether \(P^+(Q)>N^{.259}\). If that subfamily has at least half the roots, select the largest factor from each. The CRT bound yields \(\gg N^{.259}/L^2\) distinct labels. Keep one root per label; both coordinates of the selected ordered pairs are then injective because each root originally gave only one label. By the identity above, mutual edges with \(c\ge1\) number at most \(N^{1-.4832-.259+o(1)}=N^{.2578+o(1)}\). This is negligible. There is no \(c=0\), since \(d>1\) and \(q\le Q<N-p\).
+
+Otherwise use the roots with \(P^+(Q)\le N^{.259}\). Each has at least two factors since \(Q\ge N/(2d)>N^{.259}\), and its two largest factors \(q_1>q_2\) are distinct and below \(p\). At most one is \(N\bmod p\), so choose one that is not: the chosen label cannot have a return edge to its root. Also \(Q\le q_1 q_2^3\), hence
+\[
+ q_2\ge \frac{N^{.247}}{(2d)^{1/3}}.
+\]
+The same CRT bound now gives \(\gg N^{.247}/(d^{1/3}L^2)\) distinct selected labels, and again keep one root per label. In both CRT estimates, the \(+1\) is absorbed on evaluating the denominator at the respective lower endpoint, which is polynomially smaller than \(Y/M\).
+
+Both cases therefore supply at least \(N^{.247}/L^C\) genuine injectively paired labels for some fixed \(C\), with no return edge, and \(q\ne p\) by the unit condition. Apply the preceding Rankin packing with \(\alpha=.247\): the dictionary exception count \(N^\alpha\exp(-L/(2\log L))\) is negligible against this supply, and the used-parent and used-label exclusions are polylogarithmic. Each surviving label gives a new second child, distinct from its root and from itself. This proves the stated number of disjoint paths. No terminal-component, one-root, or Goldbach assertion is made. Choosing a fixed split just above \(.2584\) instead of \(.259\) permits \(\alpha\) arbitrarily close to \(.2472\) from below by the same proof.
