@@ -4,7 +4,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 ## Six-label factor-closed components
 
-- [All six-label components](EACSixFullStrictPowerSaving.md): at most $X^{3/4-\epsilon+o(1)}$ component-bearing centers up to $X$ for some absolute $\epsilon>0$ (not explicitly computed). It strengthens the [earlier three-quarter count](EACSixThreeQuarter.md), with a [paper proof of the lone-cube step](EACSixLoneCubePaper.md) and a separate chart replay.
+- [All six-label components](EACSixFullStrictPowerSaving.md): at most $X^{3/4-\epsilon+o(1)}$ component-bearing centers up to $X$ with [an explicit admissible choice](EACSixExplicitSaving.md) of $\epsilon=1/(8\cdot30^{64})$. It strengthens the [earlier three-quarter count](EACSixThreeQuarter.md), with a [paper proof of the lone-cube step](EACSixLoneCubePaper.md) and a separate chart replay.
 - [Both exponent presentations singular](EACSixTwoThirdsProduct.md): the two least labels obey $pq\le N^{2/3+o(1)}$. This yields the $X^{2/3+o(1)}$ count in corank one, not in corank two. It supersedes the [seven-tenths intermediate estimate](EACSixSevenTenthsProduct.md).
 - [Corank two with a pure fourth-power row](EACSixCorankTwoPureFourthSaving.md): a strict but not explicit power saving applies in this subclass.
 - [All rows semiprime](EACSixSemiprimeSquareRoot.md): at most $X^{1/2+o(1)}$ centers in this narrower class.
