@@ -165,3 +165,5 @@ The [shared-plane comparison](cost21-final-plane.md) excludes the entire rank-42
 The [all-rank cost-21 support exclusion](cost21-terminal-transfer.md) transfers the pre-final determinant-49 filtration to each genuine maximal extension and rules out its required uniform counts by a 50-line incidence congruence. The selected support contained in `{018,121,125}` is therefore impossible at every admissible rank. The overall graph-existence problem remains open.
 
 The [fixed-terminal signed class theorem](terminal-018-024-121.md) treats the separate support contained in `{018,024,121}`. It equidistributes the eight actual norm-18 signed classes in each maximal extension and gives original graph counting bounds without any global class symmetry assumption.
+
+The [order-two projective tensor trade](g335-projective-trade.md) links five literal terminal populations. If the full eligible types `020,024,026,337` are absent, the actual charge-three cost-35 count is zero or at least 16. This does not exclude either neighboring support by itself.
