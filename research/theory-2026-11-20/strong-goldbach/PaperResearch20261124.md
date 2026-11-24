@@ -41,6 +41,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Single-window adverse semiprime upper](SmallRadicalAdverseSemiprimeWindow.md): a modular hyperbola/Weil bound controls a specified negative (two semiprimes) domain, including balanced windows, without constraining both sides. A [rank-three threshold strip](SmallRadicalAdverseRankThreeThreshold.md) also bounds a genuine adverse part with an unrestricted central prime or rank-three complement.
 - [True middle overlap](CQMiddleOverlapPrimeExclusion.md): a shared budget bounds both negative overlap and the mixed positive–negative terms on the same target. This controls a specified part of the signed score, not the whole exterior.
 
+- [Actual first-step rough perfect-power exclusion](DyadicFirstStepRoughPerfectPowerExclusion.md): for powers of two and certain moving small-radical targets, deleting an explicitly growing dictionary of tiny primes from the genuine complement to any sufficiently small unit prime leaves a nontrivial factor that is not a perfect power. This excludes a whole multiplicity pattern, not the remaining composite complements.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
