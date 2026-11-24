@@ -45,6 +45,9 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Exact smooth-divisor alternative](SmallRadicalSmoothDivisorAlternative.md): an equivalent shifted budget makes all genuine odd-complement rows favorable or zero and pays actual least-prime annuli. On the smaller symmetrically rough set the mixed-sign composite pairs cancel up to a negligible error; normalized threshold combinations cannot erase the common even/even core.
 
+- [Reverse pricing and its obstruction](CQYOldNegativeReverse.md): a rank-resolved reverse receiver sharply improves a true overlap upper bound. An exact weighted dyadic mean then shows why that whole intermediate sector still cannot be paid in isolation from the current reserve.
+- [Three actual first-step factor thresholds](DyadicTwoLargeFactorsAndSquareDivisors.md): Stark's bounds exclude tightly balanced factors near the square root at even dyadic exponents, and exclude large square divisors at small-radical targets. A separate planted-cofactor construction excludes two large factors with a fixed angular threshold at the cost of a much larger prime input.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
