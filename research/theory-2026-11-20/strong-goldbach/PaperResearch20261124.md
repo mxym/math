@@ -96,6 +96,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [A genuine exterior rank-five pairing](CQExternalRankFiveYBlock.md): the two orientations with a genuinely distinct remaining rank-five arm add a new positive $.06836M$ block once. This raises the paid-sector component to $.15072M$ plus the still signed, unresolved exterior.
 - [Two-level prescribed dyadic factors](DyadicTwoLevelPlantedDictionary.md): either the real square-root-scale planted roots have many distinct smaller factor children or many larger children whose next complement contains a fully prescribed disjoint small-factor set. Does not force the larger branch or a prime pair.
 
+- [Low-angle short pair-product collision count](SmallRadicalLowAnglePairProductCollisions.md): every direct total-product transfer between truly different slope groups in a positive-width low-angle band is counted via nondegenerate quadratic norms. The count is polynomially below the real pair mass; no Liouville cancellation or multi-step closure follows.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
