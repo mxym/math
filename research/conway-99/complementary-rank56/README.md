@@ -73,4 +73,4 @@ Keeping just $-6\le v\le6$ and $-4\le w\le4$ gives these lower bounds (not asser
 
 See [Cross-eigenspace tail and grid bounds](tail-budget.md) for comparisons with actual charge-one populations in the −4 sector and whole-grid intersection constraints.
 
-See [the cube-shadow budget](cube-shadow-budget.md) for a disjoint family of primal norm-eight vectors counted by the actual neutral norm-sixteen support census.
+See [the cube-shadow budget](cube-shadow-budget.md) for disjoint primal contributions in shells four through nine counted by the actual neutral norm-sixteen support census.

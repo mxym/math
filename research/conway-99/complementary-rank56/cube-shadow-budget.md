@@ -23,3 +23,35 @@ sum_h k_h(k_h−1) = 2W.
 The [six-cube exclusion](../unpublished-neighbor-sieve/shared-norm-18/norm16-no-six-cubes.md) gives k_h≤5 everywhere; hence each shadow contributes at most twenty to the sum and at least ceil(W/10) new lattice points are needed.
 
 At rank 42 there cannot be even three such cubes with one shadow. Their differences from a common base cube have ordinary Gram with diagonal sixteen and off-diagonal eight, so modulo seven their two-dimensional Gram has diagonal two and off-diagonal one, determinant three, a nonsquare. The pairing on the original seven-discriminant is this dot product modulo seven, up to a common nonzero scalar. Its anisotropic plane has square determinant over F7 (equivalently, the split plane has determinant −1, a nonsquare), and a common scale does not change its square class. The nonsingular two-dimensional Gram could not span that plane. Thus k_h≤2, so each shadow contributes at most two to the sum and at least W new primal points occur. The ceiling and orientation conventions are literal, not averaged over extensions.
+
+## Disjoint contributions through norm eighteen
+
+In the complementary lattice of [the six-site census](README.md#3-mandatory-primal-marks), put \(g=h/\sqrt 7\) for an oriented shadow as above. For each such \(g\), take the following two families, where \(z_i^{\rm site}=(a_i,k)\) is the lattice site mark, \(\epsilon\in\{-1,1\}\), and \(v,w\) are integers:
+\[
+ g+ve+wf,\qquad
+ g+\epsilon z_i^{\rm site}+ve+wf\quad(1\le i\le99).
+\]
+The first family has charge \(s=0\) in the binary glue plane and the second has \(s=\epsilon\). The glue class of \(k\) has order eleven, so equality within or between these families forces the same charge, then the same binary translate. At a nonzero charge, a putative collision with different sites \(i,j\) would imply
+\[
+ h-h'=\epsilon(A+4I)(e_j-e_i).
+\]
+The right side at \(i\) has magnitude at least three, whereas both shadows have entries in \(\{0,\pm1\}\). Thus the site and shadow are recovered. At zero charge the shadow is immediately recovered.
+
+The zero-charge family is disjoint from the mandatory census by the norm-eight argument above, after cancelling the common binary translate. For charge one (the other sign follows by negation), a putative mandatory mark of coefficient vector \(c\) must have signed sum one and the same binary translate, by the order-eleven glue and \(|\sum c_i|\le5\). In particular \(c\) has support at most five, with at most three positives and two negatives. The equality of graph projections would make
+\[
+ d=z_Q+e_i-c
+\]
+a centered \(-4\) eigenvector, where \(z_Q\) is the signed cube indicator. It is nonzero because \(z_Q+e_i\) has at least seven nonzero entries. It has at most seven positive and seven negative mass. A coefficient of magnitude two or more would demand at least eight opposite-sign neighbour mass, so \(d\) is a signed-unit vector. Its support is at most \(8+1+5=14\). The minimum forces equality, hence \(Q,\{i\},\operatorname{supp}(c)\) are disjoint and \(d\) is a signed Fano field containing a cube. The binary incidence argument above excludes this.
+
+An oriented shadow has squared norm eight, and 28 entries of each sign and 43 zeros. Since \(\langle g,a_i\rangle=h_i\) and each site mark has squared norm four, the \(198\) vectors before translation in the second family have half-norm \(6+\epsilon h_i\), with multiplicities \(56,86,56\) at indices \(5,6,7\). Adding the binary translate increases half-norm by
+\[
+ v^2+vw+3w^2+sw=(v+w/2)^2+11w^2/4+sw.
+\]
+For half-norm increment at most five, this forces \(|w|\le1\) and \(|v|\le3\). The [integer replay](cube_shadow_translates.py) counts the translates and convolves their coefficients. The resulting additions beyond the mandatory census, **per distinct oriented shadow**, are
+\[
+\begin{array}{c|rrrrrr}
+j&4&5&6&7&8&9\\\hline
+\Delta y_j&1&58&198&344&286&452 .
+\end{array}
+\]
+Multiply each entry by \(\lceil W/10\rceil\) in any admissible rank, or by \(W\) at rank 42. For instance, at rank 42 this gives \(y_5\ge773392+6P+58W\). These are graph-realized lower bounds for six actual primal shells; feasibility of the resulting larger modular system is not asserted.
