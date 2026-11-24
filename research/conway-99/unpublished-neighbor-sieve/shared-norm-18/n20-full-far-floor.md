@@ -75,3 +75,5 @@ Indeed a nonmonochromatic triple is counted twice in the degree sum (the two ver
 Here \(G_{4,44}\) is the actual charge-four count, not a residue average. A bound on it from a different face cannot be used to close this inequality.
 
 A [physical far-coordinate Schur obstruction](n20-eighteen-block-obstruction.md) excludes the special 18-marking Gram pattern of six low triangles all separated by dot nine. It is not a general cap on seed occupancy.
+
+The [height-four rounding theorem](n20-height-four.md) reconstructs a distinct norm-twenty subtype from four mate-pair axes and caps its oriented population by 6,930. This is not a cap on all of the norm-twenty fields.
