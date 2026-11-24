@@ -6,6 +6,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [All six-label components](EACSixThreeQuarter.md): at most $X^{3/4+o(1)}$ component-bearing centers up to $X$, with a [paper proof of the lone-cube step](EACSixLoneCubePaper.md) and a separate chart replay.
 - [Both exponent presentations singular](EACSixTwoThirdsProduct.md): the two least labels obey $pq\le N^{2/3+o(1)}$. This yields the $X^{2/3+o(1)}$ count in corank one, not in corank two. It supersedes the [seven-tenths intermediate estimate](EACSixSevenTenthsProduct.md).
+- [Corank two with a pure fourth-power row](EACSixCorankTwoPureFourthSaving.md): a strict but not explicit power saving applies in this subclass.
 - [All rows semiprime](EACSixSemiprimeSquareRoot.md): at most $X^{1/2+o(1)}$ centers in this narrower class.
 
 ## Actual fixed-target sieve correlations
@@ -13,7 +14,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Prime versus positive-block bounds](CQActualMixedPrimePositiveBlock.md): uniform weighted mixed inequalities for genuine complementary arguments with one actual prime, not a lower bound for two primes.
 - [Fixed-modulus coupling obstruction](CQFixedCRTNoPairObstruction.md): exact preservation of specified row projections in a relaxed model, while the companion genuine sieve cap excludes this particular model. The relaxation does not preserve the actual equation or all genuine mixed information.
 
-- [True middle overlap](CQMiddleOverlapPrimeExclusion.md): one same-target bound subtracts the genuine prime receivers in both directions. This controls one specified union, not the whole exterior.
+- [True middle overlap](CQMiddleOverlapPrimeExclusion.md): a shared budget bounds both negative overlap and the mixed positive–negative terms on the same target. This controls a specified part of the signed score, not the whole exterior.
 
 ## Signed minor arcs and the central operator
 
