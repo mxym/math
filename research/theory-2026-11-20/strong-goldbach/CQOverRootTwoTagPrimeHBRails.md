@@ -57,3 +57,31 @@ The direct backup branches in the published HB reduction do not cover these part
 [Maynard III, Theorems 1.1–1.3](https://arxiv.org/html/2006.08250#S1) allow the needed varying residue, but do not include even our bare \(qr\) support: the full-prime weak bound and the minorant need an appropriate small factor of width at most approximately \(1/10\), absent here; his almost-uniform full-prime result has two genuine required small slots (one \(<1/20\), the other \(<1/10\)) with positive-power lower levels, unavailable for two primes of widths \(\ge1/8\). [Maynard I](https://arxiv.org/abs/2006.06572), [Runbo Li's two-factor bilinear Theorem 1.1](https://arxiv.org/abs/2602.20917) and [Pascadi's Theorem 1.3](https://arxiv.org/html/2505.00653#S1) do not authorize substituting the varying residue \(a=N\) into a fixed-\(a\) result with constants depending on \(a\). In addition the balanced \(qr\) weight here is not triply well-factorable just because it is a fixed two-box product. In the concrete histogram, every \(qr\) at the top includes primes of widths \(>.246\), bigger than the equal thirds of any level comparable to its actual tested power; even if a larger named level is asserted, each of these two primes must still fit one slot individually. Thus one cannot simply apply a headline weighted prime level to the actual hypothesis.
 
 The obstruction is to the direct full-atom prime treatment with the current physical rails, not to the genuine over-root tag estimate itself. It supplies a concrete next estimate that would defeat the specific repaired prime-axis transport: an actual residue-\(N\) prime-source result on q,r,d in the stated windows, or a different rank-sensitive statistic that controls the missing tagged deficit without these direct atom rails.
+
+## Exact complementary switch at one fixed target
+
+The following decomposition describes what a direct quotient switch would and would not pay. It is independent of the [almost-all theorem](CQOverRootTwoTagAlmostAll.md). Write the true marked companion as \(N-p=qrj\), and let
+\[
+ b_N(k)=\sum_{\substack{q,r\text{ in the genuine disjoint tag bands}\\qr=k}}1,\qquad
+ W_N^\pm(j)=\sum_{d\mid j}\widetilde\lambda_d^\pm .
+\]
+The tagged product \(k\) determines its two tags uniquely, so \(0\le b_N(k)\le1\). On actual tagged prime rows every variable is a unit modulo \(N\). Indeed if a central prime \(p\) divides \(N\), then \(N=tp\) for a bounded integer \(t\), and the actual \((t-1)p\) cannot contain even one of the polynomial-sized tags, both of which are smaller than \(p\). Define \(A_N=\sum_{p\in NJ}\log p\) over actual primes, \(K_j=\{k\in\mathbf Z:N-jk\in NJ\}\), and \(c_j=|K_j|^{-1}\sum_{k\in K_j}b_N(k)\) with empty sets omitted. Use only the unit \(j\)'s in the actual cofactor scale \(\asymp_J [N^{.493},N^{.499}]\), allowing any constant-sided extension of that full range. Put \(\Lambda_{\rm pr}(u)=1_{\{u\ {\rm prime}\}}\log u\).
+
+The exact remainder of the original test is the sum of
+\[
+ \sum_j W_N^\pm(j)\sum_{k\in K_j}
+       (b_N(k)-c_j)\Lambda_{\rm pr}(N-jk),
+ \quad
+ \sum_j W_N^\pm(j)c_j
+      \left(\sum_{\substack{p\in NJ\\p\ {\rm prime}\\p\equiv N\bmod j}}\log p
+                       -\frac{A_N}{\varphi(j)}\right),
+\]
+and the genuine local-main difference
+\[
+ A_N\left(\sum_j \frac{W_N^\pm(j)c_j}{\varphi(j)}
+            -\sum_{\substack{q,r,d\\(qrd,N)=1}}
+                        \frac{\widetilde\lambda^\pm_d}{\varphi(qrd)}\right).
+\]
+This follows by opening the divisor \(d\mid j\), centering the actual tag at its integer interval mean, and adding and subtracting the displayed below-root progression main. Every central \(p\) is larger than \(j\) and than \(qrd\), so the exact prime-unit tests in the two density terms give \(A_N\).
+
+The middle term is paid by ordinary maximal-residue Bombieri–Vinogradov with the actual moving endpoints, as \(j\ll_J N^{.499}\), \(|W_N^\pm(j)|\le\tau(j)\) and \(|c_j|\le1\). For example, separate \(\tau(j)\le L^B\) and use arbitrary log savings there. On the complement, bound the absolute underlying error by \(O(N L/j+N L/\varphi(j))\), use \(1/\varphi(j)\ll L/j\), and the ordinary divisor-square harmonic bound \(\sum_{j\le O(N^{.499})}\tau(j)^2/j\ll L^4\). This gives an arbitrary log saving after enlarging \(B\). In contrast the first term retains the literal sparse two-prime weight. If one preserves even a genuine named \(q\) or \(r\) as a progression test after switching, the physical modulus exponent is at least \(.493+.246=.739\) or \(.493+.255=.748\), respectively, whereas after using bare \(j\) the remaining ordinary BV level is at most \(N^{.007+o(1)}\). Also the local-main difference cannot be presumed zero merely because \(b_N-c_j\) has zero integer mean. The switch gives no new fixed-target signed estimate, and does not rule out an estimate for the surviving true covariance by another method.
