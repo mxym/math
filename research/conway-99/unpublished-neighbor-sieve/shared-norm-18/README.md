@@ -161,3 +161,5 @@ The [norm-twenty near-seed projection](n20-low-five-projection.md) forbids five 
 The [rank-42 equitable mass identities](rank42-equitable-mass.md) tie the numbers of actual 33-sets, cost-28 charge-two markings, and oriented unit norm-26 fields on the distinct support contained in `{026,228,230}`. They give lower bounds, not an exclusion of that support.
 
 The [shared-plane comparison](cost21-final-plane.md) excludes the entire rank-42 support contained in `{018,121,125}`. The last profile would require the same literal quantity `3E7−E4` to be at most 1,092 by graph-field multiplicities and at least 1,112 by the common 13+13+2-dimensional frame. This is one support exclusion, not the exclusion of rank 42 or the Conway graph problem.
+
+The [all-rank cost-21 support exclusion](cost21-terminal-transfer.md) transfers the pre-final determinant-49 filtration to each genuine maximal extension and rules out its required uniform counts by a 50-line incidence congruence. The selected support contained in `{018,121,125}` is therefore impossible at every admissible rank. The overall graph-existence problem remains open.
