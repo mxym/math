@@ -51,6 +51,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Short complementary-divisor exchange](SmallRadicalHalfDivisorTradeoff.md): in a different exact representation the whole all-large semiprime–semiprime bill disappears up to the target error. A broad balanced three-factor–three-factor bill turns adverse instead, and a nonlinear repair requires a genuine long two-prime modulus estimate.
 
+- [Fixed-angle exclusion on actual prime-opposite rows](PrimeOppositeFixedAngleExclusion.md): for every sufficiently large even target, a positive-size subfamily of starts at each fixed scale $N^\rho$, $1/3<\rho\le1/2$, has rough complements with at most one factor above $N^{1/2-\delta}$, counted with multiplicity. The bound is uniform in the target radical and does not say a prime complement exists.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
