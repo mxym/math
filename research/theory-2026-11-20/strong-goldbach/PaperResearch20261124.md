@@ -15,6 +15,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [One-side-prime cycles](SmallRadicalOneSidePrimeCycle.md): genuine cycles using a single extra prime for all cofactors are excluded at small radical. A [high-chain scale theorem](HighFactorChainScaleCap.md) bounds narrow or small-cofactor chains, with an exact cap above $N/7$ when $7\nmid N$.
 
+- [Prime-opposite entries](PrimeOppositeHighEntryDichotomy.md): a true prime sieve near the square root supplies many genuine entry rows, but long high-factor paths require many labels with no low prime parent.
+
 ## Actual fixed-target sieve correlations
 
 - [Prime versus positive-block bounds](CQActualMixedPrimePositiveBlock.md): uniform weighted mixed inequalities for genuine complementary arguments with one actual prime, not a lower bound for two primes.
