@@ -70,6 +70,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Subexponential small-radical rational arcs](SmallRadicalSubexponentialArcs.md): a genuine part of the ordinary minor arcs is negligible for the actual marked mixed sum, for denominators and scaled offsets through $\exp((\log P)^\theta)$, $\theta<4/7$, with polylogarithmic denominator radical. No estimate of the whole minor contribution follows.
 
+- [Actual signed rough-tail calibration](CQTrueSignedRoughTailEnvelope.md): compact raw transfer and genuine rough windows force the tail crossing of the middle/deep negative part to trade off with its real complementary envelope on the same target. It is a necessary constraint, not a positive payment.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
