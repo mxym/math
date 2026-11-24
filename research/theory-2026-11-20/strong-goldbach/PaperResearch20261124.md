@@ -87,6 +87,10 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Exact compact CQ pairing gate](CQCompactPairedGate.md): the unchanged fixed-target middle/deep debit equals one genuine compact centered two-arm pairing. The required negative covariance is unproved; the stronger high positive prime moment alone does not establish it.
 - [Dense coprime one-coordinate obstruction](SmallRadicalCoprimeCliqueObstruction.md): a nonmultiplicative sign model on actual rough reflected integers and true slopes has a large coprime moment despite strong Fourier, progression and bounded-coefficient affine controls. This is not an example involving the Liouville function itself.
 
+- [Fixed-target positive both-negative pair block](CQCompactBilateralFavorable.md): genuine $Y\times Y$ has a new positive lower bound of $.04456M$, disjoint from all earlier paid regions. Once booked, the exactly-one-$Y$ remainder replaces the original isolated gate and still lacks a sign.
+- [A joint middle-window Poisson–Weil estimate](PrimeOppositeMiddleJointPoissonWeil.md): true prime plus divisor marks give a power-saving joint error even beyond the usual source-scale BV modulus bound on this family. This improves particular upper counts, not the rough middle estimate required for $P_3$.
+- [Rigidity of short true multiplicative links](SmallRadicalShortMultiplicativeLinks.md): direct short-ratio arithmetic cannot transport two distinct reflected vertices between actual slope groups. Long physical paths keep the entire large-prime part, but paths that jump within a group and the dense signed moment remain unresolved.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
