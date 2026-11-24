@@ -45,3 +45,5 @@ At a given seed, join two fields when their dot is 9 or 10. Under the current ne
  \sum_{\text{seeds}}T \ \ge\ 10N_{20}-720,720
 \]
 for the actual oriented \(N_{20}\), since each field has ten positive roots. A high triangle with fewer than six common negatives can occur at no more than one positive seed: two distinct positive seed roots have at most two common neighbours, so their four-parent sets would need at least six common negative sites. The six-common-negative triangles instead occur at exactly two or three positive seeds as classified above. This is a lower bound on the incidences to be ruled out; no sufficiently strong graph-wide upper is asserted.
+
+The [full far-coordinate floor and low-triangle transport](n20-full-far-floor.md) substantially sharpen these actual rooted incidence lower bounds. It still does not exclude high triangles or the whole support.
