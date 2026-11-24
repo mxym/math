@@ -62,6 +62,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Squarefree rough complements and a three-factor threshold](PrimeOppositeSquarefreeThirdFactor.md): the true rough prime subfamily can also be made squarefree, and if a complement has a factor below $N^\kappa$, $\kappa<1/4$, its other two cannot both sit within the stated fixed power window below their balancing scale. Three factors near the cube root remain outside the estimate.
 
+- [Genuine marked major-arc sign](SmallRadicalG23CoreMajorSign.md): on a width-positive polynomial-factor subcore, the actual mixed statistic restricted to the major arcs has a positive main term too large to discard, even with the true shifted mark. This is not the full signed count; other ranks and minor arcs matter.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
