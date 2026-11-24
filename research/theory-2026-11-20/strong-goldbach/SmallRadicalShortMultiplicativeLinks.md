@@ -92,3 +92,20 @@ b m'_1m'_2=a m_1m_2,\qquad (a,b)=1,\quad a,b\le T_0,\quad T_0T_1\le T .
 Assume one actual \(m_i\), say \(m_1\), has a genuine prime \(R>P/T_1\). For large \(P\), \(R>T_0\), so \(R\) is not canceled by the short ratio; \(R\) occurs in exactly one of the two target vertices by their coprimality. Reorder the targets so that \(R\mid m'_1\). Then both \(m_1/R\) and \(m'_1/R\) are at most \(T_1\). Hence after reducing the first coordinate ratio \(m'_1/m_1\) its height is at most \(T_1\), while the second ratio, obtained by dividing \(a/b\) by the first, has height at most \(T_0T_1\le T\). The two-link rigidity now rules out transport to a distinct clique. Within the same clique both short links must be identities, so the physical pair is unchanged up to order and \(a/b=1\). In particular no sign-changing pair-product transfer of this type exists even when only one vertex has the near-full prime. For general pairs without such a large common prime, a short total product ratio may require redistribution through long factors; no conclusion is reached there.
 
 These statements constrain fixed-\(P\) transfers that use actual complete multiplicativity with short arithmetic edits, and give a dense domain where specified short cycles are sign-consistent. They do not establish smallness of the actual signed coprime moment, and do not exclude useful constraints from long multiplicative relations, arbitrary pair-product collisions, or the entire multi-step closure of the short-link graph.
+
+## 6. A limited arbitrary-length conclusion on the physical vertex graph
+
+There is one multistep conclusion that is genuinely available **before collapsing the cliques**. Let
+\[
+B_T(m)=\prod_{\ell>T}\ell^{v_\ell(m)}
+\]
+be the complete large-prime part of a physical reflected integer. It is preserved exactly by every link (1), because the numerator and denominator have no prime factor exceeding \(T\). Hence an arbitrarily long path of physical short links, in which consecutive links meet the **same physical vertex**, preserves \(B_T\) on its endpoints. If these endpoints are an actual coprime pair inside one clique, both are therefore \(T\)-smooth. This statement uses no assumption on a path length or on its intermediate clique labels.
+
+The full absolute contribution of intra-clique pairs having even one \(T\)-smooth reflected vertex is negligible. Indeed by Rankin with \(s=1-1/H\) and \(T\le e^H\),
+\[
+\Psi(P,T)\le P^s\prod_{\ell\le T}(1-\ell^{-s})^{-1}
+\ll P e^{-cL^{2/5}},
+\]
+since \(\ell^{1/H}\le e\) on the product and its logarithm is \(O(\log L)\) by Mertens. For each fixed reflected vertex \(m\), even in the full data its source \(P-m\le P\) has at most \(1/\sigma\) eligible distinct primes \(p>P^\sigma\), each determining \(k=(P-m)/p\). The total starting-\(k\) weight over all possible second slopes at this \(k\), ignoring all signs and masks, is \(O(k(P/k+1))=O(P)\), by the real \(I/k\) interval. Thus all terms involving a \(T\)-smooth vertex have combined absolute \(k\)-weighted count \(O(P\Psi(P,T))\ll P^2 e^{-cL^{2/5}}\), far below the true unsigned normalization.
+
+This proves that allowing arbitrarily many **consecutive physical short multiplications alone** cannot connect appreciable internal coprime pair mass. It does **not** settle transitive constraints on hypothetical constants assigned to whole cliques: paths in that quotient graph may arrive at a physical \(m\) and depart at a different physical \(m'\) in the same clique, changing their large-prime parts. Neither this invariant nor the finite cycle bound excludes such long quotient-graph effects.
