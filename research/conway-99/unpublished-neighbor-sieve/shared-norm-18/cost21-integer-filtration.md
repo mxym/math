@@ -32,3 +32,5 @@ Substitution (the RHS is increasing in nonnegative rho) and clearing positive de
 Using a larger c than the true rank cannot cut an actual graph: it merely reserves fewer copies of 2; Cauchy applies to the actual remaining c or c−1 eigenvalues. For each class-size option test every integer 0≤e≤W446−y_lo. If either permitted spectral case passes, retain the aggregate; no conclusion about a graph follows from passing. This leaves **0,5,8,4,0** aggregates for r=9,…,13. The five r=10 rows, in the notation (f,n,M,S,Q, y_lo,y_hi) before the spectral refinement, are (0,59,27,0,8,0,120), (0,59,28,0,0,0,92), (0,60,28,0,24,0,128), (0,60,28,1,12,0,112), (0,60,28,2,0,0,96).
 
 Replay [the exact checker](cost21_integer_filtration.py) with `python cost21_integer_filtration.py` next to `original_site_populations.py` and `rank36_three_types.py` with their usual SymPy dependencies. The output reports both layers separately.
+
+The [actual complement involution and walk bounds](cost21-four-coclique-walk.md) leave a single aggregate control on this support: r=10, N18=236, M=27, S=0, G444=8. It is not a graph witness or an exclusion of other supports.
