@@ -35,3 +35,5 @@ For five markings \(t_i\) whose pairwise dots are at most six, put \(z=\sum(t_i-
 But each of its six center values is a half-odd-integer. The matrix of the six corresponding projected evaluation vectors has Gram \(S\) and hence the squared norm of its evaluation map is at most \(6/7\). Therefore \(3/2\le\sum_{x\in C}z_x^2\le(6/7)\|z\|^2\), giving \(\|z\|^2\ge7/4\), contradiction.
 
 No rank or seven-residue assumption enters. We assumed independent sign shores and the common 15-site seed pattern, not any absence of shells beyond what is needed to supply those premises and the stated angle alphabet. The high triangles themselves are not excluded by this argument.
+
+The [high-triangle overlap analysis](n20-high-triangle-overlaps.md) classifies six-common-sign cases, gives exact recovery from the sum, and bounds the number of high-triangle incidences required by a large actual norm-twenty population.
