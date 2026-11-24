@@ -2,12 +2,14 @@
 
 These results concern scoped pieces of the binary Goldbach problem. They neither prove nor refute the conjecture.
 
-## Six-label factor-closed components
+## Factor-closed components
 
 - [All six-label components](EACSixFullStrictPowerSaving.md): at most $X^{3/4-\epsilon+o(1)}$ component-bearing centers up to $X$ with [the explicit choice](EACSixRationalSaving.md) $\epsilon=1/401$. It strengthens the [earlier three-quarter count](EACSixThreeQuarter.md), with a [paper proof of the lone-cube step](EACSixLoneCubePaper.md) and a separate chart replay.
 - [Both exponent presentations singular](EACSixTwoThirdsProduct.md): the two least labels obey $pq\le N^{2/3+o(1)}$. This yields the $X^{2/3+o(1)}$ count in corank one, not in corank two. It supersedes the [seven-tenths intermediate estimate](EACSixSevenTenthsProduct.md).
 - [Corank two with a pure fourth-power row](EACSixCorankTwoPureFourthSaving.md): a strict but not explicit power saving applies in this subclass.
 - [All rows semiprime](EACSixSemiprimeSquareRoot.md): at most $X^{1/2+o(1)}$ centers in this narrower class.
+
+- [Seven labels and semiprime rows](EACSevenSemiprimeQuarter.md): exactly one bipartite cofactor component, giving a quarter-power least-label bound; arbitrary seven-label arity has the weaker cube-root restriction.
 
 ## Actual fixed-target sieve correlations
 
