@@ -2,6 +2,13 @@
 
 These results concern scoped pieces of the binary Goldbach problem. They neither prove nor refute the conjecture.
 
+## Where to start
+
+- **Proven in a square-root-scale prime window:** [P4 with squarefree complement](PrimeOppositeSquareRootP4.md), also with [exact prescribed small factors](PrimeOppositeSquareRootPlantedP4.md) in the quotient. A [single middle-moment estimate](PrimeOppositeSquareRootP3Target.md) would yield P3 and remains open here.
+- **Genuine square-root-window geometry:** the [three-factor angular separation](PrimeOppositeThreeFactorAngularSeparation.md) separates adjacent factor scales on a surviving rough family; [the two-level dyadic construction](DyadicTwoLevelPlantedDictionary.md) gives a further conditional branch in the actual factor graph.
+- **Fixed targets and the signed prime score:** [a separately certified positive bilateral block](CQCompactBilateralFavorable.md) and [a distinct exterior rank-five block](CQExternalRankFiveYBlock.md) can be booked without overlap. The remaining signed exterior prevents a whole-target lower bound.
+- **Rough mixed parity:** [the reduced bilateral low-rank score](SmallRadicalG23CoreBilateral.md) leaves a [dense, genuinely coprime dispersion estimate](SmallRadicalWeightedCoprimeDispersion.md). Major arcs and some named minor arcs are controlled below. A [nonmultiplicative sign model](SmallRadicalCoprimeCliqueObstruction.md) shows why one-coordinate controls do not settle the actual two-slope problem.
+
 ## Factor-closed components
 
 - [All six-label components](EACSixFullStrictPowerSaving.md): at most $X^{3/4-\epsilon+o(1)}$ component-bearing centers up to $X$ with [the explicit choice](EACSixRationalSaving.md) $\epsilon=1/401$. It strengthens the [earlier three-quarter count](EACSixThreeQuarter.md), with a [paper proof of the lone-cube step](EACSixLoneCubePaper.md) and a separate chart replay.
@@ -97,6 +104,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Two-level prescribed dyadic factors](DyadicTwoLevelPlantedDictionary.md): either the real square-root-scale planted roots have many distinct smaller factor children or many larger children whose next complement contains a fully prescribed disjoint small-factor set. Does not force the larger branch or a prime pair.
 
 - [Low-angle short pair-product collision count](SmallRadicalLowAnglePairProductCollisions.md): every direct total-product transfer between truly different slope groups in a positive-width low-angle band is counted via nondegenerate quadratic norms. The count is polynomially below the real pair mass; no Liouville cancellation or multi-step closure follows.
+
+- [A tilted two-form upper on dyadic targets](DyadicTiltedTwoFormShortCutoff.md): for the short $N^{.02}$ cofactor cutoff and marks at $N^t$, $.20\le t\le .21$, the actual joint sieve improves the affine bound at the same cutoff. The same tilted family does not improve the $.06$ case, and the $P_3$ margin is not paid.
 
 ## Signed minor arcs and the central operator
 
