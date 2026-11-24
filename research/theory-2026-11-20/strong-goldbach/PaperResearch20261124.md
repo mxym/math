@@ -84,6 +84,9 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [One explicit trimmed moment sufficient for a square-root $P_3$ bound](PrimeOppositeSquareRootP3Target.md): both endpoints of the true weighted divisor sum are paid, leaving a normalized middle-moment target of $2.95B$. The available cap is already too costly on a subinterval. The required estimate and $P_3$ remain open here.
 
+- [Exact compact CQ pairing gate](CQCompactPairedGate.md): the unchanged fixed-target middle/deep debit equals one genuine compact centered two-arm pairing. The required negative covariance is unproved; the stronger high positive prime moment alone does not establish it.
+- [Dense coprime one-coordinate obstruction](SmallRadicalCoprimeCliqueObstruction.md): a nonmultiplicative sign model on actual rough reflected integers and true slopes has a large coprime moment despite strong Fourier, progression and bounded-coefficient affine controls. This is not an example involving the Liouville function itself.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
