@@ -13,7 +13,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Growing seed closures](SmallRadicalGrowingSeedRank.md), with [Kummer sharpening](SmallRadicalGrowingSeedKummer.md): at a small-radical target, bounded simultaneous all-composite orbits must contain many distinct singular cyclic components. A [feedback-depth variant](SmallRadicalFeedbackDepthRank.md) replaces the total size bound by a retained-size times acyclic-depth budget, sharpened further using [actual branching](SmallRadicalEffectiveBranching.md). No assertion is made that those components are terminal or that targets without a pair exist.
 
-- [One-side-prime cycles](SmallRadicalOneSidePrimeCycle.md): genuine cycles using a single extra prime for all cofactors are excluded at small radical.
+- [One-side-prime cycles](SmallRadicalOneSidePrimeCycle.md): genuine cycles using a single extra prime for all cofactors are excluded at small radical. A [high-chain scale theorem](HighFactorChainScaleCap.md) bounds narrow or small-cofactor chains, with an exact cap above $N/7$ when $7\nmid N$.
 
 ## Actual fixed-target sieve correlations
 
