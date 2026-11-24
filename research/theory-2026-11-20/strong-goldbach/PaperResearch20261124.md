@@ -13,8 +13,11 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Prime versus positive-block bounds](CQActualMixedPrimePositiveBlock.md): uniform weighted mixed inequalities for genuine complementary arguments with one actual prime, not a lower bound for two primes.
 - [Fixed-modulus coupling obstruction](CQFixedCRTNoPairObstruction.md): exact preservation of specified row projections in a relaxed model, while the companion genuine sieve cap excludes this particular model. The relaxation does not preserve the actual equation or all genuine mixed information.
 
+- [True middle overlap](CQMiddleOverlapPrimeExclusion.md): one same-target bound subtracts the genuine prime receivers in both directions. This controls one specified union, not the whole exterior.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
+- [Two prescribed small-radical families](PowerFamilyFourierObstruction.md): separate alternative weights omit every power of two or every twice-power of three, while retaining the same square-root Fourier comparisons.
 - [Finite-grid approximation](CentralSpectrumQuantization.md), [pointwise localization](CentralPointwiseLocalization.md), and [both signs of the spectrum](CentralParitySpectrumTests.md): relationship between signed window discrepancies and the central operator. These do not bound the discrepancies at an arbitrary target.
 - [Quantitative almost-all calibration](CentralQuantitativeAlmostAll.md): classical circle-method control for all moving summand windows outside a small exceptional set, not a bound on its individual members.
