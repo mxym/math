@@ -92,3 +92,24 @@ For actual integers \(n\in I\) with \(R_z(n)=1\), use the elementary one-variabl
 \ll P L^{.88-\delta/2-M/400}+P^{.57}.
 \]
 This is (2). It measures the genuinely marked frequency product, not just the additive total at \(P\). The remaining generic minor set may contain large actual signed contribution; no estimate there is implied.
+
+## 6. A concrete remaining dispersion estimate (not proved here)
+
+The actual unmarked \(G_{23}\) source is a sum over true \(p\) and true \(k=n/p\), with phase \(e(\alpha p k)\) and coefficient \(\lambda(k)R_z(k)\log(pk)\). After the paid frequency sets above and the small-radical subexponential arcs, the unproved target is the signed integral of this same source against \(S_g(\alpha)e(-P\alpha)\) on their complement, at \(o(PV_y(P)/L)\). True total deletion allows studying the unmarked statistic for sufficiently many offsets.
+
+Neither independent norm estimate closes that complement. Parseval and elementary rough counts give only \(\|f\|_2\|g\|_2\ll P L^{.88-\delta/2}\). Ordinary uniform Davenport for \(\lambda\) extends to either \(\lambda R_y,\lambda R_z\) by the exact smooth convolution and Rankin, then to the true source by summing the reciprocal weights of its \(p\)-slots. This gives separate \(L^\infty\) bounds \(O_A(PL^{-A})\), but combining one with the other's \(L^1\) via Parseval costs \(P^{3/2}\) times fixed log factors. Ordinary one-sided BV controls AP means rather than the common-target pair correlation.
+
+A sufficient real new statement can be made with the exact product interval. Use \(O(L)\) fixed-relative boxes \(p\in I_X,\ k\in I_Y,\ X\ge P^\sigma,\ XY\asymp_J P\), retaining \(p\in\mathcal P\). In each define \(W(p,k)=1_{pk\in I}\log(pk)/L\) (and incorporate any harmless smooth endpoint or prime-slot restrictions in \(W\)). Write \(h(a)=R_y(a)\lambda(a)\) on positive arguments. The true Cauchy quantity and the specific missing piece are
+\[
+\begin{aligned}
+\mathcal Q_{X,Y}&=\sum_{k\in I_Y}R_z(k)
+ \left|\sum_{\substack{p\in I_X\cap\mathcal P\\p\ \mathrm{prime}}}W(p,k)h(P-pk)\right|^2\\
+&=\mathcal Q_{\mathrm{diag}}+\mathcal D_{X,Y},\\
+\mathcal D_{X,Y}&=\sum_{\substack{p,p'\in I_X\cap\mathcal P\\p\ne p',\ p,p'\ \mathrm{prime}}}
+\sum_{k\in I_Y}R_z(k)\,W(p,k)W(p',k)\,
+ R_y(P-pk)R_y(P-p'k)\lambda(P-pk)\lambda(P-p'k).
+\end{aligned}
+\]
+The coefficients \(W\) are real in this example; for complex separated weights conjugate the \(p'\) term. Thus both reflected rough conditions and both *actual* product intervals are retained. If \(\mathcal M_{X,Y}\) is the source contribution in this box, exact Cauchy removes \(\lambda(k)\) and yields \(|\mathcal M_{X,Y}|^2\ll L^2 Y L^{-.24}\mathcal Q_{X,Y}\). The diagonal is \(O(XY/L)\), hence at most \(P X^{-1/2}\) times log factors after Cauchy, already power-negligible. For example \(|\mathcal D_{X,Y}|\ll X^2Y L^{-7}\) uniformly over these boxes would more than suffice even after the \(O(L)\) boxes, and an arbitrary-log bound is a natural clean statement. The exact shifted mark can be removed in the total before this step by the verified integer co-sieve (already \(M\ge400\)); or §5 gives its stronger frequency \(L^2\) deletion for \(M\ge800\). The fixed target \(P\) does not average. No applicable off-diagonal estimate of this strength is established here. In particular controlling either affine value alone, or applying fixed-coefficient Chowla to the varying polynomial prime slopes, would not prove it.
+
+A limited unconditional check is available: if both \(P-pk\) and \(P-p'k\) are required to be **genuine primes**, elementary joint sieving of \(k\) gives on each box an absolute upper \(O(X^2Y L^{-4-.24}(\log L)^{O(1)}+X^2 P^{.04})\) for this slice. Indeed both fixed primes \(p,p'\) are units at every sieve prime (choose the sieve horizon below \(P^\sigma\)). They give two affine bad roots, coinciding exactly at primes dividing \(P(p-p')\), and an additional root \(0\) at primes \(\le z\) (joining them when the prime divides \(P\)). Empty local good sets give no true rows. Otherwise the local product is at most \(L^{-2-.24}(\log L)^{O(1)}\) uniformly, since the exceptional Euler variation over primes dividing \(P(p-p')\ll P^2\) is bounded by a fixed power of \(\log L\), using the usual primorial/Mertens bound. Selberg divisor level \(P^{1/100}\) gives the per-pair floor \(P^{.04}\); there are \(O(X^2/L^2)\) genuine prime pairs by PNT. This checks the shared-root accounting and a true subset, but is not enough even to infer an all-box cancellation for the prime-only mixed term: summing \(O(L)\) boxes loses the needed power, and the much broader rough-composite off-diagonal has not been controlled.
