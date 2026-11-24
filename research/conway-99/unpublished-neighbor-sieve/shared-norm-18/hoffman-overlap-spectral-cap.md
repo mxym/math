@@ -23,3 +23,5 @@ On the M cocliques form a signed adjacency A=A1−A15, with e=e1+e15 edges. Thei
 2(3M−W446)−W014 ≤ 6 dim S_C ≤ 114.
 ```
 But if r≥14 the exact verifier gives 2(3M−W446)−W014≥131, a contradiction. Its two rows are positive integer combinations in the original rank-42 205-coordinate site system after setting the nine forbidden unit types to zero; only the inequality with constant 131 uses r≥14. The computation verifies exact arithmetic, not feasibility tolerances.
+
+The [exact small integer filtration](cost21-integer-filtration.md) additionally forces Fano absence and leaves only common count `r=10,11,12` on this particular rank-42 support, with 17 remaining projected necessary-condition controls.
