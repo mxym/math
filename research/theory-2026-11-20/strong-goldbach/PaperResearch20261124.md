@@ -53,6 +53,9 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Fixed-angle exclusion on actual prime-opposite rows](PrimeOppositeFixedAngleExclusion.md): for every sufficiently large even target, a positive-size subfamily of starts at each fixed scale $N^\rho$, $1/3<\rho\le1/2$, has rough complements with at most one factor above $N^{1/2-\delta}$, counted with multiplicity. The bound is uniform in the target radical and does not say a prime complement exists.
 
+- [Calibrated angular prime-axis obstruction](CQPrimeAxisAngularCountermodel.md): a relaxed companion law preserves the current prime-axis counts and score constraints, while varying the key mixed moment. Does not model actual integer pairs or satisfy the missing composite-side joint constraints.
+- [Fixed-angle exclusion without imposing roughness](PrimeOppositeAllSourceFixedAngle.md): a positive proportion of all actual prime inputs in each stated source interval has at most one very large complement factor. A separate elementary count also excludes much smaller repeated factors on either surviving subfamily.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
