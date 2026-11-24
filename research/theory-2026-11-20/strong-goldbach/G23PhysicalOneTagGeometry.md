@@ -1,0 +1,30 @@
+# Sharp one-tag geometry at the BV level and a payable polynomial-scale thin parity tranche
+
+Written research note, 2026-11-24. Uses the actual fixed dyadic target P, true prime slope p, rough k, reflected \(m=P-pk\), and the genuine G23 weights of the [signed-tranche](G23SignedSmallFactorTranche.md) and [singleton](G23LongSingletonVaughanTypeII.md) notes. It rules out only direct/complementary one-function square-root BV applications by size. It does not rule out new Type II or genuinely stronger progression estimates.
+
+## Geometry
+
+On a genuine physical box \(p\asymp U,\ k\asymp K=P/U\), put \(H=\sqrt P/U\). In the idealized square-root BV ceiling (ignore both the actual logarithmic losses and the opening of auxiliary rough divisors, which only shrink H), a divisor q opened in k leaves physical reflected modulus pq. It can fit this proof only if \(q\ll H\). If \(k=q d\), the complementary modulus is \(p d\asymp P/q\), hence fits only if \(q\gg\sqrt P\). In particular the genuinely unique large prime factor \(q>\sqrt{k}\) is larger than the direct divisor budget by a factor at least \(\asymp\sqrt U\). On the open angular gap \(\sqrt K<q<\sqrt P\), separated by any strict power margin from both endpoints, neither modulus is below \(\sqrt P\). This is an angular interval of limiting width \((\log U)/(2\log P)\). Above \(\sqrt P\), the complementary scale is legal in principle but the remaining variable q is itself a true prime, not an unrestricted variable admitting a one-function BV estimate. The [singleton Vaughan reduction](G23LongSingletonVaughanTypeII.md) gives its exact remaining Type II.
+
+The same obstruction persists after opening any already known positive divisor \(d_0\) of k, disjoint from the new prime range. Making a tag with minimum \(q_0\) *unique purely by product size* needs \(d_0q_0^2\gg K\) (strict-margin version). Testing the direct combined modulus needs \(d_0q_0\ll H\). Dividing these requires \(q_0\gg K/H\asymp\sqrt P\), contradicting \(q_0\ll H/d_0\) on polynomial slope p. Thus a geometry-only single-tag guarantee cannot overlap a directly affordable test. This is a statement about support geometry, not an inference that hard rows have a positive density.
+
+For a fixed genuine polynomial tag interval \((P^a,P^b]\) below the ceiling, the missing higher-degree terms are likewise not ruled out by size alone: if \(a<1/2-\alpha\), with \(U=P^{\alpha+o(1)}\), choose integer \(j=\lfloor(1/2-\alpha)/a\rfloor+1\). Then \((1/2-\alpha)<ja\le(1/2-\alpha)+a<(1-\alpha)\). Selecting j distinct true tags arbitrarily close to the lower exponent fits the k-size geometry with strict slack but their direct combined modulus exceeds the ideal ceiling. This does not claim a lower on the number of genuine jointly prime rows; it shows that one cannot justify deleting that term using only product size. If \(a\ge1/2-\alpha\), even one direct tag is not paid with strict margins.
+
+## A real signed payoff for polynomial-sized tags of vanishing harmonic aperture
+
+For fixed \(\sigma<\alpha<1/2,\ 0<\beta<1/2-\alpha\), restrict true slopes to \(P^\sigma<p\le P^\alpha\). Let \(\mathscr Q\) be the true primes in \((P^\beta,P^{\beta+h}]\), with \(h=L^{-B}\), \(B>1\) fixed, and \(L=\log P\). Let \(f(k)=\lambda(\prod_{q\in\mathscr Q}q^{v_q(k)})\), the actual sign of this polynomial-scale factor tranche. Then uniformly over each physical k interval \(\mathcal K\),
+\[
+ \sum_{k\in\mathcal K}R_z(k) f(k) A_1(k)
+ =O_{E,J,\sigma,\alpha,\beta,B}(P L^{-E}+P L^{-2B})
+\]
+for any fixed \(E\). In particular any chosen log saving follows by choosing the aperture \(B\) large enough; this is not an arbitrary-log result for a fixed polynomial exponents width. The statement applies to the real rough Liouville reflected vector with weight \(\log(pk)/L\); an explicit absolute actual-marker penalty can be added as in the earlier tranche note.
+
+Proof: replace multiplicity parity by \((-1)^{s(k)}\), \(s(k)=\sum_{q\in\mathscr Q}1_{q\mid k}\), costing \(O_J(PL/z)\) on squareful rough k, as already proved. Use the exact first-degree Taylor bound
+\[
+ |(-1)^{s(k)}-(1-2s(k))|\le 4\binom{s(k)}2 .
+\]
+For any fixed \(E\), strong usual prime PNT at the actual endpoints of the polynomial q interval gives \(\sum_{q\in\mathscr Q}1/q\ll_{\beta,B,E} h+L^{-E}\) by partial summation. Counting the literal lattice \(qr\mid k\) for distinct true q,r in the tranche gives \(O(P/(pqr)+1)\) per p,q,r, without needing primality or independence in the reflected position for this absolute error. Since \(\sum_{P^\sigma<p\le P^\alpha}1/p=O_\sigma(1)\), its complete main bill is \(O(P L^{-2B})\) plus arbitrary-log errors; floors are \(P^{\alpha+2\beta+o(1)}\), a power saving by \(\beta<1/2-\alpha\).
+
+The constant and first-divisor terms are true Type I. Preserve both rough masks by the proven Bonferroni opening and exact units. In a real k interval for each p, the signed first term with q opens the physical modulus \(p q d_1\) at the true reduced e-divided reflected endpoint \(P/e\); all rough auxiliary logs are subpower and the prime tag leaves fixed slack \(\alpha+\beta<1/2\). The one-function uncentered maximal Liouville BV input is precisely the previously proved-use form from [Granville–Shao, Theorems 1.1(b), 2.1](https://arxiv.org/html/1706.05710v1). The product \(p q\) has at most two ordered prime factorizations (also including p=q); small d1 is uniquely recovered from its prime ranges. Thus no coprimality of p and q is needed for grouping. Rough-shell floor count is \(P^{\alpha+\beta+o(1)}\); exact harmonic bounds absorb the arbitrary-log remainder. The first-degree claim even allows arbitrary bounded individual tag coefficients, by the same aggregate BV. Only the parity truncation uses the shrinking aperture.
+
+This is a real polynomial-scale signed subtest, but its tags have vanishing harmonic mass. It does not reach the physically dominant long coefficient, nor identify its parity from the few known small factors. In particular uniqueness above \(\sqrt k\) gives no square-root level access by itself. No conclusion for the remaining genuine Type II field or Goldbach.
