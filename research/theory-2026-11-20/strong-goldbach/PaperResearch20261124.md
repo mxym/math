@@ -20,6 +20,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Rough complement parity](SmallRadicalRoughLiouville.md), with [Möbius extension](SmallRadicalRoughMobius.md): relative sign cancellation for genuine complements of primes at each small-radical target, not prime–prime positivity.
 - [Arbitrary small-factor profiles](SmallRadicalSmoothProfileParity.md): relative rough-part parity cancellation persists for weights of the entire small-prime valuation pattern. A [signed-switch application](SmallRadicalSmoothDivisorChannel.md) handles its smooth-divisor channel on nontrivial profiles, not the rough term.
 - [First tag cover](SmallRadicalFirstTagCover.md): a direct covering decomposition saves a fixed log power in the same relative weighted parity estimate, still not the entire rough kernel.
+- [Translated tag coverage](SmallRadicalTranslatedTagTypeI.md): the uncovered mass and short-variable pieces are controlled; a new coupled large-variable estimate remains necessary.
 - [True middle overlap](CQMiddleOverlapPrimeExclusion.md): a shared budget bounds both negative overlap and the mixed positive–negative terms on the same target. This controls a specified part of the signed score, not the whole exterior.
 
 ## Signed minor arcs and the central operator
