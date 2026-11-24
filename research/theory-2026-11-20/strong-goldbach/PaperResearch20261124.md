@@ -76,6 +76,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Polynomial-scale good prime-denominator arcs](SmallRadicalGoodPrimeDenominatorArcs.md): zero density and the genuine two-slot prime marker pay all numerators for almost every prime denominator in a fixed small polynomial band. Composite and exceptional denominators and the generic remainder stay outside the estimate.
 
+- [Exact weighted coprime dispersion](SmallRadicalWeightedCoprimeDispersion.md): diagonal and all common-factor reflected terms are negligible. The true coprime remainder has the computed unsigned main size; one global one-sided squared parity estimate at relative $o((\log P)^{-88/25})$ would suffice, but is not proved.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
