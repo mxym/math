@@ -19,3 +19,5 @@ All twenty terms are nonnegative. Average over eligible D **in this H**. Since e
 Only ranks 40 and 42 are concluded from this argument.
 
 A [separate rank-independent angular bound](high-rank-62-cap.md) caps the number of eligible Hoffman cocliques by 61 on this support face in any maximal extension, without using any native original-coclique lower bound. It also gives a quantitative necessary condition when only unit type 127 is restored.
+
+The [rank-38 original-site certificate and common statement](ranks-all-five-family.md) establish the same five-way condition at all four admissible ranks, using the already published rank-36 condition as well.
