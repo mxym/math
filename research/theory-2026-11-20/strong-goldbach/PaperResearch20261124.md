@@ -10,6 +10,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [All rows semiprime](EACSixSemiprimeSquareRoot.md): at most $X^{1/2+o(1)}$ centers in this narrower class.
 
 - [Seven labels and semiprime rows](EACSevenSemiprimeQuarter.md): exactly one bipartite cofactor component, giving a quarter-power least-label bound; arbitrary seven-label arity has the weaker cube-root restriction.
+- [Eight-label semiprime quarter-power minimum](EACEightSemiprimeQuarter.md): true product gaps and an equal-factor-sum reflection extend the pointwise minimum/maximum restrictions to eight labels and give exponent-matrix nullity at most two; no claim on the size of a terminal component.
 
 - [Growing seed closures](SmallRadicalGrowingSeedRank.md), with [Kummer sharpening](SmallRadicalGrowingSeedKummer.md): at a small-radical target, bounded simultaneous all-composite orbits must contain many distinct singular cyclic components. A [feedback-depth variant](SmallRadicalFeedbackDepthRank.md) replaces the total size bound by a retained-size times acyclic-depth budget, sharpened further using [actual branching](SmallRadicalEffectiveBranching.md). No assertion is made that those components are terminal or that targets without a pair exist.
 
