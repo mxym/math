@@ -12,3 +12,5 @@ SS^t = (35/49) TT^t + (h²/26)J
      = 5(3I+A) + ((h²−90)/26)J.
 ```
 The last equation uses TT^t=7(3I+A)−(3+24/13)J. Integrality forces h²≡12 mod26, impossible for |h|≤6. The (33,26) split is excluded; the (30,29) split is not excluded by this argument. At that remaining split both pairs' within-fiber difference spaces coincide within the pair and are exactly 13-dimensional, by the same saturated 28-dimensional budget.
+
+The [shared-plane comparison](cost21-final-plane.md) excludes the remaining `(30,29)` split, completing this rank-42 support exclusion.
