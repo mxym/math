@@ -14,6 +14,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Prime versus positive-block bounds](CQActualMixedPrimePositiveBlock.md): uniform weighted mixed inequalities for genuine complementary arguments with one actual prime, not a lower bound for two primes.
 - [Fixed-modulus coupling obstruction](CQFixedCRTNoPairObstruction.md): exact preservation of specified row projections in a relaxed model, while the companion genuine sieve cap excludes this particular model. The relaxation does not preserve the actual equation or all genuine mixed information.
 
+- [No-pair moment dichotomy](CQNoPairPositivePrimeDichotomy.md): a genuine two-direction inequality rules out simultaneously small prime crosses and an ordinary-sized positive block at a hypothetical exception.
+- [Rough complement parity](SmallRadicalRoughLiouville.md), with [Möbius extension](SmallRadicalRoughMobius.md): relative sign cancellation for genuine complements of primes at each small-radical target, not prime–prime positivity.
 - [True middle overlap](CQMiddleOverlapPrimeExclusion.md): a shared budget bounds both negative overlap and the mixed positive–negative terms on the same target. This controls a specified part of the signed score, not the whole exterior.
 
 ## Signed minor arcs and the central operator
