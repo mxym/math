@@ -11,7 +11,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Seven labels and semiprime rows](EACSevenSemiprimeQuarter.md): exactly one bipartite cofactor component, giving a quarter-power least-label bound; arbitrary seven-label arity has the weaker cube-root restriction.
 
-- [Growing seed closures](SmallRadicalGrowingSeedRank.md), with [Kummer sharpening](SmallRadicalGrowingSeedKummer.md): at a small-radical target, bounded simultaneous all-composite orbits must contain many distinct singular cyclic components. A [feedback-depth variant](SmallRadicalFeedbackDepthRank.md) replaces the total size bound by a retained-size times acyclic-depth budget. No assertion is made that those components are terminal or that targets without a pair exist.
+- [Growing seed closures](SmallRadicalGrowingSeedRank.md), with [Kummer sharpening](SmallRadicalGrowingSeedKummer.md): at a small-radical target, bounded simultaneous all-composite orbits must contain many distinct singular cyclic components. A [feedback-depth variant](SmallRadicalFeedbackDepthRank.md) replaces the total size bound by a retained-size times acyclic-depth budget, sharpened further using [actual branching](SmallRadicalEffectiveBranching.md). No assertion is made that those components are terminal or that targets without a pair exist.
 
 ## Actual fixed-target sieve correlations
 
