@@ -157,3 +157,5 @@ The [charge-three far-path theorem](g337-far-paths.md) controls the 17 far negat
 The [cost-39 Hoffman incidence contradiction](three-neutral-hoffman.md) excludes the entire support contained in `{020,024,026}` at ranks 40 and 42. It compares a literal graph incidence cap to an exact combination of thirteen norm-two and norm-four quadratic equations, with both sides in one fixed maximal extension. Neither whole rank is excluded.
 
 The [norm-twenty near-seed projection](n20-low-five-projection.md) forbids five actual markings of pairwise dot at most six in a common seed with independent shores. It leaves the actual high-angle triangles open and does not itself cap all seed occupancy at thirteen.
+
+The [rank-42 equitable mass identities](rank42-equitable-mass.md) tie the numbers of actual 33-sets, cost-28 charge-two markings, and oriented unit norm-26 fields on the distinct support contained in `{026,228,230}`. They give lower bounds, not an exclusion of that support.
