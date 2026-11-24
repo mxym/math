@@ -62,7 +62,9 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Squarefree rough complements and a three-factor threshold](PrimeOppositeSquarefreeThirdFactor.md): the true rough prime subfamily can also be made squarefree, and if a complement has a factor below $N^\kappa$, $\kappa<1/4$, its other two cannot both sit within the stated fixed power window below their balancing scale. Three factors near the cube root remain outside the estimate.
 
-- [Genuine marked major-arc sign](SmallRadicalG23CoreMajorSign.md): on a width-positive polynomial-factor subcore, the actual mixed statistic restricted to the major arcs has a positive main term too large to discard, even with the true shifted mark. This is not the full signed count; other ranks and minor arcs matter.
+- [Genuine marked major-arc sign](SmallRadicalG23CoreMajorSign.md): on a width-positive polynomial-factor subcore, the actual mixed statistic restricted to the major arcs has a positive main term too large to discard, even with the true shifted mark. The full reflected rough parity weight has no main term on these arcs: other complement ranks cancel the core major term. The aggregate minor integral remains uncontrolled.
+
+- [Failure of a three-region pair extension](CQMultiRoughPairExtensionFailure.md): a relaxed composite pairing meets selected coarse constraints but its fixed outer blocks cannot be repaired internally to satisfy a genuine deeper rough window. This does not rule out other pair models or prove a sign on actual pairs.
 
 ## Signed minor arcs and the central operator
 
