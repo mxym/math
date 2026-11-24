@@ -77,3 +77,5 @@ Here \(G_{4,44}\) is the actual charge-four count, not a residue average. A boun
 A [physical far-coordinate Schur obstruction](n20-eighteen-block-obstruction.md) excludes the special 18-marking Gram pattern of six low triangles all separated by dot nine. It is not a general cap on seed occupancy.
 
 The [height-four rounding theorem](n20-height-four.md) reconstructs a distinct norm-twenty subtype from four mate-pair axes and caps its oriented population by 6,930. This is not a cap on all of the norm-twenty fields.
+
+The [private-flag transport](n20-private-flag-transport.md) sends repeated norm-twenty flag triples to literal charge-four shells of costs 44 through 54. Its necessary count inequality is not yet strong enough to exclude the rank-36 no-norm-18 support.
