@@ -93,6 +93,9 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Exact small-factor profiles with a square-root P4 quotient](PrimeOppositeSquareRootPlantedP4.md): restrict real $p$ to an admissible moving polylogarithmic progression, prescribing valuations of $N-p$ at selected small primes. The remaining quotient still has at most four distinct prime factors and the same normalized lower margin; this is not a four-factor bound on the whole complement after planting.
 
+- [A genuine exterior rank-five pairing](CQExternalRankFiveYBlock.md): the two orientations with a genuinely distinct remaining rank-five arm add a new positive $.06836M$ block once. This raises the paid-sector component to $.15072M$ plus the still signed, unresolved exterior.
+- [Two-level prescribed dyadic factors](DyadicTwoLevelPlantedDictionary.md): either the real square-root-scale planted roots have many distinct smaller factor children or many larger children whose next complement contains a fully prescribed disjoint small-factor set. Does not force the larger branch or a prime pair.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
