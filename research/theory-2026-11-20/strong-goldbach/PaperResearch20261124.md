@@ -72,6 +72,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Actual signed rough-tail calibration](CQTrueSignedRoughTailEnvelope.md): compact raw transfer and genuine rough windows force the tail crossing of the middle/deep negative part to trade off with its real complementary envelope on the same target. It is a necessary constraint, not a positive payment.
 
+- [Three-factor angular separation at all scales](PrimeOppositeThreeFactorAngularSeparation.md): a one-variable B transform and a Robert–Sargos monomial estimate supply the remaining per-box discrepancy, with a rigorous factorization of the moving dual cutoffs. One can exclude both adjacent near-equal logarithmic angles from the same genuine rough cloud; the sum over all three-factor shapes need not be smaller than the cloud.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
