@@ -78,6 +78,10 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Exact weighted coprime dispersion](SmallRadicalWeightedCoprimeDispersion.md): diagonal and all common-factor reflected terms are negligible. The true coprime remainder has the computed unsigned main size; one global one-sided squared parity estimate at relative $o((\log P)^{-88/25})$ would suffice, but is not proved.
 
+- [At most four prime factors with a square-root-scale prime input](PrimeOppositeSquareRootP4.md): a real prime-plus-squarefree-$P_4$ lower bound in any fixed proportional interval about $\sqrt N$ for every sufficiently large even $N$. Combines ordinary weighted BV with an asymmetric two-form Selberg upper and an exact positive arithmetic margin; does not prove $P_3$, $P_2$, or Goldbach.
+- [Actual prime-angle dual windows](CQPrimeAngularDualWindows.md): stronger fixed-target positive occupancy, and a joint lower for two opposite signs within the same measured middle band. This is not a new payment or a complete coupling.
+- [Balanced semiprime-denominator arcs](SmallRadicalGoodSemiprimeDenominatorArcs.md): the marked mixed contribution is negligible on the actual arcs around almost all balanced two-prime denominators in a small polynomial band, keeping all numerators and correctly treating nonunit strata.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
