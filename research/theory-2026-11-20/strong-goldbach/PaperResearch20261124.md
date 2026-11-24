@@ -91,6 +91,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [A joint middle-window Poisson–Weil estimate](PrimeOppositeMiddleJointPoissonWeil.md): true prime plus divisor marks give a power-saving joint error even beyond the usual source-scale BV modulus bound on this family. This improves particular upper counts, not the rough middle estimate required for $P_3$.
 - [Rigidity of short true multiplicative links](SmallRadicalShortMultiplicativeLinks.md): direct short-ratio arithmetic cannot transport two distinct reflected vertices between actual slope groups. Long physical paths keep the entire large-prime part, but paths that jump within a group and the dense signed moment remain unresolved.
 
+- [Exact small-factor profiles with a square-root P4 quotient](PrimeOppositeSquareRootPlantedP4.md): restrict real $p$ to an admissible moving polylogarithmic progression, prescribing valuations of $N-p$ at selected small primes. The remaining quotient still has at most four distinct prime factors and the same normalized lower margin; this is not a four-factor bound on the whole complement after planting.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
