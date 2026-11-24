@@ -17,6 +17,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Prime-opposite entries](PrimeOppositeHighEntryDichotomy.md): a true prime sieve near the square root supplies many genuine entry rows, but long high-factor paths require many labels with no low prime parent.
 
+- [Small low-factor dictionary](LowDictionaryHighExcursionDichotomy.md): under the stated local parameters, if the dictionary does not expand, direct telescoping forces a very long high excursion from each seed individually.
+
 ## Actual fixed-target sieve correlations
 
 - [Prime versus positive-block bounds](CQActualMixedPrimePositiveBlock.md): uniform weighted mixed inequalities for genuine complementary arguments with one actual prime, not a lower bound for two primes.
