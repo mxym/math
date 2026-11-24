@@ -19,6 +19,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [Small low-factor dictionary](LowDictionaryHighExcursionDichotomy.md): under the stated local parameters, if the dictionary does not expand, direct telescoping forces a very long high excursion from each seed individually.
 
+- [Single actual prime entrance](RealSinglePrimeSeedAnchor.md): a prime of fixed polylogarithmic size can reach any chosen small seed set on its very first reflected factor row.
+
 ## Actual fixed-target sieve correlations
 
 - [Prime versus positive-block bounds](CQActualMixedPrimePositiveBlock.md): uniform weighted mixed inequalities for genuine complementary arguments with one actual prime, not a lower bound for two primes.
