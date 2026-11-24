@@ -58,6 +58,8 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 
 - [True short-prime mixed parity](SmallRadicalShortPrimeMixedParity.md): a mixed two-Liouville factor with a genuine short-prime marker cancels on the actually base-covered set, and the corresponding first coefficient can be paid there. The polynomial rank-two/rank-three core often misses this cover, and the high contribution remains.
 
+- [Two/three-factor bilateral core](SmallRadicalG23CoreBilateral.md): a different exact coefficient suppresses the entire low-rank adverse high term up to the target error, including the new three-by-three sign introduced by the half-divisor switch. Its cost is the same genuine marked mixed parity statistic, still uncontrolled off the base cover.
+
 ## Signed minor arcs and the central operator
 
 - [Fourier-comparable obstruction](SignedMinorFourierObstruction.md): a single alternative weight supported on the primes retains the stated linear and averaged controls, but yields zero convolution on a sparse target sequence. This tests proof inputs, not the true prime weight.
