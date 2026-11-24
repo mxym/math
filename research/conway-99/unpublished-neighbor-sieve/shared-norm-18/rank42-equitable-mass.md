@@ -15,3 +15,5 @@ These are affine identities, not fitted minima. The [companion exact checker](ra
 A useful direct comparison with no $h$ term is $2G_{3,33}-G_{2,28}=24+16M+8S+40B$; eliminating both large shells gives $N_{26}-3G_{2,28}=2328+40M+16S+128B$. These relations involve the *same graph*. They do not imply that every equitable set has an individual associated $(2,28)$ label, or prove that any graph on the face exists.
 
 The [pointwise mixed harmonic identities](rank48-pointwise-centroids.md) add constraints at each of the 99 individual sites, not just the three total masses. They also apply before restricting the unit support.
+
+Keeping the [signed seven-residue integrality](rank42-equitable-signed-gate.md) on this same support improves the lower bound for actual equitable 33-sets from 404 to 412 and constrains the equality case.
