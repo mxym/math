@@ -30,6 +30,7 @@ These results concern scoped pieces of the binary Goldbach problem. They neither
 - [Actual high-rank exterior removal](CQTrueExteriorHighRankRemoval.md): the existing positive reserve pays the even ranks 10 and above with the stated rough floor, and a specified part of rank 8, with all shared pair regions accounted for.
 - [Independent positive shell](CQIndependentPositiveShellRankEight.md): a disjoint real positive sector pays a separate rank-eight adverse sector, without reusing the existing reserve.
 - [Asymmetric positive strip](CQAsymmetricStripRankSixPlateau.md): using a disjoint two-threshold region pays the dominant-prime sector of rank six. The [balanced rank-six dyadic mean](CQBalancedRankSixDyadicObstruction.md) shows that the current reserve alone cannot uniformly cover that sector; it does not give the sign at a prescribed target.
+- [A real favorable semiprime reservoir](SmallRadicalSemiprimeNearFullPositive.md): each small-radical target has many actual semiprime sums with a tagged near-full prime on the other side; the unmarked coefficient has the favorable sign. This does not pay the marked adverse terms.
 - [True middle overlap](CQMiddleOverlapPrimeExclusion.md): a shared budget bounds both negative overlap and the mixed positive–negative terms on the same target. This controls a specified part of the signed score, not the whole exterior.
 
 ## Signed minor arcs and the central operator
