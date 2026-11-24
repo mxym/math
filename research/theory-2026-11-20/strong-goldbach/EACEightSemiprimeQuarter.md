@@ -1,0 +1,42 @@
+# The quarter-power minimum for eight-label semiprime components
+
+Let \(N\) be even and let an actual [exceptional autonomous component](https://arxiv.org/abs/1909.09900) consist of eight distinct odd primes coprime to \(N\). Suppose each complement \(N-x\), with \(x\) a label, has exactly two prime factors from the component, counted with multiplicity. Write \(p\) and \(M\) for the smallest and largest labels.
+
+**Theorem.** \(p\ll N^{1/4}\), \(M\gg N^{3/4}\), and the unsigned edge-incidence exponent matrix has rational nullity at most two. If an eight-label component has arbitrary composite arities, then \(p\le N^{1/3}\) for sufficiently large \(N\).
+
+Make a cofactor graph with one edge \(uv\) for each actual row \(N-x=uv\), allowing a loop for \(u=v\). There are eight distinct edges and no isolates, since every label occurs as a factor by strong connectivity. Every label is \(<N/3\) by its occurrence in a product with another odd prime; therefore every edge product is in \((2N/3,N)\). Each input labels exactly one edge, and each edge has exactly one input. The component of \(M\) is a [star](EACSemiprimeStar.md). If it is the only bipartite component then [the fixed-size theorem](EACSemiprimeQuarter.md) gives both size bounds directly. It remains to analyze a second bipartite component.
+
+## 1. Capacities and exact exclusions
+
+If the largest star has \(s\) vertices, the second bipartite component has \(b\) vertices, and the other component sizes are \(r_i\), then
+\[
+ s,b\ge2,\quad s+b+\sum_i r_i=8,\qquad
+ (s-1)+\lfloor b^2/4\rfloor+\sum_i r_i(r_i+1)/2\ge8.
+\]
+An unrestricted graph on \(r_i\) labels has at most \(r_i(r_i+1)/2\) edges including loops. Enumerating the positive integer partitions of \(8-s-b\) leaves exactly these ordered cases:
+\[
+ (2,2;1,3),(2,2;2,2),(2,2;4),(2,3;3),(3,2;3),
+ (2,4;2),(2,5;1),(3,5;\varnothing),(2,6;\varnothing).
+\]
+Below a “large input” means a label greater than \(\sqrt N\).
+
+- **\((2,6;\varnothing)\).** The second component has seven edges, so it is \(K_{2,4}\) minus one edge or \(K_{3,3}\) minus two. Any two vertices on a shore share a neighbor. If \(H\) is the largest label of the component, comparison of products through such a common neighbor gives \(r>2H/3\) for each \(r\) on its shore. Two products through \(r\) differ by at least \(2r>H\). Hence at most one product per such \(r\) can have an input from the six-label component. There are at most four internal inputs, yet seven products and only two external labels require at least five.
+- **\((2,5;1)\) and \((3,5;\varnothing)\).** The second component is \(K_{2,3}\). If its largest label \(H\) is on the two-label shore, the same argument allows at most two internal inputs, but at least three are required. Otherwise take the two labels \(u<v\) on the opposite shore. For each of the three labels \(r\) on the \(H\)-shore, the input of \(ur\) exceeds the input of \(vr\) by at least \(2r>H\). Thus the input of \(ur\) is external. It is also large: \(H>\sqrt{2N/3}\) from any product of this component, and \(2r>4H/3>\sqrt N\). This uses three distinct large external inputs; there are only three external labels, and at least one is below \(\sqrt N\) as a smaller endpoint of the external star.
+- **\((2,4;2)\).** The second component is \(K_{2,2}\), and the last pair supports all three products (both squares and the cross-product). The smaller label on the shore opposite its largest label forces two large inputs in \(K_{2,2}\), as in the preceding case. For the last pair both labels lie between \(\sqrt{2N/3}\) and \(\sqrt N\), by their squares. Its three products have consecutive gaps at least twice the smaller label, hence \(>\sqrt N\), forcing another two large inputs. The \(K_{2,2}\) can supply at most two large labels as no edge can have two large endpoints; the last pair has none and the isolated edge at most one. Four large inputs are impossible.
+- **\((2,2;2,2)\).** Both last pairs support all three products, so by the preceding gaps they require four large inputs total. Neither pair contains a large label; the two isolated edges can supply at most two.
+- **\((2,2;1,3)\).** The three-label component supports five of its six possible products. Its least and greatest labels are respectively \(>(2/3)\sqrt N\) and \(<\sqrt{3N/2}\): when an extreme square is missing use the opposite square and the product of the two extremes, as in [the seven-label case](EACSevenSemiprimeQuarter.md). The three labels, the loop singleton, and the smaller endpoint of each isolated edge give six inputs \(<\sqrt{3N/2}\). At least three of the five products on the triple have such inputs. They cannot share factors, since then their difference is at least twice the common factor, \(>(4/3)\sqrt N>\sqrt{3N/2}\). Three disjoint supports on three labels would give three different squares, which again have gaps \(>\sqrt{3N/2}\).
+
+## 2. The last three capacities when \(M=o(N^{3/4})\)
+
+Argue along any sequence with \(M=o(N^{3/4})\). In each nonbipartite component, the edge identity
+\[
+ \log(u/\sqrt N)+\log(v/\sqrt N)=\log(1-x/N)=O(M/N)
+\]
+can be alternated around an odd closed walk based at each vertex; because the graph has bounded size, this gives each label \(\sqrt N+O(M/\sqrt N)\). Write two products in such components using \(T=\lfloor\sqrt N\rfloor\) and offsets \(O(1+M/\sqrt N)\). The difference of the quadratic offset terms is \(O(1+M^2/N)=o(\sqrt N)\). If the two row inputs are separated by at most \((1+o(1))\sqrt N\), the factor sums coincide: any nonzero difference of sums of two odd primes has magnitude at least 2, contributing at least \(2T\) before the offset error.
+
+- **\((2,2;4)\).** The four-label component supports six products and is nonbipartite (bipartite capacity at most four). Its four labels and the smaller endpoints of the isolated edges give six inputs at most \((1+o(1))\sqrt N\). At least four of the six products on the four labels use such inputs and hence all have the same factor sum. A fixed sum on four distinct labels supplies at most two unordered pairs even with a loop, since choosing a label determines its partner.
+- **\((2,3;3)\) and \((3,2;3)\).** The components are a single edge, a three-vertex star, and a dense nonbipartite triple with five products. Set \(R\) to the greater of \(\sqrt N\) and the largest triple label; then \(R=(1+o(1))\sqrt N\). At least five input labels are \(\le R\): the three triple labels and at least one from each other component. Thus at least two triple products use inputs \(\le R\) and have the same factor sum. For three ordered distinct labels \(u<v<w\), the only possible equal-sum pair of distinct products is \(v^2,uw\), when \(2v=u+w\). Hence exactly two triple products have inputs \(\le R\), and the three other triple products must use three labels \(>R\). Both leaves of the three-vertex star are then \(>R\): the isolated edge supplies at most one large input; if the star center were \(>R\) both leaves would be \(<\sqrt N\) by their products with the center, so the star must supply its two leaves. The two leaves differ by at most \(M^2/(N-M)=o(\sqrt N)\), since subtracting their products through the center gives a difference of inputs of magnitude at most \(M\) and the center is at least \((N-M)/M\). Their two triple products therefore also have equal factor sums, requiring the same unique pair of triple products already assigned to inputs \(\le R\). This contradicts the input–edge bijection.
+
+Thus \(M=o(N^{3/4})\) is impossible on an unbounded sequence in every case, yielding a uniform lower \(M\gg N^{3/4}\). Since the edge through \(M\) has product at least \(pM\) and less than \(N\), this gives \(p\ll N^{1/4}\). After the exact exclusions the only possible multibipartite shapes have exactly two bipartite components, so the rational nullity is at most two: the column kernel requires \(z_u+z_v=0\) on each edge, and has one free parameter per bipartite component and none per nonbipartite component. Finally if \(p>N^{1/3}\), no actual complement below \(N\) can have three or more factors; all are composite, so the semiprime result applies and contradicts that minimum for large \(N\).
+
+This does not bound the size of a terminal component at a hypothetical Goldbach exception. The dated literature check found adjacent arithmetic and terminal-matrix work (including [Kelanemer](https://ssrn.com/abstract=7274460)), but does not establish priority or complete non-overlap.
