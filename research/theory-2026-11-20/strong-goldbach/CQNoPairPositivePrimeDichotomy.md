@@ -90,3 +90,42 @@ m(Z_v)\ge (v-1)^2\,\sum_{r=4}^8\frac{r^r(1-r a)^{r-1}}{r!(r-1)!}
 for \(v>1\) (weak ≥ at \(v=1\)). All amplitude and measure comparisons used here are independent of a mixed \(P\) conditional smallness assumption.
 
 Explicit example: use \(v=1.368\), \(p=2.0624\) downward, \(q=1.54554\) upward, \(u_0=1.08\), and the rational numbers printed above. The RHS of (V2) is decreasing as a function of \(u\in[0,1.08]\), since \(-2v+2u/U<0\). At \(u=1.08\), the resulting rational lower is \(>4.25529\), while \(p^2<(2.0625)^2<4.25391\). Thus for sufficiently large true no-pair targets, \(PP/M\le p^2\) forces \(u>1.08\). At that exact \(u\), the earlier pure Jensen lower was only about \(4.2193\), so this is a structural ruling out of saturation, not merely rounding the old constant. Arithmetic verified by rational cross-products: the factorial sum exceeds .257568, the substituted lower exceeds 4.25529, the \(p^2\) upper is below 4.25391, and \(u_0/U<v\). This does not force actual \(u\) to be small, and does not by itself close the signed CQ exterior.
+
+## Second appendix: true prime-companion angular anti-concentration and a ceiling on this entire remedy
+
+This concerns the **removed prime occupation itself**, unlike the comp-by-comp variance of (V1). Work at a true no-pair target (so every rough opposite of a prime in Ω is composite and squarefree). In each oriented prime-opposite portion of the same Ω, push counting measure forward under the composite amplitude \(f=P/L\in[0,1]\), writing \(\rho_x,\rho_y\), with masses \(r_x,r_y\in[k,U]+o(1)\). The physical \(3.446\) angular prime upper cited above applies separately to any fixed nonnegative compact composite angular test \(G\). In particular each \(\rho\) satisfies
+\[
+ \rho(G)\le K_\Pi m(L1_{\mathcal C_a}G)+o(1),\qquad K_\Pi=3.446,
+\]
+for a bounded nonnegative \(G\) depending on \(f\), with the usual interpretation of limiting angles. Both orientations are on the literal target \(x+y=N\), not ordinary product coupling. Unlike the total comp-margin argument, here no-pair (or subtracting the exact \(\Pi\Pi\) amount) is necessary so that \(r_x,r_y\) are genuine **composite** companion counts and are still \(\ge k+o(1)\).
+
+For fixed \(\lambda,d>0\), use \((f-\lambda)^2 \ge d^2-(d^2-(f-\lambda)^2)_+\). This gives the real lower
+\[
+\int(f-\lambda)^2\,d\rho
+ \ge k d^2-K_\Pi m\!\left(L1_{\mathcal C_a}(d^2-(f-\lambda)^2)_+\right)+o(1). \tag{PC1}
+\]
+All test functions occur on genuine bounded-rank true squarefree labels, not prime indicators as source. More tests may be handled by a fixed finite collection or compact Jordan approximation; no optimizing angle parameter depending unstably on \(N\) is needed.
+
+### Explicit certificate around \(u\approx p+1\)
+
+Take \(\lambda=.66,d=.07\), and bound the test's one-arm ordinary mass by \(d^2\) times the ordinary harmonic mass of the amplitude band \([.59,.73]\). Rank 4 and higher are excluded because \(f=0\) there. The two remaining ranks admit a short hand bound:
+
+- Rank two: if smaller angle \(t\in[.123,.5]\), \(f=w(t)+o(1)\), \(w=1-2(1-2t)^3+(1-2t)^5\) strictly increasing. \(w(.182)<.59\), \(w(.230)>.73\) by rational substitution. Thus the ordinary band mass is at most \(.048/(.182\cdot.818)\) using the exact angular harmonic \(dt/[t(1-t)]\).
+- Rank three: write \(u_i=1/3+\delta_i\), \(\sum\delta_i=0,\ r^2=\sum\delta_i^2\). Its score is \(16\prod u_i(4/3-5r^2)\). If score \(\ge.59\), AM–GM \(\prod u_i\le1/27\) yields \(r^2<.068\); the same score lower yields \(1/\prod u_i\le64/(3\cdot.59)\). If \(r^2\le.008\), the exact expansion \(\prod u_i=1/27-r^2/6+\delta_1\delta_2\delta_3\), with \(|\delta_1\delta_2\delta_3|\le(r^2/3)^{3/2}<.00014\), gives score \(>.7359>.73\). So only a plane annulus of squared radii .008 and .068 can contribute; the ordinary coordinate area \(du_1du_2\) is Euclidean plane area divided by \(\sqrt3\). Divide by 3! because the integrand is symmetric and physical squarefree order already quotiented, obtaining the upper \(\pi(.068-.008)64/[6\sqrt3\cdot3\cdot .59]\). One may safely enlarge it using \(\pi<22/7,\sqrt3>1.73\).
+
+The combined cap with those rational enclosures is \(<.9793\), and \((k-3.446\cdot.9793)(.07)^2>.0054=:\eta\). This entire angular band estimate is ordinary (not an asserted paired density); the real paired domination is the cited \(K_\Pi\) theorem. By (PC1) both genuine prime-side centered variances are \(>\eta+o(1)\). If \(\ell=\tfrac12\int f^2(d\rho_x+d\rho_y)\) is their actual deleted half second moment, expand around the fixed \(\lambda\) and use \(\tfrac12(r_x+r_y)\le U+o(1)\):
+\[
+ \ell\ge 2\lambda u-\lambda^2 U+\eta+o(1)
+       =u^2/U +\eta-(u-U\lambda)^2/U+o(1).
+\]
+This strictly strengthens \(\ell\ge u^2/U+o(1)\) throughout \(|u-U\lambda|<\sqrt{U\eta}\approx.1584\), including the comparison point \(u=p+1\). Substitute the new lower in \(D\le2Uq-2\ell+o(1)\); it raises the V2/Jensen lower on \(t\) and lowers its upper by the same gain, not one extra debit applied twice to a single inequality.
+
+### Why even *perfect* prime-side square information cannot close this specific scalar method
+
+Always \(\ell\le u+o(1)\), simply \(0\le f^2\le f\) on the same literal prime-companion rows. This remains true with any stronger analytic prime-angular count. Thus the strongest *hypothetically possible* version of the existing two scalar bounds obtained **only** by improving knowledge of \(\ell\) is given by substituting \(\ell=u\), even though this endpoint need not be realizable. Keep all other present coefficients/exact lower first-moment data of these two bounds.
+
+At the comparison point \(u_*=p+1,\ t_*=p^2-1\) (these are the earlier relaxed CRT values, **not** an asserted physical realization), the maximal such scalar upper is still \(t\le Uq-u_*+o(1)\) with right-hand side \(>4.126\). The ordinary \(t_*\) is strictly between 3.2534 and 3.254. For the lower, even if we optimize the entire fixed-\(v\) family (V2), use \(m(Z_v)\le(v-1)^2 m(L1_{\mathcal C_a})\). Ordinary Buchstab \(m(L1_{\mathcal C_a})=\omega(1/a)/a-1\le .6/a-1\); indeed on \([2,3]\), \(\omega(s)=(1+\log(s-1))/s<.6\) (min of \(.6s-1-\log(s-1)\) is \(.6-\log(5/3)>0\)), and \((s\omega(s))'=\omega(s-1)\) propagates the bound. Put \(c=C-2k\), \(S_*=2(kp-u_*)\), \(z=(k-K_\Pi)(.6/a-1)\). An upper for any V2 lower candidate with \(\ell=u_*\) is the concave quadratic
+\[
+F(v)=[S_*-c/2-Uq+u_*]+(S_*-c)(v-1)-(c/2-z)(v-1)^2 .
+\]
+The bracket is \(<2.260\), \(0<S_*-c<.425\), and \(c/2-z>1.958\) from rational bounds on \(p,q\) above. Thus \(\sup_{1\le v\le2}F(v)<2.260+.425^2/(4\cdot1.958)<2.284\). This also bounds the older pure Jensen version (its optimizing \(v=S_*/c\) lies in \([1,2]\) and its added variance term is nonnegative). Consequently even the impossible-best \(\ell=u_*\), with the full V2 shape family, leaves the recorded comparison point far inside the present scalar strip. This is a **ceiling on this remedy**, not construction of a model meeting recent physical constraints (the earlier CRT witness was already rejected on rough linear bounds). An actual new signed exterior or intra-composite rank correlation must improve the other main budgets materially; no benefit to polishing solely \(\ell\) beyond this diagnostic.
