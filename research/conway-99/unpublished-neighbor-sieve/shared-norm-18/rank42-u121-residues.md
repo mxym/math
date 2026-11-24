@@ -26,3 +26,5 @@ With $x=y=0$, the $(0,18)$ deviations are $(-z,z,z,-z)/18$ and the $(1,25)$ devi
 In particular there are at least 18 distinct positive edges missing every Hoffman coclique: the eight signed classes supply at least 72 total (1,21) fields, while the [physical-edge cap](cost21-cycle-edge-cap.md) permits four fields per edge under these same shell absences.
 
 Replay [the residue checker](rank42_u121_residues.py) and [the site checker](rank42_u121_site_bounds.py), using SymPy and, for the latter, original_site_populations.py and its dependencies in this directory.
+
+The subsequent [Hoffman overlap and span comparison](hoffman-overlap-spectral-cap.md) excludes the two largest common values `r=14,15`, leaving `r=9,…,13` as necessary possibilities on this support.
