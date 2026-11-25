@@ -51,3 +51,22 @@ For \(\theta<1\) it is not necessary to approximate \(1/\varphi(d)\) individuall
  (2e^{-\gamma}B^2/\theta+o(1))XI\log\log X .
 \]
 The target's singular series is at least \((e^\gamma\theta+o(1))\log\log X\): all primes up to \(y\) are included, and adding more prime divisors increases the product. This proves the claimed relative debit. It still says nothing about the parity-twisted term.
+
+## Joint control of both long strips and a sufficient short-twist estimate
+
+The long strips in both halves of the exact identity can also be charged jointly. Write \(P_X=\prod_{\ell\mid X}(1-1/\ell)^{-1}\) and \(U=\log\log X\). For either sign, uniformly for \(T=X^{1/2+o(1)}\),
+\[
+ \sum_{\substack{n\le T\\(n,X)=1\\\mu(n)=\pm1}}\frac{n}{\varphi(n)}
+  =\frac{T}{2P_X}+O_\eta(T^{1-\eta}X^{o(1)}),\qquad 0<\eta<1/2 .
+\]
+For the unsigned squarefree weight the Dirichlet series factors as \(\zeta(s)G_X(s)\). At a prime not dividing \(X\), the local factor of \(G_X\) is
+\((1-\ell^{-s})(1+\ell^{1-s}/(\ell-1))=1+\ell^{-s}/(\ell-1)-\ell^{1-2s}/(\ell-1)\); at a dividing prime it is \(1-\ell^{-s}\). So \(G_X(1)=1/P_X\), and its coefficient series is absolutely bounded by \(X^{o(1)}\) at \(1-\eta\). Convolution with 1 gives the unsigned main at that precision. For the signed weight replace \(\zeta(s)\) by \(1/\zeta(s)\); at nondividing primes the local ratio \((1-\ell^{1-s}/(\ell-1))/(1-\ell^{-s})\) is absolutely summable in the same coefficient norm, and at dividing primes use \((1-\ell^{-s})^{-1}\). RH gives the same power error with no main term. The norm for the dividing primes in each case follows by splitting off finitely many small primes and bounding each large-prime log-factor by an arbitrarily small constant times \(\log\ell\).
+
+The short untwisted main at \(D=\sqrt X/(\log X)^B\), \(B>1\), holds even for arbitrary even \(X\): in its extension keep all squarefree-lift terms \(k\le K=(1+U)^J\), so that the smoothed explicit-formula error costs \(O(X(\log X)^{1-B}(1+U)K)=o(X)\). The continuous extension is power-small by the same uniform \(F_{X,k}\) tail bounds, summed over \(k\), as in the [short-main proof](DirectGoldbachComplementaryMobiusHalf.md). The large-\(k\) band deletion is unchanged.
+
+For the negative untwisted debit charge only \(\mu(d)=-1\). For the positive parity-twisted debit, on actual squarefree rows use \(\mu(m)\mu(d)=\mu(e)\) with \(e=m/d\); charge only \(\mu(e)=+1\). This divisor switch makes the second prime progression modulus \(e\), now between \(\sqrt m\) and \(m/D\), but still \(X^{1/2+o(1)}\). Apply the same weighted Brun–Titchmarsh argument, followed by the displayed harmonic density by partial summation, to both half-strips. For the new strip the weight is \(2\log(e/\sqrt m)\), and its integral with \(de/e\) is \(\log^2(\sqrt m/D)=B^2U^2+O(U)\), as in the original strip. Equivalently, for a completely uniform upper envelope before summing primes, use the range \([c\sqrt X,\sqrt X(\log X)^B]\) and the weight \(2\log(e/\sqrt X)_++O(1)\) on the central support. Both approaches give the same leading constant. Thus if \(T_D\) denotes the genuine short parity-twisted term, the exact untwisted-minus-twisted sum is bounded below by
+\[
+ 2X\mathfrak S(X)I - T_D
+     -(4B^2+o(1))\,XI\,U^2/P_X .
+\]
+In particular, at primorials, for \(B=1.01\) the remaining unestimated \(T_D\) would suffice if it had one-sided upper bound \(0.7X\mathfrak S(X)I\) for every sufficiently large target in that family. This would make the total strictly positive. The numerical threshold is a criterion, not an established bound on \(T_D\). Neither the criterion nor the untwisted theorem proves Goldbach on this family.
