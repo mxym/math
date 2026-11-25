@@ -1,0 +1,245 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\section{Two exact results for periodic translation-invariant quantum
+max-flow}\label{two-exact-results-for-periodic-translation-invariant-quantum-max-flow}
+
+Yongxian Zhang · November 2026 · Version 1.0.0
+
+This working paper gives matching lower bounds for Gesmundo, Landsberg
+and Walter's binary even-cycle result and equal-dimension four-cycle
+result. It is an AI-assisted, internally checked research note, not an
+external peer-review claim. Both proofs are elementary tensor
+calculations; they arose from the Euclidean tensor geometry research
+program but do not invoke its pricing theorems.
+
+Source commits: 572f27d8af713ec591750c0157af41581685ecf7 and
+32e4511386fb6f44248be5e02ec67fa0270eccbe.
+
+\subsection{Exact alternating quantum max-flow for the binary periodic
+cycle}\label{exact-alternating-quantum-max-flow-for-the-binary-periodic-cycle}
+
+\textbf{Result.} For every integer \(d\ge 2\), in the
+translation-invariant complex matrix-product-state model with physical
+and bond dimensions both two, \[
+  \operatorname{QMF}'(C_{2d},(\mathrm{odd},\mathrm{even}),2)=3\cdot 2^{d-2}.
+\] Thus the upper bound of Gesmundo, Landsberg and Walter,
+\href{https://arxiv.org/abs/1801.09106}{\emph{Matrix product states and
+the quantum max-flow/min-cut conjectures}}, Theorem I.5, is attained for
+all lengths. The authors reported numerical tightness through \(d=10\);
+this note supplies a matching lower bound for arbitrary \(d\). The
+min-cut is \(2^d\) by the same theorem. This is a special case of
+periodic translation-invariant quantum max-flow, not a general
+max-flow/min-cut theorem.
+
+\subsubsection{Witness}\label{witness}
+
+Use the same two \(2\times2\) slices at every vertex,
+\(A_i=x_i y_i^{\mathsf T}\), with
+\(x_0=(1,0)^{\mathsf T}, x_1=(0,1)^{\mathsf T}, y_0=(1,2)^{\mathsf T}, y_1=(2,1)^{\mathsf T}\).
+Put \(K_{ij}=y_i^{\mathsf T}x_j\), so
+\(K=\left(\begin{smallmatrix}1&2\\2&1\end{smallmatrix}\right)\). For odd
+and even binary words \(u=(u_1,\ldots,u_d)\) and \(v=(v_1,\ldots,v_d)\),
+the periodic tensor entry is \[
+ \operatorname{tr}(A_{u_1}A_{v_1}\cdots A_{u_d}A_{v_d})
+ =\prod_{i=1}^d K_{u_i v_i}K_{v_i u_{i+1}},
+ \qquad u_{d+1}=u_1.
+\] In the alternating flattening the row at \(u\) is therefore
+\(\bigotimes_{i=1}^d f_{u_i u_{i+1}}\), where the coordinates of
+\(f_{ab}\) are \(K_{a v}K_{v b}\) for \(v=0,1\). Explicitly \[
+ f_{00}=(1,4),\quad f_{01}=f_{10}=(2,2),\quad f_{11}=(4,1).
+\] In particular \(f_{a0},f_{a1}\) are independent for each start bit
+\(a\), and \(f_{10}=\tfrac25(f_{00}+f_{11})\) with \(f_{00},f_{11}\)
+independent.
+
+\subsubsection{Independent rows}\label{independent-rows}
+
+For any fixed start bit \(a\), the \(2^k\) vectors obtained by taking
+products of the \(f\)'s along all \(k\)-edge paths on the two-bit
+alphabet starting at \(a\) form a basis of
+\((\mathbb C^2)^{\otimes k}\). This holds for \(k=0\). For \(k>0\),
+divide the paths by their first next bit \(b\). By induction their
+suffix vectors form a basis for each of the two choices of \(b\), and
+the independent first factors \(f_{a0},f_{a1}\) put the two resulting
+spaces in direct sum.
+
+Select the rows with \((u_1,u_2)\) equal to \(00,10,11\), a total of
+\(3\cdot2^{d-2}\). Let \(U_{ab}\) be the span of their tails after the
+first edge factor, with \(u_1=a,u_2=b\). These tails are paths of
+\(d-1\) edges starting at \(b\) and ending at \(a\). Each group's tails
+are independent by the path-basis result. Moreover
+\(U_{00}\cap U_{10}=0\): these two groups partition the same fixed-start
+basis (start 0) by the distinct final bits.
+
+A linear relation among the selected rows gives
+\(f_{00}\otimes z_{00}+f_{10}\otimes z_{10}+f_{11}\otimes z_{11}=0\),
+with \(z_{ab}\in U_{ab}\). Independence of \(f_{00},f_{11}\) and the
+displayed expression for \(f_{10}\) imply \(z_{00}=-(2/5)z_{10}\) and
+\(z_{11}=-(2/5)z_{10}\). The first equation and the disjointness of the
+two fixed-start subspaces give \(z_{10}=0\), and then all three tails
+vanish. Independence inside each group kills every coefficient. The
+claimed lower bound follows; with Theorem I.5 this proves equality.
+
+The broader exact periodic problem is identified by Gesmundo, Lysikov
+and Steffan,
+\href{https://arxiv.org/html/2212.09794v2\#S1.SS3}{\emph{Quantum
+max-flow in the bridge graph}}. This argument arose from testing path
+and cycle factorization in the Euclidean tensor geometry research
+program; the actual proof is elementary linear algebra and uses no
+Euclidean-pricing theorem.
+
+\subsection{Exact translation-invariant alternating quantum max-flow on
+a
+four-cycle}\label{exact-translation-invariant-alternating-quantum-max-flow-on-a-four-cycle}
+
+For all integers \(q\ge1\), when both bond and physical dimensions equal
+\(q\), the maximum alternating flattening rank on a periodic four-cycle
+with the same complex slice tensor at every site is \[
+ q^2-\bigl(\tbinom q2\bmod 2\bigr).
+\] This matches
+\href{https://arxiv.org/pdf/1801.09106}{Gesmundo--Landsberg--Walter,
+Theorem I.2}; their discussion reports numerical evidence for tightness
+in general and gives exact attainment in square dimensions. The deficit
+pattern also appears numerically in
+\href{https://arxiv.org/abs/1603.03717}{Hastings}. The proof here treats
+all dimensions simultaneously.
+
+Let \(F_{ab,cd}=\operatorname{tr}(A_aA_cA_bA_d)\), and let \(P\)
+interchange the two indices in an index pair. Cyclicity of trace gives
+\(FP=PF=F^{\mathsf T}\). Accordingly \(F\) is block diagonal in the
+symmetric and skew pair spaces, with symmetric and skew-symmetric blocks
+respectively. Their dimensions are \(q(q+1)/2\) and \(q(q-1)/2\). The
+latter block has even rank, proving the upper bound.
+
+For the lower bound take rank-one slices \(A_a=e_a y_a^{\mathsf T}\),
+the row \(y_a^{\mathsf T}\) being row \(a\) of \(K=I+tX\) for a matrix
+\(X\) with zero diagonal. Then \[
+ F_{ab,cd}=K_{ac}K_{cb}K_{bd}K_{da}.
+\] In the symmetric block the \(aa\)-rows and columns give the identity
+at \(t=0\); couplings between them and distinct-pair indices are
+\(O(t^2)\). For distinct pairs \(a<b\), the leading \(t^2\) term of the
+diagonal entry, in normalized symmetric pair bases, is
+\(2X_{ab}X_{ba}\): both arrangements \((a,b)\) and \((b,a)\) contribute.
+Off-diagonal entries among distinct pairs are \(O(t^3)\), since only
+equal unordered pairs can make two or more cyclic steps diagonal.
+Eliminating the equal-index block changes this leading term only at
+\(O(t^4)\). Thus whenever all \(X_{ab}\ne0\) for \(a\ne b\), the
+symmetric block has full rank for sufficiently small nonzero \(t\).
+
+In normalized skew pair bases, the leading term is \(t^3B(X)\). Index by
+oriented edges, with reversing an edge negating its coordinate. Equal
+and disjoint pairs give zero at leading order. For different edges
+oriented out of \(a\), substitution gives \[
+ B(X)_{ab,ac}=X_{ab}X_{bc}X_{ca}-X_{ac}X_{cb}X_{ba}.
+\] The matrix is skew-symmetric. We show it can have maximal even rank
+for every \(q\).
+
+Use the fixed matrix \[
+Y=\begin{pmatrix}0&2&1&1\\1&0&3&1\\3&1&0&2\\1&4&3&0\end{pmatrix}.
+\] The Pfaffian of \(Y-Y^{\mathsf T}\) is \(-7\). The upper-triangular
+entries of \(B(Y)\), in order \(01,02,03,12,13,23\), listed row by row,
+are \[
+ (17,-2,17,-2,0);\quad (-7,17,0,-7);\quad(0,-2,-7);\quad(21,21);\quad(21).
+\] The Pfaffian is \(-3682\), obtained by expanding along the first row.
+Leading submatrices of \(Y\) give starting cases \(q=1,2,3,4\) of ranks
+\(0,0,2,6\) for \(B\) (the \(01,02\) entry for \(q=3\) is \(17\)).
+
+Suppose \(B(X_q)\) has maximal possible even rank \(r\), and replace
+\(X_q\) by a block matrix on \(q+4\) vertices with \(X_q\) on old
+vertices, \(LY\) on new vertices, and all cross entries equal to
+\(\varepsilon\). In the principal skew submatrix we keep \(r\) old
+internal edges supporting a nonsingular principal minor, all six new
+internal edges and all \(4q\) mixed edges. A principal minor of order
+\(r\) exists in every skew-symmetric matrix of rank \(r\): the
+\(r/2\)-th wedge power of its alternating form is nonzero, and its
+coordinate coefficients are the principal Pfaffians.
+
+The two internal blocks have no coupling (the relevant edges are
+disjoint), and are nonsingular for \(L\ne0\). On the mixed block orient
+every edge from old to new. Entries from edges sharing an old endpoint
+give, after dividing by \(\varepsilon^2\), one copy of
+\(L(Y-Y^{\mathsf T})\) per old endpoint. Edges sharing a new endpoint
+give entries independent of \(L\) after this division, and disjoint
+entries vanish. Thus the scaled mixed block is nonsingular for
+sufficiently large fixed \(L\), by the nonsingular leading block
+diagonal. Couplings of mixed with internal edges are
+\(O_L(\varepsilon^2)\) because each contributing triangle uses two cross
+entries. Eliminating the internal blocks gives an \(O_L(\varepsilon^4)\)
+Schur correction, so the whole retained principal matrix is nonsingular
+for sufficiently small nonzero \(\varepsilon\). Its dimension is
+\(r+6+4q\), which is maximal even rank at size \(q+4\), since the
+dimension of the edge space increases by the even number \(6+4q\).
+
+The existence of this leading skew minor gives a nonempty Zariski open
+condition on \(X\) (the complement of the zeros of its nonzero
+polynomial). The condition \(X_{ab}\ne0\) for every off-diagonal entry
+is also nonempty and open, so their intersection is nonempty in the
+affine space of zero-diagonal matrices. Fix \(X\) in the intersection.
+In the skew block of \(F\), the minor of order \(r\) has nonzero
+coefficient at \(t^{3r}\), and the symmetric block has a nonzero
+determinant polynomial by the computation above. A sufficiently small
+nonzero \(t\) makes both minors nonzero. This proves the matching rank
+lower bound.
+
+This addresses the four-cycle with identical slices and equal
+dimensions, not arbitrary periodic lengths or heterogeneous dimensions.
+The calculation uses rank-one tensor slices and linear algebra, not the
+Euclidean mean-width pricing theorem.
+
+\end{document}
