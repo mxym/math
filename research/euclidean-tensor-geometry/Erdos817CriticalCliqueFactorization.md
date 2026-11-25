@@ -8,7 +8,7 @@ Let \(k\ge3\) and \(s=k-1\). Suppose \(A\) is a finite set of distinct positive 
 \]
 where \(\mathcal F(K_s)\) is the number of forests on the \(s\) labelled vertices. The same exact factor applies for each of any collection of generator-disjoint critical clique blocks, even with different marks in each block and with arbitrary remaining generators. No carry-free or spacing assumption is needed.
 
-This is a consequence of the published [EP817 workbench's Theorems 5.2 and 5.3](https://github.com/KokunoYumeto/erdos-problem-817-workbench/blob/main/research/graphical_obstructions/notes/graphical-obstructions.md), not an independent proof or priority claim for the workbench's collision-rigidity theorem.
+**Prior work.** The [September 15 workbench, Theorems CI1 and CI4 and Section 5](https://github.com/KokunoYumeto/erdos-problem-817-workbench/blob/bb9c492ad2dbc520b3d619e013fa70d22ed8ac54/research/canonical_isolation/notes/canonical-isolation.md), already proves the product against an arbitrary finite remainder, plus stronger canonical isolation. The argument below is an alternate deduction from the workbench's earlier results, with the forest-count interpretation and independent checks; it is not a new claim of clique multiplication or collision rigidity.
 
 ## Multiplication from the prior root packet
 

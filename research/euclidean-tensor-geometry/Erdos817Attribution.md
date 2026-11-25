@@ -1,0 +1,9 @@
+# Attribution update for graphical progression-free subset sums v1.0.0
+
+The immutable v1.0.0 tag is unchanged. This note clarifies the scope of the mathematical contributions after comparing two additional September 15 workbench chapters.
+
+- [Exact graphical direction modules](https://github.com/KokunoYumeto/erdos-problem-817-workbench/blob/bb9c492ad2dbc520b3d619e013fa70d22ed8ac54/research/supported_defects/notes/graphic-visibility-filtration.md), Theorems 3.1 and 4.1 and equation (5.2), already gives the vector progression threshold and uses the same cut-tree count for the edge-density inequality. Qualitative scalar existence follows from the vector result by generic rational projection and scaling. Our note provides a direct quantitative radix construction, including the explicit largest-generator bound and a mixed-prime capacity estimate.
+- [Canonical arithmetic factors](https://github.com/KokunoYumeto/erdos-problem-817-workbench/blob/bb9c492ad2dbc520b3d619e013fa70d22ed8ac54/research/canonical_isolation/notes/canonical-isolation.md), Theorems CI1 and CI4 and Section 5, already gives critical-clique factorization against arbitrary finite remainders (and a stronger isolation result). Our included proof is an alternate deduction from the workbench's earlier packet theorem; the forest-count interpretation and small-case verification are supplemental.
+- The exact cactus minimum with simultaneous attainment, and the sharp first-order entropy calculation for the full injectively marked graph class, are proved separately. The cactus lower bound uses the workbench’s previously published relation-block decomposition. The entropy argument uses the previously known cut-tree bound and Stanley's forest identity. No unrestricted solution of Erdős #817 or claim of exhaustive priority is made.
+
+See the [original immutable archive](https://github.com/mxym/math/releases/tag/erdos817-graphical-subset-sums-v1.0.0).
