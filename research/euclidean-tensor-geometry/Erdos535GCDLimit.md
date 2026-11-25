@@ -8,6 +8,8 @@ The same limit holds when \(A\) consists only of squarefree numbers. The identit
 
 This is the limit proposed by Erdős in [his 1964 paper, equation (8), p. 646](https://users.renyi.hu/~p_erdos/1964-10.pdf). His forcing threshold is one larger than our extremal size, with no effect on the limit. The order-of-growth implication from a fixed-petal exponential theorem is already Erdős's; the result here identifies the coefficient as the optimal uniform sunflower base. It does not compute \(b_r\) or improve the available quantitative sunflower theorem.
 
+The prime-power layer encoding also appears in Sunder, Kumrawat and Cheri, *Equal pairwise greatest common divisors and sunflowers* (April 2026; [discussion and source announcement](https://www.erdosproblems.com/forum/thread/535)). The uniform block-product lemma used below is stated for both sunflowers and cosunflowers in [Luo, Yang and Zhu, arXiv:2609.07268v1, Lemma 2.1](https://arxiv.org/html/2609.07268v1#S2). Their limiting exponent concerns harmonic LCM avoidance, a different problem.
+
 ## Upper bound
 
 It suffices to prove the upper bound when \(b_r<\infty\). Let \(L=\log X\), \(y=L/(\log L)^2\), and \(\sigma=(\log y)^{-2}\). The number of \(y\)-smooth positive integers up to \(X\) is at most
