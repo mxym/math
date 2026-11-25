@@ -35,3 +35,19 @@ The integral of \(2t\) from \(0\) to \(B\log\log X\) is \(B^2(\log\log X)^2\), a
          =(e^\gamma+o(1))\log\log X.
 \]
 Thus the strip's absolute weight is at most \((4e^{-2\gamma}B^2+o(1))X\mathfrak S(X)I\). Reverse triangle with the short main gives the claim. Even-squarefree-factor rows, including semiprimes, can have positive untwisted weights that cancel exactly in the prime-pair identity. No assertion of Goldbach for primorials follows.
+
+## One-sided improvement and extension to many small prime divisors
+
+For a lower bound on the strip, only \(d\) with \(\mu(d)=-1\) need be charged. More generally, fix \(e^{-\gamma}<\theta\le1\) and suppose every prime up to \(y=(\log X)^\theta\) divides \(X\). Then for every fixed \(1<B<e^\gamma\theta\) the lower coefficient for the full untwisted term improves to
+\[
+ 2-\frac{2e^{-2\gamma}B^2}{\theta^2}-o(1)>0 .
+\]
+For primorials this conclusion holds with \(\theta=1\) in the coefficient, using the actual primorial threshold \(y\sim\log X\). At \(B=11/10\) the resulting primorial coefficient is greater than \(1.23\).
+
+The extension of the short term is unchanged: \(y\gg K\) eliminates every \(k>1\) in the truncated extension. Inside fixed multiplicative boxes \(T<d\le e^h T\), \(T=X^{1/2+o(1)}\) and \(h>0\) fixed, the rough \(\mu(d)=-1\) integers have half the rough density, up to \(o(1/\log y)\). To see this, the rough \(\mu^2\) count differs from the rough integer count by \(O_h(T\sum_{\ell>y}\ell^{-2})=o(T/\log y)\). Under RH the signed rough prefix is bounded by \(O_\epsilon(T^{1/2+\epsilon+o(1)})\) by convolving the ordinary Möbius sequence with the indicator of \(y\)-smooth integers: the sum of that convolution factor against \(n^{-1/2-\epsilon}\) is \(\prod_{\ell\le y}(1-\ell^{-1/2-\epsilon})^{-1}=T^{o(1)}\) when \(y\ll\log X\). The negative indicator is \((\mu^2-\mu)/2\).
+
+For \(\theta<1\) it is not necessary to approximate \(1/\varphi(d)\) individually by \(1/d\). On each fixed-ratio box, the aggregate error for rough \(d\) in doing so is \(O_h(1/y)\): expand \(d/\varphi(d)=\sum_{a\mid d}\mu^2(a)/\varphi(a)\), omit \(a=1\), and bound the inner harmonic sum over multiples of \(a\) by \(O_h(1/a)\). Summing over rough \(a>1\) costs at most \(O(\sum_{\ell>y}1/(\ell(\ell-1)))\) by the convergent Euler product. Thus the strip's negative debit is at most
+\[
+ (2e^{-\gamma}B^2/\theta+o(1))XI\log\log X .
+\]
+The target's singular series is at least \((e^\gamma\theta+o(1))\log\log X\): all primes up to \(y\) are included, and adding more prime divisors increases the product. This proves the claimed relative debit. It still says nothing about the parity-twisted term.
