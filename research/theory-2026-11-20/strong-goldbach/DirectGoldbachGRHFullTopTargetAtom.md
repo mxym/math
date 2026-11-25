@@ -100,3 +100,14 @@ The full target-atom coefficient in the exact cover is 1, and \(C_{q/Q}\) is bou
    =\sum_{q<T}D_q+o(X L^{-C}).
 \]
 An absolute middle-sector estimate with additional positive powers of \(\log X\) does **not** decide this equation; its loss remains after the division. A genuinely signed estimate on the remaining sector at scale \(X(1-\kappa_T)\) is needed for positivity. The computed top sector does not by itself supply it.
+
+
+## The very small sector can also be dropped at the reduced budget
+
+For any fixed \(D>0\) put \(Y=X/Q\) and \(Z=Y L^D\). In the same exact cover, Dirichlet GRH also gives
+\[
+ \sum_{q\le Z}|D_q|=O(X^{1-c_1})
+\]
+for some \(c_1>0\). In fact write the physical factor \(H^{-1}b_{q/Q}((x+y-N)/H)\), \(H=qQ\), by its real Fourier transform. This pairs the two centered long polynomials at \(a/q+\beta\), retaining the full unit-numerator phase, with the multiplier \(\widehat b_{q/Q}(H\beta)\) and the target phase. The multiplier has uniform Schwartz decay as in the [exact delta proof](https://github.com/mxym/math/blob/main/research/theory-2026-11-20/strong-goldbach/ExactDeltaLinearRemoval.md). On \(|\beta|\le X^{\eta_0}/H\) use the corrected compact-smooth GRH short-frequency estimate established in the [prime-modulus coefficient note](DirectGoldbachGRHExactPrimeAliasMain.md): the long centered squared error summed in all numerators is \(O(qXb\,L^{O(1)})\) at radius \(b=\max(X^{\eta_0}/H,1/X)\), with an extra \(O(\sqrt X L^{O(1)})\) for the true prime-power deletion. The error for nonunit prime powers is included; no nonunit genuine prime lies on the support. The rail \(q\le1/(qb)\le X\) holds after such enlargement for sufficiently small fixed \(\eta_0>0\), since \(q\le Y L^D\) and \(\delta<1/4\). Gauss averaging over numerators and ordinary Cauchy for the two inputs therefore bound each block by this squared error times \(O(1)\). The sum over \(q\le Z\) is \(O((Y^2 X^{\eta_0}+Y\sqrt X)L^{O(1)})\), a power saving. Outside the radius \(X^{\eta_0}/H\), the uniform Fourier decay beats every power of \(X^{\eta_0}\), while an elementary \(O(qX^2 L^{O(1)})\) bound for the numerator squares is sufficient. This proves the claimed very small sector estimate.
+
+Consequently after the top evaluation the entire unresolved signed part may be confined to \(Y L^D<q<T\), with budget \(X(1-\kappa_T)\) for the chosen fixed \(C,D\). This statement pays the bottom and rewrites the top, but does not estimate the sign of the actual medium moduli.
