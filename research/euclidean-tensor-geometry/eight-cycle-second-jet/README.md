@@ -4,6 +4,8 @@
 
 We retain the complex, periodic single-shared-tensor eight-cycle model of [Gesmundo–Landsberg–Walter](https://arxiv.org/abs/1801.09106), with equal physical and bond dimension q, and the notation of the [charge-and-hub note](https://github.com/mxym/math/blob/c811cec27c6319b0210f254477d4f2c6da15b96a/research/euclidean-tensor-geometry/eight-cycle-charge-and-hub/README.md). Here F₈(q) is the largest rank of the odd/even flattening. The previous base witness gives rank at least q^4 minus its explicit defect bound via nonzero minors in signed-multiset types. Below we prove that for r = floor((q−1)/2), q^4−F_8(q) ≤ 3r if q is odd and ≤ 12r+4 if q is even. This is not general exactness.
 
+The [addendum](Addendum.md) sharpens these bounds further to **r for odd q** and **8r+4 for even q** with two more sector certificates.
+
 ## Perturbation and retained coordinates
 For label j≠0, let A_j(t) = E_{0,j} + c_j E_{−j,0} + t(d_j E_{j,j} + e_j E_{−j,−j}), with free coefficients c,d,e. Put A_0(t) = E_{0,0} + t sum_{j≠0} u_j E_{j,0}. Labels and states are in Z/q, and the column-coordinate convention is w=−v. The relevant structural symmetry is rotation (commutes with the matrix even after this relabeling), not charge; leaf diagonals for nonzero labels generally break charge.
 
