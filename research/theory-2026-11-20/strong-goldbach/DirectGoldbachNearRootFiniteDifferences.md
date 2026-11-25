@@ -1,0 +1,26 @@
+# Finite differences in the untwisted squarefree near-root strip
+
+Write \(\mathfrak S(N)\) for the binary Goldbach singular series and \(X=N\). With fixed smooth interior support for \(p/X\), the untwisted squarefree near-root contribution can be bounded by \(O_B(X\mathfrak S(N)(1+\log\log\log X))\), with a logarithmically smoothed lower edge. At primorial targets the same bound holds without the third logarithm. This improves an absolute estimate for a leftover term in the [complementary Möbius splitting](DirectGoldbachComplementaryMobiusHalf.md); it is not a lower bound strong enough to establish a positive net contribution.
+
+Put \(L=\log X\). Instead of a sharp handoff at \(\sqrt X/L^B\), average the short term over cutoffs whose logarithms lie in \([\frac12\log X-2B\log L,\frac12\log X-B\log L]\), using a fixed smooth density rescaled to this interval. For fixed sufficiently large \(B\) this keeps the short term within its established RH/Bombieri–Vinogradov range and preserves its main term. Equivalently the strip uses a smooth switch \(s(t)\), zero on the left and one on the right, with derivatives \(O_{i,B}((\log L)^{-i})\) for \(i\ge1\). For \(m=X-p\) the kernel is \(K_m(t)=s(t)(\log m-2t)_+\). Smooth the upper kink in a fixed log-width with bounded change there. This costs \(O(X\mathfrak S(N))\) in absolute value: the impacted \(d\) lie in a fixed log-neighborhood of \(\sqrt X\), the weight is bounded, and Brun–Titchmarsh bounds each log-weighted prime count by \(O(X/\varphi(d))\). The harmonic sum of \(1/\varphi(d)\) in this range is bounded. The resulting \(K_m''\) has a common nonnegative integrable envelope \(G(t)\), of integral \(O_B(1)\): bounded height on a fixed width about \(\frac12\log X\), and height \(O_B(1/\log L)\) on the lower transition of length \(O_B(\log L)\). Compact interior support makes all kink locations differ from \(\frac12\log X\) by bounded distances.
+
+Fix \(z=L^A\), with \(A>0\) fixed. For rows with squarefree \(m\) having two or more primes up to \(z\), let \(q<r\) be its two least primes. All divisors of \(m\) fall into Boolean cubes \(f,qf,rf,qrf\), with \(f\mid m/(qr)\). Up to the sign \(\mu(f)\), the cube weight is the mixed second difference of \(K_m\), bounded by
+\[
+ \int_0^{\log q}\int_0^{\log r} G(\log f+u+v)\,du\,dv.
+\]
+Both \(f\) and \(g=m/(qrf)\) have no prime factor \(\le r\). The \(f\) scales that occur are \(\sqrt X\) times fixed powers of \(L\), with logarithmic shifts of size \(O_A(\log L)\).
+
+For completeness the upper-sieve inputs in this range are as follows. For \(a=qrf\), or \(a=f,qf\) in the zero/one-small-prime case, the log-weighted count of \(g\ll X/a\) having no prime factor \(\le y\) and with \(X-ag\) prime is
+\[
+ \ll \frac{X\mathfrak S(X)}{\varphi(a)\log y},
+ \qquad 3\le y\le(\log X)^A.
+\]
+Indeed, sieve \(g\) by \(g=0\bmod\ell\) at \(\ell\le y\) and by \(X-ag=0\bmod\ell\) to a sufficiently small fixed power of \(X\). On the interior support \((a,X)=1\) whenever a genuine prime occurs, since \(a=X^{1/2+o(1)}\). For a sieve prime \(\ell\nmid a\) the two small-prime roots merge exactly at \(\ell\mid X\); for \(\ell\mid a\) the prime root is absent, at a cost bounded by \(a/\varphi(a)\). The ordinary Selberg upper sieve applied to these at most two roots per prime gives the bound, including the factor \(\log X\) for weighting. Uniformity follows since \(X/a=X^{1/2+o(1)}\); a sufficiently small fixed sieve power makes the residue-count error smaller than the bound. Similarly on each fixed logarithmic interval \(F<f\le eF\) in the indicated scale,
+\[
+ \sum_{P^-(f)>y}\frac1{\varphi(f)}\ll \frac1{\log y}.
+\]
+Expand \(f/\varphi(f)=\sum_{a\mid f}\mu^2(a)/\varphi(a)\); for \(a\le\sqrt F\), sieve the remaining factor at \(y\), and for \(a>\sqrt F\) bound trivially and use the convergent tail of \(\sum_a1/(a\varphi(a))\). All constants here can be taken uniform in the indicated logarithmic thresholds. Trivial bounded ranges of \(y\) are absorbed.
+
+Choose \(G\) as the sum of two rectangular envelopes with the heights and widths above (increasing their widths by a fixed amount). After summing over the \(r\)-rough \(g\) and then over \(r\)-rough \(f\) in log intervals of length one, for each \(u,v\) the resulting cost for this \(q,r\) is \(O_B(X\mathfrak S(X)/(qr(\log r)^2))\). Here \(q,r\) do not divide \(f\), and the sum of suprema of the shifted \(G\) over the unit intervals is \(O_B(1)\). Integrate \(u,v\) to obtain the additional factor \(\log q\log r\). Summing over \(q<r\) uses \(\sum_{q<r}\log q/q\ll\log r\) and \(\sum_{r\le z}1/r\ll1+\log\log z\).
+
+For the rows with zero or one prime \(\le z\) there are respectively one or two possible placements of the named prime in a divisor pair. Bound the kernel by \(O_B(\log L)\) over \(O_B(\log L)\) unit log intervals and apply both rough-factor bounds at \(y=z\). This costs \(O_{A,B}(X\mathfrak S(X)(1+\sum_{q\le z}1/q))\). For primorial \(X\), no small prime dividing \(X\) can occur in \(m\) on the interior prime support. All admitted named primes consequently exceed a threshold \(\sim\log X\), so their reciprocal sum up to \((\log X)^A\) is bounded. This gives the asserted improvement on that family but no sufficiently small constant.
