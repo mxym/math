@@ -4,15 +4,15 @@
 
 We use the single-shared-tensor periodic model in [Gesmundo–Landsberg–Walter](https://arxiv.org/abs/1801.09106), over the complex numbers, with both the physical and bond dimensions equal to \(q\). Let \(F_{2d}(q)\) be the maximum rank of the odd/even flattening of the \(2d\)-cycle. This note proves exact additional eight-cycle values
 \[
- F_8(10)=10000,\qquad F_8(11)=14640 ,
+ F_8(10)=10000,\quad F_8(11)=14640,\quad F_8(13)=28561,\quad F_8(14)=38416.
 \]
 and explicit bounds valid for all \(q\), not an exact formula in all dimensions. For fixed \(d\ge4\) the construction gives \(F_{2d}(q)\ge q^d-O_d(q^{d-2})\). For \(d=4\) the more precise bounds below are certified by small signed-multiset blocks. Compare Hastings's [general asymptotic relative max-flow result](https://arxiv.org/abs/1603.03717), Theorem 1.
 
-## Exact charge blocks at 10 and 11
+## Exact charge blocks at 10, 11, 13 and 14
 
-Take \(q\) shared matrices indexed by the additive group \(\mathbb Z/q\mathbb Z\). The slice \(A_i\) has a single possible entry in each row \(x\), in column \(x+i\bmod q\), with weight \((i+1)^x\) (indices \(i,x=0,\ldots,q-1\)). A trace word traverses a closed walk in this group, so the sum of all its labels is zero. The odd/even matrix therefore decomposes by total odd charge, with the matching even charge its negative. Each block is \(q^3\) square because the fourth label is determined by the first three and the charge. The checker `charge.cpp` verifies their ranks over the prime field of size 1009: all 10 blocks have rank 1000 for \(q=10\); for \(q=11\) the charge-zero block has rank 1330 and the other 10 have rank 1331. The nonzero integer minors modulo 1009 persist over \(\mathbb C\).
+Take \(q\) shared matrices indexed by the additive group \(\mathbb Z/q\mathbb Z\). The slice \(A_i\) has a single possible entry in each row \(x\), in column \(x+i\bmod q\), with weight \((i+1)^x\) (indices \(i,x=0,\ldots,q-1\)). A trace word traverses a closed walk in this group, so the sum of all its labels is zero. The odd/even matrix therefore decomposes by total odd charge, with the matching even charge its negative. Each block is \(q^3\) square because the fourth label is determined by the first three and the charge. The checker `charge.cpp` verifies their ranks over the prime field of size 1009: all 10 blocks have rank 1000 for \(q=10\); for \(q=11\) the charge-zero block has rank 1330 and the other 10 have rank 1331. All 13 blocks at 13 and all 14 blocks at 14 are full, with ranks 2197 and 2744 per block, respectively. The nonzero integer minors modulo 1009 persist over \(\mathbb C\).
 
-For the upper bound at 11, cyclicity gives \(M^\top=MP\) for the length-four rotation permutation \(P\), and \(M\) commutes with \(P\). The pairing on its \(-1\) eigenspace is skew-symmetric and this block is isolated from all other rotation eigenspaces. Its dimension is \((q^4+q^2-2q)/4=3685\) at 11. Odd-dimensional skew-symmetry forces at least one defect. The rank at 10 already reaches the size of the full matrix. Full rank at 10 also gives full rank at \(10a^2\) for all positive integers \(a\) by tensor product with the square-dimension GLW witnesses.
+For the upper bound at 11, cyclicity gives \(M^\top=MP\) for the length-four rotation permutation \(P\), and \(M\) commutes with \(P\). The pairing on its \(-1\) eigenspace is skew-symmetric and this block is isolated from all other rotation eigenspaces. Its dimension is \((q^4+q^2-2q)/4=3685\) at 11. Odd-dimensional skew-symmetry forces at least one defect. The ranks at 10, 13 and 14 reach the size of their full matrices. They also give full rank at dimensions \(10a^2,13a^2,14a^2\) for all positive integers \(a\) by tensor product with the square-dimension GLW witnesses.
 
 ## Hub-and-spokes construction for general \(d\)
 
@@ -38,4 +38,4 @@ For a zero-containing block, the coefficients depend only on which labels are ze
 
 ## Reproduction
 
-Run `c++ -O3 charge.cpp -o charge && ./charge 10 11` and `python3 verify_star.py`. Both checks use ordinary exact Gaussian elimination modulo 1009; the second uses only standard-library Python. The finite check proves nonzero minors, not an upper bound on generic rank. Exactness at 10 and 11 uses the independent upper bounds above.
+Run `c++ -O3 charge.cpp -o charge && ./charge 10 11 13 14` and `python3 verify_star.py`. Both checks use ordinary exact Gaussian elimination modulo 1009; the second uses only standard-library Python. The finite check proves nonzero minors, not an upper bound on generic rank. Exactness in these four dimensions uses the independent upper bounds above.
