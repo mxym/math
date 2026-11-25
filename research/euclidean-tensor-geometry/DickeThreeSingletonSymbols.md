@@ -27,4 +27,8 @@ In the remaining case each partition has a class of size x, omitting the same fi
  (k−4)(3x−5)/x²=(x−2)(3x−5)/x² ≥ 3 ln x/x
 for x≥5 (left increasing and right decreasing; check at 5). This gives the target at r=k−3.
 
-Therefore every collision-rank case in higher-order CW attains the target and the entropy formula holds in this family. The proof requires the structural validity of the existing finite certificates for k=5,6; the dimension-free bound resolves all larger orders. No claim on the unrestricted Dicke conjecture.
+Therefore every collision-rank case in higher-order CW attains the target and the entropy formula holds in this family. The proof requires the structural validity of the existing finite certificates for k=5,6; the dimension-free bound resolves all larger orders. See the literature update below for the unrestricted case.
+
+## Literature update: a general proof
+
+Wenqi Zhu, Chunlin Liu, Kai Zou, and Ping Nie, [*The Entropy Law for the Asymptotic Subrank of Dicke Tensors*](https://github.com/erenup/dicke-tensor-subrank) (November 2026), give a written proof for all multiplicity tuples over the complex numbers, with an induced-matching lower bound. Their method uses the entropy of quotient fibers under permutation symmetry and isolates candidates against the entire tensor-power support. The argument was checked here at the written-proof level; the asymptotic theorem is not a Lean-certified result. The induced-matching construction only uses the support, and the slice-rank upper bound also depends only on the support. For finite coefficient fields one can prove the upper bound after scalar extension to an infinite field. Hence their proof also yields the all-field, arbitrary-nonzero-weight variant of this note. This note is retained as an alternative proof or certificate for its narrower scope, not as a novelty or priority claim.
