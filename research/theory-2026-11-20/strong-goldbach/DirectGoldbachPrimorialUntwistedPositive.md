@@ -70,3 +70,7 @@ For the negative untwisted debit charge only \(\mu(d)=-1\). For the positive par
      -(4B^2+o(1))\,XI\,U^2/P_X .
 \]
 In particular, at primorials, for \(B=1.01\) the remaining unestimated \(T_D\) would suffice if it had one-sided upper bound \(0.7X\mathfrak S(X)I\) for every sufficiently large target in that family. This would make the total strictly positive. The numerical threshold is a criterion, not an established bound on \(T_D\). Neither the criterion nor the untwisted theorem proves Goldbach on this family.
+
+## Relation to previous primorial work
+
+Michael Ross records the exact reflection symmetry of sieve conditions at primes dividing the target in [Sifted Symmetry and Sieve Structures of Primorial Goldbach Complements](https://zenodo.org/records/23026131). His [primorial-multiples note](https://zenodo.org/records/22018781) gives the singular-series identity for primorials and multipliers supported on their primes. These are local inputs also used here; the conditional long-strip estimate above does not follow from either identity. An earlier proposed conditional primorial proof was [explicitly withdrawn by the author in version 3](https://zenodo.org/records/22020981): the Vaughan parameters were scaled to the size of the short prime sample, below the least possible nontrivial divisor of the complement, leaving the hypothesized Type II range empty. Here the estimates are for actual complementary-divisor sums in the indicated ranges, with the remaining short signed estimate left open.
