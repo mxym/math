@@ -4,7 +4,7 @@
 
 Let \(m\ge2\) and \(1\le L\le m\) be integers. Let \(H\) be a finite tripartite 3-uniform family on \(A,B,C\). Suppose its \(AB,AC\) projections are injective, its maximum \(A\)-vertex degree is at most \(L\), and every occupied \(BC\) fiber has size at least \(\max(2m,mL)\). There are no upper bounds on the pair-fiber sizes and no comparability assumption.
 
-**Theorem.** The sharp worst-case proportion retained while providing an internal \(m\)-petal sunflower for every **nonempty** pairwise intersection is \(\Theta(1/m)\). The lower-bound method also gives \(\Omega(1/(m+L))\) for arbitrary \(L\ge1\) with the same fiber hypothesis. This is a special case of the [internal sunflower question](https://link.springer.com/article/10.1007/s00493-026-00222-1#Sec6), complementary to the [capped-multiplicity regime](TwoInjectiveInternalSunflowers.md); it does not address arbitrary mixtures of small and large fibers or the empty kernel.
+**Theorem.** The sharp worst-case proportion retained while providing an internal \(m\)-petal sunflower for every **nonempty** pairwise intersection is \(\Theta(1/m)\). The lower-bound method also gives \(\Omega(1/(m+L))\) for arbitrary \(L\ge1\) with the same fiber hypothesis. This is a special case of the [internal sunflower question](https://link.springer.com/article/10.1007/s00493-026-00222-1#Sec6), complementary to the [capped-multiplicity regime](TwoInjectiveInternalSunflowers.md); the full-kernel case is treated below. It does not address arbitrary mixtures of small and large fibers.
 
 ## A sufficient structure
 
@@ -27,3 +27,11 @@ Summing the expected retentions within a largest piece proves the lower order.
 ## Sharpness for \(L\le m\)
 
 Let the \(BC\) projection be \(K_{m-1,m-1}\), and give each projected edge a private set of \(w\) different \(A\) labels, with \(w\ge\max(2m,mL)\). Both injectivity conditions hold, and the \(A\) degrees are one. A valid extraction must use a projected matching: two retained edges at a common \(B\) with different \(C\) labels (or vice versa) need a singleton-kernel sunflower with \(m\) distinct projected neighbors, whereas only \(m-1\) exist. At most \((m-1)w\) of the \((m-1)^2w\) triples can be retained, and selecting full fibers on a projected matching attains this. The upper fraction is \(1/(m-1)\).
+
+## Including the empty kernel
+
+Under the same hypotheses with \(L\le m\), the sharp retention order for **all** pairwise intersections is \(\Theta(1/m^2)\). Use first the nonempty extraction above, of size \(\Omega(|H|/m)\) with the sufficient structure specified there. If its projected graph has an \(m\)-matching, choose one triple over each of those pairs. The \(A\) labels are globally unique, so those triples witness the empty kernel and the whole extraction is fully valid.
+
+Otherwise the endpoints of a maximal projected matching cover all selected projected pairs and number fewer than \(2m\). One of these vertices carries at least \(1/(2m)\) of the extracted triples. Retain all extracted triples at that vertex and discard the rest. Its number of projected neighbors was 1 or at least \(m\). The selected star therefore retains all required nonempty witnesses (fibers remain whole, and at least \(m\) distinct neighbors supply a singleton kernel if one occurs); it has no empty intersections. This gives \(\Omega(|H|/m^2)\).
+
+For the upper bound use the same \(K_{m-1,m-1}\) example with private \(A\) labels. Its original projection has no \(m\)-matching, so an empty-kernel witness is impossible. Every nonempty-valid projected subgraph must be a matching, hence in the full-kernel case it can use at most one pair. A single full fiber is valid, retaining exactly \(w\) of \((m-1)^2w\) triples.
