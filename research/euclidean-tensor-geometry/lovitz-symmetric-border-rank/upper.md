@@ -4,7 +4,7 @@ For the exact 27-dimensional rational symmetric cubic \(T\) in [Lovitz, §4.1](h
 \[
 29\leq \underline R(T)\leq\underline R_{\rm sym}(T)\leq 30 .
 \]
-The companion [symmetric lower bound](lower.md) determines the symmetric border rank exactly. The ordinary lower certificate in this file leaves ordinary border rank 29 or 30.
+The companion [symmetric lower bound](lower.md) determines the symmetric border rank exactly. The Koszul certificate below on its own gives 29; the [ordinary lower bound](ordinary-lower.md) now gives 30.
 
 **Lower certificate.** The companion lovitz-koszul.py builds the exact integer tensor \(T\). In each of the two copies of \(G\), drop the sixth coordinate using its linear dependence; split along \(c\) using the first coordinate (equal to 1 on \(c\)). This is a rational choice of complement allowed by Lovitz. The grid contribution is the sum of the three placements of \(e_\nu\otimes w_\nu\otimes w_\nu\) with weights \(\alpha_r\alpha_s\), plus \(a_1^3+a_2^3+c^3\). Project the first leg to dimension six by the integer matrix specified in the script. The Koszul map \(\Lambda^2\mathbb C^6\otimes(\mathbb C^{27})^*\to\Lambda^3\mathbb C^6\otimes\mathbb C^{27}\) has exact rank 286 modulo 101 (re-run verified), so it has rank at least 286 over \(\mathbb C\). For a simple tensor its rank is at most \(\binom 52=10\); minors give the same upper bound multiplied by the number of summands for limits. Hence \(\underline R(T)\ge29\).
 
