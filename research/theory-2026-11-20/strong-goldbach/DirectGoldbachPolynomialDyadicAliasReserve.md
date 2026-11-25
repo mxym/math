@@ -59,3 +59,20 @@ In the genuine centered prime-q block of the existing note, for |k|≤X^ε the t
 For even N put m(N)=∏_{3≤ℓ≤13, ℓ prime, ℓ|N}ℓ, a fixed bounded odd cofactor. Choose k=m(N)2^s in [X^{ε/2}, X^ε/2] (a margin ensures k+1≤X^ε). In the genuine singular series the 2-factor is 2. The 3-factor is 3/2 when 3|N (in k) and 9/8 otherwise (outside k), so is ≥9/8. Every other odd prime ≤13 contributes at least 1 by the same case split. Every remaining ℓ>13 contributes at least 1−(ℓ−1)^{-2}; bounding the product below by the telescoping product over **all** integers n≥13 gives 12/13. Thus S_k(N)≥(2)(9/8)(12/13)=27/13=2+1/13 uniformly.
 
 Pair each positive even alias k with its actual odd neighbor k+1. All p,p′,q in these fixed interior true-prime windows are odd for sufficiently large X, so R(N+(k+1)q)=0 exactly. Its remaining centered terms still give −X∫w+O_A(XL^{−A}) for literal q uniformly because (k+1)q=o(X); unlike the even analysis, no short-window or arithmetic assumption on k+1's odd cofactor is required. Apply identical original positive smooth prime-modulus weight u(q/Q)/Q for both members of each pair. The pair has actual main (X∫w)/Q · (∑prime q u(q/Q)) · (S_k(N)−2), bounded below by a positive constant times X/L, with arbitrary-log X absolute error. The ⌊(ε/(2log 2))L⌋+O(1) dyadic exponents yield disjoint pairs: different even offsets differ by ≥2 and the odd neighbors are distinct. Summing errors with A>2 proves a positive ≫X true signed chamber for every even N, already paying an equal number of genuine neighboring negative aliases. This is a partial selection before any additional noncommuting conductor cut, not a bound on the remaining full centered expression.
+
+### The entire odd-offset debit on the prime-modulus tranche
+
+For comparison with the subset just paid, the odd-offset sum itself can be evaluated over **all** offsets, without a hypothesis about prime progressions at polynomial moduli. Use the unit lattice centered sequences \(B_{v,q}\) and \(\Theta_v,\rho_v(q)\) of the [small-alias note](DirectGoldbachPrimeModulusSmallAliasCancellation.md). For odd prime \(q\asymp Q\) with \(q\nmid N\), summing over all odd \(k\) means \(x+y\equiv N+q\bmod 2q\). The true prime–prime part is identically zero. In a mixed term a true prime \(x\) fixes a unique even lift of \(y\) modulo \(2q\); this is a unit modulo \(q\) unless \(x\equiv N\bmod q\). By smooth lattice Poisson summation at spacing \(2q\), its mass is \(X\int v/(2q)\) up to arbitrary power accuracy. For the lattice–lattice term each of the \(q-2\) admissible unit residue pairs has exactly two parity lifts at modulus \(2q\). Consequently the full odd-offset sum, before multiplying by the delta weight \(c_Q C_{q/Q}/Q\), is
+\[
+ -\frac{\Theta_g(\Theta_w-\Theta_w(N;q))+
+        \Theta_w(\Theta_g-\Theta_g(N;q))}{2(q-1)}
+ +\frac{\Theta_w\Theta_g(q-2)}{2(q-1)^2}
+ +O_A(X^{-A}).
+\]
+Here \(\Theta_v(N;q)\) is the true weighted prime count at that residue. The uniform summed Poisson error follows by taking enough derivatives, since \(q\asymp X^{1-\delta}\). For the at most one such prime divisor \(q\mid N\), substitute \(q-1\) for \(q-2\) in the last term and \(\Theta_v(N;q)=0\); the same estimate below holds. The elementary bound \(\Theta_v(N;q)\ll(X/q+1)L\) now gives
+\[
+ \sum_{k\ {\rm odd}}(B_{w,q}*B_{g,q})(N+kq)
+ =-\frac{\Theta_w\Theta_g}{2q}
+     +O\!\left(\frac{X^2L}{q^2}\right).
+\]
+Thus for a fixed nonzero positive smooth prime-modulus weight the full odd debit after normalization has size comparable to \(X^2/(QL)\), much larger than \(X\). The corresponding even aliases cannot be omitted. It is their cancellation with this known negative mass, including the desired target, that matters for a complete lower bound. The positive paired subset above accounts for only the stated selected neighbors.
