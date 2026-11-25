@@ -103,3 +103,38 @@ No result is claimed for composite moduli, \(|k|\) in the polynomial portion of 
 
 
 For completeness the same estimate covers all **prime** moduli in the top range \(Q/L^{C}\le q\le Q\) of the linked deletion theorem, for fixed \(C\), when summed with its original coefficient. Decompose into fixed-ratio dyadic ranges of scale \(Q'\) between \(Q/L^C\) and \(Q\). The short scale \(Q'\), being \(X^{1-\delta}\) up to a fixed log power, stays in exactly the same uniform Mikawa and prime-sum ranges. Take the sharp dyadic endpoint or given top endpoint by Stieltjes partial summation in the short input; the finitely many needed estimates therein are uniform in partial short intervals, including their archimedean integrals. On a dyadic slice the coefficient \(C_s=\sum_j\omega(sj)/j,\ s=q/Q\), has bounded derivatives under \(s\partial_s\) of all fixed orders, uniformly in \(s\), since \(sj\) stays in the fixed interior support of \(\omega\). Thus this coefficient and \(1/\log q\) introduce no changing-scale loss. Formula (3) on one slice carries size \(X(Q'/Q)/L\) per main coefficient. Summing \(Q'/Q\) geometrically, and absorbing the log-power number of errors with arbitrary input savings, proves the same combined \(o(X)\) bound for all prime moduli in this top range. This calculation is before the product-conductor cut; any previously justified global deletion of that type is a separate operation, not silently commuted with alias selection.
+
+
+## Extension to top moduli with a large true prime and a polylogarithmic cofactor
+
+Fix \(C,C_0\). The same combined cancellation holds on the top slice \(Q/L^{C_0}\le q\le Q\) restricted to actual \(q=mr\), \(m\le L^C\), \(r\) prime, with modulus weight as in the exact delta expression. Here we take the available high-input-conductor cutoff \(R_0=Q/L^{K_0}\) with \(K_0>C+C_0+2\). In particular \(r>R_0\), \((m,r)=1\), and this large prime label is unique. This statement allows nonsquarefree \(m\).
+
+After input projection all \(r\)-nonprincipal characters remain (their conductors are at least \(r>R_0\)) and all \(r\)-principal ones are absent (their conductors divide \(m<R_0\)). On unit classes the projected vector is therefore the genuine prime AP sum modulo \(q\) minus \(\Theta_v(a\bmod m;m)/(r-1)\), where \(\Theta_v(c;s)=\sum_{p\equiv c\bmod s}\log p\,v(p/X)\). Expand the literal Ramanujan coefficient by the divisor identity
+\[
+ c_q(N-a-b)=\sum_{\substack{d\mid q\\d\mid N-a-b}}\mu(q/d)d.
+\]
+When both input vectors are pushed forward to units modulo \(d\), the result is zero if \(r\nmid d\), by their zero sum in the \(r\)-variable at each fixed unit \(m\)-class. Otherwise \(d=sr,\ s\mid m\). Pushing down the subtracted means gives exactly \(\Theta_v(a\bmod s;s)/(r-1)\); this includes all lifts on units. The coefficient at \(sr\) in the constant-kernel expression is consequently \(c_Q C_{mr/Q}\mu(m/s)/(Q(m/s))\), times the congruence form on these two **truly centered** vectors at \(sr\).
+
+Replace each vector by projection of an actual lattice-centered sequence as above, now taking density
+\[
+ \rho_v(a\bmod s;s,r)=\frac{sr\,\Theta_v(a\bmod s;s)}{(r-1)X\int v}
+   =\frac{s}{\varphi(s)}+O_A(L^{-A})
+\]
+on unit classes. Poisson on the progression modulo \(sr\) makes this replacement arbitrarily power-small, uniformly in the fixed logarithmic ranges. The last equality uses Siegel–Walfisz at \(s\le L^C\). Omitting indices divisible by \(r\) from the actual mixed and lattice terms costs \(O((X/r+1)L^{O(1)})\) per alias, harmless. The remaining lattice congruence modulo \(s\) for the literal target \(N+ksr\) is exactly \(a+b=N\bmod s\). The principal factor for each of the three mixed or pure lattice terms is
+\[
+ B_s(N)=\frac{s}{\varphi(s)^2}\#\{a\bmod s:(a,s)=(N-a,s)=1\}
+       =\prod_{\ell\mid s}\left(1+\frac{c_\ell(N)}{(\ell-1)^2}\right).
+\]
+This follows by the genuine unit CRT counts, with one prime marginal supplied by ordinary Siegel–Walfisz and the lattice slots by smooth counting. The archimedean factor is still \(X\int w\). The true prime–prime term at this alias is (1) with coefficient \(ks\) and short scale \(Q/m\) up to a fixed log power, so its factor is \(\mathfrak S_{ks}(N)\) without a change of target. Thus the actual centered net coefficient is \(\mathfrak S_{ks}(N)-B_s(N)\).
+
+The primes dividing \(s\) are now forced into the first local factor of \(\mathfrak S_{ks}\), including factor \(2\) when \(s\) is even. At other odd primes averaging over divisibility of \(k\) gives precisely 1 by the previous \(P_\ell(1+j(\ell)/\ell)\) identity; at \(2\) not dividing \(s\) averaging the even and odd \(k\)'s gives 1 as before. The same floor estimate, using only primes not dividing \(s\) in the absolutely summable divisor weights, shows uniformly
+\[
+ \left|\sum_{1\le k\le T_0}(\mathfrak S_{ks}(N)-B_s(N))\right|
+   \ll B_s(N)(\log\log(3N))^{O(1)} .
+\]
+The same holds for negative aliases. After averaging actual prime labels \(r\) on dyadic slices and removing their log weight, the normalization is \(O(X/(mL))\); the dyadic relative scales sum geometrically as in the prime-modulus case. Multiply by \(1/(m/s)\) from the exact Ramanujan coefficient and use
+\[
+ \sum_{m\le L^C}\frac1m\sum_{s\mid m}\frac{s}{m}
+   =\sum_{m\le L^C}\frac{\sigma(m)}{m^2}\ll\log L .
+\]
+Also \(B_s(N)\ll(\log\log(3N))^{O(1)}\) uniformly. All other sums range over only fixed log powers in \(m,s,k\), so arbitrary log accuracy absorbs their errors. This pays the combined centered aliases \(0<|k|\le L^D\) for these composite moduli also, by \(O(X(\log\log(3N))^{O(1)}/L)=o(X)\). In the divisor-expanded expression, \(k\) here is the literal alias of the **projected** modulus \(sr\), not of \(mr\) before expansion. No other composite modulus or polynomial alias is covered.
