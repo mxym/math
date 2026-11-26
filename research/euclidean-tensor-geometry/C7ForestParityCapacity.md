@@ -54,6 +54,14 @@ Its 32 binary subset sums are all distinct. An elementary check: with fifth coef
 
 If deletion of \(D\) columns makes the graph a forest, the surviving matrix retains injectivity of binary subset sums and has at most \(m\) rows. Thus \(2(n-D)\le5m\), proving the dimension bound stated above. A support graph whose cyclomatic number is \(o(n)\) suffices for the asymptotic statement, since each edge supports at most five columns by distinctness of its binary sums in \(\mathbb F_7^2\).
 
+## 4. An explicit bound for all pseudoforests
+
+Suppose the support graph has at most one cycle per connected component. After deleting redundant check rows it still has this property. On a component's unique cycle of \(\ell\) rows, consider only the columns carried by its cycle edges. If this submatrix has \(N\) columns, it still has zero-error kernel and at most \(\ell\) check rows; the global theta bound gives \(7^{N-\ell}\le t^N\). Since \(t<7^{2/3}\), we have \(N<3\ell\). Hence some cycle edge has at most two columns. Delete those columns to make the component a tree and apply the forest bound. For each unicyclic component with \(m\) rows this proves \(n\le5m/2+2\); tree components need no deletion.
+
+For \(m\ge20\) this implies \(n\le13m/5\) directly. For \(1\le m\le19\), the global theta bound and integrality give the same conclusion: \(t<1659/500\) follows by bounding \(\cos(\pi/7)\) by \(1-x^2/2+x^4/24\) at \(x=157/350<\pi/7\), and the exact integer comparison \(1659^{248}<500^{248}7^{153}\) gives \(n<(248/95)m=(13/5+1/95)m\). Rounded-down multiples of \(13/5\) have their next integer at least \(1/5\) away. Thus \(n\le13m/5\) in each component, and adding components bounds the pseudoforest capacity by \(7^{8/13}=3.3117712551\ldots<t\). The strict comparison follows, for example, from \(t>663/200\) and \(7^8<(663/200)^{13}\), using the alternating Taylor lower bound at \(22/49>\pi/7\), verified in the checker; the pseudoforest upper bound is not asserted sharp.
+
+For a broader exact algorithmic method and the strict theta gap at every fixed treewidth, see [bounded-width parity capacity](BoundedWidthParityCapacity.md).
+
 ## Scope and references
 
 - L. Lovász, [On the Shannon capacity of a graph](https://doi.org/10.1109/TIT.1979.1055985), IEEE TIT 25 (1979), for theta, multiplicativity, and the cycle evaluation.

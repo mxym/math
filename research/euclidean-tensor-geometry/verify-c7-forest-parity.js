@@ -63,3 +63,12 @@ for(let s=0;s<8;s++)for(let t=0;t<8;t++)if(edges[s][t]){
  if(actual[a][b]==='-'||n>actual[a][b])actual[a][b]=n;
 }
 (typeof console==='undefined'?text:console.log)({actualEdgeTransitions:actual,branchMasks:branch,binaryBlockSubsetSums:blocks});
+
+const x=157n,y=350n, hiD=24n*y**4n, hiN=hiD-12n*x*x*y*y+x**4n;
+assert(1841n*hiN<1659n*hiD,'upper theta cosine certificate');
+assert(1659n**3n<49n*500n**3n,'theta below 7^(2/3)');
+assert(1659n**248n<500n**248n*7n**153n,'pseudoforest integer ratio certificate');
+const a=22n,b=49n, loD=720n*b**6n;
+const loN=loD-360n*a*a*b**4n+30n*a**4n*b*b-a**6n;
+assert(737n*loN>663n*loD,'lower theta cosine certificate');
+assert(7n**8n*200n**13n<663n**13n,'pseudoforest strict theta gap');
