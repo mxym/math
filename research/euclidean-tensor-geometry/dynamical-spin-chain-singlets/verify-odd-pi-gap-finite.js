@@ -111,4 +111,4 @@ function check(max){
  }
  return tests;
 }
-console.log(JSON.stringify({comparisonCertificates:check(31),largestOddN:31}));
+console.log(JSON.stringify({comparisonCertificates:check(41),largestOddN:41}));

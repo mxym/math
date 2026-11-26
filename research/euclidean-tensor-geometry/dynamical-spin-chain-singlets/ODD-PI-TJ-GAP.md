@@ -20,7 +20,7 @@ P_N(t)=4+2t(1-\cos(\pi/N)).
 The crossover is at \(\zeta^2=9/5\).
 - At \(N=5\) the gap equals the smaller of \(P_5(t)\) and the smallest eigenvalue of the four-dimensional one-minority matrix above, at **every** coupling. The two branches cross just once, at \(t\approx5.67570853\), equivalently \(|\zeta|\approx2.58373925\). The exact cubic for the crossover is below. 
 - At \(N=7\) the same two-branch description holds with the six-dimensional one-minority matrix. Its unique crossover is at \(t\approx13.79749431\), equivalently \(|\zeta|\approx3.84675114\). 
-- The [finite rational certificate](ODD-PI-TJ-FINITE-CERTIFICATES.md) extends the same exact two-branch formula to all odd \(N\le31\), at every coupling. The proof for arbitrary odd length remains open.
+- The [finite rational certificate](ODD-PI-TJ-FINITE-CERTIFICATES.md) extends the same exact two-branch formula to all odd \(N\le41\), at every coupling. At arbitrary length, [all even mixed contents are excluded analytically](ODD-PI-TJ-FINITE-CERTIFICATES.md#analytic-even-content-exclusion-at-every-odd-length); only higher odd contents remain for the general theorem.
 
 ## One-hole gauge and finite matrix
 
