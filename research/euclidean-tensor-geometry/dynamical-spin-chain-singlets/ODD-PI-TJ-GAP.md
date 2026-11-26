@@ -8,6 +8,7 @@ t=\zeta^2-1>0,\quad c=\zeta^2+1,\quad L=N-1,\qquad
 P_N(t)=4+2t(1-\cos(\pi/N)).
 \]
 
+- For every coupling in this regime the gap is attained in a **one-hole** sector, by the [shortest-cycle argument](CIRCULAR-EXCLUSION-CYCLES.md#consequence-for-the-odd-pi-twisted-deformed-tj-chain). Its exact finite-block reduction is below.
 - For **every** odd \(N\ge5\), \(\Delta_N=P_N(t)\) throughout \(0<t\le1\), i.e. \(1<|\zeta|\le\sqrt2\). At \(N=3\), this branch holds through \(t=4/5\) below.
 - At each fixed odd \(N\), for all sufficiently large \(|\zeta|\) the first excitation has one hole and one minority spin among the remaining spins. Its exact gap is the smallest eigenvalue of the size-\(L\) matrix \(tA_1+\operatorname{diag}(6+2\zeta,8,\ldots,8,6-2\zeta)\), with \(A_1\) the cycle Laplacian whose edges have weight 2 on the path \(1,\ldots,L\) and weight 1 on the closing edge. Keep the closing edge even at \(L=2\), where it is parallel to the path edge.
 - For all \(|\zeta|>1\), \(\Delta_N\le8-4/(N-1)\). For fixed odd \(N\), \(\Delta_N=8-8/N+O_N(|\zeta|^{-2})\) in the strong limit. For fixed finite \(|\zeta|>1\), the odd-length limit is instead \(4\). The two iterated limits are \(4\) and \(8\).
@@ -29,6 +30,17 @@ Read the relative particle word \(s=(s_1,\ldots,s_L)\) beginning after the hole,
 t A_k+4+2w(s)+2\zeta d(s).
 \]
 Here \(A_k\) is the graph Laplacian from all open-word adjacent unequal swaps and from the two cyclic shifts (one for each hop direction). Multiple edges count. The diagonal of the full Hamiltonian in these coordinates is \(2c+cw+2\zeta d\), and the Laplacian diagonal is \(t(2+w)\); their difference is \(4+2w+2\zeta d\). The sole one-hole no-hop transitions would come from constant relative words, absent at odd \(k\). For \(k=1\), each interior path edge gets one adjacency swap and one hop, while the closing edge gets only the hop. Thus \(A_k=A_1\) as specified, with one-wall endpoints and two-wall interior states. Uniform constant coordinates have expectation \(8-4/L\) at \(k=1\), proving the all-coupling upper bound.
+
+### Exact one-hole reduction at all couplings
+
+The [circular exclusion cycle partition](CIRCULAR-EXCLUSION-CYCLES.md) shows all mixed no-hole sectors have least energy at least \(P_N(t)\) at every \(t>0\). Pure one-hole waves attain that value, and the one-hole trial of energy at most \(8-4/L\) is strictly below the many-hole lower bound \(8\). Thus restrict the comparison to the one-hole sectors.
+
+The inversion gauge described above uses only the seam sign of the hole when distinguishing even and odd \(k\); its particle swaps are \(-t\) in both cases. Consequently a Fourier transform in hole position reduces each \(k\) to relative-word matrices of order \(\binom{L}{k}\). In each block:
+* The diagonal potential is \(c(2+w(s))+2\zeta d(s)\).
+* Each allowed adjacent unlike swap within the relative word contributes \(-t\).
+* A clockwise or counterclockwise hole hop contributes \(-t e^{iq}\) or \(-t e^{-iq}\), respectively, multiplying its one-step rotation of the word. Sum coincident transitions, including from a rotation that fixes the word.
+
+Here \(q=2\pi j/N\) for odd \(k\), and \(q=(2j+1)\pi/N\) for even \(k\), \(0\le j<N\). In fact writing the wave at hole position \(h\) as \(e^{iqh}f(s)\) represents the periodic or antiperiodic seam by \(e^{iqN}=+1\) or \(-1\), respectively; a clockwise hop cyclically shifts the relative word in one direction and a counterclockwise hop reverses that shift. The sign assignment uses \(L\) even, so the inversion change when a seam hop rotates the word has parity \(k\) irrespective of which spin moves. For odd \(k\), only \(q=0\) need be tested by Perron–Frobenius. At \(k=0,L\) this formula gives \(P_N\) as its least value. This gives an exact block expression for all couplings but not a closed comparison of its competing mixed-content eigenvalues.
 
 ## Strong perturbation and sector exclusion
 
