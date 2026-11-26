@@ -4,7 +4,7 @@
 
 Use the empty-set-free strict-majority formulation. Let F be a nonempty finite union-closed family of nonempty sets with union U, n=|U| and inclusion height at most six, counting members of a chain. Let G={U\A : A∈F}. Then G is intersection-closed, contains ∅, and omits U. Call a four-subset Q of U covered if it contains a chain B_1⊂B_2⊂B_3 of members of G with |B_i|=i. Equivalently F has a chain of one-, two- and three-element complements supported in Q.
 
-**Theorem.** F has a strict-majority element if every four-subset is covered. More generally, if n≥47, it suffices that at least 23/24 of all four-subsets are covered. Asymptotically, for any fixed ε>0, a covered proportion ≥15/16+ε suffices for all sufficiently large n. No assertion is made for general height six.
+**Theorem.** F has a strict-majority element if every four-subset is covered. More generally, if n≥47, it suffices that at least 23/24 of all four-subsets are covered. It also suffices to cover 11/12 at n≥86 or 9/10 at n≥138, and asymptotically a proportion ≥7/8+ε suffices. For the bounded-holes criterion, n≥22k also suffices if every k-set contains a covered four-set and k≥5. No assertion is made for general height six.
 
 ## Structural and incidence bounds
 
@@ -39,9 +39,54 @@ For a set V of size s≥k, count pairs (k-subset of V, covered four-subset in it
 d[binom(n/2,4)−binom(k−1,4)] ≤ bzC(n−3).
 Since d≥zA, cancellation gives A(R−B)≤b(n−3) when R>B, where B=binom(k−1,4)/C. For k=5, n≥50; direct comparison at n=50 is strict in the other direction, and R increases, B decreases, and A/(n−3) increases with n. For k≥6, n≥86 and b≥(k−1)^2/4, the latter following from k(k−2)(k−3)≥6(k−1). Thus B≤((k−1)/n)^4≤1/11^4; R−B≥R(86)−1/11^4>1/18. Also A/(n−3)≥(85/86)(84/86)(80/83)n²/24>9n²/240. Their product exceeds 9·484b/(240·18)>b.
 
-## General fixed-height form
+## Unweighted fixed-height form
 
 For height at most h≥5, set r=h−3 and l=r+1 (take h fixed). Call an l-subset covered if it contains a chain of complement-family members of sizes 1 through r. The same proof gives strict majority whenever the covered density exceeds 1−2^(-l) by any fixed positive amount and n is sufficiently large depending on the amount and h. In fact, with z the covered density, at least z*binom(n,r)/l shallow r-sets are present, so M≥zA_r where A_r=(1−2r/n)binom(n,r)/l. A covered l-set has at most n−l+1 containers by the height-two argument, and the deep average is at least n/2 as before. With C_l=binom(n,l), the moment inequality is A_r[binom(n/2,l)/C_l−(1−z)]≤n−l+1 if the bracket is positive. The ratio tends to 2^(-l) and A_r grows like n^r. For bounded holes (every k-subset contains a covered l-set), the same local incidence count gives A_r[binom(n/2,l)/C_l−binom(k−1,l)/C_l]≤binom(k,l)(n−l+1) when the bracket is positive. Hence n≥c_h k^(l/(r−1)) suffices for a constant c_h depending only on h: choose c_h large so n≥4k, the bracket stays above a positive constant (e.g. half of 2^(-l) for n sufficiently large), then compare n^(r−1) with binom(k,l). Neither criterion implies an unconditional bounded-height theorem.
+
+## Sharper fixed-height criteria: weighted moments and linear-size holes
+
+Retain the setup for height at most \(h\ge5\), with \(r=h-3\), \(\ell=r+1\), \(C=\binom n\ell\), \(u=(1-z)C\), and \(A_r=(1-2r/n)\binom nr/\ell\). As before, suppose there is no strict majority in the original family. The number \(d\) of deep sets is at least \(zA_r\), their mean size is at least \(n/2\) when \(n\ge2r\), and each covered \(\ell\)-set has at most \(n-r\) containers. We use \(z>0\).
+
+**Weighted coverage.** Let \(p_x\) be the probability that \(x\) lies in a uniform deep set \(V\). Let \(W=\{x:p_x\ge1/2\}\) and \(q=|W|\). Each excluded coordinate occurs in strictly more than half the shallow sets, as it occurs in at least half of the entire family. The total number of shallow incidences is at most \(r\) times the number of shallow sets, so \(q\ge n-2r+1\). Put \(s=|V\cap W|\), \(w(V)=\sum_{x\in V\cap W}p_x^{-1}\), and let \(f(s)=\binom{s-1}{\ell-1}\) for real \(s\ge\ell-1\), extended by zero below that range. The function is increasing on its polynomial part and convex: in \(s-(\ell-1)\) the polynomial has nonnegative coefficients and zero constant.
+
+We have \(\mathbb E w=q\). By Cauchy–Schwarz, \(s w(V)\ge(\sum_{x\in V\cap W}p_x^{-1/2})^2\). Taking expectation and using the convexity of the square gives \(\mathbb E[s w(V)]\ge(\sum_{x\in W}\sqrt{p_x})^2\ge q^2/2\). Thus Jensen with weights \(w(V)/q\) gives \(\mathbb E[w(V)f(s)]\ge q f(q/2)\) when \(q>0\).
+
+The same expectation equals the sum over \(\ell\)-sets \(Q\subseteq W\) of \(\Pr(Q\subseteq V)\sum_{x\in Q}p_x^{-1}\). Each uncovered \(Q\) contributes at most \(\ell\), since its containment probability is at most every \(p_x\) in \(Q\). Each covered \(Q\) contributes at most \(2\ell(n-r)/d\) by the height bound, and there are at most \(zC\) of them. Therefore
+\[
+1-z\ \ge\ \frac{q f(q/2)}{\ell C}-\frac{2z(n-r)}{d}
+\ \ge\ \frac{q f(q/2)}{\ell C}-\frac{2(n-r)}{A_r}.
+\]
+The first term tends to \(2^{-r}\) for fixed \(r\), and the second to zero. Thus coverage \(1-2^{-r}+\varepsilon\) suffices for every fixed \(\varepsilon>0\) and all sufficiently large \(n\). In height six, the right side for \(n\ge12\) is at least
+\[
+\frac{(n-5)(n-7)(n-9)(n-11)}{8n(n-1)(n-2)(n-3)}
+-\frac{48(n-3)}{(n-1)(n-2)(n-6)}.
+\]
+The product of ratios in the first term increases with \(n\), and the second positive term decreases, by grouping \((n-3)/(n-6)\) as a decreasing factor. Exact cross multiplication gives \(>1/10\) at \(n=138\) and \(>1/12\) at \(n=86\). These prove the stated finite thresholds.
+
+**Linear-size holes.** Suppose every \(k\)-set contains a covered \(\ell\)-set. Equivalently the \(r\)-uniform hypergraph of endpoints of witness chains has independence number at most \(k-1\). In any \(s\)-set, sample vertices independently with probability \(p\), then delete one vertex from every remaining sampled edge until no edges remain. The number deleted is at most the number of originally sampled edges. Taking expectations gives \(ps-p^r e_s\le k-1\), where \(e_s\) counts witness edges inside the \(s\)-set. Each witness edge extends to \(s-r\) covered \(\ell\)-sets, and each \(\ell\)-set can be counted at most \(\ell\) times.
+
+For height six, \(k\ge5\), choose \(p=3k/(2s)\) for \(s\ge3k/2\). Then \(e_s\ge4s^3/(27k^2)\), so the covered count is at least \(s^3(s-3)/(27k^2)\) in that range. A convex lower bound on the whole domain is zero up to \(s=3k/2\) and
+\[
+\frac{s^3(s-3)-(3k/2)^3(3k/2-3)}{27k^2}
+\]
+thereafter; the right-hand polynomial is increasing and convex there. Jensen over deep sets, the incidence bound \(zC(n-3)\), and \(d\ge zA_3\) give, for \(n\ge3k\),
+\[
+(1-6/n)\big[(n/2)^3(n/2-3)-(3k/2)^3(3k/2-3)\big]
+ \le 27 k^2(n-3)^2.
+\]
+For \(n\ge22k\) the ratio of the left side to the right is at least
+\[
+\frac{484}{432}\frac{52}{55}
+   \left(\frac{52}{55}-(3/22)^4\right)>1.
+\]
+Indeed \(1-6/n\ge52/55\), \(3k/n\le3/22\), and \((n-3)^2\le n^2\). This contradiction proves the linear threshold; the earlier bound remains useful for small \(k\).
+
+For general fixed \(r\ge2\) and \(k\ge\ell\), choose \(p=2k/s\) for \(s\ge2k\). The covered count there is at least \(s^{r+1}/[2^{r+1}\ell k^{r-1}]\), since \(s-r\ge s/2\). A global convex lower bound replaces the numerator with \((s^{r+1}-(2k)^{r+1})_+\). Averaging and canceling \(z\) as above yields
+\[
+(1-2r/n)\big[(n/2)^{r+1}-(2k)^{r+1}\big]_+
+ \le 2^{r+1}\ell k^{r-1}(n-r)^2.
+\]
+For \(n\ge8k\) the left side is at least a positive constant depending only on \(r\) times \(n^{r+1}\). Thus \(n\ge c_h k\), for a large enough constant depending only on \(h\), forces a strict majority.
 
 ## Comparison and scope
 
