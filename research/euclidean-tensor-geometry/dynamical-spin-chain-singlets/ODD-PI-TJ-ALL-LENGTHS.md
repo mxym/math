@@ -8,7 +8,7 @@ Consider the full local Hamiltonian of [Hagendorf §4.2](https://arxiv.org/abs/1
 \]
 where \(M_N(t)=t A+\operatorname{diag}(6+2\zeta,8,\ldots,8,6-2\zeta)\), and \(A\) is the size-\(L\) Laplacian with weight 2 on each edge of the path and weight 1 on the edge joining the two ends (parallel to the path edge at \(L=2\)). The other \(\zeta\ne0\) cases at twists 0 and \(\pi\) are in [the original kernel and gap analysis](DEFORMED-TJ.md). This result does not assert the gap at arbitrary twists or uniqueness of the branch transition at every length.
 
-The [circular exclusion argument](CIRCULAR-EXCLUSION-CYCLES.md#consequence-for-the-odd-pi-twisted-deformed-tj-chain) reduces the full gap to one-hole blocks. The [one-hole analysis](ODD-PI-TJ-GAP.md#one-hole-gauge-and-finite-matrix) gives the stated two candidates, from pure background and one minority spin. The [even-content argument](ODD-PI-TJ-FINITE-CERTIFICATES.md#analytic-even-content-exclusion-at-every-odd-length) excludes mixed even \(k\) at every length. Here we exclude all mixed odd \(3\le k\le L/2\). At \(N\le41\) use the [exact finite certificate](ODD-PI-TJ-FINITE-CERTIFICATES.md), with the analytic \(N=3\) case [here](ODD-PI-TJ-GAP.md#three-sites). For \(N\ge43\), the proof below reduces all lengths and all couplings to one fixed small integer polynomial sign check; it does not enumerate lengths.
+The [circular exclusion argument](CIRCULAR-EXCLUSION-CYCLES.md#consequence-for-the-odd-pi-twisted-deformed-tj-chain) reduces the full gap to one-hole blocks. The [one-hole analysis](ODD-PI-TJ-GAP.md#one-hole-gauge-and-finite-matrix) gives the stated two candidates, from pure background and one minority spin. The [even-content argument](ODD-PI-TJ-FINITE-CERTIFICATES.md#analytic-even-content-exclusion-at-every-odd-length) excludes mixed even \(k\) at every length. Here we exclude all mixed odd \(3\le k\le L/2\). For \(7\le N\le41\), after the content comparison below, the [quick exact checker](verify-odd-pi-gap-three-minority.js) verifies just three-minority content at 18 odd lengths (36 interval certificates) using the [finite certificate inequalities](ODD-PI-TJ-FINITE-CERTIFICATES.md#odd-mixed-sectors). A slower companion independently tests every mixed content through 41. At \(N=3,5\) the [explicit small cases](ODD-PI-TJ-GAP.md#three-sites) apply. For \(N\ge43\), the proof below uses uniform analytic inequalities and does not enumerate lengths.
 
 ## Reduction to three minority spins
 
@@ -57,22 +57,37 @@ Use \(\sinh(La)/\sinh((L-1)a)\le e^a L/(L-1)\) from concavity of \(1-e^{-2xa}\),
 \left(\frac{\cosh((2u/L-1)\xi)}{\cosh\xi}\right)^3\right].
 \]
 
-## One fixed integer certificate for all larger lengths
+## Uniform control from three elementary moments
 
-Each term of the bracket is nondecreasing in \(\xi\), since \(\cosh(v\xi)/\cosh\xi\) is nonincreasing for \(0\le v\le1\). Put \(A=(153/50)^2=9.3636\), \(\epsilon=3/500=0.006\). We have \(\xi\ge L/\sqrt{1+t}\) by \(a=2\operatorname{artanh}(1/\zeta)\ge2/\zeta\), and \(L^2\alpha>A,\ \alpha<\epsilon\) for \(N\ge43\). The latter bounds follow from \(2\sin(\pi/(2N))\le\pi/N\) and \(2L\sin(\pi/(2N))\ge (L/N)\pi(1-\pi^2/(24N^2))>153/50\), using \(3.14<\pi<22/7\). Thus \(\xi^2\ge A/(s+\epsilon)\).
-
-Let \(\mu_{2n}=L^{-1}\sum_{u=0}^{L-1}(2u/L-1)^{2n}\). The sum equals the normalized composite trapezoid rule on \([-1,1]\). The interval kernel for its error is \((x-x_i)(x_{i+1}-x)/2\le(2/L)^2/8\), so \(\mu_{2n}\le 1/(2n+1)+n/L^2\), by integrating the nonnegative second derivative (total integral \(4n\)). Hence \(\mu_{2n}\le 1/(2n+1)+n/1764\). In the expansion \(\cosh^3\sqrt y=\sum_{n\ge0} a_n y^n\), \(a_n=(3^{2n}+3)/(4(2n)!)\). For \(0\le y\le117/50=2.34\), define
+Each term of the bracket is nondecreasing in \(\xi\), since \(\cosh(v\xi)/\cosh\xi\) is nonincreasing for \(0\le v\le1\). By \(a=2\operatorname{artanh}(1/\zeta)\ge2/\zeta\), we have \(\xi\ge L/\sqrt{1+t}\). Also \(L^2\alpha>(153/50)^2=9.3636\) and \(\alpha<3/500=0.006\) for \(N\ge43\): use \(\alpha^{1/2}=2\sin(\pi/(2N))\), the sine bounds, and \(3.14<\pi<22/7\). In detail,
 \[
-D(y)=\sum_{n=1}^{10}a_n\big(1-\tfrac1{2n+1}-\tfrac n{1764}\big)y^n,\qquad
-U(y)=\sum_{n=0}^{10}a_n y^n+\tfrac{10}{9}a_{11}y^{11}.
+L\sqrt\alpha\ge (L/N)\pi(1-\pi^2/(24N^2))>153/50
 \]
-Here \(D\) bounds the bracket numerator below, and \(U\) bounds \(\cosh^3\sqrt y\) above: after the degree-11 term, consecutive terms are in ratio at most \(9y/((2n+2)(2n+1))<1/10\). The bound for \(D\) only uses the first ten nonnegative deficit terms.
-
-The [fixed integer certificate](verify-odd-pi-gap-all-lengths.js) proves
+since the right side increases in \(N\) and the lower bound obtained with \(N=43\), \(\pi>3.14\), \(\pi^2<10\), already suffices. It follows that for \(s\ge4\),
 \[
-\tfrac{93}{100}\big(A+(4-\epsilon)y\big)D(y)-5y U(y)\ge0
-\qquad(0\le y\le117/50).
+\xi^2\ge \frac{9.3636}{s+0.006}\ge\frac{93}{10s}.
 \]
-It rounds coefficients of \(D\) down and \(U\) up to denominator \(10^{28}\), uses an overall positive integer multiplier, divides the resulting polynomial by \(y\), and checks all 12 coefficients are strictly positive after substituting \(y=(117/50)z/(1+z)\) and clearing denominators. This is one scalar certificate, independent of \(L,k\), with an exact BigInt replay.
+For \(s\le4\) it follows instead that \(\xi^2\ge93/40\).
 
-For \(s\ge4\), insert \(y=A/(s+\epsilon)<117/50\) in this certificate and use the monotonicity in \(\xi\). This gives \(1-p_0(3)\ge 5/(s+4)\), exactly the required bound. For \(s\le4\), compare to \(y=A/(4+\epsilon)\), obtaining \(1-p_0(3)\ge5/8\ge(1+s)/(4+s)\). Together with content monotonicity, this excludes every higher odd-content branch for all larger lengths. This completes the theorem.
+For \(0\le v\le1\) the nonnegative Taylor coefficients of \(\cosh\) give \(\cosh(v\xi)\le1+v^2(\cosh\xi-1)\). If \(\xi^2\ge93/(10s)\), put \(\eta=93/(20s+93)\), so \(1-\operatorname{sech}\xi\ge \xi^2/(2+\xi^2)\ge\eta\). Thus
+\[
+1-\Big(\frac{\cosh(v\xi)}{\cosh\xi}\Big)^3
+\ge 3\eta(1-v^2)-3\eta^2(1-v^2)^2+\eta^3(1-v^2)^3.
+\]
+For \(v=|2u/L-1|\) over \(u=0,\ldots,L-1\), the averages of \((1-v^2)^j\) for \(j=1,2,3\) are respectively
+\[
+\tfrac23(1-L^{-2}),\qquad \tfrac8{15}-\tfrac8{15L^4},\qquad
+\tfrac{16}{35}+\tfrac{16}{15L^4}-\tfrac{32}{21L^6}.
+\]
+These identities follow by expanding the powers and summing powers of \(u\) (equivalently the first three even grid moments are \(1/3+2/(3L^2)\), \(1/5+4/(3L^2)-8/(15L^4)\), and \(1/7+2/L^2-8/(3L^4)+32/(21L^6)\)). Since \(L\ge42\), the bracket average is at least
+\[
+F(\eta)=2(1-42^{-2})\eta-\tfrac85\eta^2+\tfrac{16}{35}\eta^3.
+\]
+For \(s\ge4\), \(0<\eta\le93/173\), and the ratio of this bound to \(5/(s+4)\) is
+\[
+\frac{F(\eta)(s+4)}5
+=\frac1{10}\left[2(1-42^{-2})-\tfrac85\eta+\tfrac{16}{35}\eta^2\right]\left[\tfrac{93}{10}+\big(8-\tfrac{93}{10}\big)\eta\right].
+\]
+Both factors in square brackets are positive and decreasing on the indicated interval. The worst ratio is at \(s=4\), and \( (93/100)F(93/173)>5/8\) by direct rational substitution. This gives \(1-p_0(3)\ge 5/(s+4)\) for \(s\ge4\). For \(s\le4\), the bound \(\xi^2\ge93/40\) permits the same fixed choice \(\eta=93/173\), and gives \(1-p_0(3)\ge5/8\ge(1+s)/(4+s)\). Content monotonicity now rules out every higher odd sector. This completes the theorem.
+
+The earlier fixed [scalar-polynomial checker](verify-odd-pi-gap-all-lengths.js) is kept as an independent cross-check for the large-length inequality; the uniform proof above does not depend on it.
