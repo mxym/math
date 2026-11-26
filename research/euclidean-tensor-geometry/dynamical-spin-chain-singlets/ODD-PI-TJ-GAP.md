@@ -19,7 +19,8 @@ P_N(t)=4+2t(1-\cos(\pi/N)).
 \]
 The crossover is at \(\zeta^2=9/5\).
 - At \(N=5\) the gap equals the smaller of \(P_5(t)\) and the smallest eigenvalue of the four-dimensional one-minority matrix above, at **every** coupling. The two branches cross just once, at \(t\approx5.67570853\), equivalently \(|\zeta|\approx2.58373925\). The exact cubic for the crossover is below. 
-- At \(N=7\) the same two-branch description holds with the six-dimensional one-minority matrix. Its unique crossover is at \(t\approx13.79749431\), equivalently \(|\zeta|\approx3.84675114\). General odd \(N\ge9\) remains open.
+- At \(N=7\) the same two-branch description holds with the six-dimensional one-minority matrix. Its unique crossover is at \(t\approx13.79749431\), equivalently \(|\zeta|\approx3.84675114\). 
+- The [finite rational certificate](ODD-PI-TJ-FINITE-CERTIFICATES.md) extends the same exact two-branch formula to all odd \(N\le31\), at every coupling. The proof for arbitrary odd length remains open.
 
 ## One-hole gauge and finite matrix
 
@@ -52,6 +53,25 @@ H_k(q)=4I+S_k+t(2I-e^{iq}R-e^{-iq}R^{-1}),
 \]
 where \(S_k\) is the sum of positive semidefinite particle-bond blocks on the open word in the inversion gauge, and \(R\) is the cyclic shift. Since \(R^L=I\), and \(|q|=\pi/N<\pi/L\), the nearest rotation phase to \(-q\) is zero. The hopping term is therefore bounded below by \(2t(1-\cos(\pi/N))I\) with equality only on \(R\)-invariant vectors. The kernel of \(S_k\) is a single line whose nonzero amplitude ratios are fixed by adjacent unlike swaps, giving the positive inversion-weighted vector with ratio \((\zeta-1)/(\zeta+1)\) or its reciprocal. Its magnitudes change upon rotating a first letter past a nonzero number of opposite letters, because the ratio does not have modulus one. Thus this line is not \(R\)-invariant and equality in the sum is impossible. The other even-content momenta are not excluded by this argument.
 
+### Uniform analytic interval for even mixed contents
+
+The even mixed blocks are all bounded below by \(P_N(t)\) for every odd \(N\ge5\) when
+\[
+t\le \frac{4}{\alpha_0(1+2/\cos\theta)},\qquad
+\theta=\pi/N,\quad \alpha_0=2(1-\cos\theta).
+\]
+In particular this holds whenever \(\alpha_0t\le1\). This does not yet exclude the odd mixed contents. To prove the claim, use the [kink rank-one comparison](ODD-PI-TJ-FINITE-CERTIFICATES.md#even-mixed-sectors), with \(g=4+\gamma t\), \(\gamma=2(1-\cos(\pi/L))>\alpha_0\).
+
+For a nontrivial rotation phase, the kink overlap \(p\) is at most \(1/2\): nonreal phases come in conjugate pairs of equal squared overlap, and on a rotation orbit contributing at phase \(-1\), the squared projection is \((\sum_{\mathrm{even}}\phi-\sum_{\mathrm{odd}}\phi)^2/\ell\), for even orbit length \(\ell\). Nonnegativity of the entries bounds its numerator by the larger squared half-sum, and Cauchy–Schwarz bounds that by \(\ell/2\) times the norm squared on the orbit. Summing proves the claim. The rank-one condition with \(p\le1/2\) therefore follows from \((c-b)(\gamma+4/t)\ge2bc\), with \(b,c\) the kinetic deficiency and next gap as in the linked note; it also requires \(g>bt\), immediate since \(b\le\alpha_0\).
+
+Write the closest angle as \(\theta-s\) with \(0<s\le\theta\); the next closest angle is \(2\pi/L-(\theta-s)>\theta+s\). Thus \(c\ge c_0=2(\cos\theta-\cos(\theta+s))\), while \(b=2(\cos(\theta-s)-\cos\theta)\). The difference of reciprocals obeys
+\[
+\frac{c-b}{bc}\ge \frac1b-\frac1{c_0}
+=\frac{\cos\theta}{2(\sin^2\theta-\sin^2(s/2))}
+\ge\frac{\cos\theta}{\alpha_0(1+\cos\theta)}.
+\]
+With \(\gamma\ge\alpha_0\) the displayed upper bound on \(t\) is sufficient. The two smallest antiperiodic momenta were already treated separately.
+ 
 ## Strong perturbation and sector exclusion
 
 In the uniform probability inner product on \(k\)-subsets, the kernel of \(A_k\) is the constants. After division by \(\zeta^2\), expand in \(\epsilon=1/\zeta\) as \((1-\epsilon^2)A_k+2\epsilon d+\epsilon^2(4+2w)\). The simple eigenvalue at zero is analytic. The first-order term vanishes by symmetry. At second order, solving the first-order eigenvector correction on the orthogonal complement of constants gives
