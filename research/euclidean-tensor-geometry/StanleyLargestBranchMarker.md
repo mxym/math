@@ -1,0 +1,47 @@
+# A largest pendant branch roots an arbitrary heavy core
+
+**Yongxian Zhang.** AI-assisted proof development and internal checks; no external peer review or priority claim.
+
+**Theorem.** Graft one rooted block at each vertex of an arbitrary tree core with at least two vertices, identifying the block root with the core vertex. All branches off block roots have order at most \(h\). Assume:
+
+1. Block orders \(s_v\) are multiples of a common integer \(g>h\), and \(s_v\ge 2h+1\). In particular, the orders may all equal \(s\ge 2h+1\), with \(g=s\).
+2. The high rooted tails through deficit \(D_v=s_v-h-1\) determine the multiset of rooted block types at branch bound \(h\). For example, it suffices that \(D_v\ge T_h=\sum_{i=1}^h i b_i\) for every \(v\), with \(b_i\) the number of rooted trees of order \(i\).
+3. Exactly one block has branches of order \(h\). Among all other blocks, distinct rooted types of the same order have distinct normalized rooted cut profiles through deficit \(h-1\).
+
+Then the ordinary chromatic symmetric function determines the resulting tree up to isomorphism among all trees. The marked vertex can be anywhere, including a leaf of the core. Ordinary graft types can repeat, and no hypothesis on independence of products of their profiles is needed.
+
+If all ordinary branches have order at most \(b<h\), the condition on their short profiles follows whenever \(h-1\ge T_b\), by [rooted tail separation](StanleyCentroidTailReconstruction.md#2-two-quantitative-sufficient-conditions).
+
+## 1. Root the unrooted cut information
+
+The ordinary chromatic symmetric function gives the unsigned tree cut polynomial \(U\) by the power-sum expansion. Call an edge heavy if each side of the split it induces has order \(>h\). Here the heavy edges are exactly the core edges. [Heavy-edge factorization](StanleyHeavyEdgeCore.md#1-factorization-by-heavy-components) recovers the multiset of block orders and their high rooted tails from \(U\), including for an arbitrary \(U\)-equal rival. Assumption 2 identifies the multiset of blocks and hence the unique marked type and its number \(k>0\) of order-\(h\) branches.
+
+For a block \(v\) let \(F_v(t)\) be its rooted cut series, using \(t\) for the number of vertices detached from the block root and \(x_i\) for each detached component of order \(i\). Its constant term is 1. For possible labeled core component masses \(n_0,\ldots,n_a\) summing to the total order, choose deficits \(d_0=h\) and \(0\le d_i<h\) for \(i>0\). In \(U\) inspect the coefficient of \(\prod_i x_{n_i-d_i}\), retaining all low variables. All these high indices are \(>h\): restrict the selected masses to multiples of \(g\) at least the minimum block order. Each high component's intact mass is a multiple of \(g\) no smaller than its visible mass \(n_i-d_i\), so its intact mass is at least \(n_i\). Disjointness and the total force equality in all slots. In particular every core vertex belongs to a selected high component. This is the [intact-mass extraction](StanleyEqualOrderGraftMarkers.md#extract-the-labeled-series-by-intact-mass) with weights rather than core cardinalities.
+
+Now take the coefficient of the first power of \(x_h\). Only slot zero can produce \(x_h\) and it must spend its entire deficit doing so, by detaching one branch of order \(h\) intact. No branch of smaller order can do this; even an \(h\)-vertex branch cannot produce \(x_h\) without detaching whole. The cut thus puts the marked vertex in slot zero, and the root component contributes the constant \(k\), independently of its other grafts. Every other component \(C\) has its coefficient from \(\prod_{v\in C}F_v(t)\) in its chosen deficit. After division by \(k\) the data are rooted at the mark, without any requirement that the type of each detached component be separable from its aggregate profile.
+
+For explicit labeling, multiply each high-product coefficient by the factorial multiplicity of each equal pair \((n_i,d_i)\) to count slot assignments. When summing over deficit choices with the other masses in sorted order, divide the resulting polynomial by the factorial multiplicity of each equal nonroot mass. Each unlabeled cut contributes once, because the possible labels at a fixed nonroot mass are exactly all permutations of the components of that mass. Alternatively the commutative polynomial below can be read directly without slot labels: each monomial of \(U\) surviving these tests gives the same multisets of masses and deficits irrespective of how the equal components are assigned. The root slot is distinguished by its unique deficit \(h\).
+
+## 2. Decode the decorated rooted cut polynomial
+
+For independent variables \(y_{n,j}\), a detached core component \(C\) of intact mass \(n(C)\) contributes
+\[
+L_C(y)=\sum_{0\le j<h}[t^j]\left(\prod_{v\in C}F_v(t)\right)y_{n(C),j}.
+\]
+The recovered polynomial \(\mathcal P\) sums the products of these factors over all core cuts and does not give the component containing the mark any factor. In particular the intact root-component mass can now be summed out. Coefficients lie in \(K=\mathbb Q(x_1,\ldots,x_{h-1})\).
+
+Orient the core away from the mark. For a branch \(B\) below an edge, let \(n(B)\) be its full intact mass. Its factor \(H_B\) sums all cuts inside \(B\) and of its attachment. If the attachment stays, the component containing the top of \(B\) contributes no factor. Otherwise every component of \(B\) contributes \(L_C\). Give \(y_{n,j}\) weight \(n\). The kept-attachment part has weight strictly less than \(n(B)\), by positivity of the intact mass still connected to the parent. The cut-attachment part has weight exactly \(n(B)\). Only the cut-attachment configuration with \(B\) intact contributes \(y_{n(B),0}\). Its coefficient is 1, and no other monomial contains that variable. Therefore \(H_B\) is monic linear in \(y_{n(B),0}\) and irreducible in the polynomial ring over \(K\). Its constant term is also 1. Independence of cuts across branches shows \(\mathcal P=\prod_B H_B\) over the branches at the mark. Unique factorization, with this normalization, recovers the multiset, even when some factors coincide.
+
+In a recovered factor the maximum weight identifies \(n(B)\). The part of smaller weight is the product of the factors of the children of the top vertex of \(B\); factor it recursively. The coefficients of the linear monomials \(y_{n(B),j}\) in the full factor give the truncated total profile of \(B\), since a linear monomial of that weight is possible only for \(B\) detached intact in the core. Divide its total profile by the children's total profiles in \(K[t]/(t^h)\). These are units, and this gives the short profile of its top vertex. Subtracting the child masses from \(n(B)\) gives the top vertex's block order. Assumption 3 identifies that block uniquely. At the marked vertex attach the certified marked block. The same decoding applies to every rival with the same \(U\).
+
+## 3. Concrete cutoff-three family
+
+Take **any** core, equal graft orders \(s\ge8\), arbitrary single leaves and two-vertex branches at every core vertex, and one distinguished vertex that also bears one or more three-vertex branches rooted in either shape. This family meets all hypotheses without the conservative \(T_h\) bound.
+
+For any block write \(M=s-1\), \(l=[x_1t]F\), \(k=[x_3t^3]F\), and \(u=[x_3x_1t^4]F\). Then \(l\) is the number of nonroot leaves, \(k\) counts three-vertex branches, and \(u\) counts choices of one of those branches and a leaf outside it. If \(k>0\), the total number of leaves inside the three-vertex branches is \(kl-u\); subtracting \(k\) gives the number of center-rooted three-vertex branches, since an endpoint-rooted one has one leaf and a center-rooted one has two. Subtract the contributions of the three-vertex branches from \(M\) and \(l\). Each remaining branch is of order one or two and has one leaf, so the residual \(M,l\) recover both multiplicities. For \(k=0\) no subtraction is needed, and even just the first deficit and the order distinguish all ordinary block types. The four deficits are available since \(s-4\ge4\). The argument also applies to unequal orders satisfying the hypotheses and all at least eight.
+
+[Exact checker](verify-stanley-largest-branch-marker.js) compares symbolic coefficients with independent core-cut enumeration on three examples, including a marker at a leaf with both kinds of three-vertex branch, a claw with repeated ordinary grafts, and unequal block orders. Across 8,929,280 full-tree edge subsets it verifies all 31 nonzero extracted coefficients and support equality. It tests the extraction, not the general factorization theorem.
+
+## Scope and relation to earlier work
+
+[Aliste-Prieto, de Mier and Zamora](https://doi.org/10.1016/j.disc.2020.112255) proved rooted reconstruction using irreducible branch factors. The new step here is extracting a root and short profile decorations from the *ordinary* invariant. Compare the [earlier two-type and scalar-count probes](StanleyEqualOrderGraftMarkers.md), [rooted outlier and residue probes](StanleyRootMarkerBranchingCore.md), and [leaf-tagged weighted recovery](StanleyLeafTaggedHeavySkeleton.md). The largest-branch marker permits an arbitrary palette of ordinary types distinguishable by short profiles and does not require a marker residue, a nonleaf marker, or any feature-rank test. The unmarked, all-equal-order branching case and [Stanley's general tree reconstruction conjecture](https://arxiv.org/abs/2611.18940) are not resolved here.
