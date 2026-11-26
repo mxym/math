@@ -17,7 +17,8 @@ P_N(t)=4+2t(1-\cos(\pi/N)).
 \Delta_3(\zeta)=
 \min\!\left(\zeta^2+3,\ 3(\zeta^2+1)-\sqrt{4\zeta^2+9(\zeta^2-1)^2}\right).
 \]
-The crossover is at \(\zeta^2=9/5\). An all-coupling formula at general odd \(N\) is not asserted.
+The crossover is at \(\zeta^2=9/5\).
+- At \(N=5\) the gap equals the smaller of \(P_5(t)\) and the smallest eigenvalue of the four-dimensional one-minority matrix above, at **every** coupling. The two branches cross just once, at \(t\approx5.67570853\), equivalently \(|\zeta|\approx2.58373925\). The exact cubic for the crossover is below. The corresponding all-coupling formula at general odd \(N\) remains open.
 
 ## One-hole gauge and finite matrix
 
@@ -97,3 +98,33 @@ This beats \(6t\). The stated uniform interval follows.
 At \(N=3\) there are no other mixed no-hole sectors, and the odd-\(k\) one-hole sector has only \(k=1\). Its size-two matrix has diagonal \(3c\pm2\zeta\) and off-diagonal \(-3t\), so its smallest eigenvalue is \(3c-\sqrt{4\zeta^2+9t^2}\). The other one-hole or one-flipped candidates give \(\zeta^2+3\). Multiple holes have bound \(8\), whereas the size-two branch is at most \(6\) by the constant trial. Equating the two candidates for \(u=\zeta^2>1\) gives \(4u+9(u-1)^2=4u^2\), or \((5u-9)(u-1)=0\), and the smaller branches are as stated.
 
 The [independent numerical checker](verify-odd-pi-gap.js) uses untransformed Hamiltonian blocks. It is supplementary and not part of the proofs. For related (distinct) periodic exclusion spectra see [Nakerst–Prosen–Haque](https://arxiv.org/abs/2402.00662); no priority claim is made.
+
+
+## Five sites: exact two-branch formula and crossover
+
+Take \(\zeta>1\) without loss, and \(L=4\). The only mixed even content is \(k=2\); the odd contents \(k=1,3\) have the same smallest energy, given by the four-dimensional one-minority matrix \(M(t)\) stated above. The \(k=0,4\) sectors supply \(P_5(t)\). By the one-hole reduction it suffices to prove the \(k=2\) blocks are all at least \(P_5(t)\).
+
+Put \(\alpha=2(1-\cos(\pi/5))=(3-\sqrt5)/2\). By the [finite kink gap of Koma–Nachtergaele, Proposition 2](https://arxiv.org/pdf/cond-mat/9512120#page=8), the open spin operator satisfies \(S_2\succeq g(I-|\phi\rangle\langle\phi|)\), with \(g=4+(2-\sqrt2)t\) and \(\phi\) its normalized kink vector. To see the normalization, their Hamiltonian (1.1) scaled by \(2c\), with anisotropy \(\Delta=c/t\), has off-diagonal \(-t\) on unlike swaps and diagonal \(c\) on unlike bonds plus the telescoping boundary field of strength \(c\sqrt{1-(t/c)^2}=2\zeta\) (use reflection for the opposite orientation). Its gap formula becomes \(2c-2t\cos(\pi/4)\). The fixed-content kernel line was described above.
+
+It remains to test \(q=\pm3\pi/5,\pi\), because \(q=\pm\pi/5\) were already excluded. Write \(a_q(R)=2I-e^{iq}R-e^{-iq}R^{-1}\). In each of the remaining blocks there is exactly one rotation eigenphase at which \(a_q<\alpha\). Let \(b=\alpha-a_{\rm bad}>0\), \(d=\min_{\rm other}(a_q-\alpha)>0\), and let \(p\) be the squared norm of the projection of \(\phi\) to the bad eigenspace. From the lower bound for \(S_2\), it suffices that
+\[
+gI+t(a_q-\alpha)-g|\phi\rangle\langle\phi|\succeq0.
+\]
+Its first two terms give a positive definite operator (since \(g>bt\)). Conjugating by the inverse square root of that operator reduces the sufficient condition to \(g(p/(g-bt)+(1-p)/(g+dt))\le1\), or
+\[
+p\le \frac{d}{b+d}(1-bt/g).
+\]
+At \(q=\pm3\pi/5\) the bad rotation eigenvalue is one of \(\pm i\), \(b=\alpha-2(1-\cos(\pi/10))<1/3\), and \(d=1\). At \(q=\pi\) it is \(-1\), \(b=\alpha\), and \(d=2-\alpha\). The bound on \(b\) at \(q=\pm3\pi/5\) follows from \(\alpha<2/5\) and \(\cos(\pi/10)<29/30\). There \(2-\sqrt2>1/2\) gives a threshold \(>(1-2/3)/(1+1/3)=1/4\). At \(q=\pi\) use \(2-\sqrt2>7/12\), \(\alpha<2/5\), and \(b+d=2\) to obtain a threshold \(>(4/5)(1-24/35)=44/175>1/4\).
+
+For the projection, take \(\nu=(\zeta-1)/(\zeta+1)\); the kernel amplitudes are proportional to \(\nu^{\mathrm{inv}}\) up to reversing the order, which does not change the projection norms here. The contiguous rotation orbit has amplitudes \((1,\nu^2,\nu^4,\nu^2)\), and the alternating orbit has \((\nu,\nu^3)\), with total squared norm \(Z=1+\nu^2+2\nu^4+\nu^6+\nu^8\). On a bad \(\pm i\) the squared projection before normalization is \((1-\nu^4)^2/4\). For bad \(-1\) it is \((1-\nu^2)^4/4+(\nu-\nu^3)^2/2=(1-\nu^2)^2(1+\nu^4)/4\). Both are at most \(Z/4\), using \(0<\nu<1\). This proves the needed strict estimate on \(k=2\). In particular \(\Delta_5(t)=\min\{P_5(t),\lambda_{\min}(M(t))\}\).
+
+For the crossover let \(u=2-\alpha=(1+\sqrt5)/2\). In the symmetric and antisymmetric bases for reflection of the four-site relative word, each parity block has an endpoint and an interior coordinate. After subtracting \(P_5(t)\) the two interior diagonals are \(4+ut,4+(u+4)t\), both positive; both endpoint-to-interior entries are \(-2t\). The parity endpoint diagonals are \(2+ut,2+(u+2)t\), with off-diagonal \(2\zeta\) between them (sign irrelevant). Eliminating the interiors, the resulting two endpoint diagonals are
+\[
+U=2+ut-\frac{4t^2}{4+ut},\qquad
+V=2+(u+2)t-\frac{4t^2}{4+(u+4)t}.
+\]
+Here \(V>0\) for \(t\ge0\). Multiplying \(UV-4(1+t)\) by the two positive denominators gives \(t\) times
+\[
+64u+(144u-16)t+(56u-4)t^2-(9u+8)t^3.
+\]
+The cubic has one sign change and hence exactly one positive root (it is positive at zero and tends to \(-\infty\)). Below that root \(M(t)-P_5(t)I\) is positive definite by the Schur complement, at it the lowest eigenvalue is \(P_5(t)\), and above it the determinant sign gives a negative direction. This identifies the winning branch everywhere.

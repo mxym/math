@@ -55,3 +55,13 @@ for (const n of [5,7]) for (const t of [0.05,0.25,0.5,0.8,1]) {
  assert(Math.abs(a[0]-b)<1e-8,[n,t,a,b]);uniform++;
 }
 console.log(JSON.stringify({exact3,weak,strong,uniform}));
+
+let exact5=0;
+const u5=(1+Math.sqrt(5))/2;
+function transition5(t){return 64*u5+(144*u5-16)*t+(56*u5-4)*t*t-(9*u5+8)*t*t*t;}
+for(const t of [.1,1,4,5.675,5.676,8,20,100]){
+ const z=Math.sqrt(1+t),p=4+(2-u5)*t,b=cycle(5,z),e=raw(5,z)[0];
+ assert(Math.abs(e-Math.min(p,b))<1e-7,[t,e,p,b]);
+ assert((p<b)=== (transition5(t)>0),[t,p,b]);exact5++;
+}
+console.log(JSON.stringify({exact5}));
