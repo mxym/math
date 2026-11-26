@@ -84,3 +84,52 @@ The precision needed for the two-port itself is only the maximum of the first di
 ## Related results
 
 For earlier path graft families see [proper caterpillars](https://arxiv.org/abs/1208.2267) and [proper q-caterpillars](https://arxiv.org/abs/2307.02234). The latter use branches that are paths of fixed length, whereas the above nonuniform grafts can use unrelated bounded rooted branches. Neither all nonaffine palettes with more than two outliers nor the full Stanley conjecture are settled here.
+
+
+## A first-jet path theorem using cuts into at most three components
+
+Once the core path and rooted types are certified, an additive scalar observable that separates the types reconstructs the entire grafted path. Such an observable is a linear probe of the normalized component series whose value is \(b(C)=\sum_{v\in C} b_v\), with known scalar \(b_v\) for each type and distinct scalars for distinct types. For an affine palette \(F_v=F_0H^{b_v}\), the first nonzero coefficient of \(H-1\) supplies this probe at precision \(\nu=\operatorname{val}(H-1)\), independent of the number and multiplicities of the types. More generally if all normalized single-block profiles are \(1+O(t^\nu)\), every coefficient in degrees \(\nu,\ldots,2\nu-1\) is additive. If those coefficient vectors distinguish the types, take a generic linear combination over the infinite coefficient field \(K\) to get a separating scalar. This argument recovers the path order without extracting a full typed cut deck.
+
+Write \(n\) for the path length, \(S_i\) for the sum of the first \(i\) parameters and \(M=S_n\). For every \(1\le r<n\), the two-component cut query has two first-side occurrences of size \(r\): the length-\(r\) prefix and suffix. At equal sizes these are the two labelings of one cut. Write their sums \(c_1,c_2\). Applying the probe on the first slot gives \(c_1+c_2\); applying it on both separate slots gives \(c_1(M-c_1)+c_2(M-c_2)\). Thus we know both their sum and sum of squares.
+
+Now consider cuts into three components and designate one component \(C\) of size \(r\). Sum over the possible sizes of the other two, correcting for their two labelings when using all ordered size pairs. One probe on \(C\) gives the sum of \(b(C)\) with these occurrences. The sum of the two mixed probes, applied to \(C\) and to each of the other slots in turn, gives the sum of \(b(C)(M-b(C))\). Subtract from \(M\) times the first sum to obtain the sum of \(b(C)^2\). A strict interior interval of length \(r\) occurs exactly once as the chosen component, by cutting its two boundary edges. The prefix and suffix occur \(n-r-1\) times each, since one boundary edge and one edge in the complement are cut. Use the known prefix/suffix square sum to change these last multiplicities to one. Therefore the three-component queries supply
+\[
+D_r=\sum_{i=0}^{n-r}(S_{i+r}-S_i)^2
+\]
+for every \(1\le r<n\), including \(r=n-1\), where there are only the two boundary intervals. Also \(D_n=M^2\).
+
+Center the prefixes at \(T_i=S_i-M/2\) and write
+\[
+A(u)=\sum_{i=0}^n T_i u^i,\qquad A^*(u)=-u^n A(u^{-1}).
+\]
+The starred sequence is the centered prefix sequence after reversing the path. The prefix/suffix probes give \(A+A^*\) and each \(T_i^2+T_{n-i}^2\). The interval probes give the autocorrelation via
+\[
+2\sum_{i=0}^{n-r}T_iT_{i+r}
+=\sum_{i=r}^n(T_i^2+T_{n-i}^2)-D_r .
+\]
+Consequently \(AA^*=-u^n A(u)A(u^{-1})\) is known. The sum and product determine the unordered pair \(\{A,A^*\}\) (as the roots of a quadratic over an integral domain), and adjacent differences of the prefix sequence give the order of the block parameters up to reversal. A direct finite check corroborated the autocorrelation identity on all 9,840 sequences of lengths 1–8 over parameter set \(\{0,2,5\}\).
+
+## Nonaffine palettes with linearly independent singleton signatures
+
+There is also a criterion for arbitrary rooted types, not necessarily on an affine line. Suppose the normalized single-block series of the certified types are linearly independent in \(K[t]/(t^{D+1})\), where \(K=\mathbb Q(x_1,\ldots,x_h)\), and \(D\ge T_h\). Then the whole grafted path is reconstructed among trees, without a multiplicity or separation condition.
+
+Use an exponent variable \(y_\tau\) for each rooted branch type \(\tau\), and write \(\mathbf n_v\) for the known branch-count vector of the block at \(v\). By independence, one linear map can send each singleton block series to its monomial \(\mathbf y^{\mathbf n_v}\). Apply the map to all outside singleton slots of an interval query and set the interval's deficit variable to zero. The factorial-normalized query yields the multiset of outside aggregate vectors, hence the interval aggregate vectors by subtracting from the known total \(\mathbf M=\sum_v\mathbf n_v\).
+
+To obtain the unordered prefix/suffix vectors of length \(r\), let \(A(t),B(t)\) denote their respective product profiles and \(U\) the product over the entire path. The two-component query is
+\[
+V(t,u)=A(t)U(u)/A(u)+B(t)U(u)/B(u).
+\]
+The two marginals give \(S=A+B\) and \(T=U/A+U/B\). The centered two-variable coefficient polynomial satisfies
+\[
+2V(t,u)-S(t)T(u)=\big(A(t)-B(t)\big)\big(U(u)/A(u)-U(u)/B(u)\big).
+\]
+If the first factor is nonzero through \(D\), write \(d\) for its leading coefficient in degree \(j\). The second factor then leads in the same degree with coefficient \(-d\). The \((j,j)\) coefficient is \(-d^2\), and the entire \(u^j\) coefficient gives \(-d(A-B)\). Thus the two profiles are recovered through \(D\) as an unordered pair, including the case of equal profiles. This uses separate degree \(j\) on each variable rather than requiring degree \(2j\) in one slot.
+
+Different aggregate branch-count vectors give distinct product profiles. Indeed, if two products of attachment factors were equal, regard both vectors as the attached branches at a new single root; equality of the normalized rooted series and the rooted cut factorization force equality of the branches. The logarithmic derivative calculation above shows that two distinct products differ by precision \(T_h\), irrespective of their exponents. Therefore the unordered profile pair identifies the unordered aggregate vectors.
+
+Finally write \(\mathbf S_i\) for true prefix vectors and set
+\[
+P(u,\mathbf y)=\sum_{i=0}^n u^i\mathbf y^{\mathbf S_i},\qquad
+P^*=u^n\mathbf y^{\mathbf M}P(u^{-1},\mathbf y^{-1}).
+\]
+The prefix/suffix pairs yield \(P+P^*\); the substring multiset yields \(PP^*\), by comparing all pairs of prefix vectors and recording their differences with both signs. This is the reciprocal-polynomial relation of [Acharya–Das–Milenkovic–Orlitsky–Pan](https://arxiv.org/abs/1403.2439), now using both the sum and the product, not just the substring composition data. The unordered pair of roots determines all consecutive differences \(\mathbf S_i-\mathbf S_{i-1}\) up to reversal, and these identify the rooted block types. For binary words each data stream alone can be ambiguous up to reversal: for substrings, \(01001101\) and \(01101001\); for prefix/suffix pairs, \(010101\) and \(011001\). A direct check of both combined streams for the 4,221 reversal classes at lengths 1–12 found no collisions, consistent with the proof.
