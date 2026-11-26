@@ -7,7 +7,7 @@ Let \(X\subset S^4\) be a kissing code: \(\langle x,y\rangle\le1/2\) for all dis
 \delta=\max_{i\ne j}|\langle u_i,u_j\rangle|,\qquad
 \epsilon=\max_i\|u_i+v_i\|_2.
 \]
-If \(4\delta+\epsilon\le1/400\), then \(|X|\le39\). In particular this applies to a contained orthoplex consisting of five orthogonal antipodal pairs. The theorem also applies when none of the ten designated points are actually antipodal. No assertion of sharpness for this restricted class is made. The proof combines an orthant covering argument with averaged inequalities on the remaining Hamming edge types. This strengthens and supersedes the preliminary bound of 40 in the same frame neighborhood.
+If \(4\delta+\epsilon\le1/400\), then \(|X|\le38\). In particular this applies to a contained orthoplex consisting of five orthogonal antipodal pairs. The theorem also applies when none of the ten designated points are actually antipodal. No assertion of sharpness for this restricted class is made. The proof combines an orthant covering argument with averaged inequalities and two exact linear certificates. This strengthens the previous bound of 39 at the same tolerance.
 
 ## Coordinate reduction
 
@@ -81,6 +81,35 @@ Since \(A_0\ge0\), this lower bound minus \(\rho/2\) is at least
 \]
 This contradicts the kissing condition and proves the bound of 39.
 
+## Excluding the three-hole cases
+
+With 39 code points there are three holes. If no two holes were antipodal, all three mutual Hamming distances would be at most four. Let \(m\) be their coordinatewise median. In each coordinate at most one hole differs from \(m\), so the three deviation counts \(d_i\) satisfy \(d_i+d_j\le4\). If every \(d_i\le2\), use \(m\). Otherwise move \(d_i-2\) steps from \(m\) toward the unique hole with \(d_i>2\), flipping only coordinates where that hole differs from \(m\). The resulting vertex has distance two from that hole and distance \(d_j+d_i-2\le2\) from each other hole. In either case its antipode has distance at least three from all holes, contradicting the radius-two coverage property. Thus two holes are antipodal. By bit flips, interchange of those antipodes, and coordinate permutations, the hole set is either \(\{0,31,1\}\) or \(\{0,31,3\}\), writing labels as five-bit integers.
+
+In the entire interval \(99/25\le\rho\le4\), every active magnitude is in fact greater than \(a=69/100\). If the magnitude on one side of a flipped coordinate is at most \(a\), use the concave minimum rule on the other four coordinates at each endpoint. The two four-coordinate totals of squares are at least \(\rho-a^2\) and \(\rho-1\), giving magnitude sums at least \(3+\sqrt{\rho-3-a^2}\) and \(2+\sqrt{\rho-3}\). Hence the scaled signed inner product is at least
+\[
+1+\sqrt{\rho-3-a^2}+\sqrt{\rho-3}-a.
+\]
+Its excess over \(\rho/2\) increases on the specified interval by differentiation. At \(\rho=99/25\) the two radicals exceed \(6955/10000\) and \(9797/10000\), respectively, by squaring, and the excess is positive. The same argument applies on exchanging the endpoints.
+
+For each occupied label \(v\) and coordinate \(j\) write \(x_{v,j}\) for its squared magnitude. These variables satisfy \(0\le x_{v,j}\le 1\), \(\sum_j x_{v,j}=\rho\), and \(x_{v,j}\ge 4761/10000\) if the coordinate is active. To make affine necessary inequalities from a pair of occupied labels, let \(x,y\) be the two squared magnitudes on one coordinate and let \(\alpha,\beta\) be their lower bounds *before* squaring (each either \(0\) or \(a\)). When the signs agree, either of the following is a lower bound for \(\sqrt{xy}\):
+\[
+\begin{aligned}
+L_0(x,y)&=\alpha\beta+
+   \frac{\beta(x-\alpha^2)}{1+\alpha}+
+   \frac{\alpha(y-\beta^2)}{1+\beta},\\
+L_1(x,y)&=1+\frac{x-1}{1+\alpha}+\frac{y-1}{1+\beta}.
+\end{aligned}
+\]
+Indeed each plane is at most \(\sqrt{xy}\) at all four corners of \([\alpha^2,1]\times[\beta^2,1]\); concavity of the geometric mean then gives the claim throughout the rectangle. When signs differ, \(-\sqrt{xy}\ge-(u x+y/u)/2\) for any positive rational \(u\), by AM–GM. Each selection of such lower bounds, one per coordinate, gives an affine inequality: their sum is at most \(\rho/2\).
+
+Fix the third hole \(h=1\) or \(3\). All the above inequalities, including all choices of planes and tangents, are invariant as a system under the coordinate permutations preserving the support of \(h\). Average a hypothetical squared solution under this group. Affineness preserves every inequality, so it suffices to keep one variable per orbit of incidences \((v,j)\), plus \(\rho\). Incidence orbits are specified by the counts of ones of \(v\) inside and outside the support of \(h\), the part containing \(j\), and the bit \(v_j\). This gives 20 and 28 incidence variables, respectively.
+
+The two exact infeasibility certificates are included in [the verifier](verify_kissing_five_three_holes.js) (run with Node.js). They comprise 19 and 27 weighted rows, respectively, using occupied pairs at Hamming distance one or two only. For matching signs the table encodes the choice \(L_0\) or \(L_1\); for differing signs the encoded integer divided by 100 is \(u\). All rows are oriented as upper-bound inequalities (a norm equation permits either sign). In each case multiply the specified rows by their nonnegative integer weights, and add 100 times the upper bound for every orbit variable and for \(\rho\). This yields nonnegative coefficients on all variables and, respectively, the exact right sides
+\[
+-\frac{8772278921}{422500},\qquad -\frac{6950581251}{422500}.
+\]
+As all variables are nonnegative, both are contradictions. This excludes 39 and proves the asserted upper bound of 38.
+
 ## Scope and prior work
 
-[Cohn–Rajagopal, *Variations on five-dimensional sphere packings*](https://arxiv.org/html/2412.00937v3) gives and compares the four known 40-point configurations. The theorem excludes the specified frame neighborhood in all four as an immediate corollary, without needing their coordinates. The general upper bound of 43 is given by the exact SDP certificates in [Tomar, *The kissing numbers in dimensions five and seven are at most 43 and 132*](https://www.mefyi.com/papers/kissing-numbers-five-seven/). The [November antipodal-count result](https://aixiv.online/abs/2611.02115) restricts the number of exact antipodal pairs; it does not exclude five such pairs in a 41–43 point code. The present result instead uses a specified Gram neighborhood of an orthoplex and excludes this neighborhood even for codes with zero exact antipodes. Searches did not identify this sign-cube obstruction in the checked sources. No SDP certificate, 40-point maximality computation, or general upper bound of 40 is claimed.
+[Cohn–Rajagopal, *Variations on five-dimensional sphere packings*](https://arxiv.org/html/2412.00937v3) gives and compares the four known 40-point configurations. The theorem excludes the specified frame neighborhood in all four as an immediate corollary, without needing their coordinates. The general upper bound of 43 is given by the exact SDP certificates in [Tomar, *The kissing numbers in dimensions five, six and seven are at most 43, 76 and 132*](https://www.mefyi.com/papers/kissing-numbers-five-seven/). The [November antipodal-count result](https://aixiv.online/abs/2611.01607) restricts the number of exact antipodal pairs; it does not exclude five such pairs in a 41–43 point code. The present result instead uses a specified Gram neighborhood of an orthoplex and excludes this neighborhood even for codes with zero exact antipodes. Searches did not identify this sign-cube obstruction in the checked sources. No SDP certificate, 40-point maximality computation, or general upper bound of 40 is claimed.
