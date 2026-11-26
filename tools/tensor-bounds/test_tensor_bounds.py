@@ -43,6 +43,16 @@ class TestBounds(unittest.TestCase):
                 t.verify(g,d)
         self.assertTrue(t.solve(self.graph("c5"),2,1)["search"]["state_limit_hit"])
 
+    def test_exact_routing(self):
+        g=self.graph("weak-c5")
+        out=t.solve(g,2)
+        c=out["exact_via_routing"]
+        self.assertEqual(c["exact_exponent"],"4")
+        self.assertEqual(c,t.replay_routing(g,c))
+        self.assertIsNone(t.solve(self.graph("c5"),2)["exact_via_routing"])
+        d=deepcopy(c);d["routes"][0]["weight"]="3/4"
+        with self.assertRaises(ValueError):t.replay_routing(g,d)
+
     def test_all_c5_cut_caps_on_half_grid(self):
         for x,y,z in [(Fraction(a,2),Fraction(b,2),Fraction(c,2))
                       for a in range(9) for b in range(9) for c in range(9)]:

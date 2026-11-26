@@ -75,6 +75,67 @@ def cert(es,sc,w,p,ops):
             "crossing_weights":list(map(str,vals)),
             "depends_on_rectangular_theorem":max(p)==2 and min(vals)>0}
 
+CP_SOURCE = "https://arxiv.org/html/2610.34273v3#S5.SS3"
+
+def exact_routing(data, part):
+    """Greedy sufficient upper-bound search; failure proves nothing."""
+    n,es,ix,sc,w=load_graph(data)
+    left={e: Fraction(x,2*sc) for e,x in zip(es,w) if part[e[0]]!=part[e[1]]}
+    routes=[]
+    for (a,b),x in zip(es,w):
+        if not x or part[a]!=part[b]:continue
+        need=Fraction(x,sc)
+        while need:
+            prev={a:None};queue=deque([a])
+            while queue and b not in prev:
+                u=queue.popleft()
+                for v in range(n):
+                    if v not in prev and left.get(tuple(sorted((u,v))),0)>0:
+                        prev[v]=u;queue.append(v)
+            if b not in prev:return None
+            path=[b]
+            while path[-1]!=a:path.append(prev[path[-1]])
+            path.reverse()
+            pe=[tuple(sorted(e)) for e in zip(path,path[1:])]
+            amount=min([need]+[left[e] for e in pe])
+            for e in pe:left[e]-=amount
+            routes.append({"path":path,"weight":str(amount)})
+            need-=amount
+    return replay_routing(data,{"cut":list(part),"routes":routes})
+
+def replay_routing(data, c):
+    n,es,ix,sc,w=load_graph(data)
+    p=c["cut"]
+    if len(p)!=n or any(type(g) is not int for g in p) or set(p)!={0,1}:
+        raise ValueError("routing requires a proper cut")
+    available={e:Fraction(x,sc) for e,x in zip(es,w)}
+    internal={e:x for e,x in available.items() if x and p[e[0]]==p[e[1]]}
+    demands={e:Fraction(0) for e in internal}
+    loads={e:Fraction(0) for e in es if p[e[0]]!=p[e[1]]}
+    for route in c["routes"]:
+        path=route["path"];weight=route["weight"]
+        if type(weight) is not str or str(Fraction(weight))!=weight:
+            raise ValueError("bad route weight")
+        x=Fraction(weight)
+        if x<=0 or len(path)<3 or len(path)%2!=1 or any(type(v) is not int or not 0<=v<n for v in path) or len(set(path))!=len(path):
+            raise ValueError("malformed even route")
+        e=tuple(sorted((path[0],path[-1])))
+        if e not in demands:
+            raise ValueError("route endpoints are not an internal demand")
+        demands[e]+=x
+        for a,b in zip(path,path[1:]):
+            e=tuple(sorted((a,b)))
+            if e not in loads or not available[e]:
+                raise ValueError("route must use positive crossing edges")
+            loads[e]+=x
+    if demands!=internal or any(2*x>available[e] for e,x in loads.items()):
+        raise ValueError("routing failed demand or half-capacity constraints")
+    result={"cut":p,"routes":c["routes"],"exact_exponent":str(sum(available[e] for e in loads)),
+            "upper_source":CP_SOURCE}
+    if "exact_exponent" in c and c!=result:
+        raise ValueError("claimed routing result does not replay")
+    return result
+
 def solve(data, depth=1, states=120, max_units=4):
     n,es,ix,sc,w0=load_graph(data)
     cuts=list(partitions(n,2))
@@ -116,7 +177,7 @@ def solve(data, depth=1, states=120, max_units=4):
             "search":{"visited":len(seen),"depth":depth,"state_limit_hit":truncated,
                       "tested_splice_amounts":"first grid units up to limit, and bottleneck",
                       "grid_unit":str(Fraction(1,sc)),"grid_units_limit":max_units},
-            "rectangular_source":SOURCE}
+            "rectangular_source":SOURCE,"exact_via_routing":exact_routing(data,cut["partition"])}
 
 def verify(data, c):
     n,es,ix,sc,w=load_graph(data)
@@ -154,6 +215,8 @@ def main():
         else:
             doc=json.loads(args.certificate.read_text())
             obj={"replayed":verify(g,doc.get("combined_lower_bound",doc))}
+            if doc.get("exact_via_routing") is not None:
+                obj["replayed_exact"]=replay_routing(g,doc["exact_via_routing"])
         print(json.dumps(obj,indent=2))
     except (ValueError,TypeError,KeyError,ZeroDivisionError,OSError) as e:
         ap.exit(2,"error: "+str(e)+"\n")

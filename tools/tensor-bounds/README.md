@@ -22,3 +22,14 @@ Splice search is bounded by depth, states, and amounts. If it finds no improveme
 
 - **K5** reproduces max cut 6 and the known tight lower bound 25/4.
 - **C5** reproduces max cut 4 and a three-part lower bound 49/12 using quotient weights (3,1,1). The search visits 16 graphs at the supplied settings and does not improve it. This is not a new C5 bound. The [Zhou upper bound](https://arxiv.org/html/2610.34273v3#S6.SS3) remains 25/6. See [the exact method-limit calculation](C5-method-limit.md) for why repeated path splices still cannot close that gap via this certificate family.
+
+## Matching upper certificates
+
+The search also tries a greedy upper certificate on the selected maximum cut. Route each within-side edge along even paths made entirely of crossing edges; allow splitting rational demand. If the total routed load is at most half of the weight on each crossing edge, the exponent equals the cut weight. This uses [Zhou's path-strengthened CP bound](https://arxiv.org/html/2610.34273v3#S5.SS3), not the rectangular theorem. A missing certificate means only that this greedy search did not find one. The verifier checks all demand totals and half-capacities exactly.
+
+```sh
+python3 tensor_bounds.py search weak-c5.json --depth 2 > weak-c5-report.json
+python3 tensor_bounds.py verify weak-c5.json weak-c5-report.json
+```
+
+The half-weight edge in this example can be routed around the other four edges, giving both lower and upper bound 4. The same check works on every odd cycle with one edge weighing at most half of every other edge. The unweighted C5 does not meet this sufficient condition.
