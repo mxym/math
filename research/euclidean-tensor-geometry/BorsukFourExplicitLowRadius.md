@@ -1,6 +1,6 @@
 # An explicit low-radius five-part strip for Borsuk's problem in dimension four
 
-**Theorem.** A diameter-one subset of \(\mathbb R^4\) contained in a ball of squared radius \(15007/50000\) admits a partition into at most five sets of squared diameter at most \(999999/1000000\). No assumption on contact points is needed. The pieces are obtained from one rotated regular-simplex cone partition.
+**Theorem.** A diameter-one subset of \(\mathbb R^4\) contained in a ball of squared radius \(15007/50000\) admits a partition into at most five sets of squared diameter at most \(999999/1000000\). No assumption on contact points is needed. Section 4 improves the endpoint to \(30027/100000\) at the same margin. The pieces are obtained from one rotated regular-simplex cone partition.
 
 The [ProofAtlas research map](https://www.proofatlas.ai/collaboration/borsuk-problem-r4/) already records the closed \(3/10\) threshold and a nonexplicit strip above it. The contribution here is an explicit endpoint and margin, proved by localizing the extremal cone configurations and bounding their incidence on a circle. This is a partial result; the general upper bound of six and the unresolved choice between five and six are discussed in [Chalmers](https://arxiv.org/abs/2611.17375) and [Tolmachev](https://arxiv.org/abs/2611.16775).
 
@@ -62,3 +62,17 @@ With \(e=0.110\), we have \(W>\pi/2\). Indeed, \(\theta<3\pi/4-0.055\), since
 \cos(3\pi/4-0.055)\le -0.7071(1-0.055^2/2-0.055)<-2/3.
 \]
 Here \(0.7071<1/\sqrt2\), and the sine and cosine bounds follow by elementary Taylor inequalities. Also \(W<\pi\) because \(\theta>\pi/2\). Section 2 implies that the probability of any of the 15 bad reference events is at most \(45e/(2\pi)<1\). Choose a rotation avoiding them all. No cone then has a pair of squared distance at least \(T\); the closed cone intersections are compact, so each nonempty intersection has squared diameter less than \(T\). Break ties arbitrarily and restrict to the original set. \(\square\)
+
+## 4. A tighter packing bound and endpoint \(0.30027\)
+
+The endpoint in the theorem improves to \(r=0.30027=30027/100000\) with the same margin \(T=0.999999\). Two estimates in the proof tighten together.
+
+First let \(\varepsilon=0.002,\ q_0=4/9-\varepsilon,\ a_0=9\varepsilon/[2(1-q_0)],\ D_0=3\varepsilon/(10q_0)\). The stability inequality gives \(a/a_0+D/D_0\le1\). Since \(P=a/(1+a)\), \(3a_0^2/2<D_0\), and \(0\le a/a_0\le1\), we obtain the joint bound
+\[
+D+3P^2/2\le D_0(1-a/a_0)+(3/2)a_0^2(a/a_0)^2\le D_0.
+\]
+Also \(P<0.0159\) and \(\|Gp\|>0.596\), by the same norm inequality as in Section 1. The chord bound \(5D_0/(4\cdot0.596\cdot0.612)\) is less than \((0.0684-0.0684^3/24)^2\); each reference error is thus less than \(0.0684\). Disjointness follows again from the reference inner products, \(q_0>0.66^2\), and \(2(0.0684)<1/6+0.66\). Use \(h=0.99908\); the exact inequalities \((T/(2r)-1)^2>q_0\), \(r(1+h^2+4h/3)<T\), and \(1-1/(2rh^2)>-2/3-0.0016\) give the angular diameter of the enlarged set at most \(\theta+0.0024+2(0.0684)=\theta+0.1392\).
+
+Second, the phase bound can use not just the individual spans but also the gaps between their arcs. In Section 2 assume \(W>3e\). For a maximal separated set of \(k\ge2\) phases, the covering arcs of radius \(e\) are disjoint. The sections of \(E\) in these arcs are compact; replace each by its smallest containing closed subarc within that arc, of length at most \(e\). The forward gap between consecutive subarcs is at least \(W-2e>e\) by separation of their centers. If this gap were less than \(W\le\pi\), the two endpoints, both in \(E\), would contradict phase exclusion. Hence the gaps are at least \(W\), and the measure of \(E\) is at most \(\min(ke,2\pi-kW)\). The case \(k=1\) has measure at most \(e\); the empty case contributes zero.
+
+Here \(e=0.1392\), and \(\theta<2.301\), as certified by the alternating Taylor upper bound for \(\cos(2.301)\) through degree 12, which is less than \(-2/3\). Using \(3.14159<\pi<3.14160\) gives \(W>3e\), \(5W>2\pi\), and \(15(2\pi-4W)<2\pi\). If \(k\le3\), use \(45e<2\pi\) instead. Thus the probability per reference pair is strictly below \(1/15\) in every case. The same union bound proves the improved endpoint.

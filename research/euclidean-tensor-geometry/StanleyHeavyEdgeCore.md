@@ -1,0 +1,47 @@
+# Reconstructing a heavy-edge skeleton from two homogeneous layers
+
+**Yongxian Zhang.** AI-assisted proof development and internal checks; no external peer review claimed.
+
+The ordinary chromatic symmetric function determines a tree's heavy-edge core with distinct block orders, provided all its blocks exceed the chosen cutoff. Its two highest relevant homogeneous layers suffice to recover the adjacency and a rooted cut tail for every block. Several explicit conditions below complete the reconstruction of the entire tree, including a size-gap condition without restrictions on the interiors of the blocks. The unrestricted Stanley tree-isomorphism conjecture remains open; see [Orellana–Tomba](https://arxiv.org/abs/2611.18940) and [Zeng](https://arxiv.org/abs/2608.18179) for a general reduction and a different partial reconstruction criterion, respectively.
+
+For cutoff one, a positive top layer means the tree is proper, and the distinct-order full reconstruction overlaps with [Awan's proper-tree result](https://arxiv.org/abs/2609.13464). The higher-cutoff method below recovers rooted blocks that need not be stars and applies to nonproper trees.
+
+## 1. Factorization by heavy components
+
+Use the unsigned cut polynomial \(U(T)\) determined by the ordinary chromatic symmetric function. Choose an integer cutoff \(h\ge1\), and call an edge heavy if its two sides both have order \(>h\). The number \(p\) of heavy edges is read, with multiplicities, from the two-component terms of \(U(T)\). Assume \(p\ge1\). The heavy edges form a connected subtree: any edge on the path between two heavy edges separates the far side of one from the far side of the other, each of order \(>h\).
+
+Delete all heavy edges. This leaves \(q=p+1\) pieces \(A_i\), each rooted at its unique vertex in the heavy subtree; put \(s_i=|A_i|\). Every branch at that root has size at most \(h\). Indeed, the root-directed side of any nonheavy edge separating a branch from that root contains a whole far side of a heavy edge, so the opposite side has size at most \(h\). In particular in any cut of a block an unrooted component has size at most \(h\).
+
+Let \(R_i(z)\) be the rooted cut polynomial of block \(i\), with root-component size encoded by \(z\), and let \(L_i\) be its part with root size \(>h\), linearized by replacing \(z^a\) with \(x_a\). Regard variables of indices \(>h\) as high, and take all other variables as coefficients. In \(U(T)\) a high component must contain a heavy-subtree vertex. If any heavy edge remains in a forest, at most \(q-1\) components can contain these vertices. Thus the homogeneous degree-\(q\) layer in high variables is exactly
+\[
+F_q=\prod_i L_i .
+\]
+This also certifies whether all \(s_i>h\): exactly in this case \(F_q\ne0\), since a nonzero \(L_i\) is monic in its highest variable \(x_{s_i}\). Over the field \(\mathbb Q(x_1,\ldots,x_h)\), factor \(F_q\) and normalize each linear factor to be monic in its highest-index variable. This recovers the multiset of the \(L_i\), and therefore the multiset of rooted tails. The information is inherited by any tree with the same chromatic symmetric function.
+
+## 2. Read each heavy edge by a two-factor reduction
+
+Now assume all block orders \(s_i>h\) are distinct. Label the recovered factors by their top variables, so that the \(L_i\) are linearly independent: in a nonzero linear combination, the largest top variable among participating factors occurs only once.
+
+The homogeneous degree-\((q-1)\) layer has just two types of contributions. All heavy edges can be cut, with exactly one block contributing a low-only forest; or exactly one heavy edge can be retained, with all remaining root components high. Put \(U_i^{\mathrm{lo}}=U(A_i)|_{x_{h+1}=\cdots=x_n=0}\) and \(J_{ij}\) equal to the high part of \(R_i(z)R_j(z)\), linearized by \(z^a\mapsto x_a\) for \(a>h\). Retaining an edge between rooted blocks adds the two root-component orders, which explains the product. Thus
+\[
+F_{q-1}
+=
+\sum_i U_i^{\mathrm{lo}}\prod_{k\ne i}L_k
++\sum_{ij\ {\rm heavy}}J_{ij}\prod_{k\ne i,j}L_k .
+\]
+For each pair \(i,j\), reduce this polynomial modulo the ideal \((L_i,L_j)\) over the same field. Every term vanishes except for the possible edge \(ij\). The quotient by two independent linear forms is a polynomial ring over the field, and all other \(L_k\) remain nonzero there. The potential \(J_{ij}\) is monic in \(x_{s_i+s_j}\), which has larger index than any variable of either \(L_i\) or \(L_j\). Therefore the residue is nonzero precisely when \(ij\) is a heavy edge. This recovers the entire skeleton with rooted-tail decorations.
+
+## 3. From a decorated core to the full tree
+
+If every recovered rooted tail determines its block at off-root branch bound \(h\), the theorem already recovers the whole tree. Examples of sufficient conditions follow.
+
+* **Arbitrary cutoff with long tails.** Block \(i\)'s normalized cut expansion is known through deficit \(D_i=s_i-h-1\). Apply the formal-log factor separation in [centroid-tail reconstruction, Section 2](./StanleyCentroidTailReconstruction.md#2-two-quantitative-sufficient-conditions). That argument only requires the branch size bound, not that the mark is a centroid. For instance \(D_i\ge\sum_{a=1}^h a\,b_a\) suffices, with \(b_a\) the number of rooted tree types of order \(a\).
+* **Cutoff two.** In a block of order at least four, the \(x_1\) coefficient of \(x_{s_i-1}\) in \(L_i\) counts its nonroot leaves. Every off-root branch is either order one or order two and contributes one such leaf. Together with \(s_i-1\), this recovers both branch counts. There is at most one block of order three, since the orders are distinct; the propagation argument below resolves it. Thus for \(h=2\), every tree satisfying the distinct-order and positive-top-layer hypotheses is reconstructed. For \(h=3\), orders \(s_i\ge8\) suffice by the direct log-tail test: in deficit degrees three and four, the \(x_3\) coefficient distinguishes the order-three endpoint-rooted path from the center-rooted path via their respective linear terms \(x_1t\) and \(2x_1t\). Once these factors are divided out, the smaller branches are read from their leading labels in descending order.
+
+For a second completion procedure, compare two \(U\)-equal trees with the same recovered heavy graph and tails. Since their \(L_i\) agree, reducing the difference of \(F_{q-1}\) modulo \((L_i,L_j)\) shows that on every edge the difference \(\Delta J_{ij}\) belongs to the span of \(L_i,L_j\). If \(s_j>s_i+h\), compare coefficients in \(x_a\) for \(a>s_j\). Those coefficients in \(\Delta J_{ij}\) are zero, giving equality of the normalized rooted products through deficit \(s_i-1\). But \(R_j\)'s normalized tail is known through \(s_j-h-1\ge s_i\), so divide to get the complete \(R_i\), whose maximum deficit is \(s_i-1\). Now any nonzero difference in \(R_j\) has degree \(d\) between 1 and \(h\), since its high tail is known. Multiplying by the known \(R_i\) and linearizing would give a nonzero \(\Delta J_{ij}\) with highest variable \(x_{s_i+d}\), strictly between the highest variables of \(L_i,L_j\). This contradicts the span condition. Thus both endpoint blocks are determined on every edge with size difference \(>h\).
+
+More generally, mark every block already determined by any criterion above. If a marked block \(j\) has exactly one unmarked neighbor \(i\), reduce the difference of \(F_{q-1}\) modulo just \(L_j\). The only potential nonvanishing term is the difference for \(ij\), since the low part of block \(j\) is known, and all its other neighbors are known. This would force \(\Delta J_{ij}\) to be a multiple of \(L_j\). A nonzero difference \(\Delta R_i\) of degree \(d\ge1\) would give a highest variable \(x_{s_j+d}\) in \(\Delta J_{ij}\), impossible in a linear multiple of \(L_j\). Hence \(i\) is also determined. Repeat. In particular, if every heavy-subtree vertex is incident with an edge whose block sizes differ by more than \(h\), no large-tail or bounded-height condition is required for full reconstruction.
+
+**Example with arbitrary cutoff and interiors.** Use a three-vertex heavy path with block orders \(h+1,2h+3,3h+5\) in that order. Take any rooted blocks of those orders with all their branches of size at most \(h\). The two prescribed edges are exactly the heavy edges, and both gaps exceed \(h\), so all interiors are recovered. The largest smaller side is \(3h+4\), and \(n=6h+9\), so the isolated-largest-branch criterion of the centroid-tail paper does not apply.
+
+**Example (cutoff two).** Take three hubs arranged along a path and decorate each by disjoint length-two arms. For \(k\ge2\) use \(k,k+1,2k\) arms, in that order. The heavy edges for \(h=2\) are the two path edges. The distinct block sizes are \(2k+1,2k+3,4k+1\). These trees have diameter six, are nonproper, and have \(n=8k+5<3B\), \(B=4k+1\). The one-large-branch gap criterion is not met since the other heavy edge has smaller side \(2k+1>n-2B-1=2\). The two-layer argument distinguishes these trees among all trees. Repeated indistinguishable factors and the case of blocks at or below the cutoff are not handled by the adjacency proof.
