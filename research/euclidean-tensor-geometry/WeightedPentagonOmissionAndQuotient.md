@@ -72,3 +72,42 @@ This yields two further pieces of **actual** rank:
 - two separated edges of weight \(t\), three unit edges: take \(r=t,s=1\), so the rank exponent is \(2t+2+1/[4(2t+1)]\) for \(3/2\le t\le1+\sqrt2\). The condition factors as \(z(z-1)(3-z)-2=-(z-2)(z^2-2z-1)\), and \(2\le z\le1+\sqrt2\) is precisely that interval.
 
 Thus the exact two programs interpolate between different optimal faces; the cap in one face is not evidence that the true rank equals the conic value in the intervening range. In particular unweighted \(C_5\) remains unresolved.
+
+
+## 5. The full high-weight regime: adjacent and separated edges
+
+For two edges of weight \(t\) and the other three edges of weight 1, both path-strengthened conic values and the actual weighted asymptotic rank exponent are
+\[
+2t+2+\frac{1}{4(2t+1)}\qquad(t\ge3/2),
+\]
+whether the distinguished edges are adjacent or separated. The rank assertion uses the exact rectangular theorem linked above, whereas the conic assertions do not.
+
+Use the same reversal and coordinates as in Section 4. Put \(z=\sqrt{2t+1}\ge2\) and \(g=1/z\). Each following test vector has sum \(2z+g\), so copositivity gives \(Q\le(2z+g)^2/4=z^2+1+1/(4z^2)\). It remains to lower-bound \(Q\) by the weighted objective.
+
+**Separated edges:** use edge weights \((t,1,t,1,1)\). Let \(v=\max(1,z/2-g/4)\), \(u=z-v\), and take \(a=(u,v,v,u,g)\). The difference between \(Q=\sum_{i<j}a_i a_jp_{ij}\) and the objective \((z^2-1)\alpha+\beta+2c\) is
+\[
+(v^2-1)(\beta-\alpha)+u^2(e-\alpha)+2vg(f-c)+2uvd.
+\]
+The triangle inequalities give \(\beta-\alpha\ge-d,\ e-\alpha\ge-d,\ f-c\ge-d\). All three multipliers are nonnegative. The difference is therefore at least \((4uv-z^2+1-2vg)d\). When \(v=z/2-g/4\), the coefficient is \(g^2/4\). When \(v=1\), the coefficient is \((z-1)(3-z)-2/z=-(z-2)(z^2-2z-1)/z\), nonnegative because \(v=1\) implies \(2\le z\le1+\sqrt{3/2}<1+\sqrt2\). The new step is to allow \(v^2>1\) and use the triangle inequality on \(\beta-\alpha\), instead of forcing the middle edge coefficient to be exactly 1. Grouping parties as \(\{0,2\},\{1,3\},\{4\}\) gives triangle weights \((z^2,1,1)\).
+
+The same calculation extends the regime in Section 4 to all \(r\ge3/2,\ 0\le s\le1\) for \((r,1,r,s,s)\). Set \(g=s/z\), \(z=\sqrt{2r+1}\); in the branch \(v=z/2-g/4\) the residual coefficient is \(1-s+g^2/4\), and in the branch \(v=1\) it is \((z-1)(3-z)-2s/z\). The latter branch implies \(z\le1+\sqrt{1+s/2}\), so the residual for \(s=1\) there is already nonnegative. The same quotient has weights \((z^2,s,s)\). This yields the exact value \(z^2+s+s^2/(4z^2)\), including \(s=0\) by the crossing-path cut.
+
+**Adjacent edges:** rotate to edge weights \((1,1,1,t,t)\). Take \(a=(z/2,g,g,z/2,z-g)\). The difference between \(Q\) and the objective \(2\alpha+\beta+(z^2-1)c\) is
+\[
+(d+e-\alpha)+(1-g^2)(2f-\beta)+(z^2/4-1)e.
+\]
+Every summand is nonnegative by the triangle inequalities, \(e\ge0\), and \(z\ge2\). Here the right grouping changes to \(\{0,3\},\{1,4\},\{2\}\), again giving triangle weights \((z^2,1,1)\).
+
+In both cases the exact triangle SDP lifts by repeating its party vectors. For actual asymptotic rank, grouping cannot increase rank, and the pinned rectangular theorem on \((z^2,1,1)\) gives the same lower bound as the conic upper bound. For example, \(t=2\) gives the exact exponent \(121/20\) in *both* arrangements, strictly above the maximum cut of \(6\).
+
+### Complete conic values and known actual rank regimes
+
+| Layout of the two weight-\(t\) edges | Range | Both conic values | Actual rank equals this value? |
+| --- | --- | --- | --- |
+| Separated | \(0\le t\le3/5\) | \(3+t\) | Yes; maximum cut |
+| Separated | \(3/5<t<3/2\) | \((7t+3)^2/(24t)\) | Not shown |
+| Adjacent | \(0\le t\le6-3\sqrt3\) | \(3+t+t^2/12\) | Yes |
+| Adjacent | \(6-3\sqrt3<t<3/2\) | \((7t+3)^2/(24t)\) | Not shown |
+| Either | \(t\ge3/2\) | \(2t+2+1/[4(2t+1)]\) | Yes |
+
+In particular, at \(t=1\) the conic value \(25/6\) is only an upper bound for the actual exponent. These certificates prove exactness in the stated weight regimes, not a general equivalence between tensor rank and conic optima.
