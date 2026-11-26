@@ -71,3 +71,10 @@ An explicit eigenvalue margin follows by algebraic conjugation. The matrices \(K
 p(4p)^{m_T}\det((Q_+)_T)\det((Q_-)_T)\ge1.
 \]
 The diagonal of \(Q_+\) is \((p-1)/(2p)\), so the determinant is at most \(((p-1)/(2p))^{m_T}\) by AM–GM on its eigenvalues. The eigenvalues of the other compression are in \((0,1]\), hence its smallest one is at least its determinant, and at least \([p(2(p-1))^{m_T}]^{-1}\). Substitution gives the bound.
+
+
+## Conditional barrier for a one-value dual
+
+Assume [Kunisky's degree-two weak convergence conjecture, 1.8](https://arxiv.org/abs/2303.16475), not the stronger spectral edge conjecture. Then a theta dual whose free nonedge entries all share one scalar cannot give a leading constant below \(\sqrt3/2\). Such a dual has form \(B_b=(1-b)J+b(I+C_S)\). A nonsquare scaling identifies Kunisky's common-nonneighbor localization with the complement orientation here. In that orientation adjacency rescaled by \(8/\sqrt p\) has the assumed weak limit of the degree-four Kesten–McKay distribution with support \([-2\sqrt3,2\sqrt3]\). Since \(C_S=J-I-2A_{\overline H}\), for any fixed \(\epsilon>0\) a subspace of dimension tending to infinity has positive Rayleigh quotients of \(C_S/\sqrt p\) at least \(\sqrt3/2-\epsilon\), after intersecting with \({\bf1}^\perp\). Positive limiting mass in any interval immediately inside the negative endpoint suffices; no control at the edge is needed.
+
+For a sequence of these duals with largest eigenvalue \(O(\sqrt p)\), the all-ones unit vector gives the quotient \((1-b)n+b(1+c_0)\), where \(|c_0|\le\sqrt p\) because the full Seidel matrix has norm \(\sqrt p\). Since \(n=(p-5)/4\), this forces \(b>0\) for large \(p\). The positive quotient on \({\bf1}^\perp\) then forces \(b=O(1)\), and the all-ones bound consequently gives \(b\ge1-O(p^{-1/2})\). The largest eigenvalue is therefore at least \((\sqrt3/2-o(1))\sqrt p\). This is conditional and only excludes that one-parameter family, not the general invariant SDP.
