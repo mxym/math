@@ -138,3 +138,5 @@ In Section 3 now take \(K=\lfloor \varepsilon\sqrt{P}\rfloor\), \(R=\lfloor\exp(
 
 
 An independent integer check compared the free-coordinate parametrization with direct ordered endpoint-pair enumeration in 72 cases (9,211 incidences) across four small primes. This corroborates the parametrization, not the asymptotic estimates.
+
+The [standalone carry checker](verify-hjsw-free-coordinate-incidences.js) verifies quadratic lifts against direct endpoint counts on 12 boards, 242 weight instances, and 2,566,016 good roots. See also [the bounded-degree thin-source theorem](NoThreeInLineHJSWAlgebraicRefill.md) for an obstruction to linear-size repair with sublinear deletions.
