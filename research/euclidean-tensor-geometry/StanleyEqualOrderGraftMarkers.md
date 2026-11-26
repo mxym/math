@@ -10,7 +10,7 @@ A second result gives a complete core cut deck labeled by an additional scalar f
 \[
 D_*=\max_r\left|\left\{\sum_{v\in C}b_v:\ |C|=r\right\}\right|-1 .
 \]
-If \(s-h-1\ge D_*\) and the rooted tails identify the blocks, every core cut is recovered in the sense of its multiset of labels \((|C|,\sum_{v\in C}b_v)\), with multiplicities. This determines \(T\) among all trees under the marker conditions below, and on path cores without any marker conditions. Two arbitrary same-order outliers on a path also admit a separate two-component recovery argument. In particular \(D_*\le\sum_v b_v\). Unrestricted Stanley reconstruction is not asserted.
+If \(s-h-1\ge D_*\) and the rooted tails identify the blocks, every core cut is recovered in the sense of its multiset of labels \((|C|,\sum_{v\in C}b_v)\), with multiplicities. This determines \(T\) among all trees under the marker conditions below, and on path cores without any marker conditions. Two arbitrary same-order outliers on a path also admit a direct two-port recovery argument. In particular \(D_*\le\sum_v b_v\). Unrestricted Stanley reconstruction is not asserted.
 
 ## Extract the labeled series by intact mass
 
@@ -57,16 +57,30 @@ Write the weights in path order as a composition \(w\). Cuts of the path give ex
 Consequently the scalar order along the path is determined, hence so is the rooted type assigned to each vertex and the original tree. The direct path/classification bridge is separate from the extraction of the scalar-labeled deck from an ordinary tree; the latter is where equal orders and sufficient tail precision are used. For comparison, the known weighted-path/ribbon correspondence is also described in [Aliste-Prieto–Crew–Spirkl–Zamora](https://arxiv.org/abs/2010.00147). This does not distinguish all trees with arbitrary off-path branches or establish that their full multitype decks can always be extracted.
 
 
-## Two arbitrary separated outliers by two-component queries
+## An arbitrary affine palette of nested branch-count profiles
 
-A path core with precisely two outlying blocks \(B,C\ne A\) of common order \(s\) is also reconstructible, even if those two rooted types differ and use unrelated branches. Suppose \(D=s-h-1\ge 2T_h\), with \(T_h=\sum_{i\le h}i b_i\) as in the long tail criterion. This hypothesis certifies the types and their multiplicities in any rival. Here only two-component queries are needed once the type certification and core path test are done.
+Let the branch count vector of the block at v belong to an affine integer line, so that it equals n_0+b_v a, with fixed integral vectors n_0,a indexed by rooted types of order ≤h, and with nonnegative integral parameter b_v after shifting the baseline. Assume a≠0 unless all blocks are equal. Equal block order is automatic under Σ_{τ}|τ|a_τ=0. For attachment factors P_τ from StanleyCentroidTailReconstruction.md, put H=∏_τ P_τ^{a_τ}; the branch-factor uniqueness gives H≠1 (or just multiply the equality H=1 by the negative powers to compare multisets of attached branches). Let ν be the valuation of H−1. A component with r roots contributes F_0^r H^e where e=Σ_{v∈C}b_v. Let m_r be the number of distinct possible e over all r-subsets of the certified block multiset. At precision D≥max_r(m_r−1)ν, the existing binomial-moment interpolation in the repository recovers the entire typed deck with component labels (r,e). This includes arbitrary combinations of any two equal-order rooted types, any number of occurrences; it also includes the arbitrary repeated fixed branch plus padding-leaf family for which ν=1. The only novelty claimed here is the nonuniform heavy-graft transfer and the inference below; the composition-classification theorem is external.
 
-Put \(H_B=F_B/F_A\), \(H_C=F_C/F_A\), and \(W=H_BH_C\). For \(1\le r<q\), let \(U,V\) be the products of outlier profiles on the prefix and suffix of length \(r\), respectively. The two-component query after dividing by its \(F_A\) units is
-\[
-U(t_1)(W/U)(t_2)+V(t_1)(W/V)(t_2).
-\]
-This counts both labeled sides even if \(2r=q\). Setting one variable to zero yields the two marginal series \(U+V\) and \(W/U+W/V\). Thus the query recovers \(U+V\) and \(UV=W(U+V)/(W/U+W/V)\) modulo \(t^{D+1}\), since the denominator has constant 2.
+The scalar-decorated path argument above now recovers the ordering of the parameters and hence of the rooted types.
 
-Each potential profile belongs to \(\{1,H_B,H_C,H_BH_C\}\). For any two distinct such series \(P,Q\) one has \(\operatorname{val}_t(P-Q)\le T_h\): the logarithmic derivative of \(P/Q\) has denominator the product of the fixed attachment factors of all rooted branch types of size at most \(h\), with total degree at most \(T_h\), and numerator of degree at most \(T_h-1\). It is nonzero for distinct normalized profiles. This proves the valuation bound, irrespective of multiplicities. If a rival unordered pair \(U',V'\) has the same sum and product through precision \(D\), then \((U-U')(U-V')\) vanishes through degree \(D\). Unless \(U\) equals one of \(U',V'\) as a full series, its valuation is at most \(2T_h\), impossible. The sum then identifies the other profile as well. Even when \(1=H_BH_C\), this distinguishes each single-outlier profile from either zero or two outliers.
+## Two arbitrary outliers, with no extra tail length
 
-For distinct \(B,C\), orient the path so the \(B\) block at position \(a\) precedes the \(C\) block at position \(b\). The suffix of any length cannot contain just \(B\), while the prefix has just \(B\) precisely for \(a\le r<b\). The observed set of those lengths gives both positions. For identical \(B,C\), neither \(H_B\) nor \(H_B^2\) equals 1, and the multiplicity of profile 1 among the length-\(r\) prefix and suffix is \(\mathbf 1_{r\le a-1}+\mathbf 1_{r\le q-b}\). This recovers the unordered pair of outside gap lengths, including zero, so the positions are determined up to reversal. In either case the rooted types are already known, completing the reconstruction.
+Suppose precisely two blocks differ in rooted isomorphism type from the background A. Their known types are B and C, and B=C is allowed. For this statement n≥3, and take A to be a background type of the target, identified in that known multiset whenever both compared trees are considered. There are no assumptions on how far apart B,C lie, and they can compensate algebraically (F_B F_C=F_A² is allowed).
+
+For side sizes (r,n−r), extract the normalized labeled two-component series S_r(t,u), dividing the query by F_A(t)^r F_A(u)^(n−r). Define H_B=F_B/F_A, H_C=F_C/F_A, P=H_B−1, Q=H_C−1 in K[t]/(t^{D+1}), with K=Q(x_1,…,x_h). Both P,Q are nonzero by the block-identification guarantee. Choose a K-linear functional L on the series space with L(1)=0 and L(P),L(Q) both nonzero. Such a functional exists because the union of two proper hyperplanes over K cannot exhaust the dual of the positive-degree subspace. The same functional is applied in each component variable separately.
+
+There are two labeled occurrences at each first-side size r: the prefix of r and the suffix of r. For r=n/2 they are the two labelings of the same cut. An occurrence with both outliers on one side contributes H_BH_C(t)·1 or 1·H_BH_C(u), annihilated by L⊗L. An occurrence splitting the two outliers contributes H_B(t)H_C(u) or H_C(t)H_B(u), and in both cases the double functional gives L(P)L(Q). Thus
+N_r = (L⊗L)(S_r)/(L(P)L(Q))
+is exactly the number of size-r sides of cuts splitting the marks.
+
+Number the path positions 1,…,n, and write a<b for the two positions. Then
+N_r = 1_{a≤r≤b−1} + 1_{n+1−b≤r≤n−a}.
+The distance d=b−a is (Σ_{r=1}^{n−1}N_r)/2. The smallest r with N_r>0 is min(a,n+1−b), so after a possible global reversal it is a, and then b=a+d. Equal outliers are now fully reconstructed.
+
+If B≠C and the two intervals coincide, the positions are mirror images, so exchanging the two types is a global reversal. Otherwise choose r in the symmetric difference of the intervals. Exactly one labeled occurrence splits the marks at r, so the first-variable marginal S_r(t,0) changes under exchanging the two types by ±(H_B(t)−H_C(t)). This truncated difference is nonzero because the certified known tails distinguish B,C. All other occurrences contain both or neither on the first side, so they are unchanged under the exchange; in particular no assumption on the product profile is required. The ordering is thereby determined. Reattach the blocks to complete reconstruction among all trees.
+
+The precision needed for the two-port itself is only the maximum of the first differing deficits between A,B and A,C, and if B≠C also B,C. D≥T_h suffices both for certifying the types and for the two-port. In particular no extra factor of 2 in tail length is needed. This uses the separate deficit variables at the same time; taking only each first marginal would miss the split count.
+
+## Related results
+
+For earlier path graft families see [proper caterpillars](https://arxiv.org/abs/1208.2267) and [proper q-caterpillars](https://arxiv.org/abs/2307.02234). The latter use branches that are paths of fixed length, whereas the above nonuniform grafts can use unrelated bounded rooted branches. Neither all nonaffine palettes with more than two outliers nor the full Stanley conjecture are settled here.

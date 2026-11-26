@@ -51,3 +51,54 @@ To extract the factors work over \(K=\mathbb Q(x_1,x_2,\ldots)\) with finitely m
 For \(d\ge2\), remove the endpoint sides \(A,B\) and let \(I\) denote the nonempty remaining subtree, with endpoint attachment sites \(p_1,p_{d-1}\) on the original marked path. Choices of cuts inside \(A,B\) are independent of all edges in \(I\) and of the two attachment edges. In a separated cut the root components inside \(A,B\) always contribute the \(z,w\) powers of their respective internal cuts, whether or not those components attach to additional vertices in \(I\). Therefore \(Q=S/(R_A(z)R_B(w))\) is a polynomial in which \(z,w\) count only the extra weights from \(I\), and \(x_j\) still count unmarked components inside \(I\). Taking \([w^0]Q\) and subtracting its \(z\)-constant term forces the attachment to \(B\) to be cut and the attachment to \(A\) to be retained (all core weights are positive). The result is precisely \(R_I(z)\) rooted at \(p_1\). Interchanging roles extracts \(R_I(w)\) at \(p_{d-1}\).
 
 These two rooted reconstructions determine their joint orbit in the unrooted weighted \(I\), since the distance between them is \(d-2\). In detail, center \(I\) at its unique middle vertex or the midpoint of its unique middle edge, using half-unit lengths if subdividing the middle edge. Every automorphism preserves this center. Each individual orbit specifies its depth and root-to-vertex path up to automorphism. Their given distance specifies the depth of their last common ancestor. First map their common prefix; at the branching point the two child subtrees can be matched simultaneously since same-type children can be permuted, and automorphisms within different child subtrees are independent. If one is an ancestor or the two sites coincide, only the longer path has to be mapped. This argument respects weights. Graft the recovered \(A,B\) at the two designated attachment sites. This reconstructs the full weighted core; identically marked nonadjacent vertices are not covered by the distinct-residue argument.
+
+
+## Identical markers at distances two and three, and a path interior at any distance
+
+Keep precisely two odd vertex weights, with no need for them to differ. The separated-cut count certifies their distance \(d\), and the odd components of separated cuts give the symmetric two-port polynomial \(S(z,w)\) as above. The following argument also obtains aggregate information for every \(d\ge2\), when there may be substantial branching between the marks.
+
+Let \(A,B\) be the endpoint sides rooted at the odd vertices, as in the distinct-residue proof. Let \(I\) be the remaining interior tree of total weight \(M\), with attachment sites \(u,v\). Enumerate interior cuts together with the two attachment edges while forbidding a join between the marks. Define \(Q(z,w)\) by counting only extra weights from \(I\) joined to the first and second mark in \(z,w\), and all other components in \(x_j\). The endpoint-side cuts remain independent, so
+\[
+S(z,w)=R_A(z)R_B(w)Q(z,w)+R_B(z)R_A(w)Q(w,z).
+\]
+
+**Extract the interior diagonal and both endpoint sides.** In the polynomial \(Q(z,z)\) the sole term using \(x_M\) is \(x_M\) itself (cut both attachments and keep all interior edges). It is therefore irreducible, monic linear in \(x_M\), over \(\mathbb Q[z,x_1,x_2,\ldots]\). Its highest \(z\) term is \(d z^M\): to have no unmarked interior components, there must be exactly one cut on the \(d\)-edge marked path, and no other interior edge cut. In the diagonal factorization
+\[
+S(z,z)/2=R_A(z)R_B(z)Q(z,z),
+\]
+all irreducibles other than \(z\) and this interior factor come from off-root attachment factors of \(A,B\). Each is monic linear in its largest \(x\) variable and has highest \(z\) coefficient 1. Normalize all factors by their largest \(x\) variable; then the highest \(z\) coefficient \(d>1\) singles out \(Q(z,z)\). Its constant term in \(z\) is \(U(I)\), and division recovers \(R_A(z)R_B(z)\).
+
+The highest \(z\) coefficient of the full two-variable \(S\) recovers either \(R_{\rm small}(w)\) if the endpoint-side total weights differ, or \(R_A(w)+R_B(w)\) if those weights agree. In fact the largest \(z\) exponent keeps everything outside the smaller opposite endpoint side, cuts the last path edge, and leaves only cuts in that opposite side free; if side weights agree both orientations contribute. The leading coefficient in \(w\) of the result is 1 in the first case and 2 in the second. Use the recovered product to obtain the other side in the first case, or use sum and product to recover the unordered pair of polynomial roots in the second. The weighted rooted factorization reconstructs both sides.
+
+**Distance two.** There is one attachment vertex in \(I\), the same for both ports. Here \(Q(z,w)=U(I)+R_I(z)+R_I(w)\). Its diagonal gives \(R_I\), which reconstructs the rooted interior. Attach both recovered endpoint sides to that root.
+
+**Distance three.** Cut the single interior path edge \(uv\) to obtain two rooted halves \(I_1,I_2\), with polynomials \(R_i,U_i\). Keeping neither attachment gives \(U(I)\); keeping only one gives the corresponding rooted interior polynomial; keeping both forces a cut at \(uv\). Consequently
+\[
+P(z):=Q(z,z)-U(I)=R_1(z)U_2+U_1R_2(z)+3R_1(z)R_2(z).
+\]
+Let \(\mathcal L\) be the linear substitution of \(x_i\) for \(z^i\) in positive-degree terms, fixing coefficients. Then
+\[
+U(I)=U_1U_2+\mathcal L(R_1R_2),\qquad
+\mathcal L(P)=2U_1U_2+3\mathcal L(R_1R_2).
+\]
+It follows that \(U_1U_2=3U(I)-\mathcal L(P)\), and
+\[
+3P+U_1U_2=(U_1+3R_1)(U_2+3R_2).
+\]
+Each factor is irreducible and monic in its highest \(x\) variable, just as for ordinary attachment factors. Its positive \(z\) terms divided by 3 give the corresponding \(R_i\), so \(I\) with its two sites is determined up to exchanging the sites.
+
+**Path interior at any distance.** If \(|V(I)|=d-1\), which is certified by the maximum number of components appearing in \(U(I)\), the interior really is the path between the two attachment sites. If the vertex weights of \(I\) satisfy \(\max w<2\min w\), the [weighted-path coarsening lemma](StanleyEqualOrderGraftMarkers.md#all-scalar-decorated-path-cores-after-deck-extraction) reconstructs this weighted path up to reversal from \(U(I)\). The ratio hypothesis is certified by the singleton weight multiset in the fully cut term. In particular the argument works for uniform interior weights.
+
+**An endpoint-mass criterion for a branching interior at any distance.** There is another way to recover the full transfer using only its degree. Choose an arbitrary order for the recovered endpoint polynomials \(R_A,R_B\). Work over \(K=\mathbb Q(x_1,x_2,\ldots)\) in the finitely many variables in the deck, and let \(a=R_A/g,\ b=R_B/g\), where \(g\) is their gcd in \(K[z]\). If \(\deg a+\deg b\ge M\), the bivariate equation for \(S\) has a unique transfer among polynomials of total \((z,w)\) degree at most \(M\). Indeed the difference \(D\) of two transfers would satisfy
+\[
+a(z)b(w)D(z,w)+b(z)a(w)D(w,z)=0.
+\]
+The two displayed prefactors are coprime in \(K[z,w]\). Hence \(D=b(z)a(w)H\) with \(H(w,z)=-H(z,w)\). If \(H\ne0\), its degree is at least 1, so \(\deg D>M\), impossible. Solving the linear coefficient equations therefore finds \(Q\) uniquely. The two specializations \(Q(z,0)-U(I)\) and \(Q(0,w)-U(I)\) give the two individual rooted interiors, and their known distance \(d-2\) certifies their joint orbit. This recovers a branching interior at arbitrary distance subject to the computable endpoint-degree criterion.
+
+**Orient the two sides.** Once \(I\) and its two attachment sites are known up to simultaneous swap, compute its transfer \(Q\). The data predicted by the two possible assignments of \(A,B\) to these sites differ by
+\[
+\big(R_A(z)R_B(w)-R_B(z)R_A(w)\big)\big(Q(z,w)-Q(w,z)\big).
+\]
+If the first factor vanishes, normalized endpoint polynomials agree, so the sides are isomorphic as rooted weighted trees. If the second vanishes, evaluating at one variable zero and subtracting \(U(I)\) shows that the rooted interior polynomials at the two sites agree. The sites thus have the same individual orbit, and the ordered-pair orbit argument above gives an automorphism exchanging them. In either case the two assignments are isomorphic; otherwise \(S\) selects the assignment.
+
+For example, the equal-order two-type graft deck with exactly two blocks of the second type can encode those vertices with odd weight \(J+1\) and every other core vertex with an even weight \(J\). Whenever the full two-type cut deck is extracted, this proves reconstruction at distances two and three without requiring a path core, and at arbitrary distance if all off-path branching is in the two endpoint sides. It also handles a branching interior under the endpoint-degree criterion, but not unrestricted branching along a longer interior.
