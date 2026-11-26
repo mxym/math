@@ -140,3 +140,17 @@ Suppose now that \(H<B\). Count the degree in the high variables \(x_j\) with \(
 Extract its coefficient of \(x_{n-B}\) to obtain \(F_A\): this variable occurs only in \(F_K\), and its coefficient there is 1. Ordinary exact polynomial division by the nonzero \(F_A\) gives \(F_K\). Relabeling its high factor by the root marker recovers \(R(K,c;z)\) for \(j>H\), so \(P_K\) is known through \(|K|-H-1=B\). In either case, divide the known \(P_T\) by \(P_K\) through weight \(B\) to obtain the entire \(Q_A\). It recovers rooted \(A\), by the rooted reconstruction theorem in Section 1. Now divide \(P_T\) through weight \(L\) by the complete \(Q_A\). This gives the entire \(P_K\), since its maximum deficit is \(|K|-1=L\). Rooted reconstruction recovers \(K\), and the edge joins the two roots. Every step is determined from \(U(T)\), so a rival is necessarily isomorphic. \(\square\)
 
 **Example.** For each \(k\ge5\), choose \(A\) consisting of its attachment root and two child stars of order \(k\). At the centroid \(c\) of the whole tree, attach \(A\), three branches of order \(k\) whose root has two child stars of orders \(2,k-3\), and one leaf. Then \(n=5k+3\), \(B=2k+1\), and \(H=k\). The tree has diameter six and is nonproper; \(n<3B\), so the criterion in Section 5 did not cover it. The proof here also applies with these stars replaced by rooted trees of the same orders, with no bound on their heights.
+
+## 7. Unrestricted branch heights with a small number of largest branches
+
+**Theorem.** Let \(p\ge1\) count the order-\(B\) branches at the unique centroid, as certified by the number of one-edge cuts with smaller side \(B<n/2\). If \(n\ge(p+2)B\), then \(X_T\) determines the tree among all trees, regardless of branch shapes. No size-gap assumption is required.
+
+Let \(K\) be the rooted tree left after removing all \(p\) largest branches. Write
+\[
+P_T=P_K\prod_{i=1}^p(q_i+t^B x_B),
+\]
+where \(q_i=Q_{A_i}|_{x_B=0}\) has degree at most \(B\) and constant term 1, and \(P_K\) is independent of \(x_B\). Define \(C_0=t^{-pB}[x_B^p]P_T\) and \(C_1=t^{-(p-1)B}[x_B^{p-1}]P_T\). Thus \(C_0=P_K\) and \(C_1=P_K\sum_i q_i\). The tail of \(P_T\) is known through \(L=n-B-1\), giving \(C_0\) through order \(L-pB\) and \(C_1\) through order \(L-(p-1)B=n-pB-1\), the full possible degree of \(P_K\).
+
+If \(n>(p+2)B\), this already gives \(P_K\) through order \(B\) from \(C_0\). In the equality case it gives order \(B-1\). For that case the one missing shell is the contribution with root size \(B\) in \(K\), of order \(2B\). Read it directly from \([x_B^{p+1}]U(T)\): since any off-centroid component of size \(B\) is necessarily one of the \(p\) largest branches intact, the \(p+1\) factors force all such branches to be detached intact and the centroid component to have size \(B\). The other factors come from the corresponding rooted cut in \(K\). There is no multiplicity correction.
+
+Now divide \(C_1\) by \(P_K\) through order \(B\) to find \(\sum_i q_i\) exactly. Divide \(C_1\) back by that sum, of nonzero constant \(p\), to recover all of \(P_K\) through \(n-pB-1\). Then divide the known \(P_T\) by \(P_K\) through \(L\); since \(L\ge pB\), this gives the entire product of largest-branch factors. Factor it in \(x_B\) over \(\mathbb Q(t,x_1,\ldots,x_{B-1})\), normalizing the coefficient of \(x_B\) in each linear factor to \(t^B\), to recover each \(Q_{A_i}\) with multiplicity. Rooted reconstruction of the branches and \(K\) gives the entire tree. \(\square\)
