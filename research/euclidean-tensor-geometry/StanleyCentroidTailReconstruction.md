@@ -91,3 +91,38 @@ The target's histogram restricts its rival to \(\ell\in\{1,s-2,s-1\}\). For \(\e
 For example, for each \(B\ge7\) attach one branch of order \(B\) for each off-root star order \(k=3,\ldots,B-2\), filling with singleton children at each branch root. This gives \(n=1+B(B-4)\ge3B-1\), diameter six, and centroid degree \(B-4<B\). The high-degree hypothesis is not needed here.
 
 The identities were also checked exactly on finite labeled-tree and branch-mixture examples. Neither criterion treats arbitrary diameter-six trees.
+
+## 5. Certifying the centroid height without a degree hypothesis
+
+**Theorem.** If \(n\ge 3B\) and the centroid has eccentricity at most three, then \(X_T\) distinguishes \(T\) among all trees. In contrast to Section 4, there is no maximum-degree hypothesis. The first inverse moment sees weight \(s\) in each descending branch size \(s\le B\), using one extra unrooted coefficient shell at the boundary.
+
+We give a nonnegative certificate in the first inverse moment. Fix \(s\ge2\) and put \(N=s-1\). For a rooted branch \(A\), orient its \(N\) internal edges away from its root and write \(k_e\) for the size of the away side. Set \(y_j=t^j x_j\) for \(1\le j\le N\). These monomials encode every term of \(P_A\) because each factor is normalized by the total size. The ordinary-degree-one part of \(P_A\) is
+\[
+J_A=\sum_e y_{k_e}.
+\]
+Its degree-two part has two contributions. The rooted part, denoted \(F_A\), counts cuts of two internal edges, with the monomial for the two detached sizes. The unrooted part, denoted \(D_A\), counts single-edge cuts into two pieces of total size \(s\); the term \(x_s\) itself has already been removed. Thus the degree-one and degree-two terms of \(1/P_A\) are \(-J_A\) and \(J_A^2-F_A-D_A\).
+
+Define \(f(a)=a-s\). On a quadratic monomial \(y_a y_b\) use the weight \(W(a,b)=f(a)+f(b)\) if \(a+b\le s\), and zero otherwise. Let \(\mathcal W\) denote the resulting linear functional on quadratic polynomials. On \(D_A\) its value is \(-sN\), since all \(N\) cuts give two sizes totaling \(s\). Consider
+\[
+\mathcal H(A)=
+\mathcal W\bigl(J_A^2-F_A-D_A\bigr)-sN
+-\sum_e W(k_e,k_e)
+-(N-1)\sum_e f(k_e)-\sum_e(k_e-1).
+\]
+The last sum counts ancestor–descendant pairs of different edges, since an away side of size \(k_e\) contains \(k_e-1\) internal edges. We claim \(\mathcal H(A)\ge0\), with equality exactly when \(A\) has rooted height at most two.
+
+Indeed subtraction of the diagonal term removes the repeated edge pairs in \(J_A^2\); the next term subtracts \(f(k_e)+f(k_{e'})\) for each unordered distinct pair. If the edges are incomparable under ancestry, their away sizes \(a,b\) have \(a+b\le N\) and the detached sizes are precisely \(a,b\), so the net contribution is zero. If they are nested, let \(a\) be the ancestor's size and \(b<a\) the descendant's size. The detached sizes are \(a-b,b\). The net before the final subtraction of 1 per nested pair is
+\[
+2W(a,b)-W(a-b,b)-f(a)-f(b)
+=\begin{cases}
+b,&a+b\le s,\\
+4s-2a-b,&a+b>s.
+\end{cases}
+\]
+If \(b=1\), only the first case is possible and this equals 1. If \(b\ge2\), the value is strictly greater than 1 in either case, using \(a\le s-1\) in the second case. Thus \(\mathcal H(A)=0\) precisely when every descendant edge in a nested pair has away size 1. This is equivalent to rooted height at most two: the second edge on any length-three path from the root has an ancestor edge and an away side with at least two vertices.
+
+To reconstruct, descend through branch sizes as before. The first inverse moment is known through weight \(L-s\ge s\) under \(n\ge3B+1\). If \(n=3B\), this is still true for \(s<B\), and at \(s=B\) the only needed unavailable coefficients are the quadratic shell \(a+b=B\). There \(W(a,b)=-B\), so only their sum is needed. Let \(g=[t^B x_B]\log P_T(t)\), the number of order-\(B\) branches. It is already known from the tail, and \(g\le2\). To recover the missing sum in \([x_B]\log P_T\), take the sum of coefficients of \(x_B^2 x_a x_b\) in \(U(T)\) for \(a\le b,\ a+b=B\). A cut with one \(B\)-component containing the centroid contributes exactly once to \([t^{2B}x_B x_a x_b]P_T(t)\), even though the two \(B\)-components have equal sizes. A cut with both \(B\)-components off the centroid can occur only when \(g=2\), and then these are exactly its two entire order-\(B\) branches. Cutting their two attachments leaves a rooted remainder of order \(B\), and cutting one of its \(B-1\) edges produces the components \(a,b\). Hence the undesired contribution is exactly \(B-1\) if \(g=2\), and zero otherwise. Subtract it to get the needed raw coefficient sum. Passing from \(P_T\) to \(\log P_T\) requires only lower-weight terms in the nonlinear correction, which are already known. Dividing by \(t^B\) recovers the order-\(B\) moment shell. The argument is only needed for \(B\ge2\); size one needs just the linear count.
+
+The moment's constant coefficient counts branches of order \(s\), its linear coefficients give the sum of the \(J_A\), and its quadratic part through weight \(s\) supplies the first term of \(\sum_A m_A\mathcal H(A)\). All other terms depend only on the count and linear coefficients. The target has sum zero, so every rival branch of size \(s\) has height at most two by nonnegativity. The child-star moment recovery in Section 4 now applies to both target and rival. Remove the matched factors and proceed to the next size. The case \(s=1\) is read from the linear count as before.
+
+For instance, at a common center attach two branches of order 9 with child-star orders \((3,5)\) and \((4,4)\), and one branch of order 8 with child-star orders \((3,4)\). Then \(n=27=3B\), the maximum degree is 5, and the centroid has eccentricity three. The earlier degree test fails, the earlier support-size bound needs \(L\ge72\) whereas \(L=17\), and these branches have two nonroot nonleaves. This theorem handles the example and arbitrary mixtures of height-two branches at the stated threshold. The weight identity and equality condition were independently checked on 18,248 rooted labeled trees of orders two through seven, and the two shell cases on explicit trees. These finite checks are not needed for the proof. Unrestricted diameter-six reconstruction is still open.
