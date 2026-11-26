@@ -71,3 +71,57 @@ since the order-three polynomials have \(z^2\) coefficients \(x_1\) and \(2x_1\)
 **Examples.** For \(k\ge2\), take a claw as heavy skeleton, its root block masses \(2k+3\) at the hub and \(2k+1,2k+1,4k+5\) at the leaves. Each mass \(s\) represents a hub with \((s-1)/2\) attached paths of length two. At \(h=2\) precisely the three inter-hub edges are heavy. All hubs are deep, the tree has diameter six, and the repeated heavy-block mass occurs only at leaves. Here \(n=10k+10\) and \(B=4k+5\), so \(n<3B\), and each repeated block size exceeds \(n-2B-1=2k-1\), so neither the prior distinct-mass condition nor the simple size-gap bridge test applies.
 
 For a repeated order-three example, put mass \(s\ge7\) odd at the claw hub and masses \(3,3,s+6\) at the leaves. Take length-two arms only on the two larger blocks and use the two different rooted types for the order-three leaves. Then \(n=2s+12=2B\), \(B=s+6\), and the residue at order \(s+2\) recovers that one of the repeated leaves is of each type. These are nonproper bicentroid diameter-six trees for arbitrarily large \(s\).
+
+## 5. Equal-order star and double-star skeletons
+
+**Theorem.** At cutoff \(h=2\), if all heavy blocks have a common order \(s\ge3\) and their skeleton is a star or a double star, the ordinary \(X_T\) distinguishes the tree among all trees. For arbitrary \(h\) and common order \(s>h\), the same argument recovers the tail-decorated skeleton for stars and for double stars with at least two leaves on each side. A double star here has exactly two adjacent nonleaf vertices, each with at least one leaf neighbor.
+
+### Extract connected subsets by forcing a giant
+
+The top layer \(F_q\) recovers the multiset of high tails \(L_i\) and certifies common block order \(s\) even for rivals. Setting \(x_1=\cdots=x_h=0\) forbids a cut at any nonheavy edge: such a cut produces some component on its small off-skeleton side. Thus this specialization is the ordinary cut polynomial of the heavy skeleton with component indices multiplied by \(s\), and recovers its one-edge split multiset. The number of singleton cuts recognizes a star for \(q\ge3\), or a double star with \(q-2\) leaves; the unique nonsingleton split of a double star gives the two side sizes. The two-vertex skeleton is known directly.
+
+For \(2\le m\le q\) the coefficient of \(x_{ms}\) in \(F_{q-m+1}\) is
+\[
+H_m=\sum_{\substack{C\subseteq V(S)\\ |C|=m,\; C\text{ connected}}}\prod_{i\notin C}L_i .
+\]
+In fact, a component of order \(ms\) needs at least \(m\) roots because each root contributes at most \(s\) vertices of its own block. The other \(q-m\) high factors each need at least one root. So the giant uses exactly \(m\) roots and each of their blocks intact, and all other roots are singletons in the contracted forest. This also excludes a second \(x_{ms}\) factor. Each connected subset forces exactly its internal skeleton edges to be kept and its boundary cut; each complementary root then contributes its own \(L_i\). This proves the identity without assuming any of the \(L_i\) are different.
+
+### Recover individual tails and assign them to sides
+
+For a star, \(H_{q-1}\) is the sum of leaf tails, giving the center tail by subtraction from the known total. At \(q=2\) the unordered pair of tails suffices.
+
+For a double star with centers \(u,v\), \(H_{q-1}\) similarly gives the sum of all leaf tails; denote their resulting center sum by \(S_0=L_u+L_v\). If each side has at least two leaves, a connected complement of two omitted vertices cannot omit a center: its attached leaves would have to be omitted too. Hence \(H_{q-2}\) is the second elementary symmetric polynomial of all leaf tails. Subtract this and \(S_0\) times the leaf-tail sum from the second elementary symmetric polynomial of all tails to obtain \(L_u L_v\). Thus the unordered center pair is known.
+
+If one side has only one leaf, use the following alternative at \(h=2,\ s\ge4\). A block has only singleton branches and length-two arms at its root, so its order \(s\) and its number \(\ell\) of nonroot leaves determine it. Its \(L_i\) contains the count \(\ell=[x_{s-1}x_1]L_i\). For \(s\ge5\),
+\[
+[x_{s-2}x_1^2]L_i-[x_{s-2}x_2]L_i=\binom{\ell}{2}.
+\]
+A cut of root deficit two removes two original leaves, or it removes a length-two arm as a component with its internal edge kept or cut. Each arm contributes once to each coefficient and cancels. The center sum \(S_0\) now supplies both first and second moments of the two center leaf counts, giving the unordered pair. For \(s=4\) there are only two possible leaf counts, 2 and 3, so their sum is enough. The same leaf-count invariant means a recovered \(L_i\) determines its block whenever \(h=2,\ s\ge4\).
+
+Once the center pair is known, remove it from the known tail multiset. For every \(m\ge2\), subtract from \(H_m\) the contribution over connected sets containing both centers: it is the elementary symmetric polynomial of degree \(q-m\) in all leaf tails. Call the difference \(D_m\). Work over the fraction field of the coefficient ring, and let \(A(z),B(z)\) be the products of \(1+z/L_i\) over the leaves on the \(u,v\) sides respectively. A connected set with just one center consists of that center and some leaves on its own side. Consequently
+\[
+\frac{\sum_{m=2}^q D_m z^{m-1}}{\prod_{\rm leaves}L_i}
+= L_v(A-1)+L_u(B-1).
+\]
+The product \(AB\) is known from all leaves. Together these give a quadratic for \(A\) whose roots, in either realization, are \(A\) and \((L_u/L_v)B\). Both \(A,B\) have constant term 1. If \(L_u\ne L_v\), only the first root has constant term 1; if they agree, the remaining ambiguity is a swap of the two centers. Factoring the recovered polynomials assigns the leaf-tail multisets to the two sides. This also recovers the side sizes associated with the chosen centers.
+
+### Order three: low-degree cuts distinguish identical tails
+
+When \(h=2,\ s=3\), all tails are \(x_3\), but the block may be the endpoint-rooted path \(E\) or the center-rooted path \(C\). The [Liu–Tang leaf-adjacency sequence, Theorem 4.9](https://arxiv.org/html/2411.18972v2#S4.SS5), using the [generalized degree sequence recovered from \(X_T\)](https://arxiv.org/abs/2402.10333), gives the joint counts of total degree and number of adjacent leaves at nonleaf vertices. A root of skeleton degree \(d\) contributes \((d+1,0)\) if of type \(E\), or \((d+2,2)\) if of type \(C\); the other nonleaf of an \(E\)-block contributes \((2,1)\). Thus the degree-and-type multiset of the skeleton is known, including the types of the centers together with their side sizes, up to allowed swaps. This suffices for a star and likewise for a single skeleton edge.
+
+At \(x_1=0\), the rooted cut polynomials of \(E,C\) are \(z^3+x_2z\) and \(z^3\), respectively. For \(m\ge3,\ k=1,2\), the coefficient
+\[
+[x_{3m-2k}\,x_2^k\,x_3^{q-m}]\ U(T)|_{x_1=0}
+=\sum_{\substack{|I|=m\\ I\text{ connected in }S}}\binom{\#E(I)}{k}
+\]
+counts connected \(m\)-sets with \(k\) chosen endpoint-rooted blocks detached at their arm. The component of order \(3m-2k>3\) must use at least \(m\) roots: if it used \(j<m\) roots, parity of its order forces \(j\le m-2\), and its order would be at most \(3m-6<3m-2k\). The \(q-m\) factors of order three also each need a root, so the giant uses exactly \(m\), and each other root stays alone and intact. No remaining \(x_2\) factor can have a root. This proves the identity.
+
+For a double star with unequal side sizes, set \(m\) to one more than the larger leaf count, so \(m\ge3\). Subtract from the first moment all sets containing both centers; their contributions depend only on the already known total leaf-type counts and center types. Only the larger side in full remains among connected sets with one center, and its moment gives its number of \(E\) leaves. The smaller side follows by subtraction. For equal sides with at least two leaves per side and equal center types, take the same \(m\); now exactly the two full sides remain. Their first two binomial moments determine the unordered two leaf-type counts. For equal sides with one leaf each and equal center types, the total number of \(E\) leaves suffices.
+
+For mixed center types, the following simpler coefficient works for all side sizes. Let \(l\) be the number of \(E\) leaves at the \(E\) center. The coefficient of \(x_2^3 x_3^{q-2}\) in \(U(T)|_{x_1=0}\) is
+\[
+l+\binom{l}{2}.
+\]
+To see this, any component containing \(j\) roots has size \(3j-2d\), with \(d\le j\) arm detachments inside it. For orders two and three the only possibilities are a singleton intact root, an all-\(E\) two-root component with both arms detached, or an all-\(E\) three-root component with all three arms detached. A nonsingleton accounts for exactly three \(x_2\)'s, including its root component if it has size two. Hence there is exactly one nonsingleton, either a connected all-\(E\) pair or an all-\(E\) triple. With mixed center types they are exactly the \(l\) pairs and \(\binom{l}{2}\) triples at the \(E\) center. Since the displayed count increases strictly with \(l\), it determines the assignment.
+
+**Example.** Take equal sides of \(a\ge2\) leaves on a double star, replace each skeleton vertex by an order-three rooted block, and use type \(E\) for the leaves on one side and type \(C\) on the other. Either center type is allowed. All blocks have equal tails \(x_3\) at cutoff two, and exactly the skeleton edges are heavy. The longest distance is six: it is attained either between distinct \(E\)-leaf arms on their own side or between opposite leaf arms of lengths two and one. The tree is nonproper and the central cut has equal sides, so \(n=2B\). Thus neither distinct-factor extraction nor the unique-centroid size criteria apply. This is an infinite diameter-six family, not a solution for all diameter-six trees.
