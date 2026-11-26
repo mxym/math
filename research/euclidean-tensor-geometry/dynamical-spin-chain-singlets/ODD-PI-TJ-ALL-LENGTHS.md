@@ -1,0 +1,78 @@
+# Exact all-length gap of the odd twisted deformed t–J chain
+
+**Yongxian Zhang.** AI-assisted proof development and internal checks; no external peer review or priority claim.
+
+Consider the full local Hamiltonian of [Hagendorf §4.2](https://arxiv.org/abs/1207.0357), without imposing a special translation sector. For every odd length \(N\ge3\), twist \(\pi\), and real \(|\zeta|>1\), set \(L=N-1\) and \(t=\zeta^2-1\). Its spectral gap is exactly
+\[
+\Delta_N(\zeta)=\min\left\{4+2t(1-\cos(\pi/N)),\ \lambda_{\min}(M_N(t))\right\},
+\]
+where \(M_N(t)=t A+\operatorname{diag}(6+2\zeta,8,\ldots,8,6-2\zeta)\), and \(A\) is the size-\(L\) Laplacian with weight 2 on each edge of the path and weight 1 on the edge joining the two ends (parallel to the path edge at \(L=2\)). The other \(\zeta\ne0\) cases at twists 0 and \(\pi\) are in [the original kernel and gap analysis](DEFORMED-TJ.md). This result does not assert the gap at arbitrary twists or uniqueness of the branch transition at every length.
+
+The [circular exclusion argument](CIRCULAR-EXCLUSION-CYCLES.md#consequence-for-the-odd-pi-twisted-deformed-tj-chain) reduces the full gap to one-hole blocks. The [one-hole analysis](ODD-PI-TJ-GAP.md#one-hole-gauge-and-finite-matrix) gives the stated two candidates, from pure background and one minority spin. The [even-content argument](ODD-PI-TJ-FINITE-CERTIFICATES.md#analytic-even-content-exclusion-at-every-odd-length) excludes mixed even \(k\) at every length. Here we exclude all mixed odd \(3\le k\le L/2\). At \(N\le41\) use the [exact finite certificate](ODD-PI-TJ-FINITE-CERTIFICATES.md), with the analytic \(N=3\) case [here](ODD-PI-TJ-GAP.md#three-sites). For \(N\ge43\), the proof below reduces all lengths and all couplings to one fixed small integer polynomial sign check; it does not enumerate lengths.
+
+## Reduction to three minority spins
+
+Take \(\zeta>1\) by symmetry, \(\nu=(\zeta-1)/(\zeta+1)=e^{-a}\) with \(a>0\), and let \(\phi_k\) be the normalized open-chain kink vector with amplitudes proportional to \(\nu^{\operatorname{inv}(w)}\) on content-\(k\) words. The inversion orientation may be reversed throughout without changing rotation overlaps. Denote the one-step cyclic rotation by \(R\). We show that for any rotation \(R^u\), the autocorrelation \(\langle\phi_k,R^u\phi_k\rangle\) is nonincreasing for \(0\le k\le L/2\). Thus the squared projection \(p_0(k)\) of \(\phi_k\) on the rotation-invariant subspace, the average of these autocorrelations, is at most \(p_0(3)\) for the sectors in question.
+
+Put \(G_m(z)=\prod_{i=0}^{m-1}(1+z\nu^{m-1-2i})\). The rotation autocorrelation equals
+\[
+\frac{[z^k]\,G_u(z)G_{L-u}(z)}{[z^k]\,G_L(z)}.
+\]
+In fact splitting each word after \(u\) letters makes its doubled internal inversions plus the between-part inversions from both rotations. If the pieces carry \(r,k-r\) ones, the sum between pieces is \(k(L-k)-r(u-r)-(k-r)(L-u-k+r)\), so the common \(\nu^{k(L-k)}\) cancels from the centered coefficient ratio.
+
+For even \(m\), \(G_m\) is a product of reciprocal pairs \(1+A z+z^2\), with \(A=\nu^d+\nu^{-d}\) for \(d=1,3,\ldots,m-1\). For odd \(m\) the positive exponents are \(2,4,\ldots,m-1\), and there is a factor \(1+z\). If both split sizes are odd, pair the two \(1+z\) factors as \(d=0\). In either parity, after sorting the split pair exponents its \(i\)-th exponent is at most \(2i-1\): merge two odd lists starting at 1, or a zero followed by two even lists starting at 2. The comparison is therefore a succession of increases \(A\mapsto A'\ge A\) in individual reciprocal quadratics.
+
+For each increase, writing \(B_j\) for the coefficients of the product of the other pairs, the ratio of the before and after coefficients at \(k\ge1\) is
+\[
+1-\frac{A'-A}{ A'+(B_k+B_{k-2})/B_{k-1} }.
+\]
+The expression \((B_k+B_{k-2})/B_{k-1}\) is nonincreasing as \(k\) approaches the center from the left. Here is a proof that handles all parameters. Recenter \(B\) as a symmetric convolution of kernels \(K=(1,A,1)\) on \(\mathbb Z\). If \(B\) is obtained by starting from \(\delta_0\), then its two adjacent shifts summed, denoted \(C\), are obtained by starting from \(\delta_{-1}+\delta_1\). On the nonnegative half-line, initially \(B_i C_j-B_j C_i\ge0\) for \(i<j\). Each symmetric convolution is represented there by the folded matrix with entries \(K(j-i)+K(j+i)\) for \(i>0\), and \(K(j)\) at \(i=0\). This tridiagonal matrix has nonnegative \(2\)-by-\(2\) minors: the only adjacent principal minor at the boundary is \(A^2-2\), the others there are \(A^2-1\), and every other minor has no nonzero negative-product term. The ordering of the pair of columns is preserved by multiplying such a matrix by the two-column matrix \((B,C)\); this follows by expanding the resulting \(2\)-by-\(2\) minors over pairs of intermediate rows. Thus \(C_j/B_j\) is nondecreasing away from the center on the half-line. By symmetry this proves the claimed behavior approaching the center. The ratio at \(k=0\) is 1. Multiplying all successive coefficient ratios (nonnegative and nonincreasing up to the center) proves the autocorrelation comparison.
+
+## Three-spin defect controls the rank-one comparison
+
+Let \(\alpha=2(1-\cos(\pi/N))\), \(s=\alpha t\), and \(\xi=La/2\). In odd content only momentum 0 need be tested, by Perron–Frobenius. The open-chain kink gap from [Koma–Nachtergaele, Proposition 2](https://arxiv.org/pdf/cond-mat/9512120#page=8) gives \(g=4+2t(1-\cos(\pi/L))\ge4+s\). The rotation term has gap at least \(r=2t(1-\cos(2\pi/L))\ge4s\) on the complement of its invariant subspace: \(\sin(\pi/L)\ge2\sin(\pi/(2N))\) follows from \(\sin u\ge u-u^3/6\), \(\sin v\le v\), and \(6L^2\ge N\pi^2\). By the [rank-one test](ODD-PI-TJ-FINITE-CERTIFICATES.md#odd-mixed-sectors), it is sufficient that
+\[
+1-p_0(k)\ge \frac{T(g+r-T)}{gr},\qquad T=\min(s,4),
+\]
+which then bounds that block below by \(4+T\). This target dominates the smaller candidate (the one-minority constant trial is below 8). The expression on the right decreases in \(g,r\) as both exceed \(T\). Using \(g\ge4+s,r\ge4s\) reduces its upper bound to \((1+s)/(4+s)\) for \(s\le4\), or \(5/(4+s)\) for \(s\ge4\).
+
+To bound \(1-p_0(3)\), for a fixed split index \(u\) write \(v=|2u/L-1|\) and \(q=\cosh(v\xi)/\cosh\xi\). The ratio of the split and full \(j\)-th power sums of the segment weights is \(c_j=\cosh(jv\xi)/\cosh(j\xi)\), by summing each geometric progression. Thus \(c_1=q\), \(c_2=q^2-(1-q^2)/\cosh(La)\), and \(c_3\le q^3\), by the double- and triple-angle identities. Let \(S_j=\sinh(jLa)/\sinh(ja)\) be the full sums and \(e_3=[z^3]G_L(z)\). Newton's third identity gives
+\[
+1-\frac{[z^3]G_uG_{L-u}}{e_3}
+\ge (1-q^3)\left(1-\frac{2S_1S_2}{6 e_3\cosh(La)}\right).
+\]
+Indeed the numerator \(6(e_3-[z^3]G_uG_{L-u})\) is \(S_1^3(1-q^3)-3S_1S_2(1-qc_2)+2S_3(1-c_3)\); here \(q(1-q^2)/(1-q^3)\le2/3\) on \([0,1)\), and equality at \(q=1\) is treated directly. The centered geometric progression gives
+\[
+e_3=\frac{\sinh(La)\sinh((L-1)a)\sinh((L-2)a)}{\sinh a\,\sinh(2a)\,\sinh(3a)}.
+\]
+For example, the general formula \(e_k=\prod_{i=1}^k \sinh((L-i+1)a)/\sinh(ia)\) follows by induction on the geometric progression length, splitting off its last weight; the identity after simplification is the addition law for \(\sinh\). Substitution now gives
+\[
+\frac{2S_1S_2}{6e_3\cosh(La)}
+=\frac23\,\frac{\sinh(3a)\sinh(La)}{\sinh((L-1)a)\sinh((L-2)a)}
+\le\frac{8L}{3(L-1)(L-2)}<\frac7{100}\quad(L\ge42).
+\]
+Use \(\sinh(La)/\sinh((L-1)a)\le e^a L/(L-1)\) from concavity of \(1-e^{-2xa}\), \(e^a\sinh(3a)\le\sinh(4a)\), and monotonicity of \(\sinh x/x\). Averaging over the \(L\) rotations therefore bounds the defect by
+\[
+1-p_0(3)\ge\tfrac{93}{100}\left[1-\frac1L\sum_{u=0}^{L-1}
+\left(\frac{\cosh((2u/L-1)\xi)}{\cosh\xi}\right)^3\right].
+\]
+
+## One fixed integer certificate for all larger lengths
+
+Each term of the bracket is nondecreasing in \(\xi\), since \(\cosh(v\xi)/\cosh\xi\) is nonincreasing for \(0\le v\le1\). Put \(A=(153/50)^2=9.3636\), \(\epsilon=3/500=0.006\). We have \(\xi\ge L/\sqrt{1+t}\) by \(a=2\operatorname{artanh}(1/\zeta)\ge2/\zeta\), and \(L^2\alpha>A,\ \alpha<\epsilon\) for \(N\ge43\). The latter bounds follow from \(2\sin(\pi/(2N))\le\pi/N\) and \(2L\sin(\pi/(2N))\ge (L/N)\pi(1-\pi^2/(24N^2))>153/50\), using \(3.14<\pi<22/7\). Thus \(\xi^2\ge A/(s+\epsilon)\).
+
+Let \(\mu_{2n}=L^{-1}\sum_{u=0}^{L-1}(2u/L-1)^{2n}\). The sum equals the normalized composite trapezoid rule on \([-1,1]\). The interval kernel for its error is \((x-x_i)(x_{i+1}-x)/2\le(2/L)^2/8\), so \(\mu_{2n}\le 1/(2n+1)+n/L^2\), by integrating the nonnegative second derivative (total integral \(4n\)). Hence \(\mu_{2n}\le 1/(2n+1)+n/1764\). In the expansion \(\cosh^3\sqrt y=\sum_{n\ge0} a_n y^n\), \(a_n=(3^{2n}+3)/(4(2n)!)\). For \(0\le y\le117/50=2.34\), define
+\[
+D(y)=\sum_{n=1}^{10}a_n\big(1-\tfrac1{2n+1}-\tfrac n{1764}\big)y^n,\qquad
+U(y)=\sum_{n=0}^{10}a_n y^n+\tfrac{10}{9}a_{11}y^{11}.
+\]
+Here \(D\) bounds the bracket numerator below, and \(U\) bounds \(\cosh^3\sqrt y\) above: after the degree-11 term, consecutive terms are in ratio at most \(9y/((2n+2)(2n+1))<1/10\). The bound for \(D\) only uses the first ten nonnegative deficit terms.
+
+The [fixed integer certificate](verify-odd-pi-gap-all-lengths.js) proves
+\[
+\tfrac{93}{100}\big(A+(4-\epsilon)y\big)D(y)-5y U(y)\ge0
+\qquad(0\le y\le117/50).
+\]
+It rounds coefficients of \(D\) down and \(U\) up to denominator \(10^{28}\), uses an overall positive integer multiplier, divides the resulting polynomial by \(y\), and checks all 12 coefficients are strictly positive after substituting \(y=(117/50)z/(1+z)\) and clearing denominators. This is one scalar certificate, independent of \(L,k\), with an exact BigInt replay.
+
+For \(s\ge4\), insert \(y=A/(s+\epsilon)<117/50\) in this certificate and use the monotonicity in \(\xi\). This gives \(1-p_0(3)\ge 5/(s+4)\), exactly the required bound. For \(s\le4\), compare to \(y=A/(4+\epsilon)\), obtaining \(1-p_0(3)\ge5/8\ge(1+s)/(4+s)\). Together with content monotonicity, this excludes every higher odd-content branch for all larger lengths. This completes the theorem.

@@ -20,7 +20,9 @@ P_N(t)=4+2t(1-\cos(\pi/N)).
 The crossover is at \(\zeta^2=9/5\).
 - At \(N=5\) the gap equals the smaller of \(P_5(t)\) and the smallest eigenvalue of the four-dimensional one-minority matrix above, at **every** coupling. The two branches cross just once, at \(t\approx5.67570853\), equivalently \(|\zeta|\approx2.58373925\). The exact cubic for the crossover is below. 
 - At \(N=7\) the same two-branch description holds with the six-dimensional one-minority matrix. Its unique crossover is at \(t\approx13.79749431\), equivalently \(|\zeta|\approx3.84675114\). 
-- The [finite rational certificate](ODD-PI-TJ-FINITE-CERTIFICATES.md) extends the same exact two-branch formula to all odd \(N\le41\), at every coupling. At arbitrary length, [all even mixed contents are excluded analytically](ODD-PI-TJ-FINITE-CERTIFICATES.md#analytic-even-content-exclusion-at-every-odd-length); only higher odd contents remain for the general theorem.
+- The [finite rational certificate](ODD-PI-TJ-FINITE-CERTIFICATES.md) extends the same exact two-branch formula to all odd \(N\le41\), at every coupling. At arbitrary length, [all even mixed contents are excluded analytically](ODD-PI-TJ-FINITE-CERTIFICATES.md#analytic-even-content-exclusion-at-every-odd-length); and [the higher odd contents are excluded in the all-length theorem](ODD-PI-TJ-ALL-LENGTHS.md).
+
+The [all-length theorem](ODD-PI-TJ-ALL-LENGTHS.md) now proves the exact two-branch formula \(\Delta_N=\min(P_N,\lambda_{\min}(M_N))\) in this entire odd \(\pi\)-twisted regime. The perturbation results below explain the limiting mechanisms independently; their earlier restrictions are not the scope of the final formula.
 
 ## One-hole gauge and finite matrix
 
