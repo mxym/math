@@ -2,6 +2,8 @@
 
 **Yongxian Zhang.** AI-assisted proof development and internal checks; no external peer review or priority claim.
 
+For the stronger theorem with **arbitrary** graft palettes and even unequal block orders with a large common divisor, see [logarithmic cut probes](StanleyLogarithmicPathInversion.md). The shorter precision and branching-core cases below remain useful separately.
+
 Let \(S\) be any tree on \(q\ge2\) vertices. Identify a vertex of \(S\) with the root of a rooted block of common order \(s>h\), one per vertex. Every branch off a block root has order at most \(h\). In the resulting tree \(T\), the heavy edges at cutoff \(h\) are exactly the edges of \(S\). A conservative sufficient tail hypothesis in the results below is \(s-h-1\ge\sum_{i=1}^h i b_i\), where \(b_i\) is the number of rooted tree types of order \(i\). Any sharper hypothesis guaranteeing the same rooted-block identification also works.
 
 One result: if precisely one block is of a different rooted type from all the others, the **ordinary** chromatic symmetric function reconstructs \(T\) among all trees. The mark causes no difference in intact block order. Unlike [the cutoff-two result](StanleyRootMarkerBranchingCore.md#a-sole-rooted-type-as-a-tag-without-any-leaf-role-condition), the off-root branches may be arbitrary trees of bounded order.
