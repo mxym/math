@@ -80,7 +80,7 @@ CP_SOURCE = "https://arxiv.org/html/2610.34273v3#S5.SS3"
 def exact_routing(data, part):
     """Greedy sufficient upper-bound search; failure proves nothing."""
     n,es,ix,sc,w=load_graph(data)
-    left={e: Fraction(x,2*sc) for e,x in zip(es,w) if part[e[0]]!=part[e[1]]}
+    left={e: Fraction(x,sc) for e,x in zip(es,w) if part[e[0]]!=part[e[1]]}
     routes=[]
     for (a,b),x in zip(es,w):
         if not x or part[a]!=part[b]:continue
@@ -97,8 +97,9 @@ def exact_routing(data, part):
             while path[-1]!=a:path.append(prev[path[-1]])
             path.reverse()
             pe=[tuple(sorted(e)) for e in zip(path,path[1:])]
-            amount=min([need]+[left[e] for e in pe])
-            for e in pe:left[e]-=amount
+            rate=Fraction(len(pe),len(pe)-1)
+            amount=min([need]+[left[e]/rate for e in pe])
+            for e in pe:left[e]-=rate*amount
             routes.append({"path":path,"weight":str(amount)})
             need-=amount
     return replay_routing(data,{"cut":list(part),"routes":routes})
@@ -123,13 +124,14 @@ def replay_routing(data, c):
         if e not in demands:
             raise ValueError("route endpoints are not an internal demand")
         demands[e]+=x
+        rate=Fraction(len(path)-1,len(path)-2)
         for a,b in zip(path,path[1:]):
             e=tuple(sorted((a,b)))
             if e not in loads or not available[e]:
                 raise ValueError("route must use positive crossing edges")
-            loads[e]+=x
-    if demands!=internal or any(2*x>available[e] for e,x in loads.items()):
-        raise ValueError("routing failed demand or half-capacity constraints")
+            loads[e]+=rate*x
+    if demands!=internal or any(x>available[e] for e,x in loads.items()):
+        raise ValueError("routing failed demand or certified path-load constraints")
     result={"cut":p,"routes":c["routes"],"exact_exponent":str(sum(available[e] for e in loads)),
             "upper_source":CP_SOURCE}
     if "exact_exponent" in c and c!=result:

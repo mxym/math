@@ -25,11 +25,11 @@ Splice search is bounded by depth, states, and amounts. If it finds no improveme
 
 ## Matching upper certificates
 
-The search also tries a greedy upper certificate on the selected maximum cut. Route each within-side edge along even paths made entirely of crossing edges; allow splitting rational demand. If the total routed load is at most half of the weight on each crossing edge, the exponent equals the cut weight. This uses [Zhou's path-strengthened CP bound](https://arxiv.org/html/2610.34273v3#S5.SS3), not the rectangular theorem. A missing certificate means only that this greedy search did not find one. The verifier checks all demand totals and half-capacities exactly.
+The search also tries a greedy upper certificate on the selected maximum cut. Route each within-side edge along even paths made entirely of crossing edges; allow splitting rational demand. A route of even length L consumes L/(L−1) units of capacity per unit of demand on each edge along it. If the total consumed capacity does not exceed the available edge weights, the exponent equals the cut weight. This uses [Zhou's path-strengthened CP bound](https://arxiv.org/html/2610.34273v3#S5.SS3), not the rectangular theorem. A missing certificate means only that this greedy search did not find one. The verifier checks all demand totals and capacities exactly.
 
 ```sh
 python3 tensor_bounds.py search weak-c5.json --depth 2 > weak-c5-report.json
 python3 tensor_bounds.py verify weak-c5.json weak-c5-report.json
 ```
 
-The half-weight edge in this example can be routed around the other four edges, giving both lower and upper bound 4. The same check works on every odd cycle with one edge weighing at most half of every other edge. The unweighted C5 does not meet this sufficient condition.
+The three-quarter-weight edge in this example can be routed around the other four edges, giving both lower and upper bound 4. The same check works on every odd cycle with one edge weighing at most (L−1)/L times every other edge, where L is the length of the complementary path. The unweighted C5 does not meet this sufficient condition.

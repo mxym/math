@@ -50,7 +50,7 @@ class TestBounds(unittest.TestCase):
         self.assertEqual(c["exact_exponent"],"4")
         self.assertEqual(c,t.replay_routing(g,c))
         self.assertIsNone(t.solve(self.graph("c5"),2)["exact_via_routing"])
-        d=deepcopy(c);d["routes"][0]["weight"]="3/4"
+        d=deepcopy(c);d["routes"][0]["weight"]="4/5"
         with self.assertRaises(ValueError):t.replay_routing(g,d)
 
     def test_all_c5_cut_caps_on_half_grid(self):
