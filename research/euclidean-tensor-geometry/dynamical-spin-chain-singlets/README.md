@@ -10,3 +10,5 @@ This archive studies three families from [Hagendorf's *Spin chains with dynamica
 3. [The deformed \(t\)–\(J\) chain](DEFORMED-TJ.md): full kernel in every length \(N\ge2\), for both allowed twists and all real nonzero deformations, and the exact undeformed kernel for all twists. A lower spectral gap bound \(4\min(\zeta^2,1)\) is sharp for twist zero or \(|\zeta|\le1\) or even length, within the two deformed twists. No exact value is asserted for the remaining odd, \(\pi\)-twisted, \(|\zeta|>1\) regime.
 
 The first two proofs use the [common cyclic normalization argument](CYCLIC-NORMALIZATION.md), but different local algebras. The third uses positivity and hopping in fixed hole-number sectors. No claim of literature priority is made. Run `node verify.js` for independent finite-field sample checks; none of the theorems rely on them.
+
+**Research follow-up.** [Odd-length, twisted t–J gap](ODD-PI-TJ-GAP.md): exact weak and strong coupling branches, noncommuting limits, the full three-site formula, and bounds elsewhere. This later addition is not in the preceding frozen release.
