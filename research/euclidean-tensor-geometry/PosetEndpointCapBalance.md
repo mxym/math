@@ -2,6 +2,8 @@
 
 **Yongxian Zhang.** AI-assisted development and internal verification; no external peer review or priority claim.
 
+For a wider local criterion permitting both ranks to move, see [local endpoint compression](PosetLocalEndpointCapBalance.md). [Aires–Kahn (2025), Theorem 1.6](https://arxiv.org/html/2510.26134v1) already gives qualitative global near-balance at fixed width with growing interiors, since vertices in different interiors are incomparable. The increment here is the explicit rate and the prescribed midpoint and partner chain.
+
 ## Result
 
 Let \(w\ge2\) and let the elements be partitioned into \(w\) specified chains of a common length \(n\). Generate the order by the relations within the chains and any acyclic collection of cross-chain comparisons whose endpoints are both in the first \(k\) or last \(k\) positions of their respective chains. Call these coordinates early and late, respectively. Comparisons within either cap and from early to late are unrestricted; forbid late-to-early generators. This condition concerns generators, not their transitive closure.
