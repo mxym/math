@@ -26,3 +26,34 @@ p_{i,+}=t a_i+(1-t)a_{i+1}+R b(2\pi i/3),\qquad
 p_{i,-}=t a_i+(1-t)a_{i-1}+R b(2\pi i/3+\theta).
 \]
 Together with \(a_0,a_1,a_2\) these form a diameter-\(\sqrt3\), unit-circumradius set. Every displayed point lies on the unit sphere and has nearest apex \(a_i\); each pair \(p_{i,+},p_{i,-}\) is diametric. To verify the rest, unit points with barycentric vectors \(\lambda,\mu\) and angular directions \(\phi,\psi\) have squared distance \(\le3\) if and only if \((3/2)\lambda\cdot\mu+R^2\cos(\phi-\psi)\ge0\). Within one sign, distinct indices share a mixed-weight component \(t(1-t)\), giving equality at angular distance \(2\pi/3\). Across signs at distinct indices, their planar supports either coincide, in which case \(\lambda\cdot\mu=2t(1-t)\) is always enough, or meet at the shared nonnearest vertex, in which case their angular distance is \(\theta-2\pi/3<\pi/3\), automatically safe. With any apex compatibility follows from nonnegative barycentric coordinates. The three apices force unit circumradius by averaging their squared distances from any center. Thus each of the three nearest-apex candidate parts needs some color change beyond this naive rule. The set itself is 3-colorable: give \(a_i,p_{i,+}\) color \(i\) and \(p_{i,-}\) color \(i-1\). This does not obstruct five parts by mixed routing nor settle the full contact-star problem.
+
+## Extension to filled cyclic half-edge lobes
+
+The same constants work on the larger locus
+\[
+\mathcal L'=\bigcup_{i=0}^2
+ \left\{u+w:
+   u=t a_{i+1}+(1-t)a_{i+2},\
+   \tfrac12\le t\le1,\
+   w\in W,\quad \|w\|^2\le1-\|u\|^2
+ \right\}.
+\]
+It contains the three midpoint disks and the three apices, but includes every filled fiber over one entire half of each triangle edge. Rotating all half-edge choices to the opposite cyclic orientation gives the same assertion by symmetry. As above, project to this locus and close the image; its diameter is at most \(D+2\delta\). Denote the pieces on the three lobes by \(Y_i\); each lobe starts in its own color.
+
+Write \(x=2t-1\), \(y=2t'-1\) for two positions on one half-edge, and let \(\alpha=\arcsin x\), \(\beta=\arcsin y\). Their planar separation has norm \(r|x-y|\) and their transverse radii are at most \(r\sqrt{1-x^2}\), \(r\sqrt{1-y^2}\). In particular
+\[
+d^2\le r^2\bigl((x-y)^2+(\sqrt{1-x^2}+\sqrt{1-y^2})^2\bigr)
+= \tfrac32(1+\cos(\alpha+\beta))
+\le 3-\tfrac34\max(x^2,y^2).
+\]
+The last inequality uses \(\cos(\alpha+\beta)\le\min(\cos\alpha,\cos\beta)\) and \(\sqrt{1-u^2}\le 1-u^2/2\) for \(0\le u\le1\). If \(d>D-\epsilon\), each point's planar position is less than \(\sqrt{2D\epsilon}<0.002\) from the midpoint. As both positions are on the same half-ray, their planar separation is less than \(0.002\), not \(0.004\). Thus their transverse distance exceeds \(D-3\epsilon\), by \((D-\epsilon)^2-0.002^2>(D-3\epsilon)^2\). Each transverse norm exceeds \(r-3\epsilon\).
+
+Mark all points lying within planar distance \(0.002\) of their own midpoint and of transverse norm at least \(r-3\epsilon\). A pair in one lobe with at least one unmarked point always has distance at most \(D-\epsilon\). Call a lobe bad if it has a pair at distance \(>D-\epsilon\). In a bad lobe, the two unit directions of such a pair are within \(0.006\) radians of antipodal: the same parallelogram estimate as for midpoint disks gives chordal error at most \((\sqrt{12r\epsilon}+3\epsilon)/(r-3\epsilon)<0.004\). A chord at angle \(0.006\) exceeds \(0.0059\). For any two marked points on different lobes, the planar separation is at least \(r-0.004\). Their unit transverse directions therefore have dot product at least \(-0.506\), since
+\[
+(r-0.004)^2+2(r-3\epsilon)^2(1+0.506)>(D+2\delta)^2 .
+\]
+These bounds hold using \(0.866<r<0.867\) and \(D<2\).
+
+If one lobe is bad, split its marked points into three sectors of width \(2\pi/3\). If two are bad, a marked witness in the other lobe excludes an open cap of halfwidth \(\pi/4\) around its opposite; split each bad lobe's marked directions into two arcs of width \(3\pi/4\). Keep one sector per bad lobe and all its unmarked points in its original color, using at most two spare colors in either case. Each sector's squared diameter is bounded by \(21/8+0.002^2<(D-\epsilon)^2\), adding the squared planar distance to the disk-based calculation. If no lobe is bad, use the original three colors.
+
+If three are bad, take a nearly antipodal witness from each lobe. Against both witnesses at another lobe, a marked direction has absolute dot product with the first witness at most \(0.506+0.006=0.512\). Thus the three projective axes of the first witnesses have pairwise angular distance at least \(\pi/3-0.02\), since \(\cos(\pi/3-0.02)>0.512\). All their cyclic gaps lie in \([\pi/3-0.02,\pi/3+0.04]\). Relative to a fixed lobe's axis, the other two axes are within \(0.04\) of the canonical projective angles \(\pi/3,2\pi/3\). Its marked points must avoid both projective open caps of radius \(\pi/3-0.06\) around those canonical angles. The remaining directions occupy two opposite spots of halfwidth \(0.06\). Remove one spot from the color of each lobe. Choose signs in two lobes so their removed spots have central rays separated by at most \(\pi/3+0.04\). Their angles between points are bounded by \(\pi/3+0.04+2(0.06)<\pi/2\), so their union has squared diameter at most \((r+0.004)^2+2r^2<(D-\epsilon)^2\) and fits in one spare color. The third removed spot fits in the remaining spare color. Each original color now has at most one marked spot, whose squared diameter is at most \(0.002^2+2r^2\), while unmarked points are safe there. This proves five parts of diameter at most \(D-\epsilon\) in the projected set and at most \(D-\epsilon+2\delta<D\) after pulling back. It does not cover the other halves of the edges simultaneously.
