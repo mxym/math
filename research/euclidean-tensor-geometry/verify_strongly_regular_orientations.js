@@ -1,7 +1,7 @@
 'use strict';
-// Exact integer replay of necessary SRG parameters for minimum outdegree 7n/25.
+// Exact integer replay of necessary SRG parameters for minimum outdegree 11n/40.
 // The parameter products outside traceSurvives fit in the safe integer range.
-const limit=375410, fLimit=865, tLimit=58, survivors=[];
+const limit=158202, fLimit=561, tLimit=41, survivors=[];
 const least=new Uint32Array(limit+2);
 for(let p=2;p<least.length;p++) if(!least[p]) {
  for(let j=p;j<least.length;j+=p) if(!least[j]) least[j]=p;
@@ -41,8 +41,8 @@ for(let t=2;t<=tLimit;t++) for(let r=1;r<=Math.floor(limit/t);r++){
  if(low>high)continue;
  for(const mu of divisorsUpTo([r,t,r+1,t-1],high)){
   if(mu<low)continue;
-  const k=k0+mu, ell=C+M/mu, n=1+k+ell, d=Math.floor((7*n+24)/25);
-  if(n>limit||1000*r<17*n||k<2*d||n-2-2*k+mu<0)continue;
+  const k=k0+mu, ell=C+M/mu, n=1+k+ell, d=Math.floor((11*n+39)/40);
+  if(n>limit||1000*r<21*n||k<2*d||n-2-2*k+mu<0)continue;
   if((r+1)*(k+r-2*r*t)>(k+r)*(t-1)**2)continue;
   const L=mu+r-t, f=((n-1)*t-k)/(r+t);
   const d1=Math.max(d,Math.floor(2000*(d-ell)/693)+1), a=k-2*d1;
@@ -53,5 +53,5 @@ for(let t=2;t<=tLimit;t++) for(let r=1;r<=Math.floor(limit/t);r++){
 }
 survivors.sort((a,b)=>a[0]-b[0]);
 const expected=[[10,6,3,4,1,-2,4],[16,10,6,6,2,-2,5],[27,16,10,8,4,-2,6]];
-if(preMajorization!==23||JSON.stringify(survivors)!==JSON.stringify(expected))throw new Error(JSON.stringify({preMajorization,survivors}));
+if(preMajorization!==62||JSON.stringify(survivors)!==JSON.stringify(expected))throw new Error(JSON.stringify({preMajorization,survivors}));
 console.log({preMajorization,survivors});
