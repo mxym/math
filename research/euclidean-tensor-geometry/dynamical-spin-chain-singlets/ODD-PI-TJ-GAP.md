@@ -42,6 +42,14 @@ The inversion gauge described above uses only the seam sign of the hole when dis
 
 Here \(q=2\pi j/N\) for odd \(k\), and \(q=(2j+1)\pi/N\) for even \(k\), \(0\le j<N\). In fact writing the wave at hole position \(h\) as \(e^{iqh}f(s)\) represents the periodic or antiperiodic seam by \(e^{iqN}=+1\) or \(-1\), respectively; a clockwise hop cyclically shifts the relative word in one direction and a counterclockwise hop reverses that shift. The sign assignment uses \(L\) even, so the inversion change when a seam hop rotates the word has parity \(k\) irrespective of which spin moves. For odd \(k\), only \(q=0\) need be tested by Perron–Frobenius. At \(k=0,L\) this formula gives \(P_N\) as its least value. This gives an exact block expression for all couplings but not a closed comparison of its competing mixed-content eigenvalues.
 
+### Two even-content momentum blocks excluded exactly
+
+In even mixed content \(0<k<L\), the blocks \(q=\pm\pi/N\) are strictly above \(P_N(t)\) at every \(t>0\). Indeed write
+\[
+H_k(q)=4I+S_k+t(2I-e^{iq}R-e^{-iq}R^{-1}),
+\]
+where \(S_k\) is the sum of positive semidefinite particle-bond blocks on the open word in the inversion gauge, and \(R\) is the cyclic shift. Since \(R^L=I\), and \(|q|=\pi/N<\pi/L\), the nearest rotation phase to \(-q\) is zero. The hopping term is therefore bounded below by \(2t(1-\cos(\pi/N))I\) with equality only on \(R\)-invariant vectors. The kernel of \(S_k\) is a single line whose nonzero amplitude ratios are fixed by adjacent unlike swaps, giving the positive inversion-weighted vector with ratio \((\zeta-1)/(\zeta+1)\) or its reciprocal. Its magnitudes change upon rotating a first letter past a nonzero number of opposite letters, because the ratio does not have modulus one. Thus this line is not \(R\)-invariant and equality in the sum is impossible. The other even-content momenta are not excluded by this argument.
+
 ## Strong perturbation and sector exclusion
 
 In the uniform probability inner product on \(k\)-subsets, the kernel of \(A_k\) is the constants. After division by \(\zeta^2\), expand in \(\epsilon=1/\zeta\) as \((1-\epsilon^2)A_k+2\epsilon d+\epsilon^2(4+2w)\). The simple eigenvalue at zero is analytic. The first-order term vanishes by symmetry. At second order, solving the first-order eigenvector correction on the orthogonal complement of constants gives
