@@ -35,14 +35,48 @@ For actual filled-edge conflicts one can include **nine** rays. Suppose the nine
 At such a pair \(v_p\cdot v_q\le-r/2\) with \(r\ge1\); angle exactly \(120^\circ\) forces equality, \(r=1\), and both transverse vectors of unit norm. Their odds are then both \(c\). Each of the nine rays is thus represented by a unit vector at this same odds on some edge. A step-four pair has smaller angular separation \(120^\circ+g\), where \(0<g<60^\circ\), and so cannot be realized on different edges: the scaled gap at equal odds and unit norms is \(1+2v_p\cdot v_q<0\) across any two different edges. The step-four pairs connect the nine indices, so all such unit representatives must lie on one edge (the assertion applies to every choice of representatives). This contradicts the step-three conflicts, which require different edges. Thus a suitable open semicircle exists for any actual list of at most nine rays.
 
 
-## Arbitrarily many conflicts whose angle is exactly \(120^\circ\)
+## No counting hypothesis when all conflicts are exactly \(120^\circ\)
 
-There is no bound on the number of crossing rays if all crossing pairs at the chosen cutoff have separation exactly \(120^\circ\). Their nonzero directions form a compact subset \(R\) of the circle: the crossing odds lie in closed bands away from the apices, and a diametric crossing has normalized dot product \(\le-1/2\), implying both norms are bounded away from zero. In the exact-angle case that same bound forces equal odds \(c\) and unit transverse norms at every participating endpoint.
+No counting hypothesis is needed if all crossing pairs at the chosen cutoff have separation exactly \(120^\circ\). Their nonzero directions form a compact subset \(R\) of the circle: the crossing odds lie in closed bands away from the apices, and a diametric crossing has normalized dot product \(\le-1/2\), implying both norms are bounded away from zero. In the exact-angle case that same bound forces equal odds \(c\) and unit transverse norms at every participating endpoint.
 
 If \(R\) has an open complementary gap of angular length at least \(60^\circ\), start the open semicircle at the first endpoint of the gap. The participating rays in that semicircle have spread strictly below \(120^\circ\) for every included pair. So any closed retained arc of the required slightly smaller width contained in it works.
 
 Otherwise every complementary gap has length \(<60^\circ\). Form a graph on \(R\) by joining rays at shorter separation \(>120^\circ\). Any two rays of separation \(<60^\circ\) have a common graph neighbor: their two open sets of rays at separation \(>120^\circ\) intersect in an open arc longer than \(60^\circ\), which cannot miss \(R\). The relation of being connected by successive moves of length \(<60^\circ\) connects \(R\): its classes are relatively open and closed and separated by distance at least \(60^\circ\) from one another. If two classes existed, traverse the circle from a ray of one class to the first ray outside it; compactness and that separation would give a complementary gap of length at least \(60^\circ\) after the last ray in the first class along that arc. Hence the \(>120^\circ\) graph is connected.
 
-As in the nine-ray proof, every joined pair must be represented on the same edge, since at equal odds \(c\) the scaled gap for points of unit normalized radii on different edges is \(1+2 v_p\cdot v_q<0\). Connectivity would force all crossing endpoints to lie on a single edge, contradicting the existence of a cross-edge pair. Thus a good semicircle exists for any actual exact-angle conflict set, possibly infinite.
+As in the nine-ray proof, every joined pair must be represented on the same edge, since at equal odds \(c\) the scaled gap for points of unit normalized radii on different edges is \(1+2 v_p\cdot v_q<0\). Connectivity would force all crossing endpoints to lie on a single edge, contradicting the existence of a cross-edge pair. Thus a good semicircle exists for any actual exact-angle conflict set.
 
 For a separate angle-only extension, if all marked separations are at least \(\pi-\alpha\) with \(0<\alpha\le\pi/3\), and there are \(n\) rays satisfying \(\lfloor (n-1)/2\rfloor\alpha\le\pi\), a good open semicircle exists without using the geometry. An angular gap at least \(\alpha\) works as above. Otherwise draw a diameter through a ray and take the open side with at most \(\lfloor(n-1)/2\rfloor\) rays. Their consecutive gaps are \(<\alpha\), so any pair there is separated by less than \(\pi-\alpha\).
+
+
+## A positive angular tolerance at every positive cutoff
+
+For the same filled-edge problem there is a quantitative open neighborhood of the exact-angle case, with no assumption on the number of conflicts or rays. Write \(b=c/(8+c)\). Assume every diametric crossing at this cutoff has shorter separation at most
+\[
+2\pi/3+b^2/3
+\]
+(in radians). Then five compact pieces of diameter strictly below \(D\) suffice. The hypothesis admits angles strictly above \(2\pi/3\): for example two endpoints on different edges at equal odds \(c\), with angle \(\theta>2\pi/3\) and common squared normalized radius \(3/[2(1-\cos\theta)]\), give zero scaled gap.
+
+**Stability from the distance formula.** Put \(s=2b^2/3\) and \(K=5s\); in particular \(s<0.01\). If \(p,q\) is a crossing, its odds ratio parameter \(r=\sqrt{z_p/z_q}\) satisfies \(r\ge1\). Both radial-deficit coefficients in the [scaled gap](BorsukFourControlledFilledTips.md#gap-at-a-tip-interface) are at least 1. With \(\alpha=1-\|v\|^2,\ \beta=1-\|w\|^2\), the Lipschitz bound on cosine and the unit disk bounds give \(2v\cdot w\ge-1-s\). As \(G=0\),
+\[
+1\le r\le1+s,\qquad
+\alpha+\beta\le r(1+s-r)\le (1+s)s.
+\]
+Every participating point therefore has odds in \([c/(1+s)^2,c(1+s)^2]\), and squared normalized radius at least \(A=1-(1+s)s>0\).
+
+Now compare any two participating endpoints on different physical edges, in the cyclic order of the gap formula; they need not themselves form a crossing. Here \(r\in[1/M,M]\) with \(M=(1+s)^2\). In \(G/r\) each radial-deficit coefficient is a convex combination of \(r\) and \(1/r\): the first uses weights \(1,r^2t\), and the second uses weights \(t,1\), respectively. Since \(G/r\ge0\) and each deficit is at most \((1+s)s\), this gives
+\[
+2v\cdot w\ge-M(1+2(1+s)s)\ge-1-5s .
+\]
+The last inequality follows by expansion for \(s\le0.01\). Their radius product is at least \(A\), and \((1+5s)/A\le1+7s\) on the same range, so their cosine is at least \(-(1+7s)/2\). On \([2\pi/3,2\pi/3+5s]\) the sine is at least \(4/5\). Thus the shorter angle is at most \(2\pi/3+K\). In particular, rays of participating points farther apart than this must have all their participating representatives on one and the same physical edge.
+
+**Find the retained arc.** Let \(R\) be the compact set of participating directions; compactness follows by restricting to the positive odds and radius bounds above and projecting the closed diametric-crossing set. If it is empty there is no clash to avoid. Otherwise put \(\eta=2b^2\) and \(g=\pi/3-2\eta\). If a complementary gap is longer than \(g\), start the closed retained arc of width \(\pi-2\eta\) slightly inside the gap, leaving more than \(g\) of gap in front of the start. Its participating directions then have angular spread less than \(2\pi/3\), so it retains no whole crossing.
+
+Suppose no complementary gap is longer than \(g\). Let \(h=g+(2\eta-K)>g\). For any two participating rays of short separation \(d\le h\), the open arcs of test rays farther than \(2\pi/3+K\) from the two rays intersect in an open arc of length at least
+\[
+2\pi/3-2K-d\ \ge\ g+(2\eta-K)>g .
+\]
+It meets \(R\). By the different-edge bound, the common ray and both original rays have all their participating representatives on a single edge. The steps of length at most \(h\) connect \(R\): distinct step classes would be relatively open and closed, at mutual separation at least \(h\), and following the circle from one class to its complement would expose a complementary gap at least \(h\). Hence all endpoints would lie on the same physical edge, contrary to nonempty \(R\). This gives the required retained arc. The two spare cones work because \(\sin\eta<\eta=2b^2\), giving squared gap \(3b^2-(3/2)\sin\eta>0\). This proof does not provide a cutoff satisfying the angle hypothesis for arbitrary compact filled-edge sets.
+
+## A forced count at exact equality
+
+When all crossings are exactly \(120^\circ\), there are in fact at most eleven distinct unordered angular crossing pairs. Orient each uniquely as \((a,a+2\pi/3)\) in the fixed circular direction. If three starts \(a_1<a_2<a_3\) lie in a closed arc of length \(\pi/3\), then each of the pairs \((a_i,a_j+2\pi/3)\) for \(i<j\) has short separation strictly above \(2\pi/3\). At equal odds \(c\) and unit radii, this forces its participating representatives onto the same physical edge. The three equal-edge constraints, for \((i,j)=(1,2),(1,3),(2,3)\), place the start and end of the middle crossing on the same edge, a contradiction. For any finite collection of \(n\ge3\) starts each sum of two consecutive circular gaps is therefore greater than \(\pi/3\). Summing gives \(4\pi>n\pi/3\), ruling out twelve starts even if the original collection was assumed infinite.
