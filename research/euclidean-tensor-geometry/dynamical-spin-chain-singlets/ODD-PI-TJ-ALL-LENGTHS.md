@@ -6,7 +6,7 @@ Consider the full local Hamiltonian of [Hagendorf §4.2](https://arxiv.org/abs/1
 \[
 \Delta_N(\zeta)=\min\left\{4+2t(1-\cos(\pi/N)),\ \lambda_{\min}(M_N(t))\right\},
 \]
-where \(M_N(t)=t A+\operatorname{diag}(6+2\zeta,8,\ldots,8,6-2\zeta)\), and \(A\) is the size-\(L\) Laplacian with weight 2 on each edge of the path and weight 1 on the edge joining the two ends (parallel to the path edge at \(L=2\)). The other \(\zeta\ne0\) cases at twists 0 and \(\pi\) are in [the original kernel and gap analysis](DEFORMED-TJ.md). This result does not assert the gap at arbitrary twists or uniqueness of the branch transition at every length.
+where \(M_N(t)=t A+\operatorname{diag}(6+2\zeta,8,\ldots,8,6-2\zeta)\), and \(A\) is the size-\(L\) Laplacian with weight 2 on each edge of the path and weight 1 on the edge joining the two ends (parallel to the path edge at \(L=2\)). The other \(\zeta\ne0\) cases at twists 0 and \(\pi\) are in [the original kernel and gap analysis](DEFORMED-TJ.md). The two branches cross exactly once at every odd length. This result does not assert the gap at arbitrary twists.
 
 The [circular exclusion argument](CIRCULAR-EXCLUSION-CYCLES.md#consequence-for-the-odd-pi-twisted-deformed-tj-chain) reduces the full gap to one-hole blocks. The [one-hole analysis](ODD-PI-TJ-GAP.md#one-hole-gauge-and-finite-matrix) gives the stated two candidates, from pure background and one minority spin. The [even-content argument](ODD-PI-TJ-FINITE-CERTIFICATES.md#analytic-even-content-exclusion-at-every-odd-length) excludes mixed even \(k\) at every length. Here we exclude all mixed odd \(3\le k\le L/2\). For \(7\le N\le41\), after the content comparison below, the [quick exact checker](verify-odd-pi-gap-three-minority.js) verifies just three-minority content at 18 odd lengths (36 interval certificates) using the [finite certificate inequalities](ODD-PI-TJ-FINITE-CERTIFICATES.md#odd-mixed-sectors). A slower companion independently tests every mixed content through 41. At \(N=3,5\) the [explicit small cases](ODD-PI-TJ-GAP.md#three-sites) apply. For \(N\ge43\), the proof below uses uniform analytic inequalities and does not enumerate lengths.
 
@@ -91,3 +91,25 @@ For \(s\ge4\), \(0<\eta\le93/173\), and the ratio of this bound to \(5/(s+4)\) i
 Both factors in square brackets are positive and decreasing on the indicated interval. The worst ratio is at \(s=4\), and \( (93/100)F(93/173)>5/8\) by direct rational substitution. This gives \(1-p_0(3)\ge 5/(s+4)\) for \(s\ge4\). For \(s\le4\), the bound \(\xi^2\ge93/40\) permits the same fixed choice \(\eta=93/173\), and gives \(1-p_0(3)\ge5/8\ge(1+s)/(4+s)\). Content monotonicity now rules out every higher odd sector. This completes the theorem.
 
 The earlier fixed [scalar-polynomial checker](verify-odd-pi-gap-all-lengths.js) is kept as an independent cross-check for the large-length inequality; the uniform proof above does not depend on it.
+
+
+## The two branches switch exactly once at every length
+
+For \(N=3\) the explicit formula gives the unique crossing [directly](ODD-PI-TJ-GAP.md#three-sites). For \(N\ge5\) take \(u=4/t\), \(\alpha=2(1-\cos(\pi/N))\), and \(a_0=2-\alpha\). Work with \((M_N-P_N I)/t\). Remove the field at the two ends temporarily, and use the even and odd subspaces of path reflection, with normalized endpoint coordinates \((e_1+e_L)/\sqrt2\) and \((e_1-e_L)/\sqrt2\). The endpoint diagonals are \(u/2+a_0\) and \(u/2+a_0+2\); each couples by \(-2\) to its respective interior coordinate. The endpoint field restores a single cross coupling of magnitude \(2|\zeta|/t\). The interior matrices are fixed matrices plus \(u I\) and are strictly positive even at \(u=0\). In fact setting the endpoint values to zero leaves the weight-2 path with Dirichlet endpoints, whose least eigenvalue is \(4(1-\cos(\pi/(L-1)))>\alpha\) before subtracting \(\alpha\). The sine eigenvectors give this value directly.
+
+After eliminating the interiors, let the two endpoint diagonals be \(u/2+X(u)\) and \(u/2+Y(u)\). Then \(X=a_0-4h_e(u)\), \(Y=a_0+2-4h_o(u)\), where \(h_e,h_o\) are the first diagonal entries of the positive interior resolvents. Both are strictly increasing since each \(h\) decreases strictly. Moreover \(Y(u)\ge2\): at \(u=0\) the seam edge alone contributes twice the squared odd endpoint coefficient, and the weight-2 path form dominates \(\alpha\) on the odd subspace. Indeed that subspace has sum zero and the first nonzero weight-2 path eigenvalue is \(4(1-\cos(\pi/L))>\alpha\). Taking the minimum over interior coordinates proves \(Y(0)\ge2\). At \(u=0\), \(X(0)<0\) by testing a constant nonzero vector in the even subspace before the interior elimination. As \(u\to\infty\), \(X(u)\to a_0>0\).
+
+Since \(4\zeta^2/t^2=u+u^2/4\), the remaining two-by-two determinant is
+\[
+(u/2+X)(u/2+Y)-u-u^2/4
+=(Y+u/2)\left[X+\frac{u(Y-2)}{2Y+u}\right].
+\]
+The bracket is strictly increasing in \(u\), as \(X\) is strictly increasing and the correction is nondecreasing in both \(u\) and \(Y\) for \(Y\ge2\). It starts negative at \(u=0\), and becomes positive for sufficiently large \(u\). Its unique zero decides positivity because the odd diagonal \(Y+u/2\) is positive. Therefore the pure-wave branch is the gap at weak coupling and the one-minority branch at strong coupling, with a unique tie. This also explains the uniqueness for the two previously computed small-length polynomials.
+
+
+For completeness the transition coupling \(t_*(N)\) satisfies \(t_*/N^2\to4/\pi^2\). At \(t\ge16L\), put \(\delta=32/L\) and compare \(M_N\) to \((8-\delta)I\). In the same reflection bases its diagonal blocks are \(tA_e+\delta I-2P_e\) and \(tA_o+\delta I-2P_o\), where \(P_e,P_o\) project onto the respective endpoint coordinate. The odd block is at least \((2t-2)P_o+\delta I\) by the seam term, so the Schur complement subtracts at most \(4(t+1)/(2t-2)\le6\) times \(P_e\) from the even block. For an even reflected vector \(f\) in full coordinates, the mean and the telescoping difference bound give
+\[
+2|f_1|^2\le 4\|f\|^2/L+4L\sum_{i=1}^{L-1}|f_i-f_{i+1}|^2
+\le 4\|f\|^2/L+2L\langle f,A_e f\rangle.
+\]
+Thus \(tA_e+\delta I-8P_e\succeq0\). Combined with the constant trial, \(8-32/L\le \lambda_{\min}(M_N)\le8-4/L\) on this range. At large \(N\), take \(t=(4-32/L)/\alpha\ge16L\); the pure wave is still no higher, giving \(4-32/L\le\alpha t_*\le4-4/L\). This proves the limit.
