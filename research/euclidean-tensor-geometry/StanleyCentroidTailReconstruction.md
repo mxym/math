@@ -53,3 +53,41 @@ For a radius-three center, each branch is a rooted height-at-most-two tree. At o
 Here is an explicit family not requiring a large leaf hub or a recognizable pendant anchor as in [the bridge theorem](./StanleyTreeRootExtraction.md#6-general-bridge-inversion-recognizable-paths-and-stars). Use branches of order 16, each with three child stars (their orders include their centers). Take one copy of the branch \((3,5,7)\) and two copies of \((4,5,6)\), and repeat this three-branch package \(k\) times at a common center. For \(k\ge3\), \(L=48k-16\ge128=4\cdot16\cdot2\); the theorem reconstructs this tree from \(X_T\). It is nonproper, diameter six, and has terminal twigs of edge length one. All vertices with pendant leaf neighbors lie far from a centroid and have a branch much larger than their leaf count.
 
 For comparison the three competing order-16 branches \((3,6,6),(4,4,7),(5,5,5)\), repeated \(k\) times, have the same multiset of child star sizes. This produces the same degree data, leaf adjacency data, edge endpoint degree counts and unordered one-edge split data, but different branch arrangement and a nonisomorphic tree. The new reconstruction uses the ordinary chromatic symmetric function beyond these local summaries; it does not claim uniqueness from those summaries.
+
+## 4. Linear thresholds from the first inverse moment
+
+At each descending size \(s\), once larger factors are removed, let \(P_A(t)=Q_A(t)|_{x_s=0}\) for size-\(s\) branches. Section 2 shows that the ordinary invariant determines the first inverse moment \(\sum_A m_A/P_A(t)\) through order \(L-s\), since it is \(t^{-s}\) times the \(x_s\) coefficient of the logarithm of the remaining product. Two specializations extract enough information from this moment alone.
+
+### Height at most three at a high-degree centroid
+
+**Theorem.** If \(n\ge3B\), the maximum degree \(d\) is greater than \(B\), and the centroid has eccentricity at most three, the tree is distinguished among all trees by \(X_T\). The degree condition is automatic if \(n\ge B^2+2\). Without it, the reconstruction still distinguishes within the class with centroid eccentricity at most three.
+
+First certify the height in any rival. Every vertex other than the centroid \(c\) has degree at most \(B\): its branch has at most \(B\) vertices and only its attachment edge can lead outside. Thus \(d>B\) identifies \(c\) by degree, and the edge endpoint degree counts of [Liu–Tang, Theorem 4.4](https://arxiv.org/html/2411.18972v2#S4.SS2) give \(H=\sum_{v\sim c}(\deg(v)-1)\). These counts are recoverable from \(X_T\) by [Aliste-Prieto–Martin–Wagner–Zamora](https://arxiv.org/abs/2402.10333) and Liu–Tang. Let \(k_e\) be each smaller cut side, and \(E=\sum_e(k_e-1)\). Since \(B<n/2\), the \(k_e\) are exactly the sizes of the sides away from \(c\). Edges with away endpoints at depth one contribute \(n-1-d\) to \(E\). Depth-two sides partition the vertices of depth at least two and occur \(H\) times, contributing \(n-1-d-H\). Therefore
+\[
+E-2(n-1-d)+H=\sum_{e\text{ with away endpoint at depth }\ge3}(k_e-1).
+\]
+This nonnegative sum vanishes precisely when every vertex has depth at most three: a depth-four vertex forces its depth-three ancestor to have a nontrivial away side. The left side is the same for every rival. Further, \(n-1\le dB\) at the centroid proves the automatic threshold.
+
+Every branch is now a rooted height-two tree, with child stars at its root. For \(s\ge2\), set \(x_1=0\) in the order-\(s\) moment and work modulo \(t^s\). The unrooted term \(t^s U(A)\) plays no role. A child star of order \(i\ge2\) contributes normalized attachment factor \(1+t^i x_i\), since cutting an edge in the child star isolates a leaf and the fully cut attachment gives \(t^i x_i\). A singleton child contributes 1. If \(a_i\) counts the children of order \(i\ge2\), this gives
+\[
+P_A(t)^{-1}\big|_{x_1=0}\equiv\prod_{i=2}^{s-1}(1+t^i x_i)^{-a_i}\pmod{t^s}.
+\]
+Here \(\sum_i i a_i\le s-1\); the unrecorded singleton children number \(s-1-\sum_i i a_i\). For each exponent vector \(\alpha\) with \(\sum_i i\alpha_i\le s-1\), the coefficient of \(t^{\sum i\alpha_i}\prod x_i^{\alpha_i}\) gives the sum of products \(\prod_i\binom{a_i+\alpha_i-1}{\alpha_i}\) with the common sign removed. For \(\alpha_i=0\) this factor is 1. Triangular polynomial change of basis in each coordinate replaces these by \(\prod_i\binom{a_i}{\alpha_i}\) without increasing the weighted degree. These moments determine multiplicities by descending weight: the product is zero unless \(a_i\ge\alpha_i\) for every \(i\), and equals 1 at \(a=\alpha\). Since \(L-s\ge s-1\) under \(n\ge3B\), all required moments are known. Size-one branches come from the \(t x_1\) coefficient after larger sizes have been removed. Descending across all sizes reconstructs the tree.
+
+For a nonproper diameter-six example take 17 branches of order 16 attached at their roots to one center. Include all seven triples of child-star orders summing to 15 with every order at least 3, and fill the other positions with repeats. Here \(n=273\), \(B=16\), \(d=17\) and \(L=256\); the bound in Section 2 depending on the number of types would ask for \(L\ge448\).
+
+### Signed specialization and nearly-star branches
+
+**Theorem.** Suppose \(B\ge2\) and \(n\ge3B-1\). If each centroid branch is either a path rooted at an endpoint or has at most one nonroot vertex that is not a leaf, the tree is distinguished among all trees. The types can be arbitrarily mixed.
+
+For a branch of order \(s\ge2\), set all \(x_i=-1\) for \(i<s\) and \(x_s=0\). Let \(\ell(A)\) be its number of nonroot leaves. Group the rooted terms by the root component \(S\). The signed sum over cuts in its complement is zero if that complement contains an edge: toggling such an edge changes the parity of the component count. Otherwise the complement consists of original nonroot leaves, since it is independent and each vertex must have one neighbor in the connected \(S\). Every subset of nonroot leaves is allowed. Thus the normalized rooted factor specializes to \((1-t)^{\ell(A)}\). Also \(U(A)\) vanishes at all \(x_i=-1\) by the same parity cancellation; replacing \(x_s=-1\) by 0 removes its unique uncut term, leaving 1. It follows that
+\[
+P_A(t)=(1-t)^{\ell(A)}+t^s
+\]
+at the specified values. Through order \(s-2\) the first inverse moment therefore gives \(\sum_A m_A\binom{\ell(A)+j-1}{j}\) for \(0\le j\le s-2\). These polynomials in \(\ell\) have exact degrees \(0,\ldots,s-2\) and form a basis on the \(s-1\) possible values \(1,\ldots,s-1\). Hence the full leaf-count histogram of each size \(s\) is distinguished at its descending reconstruction step. The precision is available since \(L-s\ge s-2\).
+
+The target's histogram restricts its rival to \(\ell\in\{1,s-2,s-1\}\). For \(\ell=1\) there is only the endpoint-rooted path and for \(\ell=s-1\) only the center-rooted star. Sizes two and three are thereby settled. For \(s\ge4\), subtract the known types' unspecialized inverse contributions. In a remaining branch with \(\ell=s-2\), the sole off-root nonleaf is adjacent to the root, and its away side has size \(k\in[2,s-1]\). For each \(2\le k\le s-2\), the coefficient of \(t^k x_k\) of the remaining unspecialized moment is minus the count of branches with this away size: a term linear in \(x_k\) in the inverse comes from a single detached component, and only that one edge can have away size \(k\ge2\). Determine the \(k=s-1\) count from the total. This reconstructs all branches at size \(s\), so one can divide them out and descend.
+
+For example, for each \(B\ge7\) attach one branch of order \(B\) for each off-root star order \(k=3,\ldots,B-2\), filling with singleton children at each branch root. This gives \(n=1+B(B-4)\ge3B-1\), diameter six, and centroid degree \(B-4<B\). The high-degree hypothesis is not needed here.
+
+The identities were also checked exactly on finite labeled-tree and branch-mixture examples. Neither criterion treats arbitrary diameter-six trees.
