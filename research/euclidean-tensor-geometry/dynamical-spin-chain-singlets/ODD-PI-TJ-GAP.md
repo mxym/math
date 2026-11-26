@@ -18,7 +18,8 @@ P_N(t)=4+2t(1-\cos(\pi/N)).
 \min\!\left(\zeta^2+3,\ 3(\zeta^2+1)-\sqrt{4\zeta^2+9(\zeta^2-1)^2}\right).
 \]
 The crossover is at \(\zeta^2=9/5\).
-- At \(N=5\) the gap equals the smaller of \(P_5(t)\) and the smallest eigenvalue of the four-dimensional one-minority matrix above, at **every** coupling. The two branches cross just once, at \(t\approx5.67570853\), equivalently \(|\zeta|\approx2.58373925\). The exact cubic for the crossover is below. The corresponding all-coupling formula at general odd \(N\) remains open.
+- At \(N=5\) the gap equals the smaller of \(P_5(t)\) and the smallest eigenvalue of the four-dimensional one-minority matrix above, at **every** coupling. The two branches cross just once, at \(t\approx5.67570853\), equivalently \(|\zeta|\approx2.58373925\). The exact cubic for the crossover is below. 
+- At \(N=7\) the same two-branch description holds with the six-dimensional one-minority matrix. Its unique crossover is at \(t\approx13.79749431\), equivalently \(|\zeta|\approx3.84675114\). General odd \(N\ge9\) remains open.
 
 ## One-hole gauge and finite matrix
 
@@ -128,3 +129,50 @@ Here \(V>0\) for \(t\ge0\). Multiplying \(UV-4(1+t)\) by the two positive denomi
 64u+(144u-16)t+(56u-4)t^2-(9u+8)t^3.
 \]
 The cubic has one sign change and hence exactly one positive root (it is positive at zero and tends to \(-\infty\)). Below that root \(M(t)-P_5(t)I\) is positive definite by the Schur complement, at it the lowest eigenvalue is \(P_5(t)\), and above it the determinant sign gives a negative direction. This identifies the winning branch everywhere.
+
+
+## Seven sites: exact two-branch formula and crossover
+
+For \(N=7\), \(L=6\), the one-hole content sectors are the pure backgrounds, the one-minority sectors, mixed even \(k=2,4\), and mixed odd \(k=3\). The first two groups give \(P_7(t)\) and the lowest eigenvalue of the six-dimensional matrix \(M_7(t)\). We rule out the last two groups from improving the minimum. The nonlinear polynomial signs below use only exact integer coefficient tests, with a [reproducible checker](verify-seven-site-gap.js).
+
+**Even mixed contents.** By symmetry take \(k=2\). Apply the five-site rank-one reduction with the same normalized kink line \(\phi\) but \(g=4+(2-\sqrt3)t\) from the finite XXZ gap for \(L=6\). Let \(\alpha=2(1-\cos(\pi/7))\). The \(q=\pm\pi/7\) blocks are covered above. For each remaining \(q\), the bad rotation eigenspace (where \(a_q<\alpha\)) has a single eigenphase. For \(q=3\pi/7,5\pi/7,\pi\), the smallest angular distances to a rotation phase are \(2\pi/21,\pi/21,0\), and the next smallest distances are \(5\pi/21,2\pi/7,\pi/3\), respectively. Negative momenta give conjugate phases. For \(b=\alpha-a_{\rm bad}\) and \(d=\min_{\rm good}(a_q-\alpha)\), the threshold \(d(1-bt/g)/(b+d)\) exceeds \(1/5\) in all three cases. For example the elementary cosine bounds \(x^2-x^4/12\le2(1-\cos x)\le x^2-x^4/12+x^6/360\) for \(0\le x\le1\), together with \(3.14<\pi<22/7\), give \(\alpha<199/1000\). For the first two momenta they give \(b<0.12,d>0.3\) and \(b<0.18,d>0.54\), respectively. Using \(2-\sqrt3>0.267\) makes both thresholds \(>1/5\); at \(q=\pi\) the threshold is \(>(1-0.199)(1-0.199/0.267)>1/5\).
+
+For the overlap set \(x=\nu^2\) and \(Z=\sum_w\nu^{2\mathrm{inv}(w)}\) over all fixed-content words. The three nontrivial rotation phase types have arguments \(\pm\pi/3,\pm2\pi/3,\pi\), and the coefficient lists of \(12Z(1-5p_r)\), where \(p_r\) is the squared projection of \(\phi\) on the corresponding eigenspace, are respectively
+\[
+\begin{split}
+&(2,-8,14,44,76,44,14,-8,2),\\
+&(2,12,34,24,36,24,34,12,2),\\
+&(2,22,14,44,16,44,14,22,2)
+\end{split}
+\]
+in ascending powers of \(x\). Indeed a rotation projector is the character average over the six rotations; multiplying its cosines by 2 yields integers, and rotation changes inversion number by an even integer at \(k=2\). The first list is positive on \([0,1]\) by grouping the two end quadratics \(2-8x+14x^2\) and \(x^6(14-8x+2x^2)\), both positive when their prefactor is nonzero; the rest have positive coefficients. Thus \(p_r\le1/5\) and the even mixed blocks exceed \(P_7\).
+
+**Odd content \(k=3\).** Positivity reduces this sector to \(q=0\). Here the hopping \(2I-R-R^{-1}\) has gap at least 1 above the invariant subspace; let \(\Pi_0\) project onto that subspace. With \(x=\nu\), so \(t=4x/(1-x)^2\), put \(A=15-26x+15x^2\) and \(g=t A/(15x)=4+4t/15\). Since \(2-\sqrt3>4/15\), this \(g\) is a lower bound for the kink gap, and hence
+\[
+H_3(0)-4I\succeq g(I-|\phi\rangle\langle\phi|)+t(I-\Pi_0).
+\]
+For \(0<T<\min(g,t)\), the operator on the right exceeds or equals \(TI\) whenever
+\[
+g t(1-p_0)\ge T(g+t-T),\qquad p_0=\|\Pi_0\phi\|^2.
+\]
+This follows by the same positive diagonal minus one rank-one operator criterion, splitting into \(\Pi_0\) and its orthogonal complement. Let \(Z=\sum_w x^{2\mathrm{inv}(w)}\) on the 20 words, and \(D=6 Z(1-p_0)=6Z-\sum_{w,j}x^{\mathrm{inv}(w)+\mathrm{inv}(R^j w)}\), with \(0\le j<6\). For \(0<x\le5/8\), take \(T=t/5\), which exceeds \(\alpha t\) and is below \(g,t\). The criterion becomes
+\[
+p(x)=5AD-6Z(A+12x)>0.
+\]
+For \(5/8\le x<1\), take \(T=10/3\), again below \(g,t\). It is an upper bound on the excess of \(\lambda_{\min}(M_7)\) above 4 by the constant trial on the one-minority matrix. The criterion now becomes
+\[
+q(x)=2xAD-ZB(2A+30x-5B)>0,\qquad B=5(1-x)^2 .
+\]
+For an exact sign certificate, substitute \(x=5y/(8+8y)\) in \(p\) and multiply by \((8+8y)^{20}\); all coefficients are positive. Substitute \(x=(5+8y)/(8+8y)\) in \(q\) and multiply by \((8+8y)^{22}\); the coefficients in degrees 0 through 20 are positive and the two above are zero. These are the integer identities checked by the attached script, which explicitly enumerates each word and its rotations and applies the binomial expansion. For \(x=5/8\) the second certificate applies at \(y=0\). This proves \(H_3(0)\) is strictly above at least one of the two candidate branches at every coupling.
+
+**Unique crossover.** Write \(a=2\cos(\pi/7)\), so \(a^3=a^2+2a-1\) and \(1<a<2\). In the even and odd reflection bases, the two tridiagonal blocks of \(M_7(t)-P_7(t)I\) have diagonals
+\[
+(2+at,\,4+(a+2)t,\,4+at),\qquad
+(2+(a+2)t,\,4+(a+2)t,\,4+(a+4)t)
+\]
+and subdiagonal \(-2t\). Their two endpoint coordinates are joined by \(2\zeta\) up to sign. The interior \(2\)-by-\(2\) blocks are positive since their diagonal entries are positive and the determinant coefficients are respectively \((16,8+8a,-4+2a+a^2)\) and \((16,24+8a,4+6a+a^2)\) (here \(a>9/5\)). The determinant of the odd isolated \(3\)-by-\(3\) block has positive coefficients \((32,80+32a,40+52a+10a^2,-9+14a+9a^2)\), so its effective endpoint diagonal is positive. Expansion using the minimal polynomial gives the determinant of the whole matrix as \(t\) times the quintic with coefficients
+\[
+(1024a,\,-1024+2560a+1280a^2,\,-2688+1792a+3200a^2,\,
+-1888+288a+2208a^2,\,-188+68a+272a^2,\,-6+43a-51a^2)
+\]
+in ascending order. Its signs are \(+,+,+,+,+,-\). Descartes and continuity give exactly one positive root. The Schur complement has a positive odd endpoint diagonal, so the determinant sign decides whether \(\lambda_{\min}(M_7(t))\) is above or below \(P_7(t)\), with equality at the root. This establishes the full seven-site claim.
