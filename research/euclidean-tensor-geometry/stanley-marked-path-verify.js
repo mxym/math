@@ -45,3 +45,23 @@ for(let run=0;run<100;run++){
  }
 }
 console.log(JSON.stringify({flipTests:ntry,valid:ls}));})();
+
+(()=>{function fixture(L){
+const v=[6,12,6,6,6], E=[[0,1],[1,2],[2,3],[3,4]];let n=5;
+for(let i=0;i<5;i++){let b=v[i]-1-L[i],a=L[i]-b;for(let j=0;j<a;j++)E.push([i,n++]);for(let j=0;j<b;j++){const k=n++;E.push([i,k],[k,n++]);}}
+const small=new Map();let goal=0;
+function run(mask,disabled){
+ const par=Array.from({length:n},(_,i)=>i);
+ const rt=i=>{while(i!==par[i])i=par[i];return i;};
+ E.forEach(([a,b],i)=>{if((i<4?((mask>>i)&1):disabled.includes(i)))return;par[rt(a)]=rt(b);});
+ const h=new Map;for(let i=0;i<n;i++){let j=rt(i);h.set(j,1+(h.get(j)||0));}
+ const p=[...h.values()].sort((a,b)=>a-b), key=p.join(",");
+ if(key==="1,2,15,18")goal++;
+ if(p.reduce((s,x)=>s+(x<=2?x:0),0)<=2)small.set(key,(small.get(key)||0)+1);
+}
+for(let z=0;z<16;z++){run(z,[]);for(let i=4;i<E.length;i++){run(z,[i]);for(let j=i+1;j<E.length;j++)run(z,[i,j]);}}
+return [JSON.stringify([...small].sort()),goal,small.size];
+}
+const left=fixture([3,7,4,3,4]),right=fixture([4,7,3,4,3]);
+if(left[0]!==right[0]||left[1]!==94||right[1]!==95)throw Error(JSON.stringify([left[1],right[1]]));
+console.log(JSON.stringify({sameLowMonomials:left[2],first:left[1],second:right[1]}));})();
