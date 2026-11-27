@@ -62,7 +62,7 @@ for(let d=12;d<=14;d++){
  if(upper>17*(d-1)+2)throw Error("line union bound");
  boundLines[d]=upper;
 }
-const W=1124,C=36,P=307,Q=12227;
+const W=1124,C=36,P=307,Q=12252;
 const u=18*W*W-C*W*P,v=Q*P-W*W;
 if(u<=0||v<0||BigInt(u)**2n<=17n*BigInt(v)**2n)throw Error("weight mixing");
 console.log({quadraticTuples:ns,maxSquare:S,boundLines,u,v});
