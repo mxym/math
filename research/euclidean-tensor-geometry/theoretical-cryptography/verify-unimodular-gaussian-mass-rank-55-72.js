@@ -79,7 +79,7 @@ function proj(n,r,a,shadow){
     let U=residual(d,L);
     if(shadow&&C(L,I)>0n)U*=2n;
     if(!shadow&&!k&&!b&&C(L,I)>0n){
-      const j=2*(Number(floor(L))-1); // here L is the original integer a=4 or 6
+      const j=2*Number(floor(L))-1; // includes the allowed inner product zero
       const antipodal=2n*ch(d+j-1,j);
       if(d&&antipodal<U)U=antipodal;
     }
