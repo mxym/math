@@ -1,5 +1,0 @@
-import EffectiveEncoding.Extraction
-import EffectiveEncoding.AngleEvaluation
-import EffectiveEncoding.Normalized
-import EffectiveEncoding.FiniteLabels
-import EffectiveEncoding.NumericalTerminal
