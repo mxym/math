@@ -1,5 +1,0 @@
-# Sharpness at n = 8
-
-For n=8, r=5, take the first seven labels as elements of Z/7Z in processing order 0 to 6, with one unassigned label infinity. At label i choose the degree-5 monomial complementary to the triple {i,i+1,i+3} (offsets modulo 7). The six ordered differences of {0,1,3} are all six nonzero residues; therefore every unordered pair of old labels lies in exactly one of the seven triples. In particular, each label's designated pair is private at every step and no choice invalidates any previously designated pair. Thus the prefix is genuinely obtainable by Algorithm 1, not just an abstract partial triple system.
-
-At infinity the complement of any possible candidate is {infinity,a,b}; all 21 possibilities have their pair {a,b} in an already selected triple and none is an existing triple containing infinity. Step 10 of the original algorithm rejects all 21. The dichotomy n>=9 guarantees success but n=8 can fail is therefore sharp as a threshold. We make no new complexity claim or classification of inputs below 8.
