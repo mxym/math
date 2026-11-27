@@ -1,6 +1,6 @@
-# Exact affine distance of the eight-bit Gold map \(x^3\)
+# Independent certificate for the eight-bit Gold map \(x^3\)
 
-## Result
+## Status: reproduced known exact value
 
 Let
 
@@ -16,8 +16,17 @@ and let \(F:K\to K\) be the Gold APN map \(F(x)=x^3\). If
 \boxed{d_H(F,\mathcal A)=240.}
 \]
 
-This is a standalone mathematical statement about a vectorial Boolean
-function. It is not an attack on a deployed primitive.
+This value is **not new**. Biryukov, Tureček, and Udovenko's EUROCRYPT
+2026 work [*Algorithmic Toolkit for Linearization of
+S-boxes*](https://eprint.iacr.org/2026/913) computes provably optimal
+linearizations for S-boxes of at most eight bits. Their public
+[monomial result table](https://github.com/cryptolu/sbox_linearization/blob/main/summary_logs_monomial.txt#L217)
+records size 16 for n8_monomial3, which is the same distance
+\(256-16=240\).
+
+This directory gives only a small, readable, dependency-free
+**independent witness and verifier**. It is not a new theorem, a
+cryptanalytic attack, or a result that should receive a release or DOI.
 
 ## Proof
 
@@ -92,19 +101,19 @@ The script certifies the explicit upper-bound witness. The lower bound is
 the cited published theorem, not a computational assumption in the
 script.
 
-## Prior-art check and scope
+## Prior-art boundary
 
-Nagy's 2025 theorem states the exact value
-\(d_H(x^9,\mathcal A)=238\), but for the other eight-dimensional APN
-power exponents states only the lower bound \(d_H(x^d,\mathcal A)\ge240\).
-Searches through 27 November 2026 did not locate an earlier public
-16-agreement witness or an exact-value statement for the \(x^3\) case.
-This repository therefore makes the narrow claim that the explicit
-witness closes that published interval; it does not make an absolute
-priority claim.
+The exact value 240 and optimal agreement size 16 were already public in
+the EUROCRYPT 2026 work cited above. The explicit matrix in this directory
+is an independently generated reproducibility witness. Nagy's 2025 lower
+bound plus this witness gives a short independent proof of optimality.
 
-Primary source:
+Primary sources:
 
+- A. Biryukov, P. Tureček, A. Udovenko,
+  [*Algorithmic Toolkit for Linearization of
+  S-boxes*](https://eprint.iacr.org/2026/913), EUROCRYPT 2026,
+  DOI 10.1007/978-3-032-25333-0_9.
 - G. P. Nagy,
   [*On the minimum Hamming distance between vectorial Boolean and affine
   functions*](https://arxiv.org/abs/2503.03905),
