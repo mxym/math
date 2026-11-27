@@ -1,0 +1,9 @@
+# Perfectly private quantum function sharing from locally sampled tables
+
+A classical dealer can distribute an L-bit quantum-circuit index to `p=Lt+1` separate quantum evaluators so that **any coalition of at most t holds identically distributed shares for all circuit choices**. Given local copies of the same quantum input and access to the specified projector, the evaluators send classical replies. A polynomial-time classical decoder, with no copy of the state, no secret index, and no dealer tape, estimates the desired circuit probability to additive error eta with failure probability at most `2^-lambda`.
+
+The evaluator enumerates the public finite circuit family. Shared randomized quantization brings the independent empirical tables into exact entrywise agreement for most offsets. Standard polynomial multi-server PIR then applies to those common tables, and a median handles the other offsets. An evaluator samples its table only once, so the main variant needs `O(eta^-2 2^(3L) (lambda+L+log p))` copies per party and `O(lambda)` field-element replies. The exponential circuit-description cost is intentional and explicit; the claim is perfect privacy, finite resources, and efficient classical reconstruction, not an efficient quantum evaluator.
+
+This is a positive alternative in the decisional share-space interface of Grilo–Movassagh §3.1 and §1.1.3. It implements probabilities, not arbitrary output states, and has honest-evaluation correctness only. It uses no new classical PIR primitive. See [proof](PROOF.md) and [source/overlap audit](SOURCES.md).
+
+Run `./replay.sh` with Python 3.8+ and standard shell utilities. The first checker enumerates coalition views and reconstructions over small characteristic-two fields. The independent checker tests rational quantization, finite-sample bounds, and end-to-end good-offset recovery with a separate prime-field interpolation method. They are finite verifications, not replacements for the proof.
