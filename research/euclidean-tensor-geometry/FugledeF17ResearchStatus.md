@@ -18,4 +18,4 @@ The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) alrea
 
 ## Partial progress at size 51
 
-[The degree-six reduction](FugledeF17Size51MomentSix.md) gives vanishing moments through degree six, affine plane cap nine, and uniform-pencil cap ten. A [weighted and unweighted incidence comparison](FugledeF17Size51NoSexticMember.md) further forces both members to have maximum profile degree seven, eight, or nine. Size 51 is not excluded yet.
+[The degree-six reduction](FugledeF17Size51MomentSix.md) gives vanishing moments through degree six, affine plane cap nine, and uniform-pencil cap ten. A [weighted and unweighted incidence comparison](FugledeF17Size51NoSexticMember.md) further forces both members to have maximum profile degree seven, eight, or nine. The [stronger pencil bound](FugledeF17Size51PencilCapEight.md) limits each uniform pencil to eight sites and forces at least one genuine degree-eight or degree-nine profile. Size 51 is not excluded yet.
