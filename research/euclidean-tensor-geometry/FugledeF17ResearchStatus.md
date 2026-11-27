@@ -23,4 +23,4 @@ The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) alrea
 
 ## Partial progress at size 34
 
-[The initial reduction](FugledeF17Size34InitialReduction.md) rules out full planes, gives affine plane cap eight and uniform-pencil cap eight, and proves the first four mixed moments must vanish. Size 34 is not excluded yet.
+[The initial reduction](FugledeF17Size34InitialReduction.md) rules out full planes, gives affine plane cap eight and uniform-pencil cap eight, and proves the first four mixed moments must vanish. The [sharper pencil and plane bounds](FugledeF17Size34PencilCapSeven.md) improve the caps to seven and six, respectively, and [the degree-five argument](FugledeF17Size34MomentFive.md) adds fifth moment vanishing. Size 34 is not excluded yet.
