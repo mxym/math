@@ -1,0 +1,7 @@
+# Sharp termination boundary for Algorithm 1 at r = n−3
+
+This note gives a proof that the construction of [Carlet, Feukoua, and Sălăgean (2025)](https://doi.org/10.1007/s10623-025-01702-z) never requires backtracking in the entire n >= 9, r = n−3 range left out of their Proposition 6. See Algorithm 1, its selection loop (lines 4–17), and Remark 2. The proof is a combinatorial statement about every possible legal prefix; it uses no output from a finite classification or computation. SHARPNESS.md gives a failure at n=8, showing that the dimension cutoff cannot be lowered to 8. No resolution of the separate basis-coverage problem or new complexity estimate is claimed.
+
+Run `python3 -B check_boundary.py` to verify the lower-bound example directly in the original monomial algorithm and run a small finite smoke test. For the all-dimensional result read PROOF.md.
+
+Priority screen (2026-11-27): checked the original journal paper and arXiv:2409.20211, the follow-up vectorial degree-stability paper arXiv:2504.03307, and searches combining the authors' names with FunctionWithoutDegreeDrop, backtracking, r=n−3, degree-drop hyperplanes and Algorithm 1. No earlier resolution of this precise parameter gap was located. The original authors do not assert failure; this supplies a guarantee in an excluded family, not a correction to their proved Proposition 6. The Fano plane and its elementary difference-set construction are classical.
