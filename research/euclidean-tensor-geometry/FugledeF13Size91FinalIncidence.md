@@ -1,5 +1,7 @@
 # No 91-point spectral subset of \(\mathbb F_{13}^3\): final incidence contradiction
 
+> Follow-up: the [separate size-78 proof](FugledeF13Size78FinalDivisibility.md) now excludes that size too. The remaining candidates are 26, 39, 52 and 65.
+
 Continue from the [geometric stage](FugledeF13Size91Geometric.md) and [weighted-profile stage](FugledeF13Size91WeightedProfiles.md). Write \(u_B,c_B,r_B\) for the number of \(U,C,R\) projective normal directions of \(B\), respectively. Its projective nonuniform set is \(V_B=C_B\cup R_B\). The weight sum of 567 gives \(21c_B+7r_B=567\), so
 \[
  r_B=81-3c_B,\quad
