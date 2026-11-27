@@ -8,7 +8,7 @@ These are partial results for the three-dimensional vector space over the field 
 | 204, 187 | [Moment and quadratic-profile exclusions](FugledeF17Sizes187204.md) |
 | 170 | [Tight-pencil weight obstruction](FugledeF17Size170.md) |
 | 153 | [Moment rigidity](FugledeF17Size153MomentEleven.md) and [two-layer exclusion](FugledeF17Size153TwoLayersFinal.md) |
+| 136 | [Degree-nine moments](FugledeF17Size136MomentNine.md) and [final geometric and weighted exclusion](FugledeF17Size136Final.md) |
 
-The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) already excludes \(238,255,272\). Using the standard dimension-three spectral cardinality reduction, the remaining non-prime-power candidate sizes in \(\mathbb F_{17}^3\) are \(34,51,68,85,102,119,136\).
+The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) already excludes \(238,255,272\). Using the standard dimension-three spectral cardinality reduction, the remaining non-prime-power candidate sizes in \(\mathbb F_{17}^3\) are \(34,51,68,85,102,119\).
 
-At size 136, [all moments through degree nine vanish](FugledeF17Size136MomentNine.md), but the cardinality has not been excluded.
