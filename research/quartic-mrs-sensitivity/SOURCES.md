@@ -1,0 +1,7 @@
+# Sources and scope
+
+* Yuan Li and Jing Zhang, [Sensitivity of Rotation Symmetric Boolean Functions via Binary Necklaces](https://arxiv.org/pdf/2610.17006v2), 8 Nov. 2026, §7 (previous results for odd and quadratic degrees and consecutive supports), §10 (explicit further question for quartic supports with arbitrary offsets and short orbits). We use their distinct-orbit convention. They determine the consecutive quartic case, not the two shapes treated here.
+* Yuan Li and Jing Zhang, [Block Sensitivity and Certificate Complexity of Rotation Symmetric Boolean Functions](https://arxiv.org/abs/2610.17100), 2026. Their companion gives results for the consecutive quartic family and the other stated measures; it is not a source for the two formulas here.
+* Sergei Sergeev and Hans Schneider, [CSR expansions of matrix powers in max algebra](https://arxiv.org/abs/0912.2534), for the classical max-algebra cyclicity theorem. General eventual periodicity of normalized max-plus powers is not new; we apply it (and give an elementary proof for this graph) to local sensitivity. The explicit exact slope, period and small-length values for the two nonconsecutive supports are the claims here, not a new principle of max-plus algebra.
+
+Priority screen through 2026-11-27 used the source title, author names, quartic support/offset strings and “nonconsecutive”/“max-plus”/“sensitivity.” No source found with the two exact formulas. This is a scoped cross-check, not proof of priority.
