@@ -2,6 +2,8 @@
 
 **Theorem.** No subset of F_17^3 with 119 points is spectral. This assertion is specific to cardinality119; smaller remaining candidates are not addressed here.
 
+**Prior-art clarification.** The [classical cyclotomic determinant obstruction](FugledeCyclotomicDeterminantObstruction.md) already excludes cardinality 119. The geometric argument below is an independent proof for that cardinality.
+
 The proof uses [FugledeF17Size119MomentNine.md](FugledeF17Size119MomentNine.md) for at most one layer and the degree-nine moment vanishing, and [FugledeF17Size119MomentEleven.md](FugledeF17Size119MomentEleven.md) for eliminating higher occupancy degrees five and six. Thus all reduced occupancy profiles have degree at most four. The standalone [verify-fuglede-f17-size119-weighted.js](verify-fuglede-f17-size119-weighted.js) is the arithmetic checker for both the high-degree step and this endgame.
 
 For each member B, let w_B be its normal weight vector (plane pair counts minus357, then divided by17). Its positive support V_B is the nonuniform set and sum of weights W=987. Every opposite nonuniform vertex neighbors weights of total C=35 in the projective polarity-incidence graph. Such a neighbor pencil is tight. A layer has weight35 and is alone in every tight pencil meeting it. A nonconstant affine profile is impossible because its least residue mass136 exceeds119. A constant nonuniform residue profile must be a layer.

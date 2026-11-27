@@ -2,6 +2,8 @@
 
 **Theorem.** There is no spectral subset of F_17^3 of size 221. This leaves the other cardinalities untouched.
 
+**Prior-art clarification.** The [classical cyclotomic determinant obstruction](FugledeCyclotomicDeterminantObstruction.md) already excludes cardinality 221. The geometric argument below is an independent proof for that cardinality.
+
 Assume a spectral pair (E,A) of size 221=13·17. A Fourier zero gives uniform occupancy thirteen across its seventeen perpendicular affine planes, by irreducibility of the seventeenth cyclotomic polynomial. Thus D(B)⊂U_{B'} for the two members B,B', with D the difference directions and U the uniform normals. The standard affine plane cap is seventeen: a plane with ≥18 sites determines all 18 directions of its projective line and so yields a completely uniform pencil for the other member. Such a pencil is impossible because an affine line with a member sites has incident-plane occupancy sum 221+17a, which cannot equal 18·13. These are the general odd-prime reductions in [Ferguson–Iosevich, Lemma 8.2](https://arxiv.org/html/2610.30712v1), as used for p=11.
 
 If every projective line has at least r uniform normals, the incident planes through any affine line have at least r occupancies of thirteen and all other occupancies at most seventeen. Hence every affine line in either member has cap floor((85−4r)/17). Initially r≥1, since the partner contains more than seventeen points, so for any affine-line direction d two partner sites have equal dot product with d and furnish a uniform normal in d^⊥. This gives initial affine line cap4.

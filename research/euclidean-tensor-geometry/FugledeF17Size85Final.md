@@ -2,6 +2,8 @@
 
 **Theorem.** There is no spectral subset of F_17^3 of size85=5·17.
 
+**Prior-art clarification.** The [classical cyclotomic determinant obstruction](FugledeCyclotomicDeterminantObstruction.md) already excludes cardinality 85. The geometric argument below is an independent proof for that cardinality.
+
 Suppose there is a spectral pair. Prior size85 deductions give M9, at most sixteen sites on each affine plane, no profiles of degree one or two, and all nonconstant reduced occupancy profiles have degrees at most six. Use the degree-nine proof in [FugledeF17Size85MomentNine.md](FugledeF17Size85MomentNine.md) and its prerequisites. For a member write V for its nonuniform plane normals, and w=(Σ g(t)^2−425)/34 for the corresponding integer profile weights. The total weight is W=710, and every tight pencil (the polarity neighborhood of a nonuniform normal of the other member) has total weight C=30. Each member's uniform normal set has at most twelve sites on any projective line, so every tight pencil has at least six positives. If b is the number of positive profiles on a tight pencil, the Radon Vandermonde argument bounds profile degrees by b−2.
 
 ## Norm bounds and support intervals

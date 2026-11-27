@@ -2,6 +2,8 @@
 
 **Theorem.** There is no spectral set in F_17^3 of cardinality 187 or 204. This does not settle the other candidate cardinalities.
 
+**Prior-art clarification.** The [classical cyclotomic determinant obstruction](FugledeCyclotomicDeterminantObstruction.md) already excludes cardinality 187. The geometric argument below is an independent proof for that cardinality. This clarification does not concern size 204.
+
 For either hypothetical member B of size17m, put D(B) for its difference directions and U_B for normals of uniform plane occupancy m. The general preliminaries in [FugledeF17Size221CapBootstrap.md](FugledeF17Size221CapBootstrap.md) apply: D(B) lies in the other member's U, affine planes have cap17, and no U contains a full projective line. At least one normal on every projective line is uniform. If r uniform normals is guaranteed on every projective line of both members, the pencil through any affine line of occupancy a satisfies
 ```
 17m+17a ≤ rm+(18−r)17.

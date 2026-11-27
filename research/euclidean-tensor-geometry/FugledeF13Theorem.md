@@ -2,6 +2,8 @@
 
 **Theorem.** Every nonempty subset of the three-dimensional vector space over \(\mathbb F_{13}\) is spectral if and only if it tiles by translations. This is about this particular finite vector space, not Euclidean space or arbitrary primes or dimensions.
 
+**Prior-art clarification.** The [classical cyclotomic determinant obstruction](FugledeCyclotomicDeterminantObstruction.md) already excludes sizes 65, 91, and 143. The proofs recorded here for 65 and 91 are independent alternatives; size 143 is also covered by the large-size bound. This does not change the theorem or the validity of its proof.
+
 ## Reductions and proof map
 
 We use the standard cardinality reduction for prime fields in dimension three, stated in [Ferguson and Iosevich, §8](https://arxiv.org/html/2610.30712v1) and originating in [Aten et al.](https://doi.org/10.1016/j.jfa.2016.10.018). Any tile is spectral. Spectral sets of size \(1,13,169,2197\) tile, and the only other candidate sizes are \(13m\), \(2\le m\le12\). The [linear programming bound of Malikiosis](https://doi.org/10.1007/s43670-023-00078-2) excludes sizes \(130,143,156\), since \(169-12\sqrt{13}<130\). The remaining exact exclusions are:

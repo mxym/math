@@ -1,6 +1,6 @@
 # Fuglede over \(\mathbb F_{17}^3\): verified cardinality exclusions
 
-These are partial results for the three-dimensional vector space over the field of order 17, continuing the finite-field direction of [Ferguson and Iosevich](https://arxiv.org/abs/2610.30712). They do not solve the full conjecture for this field.
+These results, together with the classical exclusions cited below, narrow the remaining case for the three-dimensional vector space over the field of order 17, continuing the finite-field direction of [Ferguson and Iosevich](https://arxiv.org/abs/2610.30712). They do not solve the full conjecture for this field.
 
 | Spectral cardinalities excluded | Proof and exact verifiers |
 |---:|---|
@@ -13,9 +13,10 @@ These are partial results for the three-dimensional vector space over the field 
 | 102 | [Degree-nine moments](FugledeF17Size102MomentNine.md) and [weighted degree-and-support obstruction](FugledeF17Size102Final.md) |
 | 85 | [Degree-nine moments](FugledeF17Size85MomentNine.md) and [weighted and unweighted incidence obstruction](FugledeF17Size85Final.md) |
 | 68 | [Degree-eight moments and plane cap twelve](FugledeF17Size68MomentEight.md) and [final incidence obstruction](FugledeF17Size68Final.md) |
+| 51 | [Classical cyclotomic determinant obstruction](FugledeCyclotomicDeterminantObstruction.md) |
 
-The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) already excludes \(238,255,272\). Using the standard dimension-three spectral cardinality reduction, the remaining non-prime-power candidate sizes in \(\mathbb F_{17}^3\) are \(34,51\).
+The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) already excludes \(238,255,272\). Using the standard dimension-three spectral cardinality reduction, the remaining non-prime-power candidate sizes in \(\mathbb F_{17}^3\) consist only of \(34\).
 
-## Partial progress at size 51
+## Prior-art clarification
 
-[The degree-six reduction](FugledeF17Size51MomentSix.md) gives vanishing moments through degree six, affine plane cap nine, and uniform-pencil cap ten. A [weighted and unweighted incidence comparison](FugledeF17Size51NoSexticMember.md) further forces both members to have maximum profile degree seven, eight, or nine. The [stronger pencil bound](FugledeF17Size51PencilCapEight.md) limits each uniform pencil to eight sites and forces at least one genuine degree-eight or degree-nine profile. [The degree-seven moment proof](FugledeF17Size51MomentSeven.md) then excludes every degree-nine profile. A putative pair must have at least one genuine degree-eight profile. Size 51 is not excluded yet.
+[The classical determinant sieve](FugledeCyclotomicDeterminantObstruction.md) already excludes 51, 85, 119, 187, 221, and 255. The listed geometry at those sizes gives independent proofs or reductions, not new nonexistence results relative to the classical obstruction. The [size-51 degree-six](FugledeF17Size51MomentSix.md) and [degree-seven](FugledeF17Size51MomentSeven.md) computations are retained as auxiliary research notes.
