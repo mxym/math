@@ -1,0 +1,18 @@
+binary r=1 matrices=2 dep3=0 indep3=0 success=1/2 trunc=1/2
+binary r=2 matrices=16 dep3=1 indep3=0 success=3/8 trunc=3/8
+binary r=3 matrices=512 dep3=7 indep3=28 success=21/64 trunc=37/128
+binary r=4 matrices=65536 dep3=35 indep3=420 success=315/1024 trunc=239/1024
+ternary r=1 matrices=3 lines=1 success=2/3
+ternary r=2 matrices=81 lines=4 success=16/27
+ternary r=3 matrices=19683 lines=13 success=416/729
+moments PASS
+evaluation q=2 k=4 r=1 m=1 coefficients=16 spaces=15 min_success=1/2
+evaluation q=2 k=4 r=2 m=2 coefficients=256 spaces=35 min_success=3/8
+evaluation q=2 k=4 r=3 m=3 coefficients=4096 spaces=15 min_success=21/64
+evaluation q=2 k=4 r=4 m=3 coefficients=4096 spaces=1 min_success=165/512
+evaluation q=3 k=3 r=1 m=1 coefficients=27 spaces=13 min_success=2/3
+evaluation q=3 k=3 r=2 m=1 coefficients=27 spaces=13 min_success=2/3
+evaluation q=3 k=3 r=3 m=1 coefficients=27 spaces=1 min_success=26/27
+evaluation q=4 k=2 r=1 m=1 coefficients=16 spaces=5 min_success=3/4
+evaluation q=4 k=2 r=2 m=1 coefficients=16 spaces=1 min_success=15/16
+evaluation PASS
