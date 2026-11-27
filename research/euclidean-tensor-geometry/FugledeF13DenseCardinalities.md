@@ -1,5 +1,7 @@
 # Two dense spectral cardinalities excluded in \(\mathbb F_{13}^{3}\)
 
+> Follow-up: size 91 is also excluded by the [separate incidence proof](FugledeF13Size91Geometric.md). After combining the two results, the remaining candidate sizes are 26, 39, 52, 65 and 78.
+
 **Claim.** Neither \(104=8\cdot13\) nor \(117=9\cdot13\) is the size of a spectral subset of \(\mathbb F_{13}^{3}\). The only remaining candidate spectral sizes that would contradict Fuglede in this group are \(26,39,52,65,78,91\); none is excluded by the present claim.
 
 The projective incidence and moment mechanism follows Ferguson and Iosevich, [arXiv:2610.30712v1](https://arxiv.org/html/2610.30712v1), Lemmas 8.2 and 8.5 and Proposition 13.1. Their \(p=11\) direction certificates are not used. The new input is a normalized exact \(\mathbb F_{13}^{2}\) census, combined with a bootstrap on line caps. The elementary deductions are included so that the odd-prime applicability is explicit. No publication priority is asserted.

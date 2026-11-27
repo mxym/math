@@ -1,5 +1,7 @@
 # A two-shape reduction for size \(91\) in \(\mathbb F_{13}^{3}\)
 
+> Follow-up: the [complete exclusion of size 91](FugledeF13Size91Geometric.md) now rules out both hypothetical shapes. This note gives only the earlier two-shape reduction.
+
 If \((E,A)\) is a spectral pair of size \(91=7\cdot13\), each member, after a possibly different affine change of coordinates, is one of:
 1. a union of seven \(13\)-point slices in distinct parallel affine planes (no points on the other planes);
 2. an injective lift of the triangular planar domain
