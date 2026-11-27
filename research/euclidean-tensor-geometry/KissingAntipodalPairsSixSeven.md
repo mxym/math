@@ -1,6 +1,6 @@
 # Near-antipodal kissing codes in dimensions six and seven
 
-**Theorem.** A kissing configuration in \(\mathbb R^6\) with at least 32 antipodal pairs has at most 72 points. A kissing configuration in \(\mathbb R^7\) with at least 59 antipodal pairs has at most 126 points. Both cardinality ceilings are achieved by the respective root systems, but the pair criteria are not asserted optimal. Thus any improvement over either root-system configuration must have at least eleven unpaired points. No unrestricted upper-bound improvement is claimed.
+**Theorem.** A kissing configuration in \(\mathbb R^6\) with at least 29 antipodal pairs has at most 72 points. A kissing configuration in \(\mathbb R^7\) with at least 56 antipodal pairs has at most 126 points. Both cardinality ceilings are achieved by the respective root systems, but the pair criteria are not asserted optimal. Thus any improvement over either root-system configuration must have at least seventeen unpaired points. No unrestricted upper-bound improvement is claimed.
 
 ## Classical positive kernel, used with two weights
 
@@ -62,6 +62,33 @@ For \(s=4\) the graph has nine vertices and degree at most four. It cannot be 4-
 \[
  H\le 8(15/16)+5/6=25/3<135/16,
 \]
-again contrary to the weighted bound. All cases have been excluded.
+again contrary to the weighted bound. This proves the claimed ceilings for \(p\ge P-4\) without computation.
+
+
+## Three additional pair deficits via an odd correction
+
+For \(s=5,6,7\), use the degree-four polynomial
+\[
+ F(t)=f(t)+\lambda\,t(t^2-1/4)+\mu t,\qquad
+ (\lambda,\mu)\in\{(7/20,0),(49/100,0),(49/100,9/500)\},
+\]
+respectively. The polynomial \(t(t^2-1/4)\) has nonnegative harmonic coefficients in degrees 1 and 3: \(P_3(t)=((n+2)t^3-3t)/(n-1)\) and \(3/(n+2)-1/4>0\). Thus the same positive kernel sum holds for \(F\) with constant \(c_0\). Instead of keeping one representative per pair, now keep both and give each weight \(1/2\). Their odd contributions cancel exactly in all terms involving an antipodal pair (including its own four ordered terms), while the even contribution is unchanged. Only the singleton block sees the modified polynomial. As before retain \(q=2s+1\) singletons and give them weight \(s/q\). Since \(F(1)=\tfrac34(1+\lambda)+\mu\), the same weighted calculation now gives
+\[
+ \frac{1}{q}\sum_{i\ne j \text{ singletons}}F(x_i\cdot x_j)
+  \ \ge\ \frac34(1+1/s-\lambda)-\mu .
+\]
+The graph of singleton inner products below \(-1/2\) is still triangle-free and has maximum degree at most \(s\). In the \(s=6,7\) steps it has minimum degree at least 2 by induction: for a singleton of degree 0 or 1, add its antipode and discard its one negative neighbor if present. This keeps at least \(2P+1\) points, produces at least \(p+1\) pairs, and violates the preceding deficit case. It preserves the kissing inequalities because the only potential incompatibilities with the new antipode were precisely its negative neighbors, and both signs of every old pair were already present.
+
+The companion [verify-kissing-antipodal-tail.js](verify-kissing-antipodal-tail.js) gives the following exact bounds. In its last column \(B_d\) bounds the sum of \(F(-a_i)\) over the \(d\) neighbors of one vertex; \(d=0\) always has sum zero. The symbol \(\gamma\) bounds \(F(t)\) on the entire nonedge interval \([-1/2,1/2]\).
+
+| Deficit \(s\) | \(\gamma\) | degrees certified | \(1000 B_d\), in the listed degree order |
+|---|---:|---|---|
+| 5 | \(49/6400\) | 1, 2, 3, 4, 5 | 490, 550, 570, 580, 590 |
+| 6 | \(49/4000\) | 2, 3, 4, 5, 6 | 384, 396, 409, 421, 433 |
+| 7 | \(9/1000\) | 2, 3, 4, 5, 6, 7 | 363, 372, 381, 390, 399, 408 |
+
+Here is why the verifications are exhaustive. For \(t\in[0,1/2]\), \(F(t)\le\mu/2\). At \(t=-a\), \(a\in[0,1/2]\), \(F(-a)=a(\lambda-a)(1/4-a^2)-\mu a\), which is nonpositive for \(a\ge\lambda\). For \(a\) in each interval of length \(1/65536\) below \(\lambda\), bound the three nonnegative factors by their indicated upper endpoint bounds, and subtract \(\mu\) times the interval's lower endpoint. This directly verifies \(\gamma\). For the cap bound, order the neighbor projections \(a_1\ge\cdots\ge a_d\) in \([1/2,1]\) and split this sorted cubical domain into dyadic boxes. Let \(\ell\) be the lower endpoints of any leading \(j\) coordinates. If \(C_j^{-1}\ell\ge0\) and \(\ell^\top C_j^{-1}\ell>1\), the box is impossible: the nonnegative weight \(w=C_j^{-1}\ell\) would violate \((w\cdot a)^2\le w^\top C_j w\) throughout it. Those checks are exact quadratic integer inequalities. For each remaining box, bound \(F(-a_i)\) by its larger endpoint value because \(F(-a)\) is convex for \(a\in[1/2,1]\), as \(12a^2-\tfrac12-6\lambda a>0\) there for these \(\lambda\). Accept if the objective upper bound is at most \(B_d\), otherwise split the largest remaining interval. No unverified box remains. With denominator 65536, the quadratic operations use integers of absolute value below \(2^{53}\), and the verifier uses BigInt for all quartic comparisons. It checks the exact visit counts, including the largest tree of 136,533 nodes.
+
+A row of degree \(d\) now has total off-diagonal score at most \(B_d+(2s-d)\gamma\). The table gives a strict inequality between this bound and \(\frac34(1+1/s-\lambda)-\mu\) for every allowable \(d\) in each deficit, including \(d=0\) when \(s=5\). This contradicts the required average row score successively for \(s=5,6,7\). Thus \(p\ge P-7\) indeed forces \(|X|\le2P\).
 
 The six-dimensional unrestricted lower bound remains 72; [de Laat–Leijenhorst–de Muinck Keizer](https://arxiv.org/abs/2404.18794) prove the general upper bound 77, and [Tomar's later preprint](https://www.mefyi.com/papers/kissing-numbers-five-seven/) reports an exact rational certificate for 76. The pair condition here is distinct from [specified exact hyperplane sections](https://www.preprints.org/manuscript/202610.0335) and from recent [dimension-five antipodal-pair SDP constraints](https://aixiv.online/abs/2611.02115). A targeted prior-art search did not establish priority for these specific dimension-six and -seven thresholds.

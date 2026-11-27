@@ -1,0 +1,9 @@
+# Exact codimension-six regularity certificates
+
+## Exact representatives and verifier
+
+The exact verifier [verify-salmon-codimension-six.js](verify-salmon-codimension-six.js) takes \(h=(1,1,1,1)\) and \(f_i\) obtained by setting its coordinate \(i\) to zero. The displayed projections are explicitly the quotient by each listed kernel line. It checks \((f_1,f_2)\), \((f_2,f_3)\) in the single-dual type; \((f_1,h)\) in the double-dual type; \((f_2,h),(f_3,h)\) in length three plus singleton; and \((h,h)\) in length four. The minor residues are \(63,38,87,77,1,32\), respectively, with 20 quintic and four sextic Jacobian rows in each case. The source length-\(r\) local tensor is \(\sum_{i+j+k=r-1} a_i b_j c_k\) in reversed power bases. The separately described non-Gorenstein \((3,4,4)\) point has a 24-quintic minor of residue 31.
+
+The sextic expressions use the explicit alternating columns of the prior frame proof, including mode rotations, and may use any of the inherited triple-coordinate restrictions. Where one of the two repeated three-coordinate alternating blocks is changed to a different triple, the script also includes the interchange of the two choices and sums their rows. This is an allowed lift: take the shared two coordinate covectors and vary the third as \(u+t v\); the coefficient linear in \(t\) of the repeated-block inherited equation is exactly the sum, up to a common ordering sign. Because every value of the polynomial family belongs to the same module, so does its coefficient. Derivatives everywhere use the actual nonzero tensor coefficients in the product rule, including signs and coefficients of magnitude greater than one. As before rank 24 implies regularity and local ideal equality since the known equations contain the irreducible dimension-40 secant.
+
+No global ideal equality or saturation is asserted.

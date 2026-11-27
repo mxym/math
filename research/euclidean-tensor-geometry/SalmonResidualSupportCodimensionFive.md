@@ -1,5 +1,7 @@
 # Salmon residual support has codimension at least five
 
+> Follow-up: the [codimension-six analysis](SalmonResidualSupportCodimensionSix.md) improves this bound.
+
 Let \(X=\widehat{\sigma_4}((\mathbb P^3)^3)\) have dimension 40, \(I=I(X)\), and \(J=J_{5,6,9}\) be the ideal of the known equations. Then \(\dim\operatorname{Supp}(I/J)\le35\). This is only a support bound; it does not prove saturation or global generation.
 
 ## Reduction to type (3,3,4)
