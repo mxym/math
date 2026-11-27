@@ -14,8 +14,7 @@ Work at unit norm. Write an outsider as $x=(v,t)$, where $v$ is horizontal, $\|v
 
 First consider omissions on orthogonal lines. Two orthogonal root lines of $D_6$ have disjoint two-coordinate supports or the same support. Complete these supports to three disjoint pairs of coordinates. Rotating each pair by $45^\circ$ turns the twelve possible within-pair signed roots into the standard signed axes $p=\pm e_i$ in the new basis. The other 48 roots remain present: their supports are any two of the three coordinate pairs, with all sixteen sign choices and coordinate magnitudes $1/2$.
 
-Let $L_j$ be the sum of the two absolute values of $v$ in coordinate pair $j$. The 48 root constraints give $L_i+L_j\le1$ for $i
-e j$. If all $L_j\le1/2$, then $\|v\|^2\le3/4$. Otherwise let $L$ be the largest. We have $\|v\|^2\le L^2+2(1-L)^2$, so a shallow point needs $L>5/6$ (the quadratic is at most $3/4$ on $[1/2,5/6]$). Let $a$ be the larger absolute coordinate in that pair. Then
+Let $L_j$ be the sum of the two absolute values of $v$ in coordinate pair $j$. The 48 root constraints give $L_i+L_j\le1$ for $i\ne j$. If all $L_j\le1/2$, then $\|v\|^2\le3/4$. Otherwise let $L$ be the largest. We have $\|v\|^2\le L^2+2(1-L)^2$, so a shallow point needs $L>5/6$ (the quadratic is at most $3/4$ on $[1/2,5/6]$). Let $a$ be the larger absolute coordinate in that pair. Then
 \[
  \|v\|^2\le a^2+(L-a)^2+2(1-L)^2.
 \]
