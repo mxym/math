@@ -1,12 +1,12 @@
 # A sharp rectangular-width threshold for two-factor Gaussian tensor noise
 
-**Model and scope.** In a fixed real Hilbert tensor product of dimensions p and q, consider a proposed replacement of standard spherical Gaussian noise by a variance-matched sum of r independent rank-one Gaussian tensors. After orthonormal coordinates the sum has the law of a product of two Gaussian matrices. The result below determines its total-variation approximation threshold, including highly unequal factors. For the cyclotomic tensor-product identification see [Lyubashevsky–Peikert–Regev, Toolkit Proposition 2.13 and §2.5.2](https://web.eecs.umich.edu/~cpeikert/pubs/toolkit.pdf); for coprime cyclotomic conductor factors the canonical embeddings pair across the CRT indices. Hence the canonical inner product of two pure tensors factors into the two inner products, and dimension equality extends this to a real Hilbert isometry. The result is invariant under that identification. The standard error definitions of Ring-LWE do not assert generation by rank-one terms. This is solely a statistical comparison of two synthetic error laws, not a new hardness assumption, a concrete implementation, or a claim about a scheme.
+**Model and scope.** In a fixed real Hilbert tensor product of dimensions p and q, consider a proposed replacement of standard spherical Gaussian noise by a variance-matched sum of r independent rank-one Gaussian tensors. After orthonormal coordinates the sum has the law of a product of two Gaussian matrices. The result below determines its total-variation approximation threshold, including the full critical profile for arbitrary aspect ratios. For the cyclotomic tensor-product identification see [Lyubashevsky–Peikert–Regev, Toolkit Proposition 2.13 and §2.5.2](https://web.eecs.umich.edu/~cpeikert/pubs/toolkit.pdf); for coprime cyclotomic conductor factors the canonical embeddings pair across the CRT indices. Hence the canonical inner product of two pure tensors factors into the two inner products, and dimension equality extends this to a real Hilbert isometry. The result is invariant under that identification. The standard error definitions of Ring-LWE do not assert generation by rank-one terms. This is solely a statistical comparison of two synthetic error laws, not a new hardness assumption, a concrete implementation, or a claim about a scheme.
 
 Let G be p by r and H be r by q, independently with iid N(0,1) entries, and let
 
     Y=GH/sqrt(r),           Q= iid N(0,1) p-by-q matrix law.
 
-Write P for the law of Y. Transposition allows p<=q. [Li–Woodruff, Theorem 1(a)](https://arxiv.org/abs/2108.09887) establishes the sufficient r≫pq condition in the regime r>=max(p,q), which is automatic there. Their Theorem 1(b) provides the lower scale sqrt(q) p^(3/2) for the two-factor specialization of their general product theorem, using Schatten moments; these scales may separate for unequal p,q. Here for two factors specifically we remove the rectangular gap and compute limiting profiles for two regimes. We make no claim about longer products.
+Write P for the law of Y. Transposition allows p<=q. [Li–Woodruff, Theorem 1(a)](https://arxiv.org/abs/2108.09887) establishes the sufficient r≫pq condition in the regime r>=max(p,q), which is automatic there. Their Theorem 1(b) provides the lower scale sqrt(q) p^(3/2) for the two-factor specialization of their general product theorem, using Schatten moments; these scales may separate for unequal p,q. Here for two factors specifically we remove the rectangular gap and compute the full critical profile. We make no claim about longer products.
 
 ## 1. Threshold and profiles
 
@@ -16,15 +16,15 @@ As q tends to infinity with arbitrary p<=q:
 - TV(P,Q) tends to one when r/(pq) tends to zero.
 - If p,q both tend to infinity and r/(pq) tends to c in (0,infinity),
 
-      liminf TV(P,Q) >= 2 Phi(1/(4c))-1.                     (1)
+      lim TV(P,Q) = 2 Phi(1/(4c))-1.                        (1)
 
-  If also q/p^3 tends to infinity, equality holds in (1) with a limit.
+  There is **no** relation required between the two rates of dimension growth.
 - If p is fixed and q/r tends to lambda in (0,infinity), there is an exact limit. Set D=p(p+1)/2, F_D the chi-squared(D) CDF, and
 
       t_*=D(1+lambda) log(1+lambda)/lambda.
       lim TV(P,Q)=F_D(t_*)-F_D(t_* /(1+lambda)).             (2)
 
-The general critical limit for growing factors with q=O(p^3) is not determined here. No finite-dimensional Gaussian projection approximation is assumed uniformly for that range.
+The critical upper bound uses a clipped Wishart likelihood overlap rather than a Gaussian approximation of the full scatter matrix. In particular it does not require q much larger than p^3.
 
 ## 2. Rectangular Wick component
 
@@ -80,32 +80,78 @@ Now let r/(pq) tend to c in (0,infinity), p,q tending to infinity. By (4)–(6) 
 Conditionally its variance is 4 N_q ||B_S^* B_S-B_I^* B_I||_HS^2, by independence, orthogonality of different column pairs, and the covariance identity for F_j. The squared Hilbert–Schmidt norm is at most
 C p^2 (1+||S||_op)^4 ||S-I||_op^2: bound first the operator norm using ||S^(1/2)-I||_op<=||S-I||_op, then use the dimension p(p+1)/2. Since p/r tends to zero, the averaged variance is o(N). Therefore under P, T/sqrt(N) tends to N(1/(2c),1), as sqrt(N)/r tends to 1/(2c). Under Q it tends to N(0,1). A threshold midway between these means gives (1).
 
-## 4. Sufficiency of the scatter and the exact profiles
+## 4. Matching critical upper bound by a clipped likelihood overlap
+
+Keep p,q tending to infinity with p<=q and r/(pq) tending to c in (0,infinity). Set X=S-I and use X' for an independent copy. Let A be the event ||X||_op<=K sqrt(p/r) for a sufficiently large fixed K. The net bound in §2 gives Pr(A^c)<=exp(-c_0 p) for some c_0>0, and also, for any fixed a>0, E||X||_op^a=O((p/r)^(a/2)). For the latter, integrate the same tail bound above K sqrt(p/r), absorbing the net cardinality into the exponent; here p/r tends to zero. Let P' be the mixture conditioned on A for the hidden covariance. Then TV(P',P)<=Pr(A^c).
+
+For a fixed covariance S let L_S be the likelihood of q independent N(0,S) columns relative to Q. On A and its independent copy A', the precision S^(-1)+S'^(-1)-I is positive definite for all sufficiently large p,q, since both covariances tend to I in operator norm. A Gaussian integral gives the exact overlap
+
+    E_Q L_S L_S' = det(I-X X')^(-q/2).                    (8)
+
+Indeed S(S^(-1)+S'^(-1)-I)S'=S+S'-SS'=I-XX'. Consequently the determinant in (8) is positive, and we may use the convergent log-determinant series since ||XX'||_op=O(p/r)=O(1/q) on A and A'. The logarithm of (8) is
+
+    Z + R,     Z=(q/2) tr(X X'),
+    R=(q/4) tr((X X')^2) + O(p/q^2),                      (9)
+
+with a uniform remainder, by bounding traces of powers by p times the operator-norm powers. Also R is uniformly bounded, since q p ||XX'||_op^2=O(p/q).
+
+We prove that the second trace in (9), multiplied by q, tends to zero in probability on A and A'. The covariance identity for entries of X' gives
+
+    E_(X') tr(X X' X X') = [tr(X^2)+(tr X)^2]/r.
+                                                            (10)
+
+For any symmetric fixed X, differentiate f=tr(X X' X X') in a standard p-by-r Gaussian matrix G' that produces X'=G'G'^T/r-I. The gradient is (4/r) X X' X G'. Gaussian Poincare bounds the conditional variance by its squared norm expectation:
+
+    Var_(X') f <= (16/r)||X||_op^4 E[||S'||_op ||X'||_F^2]
+                <= C p^2 ||X||_op^4/r^2.                  (11)
+
+The last estimate follows from the net moment bounds and ||X'||_F^2<=p||X'||_op^2. On A, (11) multiplied by q^2 is O(q^2 p^4/r^4)=o(1). Since E tr X^2=p(p+1)/r and E(tr X)^2=2p/r by the Gaussian entry moments, the nonnegative conditional mean in (10) multiplied by q tends to zero in L1. This proves the required convergence of R.
+
+Conditional on X in A, an exact Wishart moment generating function controls the leading exponential. For any fixed real u,
+
+    E_(X') exp(u Z)
+       = exp(-u q tr X/2) det(I-u q X/r)^(-r/2)
+       = exp((u^2 q^2/(4r)) tr(X^2) + o(1)),                (12)
+
+uniformly on A. The first identity is the product of r Gaussian quadratic form integrals, valid since ||u q X/r||_op=o(1). The log-series remainder after the quadratic term is at most
+C_u (q^3/r^2) ||X||_op tr(X^2), which is O_u(1/(p sqrt(q))) on A. The displayed exponent is uniformly bounded there. Further, tr(X^2) concentrates around p(p+1)/r with vanishing relative deviation. For example its gradient is 4 XG/r, and Gaussian Poincare gives variance at most (16/r) E tr(X^2 S)=O(p^2/r^2), again by the net moment bounds. Thus (12) averaged on A tends to exp(u^2/(4c^2)).
+
+These expectations also justify all clipping steps. In (12) with u=1, removing X' outside A' changes the answer by o(1) by Cauchy–Schwarz, because the u=2 expectation on A is bounded and Pr(A'^c) tends to zero. On A,A', e^R is bounded and tends to one in probability, so adding it changes the average of e^Z by o(1), using the same second moment bound. Normalizing for conditioning both covariances and using (8)–(9) therefore gives, for the likelihood L'=dP'/dQ,
+
+    E_Q (L')^2 -> exp(1/(4c^2)).                           (13)
+
+This calculation need not hold for the untrimmed mixture, whose large covariance tail is not controlled by (8). The total-variation cost of trimming tends to zero.
+
+Finally let W=T/sqrt(N) be the rectangle statistic from §3 and let mu=1/(2c). Under Q, W converges to a standard real Gaussian, whereas under P' it converges to N(mu,1) because that already holds under P. The likelihood between these one-dimensional limits is ell(z)=exp(mu z-mu^2/2), with E_(N(0,1)) ell^2=exp(mu^2), the same value as (13). To justify that these limits capture the *full* TV, for M>0 put f_M(z)=min(M,ell(z)). Then
+
+    E_Q(L'-f_M(W))^2
+      = E_Q (L')^2 - 2 E_P' f_M(W) + E_Q f_M(W)^2
+      -> E_(N(0,1)) (ell-f_M)^2.
+
+Here the two test functions are bounded and continuous. Let M tend to infinity and apply Cauchy–Schwarz to the difference of E_Q |L'-1| and E_Q |f_M(W)-1|. This proves TV(P',Q) tends to TV(N(mu,1),N(0,1))=2 Phi(1/(4c))-1. Removing the clipping leaves the same limit for P. No Wishart-to-GOE approximation in growing symmetric-matrix dimension is used in this upper bound.
+
+## 5. Sufficiency of the scatter and the fixed-small-factor profile
 
 When q>=p and r>=p, the two densities on the full matrices depend on the matrix only through its scatter U=YY^T/q. Indeed, the conditional normal density given S depends on Y through tr(S^(-1) YY^T). The likelihood relative to Q therefore depends only on U. As a result, total variation is equal to the total variation of the scatter laws, not just bounded below by it.
 
 Let V_r=sqrt(r)(S-I), and independently let V_q be the analogous standardized Wishart fluctuation for the empirical covariance of q standard p-dimensional normals. Under P the standardized scatter has the representation
 
-    sqrt(q)(U-I)=sqrt(q/r) V_r + S^(1/2) V_q S^(1/2),       (7)
+    sqrt(q)(U-I)=sqrt(q/r) V_r + S^(1/2) V_q S^(1/2),       (14)
 
 while under Q it is V_q. Let Z_p denote real GOE normalized with variances two on the diagonal and one on the upper offdiagonal. In Frobenius-orthonormal coordinates of real symmetric matrices this is exactly N(0,2I_D).
 
-For fixed p (also p=1), V_k approaches Z_p in TV as k tends to infinity. For p tending to infinity and k/p^3 tending to infinity the same is true by [Bubeck–Ding–Eldan–Rácz, Theorem 7](https://arxiv.org/abs/1411.5713). For fixed p one can also see this directly from the Wishart density: on compact sets of standardized symmetric matrices the factor det(I+X/sqrt(k))^((k-p-1)/2) exp(-sqrt(k) tr(X)/2) approaches exp(-tr(X^2)/4) uniformly. Tightness follows from the fixed-dimension second moments, so its normalizing constants converge, and then Scheffé's theorem gives TV convergence.
+For fixed p (also p=1), V_k approaches Z_p in TV as k tends to infinity. This follows from [Bubeck–Ding–Eldan–Rácz, Theorem 7](https://arxiv.org/abs/1411.5713), and at fixed p may be seen directly from the Wishart density: on compact sets of standardized symmetric matrices the factor det(I+X/sqrt(k))^((k-p-1)/2) exp(-sqrt(k) tr(X)/2) approaches exp(-tr(X^2)/4) uniformly. Tightness follows from the fixed-dimension second moments, so its normalizing constants converge, and then Scheffé's theorem gives TV convergence.
 
-For fixed p and q/r tending to finite positive lambda, replace V_q by Z_p in (7), with TV error tending to zero by independent postprocessing. Then replace S^(1/2) Z_p S^(1/2) by Z_p independently of S. For this step and also growing p, condition on S: if its eigenvalues l_i are in [1/2,2], the covariance ratios of these two centered Gaussians, in Frobenius coordinates, are l_i l_j over i<=j. Their KL divergence is
+For fixed p and q/r tending to finite positive lambda, replace V_q by Z_p in (14), with TV error tending to zero by independent postprocessing. Then replace S^(1/2) Z_p S^(1/2) by Z_p independently of S. Condition on S: if its eigenvalues l_i are in [1/2,2], the covariance ratios of these two centered Gaussians, in Frobenius coordinates, are l_i l_j over i<=j. Their KL divergence is
 
     (1/2) sum_(i<=j) (l_i l_j - 1 - log(l_i l_j))
             <= C p ||S-I||_F^2.
 
-The expected bound is O(p^3/r) since E ||S-I||_F^2=(p^2+p)/r; the bad spectral event has vanishing probability when p/r tends to zero. Thus if p^3/r tends to zero, Pinsker's inequality and conditioning justify replacing by an independent Z_p in TV. Finally replace V_r by an independent Z_p, again by data processing. These replacements apply both for fixed p and the growing regime q/p^3 tending to infinity with r/(pq) tending to c. They reduce the TV comparison of scatters to the comparison of N(0,2I_D) and N(0,2(1+q/r)I_D).
+The expected bound is O(p^3/r) since E ||S-I||_F^2=(p^2+p)/r; the bad spectral event has vanishing probability when p/r tends to zero. Thus if p^3/r tends to zero, Pinsker's inequality and conditioning justify replacing by an independent Z_p in TV. Finally replace V_r by an independent Z_p, again by data processing. These replacements reduce the TV comparison of scatters to the comparison of N(0,2I_D) and N(0,2(1+q/r)I_D).
 
-For fixed D the densities of these Gaussians cross exactly at squared radius t_* in coordinates divided by sqrt(2); the difference of the two interior ball probabilities gives (2). In the growing rectangular regime put u=q/r, then u tends to zero and D u^2 tends to 1/(2c^2). Under the reference N(0,I_D), the log-likelihood of N(0,(1+u)I_D) is
+For fixed D the densities of these Gaussians cross exactly at squared radius t_* in coordinates divided by sqrt(2); the difference of the two interior ball probabilities gives (2).
 
-    -D log(1+u)/2 + u chi-squared(D)/(2(1+u)).
-
-By the scalar chi-squared CLT and Taylor expansion this approaches N(-1/(8c^2),1/(4c^2)). Taking E(1-exp(log likelihood))_+ gives exactly 2 Phi(1/(4c))-1, matching (1).
-
-For fixed p and r/q tending to zero there are two possibilities, handled on subsequences. If r stays bounded, either r<p and the rank argument applies, or the scatter converges in probability to the random S under the product representation, whereas it converges to I under Q. S has no atom at I. If r tends to infinity, use scale sqrt(r): in (7) the V_q term multiplied by sqrt(r/q) tends to zero in probability while V_r tends to GOE, whereas under Q the rescaled scatter tends to zero. In either case a vanishing-radius ball about the null limit makes TV tend to one.
+For fixed p and r/q tending to zero there are two possibilities, handled on subsequences. If r stays bounded, either r<p and the rank argument applies, or the scatter converges in probability to the random S under the product representation, whereas it converges to I under Q. S has no atom at I. If r tends to infinity, use scale sqrt(r): in (14) the V_q term multiplied by sqrt(r/q) tends to zero in probability while V_r tends to GOE, whereas under Q the rescaled scatter tends to zero. In either case a vanishing-radius ball about the null limit makes TV tend to one.
 
 Finally, Li–Woodruff gives the vanishing upper bound whenever r/(pq) tends to infinity. Conversely, if this ratio fails to diverge, pass to a subsequence on which it tends to some finite c>=0 and on which either p is fixed or p grows. The small-r case or the critical lower profiles are positive there. This completes the threshold statement for arbitrary aspect ratios with q growing.
 
@@ -115,4 +161,4 @@ For the original abstract error substitution the *upper* bounds remain valid und
 
     node verify-gaussian-rank-one-tensor-threshold.js
 
-This runs finite exact Wick identities, even-cell enumeration, and numerical radial likelihood checks in synthetic examples. The limits above follow from the proofs, not from fitted asymptotics.
+This runs finite exact Wick identities, even-cell enumeration, exact covariance-overlap moment checks, and numerical radial likelihood checks in synthetic examples. The limits above follow from the proofs, not from fitted asymptotics.
