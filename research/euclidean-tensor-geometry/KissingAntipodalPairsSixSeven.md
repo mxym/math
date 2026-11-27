@@ -1,5 +1,7 @@
 # Near-antipodal kissing codes in dimensions six and seven
 
+> Follow-up: the [two-row near-antipode bound](KissingAntipodalPairTail.md) improves the sufficient pair counts to 28 and 55.
+
 **Theorem.** A kissing configuration in \(\mathbb R^6\) with at least 29 antipodal pairs has at most 72 points. A kissing configuration in \(\mathbb R^7\) with at least 56 antipodal pairs has at most 126 points. Both cardinality ceilings are achieved by the respective root systems, but the pair criteria are not asserted optimal. Thus any improvement over either root-system configuration must have at least seventeen unpaired points. No unrestricted upper-bound improvement is claimed.
 
 ## Classical positive kernel, used with two weights
