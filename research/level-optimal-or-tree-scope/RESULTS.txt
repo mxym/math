@@ -1,0 +1,14 @@
+n=4 pair-AND: unique first layer, 1 LO outputs, OPT=1, SLC range=[1,1]
+n=4 OR-of-pairs: unique first layer, 1 LO outputs, OPT=1, SLC range=[1,1]
+n=8 pair-AND: unique first layer, 3 LO outputs, OPT=97/96, SLC range=[409/192,409/192]
+n=8 OR-of-pairs: unique first layer, 3 LO outputs, OPT=97/96, SLC range=[571/192,571/192]
+negative control: dropping private-marker mass loses uniqueness
+fixed-summary positives: 4096 four-leaf and 32 eight-leaf instances; 14200 minimum-matching transitions checked exactly
+PASS literal Boolean workload, all-shapes OPT, and all small minimum ties
+independent random-matching profile count: 294 exact compositions
+powering m=2: 16 columns, 6 nonconstant, all 3 masks/groups pass
+powering m=4: 256 columns, 200 nonconstant, all 15 masks/groups pass
+powering m=8: 4096 columns, 3866 nonconstant, all 255 masks/groups pass
+independent field totals: 273 parity bounds, 273 all-equal bounds; indicator checked exhaustively at sizes 1..6
+sharp pair coefficient in (0.358885765068,0.358885765069); 3072 direct root-inclusive traversal cases
+PASS independent matching/finite-field/series/visit audit
