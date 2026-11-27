@@ -20,3 +20,7 @@ The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) alrea
 ## Prior-art clarification
 
 [The classical determinant sieve](FugledeCyclotomicDeterminantObstruction.md) already excludes 51, 85, 119, 187, 221, and 255. The listed geometry at those sizes gives independent proofs or reductions, not new nonexistence results relative to the classical obstruction. The [size-51 degree-six](FugledeF17Size51MomentSix.md) and [degree-seven](FugledeF17Size51MomentSeven.md) computations are retained as auxiliary research notes.
+
+## Partial progress at size 34
+
+[The initial reduction](FugledeF17Size34InitialReduction.md) rules out full planes, gives affine plane cap eight and uniform-pencil cap eight, and proves the first four mixed moments must vanish. Size 34 is not excluded yet.
