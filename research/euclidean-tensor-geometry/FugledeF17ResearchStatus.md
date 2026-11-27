@@ -16,4 +16,4 @@ The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) alrea
 
 ## Partial progress at size 85
 
-[The moment-seven reduction](FugledeF17Size85MomentSeven.md) shows that a putative size-85 spectral pair has moments vanishing through degree seven and at most one layer per member. Size 85 has not been excluded.
+[The moment-eight reduction](FugledeF17Size85MomentEight.md) strengthens the [moment-seven reduction](FugledeF17Size85MomentSeven.md). A putative size-85 spectral pair has vanishing moments through degree eight and [cannot contain a full affine plane](FugledeF17Size85OcticLayers.md); thus both members have affine plane cap 16. Size 85 has not been excluded.
