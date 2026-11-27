@@ -28,6 +28,17 @@ The new direction here is a classification of every spectral non-tile
 in this particular space, rather than demonstrating a single
 counterexample or extending the result to other fields.
 
+[Harada, Lam, Munemasa and Tonchev (2010)](https://doi.org/10.37236/443)
+record uniqueness of the order-six generalized Hadamard matrix over
+the group of order three, up to monomial equivalence. They enumerate
+85 monomial-equivalence classes at order eighteen. That is a matrix
+classification: it does not assert that any order-eighteen class can
+be realized as the character matrix of subsets of a fixed
+four-dimensional ternary space, or classify such subsets up to affine
+equivalence. The case \(18\) below excludes exactly that ambient
+realization. The six-point proof also determines the affine orbit of
+the subsets, not merely the equivalence class of the matrices.
+
 ## 1. Exact character conditions
 
 For any \(v\in G\), let \(Z(A)\) contain \(v\) if the three counts
