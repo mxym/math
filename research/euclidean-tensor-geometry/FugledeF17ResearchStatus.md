@@ -14,3 +14,7 @@ These are partial results for the three-dimensional vector space over the field 
 | 85 | [Degree-nine moments](FugledeF17Size85MomentNine.md) and [weighted and unweighted incidence obstruction](FugledeF17Size85Final.md) |
 
 The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) already excludes \(238,255,272\). Using the standard dimension-three spectral cardinality reduction, the remaining non-prime-power candidate sizes in \(\mathbb F_{17}^3\) are \(34,51,68\).
+
+## Partial progress at size 68
+
+[The degree-seven reduction](FugledeF17Size68MomentSeven.md) proves that a putative size-68 spectral pair has no full affine planes and its moments vanish through degree seven. Size 68 has not been excluded.
