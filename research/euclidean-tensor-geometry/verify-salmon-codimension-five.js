@@ -49,7 +49,12 @@ const a=0,b=3;for(let k=0;k<4;k++)for(let l=k;l<4;l++){
  for(let u=0;u<3;u++){A[columns[0][u]]=aa[u];A[columns[1][u]]=ab[u];B[columns[2][u]]=ba[u];B[columns[3][u]]=bb[u];}
  for(let u=0;u<4;u++)C[G4[u]]=cc[u];
  const loc=G.map(i=>ix(A[i],B[i],C[i])),z=G.filter(i=>T[loc[i]]===0),sg=as*at*bs*bt*cs;
- if(!z.length){ value+=sg; for(const j of loc)row[j]+=sg;}else if(z.length===1)row[loc[z[0]]]+=sg;
+ // Use the actual tensor coefficients, including the entry 2 in the two-dual sample.
+ if(z.length<=1){
+   const prod=loc.reduce((acc,j)=>acc*(T[j]||1),sg);
+   if(!z.length){value+=prod;for(const j of loc)row[j]+=prod/T[j];}
+   else row[loc[z[0]]]+=prod;
+ }
  }
  if(value!==0)throw Error("not zero");
  R.add(row,{degree:6,a,b,k,l});
