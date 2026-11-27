@@ -14,3 +14,6 @@ These are partial results for the three-dimensional vector space over the field 
 
 The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) already excludes \(238,255,272\). Using the standard dimension-three spectral cardinality reduction, the remaining non-prime-power candidate sizes in \(\mathbb F_{17}^3\) are \(34,51,68,85\).
 
+## Partial progress at size 85
+
+[The moment-seven reduction](FugledeF17Size85MomentSeven.md) shows that a putative size-85 spectral pair has moments vanishing through degree seven and at most one layer per member. Size 85 has not been excluded.
