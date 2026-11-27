@@ -7,6 +7,7 @@ These are two complementary strands of finite algebra and probability, with proo
 - [Fixed double-cover incidence](FixedDoubleCoverIncidence.md): a fixed pair of degree-two maps realizes the complete quartic Riemann–Roch system, and each irreducible cubic picks out one projective section.
 - [Residual fibers and pencils](EllipticResidualPencils.md): exact cubic-fiber counts over rational residual points; simply branched pencils have an asymptotic one-third density, but some other pencils have no cubic fibers at all.
 - [Monodromy beyond simple branching](EllipticQuarticMonodromy.md): classifies when cubic fibers can occur and gives exact resolvent-based counts and explicit examples.
+- [Tame tetrahedral quartics above a fixed cubic quotient](EllipticQuarticTameCubicQuotient.md): geometric counts 3, 4, and 5; finite-field descent and an elliptic halving test.
 - Exact small example: `node verify-elliptic-residual-pencil-toy.js`. Success is silent.
 
 ## Random finite modules
@@ -16,4 +17,5 @@ These are two complementary strands of finite algebra and probability, with proo
 - [Unrestricted coefficient critical window](finite-module-unrestricted-critical-window.md): inactive residue-field components require a weighted bound; they cannot be treated as fully active samples.
 - [The modulus-square crossover](finite-module-q-square-crossover.md): in the stated sparse regime, the random two-point minimum law is clipped by the deterministic energy floor (q^2); includes the exact universal ideal calculation.
 - [Arbitrary odd prime moduli](finite-module-nonuniversal-all-moduli.md): remove deterministic universal relations and the same sparse probability law holds, including for fixed moduli.
+- [All odd moduli](finite-module-nonuniversal-odd-moduli.md): the same law for prime powers and odd composite moduli, via a common block decomposition and local valuation bounds.
 - Small, generated examples: run each `verify-finite-module-*.js` here with Node.js. The examples check finite identities, not the asymptotic theorems by experiment.
