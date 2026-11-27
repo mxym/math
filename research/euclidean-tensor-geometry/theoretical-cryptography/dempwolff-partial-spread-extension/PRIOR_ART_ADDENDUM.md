@@ -93,3 +93,19 @@ this repository item is:
 
 The frozen artifact remains a correct independently verifiable proof.  This
 addendum supersedes only its priority wording.
+
+## A direct Frobenius antecedent
+
+An even more direct antecedent is [C. M. O'Keefe and T. Penttila,
+*Characterisations of Flock
+Quadrangles* (2000)](https://doi.org/10.1023/A:1005153406421), proof of
+Theorem 1, pp. 184--185, especially Step 1, equation (3), p. 184.  For a
+normalized clan with first coefficient (t^{2^k}) they allow an arbitrary
+second coefficient and explicitly deduce (k=n-1) or (k=n-2), the latter
+only for odd (n).  Their Theorem 8, applied in Steps 2--3, also gives the
+complete second-coordinate forms in the two surviving cases.  Taking (k=1)
+in the fixed-coordinate correspondence above gives the nonextension of
+Dempwolff's prescribed family for (nge4).  Thus the clan-side criterion is
+explicit in the earlier literature, not merely implicit in the 1998 monomial
+classification.  This citation does not attribute the later semibent
+formulation or this note's local parity certificate to the 2000 paper.
