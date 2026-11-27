@@ -1,5 +1,7 @@
 # Salmon residual support has codimension at least four
 
+> Follow-up: the [additional compressions and dimension analysis](SalmonResidualSupportCodimensionFive.md) improve the support bound to codimension at least five.
+
 Notation: \(X=\widehat{\sigma_4}((\mathbb P^3)^3)\) is the dimension-40 fourth secant cone, I its prime ideal, and \(J=J_{5,6,9}\) the ideal of the known modules. This strengthens the preceding [codimension-three bound](SalmonResidualSupportCodimension.md) to \(\dim\operatorname{Supp}(I/J)\le36\), using two additional exact checks. It does not assert the discrepancy is nonempty or resolve the global homogeneous ideal.
 
 ## The two boundary checks
