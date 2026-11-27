@@ -66,3 +66,41 @@ and let \(f(0)=0\) with the specified derivative. This is a real-coefficient sex
  10^{12}|G_j(W)|^2>(60\cdot800003)^2|W_j|^8 .
 \]
 Both sides are integers. The program independently verifies these inequalities using Gaussian integers before starting either replay. Hence every ratio exceeds \(800003/10^6>4/5\).
+
+## 4. A simple analytic family above the quintic value
+
+The lower phenomenon is not confined to the rational fixture. For small nonzero real \(\epsilon\), set
+\[
+ f_\epsilon(z)=z-\frac{z^5}{5}
+ +\epsilon\left(\frac{z^6}{6}+\frac{z^2}{30}+\frac{z^4}{15}\right)
+ +\frac{11}{120}\epsilon^2z^3 .
+\]
+Then \(f_\epsilon\) has exactly three real critical points, and
+\[
+ S(f_\epsilon,0)=\frac45\left(1+\frac{\epsilon^2}{720}
+                       +O(|\epsilon|^3)\right)>\frac45
+\]
+for all sufficiently small nonzero real \(\epsilon\).
+
+Indeed
+\[
+ f'_\epsilon(z)=1-z^4+\epsilon\left(z^5+\frac z{15}+\frac{4z^3}{15}\right)
+                          +\frac{11}{40}\epsilon^2 z^2 .
+\]
+At each fourth root \(t\) of unity, the simple root of the derivative at \(\epsilon=0\) continues to a root \(c_t=t(1+\epsilon L_t/4+O(\epsilon^2))\), where \(L_t=(16/15)t+(4/15)t^3\). The roots near \(1,-1\) are real by uniqueness and conjugation; the other two are nonreal. By the sum of the five roots of \(f'_\epsilon\), the fifth is \(c_*=1/\epsilon+O(1)\) and is real. Its ratio is asymptotic to \(-1/(30\epsilon^4)\), by the two highest terms of \(f_\epsilon(c_*)/c_*\).
+
+Eliminating \(c_t^4\) by its critical-point equation gives
+\[
+ \frac{f_\epsilon(c_t)/c_t}{4/5}
+ =1+\epsilon\left(\frac{c_t}{40}+\frac{c_t^3}{60}
+                         -\frac{c_t^5}{24}\right)
+       +\frac{11}{240}\epsilon^2 c_t^2 .
+\]
+Let \(V_t=(t^3-t)/60\) and \(W_t=(1/40-5/24)t+(1/20)t^3\). Substituting the expansion of \(c_t\) and taking the real part of the logarithm around 1 gives
+\[
+ \log\left|\frac{f_\epsilon(c_t)/c_t}{4/5}\right|
+ =\Re\left(\epsilon V_t+
+   \epsilon^2\left(\frac{L_tW_t}{4}+\frac{11t^2}{240}-\frac{V_t^2}{2}\right)\right)
+   +O(|\epsilon|^3).
+\]
+For real \(t\), \(V_t=0\) and \(L_tW_t/4=-2/45\); for imaginary \(t\), \(V_t^2=-1/900\) and \(L_tW_t/4=7/150\). In both cases the real linear term is zero and the quadratic coefficient is exactly \(1/720\). The bounded four ratios therefore all have the asserted expansion, while the fifth is too large to attain the minimum.
