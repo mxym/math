@@ -81,20 +81,19 @@ for(let mask of masks){const D=mask.map(i=>F[i]),models=new Map();
   }grid++;const p=w.slice().sort((a,b)=>a-b).join(',');gridHist[p]=(gridHist[p]||0)+1;return;
  }
  const cand=seq.map(l=>{let g=R.map(()=>[]);for(let b of l)g[b[1][j]].push(b);return g;});
- const vv=cand.map(g=>g.map((l,t)=>[t,l[0]?.[0]??50]).filter(z=>z[1]<50));
- const low=vv.map(l=>Math.min(...l.map(v=>v[1]))),base=low.reduce((s,a)=>s+a,0);if(base>1000)return;
+ const vv=cand.map(g=>g.map((l,t)=>[t,l.length?Math.min(...l.map(a=>a[0])):Infinity]).filter(z=>Number.isFinite(z[1])));
  const ord=R.slice(0,10).sort((i,k)=>vv[k].length-vv[i].length||i-k),m=M(j,ord),r=j+1;
- let slot=[],cost=base;
+ let slot=[];
  const cons=m.A.map(row=>mod((j===0?18:0)*row[10]));
- function dfs(t,cost){
-  if(t<10){for(let [v,w] of vv[ord[t]])if(cost+w-low[ord[t]]<=1000){slot[t]=v;dfs(t+1,cost+w-low[ord[t]]);}return;}
-  for(let i=0;i<r;i++){let v=cons[i];for(let k=r;k<10;k++)v-=m.A[i][k]*slot[k];slot[i]=mod(v);let list=cand[ord[i]][slot[i]];if(!list.length)return;cost+=list[0][0]-low[ord[i]];if(cost>1000)return;}
+ function dfs(t){
+  if(t<10){for(let [v] of vv[ord[t]]){slot[t]=v;dfs(t+1);}return;}
+  for(let i=0;i<r;i++){let v=cons[i];for(let k=r;k<10;k++)v-=m.A[i][k]*slot[k];slot[i]=mod(v);let list=cand[ord[i]][slot[i]];if(!list.length)return;}
   let next=seq.slice();for(let i=0;i<10;i++)next[ord[i]]=cand[ord[i]][slot[i]];
   tries[j]++;rec(j-1,next);
- }dfs(r,base);
+ }dfs(r);
  }
  rec(6,seq);
  }
  },true);
 }
-if(masks.length!==17||hit||grid||String(tries)!=="0,9,9,9,9,1806,7978")throw Error("b10 octic");console.log({masks:masks.length,hit,grid,tries});
+if(masks.length!==17||hit||grid||String(tries)!=="0,9,9,9,9,4474,13894")throw Error("b10 octic");console.log({masks:masks.length,hit,grid,tries});

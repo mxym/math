@@ -86,7 +86,7 @@ for(let mask of masks){const D=mask.map(i=>F[i]),models=new Map();let tests=0;
   grid++;if(wt===255)gridT++;if(examples.length<3)examples.push({mask,w,profiles});return;
  }
  const cand=seq.map(l=>{let g=R.map(()=>[]);for(let b of l)g[b[1][j]].push(b);return g;});
- const vv=cand.map(g=>g.map((l,t)=>[t,l[0]?.[0]??50]).filter(z=>z[1]<50));if(vv.some(x=>!x.length))return;
+ const vv=cand.map(g=>g.map((l,t)=>[t,l.length?Math.min(...l.map(a=>a[0])):Infinity]).filter(z=>Number.isFinite(z[1])));if(vv.some(x=>!x.length))return;
  const ord=all.slice().sort((i,k)=>vv[k].length-vv[i].length||i-k),m=M(j,ord),r=j+1;
  let slot=[];
  const cons=m.A.map(row=>mod((j===0?18:0)*row[10]));
@@ -99,4 +99,4 @@ for(let mask of masks){const D=mask.map(i=>F[i]),models=new Map();let tests=0;
  }
  if(tests!==296)throw Error("centered leading classes");
 }
-if(masks.length!==17||hit||grid||String(tries)!=="0,0,0,0,0,18")throw Error("b10 septic");console.log({masks:masks.length,hit,grid,tries});
+if(masks.length!==17||hit||grid||String(tries)!=="0,0,0,0,0,60")throw Error("b10 septic");console.log({masks:masks.length,hit,grid,tries});
