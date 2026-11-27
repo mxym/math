@@ -12,3 +12,4 @@ These are partial results for the three-dimensional vector space over the field 
 
 The general [Malikiosis bound](https://doi.org/10.1007/s43670-023-00078-2) already excludes \(238,255,272\). Using the standard dimension-three spectral cardinality reduction, the remaining non-prime-power candidate sizes in \(\mathbb F_{17}^3\) are \(34,51,68,85,102,119\).
 
+For size 119, [degree-nine moments and the at-most-one-layer reduction](FugledeF17Size119MomentNine.md) are proved; size 119 is not excluded here.
