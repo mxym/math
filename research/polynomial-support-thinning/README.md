@@ -1,7 +1,0 @@
-# Sharp anisotropic thinning of polynomial supports on finite grids
-
-Let a polynomial of reduced total degree d be evaluated on a finite Cartesian grid over any field. In each coordinate, interpolate between uniform sampling and a fixed grid point. If the uniform component is thinned by a factor r_i in coordinate i, then the probability of nonzero evaluation decreases by at most the product of the min(d,n) smallest factors r_i. This factor is sharp for every grid, degree and parameter pair. For positive initial and final mixture parameters we give all equality cases.
-
-For Boolean polynomials with Bernoulli parameters at or below 1/2, this extends Potapov's Proposition 10 to the entire thinning range, even when the coordinates have different biases. In particular the Corollary 2 lower bound extends from p≤1/4 to all p≤1/2. We also characterize equality in his binary mean Hamming weight inequality, and show that the optimal constant 4 for Boolean plateaued functions is a supremum not attained when the Fourier entropy is positive. This is not a proof of the unrestricted Fourier Entropy–Influence conjecture.
-
-The proof combines Potapov's triangular-matrix matching idea with weighted Newton interpolation on arbitrary grids, then uses a random subset of uniformly resampled coordinates to integrate a bound on the conditional nonvanishing probability. The two independent checkers exhaust small binary truth tables and small nonbinary coefficient spaces, respectively. Run `sh replay.sh | diff -u RESULTS.txt -` using Python 3.
