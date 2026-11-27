@@ -1,4 +1,8 @@
-# All-scale Gaussian cold spots of the \(D_n\) and \(D_n^*\) lattices
+# Alternative proofs and an anisotropic reduction for checkerboard Gaussian cold spots
+
+## Priority and scope
+
+An earlier public [proof of the same all-scale theorem and the same BCC coordinate correction](https://github.com/1337isnot1337/solved-conjectures/blob/0cc8b46a206b95ffb602361e95fae65f6d64b5f5/results/betermin-fcc-bcc-cold-spots/PROOF.md) was posted in the `1337isnot1337/solved-conjectures` project on 24 November 2026. Its direct proof was found after this note's independent derivation. We therefore **do not claim this solves the conjecture for the first time**. This note is an independent replay, including the same Jacobi log-concavity mechanism for the cubic dual, an alternative \(D_4\) half-Hadamard derivation of the scalar identity, and the unequal-side-length reduction and counterexample in section 5. The previously posted proof already addresses every rank at least three; ranks one and two are standard degenerate cases.
 
 ## The fixed-lattice result
 
@@ -24,7 +28,7 @@ The minimizing classes in these normalizations are as follows. Set \(P(t)=\sum_{
 | \(D_n^*,\ n\) even | \(n/2\) coordinates \(0\), \(n/2\) coordinates \(1/2\) | \(2(AB)^{n/2}\) |
 | \(D_n^*,\ n\) odd | One coordinate \(1/4\) or \(3/4\), \((n-1)/2\) coordinates of each of \(0,1/2\) | \(2C(AB)^{(n-1)/2}\) |
 
-This directly addresses the geometric question in Bétermin's [Remark 5.10 of *Minimal Soft Lattice Theta Functions*](https://doi.org/10.1007/s00365-019-09494-x), for the FCC and BCC in dimension three, and also corrects the BCC representative listed there. In the unit-density BCC normalization of that article, the representative is \(2^{1/3}(1/2,1/4,0)=2^{-2/3}(1,1/2,0)\) up to symmetry and translation. The printed point \(2^{-2/3}(1,1,0)\), in the Cartesian coordinates of its displayed BCC basis, is neither a deep hole nor a Gaussian minimizer, at any \(\alpha>0\). See section 4 for the covering radii.
+As in the earlier proof, this addresses the geometric question in Bétermin's [Remark 5.10 of *Minimal Soft Lattice Theta Functions*](https://doi.org/10.1007/s00365-019-09494-x), for the FCC and BCC in dimension three, and also corrects the BCC representative listed there. In the unit-density BCC normalization of that article, the representative is \(2^{1/3}(1/2,1/4,0)=2^{-2/3}(1,1/2,0)\) up to symmetry and translation. The printed point \(2^{-2/3}(1,1,0)\), in the Cartesian coordinates of its displayed BCC basis, is neither a deep hole nor a Gaussian minimizer, at any \(\alpha>0\). See section 4 for the covering radii.
 
 ## 1. One-dimensional facts used in both proofs
 
@@ -143,6 +147,6 @@ The deep-hole conclusion itself does not extend to all unequal boxes. For exampl
 
 ## Prior work and reproducibility
 
-Bétermin's Remark 5.10 poses the fixed-lattice FCC/BCC question described above. Bachoc, Moustrou, Vallentin, and Zimmermann's [*Polarization of lattices: Stable cold spots and spherical designs*](https://doi.org/10.1017/fms.2026.10169) proves the cold spot statement for root lattices when \(\alpha\) is sufficiently large, and uses the standard \(D_4\) Hadamard symmetry. Here that symmetry is used to produce the all-scale scalar identity (4); the dual-family argument (7) is different. The [November 2026 Palomar record](https://open-research-index.vercel.app/r/palomar/PALOMAR-2026-11-19-000011) on universal cold spots lists other lattices and \(D_n^+\), not the sequences \(D_n\) and \(D_n^*\) in this note; see also its [pinned primary theorem statement](https://github.com/caiusdfolkerts/research/blob/9fcbca1143471e6e25c337def9897b58377e0b4c/cold_spots/Challenge.lean). This comparison is not a claim of exhaustive priority.
+Bétermin's Remark 5.10 poses the fixed-lattice FCC/BCC question described above. Bachoc, Moustrou, Vallentin, and Zimmermann's [*Polarization of lattices: Stable cold spots and spherical designs*](https://doi.org/10.1017/fms.2026.10169) proves the cold spot statement for root lattices when \(\alpha\) is sufficiently large, and uses the standard \(D_4\) Hadamard symmetry. Here that symmetry is used to produce the all-scale scalar identity (4); the dual-family argument (7) is different. The [November 2026 Palomar record](https://open-research-index.vercel.app/r/palomar/PALOMAR-2026-11-19-000011) on universal cold spots lists other lattices and \(D_n^+\), not the sequences \(D_n\) and \(D_n^*\) in this note; see also its [pinned primary theorem statement](https://github.com/caiusdfolkerts/research/blob/9fcbca1143471e6e25c337def9897b58377e0b4c/cold_spots/Challenge.lean). See the priority note at the beginning for the earlier proof of the exact result; these literature comparisons are not assertions of priority.
 
 Run **node verify-dn-dual-universal-cold-spots.js** for exact rational-shift squared-distance shell identities, covering patterns, and numerical regression of Gaussian sums and the BCC curvature; it uses only built-in assertions. The proof for all positive widths is analytic and does not rely on grid sampling.

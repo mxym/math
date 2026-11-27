@@ -1,4 +1,8 @@
-# The large-parameter cold spots of the Leech lattice select \(E_8^3\), not \(A_{24}\)
+# A second-order expansion at the \(E_8^3\) Gaussian cold-spot orbit of the Leech lattice
+
+## Priority and scope
+
+Cinna Davis had already posted the same leading correction and its proof on 26 November 2026, at [the fixed public commit `5be7521…`](https://github.com/1337isnot1337/solved-conjectures/blob/5be7521de201a9d046a1efb5e63c2fb62c1ea9d9/docs/research-results/leech-cold-spots-asymptotics/PROOF.md). The [subsequent 27 November supplement](https://github.com/1337isnot1337/solved-conjectures/blob/4b168ef96e1f7e848b944e3010f5c99fe5593113/docs/research-results/leech-cold-spots-asymptotics/MIXED-HOLES.md) also gives the general next coefficient of the minimum value. These records were found after this note's independent derivation. The limiting orbit is **not a new result here**; the explicit second-order position coefficient at the winning orbit, its Cartan evaluation of the leading displacement length, and the standalone discussion of the discrete tail in Lemma 5.1 are included as supplementary material. The earlier project also provides an independent first-order review and additional finite-shell results for the separate local minimum near \(A_{24}\).
 
 ## Result and comparison
 
@@ -28,7 +32,7 @@ e^{2\alpha}\min_x F_\alpha(x)
 \tag{2}
 \]
 
-The end of Section 5 of [Bachoc, Moustrou, Vallentin, and Zimmermann, *Polarization of lattices: Stable cold spots and spherical designs*](https://doi.org/10.1017/fms.2026.10169) instead identifies \(A_{24}\) as the limiting type. A comparison at the fixed centers does not control this limit: a displacement of order \(1/\alpha\) changes the leading coefficient, not just a lower shell. The analysis here leaves intact their Theorem 1.4 that the Leech lattice has no stable cold spots, and gives a different proof of it. The argument uses the classical deep hole classification, not a computation of the Leech theta function away from its deep holes. No claim of priority beyond the compared sources is made.
+The end of Section 5 of [Bachoc, Moustrou, Vallentin, and Zimmermann, *Polarization of lattices: Stable cold spots and spherical designs*](https://doi.org/10.1017/fms.2026.10169) instead identifies \(A_{24}\) as the limiting type. A comparison at the fixed centers does not control this limit: a displacement of order \(1/\alpha\) changes the leading coefficient, not just a lower shell. The analysis here leaves intact their Theorem 1.4 that the Leech lattice has no stable cold spots, and gives a different proof of it. The argument uses the classical deep hole classification, not a computation of the Leech theta function away from its deep holes. The priority of the previously posted leading correction is explicitly acknowledged above.
 
 ## 1. Localize the global minimizers at scale \(1/\alpha\)
 
