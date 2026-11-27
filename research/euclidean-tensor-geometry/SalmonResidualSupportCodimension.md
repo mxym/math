@@ -1,5 +1,7 @@
 # Codimension-three support bound for the Salmon scheme-theoretic discrepancy
 
+> Follow-up: the [two additional boundary checks](SalmonResidualSupportCodimensionFour.md) improve this to codimension at least four.
+
 Let \(X=\widehat{\sigma_4}((\mathbb P^3)^3)\) (dimension 40), with prime ideal I and known set-theoretic ideal \(J=J_{5,6,9}\). The proofs of equality [on the concise open](SalmonConciseDegreeFiveLocalIdeal.md) and [on the dense rank-four frame orbit](SalmonCompressionFrameLocalIdeal.md) of each \(3\times3\times4\) compression imply, with the details below, that \(\operatorname{Supp}(I/J)\) has codimension at least three in X. This does not prove equality, saturation, the \(S_1\) property or unmixedness. In fact if \(J\) is independently proved \(S_1\), irreducibility and generic reducedness suffice for equality.
 
 ## Invertible-slice points
