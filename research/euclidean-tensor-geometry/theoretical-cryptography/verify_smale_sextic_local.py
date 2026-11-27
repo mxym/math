@@ -89,9 +89,32 @@ def reciprocal_terms(poly):
             continue
         w=sum((j+1)*n for j,n in enumerate(a))
         insist(w%5==0 and w<=20, ("unexpected weight", a, c))
-        d=c*prod(F((4-j)*(-1)**(j+1),5)**n for j,n in enumerate(a))
+        d=c*prod(F((4-j)*(-1)**(j+1),5*(j+2))**n for j,n in enumerate(a))
         out.append([list(a),w//5,d.numerator,d.denominator])
     return out
+
+
+def check_reciprocal_substitution(poly):
+    def elementary(values):
+        out = [F(1)] + [F(0)]*len(values)
+        for i,z in enumerate(values,1):
+            for k in range(i,0,-1):
+                out[k] += z*out[k-1]
+        return out
+
+    terms = reciprocal_terms(poly)
+    for w in [(F(1),F(-1,2),F(3,4),F(1,3),F(2,5)),
+              (F(1),F(-2,3),F(-2,3),F(1,4),F(-1,4)),
+              (F(1),F(1,2),F(2,3),F(2,3),F(3,4))]:
+        E = elementary(w)
+        substituted = 1 + sum(F(a,b)*prod(E[j+1]**m for j,m in enumerate(alpha))
+                              / E[5]**k for alpha,k,a,b in terms)
+        direct = F(1)
+        for j,wj in enumerate(w):
+            e = elementary(w[:j]+w[j+1:])
+            direct *= F(6,5)*sum(F((-1)**k,(k+1)*(k+2))*ek/wj**k
+                                 for k,ek in enumerate(e))
+        insist(substituted==direct, ("reciprocal substitution mismatch", w))
 
 
 def main():
@@ -123,6 +146,7 @@ def main():
     bound=2*(15*(2*rho-1)+F(33,10))+(15+F(33,10))**2*F(4,25)*a*a
     insist(bound==F(-3381,2500) and bound<F(-5,4),"final strict bound")
 
+    check_reciprocal_substitution(R)
     if sys.argv[1:]==["--emit-reciprocal-terms"]:
         print(json.dumps(reciprocal_terms(R),separators=(',',':')))
     else:
