@@ -132,3 +132,35 @@ For every \(2\times n\) complex matrix and every coefficient exponent \(q\ge4/3\
 The unrestricted complex optimum is not determined. The classical upper bound \(2/\sqrt\pi\), and an explicit statement that it is not proved optimal, are in Núñez-Alarcón, Pellegrino and Seoane-Sepúlveda, [On the Bohnenblust-Hille inequality and a variant of Littlewood's \(4/3\) inequality](https://arxiv.org/abs/1203.3043), §§1 and 3.2. The distinction between exact mixed Littlewood bounds and the unmixed \(4/3\) inequality matters: Cavalcante, Núñez-Alarcón, Pellegrino and Rueda, [Optimal constants of the mixed Littlewood inequalities: the complex case](https://files.ele-math.com/articles/mia-25-13.pdf), settle relevant mixed constants, not the unrestricted unmixed constant. The 2024 primary paper [The sharp constants in the real anisotropic Littlewood's \(4/3\) inequality and applications](https://arxiv.org/abs/2407.06804) still distinguishes unresolved complex sharp constants. No direct closure or identical restricted theorem surfaced in the primary-source searches; this is not an exhaustive priority assertion. The analytic point here is the exact support/gauge transfer and the separate chord-power argument, not the usual mixed-norm inequality or the known cographic-zonotope setup. For the latter compare [The Tropical and Zonotopal Geometry of Periodic Timetables](https://doi.org/10.1007/s00454-024-00686-2), §§4.2–4.3 (cycle-offset zonotope, network matrix minors, torus geometry).
 
 The full two-row theorem comes from the planar support-function reduction. It does not extend by the displayed argument to three independent row phases, where there is no single planar angle parametrizing all column costs.
+
+## 6. Arbitrarily many rows with two nonzero entries per column
+
+**Theorem.** Let \(A=(a_{ij})\) be any finite complex matrix with at most two nonzero entries in each column. With the same \(p=4/3\) and norms \(B(A),L(A)\) as above, \(L(A)\le B(A)\) with best constant 1. Transposition gives the corresponding row-sparse theorem. Apart from the zero matrix, equality again consists of a singleton or a scaled \(2\times2\) Hadamard block after row and column phase changes and permutations.
+
+Partition the nonempty columns by their exact row supports \(S\); let \(L_S\) denote the coefficient \(p\)-norm of that group, and choose \(S_*\) with largest \(L_{S_*}=M\). Fix the row phases on \(S_*\) to maximize that group's contribution to
+\[
+B(A)=\max_{|y_i|=1}\sum_j\Big|\sum_i a_{ij}y_i\Big|.
+\]
+Its maximized contribution is at least \(M\), by the two-row theorem (also valid for a single row). Randomize all remaining row phases independently and uniformly on the unit circle. A different two-row support \(S\) meets \(S_*\) in at most one row, so its relative phase is uniform, even if some of the other columns share that phase. Linearity of expectation does not require independence between columns. Singletons have deterministic absolute value.
+
+For \(a,b\ge0\), the mean of \(|a+b e^{it}|\) over uniform \(t\) is at least \((2\sqrt2/\pi)(a^2+b^2)^{1/2}\). Indeed, after factoring out \((a^2+b^2)^{1/2}\), the remaining mean is that of \(\sqrt{1+u\cos t}\) for \(u=2ab/(a^2+b^2)\in[0,1]\). This mean is even and concave as a function of \(u\) on \([-1,1]\); at \(u=1\) it equals \(2\sqrt2/\pi\). Norm comparison in dimension 2 therefore bounds each column mean below by \(c(a^p+b^p)^{1/p}\), for \(c=2^{5/4}/\pi\). This also holds for a singleton. Since the sum of column norms in a group dominates their \(p\)-norm \(L_S\), taking expectations yields
+\[
+B(A)\ge M+c\sum_{S\ne S_*} L_S .
+\]
+
+For \(x\ge y\ge0\), convexity of \(t\mapsto(1+t^p)^{1/p}\) (it is a norm restricted to a line) gives
+\[
+(x^p+y^p)^{1/p}\le x+\beta y,\qquad \beta=2^{3/4}-1.
+\]
+Start at \(x=M\), add the remaining group norms one at a time, and update \(x\) by the left hand side, which is always at least \(M\). This proves
+\[
+L(A)\le M+\beta\sum_{S\ne S_*}L_S,\qquad
+B(A)-L(A)\ge(c-\beta)\sum_{S\ne S_*}L_S.
+\]
+The gap coefficient is positive: \(\beta<3/4\) since \(8<(7/4)^4\), and \(c>3/4\) follows from \(\pi<22/7\) and \(2^{1/4}>33/28\). Thus equality requires a single support group, after which the two-row equality classification applies. A singleton gives sharpness.
+
+This argument also gives a general *block gluing* criterion. Partition the columns into groups whose sets of active rows meet pairwise in at most one row. Suppose each group independently satisfies \(B_S\ge L_S\), and its Haar-averaged absolute-sum contribution is at least \(\beta L_S\). Optimizing the largest group and randomizing the rest gives \(B(A)\ge L(A)\). Fixing a single row phase in any other group does not change its absolute-sum distribution, by rotating all its row phases by a common factor.
+
+For an example not covered by the acute gauge or a global two-row hypothesis, take three columns on rows 1 and 2 with entries \((1,1)\), \((1,e^{2\pi i/3})\), and \((1,e^{-2\pi i/3})\), and a fourth column \((1,1)\) on rows 2 and 3. Its first three columns already require gauge half-width \(\pi/3\) by the parallel-path computation in §2. There are three active rows, but every column has support of size two.
+
+The unrestricted complex constant remains open. Targeted searches found no directly matching sharp per-column sparsity statement; the neighboring mixed-inequality results cited above do not imply the theorem.
