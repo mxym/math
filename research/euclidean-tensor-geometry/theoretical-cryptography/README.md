@@ -2,6 +2,10 @@
 
 These are two complementary strands of finite algebra and probability, with proofs and exact small examples. None supplies a polynomial-time factoring, discrete-logarithm, Ring-LWE or SIS solver. The elliptic curves below are algebraic geometry objects, not a claim about elliptic-curve discrete logarithms. The random-module results use independent uniformly distributed ring rows and a specified sparse limit; they are not results about recovering a secret in a noisy cryptosystem.
 
+## Defensive competition security reviews
+
+- [NIST fourth-round KEM proof scope](PublicPQCCompetitionSecurityScopeAudit.md): historical BIKE correctness threshold, later HQC analysis, and version-specific limits. This audits published results; it is not a new attack.
+
 ## Integer factorization theory
 
 - [Low-degree CRT observation bounds](FactorCRTPolynomialObservationBounds.md): sharp transcript bounds in a restricted polynomial-query model, not a lower bound for ordinary factoring.
