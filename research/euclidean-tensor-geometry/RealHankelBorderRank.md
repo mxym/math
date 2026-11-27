@@ -66,3 +66,43 @@ Seigal–Sturmfels, Real Rank Two Geometry, https://arxiv.org/abs/1609.09245, ch
 ### Optional check: real binary hyperbolic family
 
 For a strictly hyperbolic binary degree-d form (d distinct projective real zeros), ordinary real Euclidean border rank is d. The upper bound is the classical signed real binary Waring bound d. For the ordinary lower bound induct on d. Given rank-≤r approximants choose in the last factor a unit real covector annihilating one nonzero summand (restrict to the 2D factors, then pass to a convergent subsequence). The contracted approximants have rank at most r−1 and converge to the contraction of the target by a unit covector. For a symmetric tensor this is, up to nonzero normalization, a directional derivative of its form. In coordinates making that direction the x direction, dehomogenize at y=1. If infinity is not a zero, the dehomogenized polynomial has d distinct finite real roots; its derivative has d−1 by Rolle. If infinity is a zero, the polynomial has degree d−1 with d−1 distinct finite real roots, and the derivative has d−2 such roots plus an infinity zero of multiplicity exactly one as a form of degree d−1. Thus the contracted target is again strictly hyperbolic and induction gives r≥d. This subsumes the conjugate-pair tensor Re(c v^⊗d) for c≠0 when the real and imaginary parts of v are independent: in its real two-dimensional span its form is up to a real linear change Re((x+iy)^d), with d distinct real zeros. Its complex ordinary and symmetric border ranks are both two by its displayed expression and one-vs-rest flattening. This is an ordinary and symmetric real rank increase over the complex ranks, not an ordinary/symmetric gap over the reals. For d=1 the pair's complex rank is of course one, so the rank-two statement is for d≥2.
+
+## Three exact border-rank values on one quartic
+
+Let \(v(t)=(1,t,t^2)\) and
+\[
+H=\operatorname{Re}(v(i)^{\otimes4})+\tfrac12v(0)^{\otimes4}.
+\]
+The complex ordinary and symmetric Euclidean border ranks are both **3**; the real ordinary and signed symmetric Euclidean border ranks are both **5**; the real signed Vandermonde Euclidean border rank is **8**. The real symmetric approximants need not be Hankel, whereas the Vandermonde approximants must be sums of real moment-curve powers. This example does not separate ordinary and symmetric border rank over the same field.
+
+* **Complex, 3.** Expand the real part as two conjugate powers. The three vectors \(v(i),v(-i),v(0)\) are independent by the Vandermonde determinant, so in this basis the tensor is diagonal with three nonzero entries. A one-versus-three flattening therefore has rank three.
+* **Real ordinary and signed symmetric, 5.** The basis \(\operatorname{Re}v(i),\operatorname{Im}v(i),v(0)\) displays a strictly hyperbolic binary quartic and a scalar block on an independent line. The real additive bound below gives the ordinary border lower bound five. A real signed Waring decomposition of the binary quartic has four terms, and the scalar adds one.
+* **Real signed Vandermonde, 8.** The linear binary moment isomorphism of [Nie and Ye](https://arxiv.org/abs/1706.03631) sends Hankel moments \(h_j\) to \(\sum_{j=0}^8\binom8j h_jX^{8-j}Y^j\). It sends real Vandermonde powers to real binary powers projectively, including the point at infinity as a limit. Here the corresponding form is \(\operatorname{Re}(X+iY)^8+\tfrac12X^8\). At \((X,Y)=(\cos(j\pi/8),\sin(j\pi/8))\) its signs alternate, since the magnitude of the perturbation is at most \(1/2\). The eight consecutive open intervals on the real projective circle give eight distinct real zeros. The same signs persist in an open neighborhood, so the [strictly hyperbolic binary Waring rank theorem](https://arxiv.org/abs/0909.4865) gives real Waring rank eight throughout that neighborhood, including at the form itself. This proves both the Euclidean border lower bound and the projective upper bound. A summand at infinity, if present, can be approached using finite real slopes, since \(t^{-8}(X+tY)^8\) tends to \(Y^8\).
+
+For an explicit decomposition in the last step, for \(q=4,8\) the Fourier expansion of \(\cos^q\) gives
+\[
+\operatorname{Re}(X+iY)^q
+=\frac{2^{q-1}}q\sum_{j=0}^{q-1}(-1)^j
+  \big(\cos(j\pi/q)X+\sin(j\pi/q)Y\big)^q .
+\]
+Indeed on the unit circle the weighted sum discards all the Fourier modes except the two of frequencies \(\pm q\); homogeneity extends the identity. For the octic the \(j=0\) coefficient absorbs the additional \(X^8/2\).
+
+### Ordinary real Euclidean border rank with independent scalar blocks
+
+In \(d\ge2\) modes take a strictly hyperbolic binary degree-\(k\) core, \(1\le k\le d\), on \(k\) active binary modes, tensored with a nonzero vector in each remaining mode. Form the direct sum with \(s\) nonzero scalar blocks, each on its own independent line in every mode. The real ordinary Euclidean border rank is \(k+s\).
+
+The upper bound uses the real binary Waring bound \(k\) and the \(s\) scalar terms. For the lower bound induct on \(k+s\). At \(k=1\) a one-versus-rest flattening has rank \(1+s\). For \(k\ge2\) project the rank-\(\le r\) approximants into the stated mode spaces and choose a nonzero summand, with its factor in one active mode represented by a unit vector \(e_j\). After passing to a subsequence, \(e_j\to e\). If a fixed map \(P\) in the selected mode kills \(e\), then applying \(P(I-e_j e_j^\top)\) kills the selected summand and tends to applying \(P\). Thus the transformed target has border rank at most \(r-1\); no bounds on the coefficients of the approximants are needed.
+
+* If \(e\) has a nonzero coordinate along a scalar block, let \(\alpha\) extract that coordinate and take \(P=I-e\alpha/\alpha(e)\). This is the identity on the binary core and on the other scalar blocks. In a second mode project off the chosen scalar line. This removes just that block, irrespective of how its first-mode factor changed. The resulting target has parameters \((k,s-1)\).
+* Otherwise \(e\) is in the binary plane. In that plane take a rank-one map killing \(e\), and extend by the identity on the scalar lines. Acting on the binary core takes a nonzero directional derivative in its homogeneous binary form and supplies a fixed nonzero factor in the selected mode. Thus it becomes a degree-\(k-1\) core with one more inactive mode. The real projective Rolle argument above preserves strict hyperbolicity; the scalar blocks remain independent. The parameters are \((k-1,s)\).
+
+In both cases induction gives \(r-1\ge k+s-1\). Notice that the approximants have been ordinary rank decompositions throughout; no symmetry or Hankel assumption was used for the lower bound.
+
+### A family with the same separation
+
+For even \(d\ge4\) and \(n\ge s+2\), now put \(v(t)=(1,t,\dots,t^{n-1})\). With \(z\notin\mathbb R\), distinct real \(a_j\), \(c\ne0\), and real \(b_j\ne0\), take
+\[
+ \operatorname{Re}(c\,v(z)^{\otimes d})+
+       \sum_{j=1}^{s} b_j v(a_j)^{\otimes d}.
+\]
+The complex ordinary and symmetric border ranks equal \(2+s\), and the real ordinary and signed symmetric border ranks equal \(d+s\). The Vandermonde determinant on the \(s+2\) nodes gives the independent lines and plane needed in the real argument. The real signed Vandermonde border rank equals \(d(n-1)\) whenever all \(\lvert b_j\rvert\) are sufficiently small. Indeed the unperturbed binary form \(\operatorname{Re}(c(X+zY)^{d(n-1)})\) is an invertible real transform and scaling of a harmonic power, hence has distinct real projective zeros. The sufficiently small perturbations preserve that open property. These are exact values in the displayed family; publication priority for the family or the scalar-block argument is not asserted.
