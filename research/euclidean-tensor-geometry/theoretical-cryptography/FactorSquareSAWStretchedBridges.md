@@ -4,7 +4,7 @@ Research note, 28 November 2026. Let \(\mu=\lim c_n^{1/n}\) be the connective co
 \[
                      \mu>2.62738682602 .
 \]
-This is an increase from the [Numaro certificate](https://zenodo.org/records/21546041) bound \(2^{128}/129513673858566230428673965530967449326=2.627385640\ldots\). The same published finite enumeration is used, not rerun here. The additional weight comes from an explicit, reversible construction of wider irreducible bridges, without any transfer-matrix calculation at a larger span. This does not determine \(\mu\) or improve the upper bound of [Tomar](https://hexagonmath.org/pdf/2611.00474v1).
+This is an increase from the [Numaro certificate](https://zenodo.org/records/21546041) bound \(2^{128}/129513673858566230428673965530967449326=2.627385640\ldots\). The same published finite enumeration is used, not rerun here. The additional weight comes from an explicit, reversible construction of wider irreducible bridges, without any transfer-matrix calculation at a larger span. This does not determine \(\mu\) or improve the upper bound of [Tomar](https://hexagonmath.org/pdf/2611.00474v1). It is an improvement over the cited Numaro input, not a claim to the strongest current lower bound: [Pinho's later unrefereed candidate](https://github.com/rpinho/math-certificates/blob/aed5011f71082ab1373bdd8692801dd6cb0ec608/c38/bridges-span18/PROOF.md) states \(\mu\ge8388608/3192535=2.62756962727\ldots\), not independently replayed in this note.
 
 ## 1. Crossing counts and a reversible width extension
 
