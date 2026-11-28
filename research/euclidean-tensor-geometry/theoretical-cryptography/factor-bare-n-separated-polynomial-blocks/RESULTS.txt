@@ -1,0 +1,15 @@
+Finite exact checks, standard-library Python 3. Both frozen scripts exit 0.
+
+$ python3 -B verify_degrees.py
+certified large case N bits, cutoff, gap, degrees, S minus floor 334 55406624 8688 [4, 7] -1
+fractional-degree mixed path W, weights, scale 2 [5, 2] 4000
+signed synthetic packets / signs of S minus floor 96 [-1, 0, 1]
+
+$ python3 -B verify_fibers.py
+Pell plus non-binomial block: norm degree / exact roots in [2,1000] 16 [29]
+nonreduced fiber: specialization, norm degree 5 3
+two-stage fractional-degree path / isolated anchor [5, 7, 101] 11
+
+The large example has two distinct polynomial shapes. Its primes are x=1000000321, q=6x^2+1=6000003852000618247, y=1000009009 and s=2y^3+2y^2+1=2000054056487009984540699621. All allowable directed edges are tested. The two anchors are certified by exact trial division and the two larger values by Pocklington's criterion with known factor x^2 or y^2 and witness 2. In N=x^2 q y s^2, the weights are 4 and 7, the scale is 24 and the exact weighted sum 11000064347 sits one below floor(11*(N/24)^(1/11)). This is in the true large-anchor branch even under the explicit cutoff in the proof. The 96 additional packets test the analytical step on large positive integers rather than alleging they are primes; all three signs of the deviation occur.
+
+The second checker independently constructs the norm in a two-dimensional algebra for the two disjoint edges 2x^2-1=z^2 and 4y^2+2y+1=w with x,z,y,w=29,41,31,3907. The first equation has two complex branches and only one positive value at x=29. The displayed integral roots are explicitly restricted to [2,1000]; finiteness on all of C follows from the proof. The second norm check shows that a nonreduced specialization (two algebraic roots coalesce) does not invalidate the determinant argument. The final two-step check has a rational degree weight 1/2, which a raw degree-only integer treatment could miss. These are mathematical fixtures, not a general-purpose implementation or practical factoring benchmark.

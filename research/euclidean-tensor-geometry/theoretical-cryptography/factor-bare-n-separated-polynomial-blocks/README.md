@@ -1,0 +1,12 @@
+# Bare-N factorization on separated-polynomial prime-relation graphs
+
+A public polynomial-size dictionary for the bit length contains pairs of nonconstant integer polynomials U,V. Join two distinct primes of N when U(p)=V(q) for one of the pairs in either orientation. The graph and the prime-power decomposition are both unknown. For a fixed bound K on the number of distinct primes:
+
+1. If the graph is connected, N alone suffices for deterministic polynomial-bit-time recognition and factorization. The polynomial coefficients need only have polynomial bit length; no monotonicity is needed.
+2. Suppose the dictionary has polynomially bounded ratios of nonleading to leading coefficients in absolute value and positive leading coefficients. The same conclusion holds for exactly two components if their smallest primes differ by at most L^c times the square root of the smaller one, where L is the binary length of N and c is fixed. Component shapes, polynomial degrees and prime multiplicities may differ. Both directions of an edge may be algebraic rather than affine or rationally invertible.
+
+For (2) the two unknown anchors have a computable list of polynomially many possible integer weighted sums. The weights come from degree ratios; the scale is calculated from leading coefficients. The list is generally two-sided. Once a sum is fixed, polynomial values tend to infinity together in each component, making the product constraint a finite algebraic problem. Even one true edge may have a square-root branch rather than define a rational affine function.
+
+Finite algebraic elimination, prime chains and weighted Fermat methods are established tools. The contribution considered here is the above two-component promise with degree normalization and shifted range control, not an algorithm for unrestricted integers or for arbitrary algebraic plane curves. The semiprime singleton case and the previous affine result are not counted as new. No density or optimality claim is made; elementary upper bounds are given in the proof.
+
+PROOF.md contains the full argument, including polynomial bit bounds for growing degrees and multiplicities. UPSTREAM.md distinguishes earlier results. Two standalone Python 3 scripts check finite mathematical certificates and do not accept external inputs. Run `python3 -B verify_degrees.py` and `python3 -B verify_fibers.py`; compare RESULTS.txt. SHA256SUMS covers the six companion files.
