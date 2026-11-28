@@ -1,0 +1,14 @@
+Fixed mathematical checks only.
+
+verify_gap.py
+PASS: 24624 exact weighted term comparisons, fractional gap and large raw coefficient
+These checks compare the integer term majorants across a fixed grid and
+include one fractional exponent and one larger dense-coefficient example.
+
+verify_fixture.py
+PASS: small irreducible mixed relation and separate large-branch exact center
+The first fixture verifies a small-coefficient irreducible correspondence
+at a specified prime pair. The second is tailored by including the first
+coordinate in one coefficient; it checks the weighted certificate, true
+large-branch threshold and exact exponent center. No asymptotic existence
+or algorithmic benchmark is inferred from either fixture.
