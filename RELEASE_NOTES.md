@@ -1,0 +1,15 @@
+# Source-slice notes
+
+## Exact theorem and prior art
+
+The source was frozen on the research branch at da509e81b2cf0e7fd3fd65ba9114aa6379201827. For a positive cycle of the shortcut \(5x+1\) rule, \(m\) is the number of genuine local minima in its least period, in the sense of [Simons 2008, §4](https://www.impan.pl/shop/publication/transaction/download/product/82891?download.pdf=). Its Lemma 16 and table (43) give exclusion through \(m=7\) for the \(q=1\) row and already list the three positive cycles, with minima 1, 13, and 17. The new theorem excludes any additional cycle through \(m=21\); it does not discover those three cycles or prove that no other \(m\) occurs. It does not classify any nonperiodic trajectories.
+
+The proof uses Simons's equation (38) as a transcendence bound. It replaces a worst-height bound by a geometric sum over the cycle and then truncates the growth at multiple small minima. Two exact unimodular brackets reduce the large-minimum range to 22 candidates; the final candidate forces two much smaller minima, contradicting the shifted segment bound. The small-minimum range uses a bounded number of transitions between local minima rather than assuming termination of trajectories.
+
+## Implementations and receipts
+
+* **Author rational verifier:** exact rational log enclosures and all 52 lattice-coordinate cells checked; 22 feasible forms and the final exceptional form \(P=1103212007,\ K=475127550\) removed. This is a finite arithmetic expansion of inequalities in the proof.
+* **Author scan:** eight exact shards covering 268,435,456 odd inputs below \(2^{29}\), 33,554,432 per shard, each run for at most 21 local-minimum transitions. All shards finished, returning only minima 1 (one local minimum per cycle), 13 (one) and 17 (two). The scan groups entire odd and even blocks. The frozen CLI uses the same exactly checked powers of five as the eight-shard run; the startup/unit replay also passed on 35,290 mixed and literal arithmetic cases.
+* **Author-external analytic audit:** independently rederived the block geometrical bound and rational-bracket argument, checked Simons's hypotheses and used a different \(-\log(1-t)\) series to reproduce 22 forms and the unique last candidate. Its standalone `independent_forms.py` reproduced the final strict inequalities with exact rational arithmetic.
+* **Author-external scan:** `independent_scan.js` directly performs each odd/even elementary shortcut step, with an independent Number/BigInt switch, and does not import or implement the grouped-valuation kernel. A full independent eight-shard replay again covered all 268,435,456 odd inputs and produced only 1, 13 and 17. Separately, the reviewer re-ran the frozen author JS kernel-only checks and confirmed author scanner shards 0–3 and 7 by the time the audit receipts were collected. The complete second implementation does not depend on those repeated author-script runs.
+* [MANIFEST.sha256](MANIFEST.sha256) records every file other than itself. The checkers are reproducibility support, not separate mathematical claims.
