@@ -1,9 +1,0 @@
-Symbolic scope and finite replay
-
-python3 -B verify_slices.py
-PASS slice/formal-fibre checks: 1024 weighted trees; 960 bad-slice/zero-stripping evaluations; 76 large-height lengths.
-
-python3 -B verify_products.py
-PASS product determinants: 165 powers; 99 pair products; 30 unit tests; 34 conjugate checks; reducible mixed fixture.
-
-The first check uses exact rational parametrizations. It tests constant versus nonconstant weights on x*y=A, y*z=B, coefficients whose vanishing removes a finite affine fibre, an inflated eliminant, and a length-dependent encoded constant. The second builds Sylvester determinants with rational arithmetic and compares against powered/product roots, including repeated and conjugate roots and a reducible mixed equation. Neither checker validates the general theorem by sampling; the general proof is in PROOF.md.

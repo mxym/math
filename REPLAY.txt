@@ -1,0 +1,19 @@
+Ordinary Python 3, no optimization flag. Exact frozen script bytes.
+
+RUN verify_factor_chollet_small_entries.py
+SMALL PASS 7 1/5 21 0 24091
+SMALL PASS 9 8/25 36 0 36618
+SMALL PASS 11 21/50 57 1 46
+SMALL PASS 12 2/5 66 0 6049
+SMALL PASS 13 3/8 116 3 55
+RUN verify_factor_chollet_double_border.py
+PRIOR LADDER PASS 7 1/5 104 9
+PRIOR LADDER PASS 9 8/25 42 8
+BORDER PASS: order 11 63 4 2792195 [12, 11, 8, 5, 6, 4, 3, 2, 2, 2, 2, 2, 2, 2]
+RUN verify_factor_chollet_support_independent.py
+INDEPENDENT PASS 33866 ordinary graphs; 30178 fixed-arc completions; exact traces 3/4 and pair moments
+RUN independent-chollet-eleven-split.py
+independent x=s/E grid 7 84 gap >= 24124 ppm
+independent x=s/E grid 9 144 gap >= 37058 ppm
+independent x=s/E grid 11 220 gap >= 3737 ppm
+factorial-basis independent Sylvester matching determinants: 30800 in 280 closed r-cells
