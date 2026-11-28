@@ -3,8 +3,11 @@
 ## Status
 
 This research-branch theorem has passed an author-independent paper
-audit. It is not an immutable release and makes no
-priority claim.
+audit. It is not an immutable release and makes no priority claim.
+The uniform polynomial-time threshold below is also a consequence of a
+classical CRT plus Coppersmith--Howgrave-Graham small-root theorem; the
+package records a different elementary coefficient-recovery proof, not
+a first solvable range.
 
 ## Theorem
 

@@ -49,6 +49,30 @@ are not in one short interval. The present two-point coefficient method unifies 
 mechanism for every fixed \(k\), but its new scope is recorded only for
 fixed \(k\ge4\).
 
+
+## Classical route to the same uniform threshold
+
+Henry Cohn and Nadia Heninger,
+“Ideal Forms of Coppersmith's Theorem and Guruswami--Sudan List
+Decoding,” *Innovations in Computer Science* (2011), 298–308; expanded
+version dated 2013, arXiv:1008.1284v2.
+https://arxiv.org/pdf/1008.1284v2
+
+Their Theorem 1.1 states the Coppersmith--Howgrave-Graham--May
+unknown-divisor small-root theorem, including the endpoint
+\(|w|\le M^{\beta^2/d}\). For the present balanced fixed-\(k\) cluster,
+either \(\gcd(N,\varphi(N))\) already splits \(N\), or CRT modulo
+\(M=N\varphi(N)\) combines a common integer center modulo \(N\) and that
+center minus one modulo \(\varphi(N)\). Each shift to a factor \(p\) is
+then a root of a monic linear polynomial modulo the unknown divisor
+\(p(p-1)\mid M\). The theorem, with a polylogarithmic number of adjacent
+center blocks, already gives the polynomial-time threshold
+\(H\le N^{2/k^2}\operatorname{polylog}N\).
+
+Thus the uniform exponent is not claimed as new. The present package's
+independent content is the explicit two-consecutive-value
+finite-difference tree and its full parameterized running-time bound.
+
 ## Search and claim policy
 
 Searches covered numeric-\(\varphi\) oracle factoring, balanced
