@@ -20,15 +20,15 @@ The independent audit reconstructed the complete argument rather than relying on
 1. the Chebyshev-cost interpolation and its one-sided derivative behavior at prime knots;
 2. the abundance budget inequality, including the square-Euler-factor tail and the uniform (O_A(p^{-1/2}/\log p)) comparison between (B_p) and (p^2);
 3. the global-maximum/contact argument, including exclusion of knots, the displacement (delta=O(vz+1/p)), uniformity for (C\geq1), and use of only the ordinary prime number theorem;
-4. transfer of the Diamond--Pintz negative oscillation from a real (x) to the next-prime left limit (M(p-));
+4. transfer of the Diamond--Pintz negative oscillation from a real `x` to the next-prime left limit `M(p-)`;
 5. the exact scope and page locations in Shunia, Eriksson, and Diamond--Pintz recorded in `UPSTREAM.md`; and
 6. the raw finite replay output recorded in `RESULTS.txt`.
 
-A final clarification (0<z<-f(v)=o(1)), hence (vz=o(1)) at contact points, was included before the frozen audit. The AIRR direct-PDF link was also corrected before freezing.
+A final clarification `0<z<-f(v)=o(1)`, hence `vz=o(1)` at contact points, was included before the frozen audit. The AIRR direct-PDF link was also corrected before freezing.
 
 ## Exact scope
 
-The audited theorem is an unconditional **arithmetic existence theorem** for infinitely many odd squarefree abundant consecutive-prime products at the critical roughness constant. It does not prove an abundance-oracle reduction at (c=1), an effective first-witness bound, or a general integer-factorization algorithm. The finite replay verifies identities and one tiny witness only; it is not a numerical proof of the asymptotic theorem.
+The audited theorem is an unconditional **arithmetic existence theorem** for infinitely many odd squarefree abundant consecutive-prime products at the critical roughness constant. It does not prove an abundance-oracle reduction at `c=1`, an effective first-witness bound, or a general integer-factorization algorithm. The finite replay verifies identities and one tiny witness only; it is not a numerical proof of the asymptotic theorem.
 
 ## Replay
 
