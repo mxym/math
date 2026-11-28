@@ -1,34 +1,20 @@
-# Cogentic descent divisibility-sign audit
+# Withdrawn: Cogentic descent divisibility sign audit
 
-This directory isolates one exact internal inconsistency in the fixed v1 of
-*Unconditional Integer Factorization in Time* \(L_N[1/3,O(1)]\).
+**Status: withdrawn on 2026-11-28. Do not cite this directory as a mathematical
+finding.**
 
-At an algebraic node, Lemma 4.4(1) assumes
-\[
-q\nmid R_{\rm anc},
-\]
-and its proof uses that hypothesis. Definition 4.5 instead instructs
-`AlgNode` to verify
-\[
-q\mid |b_{t_1}^*a_{t_2}^*-a_{t_1}^*b_{t_2}^*|
-\quad\text{for every ancestor pair.}
-\]
-For a history containing at least two distinct primitive ancestors, the printed
-guard forces \(q\mid R_{\rm anc}\), the exact negation of the local lemma's
-hypothesis.
+The earlier files in commit `b93381c64f6b7fb461c4ff2050a7a5ce4d1cba00`
+were based on the Valency HTML rendering of Definition 4.5. That rendering
+dropped the negation slash in `q \nmid D_{t_1,t_2}` and displayed the
+opposite condition.
 
-The surrounding construction identifies the intended one-symbol repair:
-replace the divisibility guard in Definition 4.5 by nondivisibility for every
-ancestor pair. This agrees with the definition of \(Y_{\rm forb}\), the
-bad-child event, and the application of Lemma 4.4 in Lemma 4.6.
+The authoritative Google Research PDF at commit
+`4a7bc8ab0bc770e71a259b7966c500496b99010a`, Git blob
+`19f36b2f189ed41ec8e112b92aa9b88a96c6bd1e`, page 38, explicitly states
 
-This is a proof-scope audit. It does **not** claim that the paper's factoring
-theorem is false, and it does not independently verify the full paper. It says
-that the printed algorithm and the printed path-telescoping proof are
-incompatible until the guard is corrected.
+`q \nmid |b^*_{t_1}a^*_{t_2}-a^*_{t_1}b^*_{t_2}|`.
 
-Run:
-
-```bash
-python3 verify_logic.py
-```
+Thus Definition 4.5 agrees with Lemma 4.4 on this point. The alleged sign
+conflict does not exist in the fixed source. The proof, checker, results, and
+source note from the erroneous audit have been removed from the live research
+branch; Git history is retained only for traceability.
