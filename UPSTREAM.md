@@ -74,7 +74,8 @@ source text.
    Engineering, Communication and Computing 34(4) (2023), 663--690;
    arXiv:1802.08444v2.
    - https://arxiv.org/pdf/1802.08444v2
-   - Section 6.3 gives every squarefree three-prime integer from the two
+   - Section 6.3 (arXiv v2 printed page 20; journal page 682) gives
+     every squarefree three-prime integer from the two
      different ordinary values \(\varphi(N)\) and \(\sigma(N)\).
    - It does not give the theorem here.
 
