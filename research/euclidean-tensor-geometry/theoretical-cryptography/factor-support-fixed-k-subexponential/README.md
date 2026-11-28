@@ -1,65 +1,49 @@
 # Fixed-\(K\) factoring from Carmichael prime-support advice
 
-## Status
+> **Prior-art correction, 2026-11-28.**  The subexponential theorem in
+> this directory remains correct but is strictly superseded.  The
+> common-order and base-\(A\) reconstruction machinery of Zralek 2010,
+> Lemmas 8.4--8.5, together with the standard polylogarithmic
+> smooth-number generating set, gives deterministic polynomial time for
+> every fixed upper bound \(K\) once a factored exponent multiple is
+> available. Complete support advice synthesizes that multiple.
+> Hittmeir--Pomykala 2020 also explicitly records polynomial
+> deterministic factorization for bounded \(\omega(N)\) with the
+> decomposed-totient input. Therefore this directory is superseded, not
+> a release candidate, and makes no priority claim. See
+> [SUPERSEDED.md](SUPERSEDED.md).
 
-Research-branch theorem. It has passed a full self-review and the
-deterministic finite checker in this directory. It is not an immutable
-release and has not yet received an author-independent proof audit.
-
-## Theorem
+## Local theorem retained for provenance
 
 Fix \(K\ge2\). Let \(N\) have at most \(K\) distinct prime divisors.
-The auxiliary input is a finite list \(\mathcal S\) of distinct primes
-such that
-\[
- r\mid\lambda(N)\Longrightarrow r\in\mathcal S. \tag{1}
-\]
-False positives are allowed; neither \(\lambda(N)\) nor its prime
-exponents are supplied.
-
-There is an unconditional deterministic complete-factorization
-algorithm with bit complexity
+Let \(\mathcal S\) contain every prime divisor of \(\lambda(N)\),
+with false positives allowed. The local proof gives
 \[
  \exp\!\left(
    \bigl(\sqrt{2(K-1)}+o(1)\bigr)
    \sqrt{\log N\,\log\log N}\right)
- \operatorname{poly}_K(B), \tag{2}
+ \operatorname{poly}_K(B),
 \]
 where
 \[
- B=\log N+|\mathcal S|+\sum_{r\in\mathcal S}\log r \tag{3}
+ B=\log N+|\mathcal S|+\sum_{r\in\mathcal S}\log r.
 \]
-is an upper bound for the ordinary input/advice length.
+This bound is valid but weaker than deterministic
+\(\operatorname{poly}_K(B)\) from the earlier machinery.
 
-The exponential term in (2) is parameterized by \(\log N\), while an
-unusually large false-positive advice list is charged through
-\(\operatorname{poly}_K(B)\). For \(K=2\), (2) specializes to the
-\(\sqrt2\) semiprime bound.
+## Local method
 
-## Method
+The retained proof scans a subexponential base range, bounds the reduced
+ratios of shifted primes, and enumerates those ratios for monotone
+polynomial reconstruction. The stronger route instead computes a common
+order \(A\) from polylogarithmically many bases and applies base-\(A\)
+digit-polynomial reconstruction.
 
-After synthesizing a fully factored exponent multiple from
-\(\mathcal S\), scan a subexponential range of ordinary bases. Any pair
-whose reduced \((p-1)/(q-1)\) coordinate is large is separated by a
-smooth-number subgroup escape. In each block that remains, every
-pairwise reduced numerator and denominator is small. Relative to one
-unknown reference prime, enumerate those rational ratios and recover the
-reference shift as the unique positive root of a monotone integer
-polynomial.
-
-## Exact scope
-
-Condition (1) requires the actual prime divisors of \(\lambda(N)\) to
-be present as genuinely prime list entries. It is not inferred from
-\(N\). The theorem does not factor an unfactored Carmichael value, does
-not remove the fixed-\(K\) promise, and is not a general-input
-subexponential factoring algorithm. Arbitrary multiplicities of the
-at most \(K\) primes are allowed.
-
-No concrete modulus, key, implementation, or security claim is involved.
+The support is advice and is not inferred from \(N\). No concrete
+modulus, key, implementation, or security claim is involved.
 
 ## Reproduction
 
-\`\`\`sh
+```sh
 ./replay.sh
-\`\`\`
+```

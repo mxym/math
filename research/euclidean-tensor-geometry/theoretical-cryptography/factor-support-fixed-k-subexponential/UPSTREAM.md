@@ -1,54 +1,53 @@
-# Sources, comparison, and search scope
+# Sources, comparison, and corrected scope
 
-1. **Jacek Pomykała and Maciej Radziejewski**,
-   *Integer factoring and compositeness witnesses*:
-   https://nutmic2019.imj-prg.fr/confpapers/FactoringWitnesses.pdf
+## Dominating earlier machinery
 
-   Lemma 4.2 records the Konyagin--Pomerance lower bound
-   \[
-     \Psi(x,y)>x^{1-\log\log x/\log y}
-   \]
-   for \(x\ge4\), \(2\le y\le x\). Their Algorithm 2 is the closest
-   consulted small-order / power-difference witness framework.
+1. **Bartosz Zralek**, *A deterministic version of Pollard's p-1
+   algorithm*, Mathematics of Computation 79 (2010), 513--533,
+   DOI https://doi.org/10.1090/S0025-5718-09-02262-5,
+   arXiv:0707.4102v5.
 
-2. **François Morain, Guénaël Renault, and Benjamin Smith**,
-   *Deterministic factoring with oracles*, arXiv:1802.08444:
-   https://arxiv.org/abs/1802.08444
+   Lemma 8.4 lower-bounds the common order \(A\) when the number of
+   prime factors is small; Lemma 8.5 reconstructs all factors by
+   factoring the base-\(A\) digit polynomial.
 
-   The paper studies exact \(\Phi\), \(\Lambda\), order, and
-   sum-of-divisors oracles. In particular, Lemma 5.3 gives a
-   polynomial-time two-prime reduction from the exact value
-   \(\lambda(N)\). The input here is different and weaker: it is only a
-   prime-support superset, with no Carmichael value or exponents.
+2. **Markus Hittmeir and Jacek Pomykala**,
+   *Deterministic Integer Factorization with Oracles for Euler's
+   Totient Function*, Fundamenta Informaticae 172 (2020), 39--51,
+   DOI https://doi.org/10.3233/FI-2020-1891.
 
-3. Repository predecessors, pinned:
+   This work explicitly gives deterministic polynomial-time
+   factorization for bounded \(\omega(N)\) when the prime-power
+   decomposition of \(\varphi(N)\) is available.
 
-   * factor-carmichael-support-advice/, commit
-     4e0f3489260d13e8b3607d63fe8f29e3d3f94cdc;
-   * factor-factored-exponent-smooth-kernel/, commit
-     42e70b4c5310678a9c628b82d29238bf9229e40b;
-   * factor-support-semiprime-subexponential/, commit
-     b91c59cfd04eb83aa85aef7a08a4bba89ad0b905.
+The present support input constructs a fully factored multiple
+\[
+ E=\prod_{r\in\mathcal S,r\le N}
+ r^{\lfloor\log_rN\rfloor}
+\]
+with \(\varphi(N)\mid E\). Exact orders of every scanned base are
+computed by stripping prime powers from \(E\) with modular-power
+tests. Repeated prime powers of \(N\) are removed first because their
+underlying prime belongs to the support.
 
-   The first constructs a factored exponent multiple from support
-   advice. The second proves the subgroup escape. The third is precisely
-   the \(K=2\) instance of the theorem here. The current proof repeats
-   the needed arguments and adds the bounded-ratio monotone-polynomial
-   reconstruction for every fixed \(K\).
+For fixed \(K\), take bases through
+\(y=(\log d)^{K+2}\) in each squarefree recursive block \(d\).
+If a gcd or Fermat--Euclid witness appears, split. Otherwise all local
+orders agree and
+\(A=\operatorname{lcm}_{b\le y}\operatorname{ord}_d(b)\) divides
+every \(p-1\). With \(k=\omega(d)\le K\),
+\[
+ A^k\ge\Psi(d,y)>d^{1-1/(K+2)}.
+\]
+Hence
+\[
+ A^{k+1}>
+ d^{(1-1/(K+2))(k+1)/k}>
+ \binom{k}{\lfloor k/2\rfloor}d
+\]
+for all sufficiently large \(d\), with finite exceptions handled
+directly. Zralek Lemma 8.5 then recovers the factors in polynomial time.
+This dominates the local ratio-enumeration bound.
 
-4. General deterministic baseline:
-
-   **David Harvey and Markus Hittmeir**,
-   *A log-log speedup for exponent one-fifth deterministic integer
-   factorisation*, Mathematics of Computation 91 (2022), 1367--1379,
-   DOI: https://doi.org/10.1090/mcom/3708
-
-   This is an unconditional general-input power-time result. The theorem
-   here is subexponential only because both the fixed-\(K\) promise and
-   the support advice are part of the input.
-
-Targeted searches did not locate this exact fixed-\(K\), support-only
-hybrid of subgroup escape and rational-ratio reconstruction. No absolute
-priority claim is made. The theorem neither obtains its advice nor
-extends to unboundedly many prime factors, and it makes no statement
-about a concrete cryptographic system.
+The earlier version of this file missed this consequence. The local
+proof remains valid but no novelty or best-bound claim remains.

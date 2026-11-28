@@ -1,6 +1,20 @@
 # Deterministic semiprime factoring with bounded Carmichael support
 
-## Statement
+> **Prior-art correction, 2026-11-28.**  The enumeration theorem below
+> remains correct, but its fixed-support polynomial consequence is
+> strictly superseded.  Pomykala--Radziejewski, *Integer factoring and
+> compositeness witnesses*, Section 6, pp. 15--16, explicitly proves that
+> every squarefree semiprime is deterministically factorable from a
+> completely factored multiple of \(\varphi(N)\).  Complete Carmichael
+> support constructs such a multiple \(E\), because
+> \(\operatorname{supp}\varphi(N)=\operatorname{supp}\lambda(N)\)
+> and the exponent caps in \(E\) dominate every valuation of
+> \(\varphi(N)\).  Hence semiprimes are polynomial-time factorable
+> under the advice here **without a fixed-cardinality promise**.
+> This directory is superseded and is not a release candidate. See
+> [SUPERSEDED.md](SUPERSEDED.md).
+
+## Local statement retained for provenance
 
 Let \(N=pq\) be the product of two distinct primes. Let
 \(\mathcal S\) be a finite list of distinct genuine primes satisfying
@@ -13,42 +27,26 @@ with false positives allowed. Define
  \prod_{\substack{r\in\mathcal S\\r\le N}}
  \left(1+\lfloor\log_rN\rfloor\right). \tag{2}
 \]
-There is an unconditional deterministic algorithm that factors \(N\)
-in
+The proof in this directory factors \(N\) in
 \[
  C(N,\mathcal S)\operatorname{poly}
- \left(\log N+|\mathcal S|+\sum_{r\in\mathcal S}\log r\right) \tag{3}
+ \left(\log N+|\mathcal S|+\sum_{r\in\mathcal S}\log r\right).
+ \tag{3}
 \]
-bit operations.
+This is valid but weaker than the prior polynomial-time route above.
 
-In particular, if \(|\mathcal S|\le k\) for a fixed constant \(k\),
-then the running time is polynomial in the advised input length, since
-\[
- C(N,\mathcal S)\le(1+\log_2N)^k. \tag{4}
-\]
-
-The support list is extra advice and is not computed from \(N\). The
-result is for semiprimes; it is not a general polynomial-time factoring
-algorithm.
-
-## Method
+## Local method
 
 Enumerate all support-compatible candidates
 \[
  m=\prod_{r\in\mathcal S,\ r\le N}r^{e_r},
- \qquad 0\le e_r\le\lfloor\log_rN\rfloor. \tag{5}
+ \qquad 0\le e_r\le\lfloor\log_rN\rfloor.
 \]
-The true \(m=\lambda(N)\) occurs.
+The true \(m=\lambda(N)\) occurs. Adelmann--Winterhof Proposition 2
+then reconstructs the two factors from the true candidate.
 
-For each candidate put \(\Delta=\lfloor N/m\rfloor\). Adelmann and
-Winterhof's exact-\(\lambda\) reconstruction implies that for the true
-candidate either \(\Delta\) is a prime factor, or
-\[
- \varphi(N)=\Delta m.
-\]
-In the second case \(p+q=N+1-\Delta m\), so an exact discriminant test
-recovers the two roots. Every output is verified by primality and
-product checks.
+The support list is advice and is not computed from \(N\). No concrete
+modulus, key, implementation, or security claim is involved.
 
 ## Reproduction
 
