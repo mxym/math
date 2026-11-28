@@ -1,5 +1,0 @@
-# The Gold-inverse exponential-sum conjecture at index six
-
-For the sums in [Carlet–Thornburgh, Conjecture 5.19](https://arxiv.org/html/2608.23888v2), this proves \(G_n^{(6)}=G_n^{(\gcd(6,n))}\) for **every** extension degree \(n\). The genus-33 zeta numerator has an exact factorization which proves the equality in all four gcd cases. It also gives the corresponding \(k=6\) refined \(L\)-polynomial factorization. No claim is made for arbitrary \(k\).
-
-Run `sh replay.sh` using a 64-bit GCC or Clang C++20 compiler and Python 3.10+. It recompiles and runs two independent exact counters through \(n=33\), then checks the complete numerator, its factorization, and a separate recurrence certificate. This full recount can take a minute or longer. For the faster certificate-only checks use `python3 verify.py`; that does not rerun the two large counting engines. [COUNTS.tsv](COUNTS.tsv) records all raw sums and moduli, [PROOF.md](PROOF.md) gives the reasoning, and [SOURCES.md](SOURCES.md) delineates the prior results.

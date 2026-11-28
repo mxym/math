@@ -1,7 +1,0 @@
-# Exact high-rate PGM–Delsarte converse for quantum random access codes
-
-Tan–Jafar's [long version](https://tseason2022.github.io/papers/qrac/qrac-long-version.pdf) gives a Delsarte linear-programming converse for the average decoding success of binary quantum random access codes. This note evaluates that LP exactly in the high-rate region \(k=n-m\ge3,\ n\ge2^k-1\), including growing redundancy. A solution with just two positive-distance shells and a single Krawtchouk constraint suffice; a finite formula only tests the two grid points nearest an explicit real minimizer.
-
-The exact LP value is not necessarily the quantum optimum. In fact, at redundancy three the full PGM–Delsarte relaxation is already too weak to establish the old square-root bound for every \(n\ge7\). On the other hand, if \(k\to\infty\) with \(n\ge 2^k-1\), the optimal **quantum** average bit error is \((1+o(1))/n\): our finite converse has an explicit uniform rate to the leading constant achieved by the Hamming-code construction. The qualitative limiting statement also follows by combining an earlier fixed-cap limit of Yu–Tan with monotonicity.
-
-The proof uses the same uniform-input, uniform-coordinate, single-message QRAC model as Tan–Jafar, without entanglement assistance. It makes no worst-case claim and does not claim the Hamming-code construction or the Delsarte formulation as new. Run ./replay.sh for two independently implemented checks of the finite formulas and their interpretation.
