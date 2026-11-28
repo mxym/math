@@ -98,20 +98,28 @@ succeeds.
 ## 3. Complete factorization from a known multiple of \(\lambda\)
 
 For every composite \(D\) with at least two distinct prime divisors,
-Section 2 has \(Q\le D\). Scanning all bases through
-\(D^{\vartheta+\varepsilon}\) therefore produces a proper factor.
-Repeat on the two factors. The same original \(E\) remains a multiple
+Section 2 has
+\[
+ Q\le \operatorname{rad}(D):
+\]
+in the unequal-layer case \(Q\) is one prime divisor, and in the
+equal-layer case it is the product of two distinct prime divisors.
+Scanning bases in increasing order therefore produces a proper factor
+by the time
+\(a\ll \operatorname{rad}(D)^{\vartheta+\varepsilon}\).
+The algorithm does not need to know the radical; it stops when a proper
+gcd is found. Repeat on the two factors. The same original \(E\) remains a multiple
 of the Carmichael value of every divisor. Prime powers are recognized
 deterministically in polynomial time, and their prime bases are
 certified by deterministic primality testing.
 
-There are \(O(\log N)\) nodes in the recursion, and every scanned range
-is at most \(N^{\vartheta+\varepsilon}\). Modular exponentiation and
-gcd computation add only factors polynomial in \(\log E+\log N\).
-Thus complete factorization costs
+There are \(O(\log N)\) nodes in the recursion, and
+\(\operatorname{rad}(D)\le R=\operatorname{rad}(N)\) at every node.
+Modular exponentiation and gcd computation add only factors polynomial
+in \(\log E+\log N\). Thus complete factorization costs
 \[
- N^{1/(4\sqrt e)+\varepsilon}
- (\log E)^{O_\varepsilon(1)}.
+ R^{1/(4\sqrt e)+\varepsilon}
+ (\log N+\log E)^{O_\varepsilon(1)}.
 \]
 For an even input, strip its exact power of two first.
 

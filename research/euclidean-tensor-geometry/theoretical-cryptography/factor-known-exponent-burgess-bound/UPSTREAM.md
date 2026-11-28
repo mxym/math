@@ -55,7 +55,8 @@
    algorithms and does not conflict with the present power-size scan.
 
 The complete-factor theorem accepts any short even multiple of
-\(\lambda(N)\); the smaller first-split theorem requires the exact
+\(\lambda(N)\) and is stated in terms of the unknown radical only as
+an output-sensitive stopping bound; the smaller first-split theorem requires the exact
 value and a squarefree odd composite input. Neither theorem is an
 ordinary deterministic polynomial-time factoring result. No claim is
 made about a deployed system, and no absolute priority is claimed for

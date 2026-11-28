@@ -1,14 +1,18 @@
 # Deterministic factoring from a known group exponent: an unconditional Burgess bound
 
-Let \(N>1\) be an integer and let \(E\) be an even positive multiple of
-\(\lambda(N)\), with \(\log E=(\log N)^{O(1)}\).
+Let \(N>1\) be an integer, put \(R=\operatorname{rad}(N)\), and let
+\(E\) be an even positive multiple of \(\lambda(N)\), with
+\(\log E=(\log N)^{O(1)}\).
 
 **Complete-factor theorem.** For every fixed \(\varepsilon>0\), \(N\)
 can be completely factored deterministically in
 \[
- N^{1/(4\sqrt e)+\varepsilon}(\log E)^{O_\varepsilon(1)}
+ R^{1/(4\sqrt e)+\varepsilon}
+ (\log N+\log E)^{O_\varepsilon(1)}
 \]
-bit operations.
+bit operations. The algorithm does not need to know \(R\); this is a
+stopping-time bound. In particular it implies the weaker
+\(N^{1/(4\sqrt e)+\varepsilon}\) bound for arbitrary inputs.
 
 **Exact-\(\lambda\) first-split theorem.** If \(N\) is an odd composite
 squarefree integer and the supplied value is the exact \(\lambda(N)\),
