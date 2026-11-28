@@ -1,8 +1,0 @@
-# Maximum-degree local permutation polynomials: recurrence and prime-field coefficients
-
-This package answers two related questions of Gutierrez and Jiménez Urroz.
-
-1. Their **Conjecture 1 is false** for the stated iterated transposition construction. Over \(\mathbb F_{25}\) the first nontrivial possible number of variables at which any counterexample occurs is \(n=6\): actual degree 137, one less than the predicted 138. The failure occurs over prime fields as well, e.g. \((q,n)=(19,8)\) and \((7,10)\). The exact maximal-degree criterion for every odd \(q>3\) and every \(n\geq2\) is the coefficient of an explicit rational generating function, with a closed arithmetic formula for every nonprime \(q\).
-2. Their separate **prime-field coefficient existence problem is true**: for every \(q=p^r>3\) and any positive \(n\), there exists a local permutation polynomial of degree \(n(q-2)\) with coefficients in \(\mathbb F_p\). A Frobenius-orbit exchange completes the missing extension cases in characteristic at least five, and the first result supplies the characteristic-three extensions. Previously settled ranges are credited separately.
-
-Read [PROOF.md](PROOF.md) for the recurrence and [PRIME_FIELD.md](PRIME_FIELD.md) for the independent existence construction. [SOURCES.md](SOURCES.md) distinguishes the two 2025 papers and their prior positive results. Run `sh replay.sh | diff -u RESULTS.txt -` with Python 3 and a POSIX shell. The checkers use exact field arithmetic, check the main examples independently of the generating function, and replay representative constructions. The general theorems are proved analytically.
