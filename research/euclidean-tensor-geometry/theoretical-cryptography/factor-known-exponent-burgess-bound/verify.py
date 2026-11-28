@@ -143,10 +143,32 @@ for p, q in [(3, 5), (3, 13), (5, 17), (7, 17), (11, 41)]:
                 assert gcd(d, N // d) == 1
             power_checks += 1
 
+# The short-multiple profile does not need squarefreeness. Check the
+# exact integer inequalities for three distinct primes with multiplicity.
+nonsquare_profile_checks = 0
+for ps in combinations(primes_upto(30), 3):
+    for exps in product(range(1, 3), repeat=3):
+        N = 1
+        E = 1
+        rad = 1
+        for p, e in zip(ps, exps):
+            N *= p**e
+            rad *= p
+            E = lcm(E, p**(e - 1) * (p - 1))
+        layers = [v2(p - 1) for p in ps]
+        if max(ps)**4 <= N * E:
+            if len(set(layers)) == 1:
+                assert (ps[0] * ps[1])**len(ps) <= rad**2 <= N**2
+            else:
+                q = min(p for p, s in zip(ps, layers) if s == max(layers))
+                assert q**4 <= N * E
+        nonsquare_profile_checks += 1
+
 print(f"squarefree moduli: {len(moduli)}")
 print(f"rho/chain equivalence checks: {rho_checks}")
 print(f"character-forced split witnesses: {character_checks}")
 print(f"character conductor cases: {conductor_cases}")
 print(f"MRS-large/profile-residual cases: {mrs_large_cases}/{profile_residual_cases}")
 print(f"prime-power block checks: {power_checks}")
+print(f"nonsquare profile checks: {nonsquare_profile_checks}")
 print("PASS")

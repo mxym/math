@@ -123,30 +123,29 @@ in \(\log E+\log N\). Thus complete factorization costs
 \]
 For an even input, strip its exact power of two first.
 
-## 4. A structural first-split profile from exact \(\lambda\)
+## 4. A structural first-split profile for a short multiple
 
-Suppose that \(N\) is odd, composite, squarefree, and the supplied
-value is the exact \(\Lambda=\lambda(N)\). Let
+Suppose that \(N\) is odd, \(k=\omega(N)\ge3\), and the supplied
+integer \(E\) satisfies
 \[
- k=\omega(N),\qquad
- \tau=\frac{\log\Lambda}{\log N}.
+ \lambda(N)\mid E,\qquad E<N.
 \]
-The two-prime case is handled by the pinned deterministic polynomial
-exact-\(\lambda\) candidate search, with every output validated below.
-
-Assume \(k\ge3\). Run the Morain--Renault--Smith large-factor routine
-with the known value \(\Lambda\), and validate any output. Their
-Theorem 5.10 and the paragraph immediately following it show that a
-largest prime \(p_1=N^{\alpha_1}\) is recovered in deterministic
-polynomial time whenever
+Put
+\[
+ \tau=\frac{\log E}{\log N}.
+\]
+Run the deterministic routine of Morain--Renault--Smith Theorem 4.3
+with \(u=1\) and \(M=E\), and validate any output. If the largest prime
+divisor is \(p_1=N^{\alpha_1}\), then \(p_1-1\mid E\), so their theorem
+recovers \(p_1\) in polynomial time whenever
 \[
  \alpha_1>\frac{1+\tau}{4}. \tag{6}
 \]
-Indeed their auxiliary integer \(M=\Lambda\) has size \(N^\tau\), and
-their Corollary 4.4 gives exactly this threshold.
+This use of Theorem 4.3 does not require \(N\) to be squarefree or
+\(E\) to be the exact Carmichael value.
 
-If that polynomial routine has not already split \(N\), every prime
-factor is at most
+If that polynomial routine has not already split \(N\), every distinct
+prime factor is at most
 \[
  N^{(1+\tau)/4}. \tag{7}
 \]
@@ -158,8 +157,14 @@ factor is at most
    Q=q\le N^{(1+\tau)/4}.
   \]
 
-* If all layers are equal, choose the two smallest prime factors
-  \(p_1',p_2'\). Since there are \(k\) factors,
+* If all layers are equal, choose the two smallest distinct prime
+  factors \(p_1',p_2'\). Since there are \(k\) distinct factors,
+  \[
+   (p_1'p_2')^k
+   \le \operatorname{rad}(N)^2
+   \le N^2,
+  \]
+  and hence
   \[
    p_1'p_2'\le N^{2/k}. \tag{8}
   \]
@@ -170,11 +175,15 @@ Consequently a square-chain witness occurs by
  N^{\vartheta\max\{(1+\tau)/4,\,2/k\}+\varepsilon}. \tag{9}
 \]
 The algorithm need not know the hidden character, the prime sizes, or
-\(k\): it runs the bounded polynomial candidate procedures and scans
-ordinary bases in increasing order until a proper gcd appears. The
-actual \(k\) only sharpens the stopping-time analysis.
+\(k\): it runs the bounded polynomial routine and scans ordinary bases
+in increasing order until a proper gcd appears. The actual \(k\) only
+sharpens the stopping-time analysis.
 
-Because \(\Lambda<N\), one has \(\tau<1\). For \(k=3\), (9) is at most
+For exact \(E=\lambda(N)\), one has \(E<N\), so \(\tau<1\). Prime
+powers are recognized in polynomial time; inputs with two distinct odd
+prime factors are handled by the pinned deterministic polynomial
+exact-\(\lambda\) algorithm. For every remaining input, \(k\ge3\). At
+\(k=3\), (9) is at most
 \[
  N^{(2/3)\vartheta+\varepsilon}
  =N^{1/(6\sqrt e)+\varepsilon}.
@@ -187,6 +196,7 @@ giving
 \]
 
 These smaller exponents are not asserted for recursive complete
-factorization. After a split, the original exact \(\lambda(N)\) need
-only be a multiple, not the exact Carmichael value of a child factor.
-Section 3 supplies the complete-factor bound.
+factorization. After a split, the original \(E\) may be at least as
+large as the child, and an original exact \(\lambda(N)\) need only be a
+multiple, not the exact Carmichael value of the child. Section 3
+supplies the complete-factor bound.
