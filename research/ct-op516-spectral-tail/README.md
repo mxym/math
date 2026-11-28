@@ -1,7 +1,0 @@
-# Spectrum-sensitive lower bounds on semi-bent components of quadratic APN maps
-
-Let \(m\) count the semi-bent components, and let \(d\) be the next larger positive polar-radical dimension. Put \(s=(2^d-1)/3\). Then \(m\) is \(s\), \(2s\), or at least \(3s\). The first two cases force the semi-bent radicals to fill one or two disjoint \(d\)-spaces and impose the input-dimension bounds in [PROOF.md](PROOF.md). For example, if \(d=6\) and \(n\ge32\), then \(m\ge63\). The proof also gives \(m\ge n+1\) without a spectrum hypothesis, and necessary structure when equality holds.
-
-This gives a spectrum-sensitive improvement for [Carlet–Thornburgh Open Problem 5.16](https://arxiv.org/html/2608.23888v2); no exact global minimum is claimed. The proof combines short projective divisible-code constraints with the APN polar tensor, rather than treating every admissible vector-space partition as realizable. The length alternatives apply [Heinlein–Honold–Kiermaier–Kurz–Wassermann, Theorem 5.13](https://arxiv.org/html/1912.10147), with their \(r=d-1\) and binary field, to the radical tail. Their [earlier §5](https://arxiv.org/html/1703.08291v1#S5) describes the corresponding simplex and double-simplex structures. The additional APN restrictions are the wedge-rank gates that exclude these short tails in whole ranges of \(n,d\).
-
-Run `sh replay.sh` (Python 3.10+, standard library only). [RESULTS.txt](RESULTS.txt) records the two exact verifier runs. [SOURCES.md](SOURCES.md) identifies earlier results and the optional catalogue check.
