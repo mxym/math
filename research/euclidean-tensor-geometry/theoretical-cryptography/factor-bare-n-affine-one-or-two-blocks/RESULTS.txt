@@ -1,0 +1,15 @@
+Finite self-checks, standard Python 3, original files, exit status 0 in both cases.
+
+$ python3 -B verify_shapes.py
+small prime subsets / component spanning trees / all anchor choices 1470 4384 5384
+two mixed-direction / reversed-tree fixtures exact; negative shift -5/29
+power-of-two label exponent / anchor bits / other-prime bits / Pocklington steps 80 64 144 6
+
+The small set consists of all subsets of one to four primes chosen from the primes below 44. Within each connected component every spanning tree and every possible anchor is checked; the normalized-shift bound is asserted for its minimum. Separate tests include {3,5,31}, a reverse path with h=-5/29, and a predetermined numeric edge with multiplier 2^80: p=9223372036978232701, q=11150372599414561796324959711580559429861377. Primality of both larger values is certified by the six exact Pocklington steps, not by probable-prime testing. These tests do not show that this family is dense or that known algorithms would fail on these examples.
+
+$ python3 -B verify_center.py
+signed rational-offset and repeated-degree packets 1440
+heterogeneous bits / gap / degree / weighted sum / exact floor / offset 150 152 7 7001665 7001664 1
+wider-gap bits / gap / degree / weighted sum / exact floor / offset 589 962 28 28028998 28028994 4
+
+The second checker independently uses rational arithmetic to test the direction and numerical size of the AM–GM remainder (including signed noninteger normalized shifts). It checks full permitted graphs and all primes of two examples by exact division. In the first, with S={2,6,10}, the blocks are (1000151,2000303) in exponents (2,1) and (1000303,6001819,10003031) in exponents (1,2,1). The respective degrees are 3 and 4, C0=720, B0=14/15 and N=721200314463743817659057631317462436078858319. In the second, S={2,6,12}, the blocks are (1000589,2001179) and (1001551,6009307,12018613), with exponents (7,8) and (6,3,4). The correct sum is four above the exact floor, so taking a nearest integer in place of enumerating a range would lose it. The first two-block fixture is not merely a hidden semiprime sum: both blocks contain multiple primes and have unequal forms. These are certificate tests, not implementation timings or a practical solver for arbitrary instances.
