@@ -1,0 +1,55 @@
+# Trivial metric action on the small component of a six-dimensional matching obstruction
+
+Let a spherical kissing code mean a finite set of unit vectors whose distinct pairs have inner product at most $1/2$. Its **strict graph** joins $i,j$ when $G_{ij}<-1/2$, where $G$ is its Gram matrix. Write $f(t)=t^4-t^2/4$ and $h=\min_p\sum p_i p_j f(G_{ij})$ for probability weights $p$.
+
+* **Nine points, any dimension.** If a nine-point kissing code has a nonidentity permutation preserving its Gram matrix, then $h\le .159960$. More quantitatively, whenever $h>.159960$, every nonidentity automorphism $\pi$ of its strict graph satisfies
+\[
+ \max_{ij}|G_{ij}-G_{\pi i,\pi j}|\ \ge\ \tfrac9{14}(h-.159960).
+\]
+The inequality is an upper bound under symmetry, not a claimed sharp extremum.
+* **Hypothetical obstruction in dimension six.** Suppose 75 kissing points have no 36 disjoint strict edges. The seven- or nine-vertex component in the two [necessary size lists](https://github.com/mxym/math/blob/0706c1cce4601412e8c9e9c2ffb4f4066a11cde8/research/euclidean-tensor-geometry/KissingSixTwoNineGraphs.md) is **pointwise fixed by every isometry of the full code**. In fact it admits no nonidentity isometry of its own as a finite metric space.
+* The order of the faithful symmetry group of the obstruction **divides 12**, improving the [previous divisor 96](https://github.com/mxym/math/blob/7a1c19f261d81db9ff40448400bf25d4bb6abf63/research/euclidean-tensor-geometry/KissingSimpleRotationsAndSeventyFiveSymmetry.md). Every 2-subgroup simultaneously fixes a subspace of dimension at least four in the ambient six-space. Every element of order three is a simple rotation (it moves only one two-plane) and fixes at least 12 of the 75 code points. Neither size list nor 75 points themselves are excluded.
+
+## The nine-point proof
+
+Outside two strict-graph types, the [prior all-dimensional certificate](https://github.com/mxym/math/blob/0706c1cce4601412e8c9e9c2ffb4f4066a11cde8/research/euclidean-tensor-geometry/KissingSixTwoNineGraphs.md) already gives $h\le.159960$, with no symmetry requirement. The exceptions are $\theta(3,3,4)$ and the subdivision of $K_4$ with path lengths $(2,1,4,1,1,2)$ on $AB,AC,AD,BC,BD,CD$. In the former graph one may swap the two equal paths or reverse all their endpoints; the automorphism group is a Klein four. In the latter it has order two. The [checker](verify_kissing_small_symmetry_nine.py) also independently enumerates the entire automorphism group of each labeled graph.
+
+For the three respective involutions of the first graph, followed by the one of the second graph, exact continuous certificates with **6,603, 4,271, 1,771, 481** cells prove $h\le.159960$ on their fixed Gram slices. All $36$ pair coordinates are retained. For a prescribed involution, impose both orders $G_e\ge G_{\pi e}$ and $G_{\pi e}\ge G_e$. To impose any further lexicographic ordering, use only graph permutations **commuting with** $\pi$ and then successively restrict to coordinate stabilizers. Thus the fixed-slice assumption is not strengthened by accidental extra symmetry. Each closed box is certified by a nonnegative rational combination of trial probability energies, ordinary Gram positivity and the valid coordinate order inequalities. All tests and closed subdivisions use the same integer scheme as in the pinned nine-point proof, not an optimum inferred from floating-point convergence.
+
+For the stability statement, assume $h>.159960$. In one of these two graphs any nonidentity $\pi$ has order two. The midpoint $\widehat G=(G+\pi G)/2$ is a positive semidefinite correlation matrix with the same strict graph, so it realizes a (possibly higher-dimensional) kissing code fixed by $\pi$. On $[-1,1/2]$, $|f'|\le7/2$; moreover $\sum_{i\ne j}p_ip_j\le8/9$. Test the weights minimizing energy for $\widehat G$ on $G$. This yields $h(G)\le.159960+(14/9)\max|G-\pi G|$, as asserted. In the 75-obstruction the [charge bound](https://github.com/mxym/math/blob/751d856566e3df18af8907927f3b2c3bd4d57865/research/euclidean-tensor-geometry/KissingSharpQuarticStars.md) gives $h_9>.1599666$, so the discrepancy exceeds $4.24\,10^{-6}$ for every nonidentity graph automorphism.
+
+## A reflected heptad is impossible in the obstruction
+
+In the other template $(1,7,11,27,29)$ the small strict graph is a chordless cycle. A nontrivial rotation is excluded by the [quantitative noncirculant Gram theorem](https://github.com/mxym/math/blob/3a815c47958df290d042f9e0e9976c5aa2093fbf/research/euclidean-tensor-geometry/KissingSixSevenComponentAsymmetry.md). All seven reflections are graph-conjugate; label the cycle so the candidate reflection is $i\mapsto-i\bmod7$. Restrict further coordinate orderings to its centralizer, just as for nine points.
+
+The six-dimensional mass constraints here require the scalar and the mixed tests together. Outside the heptad the guaranteed charge is $1.333333+7.329707+16.542829+17.694673=42.900542$. Choose its own base charge $w=4.975124$ and total $W=w+42.900542=47.875666$. The [single-component mixed inequality and independently verified cube witnesses](https://github.com/mxym/math/blob/c66c69d6b1c4c940eaa459936bbb12cc79198f87/research/euclidean-tensor-geometry/KissingSixTwoHeptadsAndSeventyFive.md) imply
+\[
+ E_p\ge1/(w+48-W)>.196099,\qquad
+ E_{\rm unif}+J_K(G/7)\ge 1/w+(W^2/48-W)/w^2>.195989 .
+\]
+The second inequality holds for each of the six rational cube matrices in that earlier certificate and all its dihedral images (71 different rows). For the first inequality $p$ is any probability on the heptad. The positive difference of the two working targets is exactly $.000110$.
+
+The [reflected-cycle checker](verify_kissing_small_symmetry_seven.py) covers the Gram slice in **6,073** cells, with **3,037** exact dual leaves. On every cell a convex combination of tests $E_p-.000110$ and $E_{\rm unif}+J_K(G/7)$ is at most $.195989$; this contradicts the two strict lower bounds. The offset is multiplied only by the **scalar-test** dual multipliers. Signed-triangle interval bounds for Gram coordinates, positive-semidefinite Gram directions and dyadic subdivisions are used as before. The initial strict-edge cutoffs follow from the [edge plus independent-set mixing test](https://github.com/mxym/math/blob/0706c1cce4601412e8c9e9c2ffb4f4066a11cde8/research/euclidean-tensor-geometry/KissingSixTwoNineGraphs.md). Any induced matching and its isolated vertices provide the dynamic lower charge bound $\sum_e 2/(3/4+f(a_e))+(4/3)\#\text{isolates}$, since cross costs are nonpositive. In the recorded run no terminal needed this pruning to certify the entire box.
+
+For clarity, the extra local supporting planes in this calculation have an elementary independent derivation. If two incident strict strengths are $a,b\in[1/2,1]$ and the opposite product is $c\le1/2$, write $a=\cos\alpha$, $b=\cos\beta$. Always $c\ge\cos(\alpha+\beta)$. For each of the 26 integer quadruples $(R,A,B,C)$ in the [triangle verifier](verify_kissing_small_symmetry_planes.py), $C>0$ and
+\[
+ 10^5\{R f(a)+f(b)\}\le A+B(Ra+b)+C c .
+\]
+Use $x=\tan(\alpha/2)$, $y=\tan(\beta/2)$; $0\le x,y\le1/\sqrt3$ and $3(x+y)^2\ge(1-xy)^2$ because $\alpha+\beta\ge\pi/3$. Substitute the rational sine/cosine formulas at the worst $c=\cos(\alpha+\beta)$ and multiply by $4(1+x^2)^4(1+y^2)^4$. Exact Bernstein signs on recursively subdivided closed rectangles prove all 26 inequalities (7,310 nodes across the 26 polynomials). The seven-chart includes both endpoint orderings when $R=2$.
+
+The remaining sum-only planes follow directly: $f(a)+f(b)\le(3/2)(a+b-1)$ by convexity on $[1/2,1]$. Put $s=a+b$ and $v=(a-b)^2$. Then $a^2+b^2-ab\le3/4$: test the neighbor Gram inequality at the nonnegative weights $(a-b/2,b-a/2)$ and use Cauchy with the center. Hence $v\le1-s^2/3$. Since $8[f(a)+f(b)]=s^4+6s^2v+v^2-s^2-v$ increases with $v\ge0$, substituting this upper bound gives $f(a)+f(b)\le-s^4/9+7s^2/12$. Its right side is concave for $s\ge1$, so its specified rational tangents are upper bounds; the integer intercept rounding covers the slope rounding on $1\le s\le2$. No assumptions on unshown edges enter these local planes.
+
+## Fixed subspaces and group order
+
+Work with the finite permutation group induced by orthogonal isometries on the span of the code, extending by the identity if the ambient six-space has unused dimensions. The small component is unique among components of its size and has just been shown to admit no nonidentity permutation. It is therefore pointwise fixed. Since seven kissing points do not fit into a plane, the full group acts faithfully in an orthogonal space of dimension at most three. The [simple-rotation theorem](https://github.com/mxym/math/blob/7a1c19f261d81db9ff40448400bf25d4bb6abf63/research/euclidean-tensor-geometry/KissingSimpleRotationsAndSeventyFiveSymmetry.md) shows that the orientation-preserving subgroup of this space has order dividing 12; the full group hence has order dividing 24. In particular no primes beyond two and three occur and the three-part is at most three.
+
+Now let $P$ be any 2-subgroup. It fixes at least one point of each **setwise invariant odd component**, by orbit parity. Between distinct strict components both signs of a chosen representative may be used as kissing points, since the original cross products have absolute value at most $1/2$. In the seven template all five component sizes differ, so the common fixed subspace contains a kissing configuration of size at least $7+2(4)=15$: use all seven and both signs of one fixed point from each other component. In the nine template, even if the two 27-components are exchanged, the singleton and the unique 11-component still give $9+2(2)=13$. No added antipode coincides with a chosen point, since original antipodes belong to the same strict component. Both counts exceed the three-dimensional kissing number 12. Therefore $\dim\operatorname{Fix}(P)\ge4$.
+
+The faithful action of $P$ on its remaining at most two coordinates lies in $O(2)$. The rotations form a cyclic 2-group; an element of order four would be a simple quarter turn, which is impossible on 75 points by the six-dimensional bound 68. Thus the rotational subgroup has order at most two and $|P|\le4$. Together with the three-part bound this proves divisibility by 12. For an element of order three, the orientation on its at most three moving coordinates is positive, hence it is a simple rotation. In the seven template it fixes at least $1+7+2+0+2=12$ code points by reducing the component sizes modulo three (the fixed seven are counted exactly). In the nine template it cannot exchange two components, and fixes at least $1+9+2+0+0=12$. This is a restriction on hypothetical obstructions only.
+
+**Replay** in normal Python (not `-O`), with NumPy, SciPy and threadpoolctl for the two continuous searches:
+~~~sh
+python3 verify_kissing_small_symmetry_planes.py
+python3 verify_kissing_small_symmetry_nine.py       # or one case, 0 through 3
+python3 verify_kissing_small_symmetry_seven.py
+~~~
