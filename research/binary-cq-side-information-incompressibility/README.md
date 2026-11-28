@@ -1,9 +1,0 @@
-# Binary cq sources with dimension-independent compression loss
-
-[Wolff, Christandl, Durhuus, Hirche and Winter](https://arxiv.org/html/2611.28361v1) ask immediately after Theorem 1 whether quantum side information can always be compressed, with a dimension bound depending only on its allowed mutual-information loss, when the reference is a single classical bit. The answer is no.
-
-For every sufficiently large integer k we construct an equiprobable binary ensemble of two full-rank states on D=8k dimensions. Even an encoder tailored to that ensemble, with output dimension c≤D, loses at least `10^(-38)(1−c/D)^2/(4 ln 2)` bits of mutual information. This holds as well if the encoder can keep an arbitrary finite classical record alongside at most c quantum dimensions in each record branch. The same two states work simultaneously for every c and every encoder. The constant is conservative and not optimized.
-
-The proof embeds four expander reflections into the sign matrices of one two-state Hermitian pencil. Twelve sign tests give a dimension-independent commutator gap and therefore a quantitative loss for low-rank Kraus representations. The dimension subsequence is enough for the original yes/no question. This is about one input state and local compression, not collective block coding, shared entanglement, or optimality of a protocol.
-
-See [PROOF.md](PROOF.md) and [SOURCES.md](SOURCES.md). Run `bash replay.sh` with Python 3, NumPy for the floating-point companion, and sha256sum. The first verifier checks exact rational identities, a nonunital-channel example, and all numeric constants. The second independently builds the small pencil signs from diagonalization and checks their full commutator spectra and two negative controls. These are finite checks, not a substitute for the proof.
