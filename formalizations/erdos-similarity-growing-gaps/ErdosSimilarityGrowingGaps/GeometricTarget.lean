@@ -1,7 +1,0 @@
-import ErdosSimilarityGrowingGaps.CountableExhaustion
-
-namespace ErdosSimilarityGrowingGaps
-
-open Set MeasureTheory
-
-end ErdosSimilarityGrowingGaps
