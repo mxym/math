@@ -1,2 +1,0 @@
-import SchurCompletion.GeneralStraightening
-#print axioms ExtractionSchur.rankBudget_general_rank_le_descendingAvoiderCount

@@ -1,9 +1,0 @@
-Fixed Python 3 standard-library enumerations. No inputs, packages or external datasets.
-
-$ python3 verify_seeds.py
-PASS: rooted component decompositions 9040 large cores 1418 mixed configurations 18
-
-$ python3 verify_windows.py
-PASS: X 16384 fixed widths 1 and 2 by s=2,3,4 [51, 0, 0, 254, 127, 39]
-
-The first script checks rooted seed/forest coverage on all four-vertex graphs for all nonempty supports, root masks and thresholds 2,3,4. The second compares direct finite support/sorted-gap counts to the exact fixed-width atomization (the small block and disjoint twin pairs) and the width-one power count. Neither finite test estimates twin-prime density or proves an asymptotic counting theorem.
