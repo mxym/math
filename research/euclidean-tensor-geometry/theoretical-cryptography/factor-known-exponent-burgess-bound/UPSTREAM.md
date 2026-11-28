@@ -37,10 +37,11 @@
    text dated 2026-03-22:
    https://arxiv.org/abs/1802.08444
 
-   Their Theorem 1.1 recovers a prime factor larger than \(\sqrt N\)
-   in deterministic polynomial time from one exact \(\varphi(N)\) or
-   \(\lambda(N)\), for squarefree \(N\) with at least three prime
-   factors. It is used only for the smaller first-split corollary.
+   Their Theorem 1.1 gives the convenient \(p>\sqrt N\) form. More
+   precisely, Theorem 5.10 and its following paragraph state that with
+   exact \(\lambda(N)=N^\tau\), the largest prime is recovered when
+   its exponent exceeds \((1+\tau)/4\). This sharper form is used in
+   the structural first-split profile.
 
 5. The repository result
    factor-exact-lambda-two-odd-primes, pinned at commit
@@ -56,8 +57,8 @@
 
 The complete-factor theorem accepts any short even multiple of
 \(\lambda(N)\) and is stated in terms of the unknown radical only as
-an output-sensitive stopping bound; the smaller first-split theorem requires the exact
-value and a squarefree odd composite input. Neither theorem is an
+an output-sensitive stopping bound; the smaller first-split profile requires the exact value and a
+squarefree odd composite input. Neither theorem is an
 ordinary deterministic polynomial-time factoring result. No claim is
 made about a deployed system, and no absolute priority is claimed for
 this synthesis.

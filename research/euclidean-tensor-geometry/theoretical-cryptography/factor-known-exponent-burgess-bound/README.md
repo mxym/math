@@ -14,16 +14,22 @@ bit operations. The algorithm does not need to know \(R\); this is a
 stopping-time bound. In particular it implies the weaker
 \(N^{1/(4\sqrt e)+\varepsilon}\) bound for arbitrary inputs.
 
-**Exact-\(\lambda\) first-split theorem.** If \(N\) is an odd composite
-squarefree integer and the supplied value is the exact \(\lambda(N)\),
-a nontrivial factor is found deterministically in
+**Exact-\(\lambda\) first-split profile.** Suppose \(N\) is odd,
+composite, and squarefree, the supplied value is the exact \(\lambda(N)\),
+and \(k=\omega(N)\ge3\). Put
 \[
- N^{1/(6\sqrt e)+\varepsilon}(\log N)^{O_\varepsilon(1)}
+ \tau=\frac{\log\lambda(N)}{\log N}.
 \]
-bit operations. This smaller exponent is only claimed for the first
-split. It uses polynomial exact-\(\lambda\) algorithms for semiprimes
-and for a prime factor larger than \(\sqrt N\); the remaining cases
-need only quadratic characters of conductor at most \(N^{2/3}\).
+A nontrivial factor is found deterministically in
+\[
+ N^{\frac1{4\sqrt e}\max\{(1+\tau)/4,\,2/k\}+\varepsilon}
+ (\log N)^{O_\varepsilon(1)}
+\]
+bit operations. The algorithm need not know \(k\). Thus all such inputs
+admit the coarser \(N^{1/(6\sqrt e)+\varepsilon}\) first split; when
+\(k\ge4\), this improves to \(N^{1/(8\sqrt e)+\varepsilon}\).
+Semiprimes are handled in polynomial time by the pinned exact-\(\lambda\)
+algorithm. These smaller exponents are only claimed for the first split.
 
 The proof combines the standard Miller/Rabin square chain with the
 unconditional theorem of Lau--Wu on the least character nonresidue for

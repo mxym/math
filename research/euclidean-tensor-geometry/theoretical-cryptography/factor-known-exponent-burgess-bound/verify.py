@@ -62,6 +62,8 @@ for k in range(2, 5):
 rho_checks = 0
 character_checks = 0
 conductor_cases = 0
+mrs_large_cases = 0
+profile_residual_cases = 0
 for ps in moduli:
     N = 1
     E = 1
@@ -78,6 +80,18 @@ for ps in moduli:
         rho_checks += 1
 
     layers = [v2(p - 1) for p in ps]
+    if max(ps)**4 > N * E:
+        # This is exactly alpha_1 > (1+tau)/4.
+        mrs_large_cases += 1
+    else:
+        profile_residual_cases += 1
+        if len(set(layers)) == 1:
+            p0, p1 = ps[0], ps[1]
+            assert (p0 * p1)**len(ps) <= N**2
+        else:
+            q0 = min(p for p, s in zip(ps, layers) if s == max(layers))
+            assert q0**4 <= N * E
+
     if len(set(layers)) > 1:
         q = min(p for p, s in zip(ps, layers) if s == max(layers))
         lower = next(p for p, s in zip(ps, layers) if s < max(layers))
@@ -133,5 +147,6 @@ print(f"squarefree moduli: {len(moduli)}")
 print(f"rho/chain equivalence checks: {rho_checks}")
 print(f"character-forced split witnesses: {character_checks}")
 print(f"character conductor cases: {conductor_cases}")
+print(f"MRS-large/profile-residual cases: {mrs_large_cases}/{profile_residual_cases}")
 print(f"prime-power block checks: {power_checks}")
 print("PASS")

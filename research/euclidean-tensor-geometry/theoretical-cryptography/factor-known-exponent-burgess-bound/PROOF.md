@@ -123,43 +123,70 @@ in \(\log E+\log N\). Thus complete factorization costs
 \]
 For an even input, strip its exact power of two first.
 
-## 4. A smaller first-split exponent from exact \(\lambda\)
+## 4. A structural first-split profile from exact \(\lambda\)
 
-Now suppose that \(N\) is odd, composite, squarefree, and the supplied
-value is the exact \(\lambda(N)\).
+Suppose that \(N\) is odd, composite, squarefree, and the supplied
+value is the exact \(\Lambda=\lambda(N)\). Let
+\[
+ k=\omega(N),\qquad
+ \tau=\frac{\log\Lambda}{\log N}.
+\]
+The two-prime case is handled by the pinned deterministic polynomial
+exact-\(\lambda\) candidate search, with every output validated below.
 
-First run the deterministic polynomial exact-\(\lambda\) candidate
-search for a product of two primes and validate any returned
-factorization. Also run the Morain--Renault--Smith large-factor
-procedure and validate its output. Their Theorem 1.1 guarantees that,
-when \(N\) has at least three prime factors and its largest prime
-exceeds \(\sqrt N\), this procedure recovers that prime in deterministic
-polynomial time from one exact \(\lambda\) value.
+Assume \(k\ge3\). Run the Morain--Renault--Smith large-factor routine
+with the known value \(\Lambda\), and validate any output. Their
+Theorem 5.10 and the paragraph immediately following it show that a
+largest prime \(p_1=N^{\alpha_1}\) is recovered in deterministic
+polynomial time whenever
+\[
+ \alpha_1>\frac{1+\tau}{4}. \tag{6}
+\]
+Indeed their auxiliary integer \(M=\Lambda\) has size \(N^\tau\), and
+their Corollary 4.4 gives exactly this threshold.
 
-It remains to consider at least three primes, all at most \(\sqrt N\).
+If that polynomial routine has not already split \(N\), every prime
+factor is at most
+\[
+ N^{(1+\tau)/4}. \tag{7}
+\]
 
-* If the layers \(s_p\) are not all equal, choose \(q\) in a maximal
-  layer and \(p\) in a lower layer. Since \(q\le\sqrt N\), the character
-  in Section 2 has \(Q=q\le N^{1/2}\). Its witness occurs below
-  \(N^{\vartheta/2+\varepsilon}\).
+* If the layers \(s_p=v_2(p-1)\) are not all equal, choose \(q\) in a
+  maximal layer and \(p\) in a lower layer. By (7), the character in
+  Section 2 has conductor
+  \[
+   Q=q\le N^{(1+\tau)/4}.
+  \]
 
 * If all layers are equal, choose the two smallest prime factors
-  \(p_1,p_2\). With at least three factors,
+  \(p_1',p_2'\). Since there are \(k\) factors,
   \[
-   p_1p_2\le N^{2/3}.
+   p_1'p_2'\le N^{2/k}. \tag{8}
   \]
-  The product character has \(Q=p_1p_2\le N^{2/3}\), so its witness
-  occurs below
-  \[
-   N^{(2/3)\vartheta+\varepsilon}
-   =N^{1/(6\sqrt e)+\varepsilon}. \tag{6}
-  \]
+  The product character has conductor \(Q=p_1'p_2'\).
 
-Scanning all bases through the larger bound (6), alongside the two
-polynomial candidate procedures, therefore finds a nontrivial factor
-without knowing which case holds.
+Consequently a square-chain witness occurs by
+\[
+ N^{\vartheta\max\{(1+\tau)/4,\,2/k\}+\varepsilon}. \tag{9}
+\]
+The algorithm need not know the hidden character, the prime sizes, or
+\(k\): it runs the bounded polynomial candidate procedures and scans
+ordinary bases in increasing order until a proper gcd appears. The
+actual \(k\) only sharpens the stopping-time analysis.
 
-The smaller exponent is not asserted for recursive complete
-factorization: after a split, the original exact \(\lambda(N)\) need
+Because \(\Lambda<N\), one has \(\tau<1\). For \(k=3\), (9) is at most
+\[
+ N^{(2/3)\vartheta+\varepsilon}
+ =N^{1/(6\sqrt e)+\varepsilon}.
+\]
+For every \(k\ge4\), both entries in the maximum are at most \(1/2\),
+giving
+\[
+ N^{\vartheta/2+\varepsilon}
+ =N^{1/(8\sqrt e)+\varepsilon}. \tag{10}
+\]
+
+These smaller exponents are not asserted for recursive complete
+factorization. After a split, the original exact \(\lambda(N)\) need
 only be a multiple, not the exact Carmichael value of a child factor.
-Section 3 supplies the unconditional complete-factor bound.
+Section 3 supplies the complete-factor bound.
