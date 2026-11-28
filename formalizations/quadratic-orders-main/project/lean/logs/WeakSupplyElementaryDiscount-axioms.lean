@@ -1,6 +1,0 @@
-import Entry002.WeakSupplyElementaryDiscount
-#print axioms Entry002.weakSupply_discount_ratio_le_four
-#print axioms Entry002.weakSupply_capped_discount_summable
-#print axioms Entry002.weakSupply_capped_discount_tail_le_four
-#print axioms Entry002.weakSupply_harmonic_discount_tail_le_four
-#print axioms Entry002.weakSupply_harmonic_Icc_two_le_one_add_log
