@@ -99,7 +99,7 @@ def require(x,m):
 
 pr=primes_upto(31)[:8]
 tuples=intervals=crt=0
-for k in range(4,8):
+for k in range(3,8):
   for ps in combinations(pr,k):
     N=T=1
     for p in ps:N*=p;T*=p-1
@@ -121,7 +121,7 @@ for k in range(4,8):
     tuples+=1
 
 examples=0
-for k in range(4,8):
+for k in range(3,8):
   cluster=[];z=1009
   for _ in range(k-1):
     z=nextprime(z);cluster.append(z);z+=1
@@ -139,7 +139,7 @@ for k in range(4,8):
     require(abs(y-q)*gap<=20*max(1,W*W),"two-atom error scale")
     examples+=1
 
-require(tuples==162,"tuple count")
+require(tuples==218,"tuple count")
 print("one-outlier totient center checker")
 print(f"tuples_checked = {tuples}")
 print(f"interlacing_intervals_checked = {intervals}")

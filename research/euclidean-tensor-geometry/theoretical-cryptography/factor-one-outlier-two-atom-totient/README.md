@@ -34,6 +34,14 @@ an unconditional deterministic bit-polynomial algorithm recovering the
 complete factorization. The scale, cluster, width, side of the outlier,
 and outlier are not input.
 
+There is also a separate \(k=3\) endpoint: if two comparable primes
+form a cluster of width
+\[
+ W\le X^{5/6}(\log N)^A
+\]
+and the third prime is a distance \(\Omega(X)\) away, the same input
+\(N,\varphi(N)\) suffices for deterministic bit-polynomial factoring.
+
 The key new step locates the unknown outlier. With \(m=k-1\), solve the
 fixed-degree equation
 \[
@@ -51,6 +59,12 @@ remaining \(k-1\) factors form an ordinary short cluster at their
 classical threshold.
 
 ## A large promised family
+
+For \(k=3\), the endpoint above gives
+\[
+ \Omega(Y^{17/18}/\log^3Y)
+\]
+promised inputs in every sufficiently large shell.
 
 For every fixed \(k\ge4\), ordinary prime-number-theorem binning gives
 \[

@@ -36,7 +36,8 @@ Theorems 5.4, 5.5, 5.6, and 5.9 give deterministic sufficient regions
 in terms of relative prime sizes. At the balanced limit
 \(\alpha_i\to1/k\), the hypotheses of Theorems 5.5 and 5.6 fail, and
 Theorem 5.9's threshold is not met. The present additive one-outlier
-cluster therefore lies outside those stated sufficient regions.
+cluster therefore lies outside those stated sufficient regions,
+including the balanced three-factor limit.
 
 ## Repository precursors
 
@@ -45,7 +46,11 @@ classical all-factors-in-one-short-window threshold and an elementary
 two-point coefficient proof. The sibling package
 **factor-multiscale-totient-rolle** uses repeated Rolle centers to cover
 a broader multiscale family. Neither allows a \(k-1\) cluster as wide as
-\(X^{2/(k-1)}\) with one factor a macroscopic distance away.
+\(X^{2/(k-1)}\) with one factor a macroscopic distance away. For
+\(k=3\), the sibling adjacent-gap theorem reaches width
+\(X^{1/2}\operatorname{polylog}X\) in the macroscopic-gap regime,
+whereas the semiprime terminal step here raises this to
+\(X^{5/6}\operatorname{polylog}X\).
 
 Searches covered numeric-totient oracle factoring, balanced and close
 multi-prime inputs, one-outlier and two-cluster variants, and the source

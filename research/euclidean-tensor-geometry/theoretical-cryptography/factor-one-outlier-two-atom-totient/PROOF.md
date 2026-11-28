@@ -133,7 +133,25 @@ same classical CRT small-root procedure, now with \(m\) factors and
 radius \(X^{2/m}\) up to fixed polylogarithmic blocks, recovers every
 remaining prime.
 
-## 4. The non-coprime case
+## 4. The three-factor endpoint
+
+When \(k=3\), let the two clustered primes have width
+\[
+ W\le X^{5/6}(\log N)^A.
+\]
+The two-atom argument still gives outlier error
+\[
+ O(W^2/X)=O(X^{2/3}\operatorname{polylog}N),
+\]
+exactly the closed Cohn--Heninger radius for an unknown divisor
+\(q(q-1)\) of \(N\varphi(N)\). After recovering \(q\), the remaining
+semiprime \(N'\) is solved exactly because
+\[
+ p_1+p_2=N'+1-\varphi(N').
+\]
+Thus the remaining pair needs no short-cluster small-root step.
+
+## 5. The non-coprime case
 
 For sufficiently large comparable factors, no two members of the
 \(o(X)\)-width cluster can divide one another minus one. If the outlier
@@ -149,7 +167,7 @@ small-root radius is larger. This gives an induction, with the
 semiprime quadratic formula as the terminal case. All fixed finite
 exceptions can be handled by fixed trial division.
 
-## 5. Counting a promised shell
+## 6. Counting a promised shell
 
 Fix a small \(\eta>0\) with \((1+\eta)^k<2\). Reserve two disjoint
 positive-length subintervals of \([X,(1+\eta)X]\), separated by
@@ -177,11 +195,24 @@ a fixed labeling multiplicity, the number of distinct products is
 \]
 Writing \(Y=X^k\) proves the shell count in the README.
 
+For \(k=3\), take cell width \(w=X^{5/6}\). The same convexity
+calculation for a clustered pair, followed by one far-prime choice,
+gives
+\[
+ \Omega\!\left(
+ \frac{X^2w}{\log^3X}
+ \right)
+ =
+ \Omega\!\left(
+ \frac{Y^{17/18}}{\log^3Y}
+ \right).                                                  \tag{12}
+\]
+
 All chosen factors are odd and have ratio below two. If \(p\mid q-1\),
 then \(q-1\ge2p\), contradicting \(q<2p\). Hence this shell also has
 \(\gcd(N,\varphi(N))=1\).
 
-## 6. Scope
+## 7. Scope
 
 The theorem fixes \(k,c,C,\delta,A\) before input growth, assumes
 squarefreeness and one exact numeric totient value, and requires one
