@@ -1,0 +1,9 @@
+Reproduction with Python 3 standard library only
+
+python3 -B verify_envelope.py
+PASS root envelopes: 6000 fixtures; 1160 with unused centres; 1200 with large centres; 2854 with overlapping disks; exact mixed-degree example.
+
+python3 -B verify_cyclotomic.py
+PASS cyclotomic algebra: 825 exact values; two prime fixtures plus duplicates/units; four degree and boundary checks.
+
+The first tests finite constructed products of real and complex-conjugate root factors, including very large center coordinates and overlap; it already knows the witnesses. The second compares evaluated cyclotomic values by exact division with their independent Mobius product, checks index bounds, and tests mixed-degree arithmetic examples. The theorem assumes a dense public catalogue of polynomial total encoding size. Both are finite checks only; neither accepts an integer to factor.
