@@ -6,16 +6,17 @@ This note audits only equation (C.59) and the sentence immediately after it in
 
 ## Result
 
-The first inequality in the printed (C.59) is false.  A valid instance is
+The first inequality in the printed (C.59) is false. A valid instance is
 
 \[
  H_1=H_2=1,\quad r=\ell,\quad s=3,\quad t=L=3
 \]
 
-for any prime \(\ell>9\).  The printed right-hand side is
+for any prime \(\ell>9\). The printed right-hand side is
 \((\sqrt3/2)\ell^{3/4}\), whereas the left-hand side is \(\ell/2\).
 
-The local repair is to remove the *inner* square root:
+The local repair is to remove the *inner* square root from both right-hand
+sides:
 
 \[
  \frac{rs}{2L}
@@ -30,11 +31,11 @@ The following sentence must correspondingly say that the extra
 \(\ell\nmid r\).
 
 The displayed conclusion (C.58) already has exactly the exceptional term
-produced by the repaired inequality.  This is therefore a local proof-text
+produced by the repaired inequality. This is therefore a local proof-text
 repair, not a refutation of the factoring theorem or its stated complexity.
 
 Run:
 
-\`\`\`bash
+~~~bash
 python3 verify_c59.py
-\`\`\`
+~~~
