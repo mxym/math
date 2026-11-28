@@ -1,21 +1,19 @@
-# KeyBreak final-GCD probability audit
+# Withdrawn: KeyBreak final-GCD probability audit
 
-This note isolates one local probability-factor inconsistency in §5.4 of *Provable Integer Factorization via Multilevel Descent: Approaching Heuristic Bounds* (KeyBreak Cryptanalysis Agent, 26 November 2026).
+**Status: withdrawn on 2026-11-28. Do not cite the earlier audit as a mathematical finding.**
 
-Equation (5.4) correctly gives the conditional final-GCD success probability as
-[
-1-2^{1-omega(N)}.
-]
-The immediately following displayed lower bound (5.5) instead uses the larger factor
-[
-1-2^{-omega(N)}.
-]
-That larger factor does not follow from the preceding argument. The safe replacement is
-[
-(1-2^{1-omega(N)})
-left[rac34(1-epsilon)-epsilon_{m pub}ight]_+.
-]
+The earlier files in commit `fb8861b0b11379a2d2acb24fb917a56470ed02f5`
+were prepared from text extraction that misread the superscript in equation
+(5.5).
 
-This is a local correction, not a refutation of the factoring theorem. Under the paper's stated thresholds (epsilonle 1/4), (epsilon_{m pub}le 1/16), and the non-prime-power case (omega(N)ge2), the corrected expression is still at least (1/4). The later conservative epoch bound (p_0=1/128) therefore remains valid.
+Direct visual inspection of the authors' fixed published PDF, page 18, shows
+the exact factor `1 - 2^{1-omega(N)}`, agreeing with equation (5.4). It does
+not print `1 - 2^{-omega(N)}`. Thus the alleged probability overstatement
+does not exist in the fixed source.
 
-See `PROOF.md` for the derivation and `verify_probability.py` for an exact finite check.
+Published PDF: https://crypto.sjtu.edu.cn/factoring.pdf
+SHA-256: 2b534eaf77fb2b9712018879059d8d4667c40c0a4adf2fff90efc22fb356cfc9
+
+The proof, checker, results, and source note from the erroneous audit have
+been removed from the live branch. Git history is retained only for
+traceability.
