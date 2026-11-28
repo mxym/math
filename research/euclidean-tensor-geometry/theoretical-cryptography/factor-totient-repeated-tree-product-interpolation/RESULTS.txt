@@ -1,0 +1,18 @@
+Both frozen standard-library scripts ran in Python 3 with exit status 0.
+
+$ python3 -B verify_prime_data.py
+quartic support 12 directed edges 8 profile block sizes [1, 1, 1]
+quartic bitlength, saturated numerator, slopes 286 49626861318144000 20736
+joint-hull support 16 directed edges 12 profile block sizes [1, 1, 2]
+crossing support 35 directed edges 30 profile block sizes [1, 2, 2, 2]
+depth-two support 6 directed edges 4 profile block sizes [1, 2]
+
+The checker verifies all displayed primes by trial division and all ordered pairs in each support for extra edges. It forms numeric N,T from each known fixture, computes the valuation groups by gcds, and checks their positive product formulas and the saturated anchor. In the depth-two case the product of actual edge slopes across both trees is 16, whereas multiplying accumulated node slopes would wrongly give 64. In the singleton case ordinary rational Lagrange interpolation recovers the displayed quartic. It does not claim to have ordinary point evaluations within the nonsingleton groups.
+
+$ python3 -B verify_signs.py
+singleton all words 27 admissible 1 minimum degree 3 disjoint hulls 3
+joint all words 81 admissible 3 minimum degree 3 disjoint hulls 3
+crossing all words 2187 admissible 27 minimum degree 4 disjoint hulls 3
+crossing admissible degrees [(4, 10), (5, 2), (6, 14), (7, 1)]
+
+For all three node patterns and every sign word, a separate sign-state dynamic program agrees with the closed formula. A rational polynomial given by its root multiset and leading sign is constructed and exactly checked at every sample. These finite calculations test the certificate and examples, not an infinite prime-pattern conjecture or runtime in practice.
