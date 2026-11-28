@@ -1,0 +1,9 @@
+# Exact and approximate SHEDAG resilience from raw DAGs
+
+This note concerns the graph optimization in Aggarwal–Li–Mukherjee–Obremski–Ribeiro, [ECCC TR26-011 Revision 2](https://eccc.weizmann.ac.il/report/2026/011/revision/2/download/), §§5.4–5.4.1. It does not change the paper's extraction guarantees or address its separate low-entropy explicitness question. The number N of graph vertices here is not the source-block length.
+
+- **Exact input distinction.** The two resilience scores and optimizing ideals follow by an O(N) histogram scan from distinct ancestor counts. From raw adjacency lists, a deterministic exact algorithm takes O((N+E)(N−R)) time for value R, and one can also use the standard ancestor-bitset algorithm.
+- **Single-score lower bound.** A near-linear reduction from Hitting Set Existence uses either one exact score and produces raw DAGs with paths of length at most two, even with E≤N and a supplied topological order. Under the Hitting Set Conjecture, no O(N^(2−ε)) exact algorithm for either score works on this class for any fixed ε>0. This is conditional and does not assume that an algorithm must compute all ancestor counts. It is not claimed under SETH alone.
+- **Positive approximation.** In O((N+E) ε^(−2) log(N/δ)) time a randomized algorithm approximates each deficit N−R and outputs an ancestor-closed set with actual deficit at most (1+ε) times optimal, with probability at least 1−δ simultaneously. This applies standard coordinated bottom-k sketches to the resilience objective, not a new sketch primitive.
+
+[PROOF.md](PROOF.md) gives the proofs, and [SOURCES.md](SOURCES.md) distinguishes preexisting ingredients and the precise printed issues. Run `bash replay.sh` to check small cases; [RESULTS.txt](RESULTS.txt) records the expected output. All finite tests are checks on the formulas, not evidence for the Hitting Set Conjecture.
