@@ -18,7 +18,7 @@ The question is different from realizing all coefficient permutations as in [Bal
 
 ## 1. The clique-polynomial mixture and two trim bounds
 
-In the complement \(H=\overline G\), fix a maximum clique \(K\) of order \(r\) and let \(U=V(H)\setminus K\), with \(q=|U|\). For each clique \(S\) of \(H[U]\), including the empty clique, set \(s=|S|\), \(d=|K\cap N_H(S)|\), and \(\delta=r-s-d\ge0\). Its contribution to the clique polynomial is \(x^s(1+x)^d\). The empty clique gives \(B_k=\binom r k\) at rank \(k\). For an in-support coefficient with \(s\le k\) and \(s<r\), writing \((a)_j\) for falling factorials, we have
+In the complement \(H=\overline G\), fix a maximum clique \(K\) of order \(r\) and let \(U=V(H)\setminus K\), with \(q=|U|\). For each clique \(S\) of \(H[U]\), including the empty clique, set \(s=|S|\), \(d=|K\cap N_H(S)|\), where \(N_H(S)\) is the common neighborhood of all vertices of \(S\) (all of \(V(H)\) when \(S=\varnothing\)), and \(\delta=r-s-d\ge0\). Its contribution to the clique polynomial is \(x^s(1+x)^d\). The empty clique gives \(B_k=\binom r k\) at rank \(k\). For an in-support coefficient with \(s\le k\) and \(s<r\), writing \((a)_j\) for falling factorials, we have
 \[
  \frac{\binom d{k-s}}{\binom rk}
  =\frac{(k)_s}{(r)_s}\frac{(r-k)_\delta}{(r-s)_\delta}
