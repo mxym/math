@@ -1,9 +1,0 @@
-# Which solid ellipsoid gives the most acute random triangles?
-
-Among all solid ellipsoids in a fixed Euclidean dimension $d\ge2$, the **ball alone**, up to scale and translation, maximizes the chance that three independent volume-uniform points form an acute triangle. More precisely, starting with the ball, this probability strictly decreases along every fixed-axis nonscalar logarithmic stretch $A_t=\exp(tH/2)$, $t\ge0$. This is the ellipsoid class of Hall's problem, **not** a comparison with every convex body. The planar disk-versus-ellipse comparison was already reported; see [prior work](SOURCES.md).
-
-The same monotonicity holds in every $d\ge3$ for three independent uniform directions at **any prescribed positive radii**. The three radii need not agree; mixtures are allowed if the directions remain conditionally independent and uniform. In the plane the distributional statement covers iid samples from an absolutely continuous, radially nonincreasing density. Affine images of spherical surface measure are not generally the surface-area law on an ellipsoid.
-
-[Analytic proof](PROOF.md) · [independent internal review](REVIEW.md) · [source and corpus comparison](SOURCES.md). The argument rewrites each angle test as a projection onto a tilted normal. It pairs opposite latitudes of a random edge and shows that increasing the tilt cannot improve the angle probabilities. This produces strict monotonicity without approximating a convex body or numerically estimating a probability.
-
-The optional [exact arithmetic checks](check.py) test two scalar inequalities used in the proof; they do not establish the continuous theorem. Run `python3 -B -O check.py` and compare [the output](CHECKS.txt). AI-assisted theoretical research, internally reviewed, not externally peer reviewed or formally machine verified. No priority claim.
