@@ -1,0 +1,13 @@
+Both Python 3 standard-library scripts ran with exit status 0 on the frozen files.
+
+$ python3 -B verify_invariants.py
+supports by component count 1 125 1926
+directed edges 3906 supports with branching 508 multiplicity fixtures 6156
+
+The three support counts (respectively one, two and three components) enumerate the qualifying subsets of cardinality 4 through 7 of the explicit 18-prime pool. The edge count is per support, not per exponent assignment. Three independently specified exponent patterns per support give the fixture total.
+
+$ python3 -B verify_fibers.py
+empty projective fibers over F_p: three-variable points 119680 two-variable points 1216
+four-component deformation parameters 25 invariants at three arguments unchanged
+
+The second implementation evaluates separately specified affine tree forms and their projective homogenizations over four prime fields, including the point at infinity. It checks the indicated specializations with exact finite-field operations and the quartic family with exact rational arithmetic. These finite checks illustrate the argument; the proof of complex finite fibers and the bit bound are not inferred from them.
