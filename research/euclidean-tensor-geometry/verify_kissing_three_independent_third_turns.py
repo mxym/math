@@ -61,3 +61,40 @@ print("non-E6 extremum",len(B),"points; exact off-diagonal products times 36",so
 from fractions import Fraction as F
 assert F(11,5)**2<5<F(7,3)**2 and F(7,10)**2<F(1,2)
 assert 2*9>16 and 8>F(27,4) and 5>4
+
+# All 57 points for the exactly-one-triple stratum. Encode a phase by
+# 15-degree units; inactive coordinates use None. Within each seed all active
+# radii are 1/sqrt(support size). 4*cos(j*pi/12) in basis 1,sqrt2,sqrt3,sqrt6.
+from math import isqrt
+cos_table=((4,0,0,0),(0,1,0,1),(0,0,2,0),(0,2,0,0),(2,0,0,0),
+           (0,-1,0,1),(0,0,0,0))
+def c4(j):
+ j=j%24
+ if j>12:j=24-j
+ return cos_table[j] if j<=6 else neg(cos_table[12-j])
+def pos_surds(v):
+ if not any(v):return 0
+ scale=10**6
+ lo=hi=0
+ for a,d in zip(v,(1,2,3,6)):
+  n=d*scale**2;l=isqrt(n);u=l+(l*l<n)
+  lo+=min(a*l,a*u);hi+=max(a*l,a*u)
+ assert lo>0 or hi<0
+ return 1 if lo>0 else -1
+def phase_seed(v):
+ return {tuple((a+8*g[i])%24 if a is not None else None for i,a in enumerate(v))for g in product(range(3),repeat=3)}
+W=set().union(*(phase_seed(v)for v in [(0,0,0),(2,None,None),(5,4,None),(5,None,4),(None,4,4)]))
+assert len(W)==57
+sq={1:(1,0,0,0),2:(0,1,0,0),3:(0,0,1,0),4:(2,0,0,0),6:(0,0,0,1),9:(3,0,0,0)}
+num=0
+for x,y in combinations(W,2):
+ k=sum(a is not None for a in x)*sum(b is not None for b in y)
+ v=tuple(-2*z for z in sq[k])
+ for a,b in zip(x,y):
+  if a is not None and b is not None:v=cp(v,c4(a-b))
+ assert pos_surds(v)<=0
+ num+=1
+assert num==1596
+# Margin certificates at the two symmetry classes of triangle vertices.
+assert 4*4<9*3 and 25<27
+print('one-triple extremum',len(W),'points;',num,'off-diagonal tests in Q(sqrt(2),sqrt(3))')

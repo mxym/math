@@ -2,7 +2,7 @@
 
 Identify $\mathbb R^6$ with three orthogonal complex lines. Let $G=(C_3)^3$ rotate each line independently through $120^\circ$ and fix the other two pointwise. A kissing code consists of unit vectors with pairwise distances at least one.
 
-**Theorem.** A $G$-invariant kissing code has at most **72** points, and equality is unique up to orthogonal isometry: the $E_6$ root code. More strongly, **every such code with more than 60 points is contained in a unique copy of the 72-point $E_6$ code** in the same six-dimensional space. The threshold is sharp: there is a $G$-invariant 60-point kissing code not contained in *any* isometric copy of $E_6$.
+**Theorem.** A $G$-invariant kissing code has at most **72** points, and equality is unique up to orthogonal isometry: the $E_6$ root code. More strongly, **every such code with more than 60 points is contained in a unique copy of the 72-point $E_6$ code** in the same six-dimensional space. The threshold is sharp: **up to isometry there is exactly one** $G$-invariant 60-point kissing code not contained in *any* isometric copy of $E_6$. With exactly one triple orbit the sharp maximum is 57.
 
 No transitivity, antipodes or assumed root subconfiguration is required. The independent actions are essential: a single order-three symmetry or a diagonal simultaneous rotation does not give the hypothesis. This is a symmetry-class theorem and does **not** exclude an arbitrary 73-point code. The [ordinary six-dimensional kissing-number problem](https://cohn.mit.edu/kissing-numbers/) remains separate.
 
@@ -67,6 +67,32 @@ The concave sum of the two square roots is minimized at an endpoint of $1/3\le a
 
 Counting now gives at most $27+9(3-\binom p2)+6p$ points, respectively $54,60,57,45$ for $p=0,1,2,3$. This proves that more than 60 forces the two-triple case above.
 
+## What happens at the boundary
+
+The maximum is **54+18=72** with two triple orbits, **57** with exactly one, and **60** with none. In the last case there is just **one** 60-point code up to isometry, namely the non-root witness below. In particular the largest counterexample to root containment is unique.
+
+Here is the additional upper bound when there is exactly one triple orbit. A putative size above 57 must equal 60 (all orbit sizes are multiples of three). The count just proved forces one full six-point axis, say the first, and one pair orbit on each of the three supports. The full axis has phases $30^\circ,90^\circ$ modulo $120^\circ$, forced by compatibility with the triple at phase zero. On supports $12,13$ the first radius is exactly $1/\sqrt3$: a nearest axis point is within $30^\circ$, and the radius is at least $1/\sqrt3$. The first pair phase is a midpoint between consecutive axis rays, and must be $60^\circ$ rather than zero by the triple constraint. On the other active coordinate the radius is $b=\sqrt{2/3}$, and compatibility with the triple puts its phase in $[45^\circ,75^\circ]$ since
+\[
+  (1/\sqrt3)\cos60^\circ + b\cos\delta\le\sqrt3/2 .
+\]
+
+Let $c_2,c_3$ be the radii of the putative pair on support $23$. Let $\alpha_i\in(36^\circ,60^\circ]$ be its phase distances from zero, and write $x_i=c_i\cos\alpha_i,\ y_i=c_i\sin\alpha_i$. Then $x_i\ge m=1/(2\sqrt3)$ and the triple constraint gives $x_2+x_3\le3m$. The phase distance to the corresponding $12$ or $13$ orbit is at most $15^\circ+(60^\circ-\alpha_i)$. Consequently
+\[
+  sx_i+ky_i\le t,\qquad s=\sin15^\circ,\quad k=\cos15^\circ,\quad
+  t=1/(2b)=\sqrt6/4.
+\]
+Since $y_i\ge0$ we may square these bounds. From $\sum_i(x_i^2+y_i^2)=1$ we get the necessary condition
+\[
+  0\le x_2^2+x_3^2-2st(x_2+x_3)+2t^2-k^2 .
+\]
+But this convex quadratic is negative at every vertex of the triangle $x_i\ge m,\ x_2+x_3\le3m$. At $(m,m)$ it equals $2/3-\sqrt3/2$, and at the two other vertices it equals $25/24-5\sqrt3/8<0$. Thus 60 is impossible.
+
+To attain 57 take $T$, the first-axis triangle of phase $30^\circ$, and three nine-point orbits on supports $12,13,23$, all with equal radii $1/\sqrt2$. Their respective phase pairs are $(75^\circ,60^\circ),(75^\circ,60^\circ),(60^\circ,60^\circ)$. Across different pair supports the maximum product is at most $1/2$. Against $T$ the largest pair product is $(1+\sqrt2)/(2\sqrt6)<1/2$; against the axis triangle the bound is $\cos45^\circ/\sqrt2=1/2$. The within-orbit and axis-to-triple bounds are immediate.
+
+For the uniqueness statement with no triple orbit, attaining 60 forces a single full axis (say the first) and two pair orbits on every support. On supports $12,13$ the full axis forces the first radius to be $1/\sqrt3$ and its phases to be precisely midpoints between axis points; the other radius is $b=\sqrt{2/3}$. Two orbits on the same support with identical radii must be negatives: their nearest inner product is at least $(a^2+b^2)/2=1/2$, with equality only for opposite phases on both coordinates. Thus the two orbits on each such support project onto six equally spaced rays in plane 2 or 3. By compatibility with those six rays, *each* radius of a $23$ orbit must be at most $1/(2b\cos30^\circ)=1/\sqrt2$. Both are therefore $1/\sqrt2$, their phases are midpoints, and the two orbits on $23$ are negatives too.
+
+Rotate plane 1 to make its full axis have phase zero. In each of the signed blocks $12,13$, choose the sign whose first phase is $30^\circ$, and rotate its other plane so its other phase is zero. In block $23$ each coordinate phase is now $30^\circ$ or $-30^\circ$ modulo $120^\circ$. Conjugating either of planes 2 and 3 fixes the already normalized blocks as sets and lets us select $30^\circ$ in both. This gives exactly the witness below.
+
 ## A non-root 60-point witness
 
 Set $\eta=e^{i\pi/6}$. Take all $G$-translates and negatives of each of the four seeds
@@ -76,4 +102,4 @@ Set $\eta=e^{i\pi/6}$. Take all $G$-translates and negatives of each of the four
 \]
 These give $6+18+18+18=60$ points. Within one pair support, a nontrivial third turn costs at least unit distance; comparing opposite phase orbits gives product at most $1/2$. Between supports $12$ and $13$ products have magnitude at most $1/3$. With support $23$ the overlapping coordinate contributes at most $\sqrt{2/3}\cdot(1/\sqrt2)\cos30^\circ=1/2$. The first-axis comparisons have the same upper bound. The second and third displayed seeds have product **$1/3$**, impossible in an $E_6$ root subset. Hence the threshold 60 cannot be lowered.
 
-**Replay.** Run `python3 verify_kissing_three_independent_third_turns.py` in normal standard Python. The program checks all 2,556 unordered pairs of the root model and all 1,770 pairs of the non-root example by exact integer arithmetic, as well as the simple-root diagram and the full 72-point reflection orbit. The orbit-support bounds and the case split in the proof are analytic. This differs from a global vertex-transitivity assumption, as in the [earlier six-dimensional result](https://github.com/mxym/math/blob/21ddf28035c77f159f6ea0032d7b0d868ab78d4a/research/euclidean-tensor-geometry/KissingSixVertexTransitive.md), and from classic [local rigidity of the already specified root code](https://arxiv.org/abs/1102.5060).
+**Replay.** Run `python3 verify_kissing_three_independent_third_turns.py` in normal standard Python. The program checks all 2,556 unordered pairs of the root model and all 1,770 pairs of the non-root example by exact integer arithmetic, all 1,596 pairs of the one-triple 57-point example, as well as the simple-root diagram and the full 72-point reflection orbit. The orbit-support bounds and the case split in the proof are analytic. This differs from a global vertex-transitivity assumption, as in the [earlier six-dimensional result](https://github.com/mxym/math/blob/21ddf28035c77f159f6ea0032d7b0d868ab78d4a/research/euclidean-tensor-geometry/KissingSixVertexTransitive.md), and from classic [local rigidity of the already specified root code](https://arxiv.org/abs/1102.5060).
