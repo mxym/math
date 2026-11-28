@@ -1,0 +1,17 @@
+Fixed source commit: 4a7bc8ab0bc770e71a259b7966c500496b99010a
+Fixed paper blob: 19f36b2f189ed41ec8e112b92aa9b88a96c6bd1e
+
+AUDIT RESULT: FAIL for the printed Definition 4.5 guard, with a local repair.
+
+Lemma 4.4 hypothesis: q does not divide R_anc.
+Definition 4.5 printed guard: q divides every ancestor determinant.
+For every history with at least two distinct ancestors, the printed guard
+forces q to divide R_anc and therefore excludes the lemma hypothesis.
+
+Minimal consistency repair:
+replace q | determinant by q does-not-divide determinant in the AlgNode
+ancestor-pair pre-check.
+
+After that repair, this exact mismatch disappears and the guard agrees with
+Y_forb/bad-child exclusion and Lemma 4.6. No claim is made that the whole
+factoring theorem has otherwise been verified.
