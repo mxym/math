@@ -1,9 +1,0 @@
-Finite replay with the Python 3 standard library
-
-python3 -B verify_bundle_determinants.py
-PASS bundle determinants: 312 leave-one-out evaluations; 201 sharp parameter-grid cases; 6 three-path specializations.
-
-python3 -B verify_closed_word_separation.py
-PASS separated witnesses: 1638 closed-word branch returns; 1002 proper label subsets with common branches; known support (5,11).
-
-The first checker compares specialized Sylvester determinants against endpoint root products, exhibits parameter values with consecutive failures before a success, and tests the three specified pairwise-degenerate relations. The second checks affine branch returns and proper label subsets on finite examples of the separation. These tests do not search an externally supplied prime support or factor an externally supplied integer.

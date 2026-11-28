@@ -1,9 +1,0 @@
-Finite reproducibility with the Python 3 standard library
-
-python3 -B verify_eliminants.py
-PASS exact Sylvester identities: 703 forward/composed/backtracking cases; 41 diagonals including 2 integral roots; 21 independent two-edge checks.
-
-python3 -B verify_graph_examples.py
-PASS two fixed prime graphs: multivalued labelled 3-edge circuit; directed nonlinear 2-edge circuit and diameter 5.
-
-The first checks fixed specialised determinants, sign branches, a repeated-root specialization, immediate reversal, and two nonzero closing polynomials. The second starts with two explicit already-factored supports and verifies their arithmetic edges and closure, including the directed diameter. Neither accepts an arbitrary integer or implements generic factorization.

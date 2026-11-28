@@ -1,9 +1,0 @@
-Both tests replay with Python 3's standard library.
-
-python3 -B verify_local.py
-PASS local edge certificates: 20 quadratic direction checks; 516 linear direction checks; 129 old-slice instances; 2 bad matrices.
-
-python3 -B verify_contents.py
-PASS generic endpoint tests: 1296 Mobius words; 79 root-adaptive fixtures; 6 actual constant fibres and support checks.
-
-The first checker uses exact integer minors (computed via rational elimination), verifying both edge directions and the exact L-bit value sampled by the predecessor. The second works independently with fractional linear matrix products, direct endpoint contents in coprime-root examples, and rational points on actual constant-product curves. It also cross-checks the certificate-support test against successive gcd removal. These are finite algebraic checks, not generic monomial-fibre solvers or arithmetic recovery code.
