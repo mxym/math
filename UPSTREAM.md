@@ -71,7 +71,7 @@ source text.
 
 8. François Morain, Guénaël Renault, and Benjamin Smith,
    *Deterministic factoring with oracles*, Applicable Algebra in
-   Engineering, Communication and Computing 34 (2023), 423--443;
+   Engineering, Communication and Computing 34(4) (2023), 663--690;
    arXiv:1802.08444v2.
    - https://arxiv.org/pdf/1802.08444v2
    - Section 6.3 gives every squarefree three-prime integer from the two
