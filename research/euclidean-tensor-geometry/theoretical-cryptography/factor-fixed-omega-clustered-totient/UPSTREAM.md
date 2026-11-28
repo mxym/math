@@ -43,7 +43,7 @@ For \(k=2\), Morain--Renault--Smith Lemma 5.2 already gives exact
 quadratic recovery with no clustering assumption.
 
 The sibling directory
-\`factor-clustered-triprime-totient/\` gives a sharper result for
+`factor-clustered-triprime-totient/` gives a sharper result for
 \(k=3\): one close adjacent pair can suffice even if all three primes
 are not in one short interval. The present two-point coefficient method unifies that elementary
 mechanism for every fixed \(k\), but its new scope is recorded only for

@@ -24,7 +24,7 @@ whose running time for \(H\le u\) is
  \prod_{j=1}^{k-2}
  \left(1+O_k\!\left({H^{j+2}\over u^2}\right)\right). \tag{1}
 \]
-Consequently, for every fixed \(A\), the factors are recovered in
+Consequently, for every fixed \(A\ge0\), the factors are recovered in
 deterministic bit-polynomial time under the promise
 \[
  H\le N^{2/k^2}(\log N)^A. \tag{2}
@@ -63,7 +63,7 @@ multi-prime factoring and not general factoring from \(\varphi(N)\).
 
 ## Reproduction
 
-\`\`\`sh
+```sh
 ./replay.sh
 sha256sum -c SHA256SUMS
-\`\`\`
+```

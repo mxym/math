@@ -67,8 +67,8 @@ integer arithmetic.
 
 ## 3. The search tree does not need \(H\)
 
-Try the increasing schedule \(h=1,2,4,\ldots,m\), replacing the
-first power of two above \(m\) by \(m\). At a fixed \(h\), start with \(c_0=1\).
+Try the increasing schedule \(h=1,2,4,\ldots,v\), replacing the
+first power of two above \(v\) by \(v\). At a fixed \(h\), start with \(c_0=1\).
 For every surviving prefix and each \(j=1,\ldots,k-2\), compute (7) and
 branch over all integers in
 \[
@@ -107,7 +107,7 @@ Accept only \(k\) distinct primes greater than one whose product is
 ## 4. Complexity
 
 For fixed \(k\), every rational in (5)--(14) has
-\(O_k(\log N)\) bits. At the first successful guess, \(H\le h\le\min(2H,m)\), the
+\(O_k(\log N)\) bits. At the first successful guess, \(H\le h\le\min(2H,v)\), the
 number of tree leaves is at most
 \[
  \prod_{j=1}^{k-2}\bigl(1+2B_j(2H)\bigr). \tag{16}
@@ -123,7 +123,7 @@ be handled directly). Since \(k\) is fixed, (10) gives
 Standard deterministic fixed-degree polynomial factorization and
 primality testing are polynomial in \(\log N\), proving (1).
 
-Now assume \(H\le u^{2/k}(\log N)^A\). For
+Now assume fixed \(A\ge0\) and \(H\le u^{2/k}(\log N)^A\). For
 \(1\le j\le k-2\),
 \[
  {H^{j+2}\over u^2}
