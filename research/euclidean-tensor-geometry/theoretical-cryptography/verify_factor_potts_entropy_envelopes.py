@@ -1,174 +1,160 @@
 #!/usr/bin/env python3
-"""Exact derivative checks and rational log enclosures for the Potts envelopes."""
+"""Exact rational checks and logarithm enclosures for the Potts entropy curves."""
 from fractions import Fraction as F
 from functools import lru_cache
 
-checks = 0
+if not __debug__:
+    raise RuntimeError("run without -O")
 
 
-def ok(x):
-    global checks
-    checks += 1
-    if not x:
-        raise AssertionError("exact check failed")
+def add(a, b):
+    return a[0]+b[0], a[1]+b[1]
 
 
-def I(x):
-    return F(x), F(x)
+def neg(a):
+    return -a[1], -a[0]
 
 
-def add(x, y):
-    return x[0] + y[0], x[1] + y[1]
+def mul(a, b):
+    ab = [x*y for x in a for y in b]
+    return min(ab), max(ab)
 
 
-def neg(x):
-    return -x[1], -x[0]
+def scale(t, a):
+    return mul((t,t),a)
 
 
-def sub(x, y):
-    return add(x, neg(y))
+def div(a, b):
+    assert b[0]>0
+    return mul(a, (1/b[1],1/b[0]))
 
 
-def mul(x, y):
-    p = [a*b for a in x for b in y]
-    return min(p), max(p)
+def series(r):
+    assert 1 <= r <= 2
+    t=(r-1)/(r+1)
+    s=sum(2*t**(2*j+1)/F(2*j+1) for j in range(30))
+    return s, s+2*t**61/(61*(1-t*t))
 
 
-def div(x, y):
-    ok(y[0]*y[1] > 0)
-    return mul(x, (1/y[1], 1/y[0]))
+LN2 = series(F(2))
 
 
-def scale(x, k):
-    return mul(x, I(k))
+@lru_cache(maxsize=1024)
+def logarithm(r):
+    assert r>0
+    exp=0
+    while r<1: r*=2; exp-=1
+    while r>=2: r/=2; exp+=1
+    return add(series(r), scale(exp,LN2))
 
 
-def logseries(x):
-    # x in [1,2]: use the odd power expansion, enclosing its positive tail.
-    z = (x-1)/(x+1)
-    S, power = F(0), z
-    n = 25
-    for k in range(n):
-        S += 2*power/(2*k+1)
-        power *= z*z
-    tail = 2*power/((2*n+1)*(1-z*z))
-    return S, S+tail
+def psi(a,z):
+    w,t=1+z,1-z/a
+    return scale(F(1,a+1),add(scale(w,logarithm(w)),scale(a*t,logarithm(t))))
 
 
-LOG2 = logseries(F(2))
+def derivative(a,z):
+    return scale(F(1,a+1),logarithm((1+z)/(1-z/a)))
 
 
-@lru_cache(None)
-def log(x):
-    x = F(x)
-    if x <= 0:
-        raise AssertionError("invalid log argument")
-    k = 0
-    while x < 1:
-        x *= 2
-        k -= 1
-    while x >= 2:
-        x /= 2
-        k += 1
-    return add(logseries(x), scale(LOG2, k))
+def P(a,z):
+    return (1+z)*(a-z)
 
 
-def H(p):
-    h = I(0)
-    for y in p:
-        if y:
-            h = sub(h, scale(log(y), y))
-    return h
+def inflect(a,l,z):
+    R=l*l*P(a,z)/P(a,l*z)
+    return add(scale(R,derivative(a,z)),neg(scale(l,derivative(a,l*z))))
 
 
-def D(q, t):
-    p = [(1+(q-1)*t)/q] + [(1-t)/q]*(q-1)
-    return sub(log(F(q)), H(p))
+def tangent(a,l,z):
+    T=mul(psi(a,z),scale(l,derivative(a,l*z)))
+    U=mul(psi(a,l*z),derivative(a,z))
+    return add(T,neg(U))
 
 
-def ell(a, t):
-    return log((1+a*t)/(1-t))
+def root(a,l,f):
+    lo,hi=F(a,10**4),F(a)*(1-F(1,10**4))
+    assert f(a,l,lo)[0]>0 and f(a,l,hi)[1]<0
+    while hi-lo>F(1,10**13):
+        t=(lo+hi)/2
+        x,y=f(a,l,t)
+        if x>0:lo=t
+        elif y<0:hi=t
+        else:raise AssertionError("logarithm enclosure did not decide midpoint")
+    return lo,hi
 
 
-def poly(a, t):
-    return (1+a*t)*(1-t)
+def via_scaled_box(x, y, d=10**9):
+    return x*d//1, -(-y*d//1)
 
 
-def dpoly(a, t):
-    return a-1-2*a*t
+def sample(a,l):
+    b1,b2=root(a,l,inflect)
+    t1,t2=root(a,l,tangent)
+    assert 0<b1<b2<t1<t2<a
+    xi=(psi(a,b1)[0],psi(a,b2)[1])
+    tau=(psi(a,t1)[0],psi(a,t2)[1])
+    vol=(min(psi(a,l*t1)[0],psi(a,l*t2)[0]),
+         max(psi(a,l*t1)[1],psi(a,l*t2)[1]))
+    eta=div(vol,tau)
+    assert eta[0]>l*l
+    return via_scaled_box(*xi), via_scaled_box(*tau), via_scaled_box(*eta)
 
 
-def bracket(a, L, t):
-    return a-1-2*a*(1+L)*t-a*(a-1)*L*t*t
+def multiply(X,Y):
+    p=[F(0)]*(len(X)+len(Y)-1)
+    for i,x in enumerate(X):
+        for j,y in enumerate(Y):
+            p[i+j]+=x*y
+    return p
 
 
-def tangent_sign(q, L, t):
-    a = q-1
-    R = scale(div(ell(a, L*t), ell(a, t)), L)
-    return sub(mul(D(q, t), R), D(q, L*t))
-
-
-def deriv(q, L):
-    a = q-1
-    vals = [F(k, 20) for k in range(21)]
-    for t in vals[1:-1]:
-        left = (dpoly(a, t)*poly(a, L*t)
-                - L*poly(a, t)*dpoly(a, L*t))
-        ok(left == (1-L)*bracket(a, L, t))
-    if L == -F(1, a):
-        for t in vals:
-            ok(bracket(a, L, t) == (a-1)*(1-t)**2)
-        # Endpoint exponent gamma is >1.
-        ok(sub(log(F(q)), scale(log(F(q, a)), a))[0] > 0)
-    else:
-        values = [bracket(a, L, t) for t in vals]
-        ok(values[0] > 0 and values[-1] < 0)
-        ok(all(x > y for x, y in zip(values, values[1:])))
-        ok(any(tangent_sign(q, L, F(1, 2**k))[0] > 0
-               for k in range(3, 15)))
-        ok(any(tangent_sign(q, L, 1-F(1, 2**k))[1] < 0
-               for k in range(3, 24)))
-
-
-def output(p, L):
-    q = len(p)
-    return [L * x + (1-L)/q for x in p]
-
-
-def polygon(q, L):
-    xs = [log(F(k)) for k in range(1, q+1)]
-    ys = [H(output([F(1, k)] * k + [F(0)] * (q-k), L))
-          for k in range(1, q+1)]
-    for i in range(q-2):
-        prev_x, next_x = sub(xs[i+1], xs[i]), sub(xs[i+2], xs[i+1])
-        prev_y, next_y = sub(ys[i+1], ys[i]), sub(ys[i+2], ys[i+1])
-        ok(sub(mul(prev_y, next_x), mul(next_y, prev_x))[0] > 0)
-    for k in range(2, q+1):
-        dx, dy = sub(xs[k-1], xs[k-2]), sub(ys[k-1], ys[k-2])
-        M = L+k*(1-L)/q
-        r = L/M
-        ok(-F(1, k-1) <= r < 1)
-        for j in [1, 3, 7, 9]:
-            p = [F(j,10*k)] + [F(10*k-j,10*k*(k-1))]*(k-1) + [F(0)]*(q-k)
-            hx, hy = H(p), H(output(p, L))
-            gap = sub(mul(sub(hx, xs[k-2]), dy), mul(sub(hy, ys[k-2]), dx))
-            t = -F(10-j, 10*(k-1))
-            if k == 2 and L == -F(1, q-1):
-                ok(bracket(k-1,r,t) == 0)
-                ok(gap[0] <= 0 <= gap[1])
-            else:
-                ok(bracket(k-1,r,t) > 0)
-                ok(gap[0] > 0)
+def arithmetic():
+    n=0
+    for a in range(1,12):
+        b=a-1
+        for l in {F(-1,a),F(-1,2*a),F(0),F(1,3),F(2,3),F(1)}:
+            A=multiply([b,-2],[a,b*l,-l*l])
+            B=multiply([a,b,-1],[b*l,-2*l*l])
+            assert [x-y for x,y in zip(A,B)]==[
+                (1-l)*a*b,-2*(1-l)*a*(1+l),-(1-l)*b*l,F(0)]
+            if l==-F(1,a):
+                z=F(a,3)
+                assert l*l*P(a,z)/P(a,l*z)==(1+z)/(a*a+z)
+            q=a+1
+            eps=(1-l)/q
+            for k in range(1,q):
+                M=(k+1)*eps+l
+                assert M>0 or l==1
+                r=l/M
+                assert r>=-F(1,k) and r<=1
+                t=F(1,3*(k+1))
+                v=(1-t)/k
+                assert (eps+l*t)/M==(1-r)/(k+1)+r*t
+                assert (eps+l*v)/M==(1-r)/(k+1)+r*v
+            n+=1
+    return n
 
 
 def main():
-    for q in range(3, 10):
-        a = q-1
-        for L in [-F(1,a), -F(7,8*a), -F(1,2*a), F(1,9), F(1,2), F(4,5)]:
-            deriv(q, L)
-            polygon(q, L)
-    print(f"Potts envelope checks passed: {checks} certified rational inequalities.")
+    print('exact symbolic specialization checks:',arithmetic(),flush=True)
+    expected = {
+        (2,F(1,2)):(57745682,102854836,256493476),
+        (2,F(-1,4)):(250870415,420828230,71809561),
+        (3,F(1,2)):(137093790,244987566,265671889),
+        (3,F(-1,4)):(702929577,1042072294,91693197),
+    }
+    for (a,l), targets in expected.items():
+        bounds=sample(a,l)
+        assert bounds==tuple((t,t+1) for t in targets)
+        print(a+1,l,bounds,flush=True)
+    # Ternary coloring: output given two identical uniform letters.
+    out=[sum(F(1,3)*(F(1,2) if i!=v else F(0))*
+             (F(1,2) if j!=v else F(0)) for v in range(3))
+         for i in range(3) for j in range(3)]
+    assert out.count(F(1,6))==3 and out.count(F(1,12))==6
+    assert sum(out)==1
+    print("PASS exact rational Potts examples")
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
