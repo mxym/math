@@ -1,7 +1,0 @@
-# A uniform simplex is determined by its Tukey depth
-
-Knowing the depth at every point identifies the uniform probability law on a full-dimensional simplex in every dimension, even among arbitrary Borel competitors. This settles the **last subquestion of Problem 12** in [Nagy, Schütt and Werner](https://arxiv.org/pdf/1809.10925#page=43), including the triangle in [Nagy's updated 2025 list, Problem 1](https://gems.karlin.mff.cuni.cz/pdf/Depth_problems_update.pdf). This is an inverse result, not a new computation of all simplex depth contours, and not a general theorem for all probability distributions.
-
-[The proof](PROOF.md) uses an inscribed simplex and Grünbaum's inequality to locate smooth, exposed pieces of the depth contours. Families of tilted caps there recover enough one-dimensional projection data to force equality of the measures, except possibly at the centroid; total mass then settles that last point.
-
-See [the source comparison](SOURCES.md) and [the independent internal proof review](REVIEW.md). For an optional exact check of the visible-patch formula on planar rational examples, run **python3 -B -O check.py** and compare [the recorded output](CHECKS.txt). It clips triangles by halfplanes and computes areas by the shoelace formula. The all-dimensional proof is analytic and does not depend on this calculation. This research was AI-assisted; the internal review is not external peer review or verification of priority.
