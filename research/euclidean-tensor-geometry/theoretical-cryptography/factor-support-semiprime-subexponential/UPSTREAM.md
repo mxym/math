@@ -7,7 +7,7 @@ following source:
 
 **Jacek Pomykała and Maciej Radziejewski**,
 *Integer factoring and compositeness witnesses*,
-Journal of Mathematical Cryptology 14 (2020), 31--42,
+Journal of Mathematical Cryptology 14(1) (2020), 346--358,
 DOI: https://doi.org/10.1515/jmc-2019-0023
 
 Author PDF:

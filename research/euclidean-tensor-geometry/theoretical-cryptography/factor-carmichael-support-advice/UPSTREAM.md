@@ -1,52 +1,70 @@
-# Sources, prior art, and scope
+# Sources, correction, and scope
 
-1. **Yuk-Kam Lau and Jie Wu**, *On the least quadratic non-residue*,
-   International Journal of Number Theory 4 (2008), Theorem 1.
-   Author preprint:
-   https://hkumath.hku.hk/~imr/IMRPreprintSeries/2007/IMR2007-4.pdf
+## Stronger smooth-subgroup route
 
-   For a nonprincipal character of cube-free modulus \(q\), the least
-   positive \(n\) with character value outside \(\{0,1\}\) is
-   \(O_\varepsilon(q^{1/(4\sqrt e)+\varepsilon})\). Prime conductors are
-   cube-free, and the theorem applies to the prime-power-order characters
-   used in the proof.
+**Bartosz Źrałek**,
+*A deterministic version of Pollard's p-1 algorithm*,
+Mathematics of Computation 79 (2010), 513--533,
+arXiv: https://arxiv.org/abs/0707.4102 ,
+DOI: https://doi.org/10.1090/S0025-5718-09-02262-5
 
-2. **François Morain, Guénaël Renault, and Benjamin Smith**,
-   *Deterministic factoring with oracles*, arXiv:1802.08444,
-   version dated 22 March 2026:
-   https://arxiv.org/abs/1802.08444
+In arXiv v5, Lemma 8.3 (printed p. 18) gives the key implication used
+in [SUPERSEDED.md](SUPERSEDED.md): if the tested bases give no
+Fermat--Euclid witness, their common order \(A\) satisfies
+\[
+ A=\#\langle B\rangle_p\ge\Psi(p,y),
+ \qquad p=1+mA.
+\]
+Combining this with the standard smooth-number lower bound and
+geometrically increasing \(y\) gives the support-adapted
+\[
+ L_{P_{\mathcal S}(N)}[1/2,1+o(1)]\operatorname{poly}(B)
+\]
+bound. This is strictly stronger than the old power-time theorem
+retained here.
 
-   Section 5.7 discusses factoring when complete factorizations of
-   \(\varphi(N)\) or \(\lambda(N)\) are available, and the conclusion
-   keeps general deterministic polynomial-time factorization open.
-   The present theorem supplies a precise support-advice reduction and a
-   power-time bound; it does not close that general problem.
+## Analytic input for the retained proof
 
-3. **Jacek Pomykała and Maciej Radziejewski**, *Integer factoring and
-   compositeness witnesses*:
-   https://nutmic2019.imj-prg.fr/confpapers/FactoringWitnesses.pdf
+**Yuk-Kam Lau and Jie Wu**,
+*On the least quadratic non-residue*,
+International Journal of Number Theory 4 (2008), Theorem 1,
+author preprint:
+https://hkumath.hku.hk/~imr/IMRPreprintSeries/2007/IMR2007-4.pdf
 
-   Their Algorithm 2 develops the small-prime-order and power-difference
-   witness framework closest to the multiradix refinement used here.
+Equation (1.5) and Theorem 1 yield the
+\(1/(4\sqrt e)+\varepsilon\) exponent for prime conductors. This
+validates the retained character-separation argument but no longer gives
+the best bound for the advice model.
 
-4. **Gary Miller**, *Riemann's hypothesis and tests for primality*,
-   Journal of Computer and System Sciences 13 (1976), 300--317.
+## Closely related oracle discussion
 
-   Repeated-power gcd splitting from a supplied exponent is standard.
+**François Morain, Guénaël Renault, and Benjamin Smith**,
+*Deterministic factoring with oracles*,
+arXiv:1802.08444v2 (13 August 2021),
+https://arxiv.org/abs/1802.08444
 
-5. Repository predecessor:
-   factor-factored-exponent-max-prime/, pinned at commit
-   46afa65c4e8fd9999822dcdd8bfd492522cff0b7.
+Section 6.1 (printed pp. 19--20) discusses complete factorizations of
+\(\varphi(N)\) and \(\lambda(N)\) and explains why naive divisor
+enumeration need not be polynomial.
 
-   That result assumes a fully factored multiple \(E\) of
-   \(\lambda(N)\). The new step here is the exact reduction from only a
-   promised prime-support superset \(\mathcal S\) to the polynomial-size
-   factored multiple \(E_{\mathcal S}(N)\), including false positives and
-   arbitrary multiplicities of the prime factors of \(N\).
+**Jacek Pomykała and Maciej Radziejewski**,
+*Integer factoring and compositeness witnesses*,
+Journal of Mathematical Cryptology 14(1) (2020), 346--358,
+DOI: https://doi.org/10.1515/jmc-2019-0023 ,
+conference preprint:
+https://nutmic2019.imj-prg.fr/confpapers/FactoringWitnesses.pdf
 
-A search of the sources above and targeted searches for factoring from
-the prime support/radical of the Carmichael value did not locate this
-exact support-only formulation. No absolute priority claim is made.
-The advice may itself be difficult to obtain, and this result is neither
-an ordinary polynomial-time factoring algorithm nor a claim about a
-concrete cryptographic system.
+Their small-prime-order and power-difference witness framework is
+closely related to the refinement used here.
+
+## Exact novelty status
+
+The support-to-exponent step
+\[
+ E_{\mathcal S}(N)=
+ \prod_{r\in\mathcal S,\ r\le N}r^{\lfloor\log_rN\rfloor},
+ \qquad \lambda(N)\mid E_{\mathcal S}(N),
+\]
+is a direct input conversion. Applying established factored-exponent
+algorithms to it is a corollary, not an independent factoring method.
+The old Burgess proof is retained only as a valid weaker route.

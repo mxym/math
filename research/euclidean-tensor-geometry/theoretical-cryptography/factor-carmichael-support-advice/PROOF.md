@@ -82,7 +82,10 @@ Lau--Wu's cube-free-modulus theorem supplies, for every fixed
 with \(\chi(b)\notin\{0,1\}\). Since a nonprincipal character
 modulo the prime \(p\) has a nontrivial value on some residue in
 \(\{1,\ldots,p-1\}\), its least such \(b\) is smaller than \(p\);
-hence \(\chi(b)\ne0\). Equation (10) and Lagrange's theorem give
+hence \(\chi(b)\ne0\). If \(q\mid b\), then the gcd refinement at the start of Section 5
+already separates the \(q\)-component from the \(p\)-component,
+because \(p\nmid b\). Thus, for the remaining order comparison we may
+assume \(q\nmid b\). Equation (10) and Lagrange's theorem then give
 \[
  v_r(\operatorname{ord}_p(b))
    >\beta

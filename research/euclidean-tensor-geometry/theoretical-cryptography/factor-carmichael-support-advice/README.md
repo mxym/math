@@ -1,64 +1,63 @@
 # Deterministic factoring from Carmichael prime-support advice
 
-## Status
+## Status: valid but superseded by a stronger prior-art adaptation
 
-Research-branch result. The proof is self-contained modulo the stated
-least-character-nonresidue theorem. It has passed the deterministic
-finite verifier in this directory. It is not an immutable release and
-has not yet received an author-independent proof audit.
+The power-time theorem retained in this directory is mathematically
+correct and has passed an author-independent paper audit. It is not a
+release candidate. The same advice admits the strictly stronger bound
+\[
+ \exp\!\left((1+o(1))
+   \sqrt{\log P_{\mathcal S}(N)\,
+         \log\log P_{\mathcal S}(N)}\right)
+ \operatorname{poly}(B),
+\]
+where \(B=\log N+|\mathcal S|+\sum_{r\in\mathcal S}\log r\).
+This follows by applying the subgroup/smooth-number argument of
+Źrałek's Lemma 8.3 to the factored exponent synthesized from the support
+list. See [SUPERSEDED.md](SUPERSEDED.md). It is a proof adaptation of
+prior work, not a new complexity claim.
 
-## Theorem
+## Retained weaker theorem
 
 Let \(N\ge2\). The auxiliary input is a finite list \(\mathcal S\) of
 distinct primes such that
 \[
-  r\mid\lambda(N)\quad\Longrightarrow\quad r\in\mathcal S. \tag{1}
+  r\mid\lambda(N)\quad\Longrightarrow\quad r\in\mathcal S,
 \]
-The list may contain extra primes. No exponents
-\(v_r(\lambda(N))\) and no value of \(\lambda(N)\) are supplied.
+with false positives allowed. No value or prime exponents of
+\(\lambda(N)\) are supplied.
 
-Define
+Put
 \[
  E_{\mathcal S}(N)=
  \prod_{\substack{r\in\mathcal S\\r\le N}}
- r^{\lfloor\log_r N\rfloor} \tag{2}
+ r^{\lfloor\log_r N\rfloor}
 \]
 and
 \[
  P_{\mathcal S}(N)=
- \max\bigl(\{p:p\mid N,\ p\notin\mathcal S\}\cup\{1\}\bigr). \tag{3}
+ \max\bigl(\{p:p\mid N,\ p\notin\mathcal S\}\cup\{1\}\bigr).
 \]
-For every fixed \(\varepsilon>0\), the complete prime factorization of
-\(N\) can be computed deterministically in
+For every fixed \(\varepsilon>0\), the retained Burgess-character
+argument completely factors \(N\) deterministically in
 \[
- P_{\mathcal S}(N)^{1/(4\sqrt e)+\varepsilon}\,
- \operatorname{poly}_{\varepsilon}
- \!\left(\log N+\sum_{r\in\mathcal S}\log r+|\mathcal S|\right) \tag{4}
+ P_{\mathcal S}(N)^{1/(4\sqrt e)+\varepsilon}
+ \operatorname{poly}_{\varepsilon}(B)
 \]
 bit operations.
 
-Thus the **prime support** of a Carmichael exponent, even with false
-positives, is enough to synthesize the fully factored exponent multiple
-needed by the multiradix splitting method. The multiplicities in that
-exponent need not be given.
+The support advice synthesizes a completely factored polynomial-length
+multiple of \(\lambda(N)\). Multiplicities are not needed. The original
+proof and checker remain for provenance and exact verification of this
+weaker route.
 
-## What this does not say
+## Scope
 
-Condition (1) is advice. The theorem does not compute the prime support
-of \(\lambda(N)\), does not turn an unfactored value of \(\lambda(N)\)
-into that support, and does not give an ordinary polynomial-time
-factoring algorithm. The output-sensitive factor
-\(P_{\mathcal S}(N)^{1/(4\sqrt e)+\varepsilon}\) can still be exponential
-in the input length. No concrete modulus, key, implementation, or
-security claim is involved.
+The support list is advice and is not computed from \(N\). Neither bound
+is an ordinary unadvised factoring algorithm. No concrete modulus, key,
+implementation, or security conclusion is involved.
 
 ## Reproduction
 
-\`\`\`sh
-./replay.sh
-\`\`\`
-
-The checker independently reconstructs exact Carmichael prime supports,
-adds false-positive support primes, synthesizes (2), checks
-\(\lambda(N)\mid E_{\mathcal S}(N)\), and replays complete multiradix
-refinement on squarefree and arbitrary-multiplicity inputs.
+    ./replay.sh
+    sha256sum -c SHA256SUMS
