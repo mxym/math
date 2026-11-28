@@ -67,6 +67,6 @@ $$
 $$
 The energy of any probability weights is consequently $1/4+3|\sum w_j e^{2i\theta_j}|^2/8+|\sum w_j e^{4i\theta_j}|^2/8$. The axis rule for $m=2$ attains the constant $1/4$. The preceding support description characterizes all minimizers, up to splitting masses on equal axes.
 
-More generally, the same recipe reaches the constant Fourier coefficient for every circle interaction with nonnegative cosine coefficients on the prescribed frequencies. Giving each end of a weighted axis half its mass also produces a weighted spherical $(2m+1)$-design on the circle: all odd harmonics cancel in opposite pairs.
+More generally, the same recipe reaches the constant Fourier coefficient for every circle interaction of the form $K(u)=a_0+\sum_{k=1}^m a_k\cos(hku)$ with $a_k\ge0$ and **no other frequencies**. Giving each end of a weighted axis half its mass also produces a weighted spherical $(2m+1)$-design on the circle: all odd harmonics cancel in opposite pairs.
 
 **Replay:** `python3 verify-sharp-circle-quadrature.py` uses exact integer bin occupancies and cardinal signs for strict and boundary profiles, and exact rational Fourier weights for explicit nonsymmetric-spacing test configurations. It is a check of the constructions, not an enumeration used in place of the proof.
