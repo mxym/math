@@ -1,0 +1,18 @@
+Finite certificate/replay checks in Python 3; both scripts exited 0.
+
+$ python3 -B verify_word_ball.py
+word ball sizes for radii 0..6 [[1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1], [1, 7, 13, 19, 25, 31, 37], [1, 9, 27, 55, 93, 141, 199]]
+rank-two example label support primes [2, 3, 5, 7, 11, 13]
+
+$ python3 -B verify_graph.py
+bounded seed-component comparisons 1107
+fixture bits / vertices / factors with multiplicity / edges / directed sources 425 12 17 25 2
+small-seed cutoff / minimum prime / aggregate / floor center / signed offset 722500 9999991 483729408 10000032 -41
+
+In the first checker, exact repeated multiplication/division of rational labels agrees with independent signed exponent enumeration through radius six. Rank zero, rank one with redundant powers, and rank two with six primes among the label numerators/denominators are represented. The selected valuation coordinate map is used only for cross-verifying finite examples; the algorithm in the theorem does not use it.
+
+For every N=2,...,200 and three predetermined rational dictionaries/error choices, the component reached from every actual prime divisor matches an independently computed full graph on the trial-verified support (1107 seed comparisons). The larger fixture has labels {3/2,2}, error E=L, and prime support
+9999991, 19999981, 13333339, 20000047, 40000061, 60000113, 30000109, 20000147, 30000167, 60000403, 90000611, 45000353
+with multiplicities (1,2,1,1,3,1,2,1,1,1,2,1). All primes are exactly tested. Full adjacency includes 25 edges and two distinct vertices with no incoming edge, so the graph does not possess a spanning directed out-tree. The true minimum exceeds the proof's small-seed threshold. The tree's aggregate scale is 483729408 and the floor center differs from the minimum by 41, so nearest-integer rounding alone would be incorrect. The checker validates this finite witness and its recovered component, not the speed of exhaustive enumeration of the theoretical radius L² ball on the 425-bit fixture.
+
+No script takes a live target or supplies a benchmark for unrestricted integer factorization. The counting results and unbounded-support existence argument are analytic proofs, not extrapolations from the 12-vertex example.
