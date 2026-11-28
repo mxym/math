@@ -97,6 +97,12 @@ Two recent ECQC manuscripts have now been archived as public, findable version-1
 
 The qutrit Lean supplement and the four-row permanent--determinant Lean theorem have separate immutable GitHub releases. The four-row theorem is not assigned a DOI here because its standalone manuscript has not yet been frozen. Download and DataCite verification for the two new DOI records is preserved in [ecqc-dois-20261009](ecqc-dois-20261009/README.md).
 
+## 圆分生成函数的最小参数前缀反例
+
+版本 DOI：[10.5281/zenodo.24341139](https://doi.org/10.5281/zenodo.24341139)，对应标签 `cgf-lower-prefix-v1` 的 **mxym/math 整仓快照**，不是独立论文 DOI。228 次正系数例在最小九项给出 18 < 19；一般书面证明表明前缀和之比的下确界为零。[固定源提交 `45e6a01`](https://github.com/mxym/math/tree/45e6a01d363ec64a240eef12008fd4acc244d277/research/cgf-lower-prefix-20261118) · [不可变 Release](https://github.com/mxym/math/releases/tag/cgf-lower-prefix-v1) · [附件与签名核验](https://github.com/mxym/math/actions/runs/44300390539)
+
+此前已有[针对最大项后缀的反例稿](https://www.evidencepress.org/releases/cgf-majorisation-counterexample/)；本成果涉及最小项前缀，不主张首次推翻原合取猜想或绝对优先权。AI 辅助的书面证明和内部复核，无外部同行评审或 Lean 形式化。[Zenodo](https://zenodo.org/records/24341139) 和 [DataCite](https://api.datacite.org/dois/10.5281/zenodo.24341139) 的版本标识及关联 GitHub 标签一致。已从公开 ZIP 中读回全部六个专题文件，与固定源及不可变附件逐字节一致。整仓 ZIP 的元数据为 390,096,370 字节、MD5 `de1b0691f04c903c4e942c58318ab5ac`；专题 PDF 的 SHA-256 为 `37e4baf011f47304554e7471e958e205c5e592ff4ef757eee57bb0935437f281`。
+
 ## 加权图的强 Chollet 不等式与匹配极值公式
 
 版本 DOI：[10.5281/zenodo.24340909](https://doi.org/10.5281/zenodo.24340909)。这是标签 `weighted-chollet-matching-v1` 的整仓快照，不是独立论文 DOI。该书面证明给出比较矩阵半正定的相关矩阵乘子上的精确匹配极值，并推出任意非负加权图 Laplacian 及其主子矩阵的强自乘不等式。它不解决一般 Chollet 猜想，不声称 Lean 形式化或外部同行评审。[固定源提交 `079a6c2`](https://github.com/mxym/math/tree/079a6c2b729ef37f82a00cb6e4888ed3060046b0/research/weighted-chollet-matching) · [不可变 Release](https://github.com/mxym/math/releases/tag/weighted-chollet-matching-v1) · [附件与签名核验](https://github.com/mxym/math/actions/runs/44298528580)
