@@ -1,0 +1,9 @@
+Fixed Python 3 finite checks. No command-line inputs, external databases or third-party code.
+
+$ python3 verify_forests.py
+PASS: graphs 1024 multi-root coefficients 108544 covered labeled root/support pairs 159184
+
+$ python3 verify_counts.py
+PASS: X 8192 unit-gap counts c=0,1,2 [43, 930, 3884] scaffold subsets 2024
+
+The graph test exhausts all 1024 simple undirected graphs on five labeled vertices, all nonempty prescribed root sets, and all additional-vertex counts. The arithmetic test compares a sieve support count against independent increasing prime-power products with graph reachability and, at c=0, the exact {2,3} formula. The last count exhausts a fixed prime-index scaffold's 3-subsets. None of these finite experiments proves the asymptotic exponent.
