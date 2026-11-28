@@ -1,0 +1,12 @@
+Finite replay, with Python 3 standard library, using the exact scripts in this bundle.
+
+$ python3 -B check_centers.py
+exact matched branches low/high: 90 90
+four-variable elimination identities: 36
+
+$ python3 -B check_identities.py
+coprime/lower-single/lower-double/upper-noncoprime: 2789 1218 126 585
+labelled residual divisibilities: 16800
+limiting shell exponents k=4,5,6: 3/4 7/10 2/3
+
+The first checker encloses real center coordinates using rigorous integer powers, including unequal group multiplicities in both orientations. The second checks fixed labelled finite divisibility examples against the original NT, the noncoprime support alternatives, residual divisibilities, and three arithmetic exponents. Sample counts are not an independent proof, a timing benchmark, a general implementation, or a test of the cited small-root theorem. Constant-width fixture cases probe the local moment identity rather than the largest powers in the theorem.
