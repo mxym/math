@@ -1,0 +1,7 @@
+# v1.0.0 source-slice notes
+
+* Prime-separation research source: `fd4117db8bfb93cb6ebadd1a914d0a86875cab4f`. Uniform joint-finiteness source: `20eef99a5d577c5a6474ad488ed781f0c7482b9b`.
+* A separate nonauthor hard audit passed both source commits. It checked the exact published forms of Baker–Harman (1995), equation (1.6), Corollary 2, and Baker–Harman–Pintz (2001), Theorem 1, not just their abstracts. The reconstruction includes the prime-power error, the dyadic multiplier-count endpoint, the reflected half-row inequalities, and the final strict prime obstruction. The auditor also independently reconstructed the input \(d>\sqrt{n-k}\).
+* Normal exact modes checked the two finite auxiliary claims. The consecutive-integer brackets for \(s=k+1\) cover all 18 \(k\) from 2 through 19, with a formal proof beyond and a separate direct case \(k=1\). The new independent row checker validates finite centered moments and lattice margins, not the whole analytical proof.
+* The earlier signed-bound source records its independent finite enumeration through shift 256. For this slice the frozen program was replayed in normal mode through shift 16: 27 exact branch bracket checks, 3,029 row tests and 5,138 product comparisons, with no value beyond 1. Its longer replay remains optional for the main theorem.
+* The manifest lists the preserved manuscript bytes, the independent row derivation, both prior-context pointers, and all executable evidence. It omits only itself. Neither a finite exception list for all \(d\) nor a global multiplicity bound is asserted.
