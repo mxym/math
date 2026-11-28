@@ -132,29 +132,36 @@ integer \(E\) satisfies
 \]
 Put
 \[
- \tau=\frac{\log E}{\log N}.
+ \tau=\frac{\log E}{\log N},\qquad
+ a(\tau)=\min\!\left\{\tau,\frac{1+\tau}{4}\right\}.
+\]
+Every prime \(p\mid N\) satisfies \(p-1\mid E\), so
+\[
+ p\le E+1\ll N^{\tau+\varepsilon}. \tag{6}
 \]
 Run the deterministic routine of Morain--Renault--Smith Theorem 4.3
 with \(u=1\) and \(M=E\), and validate any output. If the largest prime
 divisor is \(p_1=N^{\alpha_1}\), then \(p_1-1\mid E\), so their theorem
 recovers \(p_1\) in polynomial time whenever
 \[
- \alpha_1>\frac{1+\tau}{4}. \tag{6}
+ \alpha_1>\frac{1+\tau}{4}. \tag{7}
 \]
 This use of Theorem 4.3 does not require \(N\) to be squarefree or
 \(E\) to be the exact Carmichael value.
 
 If that polynomial routine has not already split \(N\), every distinct
-prime factor is at most
+prime factor is at most \(N^{(1+\tau)/4}\). Together with (6), and
+absorbing fixed constants into \(N^\varepsilon\), every prime factor is
+at most
 \[
- N^{(1+\tau)/4}. \tag{7}
+ N^{a(\tau)+\varepsilon}. \tag{8}
 \]
 
 * If the layers \(s_p=v_2(p-1)\) are not all equal, choose \(q\) in a
-  maximal layer and \(p\) in a lower layer. By (7), the character in
+  maximal layer and \(p\) in a lower layer. By (8), the character in
   Section 2 has conductor
   \[
-   Q=q\le N^{(1+\tau)/4}.
+   Q=q\ll N^{a(\tau)+\varepsilon}.
   \]
 
 * If all layers are equal, choose the two smallest distinct prime
@@ -166,13 +173,24 @@ prime factor is at most
   \]
   and hence
   \[
-   p_1'p_2'\le N^{2/k}. \tag{8}
+   p_1'p_2'\le N^{2/k}. \tag{9}
   \]
-  The product character has conductor \(Q=p_1'p_2'\).
+  By (8), the same product is also
+  \(O(N^{2a(\tau)+\varepsilon})\). Thus the product character has
+  conductor
+  \[
+   Q\ll N^{\min\{2a(\tau),\,2/k\}+\varepsilon}.
+  \]
 
+The worst of the unequal- and equal-layer cases is
+\[
+ c(\tau,k)=
+ \max\!\left\{a(\tau),\min\!\left\{2a(\tau),\frac2k\right\}\right\}
+ =\min\!\left\{2a(\tau),\max\!\left\{a(\tau),\frac2k\right\}\right\}.
+\]
 Consequently a square-chain witness occurs by
 \[
- N^{\vartheta\max\{(1+\tau)/4,\,2/k\}+\varepsilon}. \tag{9}
+ N^{\vartheta c(\tau,k)+\varepsilon}. \tag{10}
 \]
 The algorithm need not know the hidden character, the prime sizes, or
 \(k\): it runs the bounded polynomial routine and scans ordinary bases
@@ -182,18 +200,22 @@ sharpens the stopping-time analysis.
 For exact \(E=\lambda(N)\), one has \(E<N\), so \(\tau<1\). Prime
 powers are recognized in polynomial time; inputs with two distinct odd
 prime factors are handled by the pinned deterministic polynomial
-exact-\(\lambda\) algorithm. For every remaining input, \(k\ge3\). At
-\(k=3\), (9) is at most
+exact-\(\lambda\) algorithm. For every remaining input, \(k\ge3\). If \(\tau\ge1/3\), then
+\(a(\tau)=(1+\tau)/4<1/2\); if \(\tau<1/3\), then
+\(a(\tau)=\tau\), which can only improve the following coarse bounds.
+At \(k=3\), (10) is at most
 \[
  N^{(2/3)\vartheta+\varepsilon}
  =N^{1/(6\sqrt e)+\varepsilon}.
 \]
-For every \(k\ge4\), both entries in the maximum are at most \(1/2\),
-giving
+For every \(k\ge4\), \(c(\tau,k)\le1/2\), giving
 \[
  N^{\vartheta/2+\varepsilon}
- =N^{1/(8\sqrt e)+\varepsilon}. \tag{10}
+ =N^{1/(8\sqrt e)+\varepsilon}. \tag{11}
 \]
+When \(\tau<1/3\), the sharper bound
+\(c(\tau,k)\le2\tau\) also records the direct restriction
+\(p\le E+1\).
 
 These smaller exponents are not asserted for recursive complete
 factorization. After a split, the original \(E\) may be at least as

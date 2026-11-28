@@ -18,15 +18,23 @@ stopping-time bound. In particular it implies the weaker
 \(k=\omega(N)\ge3\), and the supplied \(E<N\) is any positive multiple
 of \(\lambda(N)\). Put
 \[
- \tau=\frac{\log E}{\log N}.
+ \tau=\frac{\log E}{\log N},\qquad
+ a(\tau)=\min\!\left\{\tau,\frac{1+\tau}{4}\right\},
+\]
+and
+\[
+ c(\tau,k)=\min\!\left\{2a(\tau),
+             \max\!\left\{a(\tau),\frac2k\right\}\right\}.
 \]
 A nontrivial factor is found deterministically in
 \[
- N^{\frac1{4\sqrt e}\max\{(1+\tau)/4,\,2/k\}+\varepsilon}
+ N^{c(\tau,k)/(4\sqrt e)+\varepsilon}
  (\log N+\log E)^{O_\varepsilon(1)}
 \]
 bit operations. Neither squarefreeness nor exactness of \(E\) is
-required, and the algorithm need not know \(k\).
+required, and the algorithm need not know \(k\). The extra
+\(a(\tau)\le\tau\) term uses the elementary fact \(p-1\mid E\), hence
+every prime divisor satisfies \(p\le E+1\).
 
 For exact \(E=\lambda(N)\), one always has \(E<N\). Prime powers and
 inputs with at most two distinct odd primes are already polynomial by

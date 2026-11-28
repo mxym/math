@@ -87,9 +87,11 @@ for ps in moduli:
         profile_residual_cases += 1
         if len(set(layers)) == 1:
             p0, p1 = ps[0], ps[1]
+            assert p0 * p1 <= (E + 1)**2
             assert (p0 * p1)**len(ps) <= N**2
         else:
             q0 = min(p for p, s in zip(ps, layers) if s == max(layers))
+            assert q0 <= E + 1
             assert q0**4 <= N * E
 
     if len(set(layers)) > 1:
@@ -158,9 +160,11 @@ for ps in combinations(primes_upto(30), 3):
         layers = [v2(p - 1) for p in ps]
         if max(ps)**4 <= N * E:
             if len(set(layers)) == 1:
+                assert ps[0] * ps[1] <= (E + 1)**2
                 assert (ps[0] * ps[1])**len(ps) <= rad**2 <= N**2
             else:
                 q = min(p for p, s in zip(ps, layers) if s == max(layers))
+                assert q <= E + 1
                 assert q**4 <= N * E
         nonsquare_profile_checks += 1
 
