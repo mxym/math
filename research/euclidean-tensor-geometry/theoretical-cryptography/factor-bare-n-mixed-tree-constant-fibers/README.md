@@ -1,0 +1,7 @@
+# Constant monomial fibres in trees of plane correspondences
+
+Fix the number of vertices and a degree bound. To each edge of a tree attach a plane polynomial having no entire vertical or horizontal affine line in its zero set. A monomial with positive exponents on the vertices is normally finite-to-one on the resulting curve, but sometimes an entire component has the same nonzero monomial value. This note gives two explicit controls on those exceptions: a polynomial-size list of integer values, and a bound on the rational primes in each of their supports.
+
+The second control depends on **coefficient magnitudes**, not just bit lengths. For a polynomial-time catalogue per bit length, the first control tolerates polynomial bit lengths; the second implies polynomially small exceptional primes if the magnitudes themselves are polynomial. The arithmetic corollary concerns only inputs whose distinct prime divisors obey a connected graph of catalogue relations. Unknown multiplicities need not be bounded independently of the input length. No claim is made about general integers, probability of satisfying the promise, cryptographic systems or targets.
+
+Read PROOF.md for the closed hypotheses, UPSTREAM.md for provenance, and RESULTS.txt for finite checks. Both checkers use only the Python standard library, have no input interface, and verify symbolic identities or fixed finite examples. They are not factorization programs.
