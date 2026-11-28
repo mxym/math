@@ -29,4 +29,18 @@ For opposite side sizes \(4,5,6\) there are respectively \(66,174,52\) nontermin
 
 Run `python3 verify_erdos_gyarfas_four_on_one_side.py` in this directory, in ordinary Python 3. The [chart file](erdos_gyarfas_four_on_one_side_certificate.json) contains only small integers and explicit dart words. The Python replay independently verifies the representative atlas, all **292** nonterminal states and all **90** distinct contradiction leaves counted by chart; it uses only the standard library. To search for the words we instead used BigInt meet-in-the-middle on pairs of half walks: they have the same quotient endpoints and reduced total voltage, and their internal lifted positions must be disjoint modulo the present relation lattice. The search is not a premise of the proof.
 
+**Independent wide replay.** A separate Dreamer research pass closes the same
+four-row cases without the minimum-degree edge deletion or the general
+small induced-subgraph filter. Its only additional exclusion beyond the
+shared-column caps and degree conditions is the earlier two-row mirror:
+two columns of identical support exactly two would each require a double,
+in different rows, giving a forbidden four-layer lift of minimum degree three.
+Its larger atlas therefore has **75, 71, 18** types for \(n=4,5,6\), with
+**576, 728, 182** reachable nonterminal relation states, respectively.
+Run [the independent Node.js verifier](verify_erdos_gyarfas_four_on_one_side_wide.mjs)
+with its three adjacent JSON tables. It uses a row-first normalization and
+BigInt Bézout row operations, verifies every required collision branch, and
+computes the longest path in the entire relation DAG (four). This supplies
+a parallel check of the same theorem, not a separate bound or counting result.
+
 This is a consequence for the free abelian action hypothesis, not a replacement for results on arbitrary graphs, such as [Ducoffe–Dumitru](https://arxiv.org/abs/2609.28594) or [Tranquilli](https://arxiv.org/abs/2608.02675). It extends the scope of the [three-on-one-side theorem](FactorErdosGyarfasThreeOrbitsOnOneSide.md), while the [general six-orbit theorem](FactorErdosGyarfasGeneralSixOrbitClassification.md) independently allows nonbipartite inputs and actions not preserving a part, under its different total-orbit hypothesis.
