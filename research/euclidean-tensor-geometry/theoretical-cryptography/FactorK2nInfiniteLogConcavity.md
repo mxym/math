@@ -22,7 +22,7 @@ Let \(B(z)=\mathcal L((1+z)^N)\), so that
 B_i=\frac1{N+1}{N+1\choose i}{N+1\choose i+1},\qquad
 B(z)=\frac{(1-z)^N}{N+1}P_N^{(1,1)}\!\left(\frac{1+z}{1-z}\right).
 \]
-The Jacobi identity follows from the classical binomial formula; it is also used in [Brändén, Example 4.3](https://arxiv.org/abs/0909.1927). For \(D=z\,d/dz\), put
+The Jacobi identity follows from the classical binomial formula; it is also used in [Brändén, end of §3, p. 5](https://arxiv.org/pdf/0909.1927v3#page=5). For \(D=z\,d/dz\), put
 \[
 \begin{aligned}
 L(i)&=1-\frac{i}{2N},\qquad \Delta(i)=\frac{i(N-i)}{N+1},\\
