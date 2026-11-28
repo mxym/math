@@ -1,54 +1,62 @@
 # General deterministic factoring with bounded Carmichael support
 
+## Status: verified prior-art corollary
+
+The statement below is mathematically correct and has passed an
+author-independent paper audit. It is **not an independent new factoring
+theorem**. It is the support-advice parameterization of established
+factored-exponent / inverse-totient enumeration methods. In particular,
+Cameron--Preece give the prime-power classification for all
+\(\lambda(n)\mid E\), and Alekseyev explicitly enumerates \(d\mid E\)
+and tests \(d+1\) for primality in the analogous inverse-\(\varphi\)
+procedure. See [PRIOR_ART.md](PRIOR_ART.md).
+
 ## Statement
 
 Let \(N\ge2\), and let \(\mathcal S\) be a finite list of distinct
 genuine primes satisfying
 \[
- \operatorname{supp}(\lambda(N))\subseteq\mathcal S, \tag{1}
+ \operatorname{supp}(\lambda(N))\subseteq\mathcal S,
 \]
 with false positives allowed. Define
 \[
  C(N,\mathcal S)=
  \prod_{\substack{r\in\mathcal S\\r\le N}}
- \left(1+\lfloor\log_rN\rfloor\right). \tag{2}
+ \left(1+\lfloor\log_rN\rfloor\right).
 \]
 Then \(N\) can be completely factored deterministically in
 \[
  C(N,\mathcal S)\operatorname{poly}
- \left(\log N+|\mathcal S|+\sum_{r\in\mathcal S}\log r\right) \tag{3}
+ \left(\log N+|\mathcal S|+\sum_{r\in\mathcal S}\log r\right)
 \]
 bit operations.
 
-Consequently, for every fixed \(k\), the entire class with
-\(|\mathcal S|\le k\) is deterministically polynomial-time factorable:
+Consequently, for every fixed \(k\), instances with
+\(|\mathcal S|\le k\) are polynomial-time factorable because
 \[
- C(N,\mathcal S)\le(1+\log_2N)^k. \tag{4}
+ C(N,\mathcal S)\le(1+\log_2N)^k.
 \]
+No bound on the number or multiplicities of the prime factors of an
+individual promised input is needed.
 
-This holds for arbitrary numbers of prime factors and arbitrary
-multiplicities. The complete-support promise is extra advice and is not
-computed from \(N\).
+## Established enumeration specialized to the advice
 
-## Algorithm
-
-Enumerate all exponent vectors
+Form the completely factored multiple
 \[
- 0\le e_r\le\lfloor\log_rN\rfloor
+ E=\prod_{r\in\mathcal S,\ r\le N}r^{\lfloor\log_rN\rfloor}.
 \]
-and the corresponding integers
-\[
- d=\prod_{r\in\mathcal S,\ r\le N}r^{e_r}\le N-1. \tag{5}
-\]
-For each \(d\), test \(d+1\) for primality and divisibility into the
-current cofactor; when it divides, remove its full power.
+Enumerate all \(d\mid E\) with \(d<N\). For each, test \(d+1\) for
+primality and divisibility into the current cofactor of \(N\), removing
+the full prime power when it divides. There are
+\(\tau(E)=C(N,\mathcal S)\) candidates.
 
-Every prime \(p\mid N\) is found because
-\[
- p-1\mid\lambda(p^a)\mid\lambda(N)
-\]
-for odd \(p\), while \(p=2\) corresponds to \(d=1\). Hence \(p-1\) is
-one of the enumerated \(\mathcal S\)-smooth integers.
+Every odd prime \(p\mid N\) appears because
+\(p-1\mid\lambda(N)\mid E\); \(p=2\) is the case \(d=1\).
+
+The complete-support promise is advice and is not computed from \(N\).
+The fixed-\(k\) statement does not assert that a family with arbitrarily
+many distinct prime factors exists for every fixed support set. This
+package is not a release or DOI candidate.
 
 ## Reproduction
 

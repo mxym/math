@@ -1,36 +1,59 @@
-# Prior art and scope
+# Prior art and exact scope
 
-The local identity
+The proof in this directory is correct, but its enumeration is an
+immediate specialization of established algorithms.
+
+## Carmichael-side predecessor classification
+
+**Peter J. Cameron and D. A. Preece**,
+*Notes on primitive lambda-roots*, draft dated 17 July 2009,
+https://maths.qmul.ac.uk/~pjc/csgnotes/lambda.pdf
+
+Section 5, especially Theorem 5.2 and the explicit algorithm following
+it on printed p. 9, describes the maximal integer \(\lambda^*(E)\)
+associated with \(\lambda(n)\mid E\). It lists every admissible odd
+prime through \(p-1\mid E\) and gives its maximum allowed exponent.
+Thus the predecessor scan and the handling of arbitrary multiplicities
+are already present on the Carmichael side.
+
+## Explicit divisor enumeration
+
+**Max A. Alekseyev**,
+*Computing the Inverses, their Power Sums, and Extrema for Euler's
+Totient and Other Multiplicative Functions*,
+Journal of Integer Sequences 19 (2016), Article 16.5.2,
+https://cs.uwaterloo.ca/journals/JIS/VOL19/Alekseyev/alek5.pdf
+
+Section 4 Step 1 and Section 5.1 (printed pp. 5--6), together with
+Theorem 4, explicitly enumerate the divisors \(d\mid E\), test
+\(d+1\) for primality, and bound the work in terms of \(\tau(E)\).
+This is the same candidate-generation mechanism used here.
+
+A still earlier inverse-totient predecessor search appears in:
+
+**Scott Contini, Ernie Croot, and Igor E. Shparlinski**,
+*Complexity of Inverting the Euler Function*,
+Mathematics of Computation 75 (2006), 983--996,
+DOI: https://doi.org/10.1090/S0025-5718-06-01826-6,
+arXiv: https://arxiv.org/abs/math/0404116 .
+
+## Parameter substitution
+
+For support advice \(\mathcal S\), set
 \[
- \lambda(p^a)=p^{a-1}(p-1)
+ E=\prod_{r\in\mathcal S,\ r\le N}r^{\lfloor\log_rN\rfloor}.
 \]
-for odd prime powers, together with lcm composition of the Carmichael
-function, is standard. The algorithmic observation here is to enumerate
-all \(\mathcal S\)-smooth predecessor candidates \(p-1\), rather than
-first reconstructing the exact value of \(\lambda(N)\).
+Then \(\lambda(N)\mid E\), its factorization is explicit, and
+\[
+ \tau(E)=
+ \prod_{r\in\mathcal S,\ r\le N}
+ (1+\lfloor\log_rN\rfloor)=C(N,\mathcal S).
+\]
+Testing the established candidate list against the supplied \(N\)
+removes false candidates and recovers exact multiplicities. Therefore
+the displayed fixed-support complexity is a useful parameterized
+corollary of these methods, not a novelty claim.
 
-## Repository context
-
-* Commit 4e0f3489260d13e8b3607d63fe8f29e3d3f94cdc constructs an
-  annihilating exponent from Carmichael support and gives a general
-  deterministic bound in terms of the largest unlisted prime factor.
-* Commit 3c4258ea82dd571c4ddfedb077103af82685cfb7 gives a general
-  deterministic \(L_N[2/3,1+o(1)]\) bound for unrestricted support
-  cardinality.
-* Commit a4830b7bb2409fef8838af37d508097bca5e636e gives unconditional
-  Las Vegas polynomial time for unrestricted support cardinality.
-* Commit 12e25227867225539ad9e4567ef431097090743a handles semiprimes by
-  enumerating support-compatible exact \(\lambda\) values.
-
-The present theorem supersedes the last result for fixed support
-cardinality: direct predecessor enumeration works for arbitrary
-factor counts and multiplicities.
-
-## Limits
-
-* The list must contain every prime divisor of \(\lambda(N)\). False
-  positives are allowed; omissions invalidate the guarantee.
-* Polynomial time is claimed for fixed support cardinality. For
-  arbitrary \(|\mathcal S|\), the exact deterministic bound is (2).
-* The result does not recover the support from \(N\).
-* No claim of absolute historical priority is made.
+The advice may contain false-positive primes but may not omit any prime
+from \(\operatorname{supp}\lambda(N)\). No ordinary unadvised factoring
+claim is made.
