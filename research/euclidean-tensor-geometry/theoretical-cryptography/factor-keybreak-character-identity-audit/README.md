@@ -28,8 +28,8 @@ The exact correction is
 When \(v_2\) is real-valued, the last factor is
 \(\overline{\mathcal V_{2,\delta}(\chi)}\).
 
-A four-character counterexample is given in \`PROOF.md\` and replayed exactly by
-\`verify_c46.py\`.
+A four-character counterexample is given in `PROOF.md` and replayed exactly by
+`verify_c46.py`.
 
 ## Scope
 
