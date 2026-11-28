@@ -1,0 +1,13 @@
+Python 3, standard library only; both frozen scripts exited 0.
+
+$ python3 -B verify_layers.py
+layer and peeling fixtures 2736 by case [('A', 486), ('B', 216), ('C', 144), ('excluded', 18), ('one', 1728), ('zero', 144)]
+rejected subtree/singleton tests [('false singleton', 1728), ('missing branch', 336), ('missing root', 3264), ('wrong nonleaf exponent', 3264)]
+
+Each fixture uses an explicit known-prime forest, exact recorded multiplicities and an enumerated leaf assignment. The checker independently forms the full numeric N and T, reconstructs every leaf level from modular powers and gcds, tests singleton certificates and omissions, and recomputes the residual data after the actual prime powers have been divided out. The excluded configurations have two paired labels but only isolates left after peeling.
+
+$ python3 -B verify_boundary.py
+projective first-pair solutions 36 remaining binary projective choices [('A', 8976), ('B', 4488)]
+rational exceptional-root comparisons 5 4 all-isolated free sums 41
+
+The second implementation specifies its own tree polynomials. It tests the projective specialization at X1=1 over four small fields with the relevant noncollision conditions, including points at infinity, and checks the Archimedean exceptional-root estimates and the excluded-family relation by exact rational arithmetic. These are finite illustrations, not an inference of bit complexity or of positive density.
