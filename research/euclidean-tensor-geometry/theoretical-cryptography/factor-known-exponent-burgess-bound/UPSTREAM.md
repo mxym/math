@@ -56,8 +56,9 @@
    algorithms and does not conflict with the present power-size scan.
 
 The complete-factor theorem accepts any short even multiple of
-\(\lambda(N)\) and is stated in terms of the unknown radical only as
-an output-sensitive stopping bound; the smaller first-split profile needs an odd input with at least three
+\(\lambda(N)\) and is stated using
+\(\min\{\operatorname{rad}(N),(E+1)^2\}\); the radical is only an
+output-sensitive stopping parameter and need not be supplied; the smaller first-split profile needs an odd input with at least three
 prime divisors and a supplied multiple \(E<N\); exact \(\lambda(N)\)
 is an important corollary. Neither theorem is an
 ordinary deterministic polynomial-time factoring result. No claim is

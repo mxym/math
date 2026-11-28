@@ -97,30 +97,38 @@ succeeds.
 
 ## 3. Complete factorization from a known multiple of \(\lambda\)
 
-For every composite \(D\) with at least two distinct prime divisors,
-Section 2 has
+For every odd prime \(p\mid N\), one has
+\(p-1\mid\lambda(N)\mid E\), hence \(p\le E+1\). For every composite
+divisor \(D\) with at least two distinct prime divisors, Section 2
+therefore has
 \[
- Q\le \operatorname{rad}(D):
+ Q\le
+ \min\!\left\{\operatorname{rad}(D),(E+1)^2\right\}.
 \]
-in the unequal-layer case \(Q\) is one prime divisor, and in the
-equal-layer case it is the product of two distinct prime divisors.
+Indeed, in the unequal-layer case \(Q\) is one prime divisor, and in
+the equal-layer case it is the product of two distinct prime divisors.
 Scanning bases in increasing order therefore produces a proper factor
-by the time
-\(a\ll \operatorname{rad}(D)^{\vartheta+\varepsilon}\).
-The algorithm does not need to know the radical; it stops when a proper
-gcd is found. Repeat on the two factors. The same original \(E\) remains a multiple
+by the time the right-hand side of this bound, raised to
+\(\vartheta+\varepsilon\), is reached. The algorithm does not need to
+know the radical; it stops when a proper gcd is found. Repeat on the
+two factors. The same original \(E\) remains a multiple
 of the Carmichael value of every divisor. Prime powers are recognized
 deterministically in polynomial time, and their prime bases are
 certified by deterministic primality testing.
 
-There are \(O(\log N)\) nodes in the recursion, and
-\(\operatorname{rad}(D)\le R=\operatorname{rad}(N)\) at every node.
+There are \(O(\log N)\) nodes in the recursion, and at every
+node this bound is at most
+\[
+ C(N,E)=\min\!\left\{\operatorname{rad}(N),(E+1)^2\right\}.
+\]
 Modular exponentiation and gcd computation add only factors polynomial
 in \(\log E+\log N\). Thus complete factorization costs
 \[
- R^{1/(4\sqrt e)+\varepsilon}
+ C(N,E)^{1/(4\sqrt e)+\varepsilon}
  (\log N+\log E)^{O_\varepsilon(1)}.
 \]
+If \(E=N^\tau<N^{1/2}\), then \(C(N,E)\ll N^{2\tau}\), giving
+\(N^{\tau/(2\sqrt e)+\varepsilon}\).
 For an even input, strip its exact power of two first.
 
 ## 4. A structural first-split profile for a short multiple

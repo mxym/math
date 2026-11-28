@@ -2,17 +2,22 @@
 
 Let \(N>1\) be an integer, put \(R=\operatorname{rad}(N)\), and let
 \(E\) be an even positive multiple of \(\lambda(N)\), with
-\(\log E=(\log N)^{O(1)}\).
+\(\log E=(\log N)^{O(1)}\). Define
+\[
+ C(N,E)=\min\{R,(E+1)^2\}.
+\]
 
 **Complete-factor theorem.** For every fixed \(\varepsilon>0\), \(N\)
 can be completely factored deterministically in
 \[
- R^{1/(4\sqrt e)+\varepsilon}
+ C(N,E)^{1/(4\sqrt e)+\varepsilon}
  (\log N+\log E)^{O_\varepsilon(1)}
 \]
 bit operations. The algorithm does not need to know \(R\); this is a
-stopping-time bound. In particular it implies the weaker
-\(N^{1/(4\sqrt e)+\varepsilon}\) bound for arbitrary inputs.
+stopping-time bound. It implies the weaker
+\(N^{1/(4\sqrt e)+\varepsilon}\) bound for arbitrary inputs, and if
+\(E=N^\tau<N^{1/2}\), it gives the sharper full-factor exponent
+\(N^{\tau/(2\sqrt e)+\varepsilon}\).
 
 **Short-multiple first-split profile.** Suppose \(N\) is odd,
 \(k=\omega(N)\ge3\), and the supplied \(E<N\) is any positive multiple

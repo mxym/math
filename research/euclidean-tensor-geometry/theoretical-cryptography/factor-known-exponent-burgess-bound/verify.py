@@ -96,6 +96,8 @@ for ps in moduli:
 
     if len(set(layers)) > 1:
         q = min(p for p, s in zip(ps, layers) if s == max(layers))
+        assert q <= E + 1
+        assert q <= N  # q <= rad(N)=N in this squarefree test
         lower = next(p for p, s in zip(ps, layers) if s < max(layers))
         seen = False
         for a in range(2, q):
@@ -112,6 +114,8 @@ for ps in moduli:
         conductor_cases += 1
     else:
         p, q = ps[0], ps[1]
+        assert p * q <= (E + 1)**2
+        assert p * q <= N  # pq <= rad(N)=N in this squarefree test
         seen = False
         for a in range(2, p * q):
             if gcd(a, N) != 1:
