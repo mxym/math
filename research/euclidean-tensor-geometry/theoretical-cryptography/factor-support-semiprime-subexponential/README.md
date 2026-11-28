@@ -1,54 +1,46 @@
-# Support-advised semiprime factoring in deterministic subexponential time
+# Support-advised semiprime factoring: retained weaker route
 
-## Status
+## Status: superseded by prior-art adaptations
 
-Research-branch theorem. The proof has passed its deterministic finite
-checker and a full self-review. It is not an immutable release and has
-not yet received an author-independent proof audit.
+The theorem proved in this directory is mathematically valid, but it is
+**not the best known consequence of the stated advice** and must not be
+reported as a new complexity bound.
 
-## Theorem
+Complete prime-support advice for λ(N) gives the completely factored
+integer
+\[
+ E_{\mathcal S}(N)=\prod_{\substack{r\in\mathcal S\\r\le N}}
+ r^{\lfloor\log_r N\rfloor}.
+\]
+For every prime power dividing N, its Euler factor divides this integer,
+so φ(N) divides E. Its binary length is polynomial in the advised input
+length.
 
-Let \(N=pq\) be the product of two distinct primes. The auxiliary input
-is a finite list \(\mathcal S\) of distinct primes containing every
-prime divisor of \(\lambda(N)\); false positives are allowed. The value
-of \(\lambda(N)\) and all of its prime exponents are *not* supplied.
+Pomykała--Radziejewski, Section 6, formulate deterministic factoring
+from a completely factored polynomial-size multiple of φ(N)
+(Dec Mul Φ) and explicitly state that their Algorithm A3 handles every
+semiprime N=pq in polynomial time in that model. Thus the support-only
+semiprime promise here already has a deterministic polynomial-time
+solution by a direct input adaptation of that prior result. See
+[SUPERSEDED.md](SUPERSEDED.md) for the exact mapping.
 
-There is an unconditional deterministic algorithm recovering \(p,q\)
-in
+The original proof and checker are retained for provenance. They prove
+the following weaker historical statement:
 \[
  \exp\!\left((\sqrt2+o(1))
        \sqrt{\log N\,\log\log N}\right)
  \operatorname{poly}\!\left(
-   \log N+|\mathcal S|+\sum_{r\in\mathcal S}\log r\right) \tag{1}
+   \log N+|\mathcal S|+\sum_{r\in\mathcal S}\log r\right).
 \]
-bit operations.
+No release or DOI should be made from this package.
 
-This improves the general deterministic power-time bound for this
-advice model to a true subexponential bound. It combines two exits:
+## Scope
 
-1. a smooth-number subgroup escape, detected through the synthesized
-   Carmichael multiradix chains; and
-2. an exhaustive reconstruction of the small coprime coefficients in
-   \(p-1=Ag,\ q-1=Bg\).
+The support list is advice; it is not computed from N. No ordinary
+unadvised factoring claim, concrete modulus, key, implementation, or
+security conclusion is made.
 
-The balance between the two exits gives the constant \(\sqrt2\).
+## Reproduction of the retained proof
 
-## Exact scope
-
-The semiprime promise is essential to the coefficient-reconstruction
-step. This is not a general-input factoring theorem. The support list is
-advice and the theorem does not compute it from \(N\) or from an
-unfactored Carmichael value. If the exact value \(\lambda(N)\) is known,
-Morain--Renault--Smith already give a polynomial-time semiprime
-factorization via
-\(\varphi(N)=\lambda(N)\gcd(N-1,\lambda(N))\); the result here concerns
-the strictly weaker support-only input.
-
-No concrete modulus, key, implementation, or security conclusion is
-involved.
-
-## Reproduction
-
-\`\`\`sh
-./replay.sh
-\`\`\`
+    ./replay.sh
+    sha256sum -c SHA256SUMS
