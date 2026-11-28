@@ -5,8 +5,8 @@
 This release candidate copies the mathematical manuscript and finite replay from the unified research-tree commit `6ba62a486a30228586da4987093d20a4d06fba7f`, directory
 `research/euclidean-tensor-geometry/theoretical-cryptography/abundant-roughness-critical-endpoint/`. The files `PROOF.md`, `README.md`, `RESULTS.txt`, `UPSTREAM.md`, and `verify_finite.py` are byte-for-byte copies of that audited object.
 
-- Research authoring worker: `/root/minimax_crypto_theory/repeated_powers_phi_clusters`
-- Independent proof-review worker: `/root/minimax_crypto_theory/audit_totient_forest_resultant`
+- Research authoring: AI-assisted mathematical research under the repository steward `mxym`
+- Independent proof review: a separate author-external OpenAI research worker
 - Repository and release steward: `mxym`
 - Audit date: 2026-11-28
 - Audit verdict: **PASS**, with no outstanding mathematical correction.
